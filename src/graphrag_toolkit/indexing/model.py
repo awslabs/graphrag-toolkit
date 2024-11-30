@@ -56,27 +56,3 @@ class TopicCollection(BaseModel):
     model_config = ConfigDict(strict=True)
 
     topics: List[Topic]=[]  
-
-class Sentence(BaseModel):
-    model_config = ConfigDict(strict=True)
-
-    sentence_id : Optional[str]=None
-    
-    value: str
-    entities: List[Entity]
-
-class SentenceCollection(BaseModel):
-    model_config = ConfigDict(strict=True)
-
-    sentences: List[Sentence]
-
-class LegacyTopic(BaseModel):
-    model_config = ConfigDict(strict=True)
-
-    topic: str
-    facts: List[Fact]
-
-class LegacyTopicCollection(BaseModel):
-    model_config = ConfigDict(strict=True)
-
-    topics: List[LegacyTopic]

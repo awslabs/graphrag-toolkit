@@ -41,27 +41,22 @@ class BGEReranker(BaseNodePostprocessor, RerankerMixin):
         self.gpu_id = gpu_id
         
         try:
-            if torch.cuda.is_available() and gpu_id is not None:
-                self.device = torch.device(f'cuda:{gpu_id}')
-                torch.cuda.set_device(self.device)
-                torch.cuda.empty_cache()
+            if torch.cuda.is_available() and self.gpu_id is not None:
+                self.device = torch.device(f'cuda:{self.gpu_id}')
             elif torch.cuda.is_available():
-                gpu_id = get_top_free_gpus(n=1)[0]
-                self.device = torch.device(f'cuda:{gpu_id}')
-                torch.cuda.set_device(self.device)
-                torch.cuda.empty_cache()
-            else:
-                self.device = torch.device('cpu')
-                logger.info("Using CPU for BGE reranker")
-        except Exception as e:
-            logger.warning(f"Failed to set GPU {gpu_id}, falling back to CPU: {str(e)}")
-            self.device = torch.device('cpu')
-            
+                self.gpu_id = get_top_free_gpus(n=1)[0]
+                self.device = torch.device(f'cuda:{self.gpu_id}')
+        except Exception:
+            raise("BGEReranker requires a GPU")
+        
+        torch.cuda.set_device(self.device)
+        torch.cuda.empty_cache()
         try:
             self.reranker = LayerWiseFlagLLMReranker(
                 model_name,
                 use_fp16=True,
-                device=self.device
+                devices=self.gpu_id,
+                cutoff_layers=[28]
             )
         except Exception as e:
             logger.error(f"Failed to initialize reranker: {str(e)}")

@@ -17,7 +17,6 @@ LLMType = Union[LLM, str]
 
 DEFAULT_EXTRACTION_MODEL = 'anthropic.claude-3-sonnet-20240229-v1:0'
 DEFAULT_RESPONSE_MODEL = 'anthropic.claude-3-sonnet-20240229-v1:0'
-DEFAULT_EVALUATION_MODEL = 'anthropic.claude-3-sonnet-20240229-v1:0'
 DEFAULT_EMBEDDINGS_MODEL = 'cohere.embed-english-v3'
 DEFAULT_RERANKING_MODEL = 'mixedbread-ai/mxbai-rerank-xsmall-v1'
 DEFAULT_EMBEDDINGS_DIMENSIONS = 1024
@@ -46,7 +45,6 @@ class _GraphRAGConfig:
 
     _extraction_llm: Optional[LLM] = None
     _response_llm: Optional[LLM] = None 
-    _evaluation_llm: Optional[LLM] = None 
     _embed_model: Optional[BaseEmbedding] = None
     _embed_dimensions: Optional[int] = None
     _reranking_model: Optional[str] = None
@@ -168,30 +166,6 @@ class _GraphRAGConfig:
                 }}'''
                 self._response_llm = Bedrock.from_json(json_str)
         self._response_llm.callback_manager = Settings.callback_manager
-       
-    @property
-    def evaluation_llm(self) -> LLM:
-        if self._evaluation_llm is None:
-            self.evaluation_llm = os.environ.get('EVALUATION_MODEL', DEFAULT_EVALUATION_MODEL)
-            
-        return self._evaluation_llm
-
-    @evaluation_llm.setter
-    def evaluation_llm(self, llm: LLMType) -> None:
-        if isinstance(llm, LLM):
-            self._evaluation_llm = llm
-        else:
-            if _is_json_string(llm):
-                self._evaluation_llm = Bedrock.from_json(llm)
-            else:
-                json_str = f'''{{
-                    "model": "{llm}",
-                    "temperature": 0.0,
-                    "max_tokens": 4096,
-                    "streaming": true
-                }}'''
-                self._evaluation_llm = Bedrock.from_json(json_str)
-        self._evaluation_llm.callback_manager = Settings.callback_manager
        
     @property
     def embed_model(self) -> BaseEmbedding:
