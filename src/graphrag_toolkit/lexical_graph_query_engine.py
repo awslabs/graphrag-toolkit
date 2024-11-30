@@ -124,7 +124,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         vector_store = VectorStoreFactory.for_vector_store(vector_store)
         
         self.context_format = kwargs.get('context_format', 'json')
-        
+
         self.llm = LLMCache(
             llm=llm or GraphRAGConfig.response_llm,
             enable_cache=GraphRAGConfig.enable_cache
@@ -143,12 +143,32 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
             self.retriever = TraversalBasedRetriever(graph_store, vector_store, **kwargs)
 
         if post_processors:
-            self.post_processors = post_processors if isinstance(post_processors, list) else [post_processors]
+            self.post_processors = []
+            post_processor_list = post_processors if isinstance(post_processors, list) else [post_processors]
+            
+            for post_processor in post_processor_list:
+                if isinstance(post_processor, BaseNodePostprocessor):
+                    self.post_processors.append(post_processor)
+                elif isinstance(post_processor, type) and issubclass(post_processor, BaseNodePostprocessor):
+                    try:
+                        processor_instance = post_processor(**kwargs)
+                        self.post_processors.append(processor_instance)
+                    except TypeError:
+                        processor_instance = post_processor() 
+                        self.post_processors.append(processor_instance)
+                else:
+                    raise TypeError(f"Invalid post_processor type: {type(post_processor)}. "
+                                f"Must be either a BaseNodePostprocessor instance or class.")
         else:
             self.post_processors = []
 
         if self.context_format == 'bedrock_xml':
-            self.post_processors.append(BedrockContextFormat())
+            if not any(
+                isinstance(p, BedrockContextFormat) or
+                (isinstance(p, type) and issubclass(p, BedrockContextFormat))
+                for p in self.post_processors
+            ):
+                self.post_processors.append(BedrockContextFormat())
 
         if callback_manager:
             for post_processor in self.post_processors:
