@@ -3,11 +3,14 @@
 
 from typing import List, Dict, Optional
 
+from llama_index.core.bridge.pydantic import Field
 from llama_index.core.postprocessor.types import BaseNodePostprocessor
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
 
 class BedrockContextFormat(BaseNodePostprocessor):
-
+    """Post-processor that formats context into XML structure."""
+    
+    exclude_metadata_fields: List[str] = Field(default_factory=list)
     
     @classmethod
     def class_name(cls) -> str:
@@ -50,11 +53,19 @@ class BedrockContextFormat(BaseNodePostprocessor):
             
             # Add source metadata
             if source_nodes:
-                source_output.append(f"<source_{source_count}_metadata>")
                 metadata = source_nodes[0].node.metadata['source']['metadata']
-                for key, value in sorted(metadata.items()):
-                    source_output.append(f"\t<{key}>{value}</{key}>")
-                source_output.append(f"</source_{source_count}_metadata>")
+
+                filtered_metadata = {
+                    key: value 
+                    for key, value in sorted(metadata.items()) 
+                    if key not in self.exclude_metadata_fields
+                }
+
+                if filtered_metadata:
+                    source_output.append(f"<source_{source_count}_metadata>")
+                    for key, value in filtered_metadata.items():
+                        source_output.append(f"\t<{key}>{value}</{key}>")
+                    source_output.append(f"</source_{source_count}_metadata>")
             
             # Add statements
             for statement_count, node in enumerate(source_nodes, 1):
