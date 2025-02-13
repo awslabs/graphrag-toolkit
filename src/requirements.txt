@@ -2,8 +2,8 @@ anthropic-bedrock==0.8.0
 boto3==1.35.88
 botocore==1.35.88
 FalkorDB==1.0.10
-FlagEmbedding==1.3.2
-huggingface-hub==0.23.5
+FlagEmbedding==1.3.4
+huggingface-hub==0.28.1
 json2xml==5.0.4
 llama-index-core==0.12.6
 llama-index-embeddings-bedrock==0.4.0
@@ -25,5 +25,5 @@ sentence-transformers==3.1.1
 smart_open==7.0.4
 spacy==3.7.5
 torch==2.4.1
-transformers==4.44.2
+transformers==4.48.0
 tfidf_matcher==0.3.0
