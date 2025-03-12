@@ -83,7 +83,7 @@ SPO facts are connected to other facts via `__NEXT__` relationships, where the o
 
 Facts provide *connectivity across different sources*. It's not uncommon for an individual fact to be mentioned multiple times in the underlying corpus: for example, in a news articles dataset, a particular fact might be repeated in different news articles reporting on the same story. In the graph, there will be a single node to represent this specific fact. From this node it is then possible to traverse via statements, topics and chunks to all the places where that particular fact is mentioned.
 
-Every fact `__SUPPORTS__` at least one statement. A fact can support multiple statements, belonging to the the same or different topics and sources.
+Every fact `__SUPPORTS__` at least one statement. A fact can support multiple statements, belonging to the same or different topics and sources.
 
 Facts can, optionally, be embedded – and so as well as enhancing connectivity, they can also be used to provide a low-level, vector-based entry point into the graph. 
 
