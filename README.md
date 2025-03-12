@@ -8,11 +8,11 @@ If you're running on AWS, there's a quick start AWS CloudFormation template in t
 
 ## v2.x
 
-v2.x of the graphrag-toolkit includes a number of breaking changes. The [graph model]((./docs/graph-model.md)) has changed so that the lexical graph can better co-exist with domain-specific graph data. The `LexicalGraphIndex` [configuration](./docs/indexing.md#configuring-the-extract-and-build-stages) has also changed.
+v2.x of the graphrag-toolkit includes a number of breaking changes. The [graph model](./docs/graph-model.md) has changed so that the lexical graph can better co-exist with domain-specific graph data. The `LexicalGraphIndex` [configuration](./docs/indexing.md#configuring-the-extract-and-build-stages) has also changed.
 
 ## Installation
 
-The graphrag-toolkit requires python and [pip](http://www.pip-installer.org/en/latest/) to install. You can install the graphrag-toolkit using pip:
+The graphrag-toolkit requires Python and [pip](http://www.pip-installer.org/en/latest/) to install. You can install the graphrag-toolkit using pip:
 
 ```
 $ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v2.0.1.zip
