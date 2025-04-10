@@ -16,13 +16,13 @@ from graphrag_toolkit.indexing.constants import PROPOSITIONS_KEY
 from graphrag_toolkit.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT
 from graphrag_toolkit.indexing.extract.batch_config import BatchConfig
 from graphrag_toolkit.indexing.extract.llm_proposition_extractor import LLMPropositionExtractor
-from graphrag_toolkit.indexing.utils.batch_inference_utils import create_inference_inputs, create_and_run_batch_job, download_output_files, process_batch_output, split_nodes
+from graphrag_toolkit.indexing.utils.batch_inference_utils import create_inference_inputs, create_inference_inputs_for_messages, create_and_run_batch_job, download_output_files, process_batch_output, split_nodes
 from graphrag_toolkit.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE
 
 from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.llms.bedrock import Bedrock
 from llama_index.core.bridge.pydantic import Field
 from llama_index.core.schema import TextNode, BaseNode
+from llama_index.core.prompts import PromptTemplate
 
 logger = logging.getLogger(__name__)
 
@@ -72,17 +72,29 @@ class BatchLLMPropositionExtractor(BaseExtractor):
             input_filename = f'proposition_extraction_{timestamp}_batch_{batch_index}.jsonl'
 
             # 1 - Create Record Files (.jsonl)
-            prompts = []
+            # prompts = []
+            # for node in node_batch:
+            #     text = node.metadata.get(self.source_metadata_field, node.text) if self.source_metadata_field else node.text
+            #     prompt = self.prompt_template.format(text=text)
+            #     prompts.append(prompt)
+
+            messages_batch = []
             for node in node_batch:
                 text = node.metadata.get(self.source_metadata_field, node.text) if self.source_metadata_field else node.text
-                prompt = self.prompt_template.format(text=text)
-                prompts.append(prompt)
+                messages = self.llm.llm._get_messages(PromptTemplate(self.prompt_template), text=text)
+                messages_batch.append(messages)
 
-            json_inputs = create_inference_inputs(
-                self.llm.llm,
+            json_inputs = create_inference_inputs_for_messages(
+                self.llm.llm, 
                 node_batch, 
-                prompts
+                messages_batch
             )
+            
+            # json_inputs = create_inference_inputs(
+            #     self.llm.llm,
+            #     node_batch, 
+            #     prompts
+            # )
 
             input_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index), 'inputs')
             output_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index), 'outputs')

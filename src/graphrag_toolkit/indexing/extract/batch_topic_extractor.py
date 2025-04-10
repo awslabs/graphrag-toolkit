@@ -12,7 +12,7 @@ from datetime import datetime
 from graphrag_toolkit import GraphRAGConfig, BatchJobError
 from graphrag_toolkit.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.indexing.utils.topic_utils import parse_extracted_topics, format_list, format_text
-from graphrag_toolkit.indexing.utils.batch_inference_utils import create_inference_inputs, create_and_run_batch_job, download_output_files, process_batch_output, split_nodes
+from graphrag_toolkit.indexing.utils.batch_inference_utils import create_inference_inputs, create_inference_inputs_for_messages, create_and_run_batch_job, download_output_files, process_batch_output, split_nodes
 from graphrag_toolkit.indexing.constants import TOPICS_KEY, DEFAULT_ENTITY_CLASSIFICATIONS
 from graphrag_toolkit.indexing.prompts import EXTRACT_TOPICS_PROMPT
 from graphrag_toolkit.indexing.extract.topic_extractor import TopicExtractor
@@ -21,9 +21,9 @@ from graphrag_toolkit.indexing.extract.scoped_value_provider import ScopedValueP
 from graphrag_toolkit.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE
 
 from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.llms.bedrock import Bedrock
 from llama_index.core.bridge.pydantic import Field
 from llama_index.core.schema import TextNode, BaseNode
+from llama_index.core.prompts import PromptTemplate
 
 logger = logging.getLogger(__name__)
 
@@ -81,7 +81,29 @@ class BatchTopicExtractor(BaseExtractor):
             input_filename = f'topic_extraction_{timestamp}_{batch_index}.jsonl'
 
             # 1 - Create Record Files (.jsonl)
-            prompts = []
+            # prompts = []
+            # for node in node_batch:
+            #     (_, current_entity_classifications) = self.entity_classification_provider.get_current_values(node)
+            #     (_, current_topics) = self.topic_provider.get_current_values(node)
+            #     text = format_text(
+            #         self._get_metadata_or_default(node.metadata, self.source_metadata_field, node.text) 
+            #         if self.source_metadata_field 
+            #         else node.text
+            #     )
+            #     prompt = self.prompt_template.format(
+            #         text=text,
+            #         preferred_entity_classifications=format_list(current_entity_classifications),
+            #         preferred_topics=format_list(current_topics)
+            #     )
+            #     prompts.append(prompt)
+
+            # json_inputs = create_inference_inputs(
+            #     self.llm.llm,
+            #     node_batch, 
+            #     prompts
+            # )
+
+            messages_batch = []
             for node in node_batch:
                 (_, current_entity_classifications) = self.entity_classification_provider.get_current_values(node)
                 (_, current_topics) = self.topic_provider.get_current_values(node)
@@ -90,17 +112,18 @@ class BatchTopicExtractor(BaseExtractor):
                     if self.source_metadata_field 
                     else node.text
                 )
-                prompt = self.prompt_template.format(
+                messages = self.llm.llm._get_messages(
+                    PromptTemplate(self.prompt_template), 
                     text=text,
                     preferred_entity_classifications=format_list(current_entity_classifications),
                     preferred_topics=format_list(current_topics)
                 )
-                prompts.append(prompt)
+                messages_batch.append(messages)
 
-            json_inputs = create_inference_inputs(
-                self.llm.llm,
+            json_inputs = create_inference_inputs_for_messages(
+                self.llm.llm, 
                 node_batch, 
-                prompts
+                messages_batch
             )
 
             input_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index), 'inputs')

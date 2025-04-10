@@ -6,7 +6,7 @@ import json
 from dataclasses import dataclass
 from typing import Optional, Union, Set, Type
 
-from llama_index.llms.bedrock import Bedrock
+from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.embeddings.bedrock import BedrockEmbedding
 from llama_index.core.settings import Settings
 from llama_index.core.llms import LLM
@@ -170,15 +170,14 @@ class _GraphRAGConfig:
             self._extraction_llm = llm
         else:
             if _is_json_string(llm):
-                self._extraction_llm = Bedrock.from_json(llm)
+                self._extraction_llm = BedrockConverse.from_json(llm)
             else:
                 json_str = f'''{{
                     "model": "{llm}",
                     "temperature": 0.0,
-                    "max_tokens": 4096,
-                    "streaming": true
+                    "max_tokens": 4096
                 }}'''
-                self._extraction_llm = Bedrock.from_json(json_str)
+                self._extraction_llm = BedrockConverse.from_json(json_str)
         self._extraction_llm.callback_manager = Settings.callback_manager
 
     @property
@@ -194,15 +193,14 @@ class _GraphRAGConfig:
             self._response_llm = llm
         else:
             if _is_json_string(llm):
-                self._response_llm = Bedrock.from_json(llm)
+                self._response_llm = BedrockConverse.from_json(llm)
             else:
                 json_str = f'''{{
                     "model": "{llm}",
                     "temperature": 0.0,
-                    "max_tokens": 4096,
-                    "streaming": true
+                    "max_tokens": 4096
                 }}'''
-                self._response_llm = Bedrock.from_json(json_str)
+                self._response_llm = BedrockConverse.from_json(json_str)
         self._response_llm.callback_manager = Settings.callback_manager
        
     @property

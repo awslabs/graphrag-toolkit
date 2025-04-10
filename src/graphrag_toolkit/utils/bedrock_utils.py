@@ -4,7 +4,7 @@
 import logging
 import time
 import copy
-import llama_index.llms.bedrock.utils
+import llama_index.llms.bedrock_converse.utils
 import llama_index.embeddings.bedrock
 from typing import Any, Callable, Union, List, Literal
 from llama_index.core.base.embeddings.base import Embedding
@@ -65,4 +65,4 @@ def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], An
         before_sleep=before_sleep_log(logger, logging.WARNING),
     )
     
-llama_index.llms.bedrock.utils._create_retry_decorator = _create_retry_decorator
+llama_index.llms.bedrock_converse.utils._create_retry_decorator = _create_retry_decorator

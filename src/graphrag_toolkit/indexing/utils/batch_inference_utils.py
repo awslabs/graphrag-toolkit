@@ -7,6 +7,7 @@ import time
 import os
 import json
 from typing import Any, List, Dict
+
 from tenacity import retry, stop_after_attempt, wait_exponential
 from botocore.exceptions import ClientError
 
@@ -14,9 +15,13 @@ from graphrag_toolkit import BatchJobError
 from graphrag_toolkit.utils import LLMCache
 from graphrag_toolkit.indexing.extract.batch_config import BatchConfig
 
-from llama_index.llms.bedrock import Bedrock
+from llama_index.llms.bedrock_converse import BedrockConverse
+from llama_index.llms.anthropic.utils import messages_to_anthropic_messages
+from llama_index.llms.bedrock_converse.utils import messages_to_converse_messages
 from llama_index.core.schema import TextNode
 from llama_index.core.prompts import PromptTemplate
+from llama_index.core.base.llms.types import ChatMessage
+
 
 logger = logging.getLogger(__name__)
 
@@ -46,9 +51,61 @@ def split_nodes(nodes: List[Any], batch_size: int) -> List[List[Any]]:
         i += batch_size
    
     return results
-    
 
-def create_inference_inputs(llm:Bedrock, nodes: List[TextNode], prompts: List[str], **kwargs) -> List[Dict[str, Any]]:
+def get_request_body(llm:BedrockConverse, messages:List[ChatMessage], inference_parameters: dict):
+    
+    model_id = llm.model
+    
+    if 'amazon.nova' in model_id:
+        converse_messages, system_prompt = messages_to_converse_messages(messages)
+        request_body = {
+            'messages': converse_messages,
+            'inferenceConfig': {
+                'maxTokens': inference_parameters['max_tokens'],
+                'temperature': inference_parameters['temperature'],
+            }
+        }
+        if system_prompt:
+            request_body['system'] = [{'text': system_prompt}]
+        return request_body
+    elif 'anthropic.claude' in model_id:
+        anthropic_messages, system_prompt = messages_to_anthropic_messages(messages)
+        if system_prompt:
+            anthropic_messages = [{'role': 'system"', 'content': system_prompt}, *anthropic_messages]
+        request_body = {
+            'anthropic_version': inference_parameters.get('anthropic_version', 'bedrock-2023-05-31'), 
+            'messages': anthropic_messages,
+            'max_tokens': inference_parameters['max_tokens'],
+            'temperature': inference_parameters['temperature']
+        }
+        return request_body
+    elif 'meta.llama' in model_id:
+        converse_messages, system_prompt = messages_to_converse_messages(messages)
+        request_body = {
+            'messages': converse_messages,
+            'parameters': {
+                'max_new_tokens': inference_parameters['max_tokens'],
+                'temperature': inference_parameters['temperature'],
+            }
+        }
+        return request_body
+    else:
+        raise ValueError(f'Unrecognized model_id: batch extraction for {model_id} is not supported')
+
+
+
+def create_inference_inputs_for_messages(llm:BedrockConverse, nodes: List[TextNode], messages_batch: List[List[ChatMessage]], **kwargs) -> List[Dict[str, Any]]:
+    inference_parameters = llm._get_all_kwargs(**kwargs)   
+    json_outputs = []
+    for node, messages in zip(nodes, messages_batch):        
+        json_structure = {
+            'recordId': node.node_id,
+            'modelInput': get_request_body(llm, messages, inference_parameters)
+        }
+        json_outputs.append(json_structure)
+    return json_outputs
+
+def create_inference_inputs(llm:BedrockConverse, nodes: List[TextNode], prompts: List[str], **kwargs) -> List[Dict[str, Any]]:
     all_kwargs = llm._get_all_kwargs(**kwargs)   
     json_outputs = []
     for node, prompt in zip(nodes, prompts):    
@@ -156,10 +213,30 @@ def download_output_files(s3_client: Any, bucket_name:str, output_path:str, inpu
         s3_client.download_file(Bucket=bucket_name, Key=key, Filename=local_file_path)
         logger.debug(f'Downloaded: {key} to {local_file_path}')
 
+def get_parse_output_text_fn(model_id:str): 
+    if 'amazon.nova' in model_id:
+        def get_output_text(json_data):
+            contents = json_data.get('modelOutput', {}).get('output', {}).get('message', {}).get('content', [])
+            return ''.join([content.get('text', '') for content in contents])
+        return get_output_text
+    elif 'anthropic.claude' in model_id:
+        def get_output_text(json_data):
+            contents = json_data.get('modelOutput', {}).get('content', [])
+            return ''.join([content.get('text', '') for content in contents])
+        return get_output_text
+    elif 'meta.llama' in model_id:
+        def get_output_text(json_data):
+            return json_data['generation']
+        return get_output_text
+    else:
+        raise ValueError(f'Unrecognized model_id: batch extraction for {model_id} is not supported') 
+
 async def process_batch_output(local_output_directory:str, input_filename:str, llm:LLMCache) -> Dict[str, str]:
     """Process batch output files and return results."""
     results = {}
     failed_records = []
+
+    parse_output_text = get_parse_output_text_fn(llm.llm.model)
 
     for filename in os.listdir(local_output_directory):
         if filename.startswith(input_filename):
@@ -169,7 +246,7 @@ async def process_batch_output(local_output_directory:str, input_filename:str, l
                     record_id = json_data.get('recordId')
                     error = json_data.get('error')
                     if not error:
-                        model_output_text = ''.join([content.get('text', '') for content in json_data.get('modelOutput', {}).get('content', [])])
+                        model_output_text = parse_output_text(json_data)
                         results[record_id] = model_output_text
                     else:
                         failed_records.append((record_id, json_data.get('modelInput', {}).get('messages', [{}])[0].get('content', [{}])[0].get('text', '')))

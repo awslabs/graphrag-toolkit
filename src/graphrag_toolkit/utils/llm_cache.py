@@ -3,6 +3,8 @@
 
 import logging
 import os
+import boto3
+from botocore.config import Config
 from hashlib import sha256
 from typing import Optional, Any, Union
 
@@ -10,7 +12,7 @@ from graphrag_toolkit import ModelError
 from graphrag_toolkit.utils.bedrock_utils import *
 
 from llama_index.core.llms.llm import LLM
-from llama_index.llms.bedrock import Bedrock
+from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.core.bridge.pydantic import BaseModel, Field
 from llama_index.core.prompts import BasePromptTemplate
 
@@ -18,9 +20,12 @@ logger = logging.getLogger(__name__)
 
 c_red, c_blue, c_green, c_cyan, c_norm = "\x1b[31m",'\033[94m','\033[92m', '\033[96m', '\033[0m'
 
+MAX_ATTEMPTS = 2
+TIMEOUT = 60.0
+
 class LLMCache(BaseModel):
 
-    llm:Optional[LLM] = Field(desc='LLM whose responses may be cached')
+    llm:LLM = Field(desc='LLM whose responses may be cached')
     enable_cache:Optional[bool] = Field(desc='Whether the cache is enabled or disabled', default=False)
     verbose_prompt:Optional[bool] = Field(default=False)
     verbose_response:Optional[bool] = Field(default=False)
@@ -38,6 +43,16 @@ class LLMCache(BaseModel):
 
         if not self.enable_cache:
             try:
+                if isinstance(self.llm, BedrockConverse):
+                    if not hasattr(self.llm, '_client'):
+                        config = Config(
+                            retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
+                            connect_timeout=TIMEOUT,
+                            read_timeout=TIMEOUT,
+                        )
+                        session = boto3.Session()
+                        client = session.client('bedrock-runtime', config=config)
+                        self.llm._client = client
                 response = self.llm.predict(prompt, **prompt_args)
             except Exception as e:
                 raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
@@ -67,7 +82,7 @@ class LLMCache(BaseModel):
     
     @property
     def model(self):
-        if not isinstance(self.llm, Bedrock):
+        if not isinstance(self.llm, BedrockConverse):
             raise ModelError(f'Invaid LLM type: {type(self.llm)} does not support model')
         return self.llm.model
 
