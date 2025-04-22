@@ -2,10 +2,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import asyncio
 import multiprocessing
 import math
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from functools import partial, reduce
 from typing import Any, List, Optional, Sequence, Iterable
 from pipe import Pipe
@@ -20,10 +19,9 @@ from graphrag_toolkit.lexical_graph.indexing.build.metadata_to_nodes import Meta
 from graphrag_toolkit.lexical_graph.indexing.build.build_filter import BuildFilter
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
-from llama_index.core.async_utils import asyncio_run
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
-from llama_index.core.ingestion.pipeline import arun_transformations_wrapper
+from llama_index.core.ingestion.pipeline import run_transformations
 from llama_index.core.schema import TransformComponent, BaseNode
 
 logger = logging.getLogger(__name__)
@@ -156,22 +154,21 @@ class BuildPipeline():
 
             logger.info(f'Running build pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}, job_sizes: {[len(b) for b in node_batches]}, batch_writes_enabled: {self.batch_writes_enabled}, batch_write_size: {self.batch_write_size}]')
 
-            output_nodes = asyncio_run(
-                self._arun_pipeline(
-                    self.inner_pipeline, 
-                    node_batches, 
-                    num_workers=self.num_workers,
-                    batch_writes_enabled=self.batch_writes_enabled, 
-                    batch_size=self.batch_size,
-                    batch_write_size=self.batch_write_size,
-                    include_domain_labels=self.include_domain_labels,
-                    **self.pipeline_kwargs
-                )) 
+            output_nodes = self._run_pipeline(
+                self.inner_pipeline,
+                node_batches,
+                num_workers=self.num_workers,
+                batch_writes_enabled=self.batch_writes_enabled,
+                batch_size=self.batch_size,
+                batch_write_size=self.batch_write_size,
+                include_domain_labels=self.include_domain_labels,
+                **self.pipeline_kwargs
+            )
             for node in output_nodes:
                 yield node       
 
 
-    async def _arun_pipeline(
+    def _run_pipeline(
         self,
         pipeline:IngestionPipeline,
         node_batches:List[BaseNode],
@@ -180,25 +177,23 @@ class BuildPipeline():
         num_workers: int = 1,
         **kwargs: Any,
     ) -> Sequence[BaseNode]:
-        loop = asyncio.get_event_loop()
+        transform = partial(
+            run_transformations,
+            transformations=pipeline.transformations,
+            in_place=in_place,
+            cache=pipeline.cache if not pipeline.disable_cache else None,
+            cache_collection=cache_collection,
+            **kwargs
+        )
+
         with ProcessPoolExecutor(max_workers=num_workers) as p:
             tasks = [
-                loop.run_in_executor(
-                    p,
-                    partial(
-                        arun_transformations_wrapper,
-                        transformations=pipeline.transformations,
-                        in_place=in_place,
-                        cache=pipeline.cache if not pipeline.disable_cache else None,
-                        cache_collection=cache_collection,
-                        **kwargs
-                    ),
-                    nodes,
-                )
+                p.submit(transform, nodes)
                 for nodes in node_batches
             ]
-            result: List[List[BaseNode]] = await asyncio.gather(*tasks)
-            nodes = reduce(lambda x, y: x + y, result, [])
+            result: List[List[BaseNode]] = [task.future() for task in as_completed(tasks)]
+
+        nodes = sum(result, start=[])
         return nodes
 
         

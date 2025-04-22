@@ -18,7 +18,6 @@ from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_DOC_KEY
 
 from llama_index.core.node_parser.interface import NodeParser
 from llama_index.core.node_parser import TextSplitter
-from llama_index.core.async_utils import asyncio_run
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.extractors.interface import BaseExtractor
@@ -144,7 +143,7 @@ class ExtractionPipeline():
 
             logger.info(f'Running extraction pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
             
-            output_nodes = asyncio_run(self.ingestion_pipeline.arun(nodes=input_nodes, num_workers=self.num_workers, show_progress=self.show_progress, **self.pipeline_kwargs))
+            output_nodes = self.ingestion_pipeline.run(nodes=input_nodes, num_workers=self.num_workers, show_progress=self.show_progress, **self.pipeline_kwargs)
 
             output_source_documents = self._source_documents_from_base_nodes(output_nodes)
             
