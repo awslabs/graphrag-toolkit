@@ -4,10 +4,8 @@
 import logging
 import multiprocessing
 import math
-from concurrent.futures import ProcessPoolExecutor, as_completed
-from functools import partial, reduce
-from typing import Any, List, Optional, Sequence, Iterable
 from concurrent.futures import ProcessPoolExecutor
+from functools import partial
 from typing import Any, List, Optional, Sequence, Iterable, Callable, cast
 from pipe import Pipe
 
@@ -19,7 +17,6 @@ from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuild
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint, CheckpointWriter
 from graphrag_toolkit.lexical_graph.indexing.build.metadata_to_nodes import MetadataToNodes
 from graphrag_toolkit.lexical_graph.indexing.build.build_filter import BuildFilter
-from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
