@@ -24,6 +24,14 @@ class SentenceReranker(SentenceTransformerRerank, RerankerMixin):
         batch_size:Optional[int]=128,
         **kwargs:Any
     ):
+        try:
+            import sentence_transformers
+            import torch
+        except ImportError as e:
+            raise ImportError(
+                "torch and/or sentence_transformers packages not found, install with 'pip install torch sentence_transformers'"
+            ) from e
+        
         super().__init__(
             top_n=top_n,
             model=model,

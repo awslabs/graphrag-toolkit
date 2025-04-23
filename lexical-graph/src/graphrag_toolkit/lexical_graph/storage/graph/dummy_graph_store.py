@@ -15,7 +15,7 @@ class DummyGraphStoreFactory(GraphStoreFactoryMethod):
     def try_create(self, graph_info:str, **kwargs) -> GraphStore:
 
         if graph_info.startswith(DUMMY):
-            logger.debug(f"Opening dummy graph store")
+            logger.debug('Opening dummy graph store')
             return DummyGraphStore(log_formatting=get_log_formatting(kwargs))
         else:
             return None

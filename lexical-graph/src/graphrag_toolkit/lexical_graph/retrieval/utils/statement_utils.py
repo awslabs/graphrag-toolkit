@@ -2,8 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import numpy as np
-import torch
-import pynvml
 import threading
 import logging
 from typing import Dict, List
@@ -70,17 +68,30 @@ def get_statements_query(graph_store, statement_ids):
     return results
 
 def get_free_memory(gpu_index):
-    pynvml.nvmlInit()
-    handle = pynvml.nvmlDeviceGetHandleByIndex(int(gpu_index))
-    mem_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
-    return mem_info.free // 1024 ** 2
+    try:
+        import pynvml
+        pynvml.nvmlInit()
+        handle = pynvml.nvmlDeviceGetHandleByIndex(int(gpu_index))
+        mem_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
+        return mem_info.free // 1024 ** 2
+    except ImportError as e:
+        raise ImportError(
+                "pynvml package not found, install with 'pip install pynvml'"
+            ) from e
 
 def get_top_free_gpus(n=2):
-    free_memory = []
-    for i in range(torch.cuda.device_count()):
-        free_memory.append(get_free_memory(i))
-    top_indices = sorted(range(len(free_memory)), key=lambda i: free_memory[i], reverse=True)[:n]
-    return top_indices
+
+    try:
+        import torch
+        free_memory = []
+        for i in range(torch.cuda.device_count()):
+            free_memory.append(get_free_memory(i))
+        top_indices = sorted(range(len(free_memory)), key=lambda i: free_memory[i], reverse=True)[:n]
+        return top_indices
+    except ImportError as e:
+        raise ImportError(
+                "torch package not found, install with 'pip install torch'"
+            ) from e
 
 class SharedEmbeddingCache:
     def __init__(self, vector_store):

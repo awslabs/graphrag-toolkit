@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import boto3
+
 import json
 import logging
 import time
@@ -10,7 +10,7 @@ from botocore.config import Config
 from typing import Optional, Any
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStoreFactoryMethod, GraphStore, NodeId, get_log_formatting
-
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from llama_index.core.bridge.pydantic import PrivateAttr
 
 NEPTUNE_ANALYTICS = 'neptune-graph://'
@@ -48,7 +48,7 @@ class NeptuneAnalyticsGraphStoreFactory(GraphStoreFactoryMethod):
             graph_id = graph_info[len(NEPTUNE_ANALYTICS):]
             config = kwargs.pop('config', {})
 
-            logger.debug(f"Opening Neptune Analytics graph [graph_id: {graph_id}]")
+            logger.debug(f'Opening Neptune Analytics graph [graph_id: {graph_id}]')
             return NeptuneAnalyticsClient(graph_id=graph_id, log_formatting=get_log_formatting(kwargs), config=json.dumps(config))
         else:
             return None
@@ -67,7 +67,7 @@ class NeptuneDatabaseGraphStoreFactory(GraphStoreFactoryMethod):
             graph_endpoint = graph_info.replace('https://', '')
 
         if graph_endpoint:
-            logger.debug(f"Opening Neptune database [endpoint: {graph_endpoint}]")
+            logger.debug(f'Opening Neptune database [endpoint: {graph_endpoint}]')
             endpoint_url = kwargs.pop('endpoint_url', None)
             port = kwargs.pop('port', 8182)
             if not endpoint_url:
@@ -90,10 +90,8 @@ class NeptuneAnalyticsClient(GraphStore):
     @property
     def client(self):
         if self._client is None:
-            self._client = boto3.client(
-                'neptune-graph', 
-                config=create_config(self.config)
-            )
+            session = GraphRAGConfig.session
+            self._client = session.client('neptune-graph', config=create_config(self.config))
         return self._client
     
     def node_id(self, id_name:str) -> NodeId:
@@ -149,13 +147,14 @@ class NeptuneDatabaseClient(GraphStore):
     @property
     def client(self):
         if self._client is None:
-            self._client = boto3.client(
-                'neptunedata', 
+            session = GraphRAGConfig.session
+            self._client = session.client(
+                'neptunedata',
                 endpoint_url=self.endpoint_url,
                 config=create_config(self.config)
             )
         return self._client
-    
+
     def node_id(self, id_name:str) -> NodeId:
         return format_id_for_neptune(id_name)
 

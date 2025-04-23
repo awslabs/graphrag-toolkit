@@ -3,16 +3,14 @@
 
 import json
 import logging
-import psycopg2
 import numpy as np
-import boto3
+
 from pgvector.psycopg2 import register_vector
 from typing import List, Sequence, Dict, Any, Optional
 from urllib.parse import urlparse
-from psycopg2.errors import UniqueViolation, UndefinedTable
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
-from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, VectorIndexFactoryMethod, to_embedded_query
+from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 from llama_index.core.schema import BaseNode, QueryBundle
@@ -20,19 +18,14 @@ from llama_index.core.indices.utils import embed_nodes
 
 logger = logging.getLogger(__name__)
 
-POSTGRES = 'postgres://'
-POSTGRESQL = 'postgresql://'
-
-class PGVectorIndexFactory(VectorIndexFactoryMethod):
-    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:
-        connection_string = None
-        if vector_index_info.startswith(POSTGRES) or vector_index_info.startswith(POSTGRESQL):
-            connection_string = vector_index_info
-        if connection_string:
-            logger.debug(f"Opening PostgreSQL vector indexes [index_names: {index_names}, connection_string: {connection_string}]")
-            return [PGIndex.for_index(index_name, connection_string, **kwargs) for index_name in index_names]
-        else:
-            return None
+try:
+    import psycopg2
+    from pgvector.psycopg2 import register_vector
+    from psycopg2.errors import UniqueViolation, UndefinedTable
+except ImportError as e:
+    raise ImportError(
+        "psycopg2 and/or pgvector packages not found, install with 'pip install psycopg2-binary pgvector'"
+    ) from e
 
 class PGIndex(VectorIndex):
 
@@ -95,16 +88,15 @@ class PGIndex(VectorIndex):
         token = None
 
         if self.enable_iam_db_auth:
-            session = boto3.Session()
-            region = session.region_name
-            client = session.client('rds')
+            client = GraphRAGConfig.rds  # via __getattr__
+            region = GraphRAGConfig.aws_region
             token = client.generate_db_auth_token(
-                DBHostname=self.host, 
-                Port=self.port, 
-                DBUsername=self.username, 
+                DBHostname=self.host,
+                Port=self.port,
+                DBUsername=self.username,
                 Region=region
             )
-            
+
         password = token or self.password
 
         dbconn = psycopg2.connect(

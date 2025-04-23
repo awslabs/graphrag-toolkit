@@ -25,7 +25,7 @@ class NeptuneAnalyticsVectorIndexFactory(VectorIndexFactoryMethod):
         graph_id = None
         if vector_index_info.startswith(NEPTUNE_ANALYTICS):
             graph_id = vector_index_info[len(NEPTUNE_ANALYTICS):]
-            logger.debug(f"Opening Neptune Analytics vector indexes [index_names: {index_names}, graph_id: {graph_id}]")
+            logger.debug(f'Opening Neptune Analytics vector indexes [index_names: {index_names}, graph_id: {graph_id}]')
             return [NeptuneIndex.for_index(index_name, vector_index_info, **kwargs) for index_name in index_names]
         else:
             return None

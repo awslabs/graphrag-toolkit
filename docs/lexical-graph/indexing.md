@@ -11,6 +11,7 @@
     - [Continous ingest](#continous-ingest)
     - [Run the extract and build stages separately](#run-the-extract-and-build-stages-separately)
     - [Configuring the extract and build stages](#configuring-the-extract-and-build-stages)
+    - [Custom prompts](#custom-prompts)
     - [Batch extraction](#batch-extraction)
     - [Checkpoints](#checkpoints)
   - [Advanced graph construction](#advanced-graph-construction)
@@ -249,8 +250,6 @@ graph_index = LexicalGraphIndex(
 )
 ```
 
-> Note that configuration has changed in v2.x of the graphrag-toolkit. See [Extraction configuration in v1.x of the graphrag-toolkit](#extraction-configuration-in-v1x-of-the-graphrag-toolkit) for deatils of the configuration options in v1.x of the toolkit.
-
 The `IndexingConfig` object has the following parameters:
 
 | Parameter  | Description | Default Value |
@@ -265,6 +264,87 @@ The `ExtractionConfig` object has the following parameters:
 | ------------- | ------------- | ------------- |
 | `enable_proposition_extraction` | Perform proposition extraction before extracting topics, statements, facts and entities | `True` |
 | `preferred_entity_classifications` | Comma-separated list of preferred entity classifications used to seed the entity extraction | `DEFAULT_ENTITY_CLASSIFICATIONS` |
+| `infer_entity_classifications` | Determines whether to pre-process documents to identify significant domain entity classifications. Supply either `True` or `False`, or an `InferClassificationsConfig` object. | `False` |
+| `extract_propositions_prompt_template` | Prompt used to extract propositions from chunks. If `None`, the [default extract propositions template](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/indexing/prompts.py#L29-L72) is used. See [Custom prompts](#custom-prompts) below. | `None` |
+| `extract_topics_prompt_template` | Prompt used to extract topics, statements and entities from chunks. If `None`, the [default extract topics template](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/indexing/prompts.py#L74-L191) is used. See [Custom prompts](#custom-prompts) below. | `None` |
+
+
+The `InferClassificationsConfig` object has the following parameters:
+
+| Parameter  | Description | Default Value |
+| ------------- | ------------- | ------------- |
+| `num_iterations` | Number of times to run the pre-processing over the source documents | 1 |
+| `num_samples` | Number of chunks (selected at random) from which classifications are extracted per iteration | 5 |
+| `prompt_template` | Prompt used to extract classifications from sampled chunks. If `None`, the [default domain entity classifications template](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/indexing/prompts.py#L4-L27) is used. See [Custom prompts](#custom-prompts) below. | `None` |
+
+
+#### Custom prompts
+
+The extract stage uses up to three LLM prompts:
+
+  - [**Domain entity classifications:**](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/indexing/prompts.py#L4-L27) Extracts significant domain entity classifications from a sample of source documents prior to processing the documents. These classificatiosn are then supplied to the extract topics prompt as the list of preferred entity classifications.
+  - [**Extract propositions:**](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/indexing/prompts.py#L29-L72) Extracts a set of standalone, well-formed propositions from a chunk.
+  - [**Extract topics:**](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/indexing/prompts.py#L74-L191) Extracts topics, statements and entities and their relations from either a set of propositions, or from the raw chunk text.
+
+Using the `ExtractionConfig` and `InferClassificationsConfig` you can customize one or more of these prompts.
+
+**Domain entity classifications:**
+
+The prompt template should included a `{text_chunks}` placeholder, into which the sampled chunks will be inserted. 
+
+The template should return classifications in the following format:
+
+```
+<entity_classifications>
+Classification1
+Classification2
+Classification3
+</entity_classifications>
+```
+
+**Extract propositions:**
+
+The prompt template should include a `{text}` placeholder, into which the chunk text will be inserted. 
+
+The template should return propositions in the following format:
+
+```
+proposition
+proposition
+proposition
+```
+
+**Extract topics:**
+
+The prompt template should include a `{text}` placeholder, into which a set of propositions (or the raw chunk text) will be inserted, a `{preferred_topics}` placeholder, into which a list of topics will be inserted, and a `{preferred_entity_classifications}` placeholder, into which a liist of entity classifications will be inserted. 
+
+The template should return extracted topics, statements, entities and relations in the following format:
+
+```
+topic: topic
+
+  entities:
+    entity|classification
+    entity|classification
+  
+  proposition: [exact proposition text]      
+    entity-attribute relationships:
+    entity|RELATIONSHIP|attribute
+    entity|RELATIONSHIP|attribute
+    
+    entity-entity relationships:
+    entity|RELATIONSHIP|entity
+    entity|RELATIONSHIP|entity
+    
+  proposition: [exact proposition text]    
+    entity-attribute relationships:
+    entity|RELATIONSHIP|attribute
+    entity|RELATIONSHIP|attribute
+    
+    entity-entity relationships:
+    entity|RELATIONSHIP|entity
+    entity|RELATIONSHIP|entity
+```
 
 
 #### Batch extraction

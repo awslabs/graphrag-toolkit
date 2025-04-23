@@ -95,6 +95,8 @@ class InferClassifications(SourceDocParser):
             merge_action=merge_action or OnExistingClassifications.RETAIN_EXISTING
         )
 
+        logger.debug(f'Prompt template: {self.prompt_template}')
+
     def _parse_classifications(self, response_text:str) -> Optional[List[str]]:
 
         pattern = r'<entity_classifications>(.*?)</entity_classifications>'

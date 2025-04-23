@@ -5,6 +5,7 @@ import os
 import json
 import logging
 import smart_open
+
 logger = logging.getLogger(__name__)
 
 def read_text(path):

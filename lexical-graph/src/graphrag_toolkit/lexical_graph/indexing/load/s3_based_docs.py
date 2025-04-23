@@ -4,7 +4,7 @@
 import io
 import json
 import logging
-import boto3
+
 from os.path import join
 from datetime import datetime
 from typing import List, Any, Generator, Optional, Dict
@@ -12,7 +12,8 @@ from typing import List, Any, Generator, Optional, Dict
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument, SourceType, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
-from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY 
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
 
 from llama_index.core.schema import TextNode
 
@@ -67,7 +68,7 @@ class S3BasedDocs(NodeHandler):
         return node
 
     def __iter__(self):
-        s3_client = boto3.client('s3', region_name=self.region)
+        s3_client = GraphRAGConfig.s3
 
         collection_path = join(self.key_prefix,  self.collection_id, '')
 
@@ -111,7 +112,8 @@ class S3BasedDocs(NodeHandler):
 
     def accept(self, source_documents: List[SourceDocument], **kwargs: Any) -> Generator[SourceDocument, None, None]:
 
-        s3_client = boto3.client('s3', region_name=self.region)
+        #TODO: Review
+        s3_client = GraphRAGConfig.s3
 
         for source_document in source_documents:
             

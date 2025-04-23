@@ -1,7 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import torch
 import logging
 from typing import List, Optional, Any, Tuple
 from pydantic import ConfigDict, Field
@@ -13,6 +12,13 @@ from llama_index.core.postprocessor.types import BaseNodePostprocessor
 from llama_index.core.schema import NodeWithScore, QueryBundle
 
 logger = logging.getLogger(__name__)
+
+try:
+    import torch
+except ImportError as e:
+    raise ImportError(
+            "torch package not found, install with 'pip install torch'"
+        ) from e
 
 class BGEReranker(BaseNodePostprocessor, RerankerMixin):
     """Reranks statements using the BGE reranker model."""
@@ -39,15 +45,14 @@ class BGEReranker(BaseNodePostprocessor, RerankerMixin):
         super().__init__()
         try:
             from FlagEmbedding import LayerWiseFlagLLMReranker
-        except ImportError:
+        except ImportError as e:
             raise ImportError(
-                "Cannot import FlagReranker package, please install it: ",
-                "pip install git+https://github.com/FlagOpen/FlagEmbedding.git",
-            )
+                "FlagEmbedding package not found, install with 'pip install FlagEmbedding'"
+            ) from e
         self.model_name = model_name
         self.batch_size_internal = batch_size
         self.gpu_id = gpu_id
-        
+
         try:
             if torch.cuda.is_available() and self.gpu_id is not None:
                 self.device = torch.device(f'cuda:{self.gpu_id}')

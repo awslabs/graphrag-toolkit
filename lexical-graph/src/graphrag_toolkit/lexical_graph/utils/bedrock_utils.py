@@ -50,8 +50,7 @@ def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], An
         import boto3  # noqa
     except ImportError as e:
         raise ImportError(
-            "You must install the `boto3` package to use Bedrock."
-            "Please `pip install boto3`"
+            "boto3 package not found, install with 'pip install boto3'"
         ) from e
     return retry(
         reraise=True,

@@ -4,14 +4,16 @@
 import io
 import json
 import logging
-import boto3
+
 from os.path import join
 from datetime import datetime
 from typing import List, Any, Generator, Optional, Dict
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
-from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY 
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
+
 
 from llama_index.core.schema import TextNode, BaseNode
 
@@ -66,14 +68,15 @@ class S3BasedChunks(NodeHandler):
         return node
 
     def __iter__(self):
-        s3_client = boto3.client('s3', region_name=self.region)
+        
+        s3_client = GraphRAGConfig.s3  # Uses dynamic __getattr__
 
-        collection_path = join(self.key_prefix,  self.collection_id)
+        collection_path = join(self.key_prefix, self.collection_id)
 
         logger.debug(f'Getting chunks from S3: [bucket: {self.bucket_name}, key: {collection_path}]')
 
         chunks = s3_client.list_objects_v2(Bucket=self.bucket_name, Prefix=collection_path)
-        
+
         for obj in chunks.get('Contents', []):
             key = obj['Key']
             
@@ -87,7 +90,7 @@ class S3BasedChunks(NodeHandler):
                 yield self._filter_metadata(TextNode.from_json(data))
 
     def accept(self, nodes: List[BaseNode], **kwargs: Any) -> Generator[BaseNode, None, None]:
-        s3_client = boto3.client('s3', region_name=self.region)
+        s3_client = GraphRAGConfig.s3
         for n in nodes:
             if not [key for key in [INDEX_KEY] if key in n.metadata]:
 

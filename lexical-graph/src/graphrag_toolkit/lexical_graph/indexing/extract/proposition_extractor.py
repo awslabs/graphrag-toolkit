@@ -2,10 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import torch
 import json
 from json.decoder import JSONDecodeError
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from typing import List, Optional, Sequence, Dict, Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
@@ -47,14 +45,27 @@ class PropositionExtractor(BaseExtractor):
     @property
     def proposition_tokenizer(self):
         if self._proposition_tokenizer is None:
-            self._proposition_tokenizer = AutoTokenizer.from_pretrained(self.proposition_model_name)
+            try:
+                from transformers import AutoTokenizer
+                self._proposition_tokenizer = AutoTokenizer.from_pretrained(self.proposition_model_name)
+            except ImportError as e:
+                raise ImportError(
+                        "transformers package not found, install with 'pip install transformers'"
+                    ) from e
         return self._proposition_tokenizer
     
     @property
     def proposition_model(self):
         if self._proposition_model is None:
-            device = self.device or ('cuda' if torch.cuda.is_available() else 'cpu')
-            self._proposition_model = AutoModelForSeq2SeqLM.from_pretrained(self.proposition_model_name).to(device)
+            try:
+                import torch
+                from transformers import AutoModelForSeq2SeqLM
+                device = self.device or ('cuda' if torch.cuda.is_available() else 'cpu')
+                self._proposition_model = AutoModelForSeq2SeqLM.from_pretrained(self.proposition_model_name).to(device)
+            except ImportError as e:
+                raise ImportError(
+                        "torch and/or transformers packages not found, install with 'pip install torch transformers'"
+                    ) from e
         return self._proposition_model
     
 

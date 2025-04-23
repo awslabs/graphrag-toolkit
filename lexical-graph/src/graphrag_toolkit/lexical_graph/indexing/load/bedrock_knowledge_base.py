@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import boto3
+
 import json
 import os
 import io
@@ -19,6 +19,7 @@ from graphrag_toolkit.lexical_graph.indexing import IdGenerator
 from graphrag_toolkit.lexical_graph.indexing.load.file_based_chunks import FileBasedChunks
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
 
 from llama_index.core.schema import TextNode, Document
 from llama_index.core.schema import NodeRelationship, RelatedNodeInfo
@@ -72,7 +73,7 @@ class BedrockKnowledgeBaseExport():
         self.region=region
         self.limit=limit
         self.output_dir = output_dir
-        self.s3_client = boto3.client('s3', region_name=self.region)
+        self.s3_client = GraphRAGConfig.s3
         self.id_rewriter = IdRewriter(id_generator=IdGenerator(tenant_id=tenant_id))
         self.metadata_fn=metadata_fn
         self.include_embeddings = include_embeddings

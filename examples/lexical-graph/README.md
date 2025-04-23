@@ -2,6 +2,7 @@
 
 ### Notebooks
 
+  - [**00-Setup**](./notebooks/00-Setup.ipynb) – Installs the lexical-graph package and additional dependencies.
   - [**01-Combined Extract and Build**](./notebooks/01-Combined-Extract-and-Build.ipynb) – An example of [performing continuous ingest](../../docs/lexical-graph/indexing.md#continous-ingest) using the `LexicalGraphIndex.extract_and_build()` method.
   - [**02-Separate Extract and Build**](./notebooks/02-Separate-Extract-and-Build.ipynb) – An example of [running the extract and build stages separately](../../docs/lexical-graph/indexing.md#run-the-extract-and-build-stages-separately), with intermediate chunks persisted to the local filesystem using a `FileBasedChunks` object.
   - [**03-Advanced Construction**](./notebooks/03-Advanced-Construction.ipynb) – An example of [advanced graph construction](../../docs/lexical-graph/indexing.md#advanced-graph-construction).

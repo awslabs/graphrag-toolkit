@@ -1,10 +1,15 @@
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: Apache-2.0
-
 import setuptools
+import os
+
+# Get the directory where setup.py is located
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 deps = []
-with open('./requirements.txt') as f:
+# Use absolute path to requirements.txt
+req_path = os.path.join(base_dir, 'requirements.txt')
+if not os.path.exists(req_path):
+    raise FileNotFoundError(f"Could not find {req_path}")
+with open(req_path) as f:
     for line in f.readlines():
         if not line.strip():
             continue
@@ -12,14 +17,15 @@ with open('./requirements.txt') as f:
 
 setuptools.setup(
     name='graphrag-toolkit-lexical-graph',
-    description="AWS GraphRAG Toolkit, lexical graph",
+    description="Custom version of AWS GraphRAG Toolkit (lexical graph) for internal testing",
     packages=setuptools.find_packages(where="."),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
+        "Development Status :: 3 - Alpha",
     ],
     python_requires=">=3.10",
     install_requires=deps,
-    version="3.1.0-SNAPSHOT"
+    version="3.3.0-SNAPSHOT"
 )

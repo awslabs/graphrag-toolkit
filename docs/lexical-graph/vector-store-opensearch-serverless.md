@@ -5,11 +5,20 @@
 ### Topics
 
   - [Overview](#overview)
+  - [Install dependencies](#install-dependencies)
   - [Creating an OpenSearch Serverless vector store](#creating-a-neptune-analytics-vector-store)
 
 ### Overview
 
 You can use an Amazon OpenSearch Serverless collection as a vector store.
+
+### Install dependencies
+
+The OpenSeacrh vector store requires both the `opensearch-py` and `llama-index-vector-stores-opensearch` packages:
+
+```
+pip install opensearch-py llama-index-vector-stores-opensearch
+```
 
 ### Creating an OpenSearch Serverless vector store
 

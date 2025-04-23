@@ -3,9 +3,9 @@
 
 from typing import List, Union, Type, Dict
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore, VectorIndexFactoryMethod
-from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes import OpenSearchVectorIndexFactory
+from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.vector.neptune_vector_indexes import NeptuneAnalyticsVectorIndexFactory
-from graphrag_toolkit.lexical_graph.storage.vector.pg_vector_indexes import PGVectorIndexFactory
+from graphrag_toolkit.lexical_graph.storage.vector.pg_vector_index_factory import PGVectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.constants import DEFAULT_EMBEDDING_INDEXES
 

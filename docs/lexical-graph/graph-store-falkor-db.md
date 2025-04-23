@@ -5,6 +5,7 @@
 ### Topics
 
   - [Overview](#overview)
+  - [Install dependencies](#install-dependencies)
   - [Registering FalkorDB as a graph store](#registering-falkordb-as-a-graph-store)
   - [Creating a FalkorDB graph store](#creating-a-falkordb-graph-store)
 
@@ -12,13 +13,21 @@
 
 You can use FalkorDB as a graph store.
 
+### Install dependencies
+
+The FalkorDB graph store requires both the `FalkorDB` and `redis` packages:
+
+```
+pip install FalkorDB redis
+```
+
 ### Registering FalkorDB as a graph store
 
 Before creating a FalkorDB graph store, you must register the `FalkorDBGraphStoreFactory` with the `GraphStoreFactory`:
 
 ```python
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
-from graphrag_toolkit.lexical_graph.storage.graph.falkordb_graph_store import FalkorDBGraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage.graph.falkordb_graph_store_factory import FalkorDBGraphStoreFactory
 
 GraphStoreFactory.register(FalkorDBGraphStoreFactory)
 
@@ -34,7 +43,7 @@ To create a [FalkorDB Cloud](https://app.falkordb.cloud/) graph store, supply a 
 
 ```python
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
-from graphrag_toolkit.lexical_graph.storage.graph.falkordb_graph_store import FalkorDBGraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage.graph.falkordb_graph_store_factory import FalkorDBGraphStoreFactory
 
 falkordb_connection_info = 'falkordb://your-falkordb-endpoint'
 

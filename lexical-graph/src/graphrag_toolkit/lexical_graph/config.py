@@ -3,8 +3,12 @@
 
 import os
 import json
-from dataclasses import dataclass
-from typing import Optional, Union
+import boto3
+import contextlib
+from dataclasses import dataclass, field
+from typing import Optional, Union, Dict, Set
+from boto3 import Session as Boto3Session
+from botocore.session import Session as BotocoreSession
 
 from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.embeddings.bedrock import BedrockEmbedding
@@ -45,6 +49,14 @@ def string_to_bool(s, default_value:bool):
 
 @dataclass
 class _GraphRAGConfig:
+    
+    _aws_profile: Optional[str] = None
+    _aws_region: Optional[str] = None
+    _aws_clients: Dict = field(default_factory=dict)  # Use field() for mutable default
+
+    _boto3_session: Optional[boto3.Session] = field(default=None, init=False, repr=False)
+    _aws_valid_services: Optional[Set[str]] = field(default=None, init=False, repr=False)
+    _session: Optional[boto3.Session] = field(default=None, init=False, repr=False)
 
     _extraction_llm: Optional[LLM] = None
     _response_llm: Optional[LLM] = None 
@@ -60,6 +72,180 @@ class _GraphRAGConfig:
     _batch_writes_enabled: Optional[bool] = None
     _include_domain_labels: Optional[bool] = None
     _enable_cache: Optional[bool] = None
+
+    def _get_or_create_client(self, service_name: str) -> boto3.client:
+        """
+        Creates or retrieves a boto3 client for a specified AWS service. This method
+        maintains an internal cache of AWS clients to avoid creating multiple clients
+        for the same service. If the requested client is not already cached, a new boto3
+        client is created using the provided AWS region and profile, or their corresponding
+        fallbacks.
+
+        Parameters:
+        service_name : str
+            The name of the AWS service for which a client is required. Examples include
+            's3', 'ec2', etc.
+
+        Returns:
+        boto3.client
+            The boto3 client for the specified AWS service.
+
+        Raises:
+        AttributeError
+            If the boto3 client cannot be created due to an error, such as invalid AWS
+            credentials or an invalid service name.
+        """
+        if service_name in self._aws_clients:
+            return self._aws_clients[service_name]
+
+        region = self.aws_region
+
+        profile = self.aws_profile
+
+        try:
+            if profile:
+                session = boto3.Session(profile_name=profile, region_name=region)
+            else:
+                session = boto3.Session(region_name=region)
+
+            client = session.client(service_name)
+            self._aws_clients[service_name] = client
+            return client
+
+        except Exception as e:
+            raise AttributeError(
+                f"Failed to create boto3 client for '{service_name}'. "
+                f"Profile: '{profile}', Region: '{region}'. "
+                f"Original error: {str(e)}"
+            ) from e
+
+
+    @property
+    def session(self) -> Boto3Session:
+        """
+        Initializes and manages a Boto3 session. This property lazily initializes
+        a Boto3 session the first time it is accessed. It uses an explicitly
+        defined AWS profile if provided or falls back to the default configuration
+        or environment variables. The session is cached for future accesses unless
+        explicitly reset.
+
+        If initialization fails, it raises a runtime error containing information
+        about the profile and region being used.
+
+        Attributes:
+            aws_profile (str): AWS profile name to initialize the session with. If None,
+                environment variables or the default configuration will be used.
+            aws_region (str): AWS region to initialize the session with.
+
+        Returns:
+            Boto3Session: An initialized Boto3 session object.
+
+        Raises:
+            RuntimeError: If the session fails to initialize due to an error.
+        """
+        if not hasattr(self, "_boto3_session") or self._boto3_session is None:
+            try:
+                # Prefer explicitly set profile
+                if self.aws_profile:
+                    self._boto3_session = Boto3Session(
+                        profile_name=self.aws_profile,
+                        region_name=self.aws_region
+                    )
+                else:
+                    # Use environment variables or default config
+                    self._boto3_session = Boto3Session(region_name=self.aws_region)
+
+            except Exception as e:
+                raise RuntimeError(
+                    f"Unable to initialize boto3 session. "
+                    f"Profile: {self.aws_profile}, Region: {self.aws_region}. "
+                    f"Error: {e}"
+                ) from e
+
+        return self._boto3_session
+
+    @property
+    def s3(self):
+        """
+        Provides a read-only property to access the S3 client by retrieving or creating an
+        instance of the client. The method `_get_or_create_client` is responsible for
+        handling client instantiation and retrieval, ensuring the S3 client is only
+        created when required.
+
+        Returns:
+            Any: The S3 client instance. The exact type is dependent on the implementation
+            of `_get_or_create_client`.
+        """
+        return self._get_or_create_client("s3")
+
+    @property
+    def bedrock(self):
+        """
+        Provides a property to access the 'bedrock' client. This client is managed internally
+        and created on demand, ensuring minimal resource usage unless explicitly required.
+
+        Returns
+        -------
+        Any
+            The 'bedrock' client instance, either previously created or newly initialized.
+        """
+        return self._get_or_create_client("bedrock")
+
+    @property
+    def rds(self):
+        """
+        Provides a property `rds` that retrieves an RDS client instance. The client
+        is created if not already available, allowing users to interact with RDS
+        services conveniently through the exposed interface.
+
+        Returns
+        -------
+        Any
+            A client instance for interacting with RDS services.
+        """
+        return self._get_or_create_client("rds")
+
+    @property
+    def aws_profile(self) -> Optional[str]:
+        """
+        Gets the AWS profile name from the environment or caches it on first call.
+
+        This method retrieves the AWS profile currently set in the environment
+        variable 'AWS_PROFILE'. If the profile name is not already cached, it
+        fetches it from the environment and caches the value for future use.
+
+
+        Returns:
+            Optional[str]: The AWS profile name if set, otherwise None.
+        """
+        if self._aws_profile is None:
+            self._aws_profile = os.environ.get("AWS_PROFILE")
+        return self._aws_profile
+
+    @aws_profile.setter
+    def aws_profile(self, profile: str) -> None:
+        """
+        Sets the AWS profile to be used and clears any cached AWS clients.
+        This ensures that any previously generated clients are regenerated
+        with the newly set profile.
+
+        Parameters:
+            profile (str): The new AWS profile to be set.
+        """
+        self._aws_profile = profile
+        self._aws_clients.clear()  # Clear old clients to force regeneration
+
+    @property
+    def aws_region(self) -> str:
+        """Returns the AWS region, resolved from internal value or environment."""
+        if self._aws_region is None:
+            self._aws_region = os.environ.get("AWS_REGION", boto3.Session().region_name)
+        return self._aws_region
+
+    @aws_region.setter
+    def aws_region(self, region: str) -> None:
+        self._aws_region = region
+        self._aws_clients.clear()  # Optional: reset clients if a region changes
 
     @property
     def extraction_num_workers(self) -> int:
@@ -157,6 +343,43 @@ class _GraphRAGConfig:
     @enable_cache.setter
     def enable_cache(self, enable_cache:bool) -> None:
         self._enable_cache = enable_cache
+
+    def _to_llm(self, llm: LLMType):
+        if isinstance(llm, LLM):
+            return llm
+        
+        try:
+            boto3_session = self.session
+            botocore_session = None
+            if hasattr(boto3_session, 'get_session'):
+                botocore_session = boto3_session.get_session()
+
+            profile = self.aws_profile
+            region = self.aws_region
+
+            if _is_json_string(llm):
+                config = json.loads(llm)
+                return BedrockConverse(
+                    model=config['model'],
+                    temperature=config.get('temperature', 0.0),
+                    max_tokens=config.get('max_tokens', 4096),
+                    botocore_session=botocore_session,
+                    region_name=config.get('region_name', region),
+                    profile_name=config.get('profile_name', profile)
+                )
+
+            else:
+                return BedrockConverse(
+                    model=llm,
+                    temperature=0.0,
+                    max_tokens=4096,
+                    botocore_session=botocore_session,
+                    region_name=region,
+                    profile_name=profile
+                )
+
+        except Exception as e:
+            raise ValueError(f'Failed to initialize BedrockConverse: {str(e)}') from e
    
     @property
     def extraction_llm(self) -> LLM:
@@ -166,43 +389,59 @@ class _GraphRAGConfig:
 
     @extraction_llm.setter
     def extraction_llm(self, llm: LLMType) -> None:
-        if isinstance(llm, LLM):
-            self._extraction_llm = llm
-        else:
-            if _is_json_string(llm):
-                self._extraction_llm = BedrockConverse.from_json(llm)
-            else:
-                json_str = f'''{{
-                    "model": "{llm}",
-                    "temperature": 0.0,
-                    "max_tokens": 4096
-                }}'''
-                self._extraction_llm = BedrockConverse.from_json(json_str)
-        self._extraction_llm.callback_manager = Settings.callback_manager
+        """
+        Sets the extraction_llm property for the class instance. Depending on the input type, it configures an instance of
+        the language model, either directly or through parsing a JSON configuration. It also integrates settings such as
+        AWS session, region, and profile information.
+
+        Parameters:
+            llm (LLMType): The language model configuration which can be provided as an LLM instance, a JSON string, or
+            directly as a model identifier.
+
+        Raises:
+            ValueError: Raised when the BedrockConverse initialization fails due to invalid input or processing errors.
+        """
+
+        self._extraction_llm = self._to_llm(llm)
+        if hasattr(self._extraction_llm, 'callback_manager'):
+            self._extraction_llm.callback_manager = Settings.callback_manager
 
     @property
     def response_llm(self) -> LLM:
         if self._response_llm is None:
-            self.response_llm = os.environ.get('RESPONSE_MODEL', DEFAULT_RESPONSE_MODEL)
-            
+            self.response_llm = os.environ.get('RESPONSE_MODEL', DEFAULT_RESPONSE_MODEL)    
         return self._response_llm
 
     @response_llm.setter
     def response_llm(self, llm: LLMType) -> None:
-        if isinstance(llm, LLM):
-            self._response_llm = llm
-        else:
-            if _is_json_string(llm):
-                self._response_llm = BedrockConverse.from_json(llm)
-            else:
-                json_str = f'''{{
-                    "model": "{llm}",
-                    "temperature": 0.0,
-                    "max_tokens": 4096
-                }}'''
-                self._response_llm = BedrockConverse.from_json(json_str)
-        self._response_llm.callback_manager = Settings.callback_manager
-       
+        """
+        Setter for the response_llm attribute, allowing the setup of a language learning model
+        (LLM) by interpreting input as either an instance of an LLM class, a JSON string
+        representation of configuration, or a model identifier string. The method also handles
+        optional configurations such as temperature, token limits, and AWS-specific details.
+
+        Attributes:
+            aws_profile: str
+                The AWS profile name to be used with the LLM if specified.
+            aws_region: str
+                The AWS region name to be used with the LLM if specified.
+            _response_llm: BedrockConverse or LLM
+                The internal attribute holding the initialized LLM.
+
+        Parameters:
+            llm: LLMType
+                A model object, JSON string, or model identifier to configure an LLM. May contain
+                additional configuration parameters when provided as a JSON string.
+
+        Raises:
+            ValueError: If the initialization of BedrockConverse fails due to invalid input or
+            other errors.
+        """
+
+        self._response_llm = self._to_llm(llm)
+        if hasattr(self._response_llm, 'callback_manager'):
+            self._response_llm.callback_manager = Settings.callback_manager
+
     @property
     def embed_model(self) -> BaseEmbedding:
         if self._embed_model is None:
@@ -213,17 +452,37 @@ class _GraphRAGConfig:
     @embed_model.setter
     def embed_model(self, embed_model: EmbeddingType) -> None:
         if isinstance(embed_model, str):
+
+            boto3_session = self.session
+            botocore_session = None
+            if hasattr(boto3_session, 'get_session'):
+                botocore_session = boto3_session.get_session()
+
+            profile = self.aws_profile
+            region = self.aws_region
+
+
             if _is_json_string(embed_model):
-                self._embed_model = BedrockEmbedding.from_json(embed_model) 
+                config = json.loads(embed_model)
+                self._embed_model = BedrockEmbedding(
+                    model_name=config['model_name'],
+                    botocore_session=botocore_session,
+                    region_name=config.get('region_name', region),
+                    profile_name=config.get('profile_name', profile)
+                )
             else:
-                json_str = f'''{{
-                    "model_name": "{embed_model}"
-                }}'''
-                self._embed_model = BedrockEmbedding.from_json(json_str) 
+                self._embed_model = BedrockEmbedding(
+                    model_name=embed_model,
+                    botocore_session=botocore_session,
+                    region_name=region,
+                    profile_name=profile
+                )
         else:
             self._embed_model = embed_model
-        self._embed_model.callback_manager = Settings.callback_manager
 
+        if hasattr(self._embed_model, 'callback_manager'):
+            self._embed_model.callback_manager = Settings.callback_manager
+        
     @property
     def embed_dimensions(self) -> int:
        if self._embed_dimensions is None:
@@ -247,5 +506,6 @@ class _GraphRAGConfig:
        self._reranking_model = reranking_model
     
 
-    
+
+
 GraphRAGConfig = _GraphRAGConfig()

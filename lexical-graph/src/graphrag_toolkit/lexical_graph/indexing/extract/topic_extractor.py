@@ -49,7 +49,7 @@ class TopicExtractor(BaseExtractor):
 
     def __init__(self, 
                  llm:LLMCacheType=None,
-                 prompt_template=EXTRACT_TOPICS_PROMPT,
+                 prompt_template=None,
                  source_metadata_field=None,
                  num_workers:Optional[int]=None,
                  entity_classification_provider=None,
@@ -61,12 +61,14 @@ class TopicExtractor(BaseExtractor):
                 llm=llm or GraphRAGConfig.extraction_llm,
                 enable_cache=GraphRAGConfig.enable_cache
             ),
-            prompt_template=prompt_template, 
+            prompt_template=prompt_template or EXTRACT_TOPICS_PROMPT, 
             source_metadata_field=source_metadata_field,
             num_workers=num_workers or GraphRAGConfig.extraction_num_threads_per_worker,
             entity_classification_provider=entity_classification_provider or FixedScopedValueProvider(scoped_values={DEFAULT_SCOPE: DEFAULT_ENTITY_CLASSIFICATIONS}),
             topic_provider=topic_provider or FixedScopedValueProvider(scoped_values={DEFAULT_SCOPE: []})
         )
+
+        logger.debug(f'Prompt template: {self.prompt_template}')
     
     async def aextract(self, nodes: Sequence[BaseNode]) -> List[Dict]:
         fact_entries = await self._extract_for_nodes(nodes)

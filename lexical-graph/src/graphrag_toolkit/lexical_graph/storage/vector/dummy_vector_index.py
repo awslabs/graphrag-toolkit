@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class DummyVectorIndexFactory(VectorIndexFactoryMethod):
     def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:
         if vector_index_info.startswith(DUMMY):
-            logger.debug(f"Opening dummy vector indexes [index_names: {index_names}]")
+            logger.debug(f'Opening dummy vector indexes [index_names: {index_names}]')
             return [DummyVectorIndex(index_name=index_name) for index_name in index_names]
         else:
             return None

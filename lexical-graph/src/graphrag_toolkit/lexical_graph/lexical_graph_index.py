@@ -40,11 +40,15 @@ class ExtractionConfig():
     def __init__(self, 
                  enable_proposition_extraction:bool=True,
                  preferred_entity_classifications:List[str]=DEFAULT_ENTITY_CLASSIFICATIONS,
-                 infer_entity_classifications:Union[InferClassificationsConfig, bool]=False):
+                 infer_entity_classifications:Union[InferClassificationsConfig, bool]=False,
+                 extract_propositions_prompt_template:Optional[str]=None,
+                 extract_topics_prompt_template:Optional[str]=None):
         
         self.enable_proposition_extraction = enable_proposition_extraction
         self.preferred_entity_classifications = preferred_entity_classifications
         self.infer_entity_classifications = infer_entity_classifications
+        self.extract_propositions_prompt_template = extract_propositions_prompt_template
+        self.extract_topics_prompt_template = extract_topics_prompt_template
 
 class BuildConfig():
     def __init__(self,
@@ -138,9 +142,14 @@ class LexicalGraphIndex():
         
         if config.extraction.enable_proposition_extraction:
             if config.batch_config:
-                components.append(BatchLLMPropositionExtractor(batch_config=config.batch_config))
+                components.append(BatchLLMPropositionExtractor(
+                    batch_config=config.batch_config,
+                    prompt_template=config.extraction.extract_propositions_prompt_template
+                ))
             else:
-                components.append(LLMPropositionExtractor())
+                components.append(LLMPropositionExtractor(
+                    prompt_template=config.extraction.extract_propositions_prompt_template
+                ))
 
         entity_classification_provider = None
         topic_provider = None
@@ -174,7 +183,8 @@ class LexicalGraphIndex():
                 default_classifications=config.extraction.preferred_entity_classifications,
                 num_samples=infer_config.num_samples,
                 num_iterations=infer_config.num_iterations,
-                merge_action=infer_config.on_existing_classifications
+                merge_action=infer_config.on_existing_classifications,
+                prompt_template=infer_config.prompt_template
             ))
 
         topic_extractor = None
@@ -184,13 +194,15 @@ class LexicalGraphIndex():
                 batch_config=config.batch_config,
                 source_metadata_field=PROPOSITIONS_KEY if config.extraction.enable_proposition_extraction else None,
                 entity_classification_provider=entity_classification_provider,
-                topic_provider=topic_provider
+                topic_provider=topic_provider,
+                prompt_template=config.extraction.extract_topics_prompt_template
             )
         else:
             topic_extractor = TopicExtractor(
                 source_metadata_field=PROPOSITIONS_KEY if config.extraction.enable_proposition_extraction else None,
                 entity_classification_provider=entity_classification_provider,
-                topic_provider=topic_provider
+                topic_provider=topic_provider,
+                prompt_template=config.extraction.extract_topics_prompt_template
             )
 
         components.append(topic_extractor)
@@ -242,7 +254,6 @@ class LexicalGraphIndex():
             show_progress=show_progress,
             checkpoint=checkpoint,
             num_workers=1,
-            batch_size=5,
             tenant_id=DEFAULT_TENANT_ID,
             **kwargs
         )
@@ -319,8 +330,6 @@ class LexicalGraphIndex():
 
         if not self.tenant_id.is_default_tenant():
             logger.warning('TenantId has been set to non-default tenant id, but extraction will use default tenant id')
-
-        default_tenant_id = TenantId()
 
         extraction_pipeline = ExtractionPipeline.create(
             components=self.extraction_components,

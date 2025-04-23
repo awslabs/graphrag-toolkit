@@ -37,7 +37,8 @@ The lexical-graph also allows you to set the logging level and apply logging fil
 | `batch_writes_enabled` | Determines whether, on a per-worker basis, to write all elements (nodes and edges, or vectors) emitted by a batch of input nodes as a bulk operation, or singly, to the graph and vector stores (see [Batch writes](#batch-writes)) | `True` | `BATCH_WRITES_ENABLED` |
 | `include_domain_labels` | Determines whether entities will have a domain-specific label (e.g. `Company`) as well as the [graph model's](./graph-model.md#entity-relationship-tier) `__Entity__` label | `False` | `DEFAULT_INCLUDE_DOMAIN_LABELS` |
 | `enable_cache` | Determines whether the results of LLM calls to models on Amazon Bedrock are cached to the local filesystem (see [Caching Amazon Bedrock LLM responses](#caching-amazon-bedrock-llm-responses)) | `False` | `ENABLE_CACHE` |
-
+| `aws_profile` | AWS CLI named profile used to authenticate requests to Bedrock and other services | *None* | `AWS_PROFILE` |
+| `aws_region` | AWS region used to scope Bedrock service calls | `us-east-1` | `AWS_REGION` |
 To set a configuration parameter in your application code:
 
 ```python
@@ -124,3 +125,24 @@ set_logging_config(
   ['graphrag_toolkit.lexical_graph.storage.graph_store_factory']
 )
 ```
+#### AWS profile configuration
+
+You can explicitly configure the AWS CLI profile and region to use when initializing Bedrock clients or other AWS service clients in `GraphRAGConfig`. This ensures compatibility across local development, EC2/ECS environments, or federated environments such as AWS SSO.
+
+You may set the AWS profile and region in your application code:
+
+```python
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
+
+GraphRAGConfig.aws_profile = 'padmin'
+GraphRAGConfig.aws_region = 'us-east-1'
+```
+
+Alternatively, use environment variables:
+
+```bash
+export AWS_PROFILE=padmin
+export AWS_REGION=us-east-1
+```
+
+If no profile or region is set explicitly, the system will fall back to environment variables or use the default AWS CLI configuration.
