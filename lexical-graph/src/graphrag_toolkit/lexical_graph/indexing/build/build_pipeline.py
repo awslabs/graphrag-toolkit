@@ -7,6 +7,8 @@ import math
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from functools import partial, reduce
 from typing import Any, List, Optional, Sequence, Iterable
+from concurrent.futures import ProcessPoolExecutor
+from typing import Any, List, Optional, Sequence, Iterable, Callable, cast
 from pipe import Pipe
 
 from graphrag_toolkit.lexical_graph import TenantId
@@ -171,13 +173,13 @@ class BuildPipeline():
     def _run_pipeline(
         self,
         pipeline:IngestionPipeline,
-        node_batches:List[BaseNode],
+        node_batches:List[List[BaseNode]],
         cache_collection: Optional[str] = None,
         in_place: bool = True,
         num_workers: int = 1,
         **kwargs: Any,
     ) -> Sequence[BaseNode]:
-        transform = partial(
+        transform: Callable[[List[BaseNode]], List[BaseNode]] = partial(
             run_transformations,
             transformations=pipeline.transformations,
             in_place=in_place,
@@ -187,13 +189,7 @@ class BuildPipeline():
         )
 
         with ProcessPoolExecutor(max_workers=num_workers) as p:
-            tasks = [
-                p.submit(transform, nodes)
-                for nodes in node_batches
-            ]
-            result: List[List[BaseNode]] = [task.future() for task in as_completed(tasks)]
+            processed_node_batches = p.map(transform, node_batches)
+            processed_nodes = sum(processed_node_batches, start=cast(List[BaseNode], []))
 
-        nodes = sum(result, start=[])
-        return nodes
-
-        
+        return processed_nodes
