@@ -9,7 +9,6 @@ from dataclasses import dataclass
 
 from llama_index.core.bridge.pydantic import PrivateAttr
 from llama_index.core.schema import BaseNode, NodeWithScore, QueryBundle
-from llama_index.core.async_utils import asyncio_run
 from llama_index.core.vector_stores.types import  VectorStoreQueryResult, VectorStoreQueryMode, MetadataFilters
 from llama_index.core.indices.utils import embed_nodes
 
@@ -214,10 +213,6 @@ class OpenSearchIndex(VectorIndex):
             else:
                 self._client = DummyOpensearchVectorClient()
         return self._client
-    
-    def __del__(self):
-        if self._client and isinstance(self._client, OpensearchVectorClient):
-            asyncio_run(self._client._os_async_client.close())
         
     def _clean_id(self, s):
         return ''.join(c for c in s if c.isalnum())
@@ -260,70 +255,55 @@ class OpenSearchIndex(VectorIndex):
 
         if not self.writeable:
             raise IndexError(f'Index {self.index_name()} is read-only')
-        
-        async def aadd_embeddings(nodes):
-                    
-            id_to_embed_map = embed_nodes(
-                nodes, self.embed_model
-            )
 
-            docs = []
+        id_to_embed_map = embed_nodes(
+            nodes, self.embed_model
+        )
 
-            for node in nodes:
+        docs = []
 
-                doc:BaseNode = node.copy()
-                doc.embedding = id_to_embed_map[node.node_id]
+        for node in nodes:
 
-                docs.append(doc)
+            doc:BaseNode = node.copy()
+            doc.embedding = id_to_embed_map[node.node_id]
 
-            if docs:
-                await self.client.aindex_results(docs)
-            
-        asyncio_run(aadd_embeddings(nodes))
+            docs.append(doc)
+
+        if docs:
+            self.client.aindex_results(docs)
         
         return nodes
     
     def top_k(self, query_bundle:QueryBundle, top_k:int=5):
-        
-        async def atop_k(query_bundle, top_k):
-        
-            query_bundle = to_embedded_query(query_bundle, self.embed_model)
 
-            scored_nodes = []
-            
-            try:
+        query_bundle = to_embedded_query(query_bundle, self.embed_model)
 
-                results:VectorStoreQueryResult = await self.client.aquery(
-                    VectorStoreQueryMode.DEFAULT, 
-                    query_str=query_bundle.query_str, 
-                    query_embedding=query_bundle.embedding, 
-                    k=top_k
-                )
+        scored_nodes = []
 
-                scored_nodes.extend([
-                    NodeWithScore(node=node, score=score) 
-                    for node, score in zip(results.nodes, results.similarities)
-                ])
+        try:
 
-            except NotFoundError as e:
-                if self.tenant_id.is_default_tenant():
-                    raise e
-                else:
-                    logger.warning(f'Multi-tenant index {self.underlying_index_name()} does not exist')
-                
-            return scored_nodes
+            results:VectorStoreQueryResult = self.client.query(
+                VectorStoreQueryMode.DEFAULT,
+                query_str=query_bundle.query_str,
+                query_embedding=query_bundle.embedding,
+                k=top_k
+            )
 
-        scored_nodes = asyncio_run(atop_k(query_bundle, top_k))
+            scored_nodes.extend([
+                NodeWithScore(node=node, score=score)
+                for node, score in zip(results.nodes, results.similarities)
+            ])
+
+        except NotFoundError as e:
+            if self.tenant_id.is_default_tenant():
+                raise e
+            else:
+                logger.warning(f'Multi-tenant index {self.underlying_index_name()} does not exist')
 
         return [self._to_top_k_result(node) for node in scored_nodes]
 
     # opensearch has a limit of 10,000 results per search, so we use this to paginate the search
-    async def paginated_search(self, query, page_size=10000, max_pages=None):
-        client = self.client._os_async_client
-
-        if not client:
-            pass
-
+    def paginated_search(self, query, page_size=10000, max_pages=None):
         search_after = None
         page = 0
         
@@ -337,7 +317,7 @@ class OpenSearchIndex(VectorIndex):
             if search_after:
                 body["search_after"] = search_after
 
-            response = await client.search(
+            response = self.client._os_client.query(
                 index=self.underlying_index_name(),
                 body=body
             )
@@ -354,10 +334,10 @@ class OpenSearchIndex(VectorIndex):
             if max_pages and page >= max_pages:
                 break
 
-    async def get_all_embeddings(self, query:str, max_results=None):
+    def get_all_embeddings(self, query:str, max_results=None):
         all_results = []
         
-        async for page in self.paginated_search(query, page_size=10000):
+        for page in self.paginated_search(query, page_size=10000):
             all_results.extend(self._to_get_embedding_result(hit) for hit in page)
             if max_results and len(all_results) >= max_results:
                 all_results = all_results[:max_results]
@@ -373,6 +353,6 @@ class OpenSearchIndex(VectorIndex):
             }
         }
 
-        results = asyncio_run(self.get_all_embeddings(query, max_results=len(ids) * 2))
+        results = self.get_all_embeddings(query, max_results=len(ids) * 2)
         
         return results
