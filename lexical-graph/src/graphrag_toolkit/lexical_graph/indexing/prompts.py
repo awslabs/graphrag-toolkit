@@ -97,7 +97,7 @@ Try to capture as much information from the text as possible without sacrificing
       - Always use the most complete identifier for an entity (e.g., 'John Doe' instead of 'he' or 'John').
       - Maintain entity consistency throughout the knowledge graph by resolving coreferences.
       - If an entity is referred to by different names or pronouns, always use the most complete identifier.
-      - If the identifer is an acronym, and you recognize the acronym, use the entity's full name instead of the acronym. DO NOT put the acronym in parentheses after the full name. 
+      - If the identifier is an acronym, and you recognize the acronym, use the entity's full name instead of the acronym. DO NOT put the acronym in parentheses after the full name. 
    6. Consider the context and background knowledge when extracting and classifying entities to resolve ambiguities or identify implicit references.
    7. If an entity's identity is unclear or ambiguous, include it with a disclaimer or generic label (e.g., 'unknown_person').
       
