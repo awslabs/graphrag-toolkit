@@ -304,6 +304,13 @@ class OpenSearchIndex(VectorIndex):
 
     # opensearch has a limit of 10,000 results per search, so we use this to paginate the search
     def paginated_search(self, query, page_size=10000, max_pages=None):
+        
+        client = self.client._os_client
+
+        if not client:
+            pass
+        
+        
         search_after = None
         page = 0
         
@@ -316,8 +323,8 @@ class OpenSearchIndex(VectorIndex):
             
             if search_after:
                 body["search_after"] = search_after
-
-            response = self.client._os_client.query(
+                
+            response = client.search(
                 index=self.underlying_index_name(),
                 body=body
             )
