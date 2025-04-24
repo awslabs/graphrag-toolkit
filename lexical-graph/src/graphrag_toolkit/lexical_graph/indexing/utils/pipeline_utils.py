@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from pipe import Pipe
-from pipe import Pipe
 from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 from typing import List, Optional, Sequence, Any, cast, Callable
