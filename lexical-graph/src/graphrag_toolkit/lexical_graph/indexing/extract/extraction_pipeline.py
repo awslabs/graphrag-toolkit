@@ -8,15 +8,14 @@ from typing import List, Optional, Sequence, Dict, Iterable, Any
 from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing import IdGenerator
+from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import run_pipeline
 from graphrag_toolkit.lexical_graph.indexing.model import SourceType, SourceDocument, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_decorator import PipelineDecorator
 from graphrag_toolkit.lexical_graph.indexing.extract.source_doc_parser import SourceDocParser
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint
 from graphrag_toolkit.lexical_graph.indexing.extract.docs_to_nodes import DocsToNodes
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
-from graphrag_toolkit.lexical_graph.indexing.constants import SOURCE_DOC_KEY
 
-from llama_index.core.node_parser.interface import NodeParser
 from llama_index.core.node_parser import TextSplitter
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
@@ -143,9 +142,22 @@ class ExtractionPipeline():
 
             logger.info(f'Running extraction pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
             
-            output_nodes = self.ingestion_pipeline.run(nodes=input_nodes, num_workers=self.num_workers, show_progress=self.show_progress, **self.pipeline_kwargs)
-
+            node_batches = self.ingestion_pipeline._node_batcher(
+                num_batches=self.num_workers, 
+                nodes=input_nodes
+            )
+                        
+            output_nodes = run_pipeline(
+                self.ingestion_pipeline,
+                node_batches,
+                num_workers=self.num_workers,
+                **self.pipeline_kwargs
+            )
+  
             output_source_documents = self._source_documents_from_base_nodes(output_nodes)
             
             for source_document in output_source_documents:
                 yield self.extraction_decorator.handle_output_doc(source_document)
+
+    
+   
