@@ -270,7 +270,7 @@ class OpenSearchIndex(VectorIndex):
             docs.append(doc)
 
         if docs:
-            self.client.aindex_results(docs)
+            self.client.index_results(docs)
         
         return nodes
     

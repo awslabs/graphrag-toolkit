@@ -4,14 +4,13 @@
 import logging
 import multiprocessing
 import math
-from concurrent.futures import ProcessPoolExecutor
-from functools import partial
-from typing import Any, List, Optional, Sequence, Iterable, Callable, cast
+from typing import Any, List, Optional, Iterable
 from pipe import Pipe
 
 from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler, IdGenerator
+from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import run_pipeline
 from graphrag_toolkit.lexical_graph.indexing.model import SourceType, SourceDocument, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint, CheckpointWriter
@@ -20,7 +19,6 @@ from graphrag_toolkit.lexical_graph.indexing.build.build_filter import BuildFilt
 
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
-from llama_index.core.ingestion.pipeline import run_transformations
 from llama_index.core.schema import TransformComponent, BaseNode
 
 logger = logging.getLogger(__name__)
@@ -153,7 +151,7 @@ class BuildPipeline():
 
             logger.info(f'Running build pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}, job_sizes: {[len(b) for b in node_batches]}, batch_writes_enabled: {self.batch_writes_enabled}, batch_write_size: {self.batch_write_size}]')
 
-            output_nodes = self._run_pipeline(
+            output_nodes = run_pipeline(
                 self.inner_pipeline,
                 node_batches,
                 num_workers=self.num_workers,
@@ -163,30 +161,7 @@ class BuildPipeline():
                 include_domain_labels=self.include_domain_labels,
                 **self.pipeline_kwargs
             )
+
             for node in output_nodes:
                 yield node       
 
-
-    def _run_pipeline(
-        self,
-        pipeline:IngestionPipeline,
-        node_batches:List[List[BaseNode]],
-        cache_collection: Optional[str] = None,
-        in_place: bool = True,
-        num_workers: int = 1,
-        **kwargs: Any,
-    ) -> Sequence[BaseNode]:
-        transform: Callable[[List[BaseNode]], List[BaseNode]] = partial(
-            run_transformations,
-            transformations=pipeline.transformations,
-            in_place=in_place,
-            cache=pipeline.cache if not pipeline.disable_cache else None,
-            cache_collection=cache_collection,
-            **kwargs
-        )
-
-        with ProcessPoolExecutor(max_workers=num_workers) as p:
-            processed_node_batches = p.map(transform, node_batches)
-            processed_nodes = sum(processed_node_batches, start=cast(List[BaseNode], []))
-
-        return processed_nodes
