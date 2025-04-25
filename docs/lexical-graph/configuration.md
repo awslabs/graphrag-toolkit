@@ -127,13 +127,13 @@ The `set_advanced_logging_config` method provides more advanced logging configur
 
 ##### Parameters
 
-| Parameter           | Type                          | Description                                                                          | Default Value  |
-|---------------------|-------------------------------|--------------------------------------------------------------------------------------|----------------|
-| `logging_level`     | `str` or `int`                | The logging level to apply (e.g., `'DEBUG'`, `'INFO'`, `logging.DEBUG`, etc.).       | `logging.INFO` |
-| `included_modules`  | `dict[int, str \| list[str]]` | Modules to include in logging, grouped by logging level. Wildcards are supported.    | `None`         |
-| `excluded_modules`  | `dict[int, str \| list[str]]` | Modules to exclude from logging, grouped by logging level. Wildcards are supported.  | `None`         |
-| `included_messages` | `dict[int, str \| list[str]]` | Specific messages to include in logging, grouped by logging level.                   | `None`         |
-| `excluded_messages` | `dict[int, str \| list[str]]` | Specific messages to exclude from logging, grouped by logging level.                 | `None`         |
+| Parameter           | Type                          | Description                                                                                 | Default Value  |
+|---------------------|-------------------------------|---------------------------------------------------------------------------------------------|----------------|
+| `logging_level`     | `str` or `int`                | The logging level to apply (e.g., `'DEBUG'`, `'INFO'`, `logging.DEBUG`, etc.).              | `logging.INFO` |
+| `included_modules`  | `dict[int, str \| list[str]]` | Modules to include in logging, grouped by logging level. Wildcards are supported.           | `None`         |
+| `excluded_modules`  | `dict[int, str \| list[str]]` | Modules to exclude from logging, grouped by logging level. Wildcards are supported.         | `None`         |
+| `included_messages` | `dict[int, str \| list[str]]` | Specific messages to include in logging, grouped by logging level. Wildcards are supported. | `None`         |
+| `excluded_messages` | `dict[int, str \| list[str]]` | Specific messages to exclude from logging, grouped by logging level.                        | `None`         |
 
 ##### Example Usage
 
