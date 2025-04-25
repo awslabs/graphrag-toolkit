@@ -61,7 +61,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
         MATCH (l:`__Statement__`)-[:`__MENTIONED_IN__`]->(c:`__Chunk__`)-[:`__EXTRACTED_FROM__`]->(s:`__Source__`)
         OPTIONAL MATCH (f:`__Fact__`)-[:`__SUPPORTS__`]->(l:`__Statement__`)
         WITH {{ sourceId: {self.graph_store.node_id("s.sourceId")}, metadata: s{{.*}}}} AS source,
-            t,
+            t, l, c,
             {{ chunkId: {self.graph_store.node_id("c.chunkId")}, value: NULL }} AS cc, 
             {{ statementId: {self.graph_store.node_id("l.statementId")}, statement: l.value, facts: collect(distinct f.value), details: l.details, chunkId: {self.graph_store.node_id("c.chunkId")}, score: count(l) }} as ll
         WITH source, 
@@ -76,7 +76,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
             }} as topic
         RETURN {{
             score: sum(size(topic.statements)/size(topic.chunks)), 
-            source: source,
+            source: head(collect(source)),
             topics: collect(distinct topic)
         }} as result ORDER BY result.score DESC LIMIT $limit'''
 
