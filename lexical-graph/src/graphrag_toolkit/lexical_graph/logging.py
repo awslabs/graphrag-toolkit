@@ -3,13 +3,10 @@
 
 import logging
 import logging.config
-from typing import List, Dict, Optional, TypeAlias, Union
+import warnings
+from typing import List, Dict, Optional, TypeAlias, Union, cast
 
 LoggingLevel: TypeAlias = int
-
-EXCLUDED_WARNINGS = [
-    'Removing unpickleable private attribute'
-]
 
 class CompactFormatter(logging.Formatter):
     def format(self, record:logging.LogRecord) -> str:
@@ -72,7 +69,7 @@ class ModuleFilter(logging.Filter):
 
         return True
 
-LOGGING = {
+BASE_LOGGING_CONFIG = {
     'version': 1,
     'disable_existing_loggers': False,
     'filters' : {
@@ -80,14 +77,15 @@ LOGGING = {
             '()': ModuleFilter,
             'included_modules': {
                 logging.INFO: '*',
+                logging.DEBUG: ['graphrag_toolkit'],
             },
             'excluded_modules': {
                 logging.INFO: ['opensearch', 'boto'],
                 logging.DEBUG: ['opensearch', 'boto'],
             },
             'excluded_messages': {
-                logging.DEBUG: EXCLUDED_WARNINGS,
-            }            
+                logging.DEBUG: ['Removing unpickleable private attribute'],
+            }
         }
     },
     'formatters': {
@@ -105,21 +103,46 @@ LOGGING = {
             'formatter': 'default'
         }
     },
-    'loggers': {'': {'handlers': ['stdout'], 'level': 'INFO'}},
+    'loggers': {'': {'handlers': ['stdout'], 'level': logging.INFO}},
 }
 
-def set_logging_config(logging_level:str, 
-                       debug_include_modules:Optional[List[str]]=['graphrag_toolkit'],
-                       debug_exclude_modules:Optional[List[str]]=None):
-    LOGGING['loggers']['']['level'] = logging_level.upper()
-    
-    if debug_include_modules is not None:
-            debug_include_modules = debug_include_modules if isinstance(debug_include_modules, list) else [debug_include_modules]
-            LOGGING['filters']['moduleFilter']['include_modules'][logging.DEBUG] = debug_include_modules
-            
-    if debug_exclude_modules is not None:
-            debug_exclude_modules = debug_exclude_modules if isinstance(debug_exclude_modules, list) else [debug_exclude_modules]
-            LOGGING['filters']['moduleFilter']['exclude_modules'][logging.DEBUG] = debug_exclude_modules
-    
-    logging.config.dictConfig(LOGGING)
+def set_logging_config(
+    logging_level:Union[str, LoggingLevel],
+    debug_include_modules:Optional[Union[str, List[str]]]=None,
+    debug_exclude_modules:Optional[Union[str, List[str]]]=None
+) -> None:
+    set_advanced_logging_config(
+        logging_level,
+        included_modules={logging.DEBUG: debug_include_modules} if debug_include_modules is not None else None,
+        excluded_modules={logging.DEBUG: debug_exclude_modules} if debug_exclude_modules is not None else None,
+    )
+
+def set_advanced_logging_config(
+    logging_level:str | LoggingLevel,
+    included_modules:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+    excluded_modules:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+    included_messages:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+    excluded_messages:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+) -> None:
+    if not _is_valid_logging_level(logging_level):
+        warnings.warn(f'Unknown logging level {logging_level!r} provided.', UserWarning)
+    if isinstance(logging_level, int):
+        logging_level = logging.getLevelName(logging_level)
+
+    config = BASE_LOGGING_CONFIG.copy()
+    config['loggers']['']['level'] = logging_level.upper()
+    config['filters']['moduleFilter']['included_modules'].update(included_modules or dict())
+    config['filters']['moduleFilter']['excluded_modules'].update(excluded_modules or dict())
+    config['filters']['moduleFilter']['included_messages'].update(included_messages or dict())
+    config['filters']['moduleFilter']['excluded_messages'].update(excluded_messages or dict())
+    logging.config.dictConfig(config)
+
+def _is_valid_logging_level(level: Union[str, LoggingLevel]) -> bool:
+    if isinstance(level, int):
+        return level in cast(dict[LoggingLevel, str], logging._levelToName)
+    elif isinstance(level, str):
+        return level.upper() in cast(dict[str, LoggingLevel], logging._nameToLevel)
+    return False
+
+
 
