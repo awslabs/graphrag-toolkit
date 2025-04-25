@@ -143,10 +143,7 @@ def set_advanced_logging_config(
 
 def _is_valid_logging_level(level: Union[str, LoggingLevel]) -> bool:
     if isinstance(level, int):
-        return level in cast(dict[LoggingLevel, str], logging._levelToName)
+        return level in cast(dict[LoggingLevel, str], logging._levelToName)  # type: ignore
     elif isinstance(level, str):
-        return level.upper() in cast(dict[str, LoggingLevel], logging._nameToLevel)
+        return level.upper() in cast(dict[str, LoggingLevel], logging._nameToLevel)  # type: ignore
     return False
-
-
-
