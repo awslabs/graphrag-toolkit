@@ -47,8 +47,19 @@ class ModuleFilter(logging.Filter):
         }
 
     def filter(self, record: logging.LogRecord) -> bool:
-        record_module = record.name
+        
+        record_message = record.getMessage()
 
+        excluded_messages = self._excluded_messages.get(record.levelno, [])
+        if any(record_message.startswith(x) for x in excluded_messages):
+            return False
+
+        included_messages = self._included_messages.get(record.levelno, [])
+        if any(record_message.startswith(x) for x in included_messages) or '*' in included_messages:
+            return True
+        
+        record_module = record.name
+        
         excluded_modules = self._excluded_modules.get(record.levelno, [])
         if any(record_module.startswith(x) for x in excluded_modules) or '*' in excluded_modules:
             return False
@@ -57,17 +68,7 @@ class ModuleFilter(logging.Filter):
         if any(record_module.startswith(x) for x in included_modules) or '*' in included_modules:
             return True
 
-        record_message = record.getMessage()
-
-        excluded_messages = self._excluded_messages.get(record.levelno, [])
-        if any(record_message.startswith(x) for x in excluded_messages):
-            return False
-
-        included_messages = self._included_messages.get(record.levelno, [])
-        if any(record_message.startswith(x) for x in included_messages):
-            return True
-
-        return True
+        return False
 
 BASE_LOGGING_CONFIG = {
     'version': 1,
@@ -78,13 +79,16 @@ BASE_LOGGING_CONFIG = {
             'included_modules': {
                 logging.INFO: '*',
                 logging.DEBUG: ['graphrag_toolkit'],
+                logging.WARNING: '*'
             },
             'excluded_modules': {
-                logging.INFO: ['opensearch', 'boto'],
-                logging.DEBUG: ['opensearch', 'boto'],
+                logging.INFO: ['opensearch', 'boto', 'urllib'],
+                logging.DEBUG: ['opensearch', 'boto', 'urllib'],
             },
             'excluded_messages': {
-                logging.DEBUG: ['Removing unpickleable private attribute'],
+                logging.WARNING: ['Removing unpickleable private attribute'],
+            },
+            'included_messages': {
             }
         }
     },
