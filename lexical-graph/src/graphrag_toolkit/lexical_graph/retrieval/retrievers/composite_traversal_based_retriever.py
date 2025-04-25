@@ -5,7 +5,8 @@ import logging
 import math
 import concurrent.futures
 from dataclasses import dataclass
-from typing import List, Type, Optional, Union
+from itertools import repeat
+from typing import List, Type, Optional, Union, Iterator, cast
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
@@ -14,11 +15,9 @@ from graphrag_toolkit.lexical_graph.retrieval.utils.query_decomposition import Q
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.entity_context_search import EntityContextSearch
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_based_search import ChunkBasedSearch
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.keyword_entity_search import KeywordEntitySearch
-from graphrag_toolkit.lexical_graph.retrieval.processors import *
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection, SearchResult, ScoredEntity, Entity
 
-from llama_index.core.schema import QueryBundle
-from llama_index.core.async_utils import run_async_tasks
+from llama_index.core.schema import QueryBundle, NodeWithScore
 
 logger = logging.getLogger(__name__)
 
@@ -57,7 +56,7 @@ class CompositeTraversalBasedRetriever(TraversalBasedBaseRetriever):
     def get_start_node_ids(self, query_bundle: QueryBundle) -> List[str]:
         return []
     
-    async def _get_search_results_for_query(self, query_bundle: QueryBundle) -> SearchResultCollection:
+    def _get_search_results_for_query(self, query_bundle: QueryBundle) -> SearchResultCollection:
 
         def weighted_arg(v, weight, factor):
             multiplier = min(1, weight * factor)
@@ -111,17 +110,13 @@ class CompositeTraversalBasedRetriever(TraversalBasedBaseRetriever):
         search_results = []
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.args.num_workers) as executor:
-            
-            futures = [
-                executor.submit(r.aretrieve, query_bundle)
-                for r in retrievers
-            ]
-            
-            executor.shutdown()
-
-            for future in futures:
-                for scored_node in await future.result():
-                    search_results.append(SearchResult.model_validate_json(scored_node.node.text))
+            scored_node_batches: Iterator[List[NodeWithScore]] = executor.map(
+                lambda r, query: r.retrieve(query),
+                retrievers,
+                repeat(query_bundle)
+            )
+            scored_nodes = sum(scored_node_batches, start=cast(List[NodeWithScore], []))
+            search_results = [SearchResult.model_validate_json(scored_node.node.text) for scored_node in scored_nodes]
         
         return SearchResultCollection(results=search_results, entities=entities)
             
@@ -135,12 +130,8 @@ class CompositeTraversalBasedRetriever(TraversalBasedBaseRetriever):
             else [query_bundle]
         )
 
-        tasks = [
-            self._get_search_results_for_query(subquery) 
-            for subquery in subqueries
-        ]
-            
-        task_results:List[SearchResultCollection] = run_async_tasks(tasks)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(subqueries)) as p:
+            task_results = list(p.map(self._get_search_results_for_query, subqueries))
 
         for task_result in task_results:
             for search_result in task_result.results:
