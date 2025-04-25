@@ -102,30 +102,63 @@ The `cache` directory can grow very large, particularly if you are caching extra
 
 ### Logging configuration
 
-The graphrag_toolkit's `set_logging_config` method allows you to set the [logging level](https://docs.python.org/3/library/logging.html#logging-levels), and apply filters to `DEBUG` log lines. Besides the logging level, you can supply an array of prefixes to include when outputting debug information, and an array of prefixes to exclude.
+The `graphrag_toolkit` provides two methods for configuring logging in your application. These methods allow you to set logging levels, apply filters to include or exclude specific modules or messages, and customize logging behavior:
 
-The following example sets the logging level to `DEBUG`, but also applies a filter that specifies that only messages from the storage module are to be emitted:
+- `set_logging_config`
+- `set_advanced_logging_config`
 
-```python
-from graphrag_toolkit.lexical_graph import set_logging_config
+#### set_logging_config
 
-set_logging_config(
-  'DEBUG', 
-  ['graphrag_toolkit.lexical_graph.storage']
-)
-```
-
-The following example sets the logging level to `DEBUG`, together with a filter that specifies that only messages from the storage module are to be emitted, and another filter that excludes messages from the graph store factory within the storage module:
+The `set_logging_config` method allows you to configure logging with a basic set of options, such as logging level and module filters. Wildcards are supported for module names, and you can pass either a single string or a list of strings for included or excluded modules. For example:
 
 ```python
 from graphrag_toolkit.lexical_graph import set_logging_config
 
 set_logging_config(
-  'DEBUG', 
-  ['graphrag_toolkit.lexical_graph.storage'],
-  ['graphrag_toolkit.lexical_graph.storage.graph_store_factory']
+  logging_level='DEBUG',  # or logging.DEBUG
+  debug_include_modules='graphrag_toolkit.lexical_graph.storage',  # single string or list of strings
+  debug_exclude_modules=['opensearch', 'boto']  # single string or list of strings
 )
 ```
+
+#### set_advanced_logging_config
+
+The `set_advanced_logging_config` method provides more advanced logging configuration options, including the ability to specify filters for included and excluded modules or messages based on logging levels. Wildcards are supported only for module names, and you can pass either a single string or a list of strings for modules. This method offers greater flexibility and control over the logging behavior.
+
+##### Parameters
+
+| Parameter           | Type                          | Description                                                                          | Default Value  |
+|---------------------|-------------------------------|--------------------------------------------------------------------------------------|----------------|
+| `logging_level`     | `str` or `int`                | The logging level to apply (e.g., `'DEBUG'`, `'INFO'`, `logging.DEBUG`, etc.).       | `logging.INFO` |
+| `included_modules`  | `dict[int, str \| list[str]]` | Modules to include in logging, grouped by logging level. Wildcards are supported.    | `None`         |
+| `excluded_modules`  | `dict[int, str \| list[str]]` | Modules to exclude from logging, grouped by logging level. Wildcards are supported.  | `None`         |
+| `included_messages` | `dict[int, str \| list[str]]` | Specific messages to include in logging, grouped by logging level.                   | `None`         |
+| `excluded_messages` | `dict[int, str \| list[str]]` | Specific messages to exclude from logging, grouped by logging level.                 | `None`         |
+
+##### Example Usage
+
+Here is an example of how to use `set_advanced_logging_config`:
+
+```python
+import logging
+from graphrag_toolkit.lexical_graph import set_advanced_logging_config
+
+set_advanced_logging_config(
+    logging_level=logging.DEBUG,
+    included_modules={
+        logging.DEBUG: 'graphrag_toolkit',  # single string or list of strings
+        logging.INFO: '*',  # wildcard supported
+    },
+    excluded_modules={
+        logging.DEBUG: ['opensearch', 'boto', 'urllib'],  # single string or list of strings
+        logging.INFO: ['opensearch', 'boto', 'urllib'],  # wildcard supported
+    },
+    excluded_messages={
+        logging.WARNING: 'Removing unpickleable private attribute',  # single string or list of strings
+    }
+)
+```
+
 ### AWS profile configuration
 
 You can explicitly configure the AWS CLI profile and region to use when initializing Bedrock clients or other AWS service clients in `GraphRAGConfig`. This ensures compatibility across local development, EC2/ECS environments, or federated environments such as AWS SSO.
