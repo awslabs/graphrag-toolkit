@@ -122,7 +122,7 @@ def set_logging_config(
     )
 
 def set_advanced_logging_config(
-    logging_level:str | LoggingLevel,
+    logging_level:Union[str, LoggingLevel],
     included_modules:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
     excluded_modules:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
     included_messages:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
