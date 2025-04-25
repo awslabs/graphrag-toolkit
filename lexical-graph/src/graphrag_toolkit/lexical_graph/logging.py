@@ -3,7 +3,9 @@
 
 import logging
 import logging.config
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, TypeAlias, Union
+
+LoggingLevel: TypeAlias = int
 
 EXCLUDED_WARNINGS = [
     'Removing unpickleable private attribute'
@@ -23,40 +25,48 @@ class CustomFormatter(logging.Formatter):
         return result
 
 class ModuleFilter(logging.Filter):
-    def __init__(self, info:Dict[str, List[str]]={}, debug:Dict[str, List[str]]={}):
-        logging.Filter.__init__(self)
-        self.info_include_modules = info.get('include_modules', [])
-        self.info_exclude_modules = info.get('exclude_modules', [])
-        self.debug_include_modules = debug.get('include_modules', [])
-        self.debug_exclude_modules = debug.get('exclude_modules', [])
-        
-    def filter(self, record):
-        if record.levelno == logging.INFO:
-            name = record.name
-            if any(name.startswith(x) for x in self.info_exclude_modules):
-                return False
-            if any(name.startswith(x) for x in self.info_include_modules):
-                return True
-            if '*' in self.info_exclude_modules:
-                return False
-            if '*' in self.info_include_modules:
-                return True
-            return record.name.startswith('graphrag_toolkit')
-        elif record.levelno == logging.DEBUG:
-            name = record.name
-            if any(name.startswith(x) for x in self.debug_exclude_modules):
-                return False
-            if any(name.startswith(x) for x in self.debug_include_modules):
-                return True
-            if '*' in self.debug_exclude_modules:
-                return False
-            if '*' in self.debug_include_modules:
-                return True
+    def __init__(
+        self,
+        included_modules:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+        excluded_modules:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+        included_messages:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+        excluded_messages:Optional[Dict[LoggingLevel, Union[str, List[str]]]]=None,
+    ) -> None:
+        super().__init__()
+        self._included_modules: dict[LoggingLevel, list[str]] = {
+            l: v if isinstance(v, list) else [v] for l, v in (included_modules or {}).items()
+        }
+        self._excluded_modules: dict[LoggingLevel, list[str]] = {
+            l: v if isinstance(v, list) else [v] for l, v in (excluded_modules or {}).items()
+        }
+        self._included_messages: dict[LoggingLevel, list[str]] = {
+            l: v if isinstance(v, list) else [v] for l, v in (included_messages or {}).items()
+        }
+        self._excluded_messages: dict[LoggingLevel, list[str]] = {
+            l: v if isinstance(v, list) else [v] for l, v in (excluded_messages or {}).items()
+        }
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        record_module = record.name
+
+        excluded_modules = self._excluded_modules.get(record.levelno, [])
+        if any(record_module.startswith(x) for x in excluded_modules) or '*' in excluded_modules:
             return False
-        elif record.levelno == logging.WARNING:
-            message = record.getMessage()
-            if any(message.startswith(x) for x in EXCLUDED_WARNINGS):
-                return False
+
+        included_modules = self._included_modules.get(record.levelno, [])
+        if any(record_module.startswith(x) for x in included_modules) or '*' in included_modules:
+            return True
+
+        record_message = record.getMessage()
+
+        excluded_messages = self._excluded_messages.get(record.levelno, [])
+        if any(record_message.startswith(x) for x in excluded_messages):
+            return False
+
+        included_messages = self._included_messages.get(record.levelno, [])
+        if any(record_message.startswith(x) for x in included_messages):
+            return True
+
         return True
 
 LOGGING = {
@@ -65,22 +75,15 @@ LOGGING = {
     'filters' : {
         'moduleFilter' : {
             '()': ModuleFilter,
-            'info': {
-                'include_modules': [
-                    '*'
-                ],
-                'exclude_modules': [ 
-                    'opensearch',
-                    'boto'
-                ]
+            'included_modules': {
+                logging.INFO: '*',
             },
-            'debug': {
-                'include_modules': [ 
-                ],
-                'exclude_modules': [ 
-                    'opensearch',
-                    'boto'
-                ]
+            'excluded_modules': {
+                logging.INFO: ['opensearch', 'boto'],
+                logging.DEBUG: ['opensearch', 'boto'],
+            },
+            'excluded_messages': {
+                logging.DEBUG: EXCLUDED_WARNINGS,
             }            
         }
     },
@@ -109,11 +112,11 @@ def set_logging_config(logging_level:str,
     
     if debug_include_modules is not None:
             debug_include_modules = debug_include_modules if isinstance(debug_include_modules, list) else [debug_include_modules]
-            LOGGING['filters']['moduleFilter']['debug']['include_modules'] = debug_include_modules
+            LOGGING['filters']['moduleFilter']['include_modules'][logging.DEBUG] = debug_include_modules
             
     if debug_exclude_modules is not None:
             debug_exclude_modules = debug_exclude_modules if isinstance(debug_exclude_modules, list) else [debug_exclude_modules]
-            LOGGING['filters']['moduleFilter']['debug']['exclude_modules'] = debug_exclude_modules
+            LOGGING['filters']['moduleFilter']['exclude_modules'][logging.DEBUG] = debug_exclude_modules
     
     logging.config.dictConfig(LOGGING)
 
