@@ -1,6 +1,6 @@
 # Using AWS Profiles in `GraphRAGConfig`
 
-This guide explains how to configure and use **AWS named profiles** within the GraphRAG Toolkit by leveraging the `GraphRAGConfig` class.
+This guide explains how to configure and use **AWS named profiles** in the lexical-graph by leveraging the `GraphRAGConfig` class.
 
 ## 🔍 What is an AWS Profile?
 

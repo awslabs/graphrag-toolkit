@@ -11,6 +11,7 @@
     - [Batch writes](#batch-writes)
     - [Caching Amazon Bedrock LLM responses](#caching-amazon-bedrock-llm-responses)
   - [Logging configuration](#logging-configuration)
+  - [AWS profile configuration](#aws-profile-configuration)
 
 ### Overview
 
@@ -125,7 +126,7 @@ set_logging_config(
   ['graphrag_toolkit.lexical_graph.storage.graph_store_factory']
 )
 ```
-#### AWS profile configuration
+### AWS profile configuration
 
 You can explicitly configure the AWS CLI profile and region to use when initializing Bedrock clients or other AWS service clients in `GraphRAGConfig`. This ensures compatibility across local development, EC2/ECS environments, or federated environments such as AWS SSO.
 
@@ -146,3 +147,5 @@ export AWS_REGION=us-east-1
 ```
 
 If no profile or region is set explicitly, the system will fall back to environment variables or use the default AWS CLI configuration.
+
+See [Using AWS Profiles in `GraphRAGConfig`](./aws-profile.md) for more details on configuring and using **AWS named profiles** in the lexical-graph by leveraging the `GraphRAGConfig` class.

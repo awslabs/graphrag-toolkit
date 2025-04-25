@@ -17,13 +17,12 @@ with open(req_path) as f:
 
 setuptools.setup(
     name='graphrag-toolkit-lexical-graph',
-    description="Custom version of AWS GraphRAG Toolkit (lexical graph) for internal testing",
+    description="AWS GraphRAG Toolkit, lexical graph",
     packages=setuptools.find_packages(where="."),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
-        "Operating System :: OS Independent",
-        "Development Status :: 3 - Alpha",
+        "Operating System :: OS Independent"
     ],
     python_requires=">=3.10",
     install_requires=deps,

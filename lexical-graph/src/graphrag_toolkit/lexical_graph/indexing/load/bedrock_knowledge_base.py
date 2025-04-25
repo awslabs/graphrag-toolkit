@@ -114,7 +114,7 @@ class BedrockKnowledgeBaseExport():
 
         key = self._parse_key(source)
 
-        logger.debug(f'Loading Amazon Bedrock Knowledge Base underyling source document [source: {source}, bucket: {self.bucket_name}, key: {key}, region: {self.region}]')
+        logger.debug(f'Loading Amazon Bedrock Knowledge Base underlying source document [source: {source}, bucket: {self.bucket_name}, key: {key}, region: {self.region}]')
             
         object_metadata = self.s3_client.head_object(Bucket=self.bucket_name, Key=key)
         content_type = object_metadata.get('ContentType', None)

@@ -47,12 +47,11 @@ The lexical-graph requires Python 3.10 or greater.
 ### Indexing
 
 ```python
-import os
-
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 
+# requires pip install llama-index-readers-web
 from llama_index.readers.web import SimpleWebPageReader
 
 def run_extract_and_build():

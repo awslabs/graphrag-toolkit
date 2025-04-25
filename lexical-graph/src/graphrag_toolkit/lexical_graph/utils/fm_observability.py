@@ -303,7 +303,7 @@ def get_patched_llm_token_counts(
     
 class BedrockEnabledTokenCountingHandler(TokenCountingHandler):
     """Callback handler for counting tokens in LLM and Embedding events.
-    Patched to suport Bedrock Anthropic models.
+    Patched to support Bedrock Anthropic models.
 
     Args:
         tokenizer:
