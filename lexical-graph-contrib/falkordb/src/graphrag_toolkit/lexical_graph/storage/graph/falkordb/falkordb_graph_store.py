@@ -179,16 +179,7 @@ class FalkorDBDatabaseClient(GraphStore):
 
         end = time.time()
 
-        results = None
-
-        if response.header:
-            key = response.header[0][1]
-            results = [
-                {key: json.loads(json.dumps(n[0]))}
-                for n in response.result_set
-            ]
-        else:
-            results = response.result_set
+        results = [{h[1]: d[i] for i, h in enumerate(response.header)} for d in response.result_set]
 
         if logger.isEnabledFor(logging.DEBUG):
             response_log_entry_parameters = self.log_formatting.format_log_entry(
