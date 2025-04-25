@@ -11,7 +11,7 @@ EXCLUDED_WARNINGS = [
     'Removing unpickleable private attribute'
 ]
 
-class CustomFormatter(logging.Formatter):
+class CompactFormatter(logging.Formatter):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
     def format(self, record):
@@ -89,7 +89,7 @@ LOGGING = {
     },
     'formatters': {
         'default': {
-            '()': CustomFormatter,
+            '()': CompactFormatter,
             'fmt': '%(asctime)s:%(levelname)s:%(name)-15s:%(message)s',
             'datefmt': '%Y-%m-%d %H:%M:%S'
         }
