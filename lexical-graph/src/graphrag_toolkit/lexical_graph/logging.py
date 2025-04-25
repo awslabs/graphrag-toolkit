@@ -12,17 +12,20 @@ EXCLUDED_WARNINGS = [
 ]
 
 class CompactFormatter(logging.Formatter):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-    def format(self, record):
-        saved_name = record.name  
-        parts = saved_name.split('.')
-        record.name = parts[-1]
-        if len(parts) > 1:
-            record.name = f"{'.'.join(p[0] for p in parts[0:-1])}.{parts[-1]}"
+    def format(self, record:logging.LogRecord) -> str:
+        original_record_name = record.name
+        record.name = self._shorten_record_name(record.name)
         result = super().format(record)
-        record.name = saved_name
+        record.name = original_record_name
         return result
+
+    @staticmethod
+    def _shorten_record_name(name:str) -> str:
+        if '.' not in name:
+            return name
+
+        parts = name.split('.')
+        return f"{'.'.join(p[0] for p in parts[0:-1])}.{parts[-1]}"
 
 class ModuleFilter(logging.Filter):
     def __init__(
