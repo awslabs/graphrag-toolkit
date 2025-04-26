@@ -1,12 +1,12 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-
+import concurrent.futures
 import logging
 from collections import defaultdict
 from typing import List, Optional, Any, Union, Type
 
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
-from llama_index.core.async_utils import run_async_tasks
+from numpy.ma.core import repeat
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
@@ -80,8 +80,12 @@ class SemanticGuidedRetriever(SemanticGuidedBaseRetriever):
     def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
         try:
             # 1. Get initial results in parallel
-            tasks = [r.aretrieve(query_bundle) for r in self.initial_retrievers]
-            initial_results = run_async_tasks(tasks)
+            with concurrent.futures.ThreadPoolExecutor(max_workers=len(self.initial_retrievers)) as p:
+                initial_results = list(p.map(
+                    lambda r, query: r.retrieve(query), 
+                    self.initial_retrievers, 
+                    repeat(query_bundle)
+                ))
             
             logger.debug(f'initial_results: {initial_results}')
 
