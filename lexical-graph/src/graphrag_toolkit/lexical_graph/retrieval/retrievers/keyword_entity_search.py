@@ -1,9 +1,10 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-
+import concurrent.futures
 import logging
 import asyncio
-from typing import List
+from itertools import repeat
+from typing import List, Iterator, cast
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -15,7 +16,6 @@ from graphrag_toolkit.lexical_graph.retrieval.prompts import SIMPLE_EXTRACT_KEYW
 from llama_index.core.base.base_retriever import BaseRetriever
 from llama_index.core.prompts import PromptTemplate
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
-from llama_index.core.async_utils import run_async_tasks
 
 logger = logging.getLogger(__name__)
 
@@ -127,54 +127,47 @@ class KeywordEntitySearch(BaseRetriever):
 
         return scored_entities
         
-    async def _get_entities_for_keyword(self, keyword:str) -> List[ScoredEntity]:
+    def _get_entities_for_keyword(self, keyword:str) -> List[ScoredEntity]:
+        parts = keyword.split('|')
 
-        def blocking_query():
+        if len(parts) > 1:
 
-            parts = keyword.split('|')
+            cypher = f"""
+            // get entities for keywords
+            MATCH (entity:`__Entity__`)-[r:`__SUBJECT__`|`__OBJECT__`]->(:`__Fact__`)
+            WHERE entity.search_str = $keyword and entity.class STARTS WITH $classification
+            WITH entity, count(r) AS score ORDER BY score DESC
+            RETURN {{
+                {node_result('entity', self.graph_store.node_id('entity.entityId'), properties=['value', 'class'])},
+                score: score
+            }} AS result"""
 
-            if len(parts) > 1:
+            params = {
+                'keyword': search_string_from(parts[0]),
+                'classification': parts[1]
+            }
+        else:
+            cypher = f"""
+            // get entities for keywords
+            MATCH (entity:`__Entity__`)-[r:`__SUBJECT__`|`__OBJECT__`]->(:`__Fact__`)
+            WHERE entity.search_str = $keyword
+            WITH entity, count(r) AS score ORDER BY score DESC
+            RETURN {{
+                {node_result('entity', self.graph_store.node_id('entity.entityId'), properties=['value', 'class'])},
+                score: score
+            }} AS result"""
 
-                cypher = f"""
-                // get entities for keywords
-                MATCH (entity:`__Entity__`)-[r:`__SUBJECT__`|`__OBJECT__`]->(:`__Fact__`)
-                WHERE entity.search_str = $keyword and entity.class STARTS WITH $classification
-                WITH entity, count(r) AS score ORDER BY score DESC
-                RETURN {{
-                    {node_result('entity', self.graph_store.node_id('entity.entityId'), properties=['value', 'class'])},
-                    score: score
-                }} AS result"""
+            params = {
+                'keyword': search_string_from(parts[0])
+            }
 
-                params = {
-                    'keyword': search_string_from(parts[0]),
-                    'classification': parts[1]
-                }
-            else:
-                cypher = f"""
-                // get entities for keywords
-                MATCH (entity:`__Entity__`)-[r:`__SUBJECT__`|`__OBJECT__`]->(:`__Fact__`)
-                WHERE entity.search_str = $keyword
-                WITH entity, count(r) AS score ORDER BY score DESC
-                RETURN {{
-                    {node_result('entity', self.graph_store.node_id('entity.entityId'), properties=['value', 'class'])},
-                    score: score
-                }} AS result"""
+        results = self.graph_store.execute_query(cypher, params)
 
-                params = {
-                    'keyword': search_string_from(parts[0])
-                }
-
-            results = self.graph_store.execute_query(cypher, params)
-
-            return [
-                ScoredEntity.model_validate(result['result'])
-                for result in results
-                if result['result']['score'] != 0
-            ]
-
-        coro = asyncio.to_thread(blocking_query)
-        
-        return await coro
+        return [
+            ScoredEntity.model_validate(result['result'])
+            for result in results
+            if result['result']['score'] != 0
+        ]
                         
     def _get_entities_for_keywords(self, keywords:List[str])  -> List[ScoredEntity]:
         
@@ -184,17 +177,17 @@ class KeywordEntitySearch(BaseRetriever):
             if keyword
         ]
 
-        task_results:List[List[ScoredEntity]] = run_async_tasks(tasks)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(keywords)) as p:
+            scored_entity_batches:Iterator[List[ScoredEntity]] = p.map(self._get_entities_for_keyword, keywords)
+            scored_entities = sum(scored_entity_batches, start=cast(List[ScoredEntity], []))
 
         scored_entity_mappings = {}
-
-        for result in task_results:
-            for scored_entity in result:
-                entity_id = scored_entity.entity.entityId
-                if entity_id not in scored_entity_mappings:
-                    scored_entity_mappings[entity_id] = scored_entity
-                else:
-                    scored_entity_mappings[entity_id].score += scored_entity.score
+        for scored_entity in scored_entities:
+            entity_id = scored_entity.entity.entityId
+            if entity_id not in scored_entity_mappings:
+                scored_entity_mappings[entity_id] = scored_entity
+            else:
+                scored_entity_mappings[entity_id].score += scored_entity.score
 
         scored_entities = list(scored_entity_mappings.values())
 
@@ -236,29 +229,21 @@ class KeywordEntitySearch(BaseRetriever):
         return enriched_keywords
 
     def _get_keywords(self, query, max_keywords):
-        
-        def add_keyword(k):
-            if k not in keywords:
-                keywords.append(k)
-        
-        keywords = [] 
 
         num_keywords = max(int(max_keywords/2), 1)
 
-        tasks = [
-            self._get_simple_keywords(query, num_keywords),
-            self._get_enriched_keywords(query, num_keywords),
-        ]
+        with concurrent.futures.ThreadPoolExecutor() as p:
+            keyword_batches: Iterator[List[str]] = p.map(
+                lambda f, *args: f(*args),
+                (self._get_simple_keywords, self._get_enriched_keywords),
+                repeat(query, num_keywords)
+            )
+            keywords = sum(keyword_batches, start=cast(List[str], []))
+            unique_keywords = list(set(keywords))
 
-        task_results = run_async_tasks(tasks)
-
-        for result in task_results:
-            for keyword in result:
-                add_keyword(keyword)
-
-        logger.debug(f'Keywords: {keywords}')
+        logger.debug(f'Keywords: {unique_keywords}')
         
-        return keywords
+        return unique_keywords
 
     def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
         
