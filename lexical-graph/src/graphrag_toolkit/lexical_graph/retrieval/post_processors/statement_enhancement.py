@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import asyncio
+import concurrent.futures
 import re
 import logging
 
@@ -11,8 +11,7 @@ from typing import List, Optional
 from llama_index.core.postprocessor.types import BaseNodePostprocessor
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
 from llama_index.core.prompts import ChatPromptTemplate
-from llama_index.core.llms import LLM, ChatMessage, MessageRole
-from llama_index.core.async_utils import run_async_tasks
+from llama_index.core.llms import ChatMessage, MessageRole
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
@@ -50,17 +49,14 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
             ChatMessage(role=MessageRole.USER, content=user_prompt),
         ])
 
-    async def enhance_statement(self, node: NodeWithScore) -> NodeWithScore:
+    def enhance_statement(self, node: NodeWithScore) -> NodeWithScore:
         """Enhance a single statement using its chunk context."""
         try:
-            def blocking_llm_call():
-                return self.llm.predict(
-                    prompt=self.enhance_template,
-                    statement=node.node.metadata['statement']['value'],
-                    context=node.node.metadata['chunk']['value'],
-                )
-            
-            response = await asyncio.to_thread(blocking_llm_call)
+            response = self.llm.predict(
+                prompt=self.enhance_template,
+                statement=node.node.metadata['statement']['value'],
+                context=node.node.metadata['chunk']['value'],
+            )
             pattern = r'<modified_statement>(.*?)</modified_statement>'
             match = re.search(pattern, response, re.DOTALL)
             
@@ -89,14 +85,6 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         query_bundle: Optional[QueryBundle] = None,
     ) -> List[NodeWithScore]:
         """Process all nodes with concurrent enhancement."""
-        semaphore = asyncio.Semaphore(self.max_concurrent)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_concurrent) as executor:
+            return list(executor.map(self.enhance_statement, nodes))
         
-        async def enhance_with_semaphore(node: NodeWithScore) -> NodeWithScore:
-            async with semaphore:
-                return await self.enhance_statement(node)
-
-        enhanced_nodes = run_async_tasks([
-            enhance_with_semaphore(node) for node in nodes
-        ])
-        
-        return enhanced_nodes
