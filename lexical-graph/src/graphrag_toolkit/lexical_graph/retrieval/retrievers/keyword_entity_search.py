@@ -201,30 +201,23 @@ class KeywordEntitySearch(BaseRetriever):
         return scored_entities
 
         
-    async def _extract_keywords(self, s:str, num_keywords:int, prompt_template:str):
-
-        def blocking_llm_call():
-            return self.llm.predict(
-                PromptTemplate(template=prompt_template),
-                text=s,
-                max_keywords=num_keywords
-            )
-        
-        coro = asyncio.to_thread(blocking_llm_call)
-        
-        results = await coro
+    def _extract_keywords(self, s:str, num_keywords:int, prompt_template:str):
+        results = self.llm.predict(
+            PromptTemplate(template=prompt_template),
+            text=s,
+            max_keywords=num_keywords
+        )
 
         keywords = results.split('^')
-
         return keywords
 
-    async def _get_simple_keywords(self, query, num_keywords):
-        simple_keywords = await self._extract_keywords(query, num_keywords, self.simple_extract_keywords_template)
+    def _get_simple_keywords(self, query, num_keywords):
+        simple_keywords = self._extract_keywords(query, num_keywords, self.simple_extract_keywords_template)
         logger.debug(f'Simple keywords: {simple_keywords}')
         return simple_keywords
     
-    async def _get_enriched_keywords(self, query, num_keywords):
-        enriched_keywords = await self._extract_keywords(query, num_keywords, self.extended_extract_keywords_template)
+    def _get_enriched_keywords(self, query, num_keywords):
+        enriched_keywords = self._extract_keywords(query, num_keywords, self.extended_extract_keywords_template)
         logger.debug(f'Enriched keywords: {enriched_keywords}')
         return enriched_keywords
 
@@ -236,7 +229,8 @@ class KeywordEntitySearch(BaseRetriever):
             keyword_batches: Iterator[List[str]] = p.map(
                 lambda f, *args: f(*args),
                 (self._get_simple_keywords, self._get_enriched_keywords),
-                repeat(query, num_keywords)
+                repeat(query),
+                repeat(num_keywords)
             )
             keywords = sum(keyword_batches, start=cast(List[str], []))
             unique_keywords = list(set(keywords))
