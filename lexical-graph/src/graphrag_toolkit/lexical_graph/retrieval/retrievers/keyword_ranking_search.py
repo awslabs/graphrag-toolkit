@@ -1,9 +1,10 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import asyncio
+import concurrent.futures
 import logging
-from typing import List, Dict, Set, Any, Optional, Tuple
+from functools import reduce
+from typing import List, Dict, Set, Any, Optional, Tuple, Iterator
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
@@ -13,10 +14,8 @@ from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_t
 from graphrag_toolkit.lexical_graph.retrieval.prompts import EXTRACT_KEYWORDS_PROMPT, EXTRACT_SYNONYMS_PROMPT
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
 
-from llama_index.core.base.base_retriever import BaseRetriever
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
 from llama_index.core.prompts import PromptTemplate
-from llama_index.core.async_utils import run_async_tasks
 
 logger = logging.getLogger(__name__)
 
@@ -46,28 +45,23 @@ class KeywordRankingSearch(SemanticGuidedBaseRetriever):
 
     def get_keywords(self, query_bundle: QueryBundle) -> Set[str]:
         """Get keywords and synonyms for the query."""
+        def extract(prompt):
+            response = self.llm.predict(
+                PromptTemplate(template=prompt),
+                text=query_bundle.query_str,
+                max_keywords=self.max_keywords
+            )
+            return {kw.strip().lower() for kw in response.strip().split('^')}
+
         try:
-            async def extract(prompt):
-                result = await asyncio.to_thread(
-                    self.llm.predict,
-                    PromptTemplate(template=prompt),
-                    text=query_bundle.query_str,
-                    max_keywords=self.max_keywords
+            with concurrent.futures.ThreadPoolExecutor() as p:
+                keyword_batches: Iterator[Set[str]] = p.map(
+                    extract, 
+                    (self.keywords_prompt, self.synonyms_prompt)
                 )
-                return {kw.strip().lower() for kw in result.strip().split('^')}
-
-            keyword_results = run_async_tasks([
-                extract(self.keywords_prompt),
-                extract(self.synonyms_prompt)
-            ])
-
-            all_keywords = set()
-            for result in keyword_results:
-                all_keywords.update(result)
-
-            logger.debug(f"Extracted keywords: {all_keywords}")
-            return all_keywords
-            
+                unique_keywords = reduce(lambda x, y: x.union(y), keyword_batches)
+                logger.debug(f"Extracted keywords: {unique_keywords}")
+                return unique_keywords
         except Exception as e:
             logger.error(f"Error extracting keywords: {e}")
             return set()
