@@ -1,0 +1,27 @@
+generate-response-qa: '''
+            ### Task: Question Answering
+            Answer the question using your existing knowledge base or the external information provided in the graph context (if provided). 
+
+            You are allowed to perform chain-of-thought or thinking but the final answers shoud be in <answer> tags with the following instructions:
+            - Provide only direct entity answers that specifically address the question
+            - Each answer should be a distinct, well-defined entity (person, place, organization, concept, etc.)
+            - List multiple answers if appropriate, with each answer on a separate line
+            - Do not include explanations, reasoning, context, or commentary of any kind
+            - Do not preface or conclude your answer with statements like "Based on my knowledge..." or "The answers are..."
+            - **If graph context is provided, prioritize answers that can be derived from the context over general knowledge**
+            - Format your response exactly as follows, where answers are separated by newlines:
+
+            <answers>
+            answer1
+            answer2
+            ...
+            </answers>
+
+            If the answer cannot be directly determined by the provided graph context, use your own knowldge.
+            Try to always output an answer. 
+
+            Now, please answer the following:
+
+            Question: {question}
+            Graph Context: {graph_context}
+        '''

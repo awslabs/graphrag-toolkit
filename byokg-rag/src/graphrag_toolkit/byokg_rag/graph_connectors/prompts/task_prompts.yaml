@@ -1,0 +1,114 @@
+entity-extraction: '''
+    ### Task: Entity Extraction
+    Extract all topic entities from the question (people, places, organizations, concepts, etc.) that will need to be matched in the graph database.
+    - Include all entities that are directly mentioned and relevant to answering the question
+    - Use exact names as they appear in the question
+    - If an entity reference is vague or ambiguous, include both the mention from the question AND potential aliases or full names that might match in the database
+    - For organizations or entities with common abbreviations, include both full names and abbreviations when relevant
+    - **If graph context is provided, thoroughly analyze it to extract helpful intermediate entities, candidate answers, or any missing information that could connect question entities to potential answers**
+    - Format your response as follows:
+
+    <entities>
+    entity1
+    entity1_possible_alias
+    entity2
+    entity3
+    ...
+    </entities>
+
+    If no topic entities are present in the question, return empty tags:
+    <entities>
+    </entities>
+    '''
+
+entity-extraction-iterative: '''
+    ### Task: Relevant Entity Extraction & Task Completion
+    Extract all relevant entities from the graph context and question (people, places, organizations, concepts, etc.) that need to be explored next for answering the question.
+    Consider important entities only that are necessary for answering the question. Do not select entities for which we already have all necessary information.
+    - Use exact names as they appear in the question or context
+    - If an entity reference is vague or ambiguous, include both the mention from the question AND potential aliases or full names that might match in the database
+    - For organizations or entities with common abbreviations, include both full names and abbreviations when relevant
+
+    - Format your response as follows:
+
+    <entities>
+    next_entity1
+    next_entity1_possible_alias
+    next_entity2
+    next_entity3
+    ...
+    </entities>
+
+    The entities should be sorted from the most important to the least important. 
+
+    Task Completion Instructions:
+    If we can answer the question directly based on the provided graph context, respond with:
+    <task-completion>
+    FINISH
+    </task-completion>
+    If the question answering task is not completed, do not include <task-completion> tags.
+    '''
+
+draft-answer-generation: '''
+    ### Task: Question Answering
+    Answer the question using your existing knowledge base or the external information provided in the graph context (if provided). 
+    - Provide only direct entity answers that specifically address the question
+    - Each answer should be a distinct, well-defined entity (person, place, organization, concept, etc.)
+    - List multiple answers if appropriate, with each answer on a separate line
+    - Do not include explanations, reasoning, context, or commentary of any kind
+    - Do not preface or conclude your answer with statements like "Based on my knowledge..." or "The answers are..."
+    - **If graph context is provided, prioritize answers that can be derived from the context over general knowledge**
+    - If you genuinely cannot determine the answer from the provided context or your knowledge base, you may return empty answer tags
+    - Format your response exactly as follows:
+
+    <answers>
+    answer_entity1
+    answer_entity2
+      ...
+    </answers>
+
+    If no clear answer can be determined, provide empty tags:
+    <answers>
+    </answers>
+    '''
+
+path-extraction: '''    
+    ### Task: Relationship Path Identification
+    Identify all relevant relationship paths that connect the entities and can be used to answer the question.
+    - Only use relationships that are explicitly defined in the provided schema
+    - Paths may be single relationships or combinations of multiple relationships 
+    - Generate at least 3 different meaningful relationship paths when possible, focusing on diversity rather than redundancy
+    - **If graph context is provided, carefully analyze it to identify additional relevant relationship paths that might lead to the answer, especially focusing on paths that connect question entities to entities mentioned in the context**
+    - **Use the context to determine which paths are most likely to yield correct answers based on the information provided**
+    - Format your response as follows:
+
+    <paths>
+    relation1
+    relation1 -> relation2
+    relation3
+    ...
+    </paths>
+
+    For multi-step paths, use the "->" delimiter between relationships.
+    If the question does not require following any relationships, return empty tags:
+    <paths>
+    </paths>
+    '''
+
+opencypher: '''
+    ### Task: OpenCypher Query Generation
+    Construct a complete, executable OpenCypher statement that will retrieve the answer from a graph database.
+    - Your query must only use node types, relationship types, and properties defined in the provided schema
+    - Include appropriate MATCH patterns, WHERE clauses, and RETURN statements
+    - Handle any filtering, aggregation, or sorting required by the question
+    - **If graph context is provided, ensure your query incorporates the relevant entities and relationships identified from the context**
+    
+    - Format your response as follows:
+
+    <opencypher>
+    MATCH ...
+    WHERE ...
+    RETURN ...
+    </opencypher>
+
+    '''

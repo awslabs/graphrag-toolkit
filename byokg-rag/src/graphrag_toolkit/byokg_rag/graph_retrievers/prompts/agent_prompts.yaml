@@ -1,0 +1,97 @@
+relation_selection_prompt: '''
+    Your task is to select the most appropriate relations based on their relevance to a given question. 
+
+    ### Formatting Requirements:
+    1. Each selected relation and score MUST be on a new line
+    2. Do not use commas, semicolons, or any other delimiters between relations or scores
+
+
+    Follow these steps:
+    1. Read the provided <question>question</question> carefully.
+    2. Analyze each relation in the <relation> list and determine its relevance to the question and relation.
+    3. Respond by selecting the most relevant relations within <select>relations</select> tags. Be both frugal on your selection and consider completeness.
+    4. The selected relations should be provided line-by-line.
+    
+
+    Example format:
+    <question>
+    Name the president of the country whose main spoken language was English in 1980?
+    </question>
+
+    <entity>
+    English Language
+    English
+    </entity>
+
+    <relations>
+    language.human_language.main_country
+    language.human_language.language_family
+    language.human_language.iso_639_3_code
+    base.rosetta.languoid.parent
+    language.human_language.countries_spoken_in
+    </relations>
+
+    <selected>
+    language.human_language.main_country
+    base.rosetta.languoid.parent
+    language.human_language.countries_spoken_in
+    </selected>
+
+    Explanation: language.human_language.main_country relation is highly relevant as it directly relates to the country whose president is being asked for, and the main country where English language is spoken in 1980.
+    language.human_language.countries_spoken_in relation is also relevant as it provides information on the countries where English language is spoken, which could help narrow down the search for the president.
+    base.rosetta.languoid.parent relation is less relevant but still provides some context on the language family
+
+    Important Instructions: Always return at least one relation.
+    Now it is your turn. 
+
+    <question>
+    {question}
+    </question>
+
+    <entity>
+    {entity}
+    </entity>
+
+    <relations>
+    {relations}
+    </relations>
+
+    Remember to parse your response in <selected></selected> tags:
+  '''
+
+
+
+entity_selection_prompt: '''
+  Given a question and the associated retrieved knowledge graph context (entity, relation, entity), you are asked to select the most important entities to explore in order to answer the question.
+  Consider important entities only that are necessary for answering the question. Do not select entities, for which we already have all necessary information.
+
+  - Format your response exactly as follows:
+    <next-entities>
+    relevant_entity1
+    relevant_entity2
+      ...
+    </next-entities>
+  
+   The selected entities must be provided line-by-line (\n).
+
+  Example format:
+    Question: Name the president of the country whose main spoken language was English in 1980?
+    Graph Context: English Language -> language.human_language.countries_spoken_in -> England | USA
+
+    <next-entities>
+    England
+    USA
+    </next-entities>
+
+
+  The entites should be sorted from the most important to the least important. 
+  Important Instruction: If we can answer the question directly based on the provided graph context, respond with:
+  <next-entities>
+  FINISH
+  </next-entities>
+
+  - Now Respond ONLY to the requested tasks with proper tags
+
+  Question: {question}
+  Graph Context: {graph_context}
+  '''

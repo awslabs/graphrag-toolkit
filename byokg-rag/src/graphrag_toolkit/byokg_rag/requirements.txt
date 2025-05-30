@@ -1,0 +1,11 @@
+pydantic>=2.8.2
+boto3
+xmltodict
+colorama
+pyyaml
+pytest
+faiss-cpu==1.9.0
+thefuzz
+langchain_huggingface
+ipykernel
+torch
