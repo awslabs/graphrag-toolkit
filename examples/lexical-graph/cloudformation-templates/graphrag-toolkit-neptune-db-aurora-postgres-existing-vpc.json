@@ -122,6 +122,11 @@
 			"Description": "ARN of an existing S3 bucket for GraphRAG data (e.g., arn:aws:s3:::my-bucket)",
 			"ConstraintDescription": "Must be a valid S3 bucket ARN"
 		},
+		"GraphRAGPromptS3BucketArn": {
+			"Type": "String",
+			"Description": "ARN of an existing S3 bucket for GraphRAG prompt (e.g., arn:aws:s3:::my-bucket)",
+			"ConstraintDescription": "Must be a valid S3 bucket ARN"
+		},
 		"ExampleNotebooksURL": {
 			"Type": "String",
 			"Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
@@ -657,21 +662,35 @@
 								"s3:ListBucket"
 							],
 							"Resource": [
-								{
-									"Ref": "GraphRAGS3BucketArn"
-								},
-								{
-									"Fn::Join": [
-										"",
-										[
-											{
-												"Ref": "GraphRAGS3BucketArn"
-											},
-											"/*"
-										]
+										{
+											"Ref": "GraphRAGS3BucketArn"
+										},
+										{
+											"Fn::Join": [
+												"",
+												[
+													{
+														"Ref": "GraphRAGS3BucketArn"
+													},
+													"/*"
+												]
+											]
+										},
+										{
+											"Ref": "GraphRAGPromptS3BucketArn"
+										},
+										{
+											"Fn::Join": [
+												"",
+												[
+													{
+														"Ref": "GraphRAGPromptS3BucketArn"
+													},
+													"/*"
+												]
+											]
+										}
 									]
-								}
-							]
 						},
 						{
 							"Sid": "SageMakerNotebookAccess",
@@ -1399,6 +1418,10 @@
 										"sudo -u ec2-user -i <<'EOF'\n",
 										"\n",
 										"sudo pip install packaging==24.2\n",
+										"echo \"export STACK_ID=",
+										{
+											"Ref": "AWS::StackId"
+										},
 										"echo \"export EXTRACTION_MODEL=",
 										{
 											"Fn::Sub": [
@@ -1570,6 +1593,22 @@
 											]
 										},
 										"\" >> ~/.bashrc\n",
+										"echo \"export PROMPT_S3=",
+										{
+											"Fn::Select": [
+												5,
+												{
+													"Fn::Split": [
+														":",
+														{
+															"Ref": "GraphRAGPromptS3BucketArn"
+														}
+													]
+												}
+											]
+										},
+										"\" >> ~/.bashrc\n",
+
 										"\n",
 										"aws s3 cp s3://",
 										{
@@ -1747,19 +1786,60 @@
 										"\" >> .env\n",
 										" echo \"export LOCAL_EXTRACT_S3=",
 										{
-											"Fn::Select": [
-												5,
+										  "Fn::Select": [
+											5,
+											{
+											  "Fn::Split": [
+												":",
 												{
-													"Fn::Split": [
-														":",
-														{
-															"Ref": "GraphRAGS3BucketArn"
-														}
-													]
+												  "Ref": "GraphRAGS3BucketArn"
 												}
-											]
+											  ]
+											}
+										  ]
 										},
 										"\" >> .env\n",
+										" echo \"export PROMPT_S3=",
+										{
+										  "Fn::Select": [
+											5,
+											{
+											  "Fn::Split": [
+												":",
+												{
+												  "Ref": "GraphRAGPromptS3BucketArn"
+												}
+											  ]
+											}
+										  ]
+										},
+										"\" >> .env\n",
+										"  echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> .env\n",
+										"  echo \"export GRAPH_NOTEBOOK_SSL=True\" >> .env\n",
+										"  echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> .env\n",
+										"  echo \"export GRAPH_NOTEBOOK_PORT=",
+										{
+										  "Fn::GetAtt": ["NeptuneDBCluster", "Port"]
+										},
+										"\" >> .env\n",
+										"  echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> .env\n",
+										"  echo \"export GRAPH_NOTEBOOK_HOST=",
+										{
+										  "Fn::GetAtt": ["NeptuneDBCluster", "Endpoint"]
+										},
+										"\" >> .env\n",
+										"  echo \"export AWS_REGION=",
+										{
+										  "Ref": "AWS::Region"
+										},
+										"\" >> .env\n",
+										"  if [ -f \"./run_test_suite.sh\" ]\n",
+										"  then\n",
+										"    echo \"Running test suite\"\n",
+										"    screen -L -m -d sh run_test_suite.sh\n",
+										"  else\n",
+										"    echo \"No test suite\"\n",
+										"  fi\n",
 										"fi\n",
 										"EOF"
 									]
@@ -2094,9 +2174,15 @@
 			}
 		},
 		"GraphRAGS3BucketArn": {
-			"Description": "ARN of the specified GraphRAG S3 bucket",
+			"Description": "ARN of the specified GraphRAG Extract S3 bucket",
 			"Value": {
 				"Ref": "GraphRAGS3BucketArn"
+			}
+		},
+		"GraphRAGPromptS3BucketArn": {
+			"Description": "ARN of the specified GraphRAG Prompt S3 bucket",
+			"Value": {
+				"Ref": "GraphRAGPromptS3BucketArn"
 			}
 		},
 		"VPC": {

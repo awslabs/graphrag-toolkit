@@ -1,0 +1,33 @@
+{
+  "name": "user_prompt",
+  "description": "Prompt for user questions",
+  "defaultVariant": "default",
+  "variants": [
+    {
+      "name": "default",
+      "templateType": "TEXT",
+      "templateConfiguration": {
+        "text": {
+          "text": "<question>\n{query}\n</question>"
+        }
+      },
+      "inferenceConfiguration": {
+        "text": {
+          "maxTokens": 500,
+          "temperature": 0.7,
+          "topP": 0.9
+        }
+      },
+      "metadata": [
+        {
+          "key": "creator",
+          "value": "script"
+        },
+        {
+          "key": "project",
+          "value": "GraphRAG"
+        }
+      ]
+    }
+  ]
+}
