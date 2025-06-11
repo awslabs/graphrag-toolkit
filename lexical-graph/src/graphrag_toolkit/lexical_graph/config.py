@@ -3,7 +3,15 @@
 
 import os
 import json
+import time
+import subprocess
 import boto3
+import botocore
+import contextlib
+from botocore import exceptions as botocore_exceptions
+from botocore import configloader
+import threading
+import logging
 from dataclasses import dataclass, field
 from typing import Optional, Union, Dict, Set, List
 from boto3 import Session as Boto3Session
@@ -17,6 +25,7 @@ from llama_index.core.base.embeddings.base import BaseEmbedding
 
 LLMType = Union[LLM, str]
 EmbeddingType = Union[BaseEmbedding, str]
+logger = logging.getLogger(__name__)
 
 DEFAULT_EXTRACTION_MODEL = 'us.anthropic.claude-3-5-sonnet-20240620-v1:0'
 DEFAULT_RESPONSE_MODEL = 'us.anthropic.claude-3-5-sonnet-20240620-v1:0'
@@ -73,12 +82,139 @@ def string_to_bool(s, default_value: bool):
         False otherwise, or the default_value if the input string is empty
         or None.
     """
-    if not s:
-        return default_value
-    else:
-        return s.lower() in ['true']
+    return s.lower() in ['true'] if s else default_value
 
+class ResilientClient:
+    """
+    A wrapper for boto3 clients that automatically refreshes credentials when they expire.
+    
+    This class proxies method calls to an underlying boto3 client while adding resilience
+    against credential expiration. When an AWS operation fails due to expired credentials,
+    the client is automatically refreshed and the operation is retried.
+    
+    Attributes:
+        config: The GraphRAGConfig instance that provides session management
+        service_name: The AWS service name for this client (e.g., 's3', 'bedrock')
+        _client: The underlying boto3 client instance
+        _lock: Thread lock to ensure thread-safe client refreshing
+    """
+    def __init__(self, config, service_name):
+        """
+        Initialize a new resilient client for the specified AWS service.
+        
+        Args:
+            config: The GraphRAGConfig instance that provides session management
+            service_name: The AWS service name to create a client for
+        """
+        self.config = config
+        self.service_name = service_name
+        self._client = self._create_client()
+        self._lock = threading.Lock()
 
+    def _create_client(self):
+        """
+        Create a new boto3 client using the config's session.
+        
+        Returns:
+            boto3.client: A new boto3 client for the specified service
+        """
+        return self.config.session.client(self.service_name)
+        
+    @staticmethod
+    def _is_expired(error):
+        """
+        Check if an AWS error is due to expired credentials.
+        
+        Args:
+            error: The botocore ClientError to check
+            
+        Returns:
+            bool: True if the error indicates expired credentials, False otherwise
+        """
+        error_code = getattr(error, 'response', {}).get('Error', {}).get('Code', '')
+        return error_code in ['ExpiredToken', 'RequestExpired', 'InvalidClientTokenId']
+    
+    @contextlib.contextmanager
+    def _refreshing_lock(self):
+        """
+        Context manager for thread-safe operations.
+        
+        Acquires the lock before yielding control and ensures the lock
+        is released even if an exception occurs.
+        
+        Yields:
+            None
+        """
+        with self._lock:
+            yield
+        
+    def _refresh_client(self):
+        """
+        Refresh the underlying boto3 client in a thread-safe manner.
+        
+        This method uses a context manager to ensure thread safety when
+        multiple threads encounter expired credentials simultaneously.
+        """
+        with self._refreshing_lock():
+            self._client = self._create_client()
+
+    @contextlib.contextmanager
+    def _handle_credential_expiration(self, method_name):
+        """
+        Context manager for handling credential expiration during AWS API calls.
+        
+        This method provides a context for executing AWS API calls with automatic
+        credential refresh if the call fails due to expired credentials.
+        
+        Args:
+            method_name: The name of the AWS API method being called
+            
+        Yields:
+            None
+            
+        Raises:
+            botocore_exceptions.ClientError: If the API call fails for reasons
+                other than credential expiration
+        """
+        try:
+            yield
+        except botocore_exceptions.ClientError as e:
+            if self._is_expired(e):
+                logger.warning(f"[ResilientClient] Refreshing expired client for {self.service_name}")
+                self._refresh_client()
+                # Let the caller retry with the refreshed client
+            else:
+                # Re-raise other client errors
+                raise
+    
+    def __getattr__(self, name):
+        """
+        Proxy attribute access to the underlying boto3 client.
+        
+        This method intercepts method calls to the boto3 client and wraps them
+        with automatic credential refresh logic. If a method call fails due to
+        expired credentials, the client is refreshed and the call is retried.
+        
+        Args:
+            name: The name of the attribute being accessed
+            
+        Returns:
+            The attribute from the underlying client, or a wrapped method that
+            handles credential expiration
+        """
+        attr = getattr(self._client, name)
+        if callable(attr):
+            def wrapper(*args, **kwargs):
+                with self._handle_credential_expiration(name):
+                    try:
+                        return attr(*args, **kwargs)
+                    except botocore_exceptions.ClientError as e:
+                        if self._is_expired(e):
+                            # The context manager has refreshed the client, retry with the new client
+                            return getattr(self._client, name)(*args, **kwargs)
+                        raise
+            return wrapper
+        return attr
 @dataclass
 class _GraphRAGConfig:
     """
@@ -134,49 +270,86 @@ class _GraphRAGConfig:
     _enable_cache: Optional[bool] = None
     _metadata_datetime_suffixes: Optional[List[str]] = None
 
-    def _get_or_create_client(self, service_name: str) -> boto3.client:
+    @contextlib.contextmanager
+    def _validate_sso_token(self, profile):
         """
-        Creates or retrieves a boto3 client for a specified AWS service. This method
-        maintains an internal cache of AWS clients to avoid creating multiple clients
-        for the same service. If the requested client is not already cached, a new boto3
-        client is created using the provided AWS region and profile, or their corresponding
-        fallbacks.
-
-        Parameters:
-        service_name : str
-            The name of the AWS service for which a client is required. Examples include
-            's3', 'ec2', etc.
-
+        Context manager for SSO token validation.
+        
+        This method checks if the AWS profile uses SSO authentication and validates
+        the SSO token, refreshing it if necessary. Any exceptions during this process
+        are suppressed to ensure the main client creation flow continues.
+        
+        Args:
+            profile: The AWS profile name to check for SSO configuration
+            
+        Yields:
+            None
+        """
+        try:
+            config = configloader.load_config('~/.aws/config')
+            profile_config = config.get('profiles', {}).get(profile, {})
+            
+            if 'sso_start_url' in profile_config:
+                cache_path = os.path.expanduser('~/.aws/sso/cache')
+                token_valid = False
+                
+                if os.path.exists(cache_path):
+                    token_valid = any(
+                        os.path.isfile(os.path.join(cache_path, f)) and 
+                        os.path.getmtime(os.path.join(cache_path, f)) > time.time() - 3600 
+                        for f in os.listdir(cache_path)
+                    )
+                    
+                if not token_valid:
+                    subprocess.run(['aws', 'sso', 'login', '--profile', profile], check=True)
+            yield
+        except Exception:
+            # Continue even if SSO validation fails
+            yield
+    
+    def _get_or_create_client(self, service_name: str):
+        """
+        Creates or retrieves a resilient boto3 client for a specified AWS service.
+        
+        This method maintains an internal cache of AWS clients to avoid creating multiple
+        clients for the same service. If the requested client is not already cached, a new
+        ResilientClient is created which wraps a boto3 client with automatic token refresh
+        capabilities.
+        
+        The method also handles SSO authentication by checking if the configured profile
+        uses SSO and validating/refreshing the SSO token if necessary before creating
+        the client.
+        
+        Args:
+            service_name: The name of the AWS service for which a client is required
+                (e.g., 's3', 'bedrock', 'rds')
+            
         Returns:
-        boto3.client
-            The boto3 client for the specified AWS service.
-
+            ResilientClient: A resilient client for the specified AWS service that
+                automatically handles credential refresh
+            
         Raises:
-        AttributeError
-            If the boto3 client cannot be created due to an error, such as invalid AWS
-            credentials or an invalid service name.
+            AttributeError: If client creation fails due to invalid credentials,
+                insufficient permissions, or other AWS-related errors
         """
         if service_name in self._aws_clients:
             return self._aws_clients[service_name]
 
-        region = self.aws_region
-
         profile = self.aws_profile
 
+        # Check if profile uses SSO and validate token if needed
+        if profile:
+            with self._validate_sso_token(profile):
+                pass
+        # Create the client with error handling
         try:
-            if profile:
-                session = boto3.Session(profile_name=profile, region_name=region)
-            else:
-                session = boto3.Session(region_name=region)
-
-            client = session.client(service_name)
-            self._aws_clients[service_name] = client
-            return client
-
+            resilient_client = ResilientClient(self, service_name)
+            self._aws_clients[service_name] = resilient_client
+            return resilient_client
         except Exception as e:
             raise AttributeError(
                 f"Failed to create boto3 client for '{service_name}'. "
-                f"Profile: '{profile}', Region: '{region}'. "
+                f"Profile: '{profile}', Region: '{self.aws_region}'. "
                 f"Original error: {str(e)}"
             ) from e
 
