@@ -5,6 +5,8 @@ import asyncio
 import logging
 import os
 import json
+import time
+import shutil
 
 from typing import Optional, List, Sequence, Dict
 from datetime import datetime
@@ -17,6 +19,7 @@ from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 from graphrag_toolkit.lexical_graph.indexing.extract.llm_proposition_extractor import LLMPropositionExtractor
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import create_inference_inputs, create_inference_inputs_for_messages, create_and_run_batch_job, download_output_files, process_batch_output, split_nodes
+from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_file_size_mb, get_file_sizes_mb
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE
 
 from llama_index.core.extractors.interface import BaseExtractor
@@ -51,7 +54,7 @@ class BatchLLMPropositionExtractor(BaseExtractor):
     )
     prompt_template:str = Field(description='Prompt template')
     source_metadata_field:Optional[str] = Field(description='Metadata field from which to extract propositions')
-    batch_inference_dir:str = Field(description='Directory for batch inputs and results results')
+    batch_inference_dir:str = Field(description='Directory for batch inputs and outputs')
     
 
     @classmethod
@@ -125,15 +128,9 @@ class BatchLLMPropositionExtractor(BaseExtractor):
             BatchJobError: If any error occurs during the batch processing.
         """
         try:
+            batch_start = time.time()
             timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
             input_filename = f'proposition_extraction_{timestamp}_batch_{batch_index}.jsonl'
-
-            # 1 - Create Record Files (.jsonl)
-            # prompts = []
-            # for node in node_batch:
-            #     text = node.metadata.get(self.source_metadata_field, node.text) if self.source_metadata_field else node.text
-            #     prompt = self.prompt_template.format(text=text)
-            #     prompts.append(prompt)
 
             messages_batch = []
             for node in node_batch:
@@ -146,27 +143,25 @@ class BatchLLMPropositionExtractor(BaseExtractor):
                 node_batch, 
                 messages_batch
             )
-            
-            # json_inputs = create_inference_inputs(
-            #     self.llm.llm,
-            #     node_batch, 
-            #     prompts
-            # )
 
-            input_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index), 'inputs')
-            output_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index), 'outputs')
+            root_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index))
+            input_dir = os.path.join(root_dir, 'inputs')
+            output_dir = os.path.join(root_dir, 'outputs')
             self._prepare_directory(input_dir)
             self._prepare_directory(output_dir)
 
             input_filepath = os.path.join(input_dir, input_filename)
+
+            logger.debug(f'[Proposition batch inputs] Writing {len(json_inputs)} records to {input_filename}')
+
             with open(input_filepath, 'w') as file:
                 for item in json_inputs:
                     json.dump(item, file)
                     file.write('\n')
 
+            logger.debug(f'[Proposition batch inputs] Batch input file ready [file: {input_filepath} ({get_file_size_mb(input_filepath)} MB)]')
+
             # 2 - Upload records to s3
-            s3_input_key = None
-            s3_output_path = None
             if self.batch_config.key_prefix:
                 s3_input_key = os.path.join(self.batch_config.key_prefix, 'batch-propositions', timestamp, str(batch_index), 'inputs', os.path.basename(input_filename))
                 s3_output_path = os.path.join(self.batch_config.key_prefix, 'batch-propositions', timestamp, str(batch_index), 'outputs/')
@@ -174,8 +169,11 @@ class BatchLLMPropositionExtractor(BaseExtractor):
                 s3_input_key = os.path.join('batch-propositions', timestamp, str(batch_index), 'inputs', os.path.basename(input_filename))
                 s3_output_path = os.path.join('batch-propositions', timestamp, str(batch_index), 'outputs/')
 
+            upload_start = time.time()
+            logger.debug(f'[Proposition batch inputs] Started uploading {input_filename} to S3 [bucket: {self.batch_config.bucket_name}, key: {s3_input_key}]')
             await asyncio.to_thread(s3_client.upload_file, input_filepath, self.batch_config.bucket_name, s3_input_key)
-            logger.debug(f'Uploaded {input_filename} to S3 [bucket: {self.batch_config.bucket_name}, key: {s3_input_key}]')
+            upload_end = time.time()
+            logger.debug(f'[Proposition batch inputs] Finished uploading {input_filename} to S3 [bucket: {self.batch_config.bucket_name}, key: {s3_input_key}] ({int((upload_end - upload_start) * 1000)} millis)')
 
             # 3 - Invoke batch job
             await asyncio.to_thread(create_and_run_batch_job,
@@ -189,15 +187,32 @@ class BatchLLMPropositionExtractor(BaseExtractor):
                 self.llm.model
             )
 
+            download_start = time.time()
+            logger.debug(f'[Proposition batch outputs] Started downloading outputs to {output_dir} from S3 [bucket: {self.batch_config.bucket_name}, key: {s3_output_path}]')
             await asyncio.to_thread(download_output_files, s3_client, self.batch_config.bucket_name, s3_output_path, input_filename, output_dir)
+            download_end = time.time()
+            logger.debug(f'[Proposition batch outputs] Finished downloading outputs to {output_dir} from S3 [bucket: {self.batch_config.bucket_name}, key: {s3_output_path}]  ({int((download_end - download_start) * 1000)} millis)')
+            
+            output_file_stats = [f'{f} ({size} MB)' for f, size in get_file_sizes_mb(output_dir).items()]
+            logger.debug(f'[Proposition batch outputs] Batch output files ready [files: {output_file_stats}]')
 
             # 4 - Once complete, process batch output
             batch_results = await process_batch_output(output_dir, input_filename, self.llm)
-            logger.debug(f'Completed processing of batch {batch_index}')
+            batch_end = time.time()
+            logger.debug(f'[Proposition batch outputs] Completed processing of batch {batch_index} ({int(batch_end-batch_start)} seconds)')
+            
+            if self.batch_config.delete_on_success:
+                def log_delete_error(function, path, excinfo):
+                    logger.error(f'[Proposition batch] Error deleteing {path} - {str(excinfo[1])}' )
+
+                logger.debug(f'[Proposition batch] Deleting batch directory: {root_dir}' )
+                shutil.rmtree(root_dir, onerror=log_delete_error)
+            
             return batch_results
         
         except Exception as e:
-            raise BatchJobError(f'Error processing batch {batch_index}: {str(e)}') from e 
+            batch_end = time.time()
+            raise BatchJobError(f'[Proposition batch] Error processing batch {batch_index} ({int(batch_end-batch_start)} seconds): {str(e)}') from e 
             
             
     async def aextract(self, nodes: Sequence[BaseNode]) -> List[Dict]:
@@ -205,7 +220,7 @@ class BatchLLMPropositionExtractor(BaseExtractor):
         Asynchronously extracts propositions from a list of nodes. This method divides the input nodes into batches, processes
         the batches concurrently using Bedrock or a fallback extractor, and processes the results to generate structured"""
         if len(nodes) < BEDROCK_MIN_BATCH_SIZE:
-            logger.info(f'List of nodes contains fewer records ({len(nodes)}) than the minimum required by Bedrock ({BEDROCK_MIN_BATCH_SIZE}), so running LLMPropositionExtractor instead')
+            logger.info(f'[Proposition batch] Not enough records to run batch extraction. List of nodes contains fewer records ({len(nodes)}) than the minimum required by Bedrock ({BEDROCK_MIN_BATCH_SIZE}), so running LLMPropositionExtractor instead.')
             extractor = LLMPropositionExtractor(
                 prompt_template=self.prompt_template, 
                 source_metadata_field=self.source_metadata_field
@@ -217,7 +232,7 @@ class BatchLLMPropositionExtractor(BaseExtractor):
 
         # 1 - Split nodes into batches (if needed)
         node_batches = split_nodes(nodes, self.batch_config.max_batch_size)
-        logger.debug(f'Split nodes into {len(node_batches)} batches [sizes: {[len(b) for b in node_batches]}]')
+        logger.debug(f'[Proposition batch] Split nodes into batches [num_batches: {len(node_batches)}, sizes: {[len(b) for b in node_batches]}]')
 
         # 2 - Process batches concurrently
         all_results = {}

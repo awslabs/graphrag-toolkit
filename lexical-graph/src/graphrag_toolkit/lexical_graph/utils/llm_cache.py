@@ -95,6 +95,16 @@ class LLMCache(BaseModel):
                     response = f.read()
             else:
                 try:
+                    if isinstance(self.llm, BedrockConverse):
+                        if not hasattr(self.llm, '_client'):
+                            config = Config(
+                                retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
+                                connect_timeout=TIMEOUT,
+                                read_timeout=TIMEOUT,
+                            )
+                            
+                            session = GraphRAGConfig.session
+                            self.llm._client = session.client('bedrock-runtime', config=config)
                     response = self.llm.predict(prompt, **prompt_args)
                 except Exception as e:
                     raise ModelError(f'{e!s} Model config: {self.llm.to_json()}') from e

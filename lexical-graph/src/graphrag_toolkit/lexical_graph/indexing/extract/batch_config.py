@@ -39,3 +39,4 @@ class BatchConfig:
     security_group_ids:List[str] = field(default_factory=list)
     max_batch_size:int=25000
     max_num_concurrent_batches:int=3
+    delete_on_success=True

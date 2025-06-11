@@ -5,6 +5,8 @@ import asyncio
 import logging
 import os
 import json
+import time
+import shutil
 
 from typing import Optional, List, Sequence, Dict
 from datetime import datetime
@@ -13,6 +15,7 @@ from graphrag_toolkit.lexical_graph import GraphRAGConfig, BatchJobError
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.indexing.utils.topic_utils import parse_extracted_topics, format_list, format_text
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import create_inference_inputs, create_inference_inputs_for_messages, create_and_run_batch_job, download_output_files, process_batch_output, split_nodes
+from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_file_size_mb, get_file_sizes_mb
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY, DEFAULT_ENTITY_CLASSIFICATIONS
 from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT
 from graphrag_toolkit.lexical_graph.indexing.extract.topic_extractor import TopicExtractor
@@ -57,9 +60,10 @@ class BatchTopicExtractor(BaseExtractor):
     )
     prompt_template:str = Field(description='Prompt template')
     source_metadata_field:Optional[str] = Field(description='Metadata field from which to extract propositions')
-    batch_inference_dir:str = Field(description='Directory for batch inputs and results results')
+    batch_inference_dir:str = Field(description='Directory for batch inputs and outputs')
     entity_classification_provider:ScopedValueProvider = Field( description='Entity classification provider')
     topic_provider:ScopedValueProvider = Field(description='Topic provider')
+    
 
     @classmethod
     def class_name(cls) -> str:
@@ -179,15 +183,34 @@ class BatchTopicExtractor(BaseExtractor):
             of the batch index and error context.
         """
         try:
+            batch_start = time.time()
             timestamp = datetime.now().strftime("%Y%m%d-%H%M%S") 
             input_filename = f'topic_extraction_{timestamp}_{batch_index}.jsonl'
 
             # 1 - Create Record Files (.jsonl)
 
+            entity_classification_map = {}
+            topic_map = {}
+
+            def get_classifications(node):
+                scope = self.entity_classification_provider.scope_func(node)
+                if scope not in entity_classification_map:
+                    (_, current_entity_classifications) = self.entity_classification_provider.get_current_values(node)
+                    entity_classification_map[scope] = current_entity_classifications
+                return entity_classification_map[scope]
+            
+            def get_topics(node):
+                scope = self.topic_provider.scope_func(node)
+                if scope not in topic_map:
+                    # It's unlikely there'll be any topics for this node, but just in case...
+                    (_, current_topics) = self.topic_provider.get_current_values(node)
+                    topic_map[scope] = current_topics
+                return topic_map[scope]
+
             messages_batch = []
             for node in node_batch:
-                (_, current_entity_classifications) = self.entity_classification_provider.get_current_values(node)
-                (_, current_topics) = self.topic_provider.get_current_values(node)
+                classifications = get_classifications(node)
+                topics = get_topics(node)
                 text = format_text(
                     self._get_metadata_or_default(node.metadata, self.source_metadata_field, node.text) 
                     if self.source_metadata_field 
@@ -196,8 +219,8 @@ class BatchTopicExtractor(BaseExtractor):
                 messages = self.llm.llm._get_messages(
                     PromptTemplate(self.prompt_template), 
                     text=text,
-                    preferred_entity_classifications=format_list(current_entity_classifications),
-                    preferred_topics=format_list(current_topics)
+                    preferred_entity_classifications=format_list(classifications),
+                    preferred_topics=format_list(topics)
                 )
                 messages_batch.append(messages)
 
@@ -207,20 +230,24 @@ class BatchTopicExtractor(BaseExtractor):
                 messages_batch
             )
 
-            input_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index), 'inputs')
-            output_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index), 'outputs')
+            root_dir = os.path.join(self.batch_inference_dir, timestamp, str(batch_index))
+            input_dir = os.path.join(root_dir, 'inputs')
+            output_dir = os.path.join(root_dir, 'outputs')
             self._prepare_directory(input_dir)
             self._prepare_directory(output_dir)
 
             input_filepath = os.path.join(input_dir, input_filename)
+
+            logger.debug(f'[Topic batch inputs] Writing {len(json_inputs)} records to {input_filename}')
+
             with open(input_filepath, 'w') as file:
                 for item in json_inputs:
                     json.dump(item, file)
                     file.write('\n')
 
+            logger.debug(f'[Topic batch inputs] Batch input file ready [file: {input_filepath} ({get_file_size_mb(input_filepath)} MB)]')
+
             # 2 - Upload records to s3
-            s3_input_key = None
-            s3_output_path = None
             if self.batch_config.key_prefix:
                 s3_input_key = os.path.join(self.batch_config.key_prefix, 'batch-topics', timestamp, str(batch_index), 'inputs', os.path.basename(input_filename))
                 s3_output_path = os.path.join(self.batch_config.key_prefix, 'batch-topics', timestamp, str(batch_index), 'outputs/')
@@ -228,9 +255,12 @@ class BatchTopicExtractor(BaseExtractor):
                 s3_input_key = os.path.join('batch-topics', timestamp, str(batch_index), 'inputs', os.path.basename(input_filename))
                 s3_output_path = os.path.join('batch-topics', timestamp, str(batch_index), 'outputs/')
 
+            upload_start = time.time()
+            logger.debug(f'[Topic batch inputs] Started uploading {input_filename} to S3 [bucket: {self.batch_config.bucket_name}, key: {s3_input_key}]')
             await asyncio.to_thread(s3_client.upload_file, input_filepath, self.batch_config.bucket_name, s3_input_key)
-            logger.debug(f'Uploaded {input_filename} to S3 [bucket: {self.batch_config.bucket_name}, key: {s3_input_key}]')
-
+            upload_end = time.time()
+            logger.debug(f'[Topic batch inputs] Finished uploading {input_filename} to S3 [bucket: {self.batch_config.bucket_name}, key: {s3_input_key}] ({int((upload_end - upload_start) * 1000)} millis)')
+            
             # 3 - Invoke batch job
             await asyncio.to_thread(create_and_run_batch_job,
                 'extract-topics',
@@ -243,15 +273,33 @@ class BatchTopicExtractor(BaseExtractor):
                 self.llm.model
             )
 
+            download_start = time.time()
+            logger.debug(f'[Topic batch outputs] Started downloading outputs to {output_dir} from S3 [bucket: {self.batch_config.bucket_name}, key: {s3_output_path}]')
             await asyncio.to_thread(download_output_files, s3_client, self.batch_config.bucket_name, s3_output_path, input_filename, output_dir)
+            download_end = time.time()
+            logger.debug(f'[Topic batch outputs] Finished downloading outputs to {output_dir} from S3 [bucket: {self.batch_config.bucket_name}, key: {s3_output_path}]  ({int((download_end - download_start) * 1000)} millis)')
+
+            output_file_stats = [f'{f} ({size} MB)' for f, size in get_file_sizes_mb(output_dir).items()]
+            logger.debug(f'[Topic batch outputs] Batch output files ready [files: {output_file_stats}]')
 
             # 4 - Once complete, process batch output
             batch_results = await process_batch_output(output_dir, input_filename, self.llm)
-            logger.debug(f'Completed processing of batch {batch_index}')
+            batch_end = time.time()
+            logger.debug(f'[Topic batch outputs] Completed processing of batch {batch_index} ({int(batch_end-batch_start)} seconds)')
+
+            if self.batch_config.delete_on_success:
+                def log_delete_error(function, path, excinfo):
+                    logger.error(f'[Topic batch] Error deleteing {path} - {str(excinfo[1])}' )
+
+                logger.debug(f'[Topic batch] Deleting batch directory: {root_dir}' )
+                shutil.rmtree(root_dir, onerror=log_delete_error)
+            
             return batch_results
         
         except Exception as e:
-            raise BatchJobError(f'Error processing batch {batch_index}: {str(e)}') from e 
+            batch_end = time.time()
+            raise BatchJobError(f'[Topic batch] Error processing batch {batch_index} ({int(batch_end-batch_start)} seconds): {str(e)}') from e 
+           
         
     async def aextract(self, nodes: Sequence[BaseNode]) -> List[Dict]:
         """
@@ -269,7 +317,7 @@ class BatchTopicExtractor(BaseExtractor):
 
         """
         if len(nodes) < BEDROCK_MIN_BATCH_SIZE:
-            logger.info(f'List of nodes contains fewer records ({len(nodes)}) than the minimum required by Bedrock ({BEDROCK_MIN_BATCH_SIZE}), so running TopicExtractor instead')
+            logger.info(f'Not enough records to run batch extraction. List of nodes contains fewer records ({len(nodes)}) than the minimum required by Bedrock ({BEDROCK_MIN_BATCH_SIZE}), so running TopicExtractor instead.')
             extractor = TopicExtractor( 
                 prompt_template=self.prompt_template, 
                 source_metadata_field=self.source_metadata_field,
@@ -284,7 +332,7 @@ class BatchTopicExtractor(BaseExtractor):
 
         # 1 - Split nodes into batches (if needed)
         node_batches = split_nodes(nodes, self.batch_config.max_batch_size)
-        logger.debug(f'Split nodes into {len(node_batches)} batches [sizes: {[len(b) for b in node_batches]}]')
+        logger.debug(f'[Topic batch] Split nodes into batches [num_batches: {len(node_batches)}, sizes: {[len(b) for b in node_batches]}]')
 
         # 2 - Process batches concurrently
         all_results = {}

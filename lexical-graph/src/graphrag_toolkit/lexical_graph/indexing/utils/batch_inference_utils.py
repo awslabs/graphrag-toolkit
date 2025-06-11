@@ -7,6 +7,8 @@ import time
 import os
 import json
 from typing import Any, List, Dict
+from os import stat, listdir
+from os.path import isfile, join
 
 from tenacity import retry, stop_after_attempt, wait_exponential
 from botocore.exceptions import ClientError
@@ -27,6 +29,17 @@ logger = logging.getLogger(__name__)
 
 BEDROCK_MIN_BATCH_SIZE = 100
 BEDROCK_MAX_BATCH_SIZE = 50000
+
+def get_file_size_mb(filepath):
+    file_stats = stat(filepath)
+    return round(file_stats.st_size / (1024 * 1024), 2)
+
+def get_file_sizes_mb(dir):
+    files = [f for f in listdir(dir) if isfile(join(dir, f))]
+    return {
+        f:get_file_size_mb(join(dir, f)) for f in files
+    }
+
 
 def split_nodes(nodes: List[Any], batch_size: int) -> List[List[Any]]:   
     
@@ -137,6 +150,8 @@ def create_and_run_batch_job(job_name_prefix:str,
         if batch_config.s3_encryption_key_id:
             output_data_config['s3EncryptionKeyId'] = batch_config.s3_encryption_key_id
 
+        start = time.time()
+
         response = None
         if batch_config.subnet_ids and batch_config.security_group_ids:
             response = bedrock_client.create_model_invocation_job(
@@ -160,27 +175,35 @@ def create_and_run_batch_job(job_name_prefix:str,
             )
 
         job_arn = response.get('jobArn')
-        logger.info(f'Created batch job [job_arn: {job_arn}]')
 
-        wait_for_job_completion(bedrock_client, job_arn)
+        input_file = input_key.split('/')[-1]
+
+        logger.info(f'Created batch job [job_arn: {job_arn}, input_file: {input_file}]')
+
+        wait_for_job_completion(bedrock_client, job_arn, input_file)
+
+        end = time.time()
+
+        logger.debug(f'Batch job completed successfully [job_arn: {job_arn}, input_file: {input_file}] ({int(end - start)} seconds)')
+
     except ClientError as e:
         logger.error(f'Error creating or running batch job: {str(e)}')
         raise BatchJobError(f'{e!s}') from e 
 
-def wait_for_job_completion(bedrock_client: Any, job_arn: str) -> None:
+def wait_for_job_completion(bedrock_client: Any, job_arn: str, input_file:str) -> None:
     """Wait for a Bedrock batch job to complete."""
     status = 'Started'
     while status not in ['Completed', 'Failed', 'Stopped', 'PartiallyCompleted', 'Expired']:
         time.sleep(60)
-        logger.debug(f'Waiting for batch job to complete... [job_arn: {job_arn}]')
+        logger.debug(f'Waiting for batch job to complete... [job_arn: {job_arn}, input_file: {input_file}, status: {status}]')
         response = bedrock_client.get_model_invocation_job(jobIdentifier=job_arn)
         status = response['status']
     
     if status != 'Completed':
-        logger.error(f'Batch job failed with status: {status}')
-        raise BatchJobError(f"Batch job failed with status: {status} - {response['message']}") 
+        logger.error(f'Batch job failed [job_arn: {job_arn}, input_file: {input_file}, status: {status}]')
+        raise BatchJobError(f"Batch job failed [job_arn: {job_arn}, input_file: {input_file}, status: {status}] - {response['message']}") 
     
-    logger.debug('Batch job completed successfully')
+    
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
 def download_output_files(s3_client: Any, bucket_name:str, output_path:str, input_filename:str, local_directory:str) -> None:
@@ -210,8 +233,9 @@ def download_output_files(s3_client: Any, bucket_name:str, output_path:str, inpu
         local_file_path = os.path.join(local_directory, os.path.relpath(key, output_folder))
         os.makedirs(os.path.dirname(local_file_path), exist_ok=True)
         
+        logger.debug(f'Started downloading {key} to {local_file_path}')
         s3_client.download_file(Bucket=bucket_name, Key=key, Filename=local_file_path)
-        logger.debug(f'Downloaded: {key} to {local_file_path}')
+        logger.debug(f'Finished downloading {key} to {local_file_path}')
 
 def get_parse_output_text_fn(model_id:str): 
     if 'amazon.nova' in model_id:
@@ -236,11 +260,17 @@ async def process_batch_output(local_output_directory:str, input_filename:str, l
     results = {}
     failed_records = []
 
+    process_output_start = time.time()
+
     parse_output_text = get_parse_output_text_fn(llm.llm.model)
+
+    logger.debug(f'[Batch outputs] Started processing all outputs for {input_filename}')
 
     for filename in os.listdir(local_output_directory):
         if filename.startswith(input_filename):
-            with open(os.path.join(local_output_directory, filename), 'r') as jsonl_file:
+            output_filepath = os.path.join(local_output_directory, filename)
+            logger.debug(f'[Batch outputs] Started parsing output file {output_filepath}')
+            with open(output_filepath, 'r') as jsonl_file:
                 for line in jsonl_file:
                     json_data = json.loads(line)
                     record_id = json_data.get('recordId')
@@ -251,6 +281,8 @@ async def process_batch_output(local_output_directory:str, input_filename:str, l
                     else:
                         failed_records.append((record_id, json_data.get('modelInput', {}).get('messages', [{}])[0].get('content', [{}])[0].get('text', '')))
 
+    logger.debug(f'[Batch outputs] Finished parsing all outputs for {input_filename} [succeeded: {len(results.keys())}, failed: {len(failed_records)}]')
+
     async def process_failed_record(record):
         record_id, text = record
         
@@ -260,16 +292,23 @@ async def process_batch_output(local_output_directory:str, input_filename:str, l
         try:
             coro = asyncio.to_thread(blocking_llm_call)
             response = await coro
-            logger.info(f'Successfully processed failed record {record_id}')
+            logger.debug(f'[Batch outputs] Successfully processed failed record {record_id}')
             return record_id, response
         except Exception as e:
-            logger.error(f'Error processing failed record {record_id}: {str(e)}')
+            logger.error(f'[Batch outputs] Error processing failed record {record_id}: {str(e)}')
             return record_id, None
 
+    if failed_records:
+        logger.debug(f'[Batch outputs] Processing failed records for {input_filename}')
+    
     failed_results = await asyncio.gather(*[process_failed_record(record) for record in failed_records])
     
     for record_id, response in failed_results:
         if response:
             results[record_id] = response
+
+    process_output_end = time.time()
+
+    logger.debug(f'[Batch outputs] Finished processing all outputs for {input_filename} ({int((process_output_end - process_output_start) * 1000)} millis)')
 
     return results
