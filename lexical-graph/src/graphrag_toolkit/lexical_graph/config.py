@@ -10,6 +10,8 @@ import botocore
 import contextlib
 from botocore import exceptions as botocore_exceptions
 from botocore import configloader
+from botocore.exceptions import SSOTokenLoadError
+
 import threading
 import logging
 from dataclasses import dataclass, field
@@ -111,15 +113,26 @@ class ResilientClient:
         self._client = self._create_client()
         self._lock = threading.Lock()
 
+
     def _create_client(self):
         """
         Create a new boto3 client using the config's session.
-        
+
         Returns:
             boto3.client: A new boto3 client for the specified service
+
+        Raises:
+            RuntimeError: If the AWS SSO token is missing or expired
         """
-        return self.config.session.client(self.service_name)
-        
+        try:
+            return self.config.session.client(self.service_name)
+        except SSOTokenLoadError as e:
+            raise RuntimeError(
+                f"[ResilientClient] SSO token is missing or expired for profile '{self.config.aws_profile}'.\n"
+                f"Please run: aws sso login --profile {self.config.aws_profile}\n\n"
+                f"Original error: {str(e)}"
+            ) from e
+
     @staticmethod
     def _is_expired(error):
         """
@@ -162,31 +175,25 @@ class ResilientClient:
     def _handle_credential_expiration(self, method_name):
         """
         Context manager for handling credential expiration during AWS API calls.
-        
-        This method provides a context for executing AWS API calls with automatic
-        credential refresh if the call fails due to expired credentials.
-        
-        Args:
-            method_name: The name of the AWS API method being called
-            
-        Yields:
-            None
-            
-        Raises:
-            botocore_exceptions.ClientError: If the API call fails for reasons
-                other than credential expiration
+
+        If credentials are expired or the SSO token is missing, it refreshes the
+        client or raises a clear message.
         """
         try:
             yield
+        except SSOTokenLoadError as e:
+            raise RuntimeError(
+                f"[ResilientClient] SSO token is missing or expired for profile '{self.config.aws_profile}'.\n"
+                f"Please run: aws sso login --profile {self.config.aws_profile}\n\n"
+                f"Original error: {e}"
+            ) from e
         except botocore_exceptions.ClientError as e:
             if self._is_expired(e):
                 logger.warning(f"[ResilientClient] Refreshing expired client for {self.service_name}")
                 self._refresh_client()
-                # Let the caller retry with the refreshed client
             else:
-                # Re-raise other client errors
                 raise
-    
+
     def __getattr__(self, name):
         """
         Proxy attribute access to the underlying boto3 client.
