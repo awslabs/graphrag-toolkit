@@ -106,5 +106,5 @@ class EntityLinker(Linker):
             results = results["hits"]
             parsed_results = []
             for res in results:
-                parsed_results.append(res['document'])
+                parsed_results.append(res['document_id'])
             return parsed_results
