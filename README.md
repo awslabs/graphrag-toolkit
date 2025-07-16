@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/awslabs-graphrag-toolkit-badge.png)](https://mseep.ai/app/awslabs-graphrag-toolkit)
+
 ## GraphRAG Toolkit
 
 The graphrag-toolkit is a collection of Python tools for building graph-enhanced Generative AI applications.
