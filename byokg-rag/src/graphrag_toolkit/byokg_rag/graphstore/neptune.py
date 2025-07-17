@@ -3,8 +3,10 @@ import os
 from urllib.parse import urlparse
 import json
 import logging
+from botocore.exceptions import ClientError
 
 from .graphstore import GraphStore
+from ..indexing import NeptuneAnalyticsGraphStoreIndex, Embedding
 
 logger = logging.getLogger(__name__)
 
@@ -71,7 +73,7 @@ class NeptuneAnalyticsGraphStore(GraphStore):
 
         if csv_file is not None:
             assert s3_path is not None, "s3 path should be passed with local csv path for data import"
-            self.__upload_to_s3(s3_path, csv_file)
+            self._upload_to_s3(s3_path, csv_file)
 
         logger.info(f'Loading data from source : {s3_path} into graph: {self.neptune_graph_id}')
 
@@ -87,17 +89,36 @@ class NeptuneAnalyticsGraphStore(GraphStore):
         response = self.execute_query(load_cypher)
         logger.info(response)
 
-    def __upload_to_s3(self, s3_path, local_path):
+    def _upload_to_s3(self, s3_path, local_path=None, file_contents=None):
         path = urlparse(s3_path, allow_fragments=False)
         bucket = path.netloc
         file_path = path.path.lstrip('/').rstrip('/')
-        print("Uploading {} to {}".format(local_path, s3_path))
+        if local_path is None:
+            logging.info("Uploading contents to {}".format(s3_path))
+            self.s3_client.put_object(
+                Bucket=bucket,
+                Key=path.path.lstrip('/'),
+                Body=file_contents
+            )
+            return
+        logging.info("Uploading {} to {}".format(local_path, s3_path))
         if os.path.isdir(local_path):
              for root, dirs, files in os.walk(local_path):
                 for file in files:
                     self.s3_client.upload_file(os.path.join(local_path, file), bucket, f'{file_path}/{file}')
         else:
             self.s3_client.upload_file(local_path, bucket, f'{file_path}/{os.path.basename(local_path)}')
+
+    def _s3_file_exists(self, s3_path):
+        path = urlparse(s3_path, allow_fragments=False)
+        try:
+            self.s3_client.head_object(Bucket=path.netloc, Key=path.path.lstrip('/'))
+            return True
+        except ClientError as e:
+            if e.response['Error']['Code'] == '404':
+                return False
+            else:
+                raise
 
     def assign_text_repr_prop_for_nodes(self, node_label_to_property_mapping=None, **kwargs):
         """
@@ -278,3 +299,66 @@ class NeptuneAnalyticsGraphStore(GraphStore):
             "draft-answer-generation",
             "opencypher"
         ]
+
+    def as_embedding_index(self, embedding:Embedding=None, node_embedding_text_props=None, load=True, embedding_s3_save_location=None):
+        """
+
+        Return a NeptuneAnalyticsGraphStoreIndex backed the graph endpoint of this graph store object
+        The Index can be used for computing, storing and retrieving embeddings
+
+        Args:
+            embedding (Embedding): An Embedding object that can be used to embed text inputs
+            node_embedding_text_props(dict[str: list]): A dictionary where the keys are node labels and the values are
+             properties to be included in the text representation for embeddings
+            load: boolean flag on whether
+        Returns:
+            NeptuneAnalyticsGraphStoreIndex object
+        """
+        index = NeptuneAnalyticsGraphStoreIndex(graphstore=self,
+                                                embedding=embedding,
+                                                embedding_s3_save_path=embedding_s3_save_location)
+        if load:
+            if self._s3_file_exists(embedding_s3_save_location): # assume embeddings are already in s3 file
+                self.read_from_csv(s3_path=embedding_s3_save_location)
+            else: # get embedding input text and use index to compute and upsert embeddings
+                ids, texts_to_embed = self.get_node_text_for_embedding_input(node_embedding_text_props)
+                index.add_with_ids(ids, documents=texts_to_embed)
+
+        return index
+
+    def get_node_text_for_embedding_input(self, node_embedding_text_props, group_by_node_label=False):
+        """
+        Get node_ids and text inputs that can be used for embedding computation and vector storage
+
+        Args:
+            node_embedding_text_props(dict[str: list]): A dictionary where the keys are node labels and the values are
+             properties to be included in the text representation for embeddings
+            group_by_node_label: boolean flag on whether the return values are grouped by node label/node type
+        Returns:
+            tuple(node_ids:List[Str] or Dict[Str:List[Str]], texts_to_embed:List[Str] or Dict[Str:List[Str]])
+        """
+
+        if node_embedding_text_props is None:
+            assert self.node_type_to_property_mapping,\
+            "Node properties to use for embedding must be provided or use `assign_text_repr_prop_for_nodes` to set a default representation for each node"
+            logger.info(f'Using text representation property: {self.node_type_to_property_mapping} for as text input for node embedding')
+            node_embedding_text_props = {k: [v] for k, v in self.node_type_to_property_mapping.items if v is not None}
+
+        ids, texts_to_embed = ({}, {}) if group_by_node_label else ([], [])
+        for node_type, node_properties in node_embedding_text_props.items():
+            gather_nodes_query = f'''
+                                MATCH (n:{node_type})
+                                RETURN properties(n) as properties, ID(n) as node
+                                '''
+            response = self.execute_query(gather_nodes_query)
+            node_ids = [item["node"] for item in response]
+            node_texts_for_embed = [json.dumps({k: v for k, v in item["properties"].items() if k in node_properties})
+                                   for item in response]
+            if group_by_node_label:
+                ids[node_type] = node_ids
+                texts_to_embed[node_type] = node_texts_for_embed
+            else:
+                ids.extend(node_ids)
+                texts_to_embed.extend(node_texts_for_embed)
+
+        return ids, texts_to_embed

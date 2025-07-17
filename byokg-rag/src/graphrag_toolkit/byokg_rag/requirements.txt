@@ -7,6 +7,8 @@ pytest
 faiss-cpu==1.9.0
 thefuzz
 langchain_huggingface
+langchain_aws
+llama-index-embeddings-bedrock
 ipykernel
 torch
 transformers>=4.44.2

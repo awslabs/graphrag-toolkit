@@ -21,7 +21,8 @@ class ByoKGQueryEngine:
                  path_retriever=None,
                  graph_query_executor=None,
                  llm_generator=None,
-                 kg_linker=None):
+                 kg_linker=None,
+                 direct_query_linking=False):
         """
         Initialize the query engine.
 
@@ -32,6 +33,7 @@ class ByoKGQueryEngine:
             path_retriever: Optional component for retrieving paths
             graph_query_executor: Optional component for executing graph queries
             llm_generator: Optional language model for generating responses
+            direct_query_linking: flag whether to use entity linker with query embedding directly and can run without KG Linker LLM call
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
@@ -51,6 +53,7 @@ class ByoKGQueryEngine:
             entity_retriever = string_index.as_entity_matcher()
             entity_linker = EntityLinker(entity_retriever)
         self.entity_linker = entity_linker
+        self.direct_query_linking = direct_query_linking
         
         if triplet_retriever is None:
             from graph_retrievers import AgenticRetriever
@@ -118,6 +121,12 @@ class ByoKGQueryEngine:
         explored_entities: Set[str] = set()
         opencypher_answers: List[str] = []
 
+        if self.direct_query_linking:
+            semantic_linked_entities = self.entity_linker.link([query], return_dict=False)
+            explored_entities.update(semantic_linked_entities)
+        else:
+            semantic_linked_entities = []
+
         for iteration in range(iterations):
             # Generate response for current iteration
 
@@ -145,7 +154,8 @@ class ByoKGQueryEngine:
                 linked_answers = self.entity_linker.link(artifacts["draft-answer-generation"], return_dict=False)
 
             # Retrieve triplets if we have source entities
-            source_entities = list(set(linked_entities + linked_answers))
+            source_entities = list(set(semantic_linked_entities + linked_entities + linked_answers))
+
             if source_entities and self.triplet_retriever:
                 triplet_context = self.triplet_retriever.retrieve(query, source_entities)
                 self._add_to_context(retrieved_context, triplet_context)
