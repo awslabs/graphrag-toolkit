@@ -69,6 +69,7 @@ class BuildPipeline():
                build_filters:Optional[BuildFilters]=None,
                source_metadata_formatter:Optional[SourceMetadataFormatter]=None,
                include_domain_labels:Optional[bool]=None,
+               include_local_entities:Optional[bool]=None,
                tenant_id:Optional[TenantId]=None,
                **kwargs:Any
             ):
@@ -100,6 +101,8 @@ class BuildPipeline():
             metadata to customize metadata configuration. Defaults to None.
             include_domain_labels (Optional[bool]): Specifies whether domain labels should be
             incorporated in the output. Defaults to None.
+            include_local_entities (Optional[bool]): Specifies whether local
+            entities are included in the graph. Defaults to None.
             tenant_id (Optional[TenantId]): Identifier for tenant-specific operations or
             segregations. Defaults to None.
             **kwargs (Any): Additional keyword arguments to customize further configuration
@@ -122,6 +125,7 @@ class BuildPipeline():
                 build_filters=build_filters,
                 source_metadata_formatter=source_metadata_formatter,
                 include_domain_labels=include_domain_labels,
+                include_local_entities=include_local_entities,
                 tenant_id=tenant_id,
                 **kwargs
             ).build
@@ -139,6 +143,7 @@ class BuildPipeline():
                  build_filters:Optional[BuildFilters]=None,
                  source_metadata_formatter:Optional[SourceMetadataFormatter]=None,
                  include_domain_labels:Optional[bool]=None,
+                 include_local_entities:Optional[bool]=None,
                  tenant_id:Optional[TenantId]=None,
                  **kwargs:Any
             ):
@@ -172,6 +177,8 @@ class BuildPipeline():
             Defaults to a `DefaultSourceMetadataFormatter` instance.
             include_domain_labels (Optional[bool]): Indicates whether domain labels should be
             included in the output during processing. Defaults to a preconfigured value.
+            include_local_entities (Optional[bool]): Specifies whether local
+            entities are included in the graph. Defaults to a preconfigured value.
             tenant_id (Optional[TenantId]): An identifier for the tenant, used for scoping data.
             Defaults to None.
             **kwargs (Any): Additional keyword arguments to configure the pipeline behavior.
@@ -182,6 +189,7 @@ class BuildPipeline():
         batch_writes_enabled = batch_writes_enabled or GraphRAGConfig.batch_writes_enabled
         batch_write_size = batch_write_size or GraphRAGConfig.build_batch_write_size
         include_domain_labels = include_domain_labels or GraphRAGConfig.include_domain_labels
+        include_local_entities = include_local_entities or GraphRAGConfig.include_local_entities
         source_metadata_formatter = source_metadata_formatter or DefaultSourceMetadataFormatter()
         
         for c in components:
@@ -209,6 +217,7 @@ class BuildPipeline():
         self.batch_writes_enabled = batch_writes_enabled
         self.batch_write_size = batch_write_size
         self.include_domain_labels = include_domain_labels
+        self.include_local_entities = include_local_entities
         self.node_builders = NodeBuilders(
             builders=builders, 
             build_filters=build_filters, 
@@ -291,6 +300,7 @@ class BuildPipeline():
                 batch_size=self.batch_size,
                 batch_write_size=self.batch_write_size,
                 include_domain_labels=self.include_domain_labels,
+                include_local_entities=self.include_local_entities,
                 **self.pipeline_kwargs
             )
 

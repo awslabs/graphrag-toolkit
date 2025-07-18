@@ -74,8 +74,8 @@ class ByoKGQueryEngine:
         self.path_retriever = path_retriever
 
         if graph_query_executor is None and hasattr(graph_store, 'execute_query'):
-            from graph_retrievers import GraphQueryExecutor
-            graph_query_executor = GraphQueryExecutor(self.graph_store)
+            from graph_retrievers import GraphQueryRetriever
+            graph_query_executor = GraphQueryRetriever(self.graph_store)
         self.graph_query_executor = graph_query_executor
 
         if kg_linker is None:

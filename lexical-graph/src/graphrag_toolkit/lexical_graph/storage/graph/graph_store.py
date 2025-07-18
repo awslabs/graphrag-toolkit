@@ -186,7 +186,7 @@ class RedactedGraphQueryLogFormatting(GraphQueryLogFormatting):
         lines = query.split('\n')
         redacted_query = '\n'.join(line for line in lines if line.startswith('//')) 
         return GraphQueryLogEntryParameters(query_ref=query_ref, query=redacted_query or REDACTED, parameters=REDACTED, results=REDACTED)
-        
+
 class NonRedactedGraphQueryLogFormatting(GraphQueryLogFormatting):
     def format_log_entry(self, query_ref:str, query:str, parameters:Dict[str,Any]={}, results:Optional[List[Any]]=None) -> GraphQueryLogEntryParameters:
         """
@@ -364,7 +364,7 @@ class GraphStore(BaseModel):
     log_formatting:GraphQueryLogFormatting = Field(default_factory=lambda: RedactedGraphQueryLogFormatting())
     tenant_id:TenantId = Field(default_factory=lambda: TenantId())
 
-    def execute_query_with_retry(self, query:str, parameters:Dict[str, Any], max_attempts=3, max_wait=5, **kwargs):
+    def execute_query_with_retry(self, query:str, parameters:Dict[str, Any], max_attempts=3, max_wait=5, **kwargs) -> Dict[str, Any]:
         """
         Executes a database query with a retry mechanism, allowing multiple attempts with delays between them.
 
@@ -405,7 +405,7 @@ class GraphStore(BaseModel):
             with attempt:
                 attempt_number += 1
                 attempt.retry_state.attempt_number
-                self.execute_query(query, parameters, **kwargs)
+                return self._execute_query(query, parameters, **kwargs)
 
     def _logging_prefix(self, query_id:str, correlation_id:Optional[str]=None):
         """
@@ -458,8 +458,26 @@ class GraphStore(BaseModel):
         """
         return lambda x: x
     
-    @abc.abstractmethod
     def execute_query(self, cypher, parameters={}, correlation_id=None) -> Dict[str, Any]:
+        if correlation_id:
+            return self.execute_query_with_retry(
+                query=cypher, 
+                parameters=parameters,
+                max_attempts=1, 
+                max_wait=0, 
+                correlation_id=correlation_id
+            )
+        else:
+            return self.execute_query_with_retry(
+                query=cypher, 
+                parameters=parameters,
+                max_attempts=1, 
+                max_wait=0
+            )
+
+    
+    @abc.abstractmethod
+    def _execute_query(self, cypher, parameters={}, correlation_id=None) -> Dict[str, Any]:
         """
         Executes a Cypher query on a connected database and returns the result as a dictionary.
 

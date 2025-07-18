@@ -137,7 +137,7 @@ class FalkorDBDatabaseClient(GraphStore):
         """
         return format_id(id_name)
 
-    def execute_query(self, 
+    def _execute_query(self, 
                       cypher: str, 
                       parameters: Optional[dict] = None, 
                       correlation_id: Any = None) -> QUERY_RESULT_TYPE:

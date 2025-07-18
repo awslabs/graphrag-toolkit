@@ -99,6 +99,7 @@ class BuildConfig():
     def __init__(self,
                  build_filters: Optional[BuildFilters] = None,
                  include_domain_labels: Optional[bool] = None,
+                 include_local_entities: Optional[bool] = None,
                  source_metadata_formatter: Optional[SourceMetadataFormatter] = None):
         """
         Initializes an instance of the class. This constructor allows for the optional
@@ -109,13 +110,16 @@ class BuildConfig():
             build_filters: An optional instance of BuildFilters. If not provided,
             a default BuildFilters instance will be used.
             include_domain_labels: An optional boolean indicating whether to include
-            domain labels. Defaults to False if not provided.
+            domain labels.
+            include_local_entities: An optional boolean indicating whether to include
+            local entities in the graph.
             source_metadata_formatter: An optional instance of SourceMetadataFormatter
             to format source metadata. If not provided, a DefaultSourceMetadataFormatter
             instance will be used.
         """
         self.build_filters = build_filters or BuildFilters()
-        self.include_domain_labels = include_domain_labels or False
+        self.include_domain_labels = include_domain_labels
+        self.include_local_entities = include_local_entities
         self.source_metadata_formatter = source_metadata_formatter or DefaultSourceMetadataFormatter()
 
 
@@ -536,6 +540,7 @@ class LexicalGraphIndex():
             build_filters=build_config.build_filters,
             source_metadata_formatter=build_config.source_metadata_formatter,
             include_domain_labels=build_config.include_domain_labels,
+            include_local_entities=build_config.include_local_entities,
             tenant_id=self.tenant_id,
             **kwargs
         )

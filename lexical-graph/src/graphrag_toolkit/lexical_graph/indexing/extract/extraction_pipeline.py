@@ -9,7 +9,7 @@ from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.indexing import IdGenerator
-from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import run_pipeline
+from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import run_pipeline, node_batcher
 from graphrag_toolkit.lexical_graph.indexing.model import SourceType, SourceDocument, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_decorator import PipelineDecorator
 from graphrag_toolkit.lexical_graph.indexing.extract.source_doc_parser import SourceDocParser
@@ -362,7 +362,7 @@ class ExtractionPipeline():
 
             logger.info(f'Running extraction pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
             
-            node_batches = self.ingestion_pipeline._node_batcher(
+            node_batches = node_batcher(
                 num_batches=self.num_workers, 
                 nodes=filtered_input_nodes
             )

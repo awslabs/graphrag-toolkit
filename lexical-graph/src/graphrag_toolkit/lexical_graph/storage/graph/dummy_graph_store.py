@@ -59,7 +59,7 @@ class DummyGraphStore(GraphStore):
         _logging_prefix (callable): A callable function or method responsible for generating the
             logging prefix based on the provided correlation ID.
     """
-    def execute_query(self, cypher, parameters={}, correlation_id=None):
+    def _execute_query(self, cypher, parameters={}, correlation_id=None):
         """
         Executes the given Cypher query with specified parameters and logs the operation.
 

@@ -4,12 +4,12 @@
 from pipe import Pipe
 from concurrent.futures import ProcessPoolExecutor
 from functools import partial
-from typing import List, Optional, Sequence, Any, cast, Callable
+from typing import List, Optional, Sequence, Any, cast, Callable, Generator, Union
 
 
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.ingestion.pipeline import run_transformations
-from llama_index.core.schema import BaseNode
+from llama_index.core.schema import BaseNode, Document
 
 def _sink():
     def _sink_from(generator):
@@ -41,3 +41,13 @@ def run_pipeline(
         processed_nodes = sum(processed_node_batches, start=cast(List[BaseNode], []))
 
     return processed_nodes
+
+def node_batcher(
+        num_batches: int, nodes: Union[Sequence[BaseNode], List[Document]]
+    ) -> Generator[Union[Sequence[BaseNode], List[Document]], Any, Any]:
+        num_nodes = len(nodes)
+        batch_size = max(1, int(num_nodes / num_batches))
+        if batch_size * num_batches < num_nodes:
+             batch_size += 1
+        for i in range(0, num_nodes, batch_size):
+            yield nodes[i : i + batch_size]

@@ -8,8 +8,9 @@ from llama_index.core.schema import NodeRelationship, RelatedNodeInfo
 
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection
-from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
+from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY, LOCAL_ENTITY_CLASSIFICATION
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
 
 class StatementNodeBuilder(NodeBuilder):
     """
@@ -155,11 +156,13 @@ class StatementNodeBuilder(NodeBuilder):
             
                     for fact in statement.facts:
 
+                        fact = string_complement_to_entity(fact)
+
                         fact_value = self._format_fact(
                             fact.subject.value,
                             fact.subject.classification,
                             fact.predicate.value,
-                            fact.object.value if fact.object else fact.complement,
+                            fact.object.value if fact.object else fact.complement.value,
                             fact.object.classification if fact.object else None
                         )
                         
@@ -172,9 +175,16 @@ class StatementNodeBuilder(NodeBuilder):
                             fact.factId = fact_id
                             fact.statementId = statement_id
 
-                            fact.subject.entityId = self.id_generator.create_node_id('entity', fact.subject.value, fact.subject.classification)
+                            if fact.subject.classification == LOCAL_ENTITY_CLASSIFICATION:
+                                fact.subject.entityId = self.id_generator.create_node_id('local-entity', fact.subject.value, source_id)
+                            else:
+                                fact.subject.entityId = self.id_generator.create_node_id('entity', fact.subject.value, fact.subject.classification)
+                            
                             if fact.object:
                                 fact.object.entityId = self.id_generator.create_node_id('entity', fact.object.value, fact.object.classification)
+                            
+                            if fact.complement:
+                                fact.complement.entityId = self.id_generator.create_node_id('local-entity', fact.complement.value, source_id)
                             
                             fact_metadata = {
                                 'fact': fact.model_dump(),

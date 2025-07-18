@@ -5,7 +5,7 @@ import re
 import logging
 from typing import Tuple, List
 
-from graphrag_toolkit.lexical_graph.indexing.constants import DEFAULT_TOPIC
+from graphrag_toolkit.lexical_graph.indexing.constants import DEFAULT_TOPIC, LOCAL_ENTITY_CLASSIFICATION
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection, Topic, Fact, Entity, Relation, Statement
 
 logger = logging.getLogger(__name__)
@@ -20,7 +20,7 @@ def format_list(values:List[str]):
     return '\n'.join(values)
 
 def clean(s):
-    return strip_parentheses(format_value(s))
+    return remove_parenthetical_content(format_value(s))
     
 def format_value(s):
     return s.replace('_', ' ') if s else ''
@@ -31,7 +31,7 @@ def format_classification(s):
 def strip_full_stop(s):
     return s[:-1] if s and s.endswith('.') else s
     
-def strip_parentheses(s):
+def remove_parenthetical_content(s):
     return re.sub(r'\(.*\)', '', s).replace('  ', ' ').strip()
 
 def parse_extracted_topics(raw_text:str) -> Tuple[TopicCollection, List[str]]:
@@ -106,8 +106,10 @@ def parse_extracted_topics(raw_text:str) -> Tuple[TopicCollection, List[str]]:
                 garbage.append(f'UNPARSEABLE ENTITY: {line}')
 
         elif current_state and current_state == 'relationship-extraction':
+            
             parts = line.split('|')
             fact = None
+            
             if len(parts) == 3:
                 s, p, o = parts
                 if s and p and o:
@@ -119,16 +121,24 @@ def parse_extracted_topics(raw_text:str) -> Tuple[TopicCollection, List[str]]:
                             predicate=Relation(value=format_value(p)),
                             object=o_entity
                         )
-                        if current_statement:
-                            current_statement.facts.append(fact)
                     elif s_entity:
                         fact = Fact(
                             subject=s_entity,
                             predicate=Relation(value=format_value(p)),
-                            complement=format_value(o)
+                            complement=Entity(value=format_value(o), classification=LOCAL_ENTITY_CLASSIFICATION)
+                        )
+                    else:
+                        fact = Fact(
+                            subject=Entity(value=format_value(s), classification=LOCAL_ENTITY_CLASSIFICATION),
+                            predicate=Relation(value=format_value(p)),
+                            complement=Entity(value=format_value(o), classification=LOCAL_ENTITY_CLASSIFICATION)
                         )
                         if current_statement:
-                            current_statement.facts.append(fact)
+                            current_statement.details.append(' '.join([format_value(part) for part in parts]))
+                        
+                    if current_statement:
+                        current_statement.facts.append(fact)
+
     
             if not fact:
                 details = None

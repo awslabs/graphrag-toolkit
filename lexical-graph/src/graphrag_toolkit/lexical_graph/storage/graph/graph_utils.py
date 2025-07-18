@@ -4,10 +4,14 @@
 from typing import List, Optional
 import re
 import string
+import uuid
 
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
 
 SEARCH_STRING_PATTERN = re.compile(r'([^\s\w]|_)+')
+
+def new_query_var():
+    return f'n{uuid.uuid4().hex}'
 
 def search_string_from(value:str):
     """
@@ -43,6 +47,9 @@ def label_from(value:str):
     Returns:
         str: The modified label-like output string.
     """
+    if value.startswith('__') and value.endswith('__'):
+        return value
+    
     value = SEARCH_STRING_PATTERN.sub(' ', value)
     return string.capwords(value).replace(' ', '')
 

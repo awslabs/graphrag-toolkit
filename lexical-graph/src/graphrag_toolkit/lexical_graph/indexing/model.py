@@ -143,6 +143,8 @@ class Relation(BaseModel):
 
     value: str
 
+EntityType = Union[Entity, str]
+
 class Fact(BaseModel):
     """
     Represents a fact entity with associated properties describing relationships
@@ -174,7 +176,7 @@ class Fact(BaseModel):
     subject: Entity
     predicate: Relation
     object: Optional[Entity]=None
-    complement: Optional[str]=None
+    complement: Optional[EntityType]=None
 
 class Statement(BaseModel):
     """Represents a statement with associated details, facts, and identifiers.

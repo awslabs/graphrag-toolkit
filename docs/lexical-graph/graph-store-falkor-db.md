@@ -18,7 +18,7 @@ You can use FalkorDB as a graph store.
 The FalkorDB graph store is contained in a separate contributor package. To install it:
 
 ```
-!pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.10.1.zip#subdirectory=lexical-graph-contrib/falkordb
+!pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.10.2.zip#subdirectory=lexical-graph-contrib/falkordb
 ```
 
 ### Registering FalkorDB as a graph store

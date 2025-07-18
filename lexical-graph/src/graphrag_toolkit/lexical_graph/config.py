@@ -42,6 +42,7 @@ DEFAULT_BUILD_BATCH_SIZE = 4
 DEFAULT_BUILD_BATCH_WRITE_SIZE = 25
 DEFAULT_BATCH_WRITES_ENABLED = True
 DEFAULT_INCLUDE_DOMAIN_LABELS = False
+DEFAULT_INCLUDE_LOCAL_ENTITIES = False
 DEFAULT_ENABLE_CACHE = False
 DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 
@@ -250,6 +251,7 @@ class _GraphRAGConfig:
         _build_batch_write_size (Optional[int]): Limit for the size of batch writes in the build process.
         _batch_writes_enabled (Optional[bool]): Flag indicating whether batch writes are enabled.
         _include_domain_labels (Optional[bool]): Whether domain-specific labels are included in processes.
+        _include_local_entities (Optional[bool]): Whether local entities are included in the graph.
         _enable_cache (Optional[bool]): Boolean flag to enable or disable caching mechanisms.
         _metadata_datetime_suffixes (Optional[List[str]]): List of datetime suffixes included in metadata handling.
     """
@@ -274,6 +276,7 @@ class _GraphRAGConfig:
     _build_batch_write_size: Optional[int] = None
     _batch_writes_enabled: Optional[bool] = None
     _include_domain_labels: Optional[bool] = None
+    _include_local_entities: Optional[bool] = None
     _enable_cache: Optional[bool] = None
     _metadata_datetime_suffixes: Optional[List[str]] = None
 
@@ -746,6 +749,16 @@ class _GraphRAGConfig:
                 labels should be included.
         """
         self._include_domain_labels = include_domain_labels
+
+    @property
+    def include_local_entities(self) -> bool:   
+        if self._include_local_entities is None:
+            self.include_local_entities = string_to_bool(os.environ.get('INCLUDE_LOCAL_ENTITIES'), DEFAULT_INCLUDE_LOCAL_ENTITIES)
+        return self._include_local_entities
+
+    @include_local_entities.setter
+    def include_local_entities(self, include_local_entities: bool) -> None:
+        self._include_local_entities = include_local_entities
 
     @property
     def enable_cache(self) -> bool:

@@ -50,7 +50,7 @@ class GraphScopedValueStore(ScopedValueStore):
             'scope': scope
         }
 
-        results = self.graph_store.execute_query(cypher, params)
+        results = self.graph_store.execute_query_with_retry(cypher, params)
 
         return [result['value'] for result in results]
 

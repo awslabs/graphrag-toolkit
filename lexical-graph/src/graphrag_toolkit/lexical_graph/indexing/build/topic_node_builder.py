@@ -6,7 +6,6 @@ from typing import List, Dict
 from llama_index.core.schema import TextNode, BaseNode
 from llama_index.core.schema import NodeRelationship
 
-from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection, Topic, Statement
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY

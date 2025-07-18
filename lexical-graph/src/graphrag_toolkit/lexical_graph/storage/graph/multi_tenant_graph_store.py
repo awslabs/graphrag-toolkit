@@ -64,7 +64,7 @@ class MultiTenantGraphStore(GraphStore):
             **kwargs: Additional optional keyword arguments to be passed to the
                 `execute_query_with_retry` method of the `inner` object.
         """
-        self.inner.execute_query_with_retry(query=self._rewrite_query(query), parameters=parameters, max_attempts=max_attempts, max_wait=max_wait)
+        return self.inner.execute_query_with_retry(query=self._rewrite_query(query), parameters=parameters, max_attempts=max_attempts, max_wait=max_wait)
 
     def _logging_prefix(self, query_id:str, correlation_id:Optional[str]=None):
         """
@@ -122,7 +122,7 @@ class MultiTenantGraphStore(GraphStore):
         """
         return self.inner.node_id(id_name=id_name)
     
-    def execute_query(self, cypher:str, parameters={}, correlation_id=None) -> Dict[str, Any]:
+    def _execute_query(self, cypher:str, parameters={}, correlation_id=None) -> Dict[str, Any]:
         """
         Executes a database query with the given cypher query string, parameters,
         and an optional correlation ID for tracking purposes.
@@ -138,7 +138,7 @@ class MultiTenantGraphStore(GraphStore):
             A dictionary containing the query results or metadata.
 
         """
-        return self.inner.execute_query(cypher=self._rewrite_query(cypher), parameters=parameters, correlation_id=correlation_id)
+        return self.inner._execute_query(cypher=self._rewrite_query(cypher), parameters=parameters, correlation_id=correlation_id)
     
     def _rewrite_query(self, cypher:str):
         """

@@ -278,7 +278,7 @@ class NeptuneAnalyticsClient(GraphStore):
         """
         return create_property_assigment_fn_for_neptune(key, value)
  
-    def execute_query(self, cypher, parameters={}, correlation_id=None):
+    def _execute_query(self, cypher, parameters={}, correlation_id=None):
         """
         Executes a Cypher query against the database, with the ability to log the request and response,
         including the execution time. This method is a wrapper over the database client execution,
@@ -408,7 +408,7 @@ class NeptuneDatabaseClient(GraphStore):
         """
         return create_property_assigment_fn_for_neptune(key, value)
 
-    def execute_query(self, cypher, parameters={}, correlation_id=None):
+    def _execute_query(self, cypher, parameters={}, correlation_id=None):
         """
         Executes an openCypher query using the provided query string and parameters,
         logs the query and its results for debugging purposes, and measures the
