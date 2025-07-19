@@ -6,7 +6,7 @@ documents using LlamaIndex's DocxReader.
 """
 
 from pathlib import Path
-from typing import List
+from typing import List, Union
 from llama_index.core.schema import Document
 
 # Lazy import for optional dependency
@@ -21,12 +21,10 @@ except ImportError as e:
 from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_provider_base import (
     LlamaIndexReaderProviderBase,
 )
-from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_registry import (
-    ReaderProviderRegistry,
-)
 from graphrag_toolkit.lexical_graph.logging import logging
 
 logger = logging.getLogger(__name__)
+
 
 class DocxReaderProvider(LlamaIndexReaderProviderBase):
     """
@@ -52,4 +50,3 @@ class DocxReaderProvider(LlamaIndexReaderProviderBase):
         docs: List[Document] = self.read(str(test_file))
         assert isinstance(docs, list)
         return len(docs) > 0
-

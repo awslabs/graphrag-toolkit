@@ -1,47 +1,39 @@
-"""
-GitHub repository reader provider using LlamaIndex.
-
-This provider reads the contents of a public or private GitHub repository using
-LlamaIndex's GithubRepositoryReader. Requires a GitHub token for authenticated access.
-"""
-
-import os
-from typing import List, Any
-from urllib.parse import urlparse
-from llama_index.core.schema import Document
-
-# Lazy import for GitHub readers
-try:
-    from llama_index.readers.github import GithubRepositoryReader, GithubClient
-except ImportError as e:
-    raise ImportError(
-        "GitHubReaderProvider requires the 'llama-index[readers-github]' optional dependency. "
-        "Install it via: pip install llama-index[readers-github]"
-    ) from e
-
+from typing import Optional, List
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_base import ReaderProvider
-from graphrag_toolkit.lexical_graph.logging import logging
-
-logger = logging.getLogger(__name__)
-
 
 class GitHubReaderProvider(ReaderProvider):
     """
     Reader provider for GitHub repositories using LlamaIndex's GithubRepositoryReader.
     """
 
-    def __init__(self, github_token: str = None):
+    def __init__(
+        self,
+        github_token: str = None,
+        default_branch: str = "main",
+        filter_directories: Optional[List[str]] = None,
+        filter_file_extensions: Optional[List[str]] = None,
+        verbose: bool = False
+    ):
         """
-        Initialize GitHub client for use in load operations.
+        Initialize GitHub client and reader options.
 
         Args:
             github_token: GitHub personal access token. If not provided, falls back to GITHUB_TOKEN env var.
+            default_branch: Branch name to use when reading the repo.
+            filter_directories: Limit crawling to these directories.
+            filter_file_extensions: Limit to files with these extensions.
+            verbose: Enable verbose logging from the underlying reader.
         """
         github_token = github_token or os.environ.get("GITHUB_TOKEN")
         if not github_token:
             raise ValueError("GitHub token is required. Set GITHUB_TOKEN or pass it explicitly.")
 
-        logger.debug("Using authenticated GitHub client")
+        self.default_branch = default_branch
+        self.filter_directories = filter_directories
+        self.filter_file_extensions = filter_file_extensions
+        self.verbose = verbose
+
+        logger.debug(f"Using GitHub token. Branch={self.default_branch}")
         self.github_client = GithubClient(github_token=github_token)
 
     def read(self, input_source: Any) -> List[Document]:
@@ -54,32 +46,25 @@ class GitHubReaderProvider(ReaderProvider):
         Returns:
             A list of LlamaIndex Document objects
         """
-        logger.debug(f"Reading from GitHub repo URL: {input_source}")
-
         parsed = urlparse(input_source)
         parts = parsed.path.strip("/").split("/")
         if len(parts) < 2:
             raise ValueError(f"Invalid GitHub repo URL: {input_source}")
 
         owner, repo = parts[0], parts[1]
-        branch = "main"  # This can be made configurable later
 
-        logger.debug(f"Owner: {owner}, Repo: {repo}, Branch: {branch}")
         reader = GithubRepositoryReader(
             github_client=self.github_client,
             owner=owner,
-            repo=repo
+            repo=repo,
+            filter_directories=self.filter_directories,
+            filter_file_extensions=self.filter_file_extensions,
+            verbose=self.verbose
         )
-        return reader.load_data(branch=branch)
+
+        return reader.load_data(branch=self.default_branch)
 
     def self_test(self) -> bool:
-        """
-        Sanity check: Attempts to read a small known repo (public).
-
-        Returns:
-            True if test passes and documents are loaded.
-        """
         docs = self.read("https://github.com/octocat/Hello-World")
         assert isinstance(docs, list)
         return len(docs) > 0
-

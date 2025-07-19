@@ -23,7 +23,10 @@ class YouTubeReaderProvider(LlamaIndexReaderProviderBase):
 
     def __init__(self):
         """
-        No parameters required for initialization. Accepts YouTube video URL or ID at read() time.
+        Initialize the YouTube transcript reader provider.
+
+        No parameters required at construction time.
+        Accepts a YouTube video ID or URL at `read()` time.
         """
         try:
             from llama_index.readers.youtube_transcript import YoutubeTranscriptReader
@@ -50,4 +53,3 @@ class YouTubeReaderProvider(LlamaIndexReaderProviderBase):
         except Exception as e:
             logger.error(f"YouTubeReaderProvider self_test failed: {e}")
             return False
-

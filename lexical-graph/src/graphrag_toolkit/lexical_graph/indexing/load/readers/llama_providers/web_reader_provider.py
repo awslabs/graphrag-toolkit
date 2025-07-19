@@ -5,7 +5,7 @@ This module provides a provider that reads content from web pages
 using LlamaIndex's SimpleWebPageReader.
 """
 
-from typing import List
+from typing import List, Callable, Optional, Dict, Any
 from llama_index.core.schema import Document
 
 from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_provider_base import (
@@ -21,12 +21,19 @@ class WebReaderProvider(LlamaIndexReaderProviderBase):
     Reader provider for web pages using LlamaIndex's SimpleWebPageReader.
     """
 
-    def __init__(self, html_to_text: bool = True):
+    def __init__(
+        self,
+        html_to_text: bool = True,
+        metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None,
+        **reader_kwargs
+    ):
         """
         Initialize the WebReaderProvider.
 
         Args:
-            html_to_text: Whether to strip HTML to plain text
+            html_to_text: Whether to convert HTML to plain text
+            metadata_fn: Callable that returns metadata for a given URL
+            reader_kwargs: Additional arguments passed to SimpleWebPageReader
         """
         try:
             from llama_index.readers.web import SimpleWebPageReader
@@ -36,7 +43,13 @@ class WebReaderProvider(LlamaIndexReaderProviderBase):
                 "Install it with: pip install llama-index[web]"
             ) from e
 
-        super().__init__(reader_cls=SimpleWebPageReader, html_to_text=html_to_text)
+        kwargs = {
+            "html_to_text": html_to_text,
+            "metadata_fn": metadata_fn or (lambda url: {"url": url}),
+            **reader_kwargs,
+        }
+
+        super().__init__(reader_cls=SimpleWebPageReader, **kwargs)
 
     def self_test(self) -> bool:
         """
@@ -53,4 +66,3 @@ class WebReaderProvider(LlamaIndexReaderProviderBase):
         except Exception as e:
             logger.error(f"WebReaderProvider self_test failed: {e}")
             return False
-

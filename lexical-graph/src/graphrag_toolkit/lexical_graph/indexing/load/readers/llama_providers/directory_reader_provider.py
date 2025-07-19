@@ -6,8 +6,7 @@ supporting multiple file formats through LlamaIndex's SimpleDirectoryReader.
 """
 
 import os
-
-from typing import Any, List, Dict
+from typing import Any, List, Dict, Optional, Union, Callable
 from pathlib import Path
 
 try:
@@ -16,11 +15,11 @@ try:
 except ImportError as e:
     raise ImportError("This provider requires 'llama-index'. Install it via: pip install llama-index") from e
 
-
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_base import ReaderProvider
 from graphrag_toolkit.lexical_graph.logging import logging
 
 logger = logging.getLogger(__name__)
+
 
 class DirectoryReaderProvider(ReaderProvider):
     """
@@ -74,13 +73,26 @@ class DirectoryReaderProvider(ReaderProvider):
             ".xml": XMLReader(),
         }
 
-    def read(self, input_source: Any = None) -> List['Document']:
+    def read(
+        self,
+        input_source: Optional[Union[str, Path]] = None,
+        recursive: bool = False,
+        required_exts: Optional[List[str]] = None,
+        file_metadata: Optional[Union[Dict[str, Any], Callable[[str], Dict[str, Any]]]] = None,
+        filename_as_id: bool = False,
+        input_files: Optional[List[Union[str, Path]]] = None,
+    ) -> List[Document]:
         """
         Read documents from a directory using LlamaIndex's SimpleDirectoryReader.
         Logs any unsupported/skipped files.
 
         Args:
             input_source: Directory path to read from. If None, uses the default `data_dir`.
+            recursive: Whether to recurse into subdirectories.
+            required_exts: List of file extensions to include (e.g., [".pdf", ".txt"]).
+            file_metadata: Dict or callable to attach metadata to each document.
+            filename_as_id: Whether to use filename as document ID.
+            input_files: Explicit list of files to read instead of scanning a directory.
 
         Returns:
             A list of LlamaIndex Document objects
@@ -88,18 +100,28 @@ class DirectoryReaderProvider(ReaderProvider):
         directory = Path(input_source or self.data_dir)
         supported_extensions = set(self.file_extractor.keys())
 
-        all_files = [f for f in directory.rglob("*") if f.is_file()]
-        skipped_files = [
-            f for f in all_files
-            if not any(str(f).lower().endswith(ext) for ext in supported_extensions)
-        ]
+        if input_files is None:
+            all_files = [f for f in directory.rglob("*") if f.is_file()]
+            skipped_files = [
+                f for f in all_files
+                if not any(str(f).lower().endswith(ext) for ext in supported_extensions)
+            ]
 
-        if skipped_files:
-            logger.warning("The following files were skipped (unsupported formats):")
-            for f in skipped_files:
-                logger.warning(f" - {f}")
+            if skipped_files:
+                logger.warning("The following files were skipped (unsupported formats):")
+                for f in skipped_files:
+                    logger.warning(f" - {f}")
 
-        reader = SimpleDirectoryReader(input_dir=str(directory), file_extractor=self.file_extractor)
+        reader = SimpleDirectoryReader(
+            input_dir=str(directory),
+            recursive=recursive,
+            required_exts=required_exts,
+            file_metadata=file_metadata,
+            filename_as_id=filename_as_id,
+            file_extractor=self.file_extractor,
+            input_files=input_files
+        )
+
         return reader.load_data()
 
     def self_test(self) -> bool:
@@ -107,9 +129,8 @@ class DirectoryReaderProvider(ReaderProvider):
         Sanity check: Attempts to read from the default data_dir.
 
         Returns:
-            True if at least one document was loaded, otherwise raises.
+            True if at least one document was loaded
         """
         docs = self.read()
         assert isinstance(docs, list)
         return len(docs) > 0
-

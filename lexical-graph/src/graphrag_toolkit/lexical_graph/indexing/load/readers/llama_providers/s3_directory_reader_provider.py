@@ -8,7 +8,7 @@ directory and reads them using LlamaIndex's SimpleDirectoryReader.
 import os
 import tempfile
 import boto3
-from typing import Any, List, Dict
+from typing import Any, List, Dict, Optional, Union, Callable
 from pathlib import Path
 
 from llama_index.core.schema import Document
@@ -16,7 +16,6 @@ from llama_index.core import SimpleDirectoryReader
 
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_base import ReaderProvider
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config import S3DirectoryReaderConfig
-
 from graphrag_toolkit.lexical_graph.logging import logging
 
 logger = logging.getLogger(__name__)
@@ -33,13 +32,23 @@ class S3DirectoryReaderProvider(ReaderProvider):
         Initialize the S3 directory reader provider.
 
         Args:
-            config: Configuration object containing S3 bucket, prefix, region, and optional profile
+            config: Configuration object containing S3 bucket, prefix, region, profile, and reader parameters
         """
         self.bucket = config.bucket
         self.prefix = config.prefix
-
         self.region = config.region
         self.profile = config.profile
+
+        # SimpleDirectoryReader parameters
+        self.recursive = config.recursive
+        self.required_exts = config.required_exts
+        self.file_metadata = config.file_metadata
+        self.filename_as_id = config.filename_as_id
+        self.num_files_limit = config.num_files_limit
+        self.exclude_hidden = config.exclude_hidden
+        self.exclude_empty = config.exclude_empty
+        self.encoding = config.encoding
+        self.errors = config.errors
 
         self.file_extractor = self._build_extractor_map()
 
@@ -53,9 +62,6 @@ class S3DirectoryReaderProvider(ReaderProvider):
     def _build_extractor_map(self) -> Dict[str, Any]:
         """
         Build a mapping of file extensions to LlamaIndex reader instances.
-
-        Returns:
-            Dictionary of file extension → reader instance
         """
         try:
             from llama_index.readers.file import (
@@ -91,9 +97,6 @@ class S3DirectoryReaderProvider(ReaderProvider):
     def _download_s3_prefix(self, local_dir: str):
         """
         Download supported files from the S3 bucket prefix to a local directory.
-
-        Args:
-            local_dir: Local path to download files to
         """
         supported_exts = set(self.file_extractor.keys())
         skipped_files = []
@@ -104,7 +107,7 @@ class S3DirectoryReaderProvider(ReaderProvider):
             for obj in page.get("Contents", []):
                 key = obj["Key"]
                 if key.endswith("/"):
-                    continue  # skip folder-like objects
+                    continue
 
                 _, ext = os.path.splitext(key.lower())
                 rel_path = os.path.relpath(key, self.prefix)
@@ -130,14 +133,26 @@ class S3DirectoryReaderProvider(ReaderProvider):
         Read documents from an S3 bucket directory using SimpleDirectoryReader.
 
         Args:
-            input_source: Not used. Bucket/prefix comes from constructor config.
+            input_source: Ignored. Bucket/prefix is set via config.
 
         Returns:
-            List of LlamaIndex Document objects
+            A list of LlamaIndex Document objects
         """
         with tempfile.TemporaryDirectory() as tmp_dir:
             self._download_s3_prefix(tmp_dir)
-            reader = SimpleDirectoryReader(input_dir=tmp_dir, file_extractor=self.file_extractor)
+            reader = SimpleDirectoryReader(
+                input_dir=tmp_dir,
+                file_extractor=self.file_extractor,
+                recursive=self.recursive,
+                required_exts=self.required_exts,
+                file_metadata=self.file_metadata,
+                filename_as_id=self.filename_as_id,
+                num_files_limit=self.num_files_limit,
+                exclude_hidden=self.exclude_hidden,
+                exclude_empty=self.exclude_empty,
+                encoding=self.encoding,
+                errors=self.errors,
+            )
             return reader.load_data()
 
     def self_test(self) -> bool:
@@ -157,4 +172,3 @@ class S3DirectoryReaderProvider(ReaderProvider):
         except Exception as e:
             logger.error(f"S3 self_test failed: {e}")
             return False
-
