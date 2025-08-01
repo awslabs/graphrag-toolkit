@@ -1,29 +1,115 @@
-## Lexical Graph Examples
+## Lexical Graph Local Development
 
 ### Notebooks
 
   - [**00-Setup**](./notebooks/00-Setup.ipynb) – Installs the lexical-graph package and additional dependencies.
   - [**01-Combined Extract and Build**](./notebooks/01-Combined-Extract-and-Build.ipynb) – An example of [performing continuous ingest](../../docs/lexical-graph/indexing.md#continous-ingest) using the `LexicalGraphIndex.extract_and_build()` method.
-  - [**03-Querying**](./notebooks/04-Querying.ipynb) – Examples of [querying the graph](../../docs/lexical-graph/querying.md) using the `LexicalGraphQueryEngine` with `SemanticGuidedRetriever`.
+  - [**02-Querying**](./notebooks/02-Querying.ipynb) – Examples of [querying the graph](../../docs/lexical-graph/querying.md) using the `LexicalGraphQueryEngine` with `TraversalBasedRetriever`.
+  - [**03-Querying with prompting**](./notebooks/03-Querying%20with%20prompting.ipynb) – Advanced querying examples with custom prompts.
+  - [**05-Reader-Providers**](./notebooks/05-Reader-Providers.ipynb) – Examples of different document reader providers.
+  - [**06-Additional-Reader-Providers**](notebooks/04-Advanced-Configuration-Examples.ipynb) – Additional reader provider implementations.
+  - [**07-Directory-Reader-Provider**](./notebooks/07-Directory-Reader-Provider.ipynb) – Directory-based document reading examples.
+  - [**08-S3-Directory-Reader-Provider**](notebooks/05-S3-Directory-Reader-Provider.ipynb) – S3-based directory reading examples.
+  - [**09-Extra-Readers**](./notebooks/09-Extra-Readers.ipynb) – Additional specialized reader implementations.
   
 ## Environment Setup
 
-The notebooks rely on `GRAPH_STORE` and `VECTOR_STORE` environment variables being properly set. These variables define where and how the graph store and vector store connect.
+The development environment runs entirely in Jupyter Lab with Docker services. All code execution happens within the Jupyter container. This is the recommended environment for testing lexical-graph functionality.
 
-To set up your local environment:
+### Starting the Environment
 
-1. Clone the repository and navigate to your working directory.
-2. Run:
-
+**Standard (x86/Intel):**
 ```bash
-./build.sh
+cd docker
+./start-containers.sh
 ```
 
-This will start and configure the following services in Docker:
+**Mac/ARM (Apple Silicon):**
+```bash
+cd docker
+./start-containers.sh --mac
+```
 
-- **FalkorDB** for graph storage
-- **FalkorDB Browser** (accessible on `localhost:8092`) for interactive graph exploration
+**Development Mode (Hot-Code-Injection):**
+```bash
+cd docker
+./start-containers.sh --dev        # Standard with dev mode
+./start-containers.sh --dev --mac   # ARM with dev mode
+```
+
+**Reset Data and Rebuild:**
+```bash
+cd docker
+./start-containers.sh --reset --mac  # Reset everything and start fresh
+```
+
+**Windows PowerShell:**
+```powershell
+cd docker
+.\start-containers.ps1           # Standard
+.\start-containers.ps1 -Mac      # ARM/Mac
+.\start-containers.ps1 -Dev -Mac # Development mode
+.\start-containers.ps1 -Reset    # Reset data
+```
+
+**Windows Command Prompt:**
+```cmd
+cd docker
+start-containers.bat              # Standard
+start-containers.bat --mac        # ARM/Mac
+start-containers.bat --dev --mac  # Development mode
+start-containers.bat --reset      # Reset data
+```
+
+This will start the following services:
+
+- **Neo4j** for graph storage (accessible at `http://localhost:7476`, credentials: neo4j/password)
 - **PostgreSQL with pgvector** for vector embeddings
+- **Jupyter Lab** at `http://localhost:8889` for interactive development
+
+### Accessing Jupyter Lab
+
+After starting the containers, access Jupyter Lab at:
+- **Jupyter Lab**: `http://localhost:8889`
+
+The notebooks are automatically mounted in the `/home/jovyan/work` directory within the Jupyter container. All required packages are pre-installed in the Jupyter environment.
+
+### Development Mode (Hot-Code-Injection)
+
+For active development of the lexical-graph package, use the `--dev` flag to enable hot-code-injection:
+
+```bash
+cd docker
+./start-containers.sh --dev --mac  # or just --dev for x86
+```
+
+**Development mode features:**
+- Mounts the local `lexical-graph/` source code into the Jupyter container
+- Changes to lexical-graph source code are immediately reflected in notebooks
+- No need to rebuild containers or reinstall packages when modifying lexical-graph
+- The `00-Dev-Setup.ipynb` notebook automatically detects and configures hot-code-injection
+
+**When to use development mode:**
+- Contributing to the lexical-graph package
+- Testing local changes before submitting PRs
+- Debugging lexical-graph functionality
+- Rapid prototyping with lexical-graph modifications
+
+### Data Persistence
+
+By default, the environment preserves data between container restarts:
+- Neo4j graph data persists in Docker volumes
+- PostgreSQL vector data persists in Docker volumes
+- Jupyter notebooks and user data persist
+
+**To reset all data and start fresh:**
+```bash
+./start-containers.sh --reset --mac  # Unix/Mac
+.\start-containers.ps1 -Reset -Mac   # PowerShell
+start-containers.bat --reset --mac   # Windows CMD
+```
+
+### Database Configuration
 
 The Postgres container auto-applies the following schema on initialization via `./postgres/schema.sql`:
 

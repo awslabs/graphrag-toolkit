@@ -1,0 +1,23 @@
+FROM jupyter/minimal-notebook
+
+USER root
+
+# Install mamba in base environment, upgrade pip, and preinstall build tools
+RUN conda install -n base -c conda-forge mamba -y && \
+    mamba update -n base -c defaults conda -y && \
+    # Clean broken 'backports' if it exists
+    rm -rf /opt/conda/lib/python3.11/site-packages/backports* && \
+    # Install build tools and correct backport
+    pip install --upgrade pip setuptools wheel build backports.tarfile && \
+    # Optional: configure clean pip cache location to suppress permission warnings
+    mkdir -p /tmp/pip-cache && chmod 777 /tmp/pip-cache && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set pip cache to avoid warning: 'pip cache not writable'
+ENV PIP_CACHE_DIR=/tmp/pip-cache
+
+USER $NB_UID
+
+
+

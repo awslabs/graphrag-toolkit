@@ -1,28 +1,39 @@
 services:
-  falkordb:
-    image: falkordb/falkordb:latest
-    container_name: falkordb
+  neo4j:
+    image: neo4j:5.25-community
+    container_name: neo4j
     ports:
-      - "6379:6379"  # Redis/FalkorDB default
-      - "3000:3000"  # Optional for FalkorDB REST if exposed
+      - "7476:7474"  # HTTP
+      - "7689:7687"  # Bolt
+    environment:
+      - NEO4J_AUTH=${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-password}
+      - NEO4J_PLUGINS=["apoc"]
     volumes:
-      - falkor_data:/data
+      - neo4j_data:/data
+      - neo4j_logs:/logs
     networks:
       - graphrag_network
 
-  falkordb-browser:
-    image: falkordb/falkordb-browser:latest
-    container_name: falkordb-browser
+  jupyter:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    container_name: jupyter-notebook
     ports:
-      - "8092:8080"  # Browser UI exposed on localhost:8080
+      - "8889:8888"
     environment:
-      FALKORDB_BROWSER_REDIS_HOST: falkordb
-      FALKORDB_BROWSER_REDIS_PORT: 6379
-      FALKORDB_BROWSER_REDIS_USE_TLS: "false"
-    depends_on:
-      - falkordb
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=''
+    volumes:
+      - ../notebooks:/home/jovyan/work
+      - jupyter_data:/home/jovyan/.jupyter
+      - ${HOME}/.aws:/home/jovyan/.aws
+      - ${LEXICAL_GRAPH_DEV_MOUNT:-/dev/null:/tmp/unused}
     networks:
       - graphrag_network
+    depends_on:
+      - neo4j
+      - postgres
 
   postgres:
     image: pgvector/pgvector:0.6.2-pg16
@@ -44,5 +55,7 @@ networks:
     driver: bridge
 
 volumes:
-  falkor_data:
+  neo4j_data:
+  neo4j_logs:
   pgvector_data:
+  jupyter_data:

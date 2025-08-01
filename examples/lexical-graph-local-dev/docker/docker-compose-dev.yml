@@ -1,0 +1,75 @@
+services:
+  lg-falkordb:
+    image: falkordb/falkordb:latest
+    container_name: lg-falkordb-dev
+    ports:
+      - "6380:6379"
+      - "3002:3000"
+    volumes:
+      - lg_falkor_data_dev:/data
+    networks:
+      - lg_graphrag_network_dev
+
+  lg-postgres:
+    image: pgvector/pgvector:0.6.2-pg16
+    container_name: lg-pgvector-db-dev
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - lg_pgvector_data_dev:/var/lib/postgresql/data
+      - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - lg_graphrag_network_dev
+
+  lg-mysql-dev:
+    image: mysql:8.4
+    container_name: lg-mysql-dev
+    ports:
+      - "3307:3306"  # Avoid conflict with host MySQL
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-graphragroot}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-graphrag_db}
+      - MYSQL_USER=${MYSQL_USER:-graphrag}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-graphragpass}
+    volumes:
+      - lg_mysql_data_dev:/var/lib/mysql
+      - ./mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql  # Optional SQL init
+    networks:
+      - lg_graphrag_network_dev
+
+  lg-jupyter-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    container_name: lg-jupyter-dev
+    ports:
+      - "8889:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - ../notebooks:/home/jovyan/notebooks
+      - ../../../lexical-graph:/home/jovyan/lexical-graph
+      - ../../../lexical-graph-contrib:/home/jovyan/lexical-graph-contrib
+      - lg_jupyter_data_dev:/home/jovyan/work
+      - ~/.aws:/home/jovyan/.aws
+    networks:
+      - lg_graphrag_network_dev
+    depends_on:
+      - lg-postgres
+      - lg-falkordb
+      - lg-mysql-dev
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
+
+networks:
+  lg_graphrag_network_dev:
+    driver: bridge
+
+volumes:
+  lg_falkor_data_dev:
+  lg_pgvector_data_dev:
+  lg_jupyter_data_dev:
+  lg_mysql_data_dev:

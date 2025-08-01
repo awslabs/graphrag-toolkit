@@ -1,0 +1,64 @@
+services:
+  neo4j:
+    image: neo4j:5.25-community
+    container_name: neo4j
+    ports:
+      - "7476:7474"  # HTTP
+      - "7689:7687"  # Bolt
+    environment:
+      - NEO4J_AUTH=${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-password}
+      - NEO4J_PLUGINS=["apoc"]
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks:
+      - graphrag_network
+    platform: linux/arm64
+
+  jupyter:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    container_name: jupyter-notebook
+    ports:
+      - "8889:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=''
+    volumes:
+      - ../notebooks:/home/jovyan/work
+      - jupyter_data:/home/jovyan/.jupyter
+      - ${HOME}/.aws:/home/jovyan/.aws
+      - ${LEXICAL_GRAPH_DEV_MOUNT:-/dev/null:/tmp/unused}
+    networks:
+      - graphrag_network
+    depends_on:
+      - neo4j
+      - postgres
+    platform: linux/arm64
+
+  postgres:
+    image: pgvector/pgvector:0.6.2-pg16
+    container_name: pgvector-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+      - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - graphrag_network
+    platform: linux/arm64
+
+networks:
+  graphrag_network:
+    driver: bridge
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+  pgvector_data:
+  jupyter_data:
