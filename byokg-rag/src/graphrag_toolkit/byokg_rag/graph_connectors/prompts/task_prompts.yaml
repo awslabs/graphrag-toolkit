@@ -112,3 +112,32 @@ opencypher: '''
     </opencypher>
 
     '''
+opencypher-linking: '''
+    ## Task: OpenCypher Keyword and Entity Linking
+    Extract all relevant entities and keyword from the question that need to be linked to the graph. 
+    Pay attention on the specific node type that each keyword or entity refers to, and generate an openCypher query for checking if your extracted keywords and entities can be matched. 
+    Construct a complete, executable OpenCypher statement that will retrieve those matched keywords or entities from a graph database.
+    - Your query must only use node types, relationship types, and properties defined in the provided schema
+    - Include appropriate MATCH patterns, WHERE clauses, and RETURN statements
+    - Handle any filtering, aggregation, or sorting required by the question
+    - **If execution feedback is provided, ensure your query does not make the same errors**
+    - Limit the return results to 5 at this step.
+    - Return always the ID of the linked node(s).
+
+    
+    - Format your response as follows:
+
+    <opencypher-linking>
+    MATCH ...
+    WHERE ...
+    RETURN ...
+    LIMIT 5
+    </opencypher-linking>
+
+    One example includes:
+    MATCH (t:TYPE)
+    WHERE toLower(t.keyword) CONTAINS toLower(keyword) OR toLower(t.name) CONTAINS toLower(entity)
+    RETURN ID(t)
+    LIMIT 5
+
+    '''
