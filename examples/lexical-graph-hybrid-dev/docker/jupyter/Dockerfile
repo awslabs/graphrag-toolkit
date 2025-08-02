@@ -46,6 +46,7 @@ RUN pip install --no-cache-dir \
     llama-index-readers-github \
     llama-index-readers-json \
     llama-index-readers-structured-data \
+    llama-index-readers-s3 \
     pymupdf \
     youtube-transcript-api \
     wikipedia

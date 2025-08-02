@@ -13,6 +13,7 @@ services:
       - neo4j_logs:/logs
     networks:
       - graphrag_network
+    platform: linux/arm64
 
   jupyter:
     build:
@@ -33,6 +34,7 @@ services:
     depends_on:
       - neo4j
       - postgres
+    platform: linux/arm64
 
   postgres:
     image: pgvector/pgvector:0.6.2-pg16
@@ -48,6 +50,7 @@ services:
       - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
       - graphrag_network
+    platform: linux/arm64
 
 networks:
   graphrag_network:
