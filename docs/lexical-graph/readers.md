@@ -80,46 +80,66 @@ config = PDFReaderConfig(
 | Provider | Config | Description | Dependencies |
 |----------|--------|-------------|--------------|
 | `DatabaseReaderProvider` | `DatabaseReaderConfig` | SQL databases | Database-specific drivers |
-| `AthenaReaderProvider` | `AthenaReaderConfig` | AWS Athena | `boto3` |
+
 
 ### Code and Repository Readers
 | Provider | Config | Description | Dependencies |
 |----------|--------|-------------|--------------|
 | `GitHubReaderProvider` | `GitHubReaderConfig` | GitHub repositories | `PyGithub` |
-| `GitHubRepoProvider` | `GitHubRepoConfig` | GitHub repo files | `PyGithub` |
+
 
 ### Specialized Readers
 | Provider | Config | Description | Dependencies |
 |----------|--------|-------------|--------------|
 | `DocumentGraphReaderProvider` | `DocumentGraphReaderConfig` | Document graphs | Built-in |
-| `NotionReaderProvider` | `NotionReaderConfig` | Notion pages | `notion-client` |
 
-## Universal S3 Support
 
-Many file-based readers now support both local files and S3 URLs transparently through the S3FileMixin:
+## S3 Support
 
-### Supported Readers with S3
-- `PDFReaderProvider`
-- `DocxReaderProvider` 
-- `PPTXReaderProvider`
-- `MarkdownReaderProvider`
-- `CSVReaderProvider`
-- `JSONReaderProvider`
-- `StructuredDataReaderProvider`
+The GraphRAG Toolkit provides two approaches for S3 integration:
 
-### S3 Usage
+### 1. S3DirectoryReaderProvider (Recommended)
+Modern S3 reader using LlamaIndex's S3Reader for direct S3 access:
+
 ```python
-# Works with local files
-docs = reader.read('/local/path/file.pdf')
+from graphrag_toolkit.lexical_graph.indexing.load.readers import S3DirectoryReaderProvider, S3DirectoryReaderConfig
 
-# Also works with S3 URLs
-docs = reader.read('s3://my-bucket/documents/file.pdf')
+# For a single file
+config = S3DirectoryReaderConfig(
+    bucket="my-bucket",
+    key="documents/file.pdf",  # Use 'key' for single file
+    metadata_fn=lambda path: {'source': 's3'}
+)
 
-# Mix local and S3 files
-docs = reader.read([
-    '/local/file1.pdf',
-    's3://bucket/file2.pdf'
-])
+# For a directory/prefix
+config = S3DirectoryReaderConfig(
+    bucket="my-bucket",
+    prefix="documents/",  # Use 'prefix' for directory
+    metadata_fn=lambda path: {'source': 's3'}
+)
+
+# Note: Use either 'key' OR 'prefix', not both
+reader = S3DirectoryReaderProvider(config)
+docs = reader.read()
+```
+
+### 2. Legacy S3BasedDocs
+Legacy system for S3 document storage and retrieval (still supported):
+
+```python
+from graphrag_toolkit.lexical_graph.indexing.load import S3BasedDocs
+
+s3_docs = S3BasedDocs(
+    region="us-east-1",
+    bucket_name="my-bucket",
+    key_prefix="documents/",
+    collection_id="my-collection"
+)
+
+# Iterate through stored documents
+for doc in s3_docs:
+    # Process document
+    pass
 ```
 
 ### S3 Authentication
@@ -200,15 +220,23 @@ docs = reader.read(['data.csv', 's3://bucket/large-file.xlsx'])
 ```python
 from graphrag_toolkit.lexical_graph.indexing.load.readers import S3DirectoryReaderProvider, S3DirectoryReaderConfig
 
+# Reading from a directory/prefix
 config = S3DirectoryReaderConfig(
     bucket="my-bucket",
-    prefix="documents/",
-    aws_access_key_id="ACCESS_KEY",
-    aws_secret_access_key="SECRET_KEY",
+    prefix="documents/",  # For directory access
     metadata_fn=lambda path: {'source': 's3', 'path': path}
 )
 reader = S3DirectoryReaderProvider(config)
-docs = reader.read(config.prefix)
+docs = reader.read()  # No parameter needed
+
+# Reading a single file
+config = S3DirectoryReaderConfig(
+    bucket="my-bucket",
+    key="documents/specific-file.pdf",  # For single file
+    metadata_fn=lambda path: {'source': 's3', 'path': path}
+)
+reader = S3DirectoryReaderProvider(config)
+docs = reader.read()  # No parameter needed
 ```
 
 ### Database Reader
