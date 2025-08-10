@@ -31,7 +31,7 @@ class KGLinker:
             "draft-answer-generation": {"pattern": r"<answers>(.*?)</answers>"},
         }
 
-        self.tasks = graph_store.get_linker_tasks()
+        self.tasks = self.get_tasks(graph_store)
         current_dir = os.path.dirname(os.path.abspath(__file__))
         self.task_prompt_file = os.path.join(current_dir, "prompts", "task_prompts.yaml")
         self.prompt = load_yaml(os.path.join(current_dir, "prompts", "kg_linker_prompt.yaml"))["kg-linker-prompt"]
@@ -39,6 +39,9 @@ class KGLinker:
         self.task_prompts_iterative = self._finalize_prompt_iterative_prompt()
 
         self.llm_generator = llm_generator
+
+    def get_tasks(self, graph_store):
+        return graph_store.get_linker_tasks()
 
     def _finalize_prompt(self) -> str:
         """
@@ -125,3 +128,33 @@ class KGLinker:
             pattern = self.AVAILABLE_TASKS[task]['pattern']
             artifacts[task] = parse_response(llm_response, pattern)
         return artifacts
+
+
+
+class CypherKGLinker(KGLinker):
+    """
+    A linker that handles LLM-specific tasks for knowledge graph operations.
+    This class focuses on generating and parsing LLM responses for cypher queries.
+    """
+    def __init__(self,
+            llm_generator, 
+            graph_store
+            ):
+        
+        # Call the parent class (KGLinker) constructor
+        super().__init__(llm_generator, graph_store)
+        
+        # Override or add new attributes specific to CypherKGLinker
+        self.AVAILABLE_TASKS = {
+            "entity-extraction": {"pattern": r"<entities>(.*?)</entities>"},
+            "path-extraction": {"pattern": r"<paths>(.*?)</paths>"},
+            "opencypher": {"pattern": r"<opencypher>(.*?)</opencypher>"},
+            "opencypher-linking": {"pattern": r"<opencypher-linking>(.*?)</opencypher-linking>"},
+            "draft-answer-generation": {"pattern": r"<answers>(.*?)</answers>"},
+        }
+
+
+    def get_tasks(self, graph_store):
+        tasks =  graph_store.get_linker_tasks()
+        assert "opencypher" in tasks, "Graphstore needs to support openCypher execution for CypherKGLinker"
+        return ["opencypher-linking", "opencypher", "draft-answer-generation"]
