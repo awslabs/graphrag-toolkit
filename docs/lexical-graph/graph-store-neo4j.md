@@ -28,6 +28,6 @@ from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 
 neo4j_connection_info = 'neo4j://neo4j:!zfg%dGGh@example.com:7687'
 
-with GraphStoreFactory.for_graph_store(neptune_connection_info) as graph_store:
+with GraphStoreFactory.for_graph_store(neo4j_connection_info) as graph_store:
     ...
 ```
