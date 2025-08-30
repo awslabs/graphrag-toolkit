@@ -7,6 +7,7 @@ All providers inherit from LlamaIndexReaderProviderBase and use config-based ini
 _PROVIDER_MODULES = {
     # Document readers
     "PDFReaderProvider": ".pdf_reader_provider",
+    "AdvancedPDFReaderProvider": ".advanced_pdf_reader_provider",
     "DocxReaderProvider": ".docx_reader_provider",
     "PPTXReaderProvider": ".pptx_reader_provider",
     "MarkdownReaderProvider": ".markdown_reader_provider",

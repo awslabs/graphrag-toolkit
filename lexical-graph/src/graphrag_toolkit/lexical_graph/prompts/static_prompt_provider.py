@@ -1,5 +1,6 @@
 # static_prompt_provider.py
 
+import json
 from graphrag_toolkit.lexical_graph.prompts.prompt_provider_base import PromptProvider
 from graphrag_toolkit.lexical_graph.retrieval.prompts import (
     ANSWER_QUESTION_SYSTEM_PROMPT,
@@ -36,10 +37,18 @@ class StaticPromptProvider(PromptProvider):
 
     def get_user_prompt(self) -> str:
         """
-        Returns the static user prompt string.
+        Returns the static user prompt string with template substitutions applied.
         This method provides the user prompt that is set during initialization.
 
         Returns:
             The user prompt as a string.
         """
-        return self._user_prompt
+        user_prompt = self._user_prompt
+        
+        # Handle AWS template substitution for consistency with other providers
+        if '{aws_template_structure}' in user_prompt:
+            # For static provider, we can't load external templates, so provide a placeholder
+            user_prompt = user_prompt.replace('{aws_template_structure}', 'AWS remediation template (not available in static provider)')
+            logger.warning("[Template Debug] AWS template placeholder removed - not supported in static provider")
+        
+        return user_prompt

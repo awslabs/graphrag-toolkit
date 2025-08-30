@@ -1,6 +1,7 @@
 # graphrag_toolkit/lexical_graph/prompts/bedrock_prompt_provider.py
 # SPDX-License-Identifier: Apache-2.0
 
+import json
 from graphrag_toolkit.lexical_graph.prompts.prompt_provider_base import PromptProvider
 from graphrag_toolkit.lexical_graph.prompts.prompt_provider_config import BedrockPromptProviderConfig
 from graphrag_toolkit.lexical_graph.logging import logging
@@ -71,13 +72,59 @@ class BedrockPromptProvider(PromptProvider):
             self.config.system_prompt_version,
         )
 
+    def _load_aws_template(self) -> str:
+        """
+        Loads AWS template from S3 if available (BedrockPromptProvider uses S3 for templates).
+        
+        Returns:
+            JSON string of the AWS template, or empty string if not found.
+        """
+        try:
+            # Use the same S3 client from config to load template
+            template_key = "wiz_prompts/templates/aws_remediation_template.json"
+            logger.info(f"[Template Debug] Loading AWS template from S3: s3://{self.config.s3_bucket}/{template_key}")
+            
+            # Get S3 client from config (assuming it has one)
+            s3_client = getattr(self.config, 's3', None)
+            if not s3_client:
+                # Fallback: create S3 client using same session as Bedrock
+                import boto3
+                session = boto3.Session(profile_name=self.config.aws_profile, region_name=self.config.aws_region)
+                s3_client = session.client('s3')
+            
+            bucket = getattr(self.config, 's3_bucket', 'wiz-remediation-factory')
+            response = s3_client.get_object(Bucket=bucket, Key=template_key)
+            template_content = response["Body"].read().decode("utf-8")
+            # Validate it's valid JSON
+            json.loads(template_content)
+            return template_content
+        except Exception as e:
+            logger.warning(f"[Template Debug] Could not load AWS template: {e}")
+            return ""
+
     def get_user_prompt(self) -> str:
-        """Retrieves the user prompt template from AWS Bedrock.
+        """Retrieves the user prompt template from AWS Bedrock with template substitutions applied.
 
         Returns:
             The text of the user prompt template.
         """
-        return self._load_prompt(
+        user_prompt = self._load_prompt(
             self.config.resolved_user_prompt_arn,
             self.config.user_prompt_version,
         )
+        
+        # Handle AWS template substitution
+        if '{aws_template_structure}' in user_prompt:
+            aws_template = self._load_aws_template()
+            if aws_template:
+                # Pretty format the JSON template
+                template_obj = json.loads(aws_template)
+                formatted_template = json.dumps(template_obj, indent=2)
+                user_prompt = user_prompt.replace('{aws_template_structure}', formatted_template)
+                logger.info("[Template Debug] AWS template substituted in user prompt")
+            else:
+                # Remove the placeholder if template not found
+                user_prompt = user_prompt.replace('{aws_template_structure}', 'AWS remediation template (template file not found)')
+                logger.warning("[Template Debug] AWS template placeholder removed - template not found")
+        
+        return user_prompt

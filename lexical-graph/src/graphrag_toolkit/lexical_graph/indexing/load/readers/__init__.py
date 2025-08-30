@@ -56,6 +56,7 @@ __all__ = [
     "OutlookReaderConfig",
     # Provider classes - Documents
     "PDFReaderProvider",
+    "AdvancedPDFReaderProvider",
     "DocxReaderProvider",
     "PPTXReaderProvider",
     "MarkdownReaderProvider",

@@ -2,6 +2,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import json
 from graphrag_toolkit.lexical_graph.prompts.prompt_provider_base import PromptProvider
 from graphrag_toolkit.lexical_graph.prompts.prompt_provider_config import S3PromptProviderConfig
 from graphrag_toolkit.lexical_graph.logging import logging
@@ -45,11 +46,48 @@ class S3PromptProvider(PromptProvider):
         """
         return self._load_prompt(self.config.system_prompt_file)
 
+    def _load_aws_template(self) -> str:
+        """
+        Loads AWS template from S3 if available.
+        
+        Returns:
+            JSON string of the AWS template, or empty string if not found.
+        """
+        try:
+            # Try to load aws_remediation_template.json from templates/ subdirectory
+            template_key = f"{self.config.prefix.rstrip('/')}/templates/aws_remediation_template.json"
+            logger.info(f"[Template Debug] Loading AWS template from S3: s3://{self.config.bucket}/{template_key}")
+            s3_client = self.config.s3
+            response = s3_client.get_object(Bucket=self.config.bucket, Key=template_key)
+            template_content = response["Body"].read().decode("utf-8")
+            # Validate it's valid JSON
+            json.loads(template_content)
+            return template_content
+        except Exception as e:
+            logger.warning(f"[Template Debug] Could not load AWS template: {e}")
+            return ""
+
     def get_user_prompt(self) -> str:
         """
-        Retrieves the user prompt from S3.
+        Retrieves the user prompt from S3 and processes template placeholders.
 
         Returns:
-            The contents of the user prompt file.
+            The contents of the user prompt file with template substitutions applied.
         """
-        return self._load_prompt(self.config.user_prompt_file)
+        user_prompt = self._load_prompt(self.config.user_prompt_file)
+        
+        # Handle AWS template substitution
+        if '{aws_template_structure}' in user_prompt:
+            aws_template = self._load_aws_template()
+            if aws_template:
+                # Pretty format the JSON template
+                template_obj = json.loads(aws_template)
+                formatted_template = json.dumps(template_obj, indent=2)
+                user_prompt = user_prompt.replace('{aws_template_structure}', formatted_template)
+                logger.info("[Template Debug] AWS template substituted in user prompt")
+            else:
+                # Remove the placeholder if template not found
+                user_prompt = user_prompt.replace('{aws_template_structure}', 'AWS remediation template (template file not found)')
+                logger.warning("[Template Debug] AWS template placeholder removed - template not found")
+        
+        return user_prompt
