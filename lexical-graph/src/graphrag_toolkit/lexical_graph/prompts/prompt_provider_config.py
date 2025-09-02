@@ -138,6 +138,8 @@ class BedrockPromptProviderConfig(ProviderConfig):
     user_prompt_arn: str = field(default_factory=lambda: os.environ["USER_PROMPT_ARN"])
     system_prompt_version: Optional[str] = field(default_factory=lambda: os.getenv("SYSTEM_PROMPT_VERSION"))
     user_prompt_version: Optional[str] = field(default_factory=lambda: os.getenv("USER_PROMPT_VERSION"))
+    aws_template_s3_bucket: Optional[str] = None
+    aws_template_s3_key: Optional[str] = None
 
     @property
     def resolved_system_prompt_arn(self) -> str:
@@ -180,6 +182,7 @@ class S3PromptProviderConfig(ProviderConfig):
     prefix: str = field(default_factory=lambda: os.getenv("PROMPT_S3_PREFIX", "prompts/"))
     system_prompt_file: str = "system_prompt.txt"
     user_prompt_file: str = "user_prompt.txt"
+    aws_template_file: Optional[str] = None
 
 
     def build(self) -> PromptProvider:
@@ -201,6 +204,7 @@ class FilePromptProviderConfig(ProviderConfig):
     base_path: str = field(default_factory=lambda: os.getenv("PROMPT_PATH", "./prompts"))
     system_prompt_file: str = "system_prompt.txt"
     user_prompt_file: str = "user_prompt.txt"
+    aws_template_file: Optional[str] = None
 
     def build(self) -> PromptProvider:
         from graphrag_toolkit.lexical_graph.prompts.file_prompt_provider import FilePromptProvider

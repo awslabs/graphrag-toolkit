@@ -22,6 +22,14 @@ class JSONReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
             "clean_json": config.clean_json
         }
         
+        # Add optional parameters if they exist in config
+        if hasattr(config, 'levels_back') and config.levels_back is not None:
+            reader_kwargs["levels_back"] = config.levels_back
+        if hasattr(config, 'collapse_length') and config.collapse_length is not None:
+            reader_kwargs["collapse_length"] = config.collapse_length
+        if hasattr(config, 'ensure_ascii'):
+            reader_kwargs["ensure_ascii"] = config.ensure_ascii
+        
         super().__init__(config=config, reader_cls=JSONReader, **reader_kwargs)
         self.metadata_fn = config.metadata_fn
 
