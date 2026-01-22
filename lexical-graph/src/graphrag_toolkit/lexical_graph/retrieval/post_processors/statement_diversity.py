@@ -2,14 +2,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import numpy as np
 import re
-import spacy
+
 from typing import List, Optional, Any, Callable
 from pydantic import Field
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 from graphrag_toolkit.lexical_graph import ModelError
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult
@@ -132,6 +128,14 @@ class StatementDiversityPostProcessor(BaseNodePostprocessor):
             similarity_threshold=similarity_threshold,
             text_fn = text_fn or ALL_TEXT
         )
+
+        try:
+            import spacy
+        except ImportError as e:
+            raise ImportError(
+                "spacy package not found, install with 'pip install spacy'"
+            ) from e
+        
         try:
             self.nlp = spacy.load("en_core_web_sm", disable=['ner', 'parser'])
             self.nlp.add_pipe('sentencizer')
@@ -198,10 +202,26 @@ class StatementDiversityPostProcessor(BaseNodePostprocessor):
         """
         if not nodes:
             return nodes
+        
+        try:
+            import numpy as np
+        except ImportError as e:
+            raise ImportError(
+                "numpy package not found, install with 'pip install numpy'"
+            ) from e
+        
             
         # Preprocess texts
         texts = [self.text_fn(node.node) for node in nodes]
         preprocessed_texts = self.preprocess_texts(texts)
+
+        try:
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            from sklearn.metrics.pairwise import cosine_similarity
+        except ImportError as e:
+            raise ImportError(
+                "scikit-learn package not found, install with 'pip install scikit-learn'"
+            ) from e
 
         # Calculate TF-IDF similarity
         vectorizer = TfidfVectorizer()
