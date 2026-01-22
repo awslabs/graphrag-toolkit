@@ -174,8 +174,11 @@ class IndexingConfig():
             batch_config (Optional[BatchConfig]): Configuration for batch inference
                 operations. If None, batch inference is not used.
         """
-        if chunking is not None and len(chunking) == 0:
-            chunking.append(SentenceSplitter(chunk_size=256, chunk_overlap=25))
+        if chunking is not None:
+            if isinstance(chunking, NodeParser):
+                chunking = [chunking]
+            if isinstance(chunking, list) and  len(chunking) == 0:
+                chunking.append(SentenceSplitter(chunk_size=256, chunk_overlap=25))
 
         self.chunking = chunking  # None = no chunking
         self.extraction = extraction or ExtractionConfig()
