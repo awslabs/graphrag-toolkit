@@ -1,0 +1,2124 @@
+{
+  "id_": "aws::883e0518:828c:87895b83",
+  "embedding": [
+    0.01473999,
+    -0.056854248,
+    0.006855011,
+    -0.031021118,
+    -0.047210693,
+    -0.0012083054,
+    -0.0146102905,
+    0.013343811,
+    -0.0345459,
+    0.049438477,
+    0.031280518,
+    0.0048065186,
+    -0.011749268,
+    -0.026473999,
+    -0.009986877,
+    -0.022201538,
+    0.023773193,
+    0.019439697,
+    0.03717041,
+    0.00415802,
+    -0.020736694,
+    0.017990112,
+    0.02909851,
+    0.018920898,
+    0.04800415,
+    -0.012214661,
+    -0.037872314,
+    0.006629944,
+    0.023223877,
+    0.017822266,
+    0.022521973,
+    -0.032714844,
+    0.021621704,
+    -0.0110321045,
+    0.016479492,
+    -0.07336426,
+    0.0013618469,
+    -0.0129776,
+    -0.014823914,
+    -0.010765076,
+    0.026153564,
+    -0.0019102097,
+    0.03753662,
+    0.014007568,
+    -0.002319336,
+    -0.009780884,
+    0.02835083,
+    -0.029647827,
+    0.029830933,
+    0.011116028,
+    -0.02053833,
+    -0.034729004,
+    -0.00881958,
+    0.00018632412,
+    -0.016326904,
+    -0.033477783,
+    0.008415222,
+    -0.0061416626,
+    0.034057617,
+    -0.026641846,
+    -0.024627686,
+    -0.025772095,
+    0.03488159,
+    0.013763428,
+    -0.019332886,
+    -0.011444092,
+    -0.003019333,
+    0.003982544,
+    0.030349731,
+    0.005466461,
+    0.004890442,
+    0.0071792603,
+    0.006916046,
+    -0.045013428,
+    -0.020187378,
+    0.04727173,
+    -0.009376526,
+    0.0025978088,
+    0.017868042,
+    -0.022583008,
+    -0.012321472,
+    0.026992798,
+    0.0053749084,
+    -0.05117798,
+    0.024795532,
+    -0.019180298,
+    -0.027511597,
+    -0.0069007874,
+    -0.015991211,
+    -0.008216858,
+    -0.010932922,
+    -0.13305664,
+    -0.025650024,
+    0.07366943,
+    0.025894165,
+    -0.021530151,
+    -0.05960083,
+    -0.053100586,
+    0.011276245,
+    0.023101807,
+    0.027404785,
+    -0.023956299,
+    0.019195557,
+    -0.021911621,
+    -0.009216309,
+    0.011497498,
+    0.016906738,
+    -0.01247406,
+    -0.011528015,
+    0.021118164,
+    -0.022750854,
+    -0.016464233,
+    0.039123535,
+    0.023712158,
+    -0.02508545,
+    -0.039245605,
+    -0.013473511,
+    0.038330078,
+    0.004032135,
+    0.014961243,
+    -0.0015287399,
+    0.0047187805,
+    -0.010574341,
+    0.00038194656,
+    0.023101807,
+    -0.0032730103,
+    -0.03552246,
+    0.020614624,
+    -0.033569336,
+    0.058929443,
+    0.004337311,
+    0.0053749084,
+    -0.040130615,
+    -0.016418457,
+    -0.038360596,
+    -0.026535034,
+    0.019973755,
+    0.028381348,
+    0.0178833,
+    -0.028442383,
+    0.022781372,
+    -0.010887146,
+    -0.0024032593,
+    0.018341064,
+    -0.03164673,
+    -0.019683838,
+    0.011711121,
+    0.039245605,
+    -0.015396118,
+    -0.022567749,
+    -0.0064849854,
+    0.008155823,
+    -0.059783936,
+    0.0141067505,
+    0.11407471,
+    0.019760132,
+    0.03161621,
+    -0.0031547546,
+    0.041168213,
+    0.06085205,
+    0.012931824,
+    -0.008674622,
+    0.028259277,
+    0.055999756,
+    0.012771606,
+    0.025756836,
+    -0.017791748,
+    -0.012840271,
+    0.0028572083,
+    0.030380249,
+    -0.042236328,
+    -0.0006904602,
+    -0.007949829,
+    -0.03668213,
+    -0.021713257,
+    -0.0065956116,
+    0.00182724,
+    0.037200928,
+    -0.0014467239,
+    -0.020370483,
+    0.004508972,
+    -0.04083252,
+    0.05847168,
+    0.0073776245,
+    -0.031173706,
+    0.0309906,
+    0.0093307495,
+    0.046966553,
+    0.015487671,
+    0.0069732666,
+    0.03479004,
+    -0.016586304,
+    -0.028427124,
+    0.021133423,
+    0.044555664,
+    -0.009513855,
+    -0.035217285,
+    -0.021453857,
+    0.010635376,
+    -0.033081055,
+    0.0154800415,
+    -0.031234741,
+    -0.009757996,
+    -0.01776123,
+    -0.06506348,
+    -0.032928467,
+    -0.018249512,
+    0.015602112,
+    -0.007133484,
+    0.033355713,
+    -0.00023400784,
+    -0.03491211,
+    0.02154541,
+    -0.022155762,
+    0.0027580261,
+    -0.026443481,
+    0.0035877228,
+    0.011947632,
+    0.02810669,
+    -0.008010864,
+    0.034973145,
+    0.05090332,
+    0.044952393,
+    -0.0010004044,
+    0.037384033,
+    -0.016616821,
+    0.003736496,
+    -0.001953125,
+    0.07751465,
+    -0.008056641,
+    0.09118652,
+    0.003917694,
+    0.0030651093,
+    0.005138397,
+    -0.04171753,
+    6.997585e-05,
+    -0.026763916,
+    -0.066833496,
+    -0.007911682,
+    0.058746338,
+    0.02557373,
+    0.0007033348,
+    -0.041778564,
+    -0.024398804,
+    -0.004802704,
+    -0.044677734,
+    -0.001329422,
+    0.012359619,
+    -0.003074646,
+    0.06524658,
+    0.019561768,
+    0.004611969,
+    -0.0074424744,
+    -0.033996582,
+    -0.00409317,
+    0.032928467,
+    -0.035125732,
+    -0.018539429,
+    0.018157959,
+    0.019546509,
+    -0.0008816719,
+    0.08148193,
+    0.055419922,
+    0.029937744,
+    -0.0625,
+    0.018173218,
+    -0.035064697,
+    -0.0045928955,
+    -0.0011129379,
+    -0.00020325184,
+    0.027923584,
+    -0.02368164,
+    -0.018508911,
+    -0.0015907288,
+    0.004753113,
+    -0.029373169,
+    -0.023284912,
+    0.0143585205,
+    -0.0037727356,
+    -0.03387451,
+    -0.014305115,
+    -0.0008072853,
+    -0.04574585,
+    -0.02861023,
+    0.026641846,
+    -0.01876831,
+    -0.024093628,
+    -0.022659302,
+    0.021652222,
+    0.01776123,
+    0.029541016,
+    0.013023376,
+    0.008522034,
+    0.022842407,
+    0.0119018555,
+    -0.023620605,
+    -0.026031494,
+    -0.040527344,
+    0.04562378,
+    -0.076416016,
+    0.012664795,
+    0.05529785,
+    -0.05706787,
+    0.037872314,
+    -0.0040779114,
+    -0.004623413,
+    -0.014663696,
+    -0.0008149147,
+    1.4603138e-05,
+    -0.0084991455,
+    -0.034210205,
+    0.002128601,
+    0.008407593,
+    -0.066589355,
+    0.053741455,
+    0.023986816,
+    0.012237549,
+    0.004322052,
+    -0.03845215,
+    -0.008056641,
+    0.11450195,
+    -0.023101807,
+    0.0075683594,
+    0.0013475418,
+    -0.030853271,
+    -0.054901123,
+    0.030792236,
+    -0.031082153,
+    -0.07922363,
+    -0.034851074,
+    0.013534546,
+    -0.06982422,
+    -0.013557434,
+    0.046783447,
+    0.019195557,
+    0.009559631,
+    0.00995636,
+    0.010261536,
+    -0.0018138885,
+    -0.031280518,
+    0.0027256012,
+    0.031829834,
+    -0.0055618286,
+    -0.005432129,
+    0.053375244,
+    0.005001068,
+    0.012619019,
+    0.02319336,
+    0.035339355,
+    0.055358887,
+    -0.07385254,
+    -0.030410767,
+    0.02508545,
+    0.005039215,
+    0.064819336,
+    -0.049316406,
+    -0.047576904,
+    0.03591919,
+    0.025466919,
+    -0.016860962,
+    -0.0026836395,
+    -4.3809414e-05,
+    -0.035064697,
+    -0.036590576,
+    0.032836914,
+    -0.0071754456,
+    -0.0034122467,
+    -0.028381348,
+    0.013687134,
+    0.048217773,
+    0.011238098,
+    0.0259552,
+    -0.052703857,
+    -0.018096924,
+    -0.047210693,
+    -0.010955811,
+    0.04547119,
+    -0.0104904175,
+    -0.010139465,
+    0.0119018555,
+    0.017578125,
+    0.026382446,
+    -0.053466797,
+    0.0028648376,
+    0.093322754,
+    0.0057907104,
+    0.026947021,
+    0.060943604,
+    -0.0013713837,
+    -0.012290955,
+    -0.0574646,
+    -0.021697998,
+    0.032836914,
+    -0.012649536,
+    0.020111084,
+    -0.03161621,
+    0.006111145,
+    0.07281494,
+    -0.057128906,
+    -0.003856659,
+    0.040252686,
+    -0.05029297,
+    -0.032287598,
+    -0.008575439,
+    -0.008293152,
+    -0.00018250942,
+    0.036193848,
+    -0.009605408,
+    0.029006958,
+    -0.007858276,
+    0.028839111,
+    -0.02998352,
+    0.017288208,
+    -0.028411865,
+    -0.00680542,
+    -0.0287323,
+    -0.010757446,
+    -0.007194519,
+    0.010345459,
+    -0.003112793,
+    -0.008010864,
+    0.026626587,
+    -0.0090408325,
+    0.010925293,
+    0.037963867,
+    0.048431396,
+    -0.016571045,
+    -0.06591797,
+    0.06500244,
+    0.012535095,
+    0.015655518,
+    0.009498596,
+    0.0095825195,
+    -0.017471313,
+    0.0012521744,
+    -0.041290283,
+    -0.054992676,
+    -0.048034668,
+    -0.024963379,
+    -0.00957489,
+    -0.009674072,
+    -0.023803711,
+    -0.00522995,
+    0.027923584,
+    -0.004070282,
+    -0.012336731,
+    -0.049194336,
+    -0.01739502,
+    -0.015296936,
+    -0.014602661,
+    0.0010690689,
+    0.021499634,
+    0.012573242,
+    0.013084412,
+    0.0016870499,
+    0.008743286,
+    -0.0032444,
+    0.023239136,
+    0.035583496,
+    0.01651001,
+    0.024932861,
+    -0.0011119843,
+    -0.027862549,
+    0.02357483,
+    0.051574707,
+    -0.021209717,
+    -0.0049705505,
+    -0.008514404,
+    -0.016647339,
+    0.042297363,
+    0.013656616,
+    -0.012290955,
+    0.008308411,
+    -0.008995056,
+    -0.021224976,
+    -0.06124878,
+    0.039978027,
+    0.036865234,
+    0.006389618,
+    -0.049865723,
+    0.010932922,
+    -0.0031318665,
+    -0.03579712,
+    -0.0026397705,
+    -0.01159668,
+    8.2969666e-05,
+    -0.06982422,
+    -0.0184021,
+    -0.0005412102,
+    0.006286621,
+    0.014862061,
+    -0.042633057,
+    -0.016540527,
+    0.032806396,
+    -0.046936035,
+    0.009918213,
+    0.019424438,
+    -0.053833008,
+    -0.024749756,
+    -0.04269409,
+    -0.07434082,
+    0.017562866,
+    0.046173096,
+    0.019866943,
+    0.009460449,
+    0.030426025,
+    0.016738892,
+    -0.004497528,
+    -0.0074691772,
+    0.021911621,
+    -0.01889038,
+    -0.03137207,
+    0.03050232,
+    -0.004714966,
+    0.0056152344,
+    0.0012235641,
+    0.03894043,
+    -0.050231934,
+    0.029953003,
+    0.017120361,
+    0.02671814,
+    0.08093262,
+    -0.041656494,
+    0.026443481,
+    0.05810547,
+    -0.04864502,
+    -0.04107666,
+    -0.02015686,
+    -0.0050239563,
+    -0.020645142,
+    0.028396606,
+    -0.0013933182,
+    0.022506714,
+    0.036590576,
+    0.002872467,
+    0.02734375,
+    0.00541687,
+    -0.072753906,
+    -0.012817383,
+    0.049743652,
+    0.024917603,
+    -0.009086609,
+    -0.032318115,
+    0.016342163,
+    0.014846802,
+    -0.028945923,
+    -0.011398315,
+    0.0093307495,
+    -0.026489258,
+    0.0259552,
+    -0.019515991,
+    -0.03326416,
+    -0.012886047,
+    -0.0013589859,
+    0.013023376,
+    -0.08392334,
+    -0.034332275,
+    -0.021087646,
+    0.007003784,
+    0.036376953,
+    -0.0023517609,
+    -0.0041923523,
+    -0.02470398,
+    0.03475952,
+    -0.0022392273,
+    0.028518677,
+    -0.06549072,
+    -0.0713501,
+    -0.010765076,
+    -0.0021247864,
+    -0.032470703,
+    -0.010787964,
+    0.01953125,
+    -0.030166626,
+    -0.009002686,
+    -0.015838623,
+    -0.03805542,
+    0.022094727,
+    -0.024520874,
+    0.026611328,
+    0.0062446594,
+    0.033843994,
+    -0.020080566,
+    0.010116577,
+    -0.03189087,
+    0.02470398,
+    0.011131287,
+    0.0054969788,
+    -0.022247314,
+    -0.009437561,
+    0.0035324097,
+    0.0062828064,
+    -0.023147583,
+    0.010215759,
+    0.030059814,
+    0.0048828125,
+    0.005344391,
+    -0.028244019,
+    0.057250977,
+    0.0076446533,
+    0.042114258,
+    -0.0284729,
+    -0.00081920624,
+    -0.0024147034,
+    -0.013046265,
+    -0.032287598,
+    -0.0014858246,
+    0.05670166,
+    -0.041503906,
+    -0.016235352,
+    -0.013244629,
+    -0.034240723,
+    0.043792725,
+    -0.0035953522,
+    0.013435364,
+    0.03652954,
+    0.031921387,
+    -0.01676941,
+    0.013580322,
+    -0.011886597,
+    0.03475952,
+    0.023147583,
+    0.028625488,
+    0.03111267,
+    -0.015777588,
+    -0.006641388,
+    -0.007686615,
+    0.02470398,
+    0.0017004013,
+    0.02218628,
+    0.053466797,
+    -0.0034542084,
+    -0.042816162,
+    -0.019744873,
+    -0.01725769,
+    0.026550293,
+    -0.015625,
+    -0.026123047,
+    -0.024612427,
+    -0.027160645,
+    0.0027427673,
+    0.040924072,
+    0.016647339,
+    -0.010826111,
+    0.029632568,
+    -0.006259918,
+    -0.0058250427,
+    -0.023361206,
+    -0.023544312,
+    -0.038146973,
+    -0.046875,
+    -0.0019435883,
+    0.036621094,
+    -0.006855011,
+    -0.022064209,
+    -0.010726929,
+    -0.06744385,
+    -0.032440186,
+    0.057495117,
+    -0.015037537,
+    -0.08050537,
+    0.056762695,
+    -0.038604736,
+    0.055908203,
+    0.058776855,
+    -0.0058135986,
+    -0.04272461,
+    0.030258179,
+    -0.058685303,
+    0.06427002,
+    -0.010818481,
+    -0.059631348,
+    -0.031829834,
+    -0.011642456,
+    0.0058631897,
+    -0.0073394775,
+    0.019500732,
+    0.01424408,
+    -0.026626587,
+    -0.014663696,
+    0.0054969788,
+    -0.054870605,
+    0.0054473877,
+    -0.009979248,
+    0.0003516674,
+    -0.0072402954,
+    -0.018051147,
+    0.034576416,
+    0.017745972,
+    -0.023223877,
+    -0.07086182,
+    -0.08282471,
+    -0.0018901825,
+    -0.07775879,
+    0.02128601,
+    0.029159546,
+    -0.021896362,
+    -6.747246e-05,
+    0.017791748,
+    -0.017028809,
+    0.019302368,
+    0.0029945374,
+    -0.026535034,
+    -0.02722168,
+    -0.027008057,
+    0.061279297,
+    0.018112183,
+    0.009925842,
+    -0.062927246,
+    -0.0010547638,
+    -0.026687622,
+    0.02607727,
+    -0.019470215,
+    0.0016450882,
+    -0.05633545,
+    -0.02508545,
+    -0.038726807,
+    -0.014755249,
+    -0.0019378662,
+    0.05758667,
+    -0.05505371,
+    0.01474762,
+    0.00077581406,
+    -0.056915283,
+    -0.012130737,
+    0.0069732666,
+    -0.05380249,
+    -0.030334473,
+    0.0037155151,
+    0.002155304,
+    -0.008773804,
+    -0.017089844,
+    0.032684326,
+    -0.027328491,
+    -0.04446411,
+    -0.0034427643,
+    0.007785797,
+    0.047973633,
+    0.035339355,
+    0.022979736,
+    -0.030929565,
+    0.0027942657,
+    0.028915405,
+    0.031066895,
+    -0.03744507,
+    0.0036449432,
+    0.01626587,
+    -0.05593872,
+    -0.015579224,
+    -0.02909851,
+    0.020767212,
+    -0.023849487,
+    0.036956787,
+    -0.030273438,
+    0.011329651,
+    -0.08703613,
+    -0.035339355,
+    0.0026779175,
+    0.051818848,
+    -0.026107788,
+    -0.071899414,
+    0.010665894,
+    -0.0011196136,
+    0.010536194,
+    0.05203247,
+    0.017150879,
+    0.00086688995,
+    0.039611816,
+    0.014427185,
+    0.03024292,
+    0.024505615,
+    -0.036865234,
+    0.011009216,
+    0.044128418,
+    -0.0029449463,
+    0.05444336,
+    -0.014511108,
+    -0.009391785,
+    0.0066986084,
+    0.011047363,
+    0.012664795,
+    -0.016937256,
+    0.008605957,
+    -0.0031394958,
+    -0.036590576,
+    0.058013916,
+    0.06008911,
+    0.017562866,
+    0.0071640015,
+    -0.009796143,
+    0.076049805,
+    0.0011034012,
+    -0.03994751,
+    -0.016204834,
+    0.014671326,
+    0.022583008,
+    -0.040039062,
+    -0.022659302,
+    0.020904541,
+    -0.029708862,
+    -0.009460449,
+    -0.016464233,
+    -0.03237915,
+    -0.016418457,
+    -0.021575928,
+    0.001253128,
+    0.008834839,
+    0.0040512085,
+    -0.024276733,
+    -0.010887146,
+    0.0016794205,
+    -0.056762695,
+    0.023483276,
+    -0.010368347,
+    0.03540039,
+    -0.016662598,
+    -0.009567261,
+    -0.016311646,
+    -0.018371582,
+    -0.009483337,
+    0.029800415,
+    0.050354004,
+    0.014015198,
+    0.008865356,
+    -0.034362793,
+    0.0418396,
+    0.018478394,
+    -0.038970947,
+    -0.037017822,
+    -0.011047363,
+    0.03353882,
+    -0.030181885,
+    0.031463623,
+    0.003665924,
+    0.046936035,
+    0.0335083,
+    -0.0031528473,
+    0.006099701,
+    -0.015472412,
+    0.021774292,
+    0.025604248,
+    -0.0049324036,
+    -0.0039138794,
+    -0.012466431,
+    0.048828125,
+    -0.0056877136,
+    0.017074585,
+    -0.016281128,
+    0.044830322,
+    0.017227173,
+    0.061767578,
+    -0.06311035,
+    0.019943237,
+    0.0017795563,
+    -0.0044555664,
+    -0.068115234,
+    -0.017807007,
+    -0.042999268,
+    -0.033843994,
+    0.006126404,
+    0.018127441,
+    -0.019195557,
+    -0.0154800415,
+    0.009559631,
+    -0.029876709,
+    0.037017822,
+    -0.0435791,
+    -0.008644104,
+    0.048858643,
+    -0.010528564,
+    0.036865234,
+    0.035491943,
+    0.0084991455,
+    0.04083252,
+    -0.0063972473,
+    0.018463135,
+    0.01902771,
+    0.019622803,
+    0.03692627,
+    -0.014854431,
+    0.0569458,
+    0.042510986,
+    0.030960083,
+    -0.05493164,
+    0.0035743713,
+    0.06695557,
+    -0.004135132,
+    0.03845215,
+    -0.052459717,
+    -0.0124053955,
+    -0.053985596,
+    0.009719849,
+    0.03945923,
+    -0.004886627,
+    0.041259766,
+    0.014404297,
+    0.00032830238,
+    0.016326904,
+    -0.0025310516,
+    -0.023071289,
+    0.017471313,
+    -0.02017212,
+    -0.039123535,
+    0.00079107285,
+    -0.042816162,
+    0.010383606,
+    0.04232788,
+    -0.011688232,
+    -0.017425537,
+    -0.040802002,
+    -0.0030078888,
+    -0.024871826,
+    -0.021697998,
+    -0.005039215,
+    6.3180923e-06,
+    0.020065308,
+    -0.048095703,
+    -0.010643005,
+    -0.004776001,
+    0.027053833,
+    -0.0023231506,
+    -0.027282715,
+    0.052856445,
+    0.028320312,
+    0.03741455,
+    -0.023330688,
+    0.15209961,
+    -0.015205383,
+    0.008666992,
+    0.018157959,
+    0.03439331,
+    -0.0056915283,
+    -0.070739746,
+    0.021743774,
+    -0.0033912659,
+    -0.038726807,
+    0.016784668,
+    -0.021392822,
+    0.008171082,
+    -0.029830933,
+    -0.00055742264,
+    -0.027648926,
+    -0.038238525,
+    -0.0064582825,
+    0.031433105,
+    0.0154800415,
+    0.04916382,
+    0.010902405,
+    -0.06689453,
+    -0.012489319,
+    -0.03237915,
+    0.02658081,
+    -0.020385742,
+    0.04336548,
+    -0.06237793,
+    -0.00028157234,
+    -0.03930664,
+    -0.043823242,
+    -0.042510986,
+    0.032409668,
+    0.011047363,
+    -0.030532837,
+    0.03414917,
+    0.021240234,
+    -0.035339355,
+    0.018463135,
+    -0.011711121,
+    -0.05078125,
+    -0.0010194778,
+    -0.029724121,
+    -0.02507019,
+    -0.008674622,
+    0.0020923615,
+    -0.039123535,
+    0.017608643,
+    -0.00060510635,
+    -0.0051231384,
+    0.0211792,
+    -0.025726318,
+    -0.0063285828,
+    0.003730774,
+    0.0047416687,
+    -0.025466919,
+    0.015930176,
+    0.02909851,
+    -0.016418457,
+    -0.03656006,
+    -0.044036865,
+    -0.018081665,
+    -0.004547119,
+    -0.060638428,
+    -0.032104492,
+    -0.036315918,
+    -0.046936035,
+    0.017837524,
+    0.04043579,
+    -0.01499939,
+    0.03250122,
+    -0.026351929,
+    -0.00069856644,
+    -0.027175903,
+    0.028427124,
+    0.011314392,
+    0.025878906,
+    0.0071105957,
+    -0.00057172775,
+    0.01234436,
+    -0.009391785,
+    -0.033935547,
+    -0.037475586,
+    -0.05041504,
+    0.013305664,
+    -0.051086426,
+    0.030136108,
+    -0.018341064,
+    0.022521973,
+    0.032836914,
+    0.013954163,
+    0.005771637,
+    0.02015686,
+    -0.030899048,
+    0.097961426,
+    -0.024383545,
+    -0.011497498
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/entertainment_metaverse_platform.md",
+    "file_name": "entertainment_metaverse_platform.md",
+    "file_size": 3340,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-22",
+    "header_path": "/Amazon Creates Immersive Entertainment Metaverse with Hollywood Studios/",
+    "aws::graph::propositions": [
+      "# Prime Worlds Metaverse Platform Features",
+      "The platform has a revolutionary \"Narrative AI\" system.",
+      "The \"Narrative AI\" system creates personalized storylines.",
+      "The personalized storylines adapt to each user's choices.",
+      "The personalized storylines adapt to each user's preferences.",
+      "Users can experience the same content multiple times with completely different outcomes.",
+      "The AI generates new dialogue based on individual decisions.",
+      "The AI generates new plot developments based on individual decisions.",
+      "The AI generates new character interactions based on individual decisions.",
+      "The technology ensures that no two users have identical experiences.",
+      "Users can have different experiences even when exploring the same virtual world.",
+      "Prime Worlds is a metaverse platform.",
+      "Prime Worlds features social viewing experiences.",
+      "Friends can explore virtual environments together regardless of their physical locations.",
+      "Family members can explore virtual environments together regardless of their physical locations.",
+      "Users can attend virtual movie premieres.",
+      "Users can participate in live events with celebrities.",
+      "Users can collaborate on story outcomes in real-time.",
+      "The platform supports up to 1,000 simultaneous users in shared experiences.",
+      "The platform creates massive virtual gatherings around popular content.",
+      "The metaverse includes creator tools.",
+      "The creator tools allow independent filmmakers to develop their own interactive experiences.",
+      "The creator tools allow storytellers to develop their own interactive experiences.",
+      "Independent filmmakers and storytellers can use Amazon's advanced production technologies.",
+      "The tools democratize immersive content creation.",
+      "The tools enable artists worldwide to craft compelling virtual experiences.",
+      "Artists can craft compelling virtual experiences without requiring expensive equipment.",
+      "Artists can craft compelling virtual experiences without requiring technical expertise."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Prime Worlds Metaverse Platform Features",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Prime Worlds",
+              "classification": "Product"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Narrative AI",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform has a revolutionary \"Narrative AI\" system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "HAS TECHNOLOGY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Narrative AI",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Narrative AI",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "revolutionary",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The \"Narrative AI\" system creates personalized storylines.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Narrative AI",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CREATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personalized storylines",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The personalized storylines adapt to each user's choices.",
+              "details": [
+                "personalized storylines ADAPTS TO user's choices"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personalized storylines",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ADAPTS TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "user's choices",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The personalized storylines adapt to each user's preferences.",
+              "details": [
+                "personalized storylines ADAPTS TO user's preferences"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personalized storylines",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ADAPTS TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "user's preferences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AI generates new dialogue based on individual decisions.",
+              "details": [
+                "new dialogue BASED ON individual decisions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Narrative AI",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "GENERATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new dialogue",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new dialogue",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "BASED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "individual decisions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AI generates new plot developments based on individual decisions.",
+              "details": [
+                "new plot developments BASED ON individual decisions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Narrative AI",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "GENERATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new plot developments",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new plot developments",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "BASED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "individual decisions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AI generates new character interactions based on individual decisions.",
+              "details": [
+                "new character interactions BASED ON individual decisions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Narrative AI",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "GENERATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new character interactions",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new character interactions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "BASED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "individual decisions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The technology ensures that no two users have identical experiences.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Narrative AI",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "ENSURES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unique user experiences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Prime Worlds is a metaverse platform.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "metaverse platform",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Prime Worlds features social viewing experiences.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "FEATURES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "social viewing experiences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Friends can explore virtual environments together regardless of their physical locations.",
+              "details": [
+                "virtual environments ALLOWS remote exploration with friends"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "virtual environments",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ALLOWS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remote exploration with friends",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Family members can explore virtual environments together regardless of their physical locations.",
+              "details": [
+                "virtual environments ALLOWS remote exploration with family"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "virtual environments",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ALLOWS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remote exploration with family",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Users can attend virtual movie premieres.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "OFFERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "virtual movie premieres",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Users can participate in live events with celebrities.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "OFFERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "live events with celebrities",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Users can collaborate on story outcomes in real-time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "ENABLES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "real-time story collaboration",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform supports up to 1,000 simultaneous users in shared experiences.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1,000 simultaneous users",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "OFFERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shared experiences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform creates massive virtual gatherings around popular content.",
+              "details": [
+                "massive virtual gatherings FOCUSED ON popular content"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "CREATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "massive virtual gatherings",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "massive virtual gatherings",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FOCUSED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "popular content",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The metaverse includes creator tools.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Prime Worlds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "creator tools",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The creator tools allow independent filmmakers to develop their own interactive experiences.",
+              "details": [
+                "creator tools ENABLES independent filmmakers",
+                "creator tools PURPOSE develop interactive experiences"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "creator tools",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENABLES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "independent filmmakers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "creator tools",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "develop interactive experiences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The creator tools allow storytellers to develop their own interactive experiences.",
+              "details": [
+                "creator tools ENABLES storytellers"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "creator tools",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENABLES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "storytellers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Independent filmmakers and storytellers can use Amazon's advanced production technologies.",
+              "details": [
+                "independent filmmakers USES Amazon's advanced production technologies",
+                "storytellers USES Amazon's advanced production technologies"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "independent filmmakers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's advanced production technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "storytellers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's advanced production technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "advanced production technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tools democratize immersive content creation.",
+              "details": [
+                "creator tools DEMOCRATIZES immersive content creation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "creator tools",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEMOCRATIZES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "immersive content creation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tools enable artists worldwide to craft compelling virtual experiences.",
+              "details": [
+                "creator tools ENABLES artists worldwide",
+                "creator tools PURPOSE craft compelling virtual experiences"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "creator tools",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENABLES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artists worldwide",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "creator tools",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "craft compelling virtual experiences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Artists can craft compelling virtual experiences without requiring expensive equipment.",
+              "details": [
+                "compelling virtual experiences REQUIREMENT no expensive equipment"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "compelling virtual experiences",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no expensive equipment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Artists can craft compelling virtual experiences without requiring technical expertise.",
+              "details": [
+                "compelling virtual experiences REQUIREMENT no technical expertise"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "compelling virtual experiences",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no technical expertise",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::883e0518:828c",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/entertainment_metaverse_platform.md",
+        "file_name": "entertainment_metaverse_platform.md",
+        "file_size": 3340,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22"
+      },
+      "hash": "88d70e29712ac144be6236721fa82e9193304aab3b135f4a1b6ca4bac63eee48",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::883e0518:828c:63e0c36b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/entertainment_metaverse_platform.md",
+        "file_name": "entertainment_metaverse_platform.md",
+        "file_size": 3340,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Creates Immersive Entertainment Metaverse with Hollywood Studios/"
+      },
+      "hash": "fac37bf193eb6660bd2b2954694271299fd7249c34b0e4c40040d0494b03f8dd",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::883e0518:828c:f6ba4bb2",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/entertainment_metaverse_platform.md",
+        "file_name": "entertainment_metaverse_platform.md",
+        "file_size": 3340,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Creates Immersive Entertainment Metaverse with Hollywood Studios/"
+      },
+      "hash": "2583bcfd73489cd18a991bbfa8c9323221e94b0e75d61fe44e133b3c90e8a69d",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The platform's revolutionary \"Narrative AI\" system creates personalized storylines that adapt to each user's choices and preferences. Users can experience the same content multiple times with completely different outcomes, as the AI generates new dialogue, plot developments, and character interactions based on individual decisions. This technology ensures that no two users have identical experiences, even when exploring the same virtual world.\n\nPrime Worlds features social viewing experiences where friends and family can explore virtual environments together, regardless of their physical locations. Users can attend virtual movie premieres, participate in live events with celebrities, and collaborate on story outcomes in real-time. The platform supports up to 1,000 simultaneous users in shared experiences, creating massive virtual gatherings around popular content.\n\nThe metaverse includes creator tools that allow independent filmmakers and storytellers to develop their own interactive experiences using Amazon's advanced production technologies. These tools democratize immersive content creation, enabling artists worldwide to craft compelling virtual experiences without requiring expensive equipment or technical expertise.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1208,
+  "end_char_idx": 2448,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

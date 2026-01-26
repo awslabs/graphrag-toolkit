@@ -1,0 +1,2563 @@
+{
+  "id_": "aws::2aa9a0b7:1482:7ca07e76",
+  "embedding": [
+    0.014122009,
+    -0.004501343,
+    0.013748169,
+    0.007926941,
+    -0.01701355,
+    -0.012084961,
+    -0.006778717,
+    -0.034088135,
+    -0.037384033,
+    -0.0039520264,
+    -0.009567261,
+    0.043304443,
+    -0.017425537,
+    -0.027313232,
+    0.050933838,
+    -0.02104187,
+    0.009941101,
+    -0.027160645,
+    -0.047821045,
+    -0.0357666,
+    -0.024368286,
+    -0.026885986,
+    -0.03100586,
+    0.05343628,
+    0.01638794,
+    0.052825928,
+    -0.023254395,
+    0.021728516,
+    -0.0017318726,
+    0.0074310303,
+    0.00970459,
+    -0.020263672,
+    0.027374268,
+    0.04144287,
+    -0.07305908,
+    -0.062927246,
+    -0.03265381,
+    0.0079956055,
+    -0.05496216,
+    0.04727173,
+    0.015060425,
+    -0.008468628,
+    0.018310547,
+    -0.029190063,
+    -0.02532959,
+    0.026641846,
+    -0.015640259,
+    -0.01448822,
+    0.034240723,
+    0.037597656,
+    0.034423828,
+    0.0029640198,
+    0.015960693,
+    0.06628418,
+    -0.018310547,
+    0.010795593,
+    -0.050933838,
+    -0.023712158,
+    0.02355957,
+    0.044036865,
+    0.018920898,
+    -0.041381836,
+    0.0010957718,
+    -0.03756714,
+    -0.028823853,
+    -0.011268616,
+    -0.0049362183,
+    0.009712219,
+    0.012702942,
+    -0.028060913,
+    -0.0056610107,
+    0.016708374,
+    -0.0019483566,
+    -0.0032253265,
+    -0.022033691,
+    0.019470215,
+    -0.014831543,
+    -0.0055122375,
+    0.01701355,
+    0.0010318756,
+    0.0056877136,
+    0.004463196,
+    0.036224365,
+    -0.02494812,
+    0.00970459,
+    -0.009429932,
+    -0.0045661926,
+    -0.003293991,
+    -0.0024547577,
+    0.015525818,
+    -0.0088272095,
+    0.039245605,
+    -0.0014839172,
+    0.006576538,
+    -0.02406311,
+    -0.0074768066,
+    -0.0027542114,
+    -0.027786255,
+    0.005908966,
+    0.00022661686,
+    -0.0012254715,
+    -0.027023315,
+    -0.022125244,
+    0.015022278,
+    0.00415802,
+    0.009262085,
+    -0.014785767,
+    -0.029525757,
+    0.02168274,
+    0.01727295,
+    -0.018218994,
+    -0.00064611435,
+    -0.010627747,
+    0.021957397,
+    -0.06616211,
+    0.017959595,
+    -0.009857178,
+    -0.02407837,
+    -0.02079773,
+    0.046203613,
+    0.0023670197,
+    0.022857666,
+    -0.017593384,
+    -0.02784729,
+    -0.008720398,
+    -0.031280518,
+    -0.028121948,
+    0.024047852,
+    0.052459717,
+    0.0024776459,
+    -0.00868988,
+    0.02557373,
+    -0.043029785,
+    -0.04550171,
+    -0.02444458,
+    -0.0126953125,
+    0.018112183,
+    -0.02645874,
+    0.004180908,
+    -0.0107421875,
+    0.013053894,
+    0.007888794,
+    0.03982544,
+    -0.0060768127,
+    0.022628784,
+    0.02432251,
+    0.003648758,
+    0.006416321,
+    0.018554688,
+    -0.024932861,
+    0.027648926,
+    -0.05630493,
+    0.03186035,
+    -0.0047798157,
+    0.025497437,
+    -0.037872314,
+    0.06604004,
+    -0.04156494,
+    -0.008796692,
+    -0.054595947,
+    0.006259918,
+    -0.016403198,
+    -0.00066947937,
+    -0.018188477,
+    -0.048736572,
+    0.035247803,
+    -0.04324341,
+    -0.004142761,
+    0.014259338,
+    0.06112671,
+    0.02684021,
+    -0.03692627,
+    -0.07342529,
+    -0.025787354,
+    -0.015304565,
+    -0.014312744,
+    -0.015899658,
+    0.042053223,
+    0.03451538,
+    -0.028167725,
+    -0.0132751465,
+    -0.045928955,
+    0.066467285,
+    -0.011383057,
+    0.0049324036,
+    0.07751465,
+    0.0077552795,
+    0.00680542,
+    -0.036834717,
+    -0.012390137,
+    0.012748718,
+    0.086120605,
+    0.0025157928,
+    -0.018356323,
+    0.0078048706,
+    -0.016738892,
+    -0.013328552,
+    0.011131287,
+    0.0014305115,
+    -0.015930176,
+    -0.041931152,
+    0.011772156,
+    0.021499634,
+    0.03515625,
+    0.05319214,
+    0.005268097,
+    0.005519867,
+    0.020462036,
+    0.025909424,
+    0.036712646,
+    0.011245728,
+    0.011367798,
+    -0.044799805,
+    0.01209259,
+    -0.017562866,
+    -0.01940918,
+    -0.007549286,
+    0.045928955,
+    0.0030288696,
+    0.008117676,
+    -0.0017471313,
+    -0.004119873,
+    0.015075684,
+    0.030715942,
+    -0.03463745,
+    0.032806396,
+    -0.011756897,
+    0.041748047,
+    0.019577026,
+    0.04248047,
+    0.06365967,
+    -0.053497314,
+    -0.010101318,
+    0.017959595,
+    -0.00021708012,
+    0.0099105835,
+    0.059814453,
+    -0.025741577,
+    0.015930176,
+    0.011756897,
+    0.016159058,
+    0.016693115,
+    -0.0090408325,
+    0.03125,
+    0.02268982,
+    -0.047058105,
+    -0.012306213,
+    0.021499634,
+    -0.040405273,
+    -0.020614624,
+    0.035217285,
+    0.0107040405,
+    0.029647827,
+    0.07342529,
+    0.0031642914,
+    0.025543213,
+    -0.04724121,
+    -0.06237793,
+    -0.005317688,
+    0.016586304,
+    0.0043296814,
+    -0.022140503,
+    0.002008438,
+    -0.010383606,
+    0.055114746,
+    0.038360596,
+    0.05505371,
+    0.05090332,
+    -0.043304443,
+    0.038085938,
+    -0.00011771917,
+    -0.004508972,
+    -0.00010818243,
+    -0.012825012,
+    -0.08203125,
+    -0.007484436,
+    -0.015113831,
+    0.050048828,
+    -0.021850586,
+    -0.046966553,
+    0.01687622,
+    0.03817749,
+    -0.0023155212,
+    -0.006298065,
+    0.01637268,
+    -0.010406494,
+    -0.00605011,
+    0.008071899,
+    0.014816284,
+    0.020599365,
+    0.048339844,
+    0.0032539368,
+    -0.01260376,
+    0.018508911,
+    0.030883789,
+    -0.02684021,
+    0.01373291,
+    -0.015945435,
+    0.024215698,
+    -0.01373291,
+    0.01977539,
+    0.053863525,
+    0.01449585,
+    -0.011070251,
+    -0.026687622,
+    0.07171631,
+    -0.022399902,
+    0.019973755,
+    -0.007270813,
+    -0.07659912,
+    0.062927246,
+    -0.006801605,
+    0.036315918,
+    -0.0625,
+    0.06732178,
+    0.017669678,
+    -0.011444092,
+    0.01789856,
+    -0.036621094,
+    0.002363205,
+    0.024475098,
+    -0.008621216,
+    -0.0022964478,
+    -0.044921875,
+    0.002861023,
+    -0.01977539,
+    -0.0592041,
+    0.0027637482,
+    -0.041625977,
+    0.019302368,
+    -0.060791016,
+    -0.042419434,
+    -0.045074463,
+    0.031433105,
+    -0.019073486,
+    0.035980225,
+    0.004737854,
+    -0.03857422,
+    -0.018035889,
+    0.012298584,
+    0.00970459,
+    -0.037322998,
+    0.014450073,
+    -0.04434204,
+    -0.1149292,
+    0.054779053,
+    0.06048584,
+    0.00024139881,
+    -0.046722412,
+    -0.010597229,
+    0.052581787,
+    -0.010887146,
+    0.024627686,
+    -0.05770874,
+    0.005050659,
+    -0.01991272,
+    -0.049987793,
+    -0.056640625,
+    -0.036193848,
+    -0.08709717,
+    0.053466797,
+    -0.013290405,
+    -0.006290436,
+    -0.050445557,
+    -0.01928711,
+    -0.006389618,
+    -0.009536743,
+    -0.028961182,
+    -0.04510498,
+    -0.0491333,
+    -0.05633545,
+    -0.041015625,
+    0.009895325,
+    0.001707077,
+    0.028167725,
+    0.07086182,
+    -0.0385437,
+    -0.04800415,
+    0.013664246,
+    -0.019958496,
+    0.012496948,
+    0.0030822754,
+    0.024902344,
+    0.004432678,
+    -0.039398193,
+    0.0045394897,
+    -0.03717041,
+    -0.015426636,
+    0.021392822,
+    0.010604858,
+    0.035980225,
+    0.04458618,
+    0.013069153,
+    -0.03390503,
+    -0.026504517,
+    0.024368286,
+    -0.04006958,
+    -0.02734375,
+    0.023712158,
+    -0.010414124,
+    -0.09295654,
+    0.015197754,
+    0.020507812,
+    -0.04647827,
+    -0.015579224,
+    0.0008921623,
+    -0.057800293,
+    -0.036071777,
+    0.002922058,
+    0.024765015,
+    -0.023132324,
+    0.008506775,
+    -0.019180298,
+    0.0005440712,
+    0.010070801,
+    -0.011169434,
+    -0.064819336,
+    -0.02104187,
+    0.020355225,
+    0.0317688,
+    0.007472992,
+    -0.06311035,
+    0.001042366,
+    0.040802002,
+    -0.051971436,
+    -0.00038170815,
+    -0.04598999,
+    0.03213501,
+    -0.025375366,
+    0.029663086,
+    -0.037506104,
+    0.018753052,
+    -0.024383545,
+    -0.004627228,
+    0.0026016235,
+    0.025878906,
+    -0.009017944,
+    -0.024414062,
+    0.015449524,
+    -0.022338867,
+    0.015274048,
+    0.036590576,
+    0.029129028,
+    0.037902832,
+    0.0038909912,
+    0.004299164,
+    0.021057129,
+    0.017089844,
+    -0.009384155,
+    -0.00036764145,
+    -0.008079529,
+    0.013023376,
+    0.03149414,
+    0.034057617,
+    -0.0019607544,
+    -0.006954193,
+    -0.050231934,
+    0.023590088,
+    0.032073975,
+    -0.017623901,
+    0.007686615,
+    -0.01423645,
+    -0.037841797,
+    0.008758545,
+    -0.005710602,
+    0.031402588,
+    -0.034088135,
+    0.02859497,
+    -0.003250122,
+    -0.008125305,
+    0.04208374,
+    0.0046463013,
+    -0.044555664,
+    -0.04345703,
+    0.004085541,
+    0.00084495544,
+    0.019073486,
+    -0.049926758,
+    0.1060791,
+    0.019683838,
+    -0.06854248,
+    0.035736084,
+    -0.04510498,
+    -0.037597656,
+    -0.004169464,
+    -0.0003592968,
+    -0.008232117,
+    -0.023849487,
+    0.015853882,
+    0.003396988,
+    0.026763916,
+    -0.017608643,
+    0.05340576,
+    0.014381409,
+    0.011207581,
+    -0.027191162,
+    0.0035743713,
+    -0.04989624,
+    0.041900635,
+    0.010971069,
+    -0.033416748,
+    0.028274536,
+    -0.038238525,
+    -0.060272217,
+    -0.029067993,
+    0.007194519,
+    -0.00497818,
+    0.0002605915,
+    0.0032749176,
+    -0.049713135,
+    -0.03466797,
+    -0.029937744,
+    -0.016952515,
+    0.015991211,
+    -0.029953003,
+    0.053955078,
+    -0.034484863,
+    0.008270264,
+    -0.017745972,
+    -0.014122009,
+    0.046813965,
+    0.044403076,
+    0.024673462,
+    0.020645142,
+    -0.0049934387,
+    -0.028030396,
+    0.008010864,
+    -0.025939941,
+    -0.030532837,
+    -0.03805542,
+    -0.019821167,
+    -0.0022239685,
+    0.012329102,
+    0.031097412,
+    0.056274414,
+    0.05645752,
+    -0.0073051453,
+    0.03479004,
+    0.0013370514,
+    -0.061767578,
+    0.0016679764,
+    0.01902771,
+    0.014015198,
+    -0.03933716,
+    -0.009124756,
+    -0.0029029846,
+    -0.0032730103,
+    0.040039062,
+    -0.0017471313,
+    0.023345947,
+    0.002603531,
+    -0.008712769,
+    0.011451721,
+    -0.05529785,
+    -0.05529785,
+    0.0569458,
+    0.051940918,
+    -0.026550293,
+    -0.012207031,
+    0.025100708,
+    -0.004688263,
+    -0.023071289,
+    -0.012107849,
+    0.011016846,
+    0.003458023,
+    0.009338379,
+    0.03024292,
+    -0.016281128,
+    0.0076408386,
+    -0.029830933,
+    -0.05078125,
+    -0.053100586,
+    0.0023040771,
+    0.01108551,
+    -0.029052734,
+    0.017318726,
+    -0.00422287,
+    -0.007904053,
+    0.001074791,
+    -0.0012769699,
+    0.0049858093,
+    0.026168823,
+    -0.003736496,
+    -0.042053223,
+    -0.05697632,
+    0.0019197464,
+    0.03466797,
+    0.000112354755,
+    -0.03817749,
+    -0.01889038,
+    0.052825928,
+    -0.0129470825,
+    0.014251709,
+    -0.032989502,
+    -0.009407043,
+    0.0093688965,
+    -0.0017690659,
+    -0.04840088,
+    -0.029724121,
+    -0.011016846,
+    0.005420685,
+    -0.012969971,
+    -0.00856781,
+    -0.014801025,
+    0.015075684,
+    0.007209778,
+    0.0033226013,
+    0.019241333,
+    0.024337769,
+    0.031677246,
+    -0.03010559,
+    -0.006629944,
+    -0.042053223,
+    0.019866943,
+    -0.021072388,
+    -0.007499695,
+    -0.06616211,
+    0.05239868,
+    0.09454346,
+    0.010810852,
+    0.015731812,
+    -0.008781433,
+    -0.026107788,
+    -0.015403748,
+    0.0017652512,
+    0.02861023,
+    -0.05014038,
+    -0.007835388,
+    -0.020065308,
+    -0.013450623,
+    -0.0016107559,
+    -0.011657715,
+    -0.03857422,
+    -0.07293701,
+    -0.04763794,
+    0.059295654,
+    -0.010231018,
+    -0.034423828,
+    0.023895264,
+    0.025894165,
+    -0.011383057,
+    -0.00039625168,
+    -0.047302246,
+    0.00844574,
+    -0.017150879,
+    -0.032806396,
+    -0.03010559,
+    -0.035736084,
+    -0.025802612,
+    -0.011978149,
+    0.003063202,
+    0.021820068,
+    0.027816772,
+    -0.011459351,
+    -0.029159546,
+    -0.005432129,
+    -0.009185791,
+    -0.004447937,
+    -0.014831543,
+    -0.04852295,
+    -0.07879639,
+    -0.053955078,
+    -0.023513794,
+    -0.021087646,
+    0.0037841797,
+    -0.002029419,
+    0.006893158,
+    0.02609253,
+    -0.024917603,
+    0.006576538,
+    0.007209778,
+    -0.0026836395,
+    0.016281128,
+    -0.0385437,
+    -0.017684937,
+    0.05178833,
+    0.003534317,
+    0.0041999817,
+    0.011955261,
+    -0.00548172,
+    0.009559631,
+    0.0119018555,
+    0.03111267,
+    -0.044189453,
+    -0.008735657,
+    0.018173218,
+    -0.014518738,
+    0.005443573,
+    -0.005191803,
+    0.023803711,
+    0.0005970001,
+    0.038604736,
+    -0.014778137,
+    0.008583069,
+    -0.026260376,
+    -0.034576416,
+    -0.0036144257,
+    0.0024776459,
+    -0.045135498,
+    -0.050354004,
+    -0.021957397,
+    0.021743774,
+    0.02279663,
+    0.012062073,
+    0.009941101,
+    0.037841797,
+    -0.027557373,
+    -0.001540184,
+    -0.05368042,
+    -0.017547607,
+    -0.013961792,
+    0.048065186,
+    0.010070801,
+    -0.014328003,
+    0.018920898,
+    0.019515991,
+    0.057128906,
+    0.011138916,
+    -0.015388489,
+    -0.009239197,
+    -0.0287323,
+    -0.0020484924,
+    -0.032043457,
+    -0.028076172,
+    0.009483337,
+    -0.039978027,
+    -0.05206299,
+    0.0020828247,
+    -0.03491211,
+    -0.05822754,
+    0.018966675,
+    -0.023254395,
+    0.0048942566,
+    -0.0030536652,
+    -0.036132812,
+    0.011024475,
+    -0.013900757,
+    0.0014915466,
+    -0.025054932,
+    -0.0058670044,
+    0.019561768,
+    -0.019042969,
+    0.026153564,
+    -0.0073051453,
+    0.0143585205,
+    6.324053e-05,
+    0.0069618225,
+    0.0078086853,
+    -0.048095703,
+    -0.016921997,
+    0.010017395,
+    -0.02998352,
+    -0.086364746,
+    -0.025054932,
+    0.02835083,
+    0.0102005005,
+    0.0002168417,
+    -0.020980835,
+    -0.080322266,
+    0.031982422,
+    0.020355225,
+    0.0014266968,
+    0.004634857,
+    0.0030994415,
+    -0.03378296,
+    0.0289917,
+    0.020309448,
+    -0.017120361,
+    -0.017578125,
+    -0.011978149,
+    0.004245758,
+    0.0024700165,
+    -0.007648468,
+    -0.014976501,
+    0.019210815,
+    0.020126343,
+    0.032104492,
+    -0.06329346,
+    -0.0029354095,
+    -0.016052246,
+    0.015449524,
+    -0.021652222,
+    0.012367249,
+    0.009483337,
+    0.010269165,
+    -0.019363403,
+    -0.03677368,
+    -0.0014314651,
+    -0.0042686462,
+    -0.005832672,
+    -0.021606445,
+    0.020355225,
+    0.013366699,
+    -0.042938232,
+    0.024612427,
+    0.017044067,
+    -0.064331055,
+    -0.011802673,
+    0.0019626617,
+    -0.02897644,
+    -0.021591187,
+    -0.03491211,
+    -0.060455322,
+    0.009117126,
+    -0.0335083,
+    0.028717041,
+    -0.068237305,
+    0.038848877,
+    0.0014772415,
+    -0.0064086914,
+    0.011154175,
+    -0.015975952,
+    0.03491211,
+    -0.0071487427,
+    0.017868042,
+    0.018356323,
+    -0.10003662,
+    -0.047332764,
+    -0.009033203,
+    0.01499939,
+    0.027267456,
+    0.054260254,
+    0.0007452965,
+    0.001531601,
+    -0.038909912,
+    0.0011548996,
+    -0.0051193237,
+    -0.03945923,
+    0.028335571,
+    0.025802612,
+    -0.017456055,
+    0.0059928894,
+    -0.025115967,
+    -0.03704834,
+    -0.034973145,
+    0.068725586,
+    0.032928467,
+    0.07293701,
+    -0.03765869,
+    0.048095703,
+    -0.016174316,
+    -0.0446167,
+    0.030776978,
+    0.0039749146,
+    -0.012588501,
+    0.019378662,
+    -0.0014572144,
+    -0.0024814606,
+    -0.0022773743,
+    -0.0021629333,
+    0.040802002,
+    -0.042999268,
+    0.0016098022,
+    -0.007896423,
+    0.010002136,
+    -0.04083252,
+    0.02267456,
+    -0.01676941,
+    -0.039733887,
+    0.0036144257,
+    0.012390137,
+    0.016418457,
+    0.039398193,
+    -0.006629944,
+    0.04159546,
+    0.0065956116,
+    -0.033569336,
+    0.0038394928,
+    -0.05090332,
+    0.009994507,
+    0.026824951,
+    0.025909424,
+    -0.06762695,
+    0.0021820068,
+    -0.014968872,
+    -0.05105591,
+    0.02571106,
+    0.045684814,
+    -0.030517578,
+    -0.013755798,
+    -0.08538818,
+    -0.06427002,
+    -0.043182373,
+    -0.048736572,
+    -0.02835083,
+    -0.0340271,
+    -0.013343811,
+    0.0079574585,
+    0.019683838,
+    0.0038166046,
+    -0.005760193,
+    -0.035339355,
+    -0.008422852,
+    -0.014930725,
+    -0.007980347,
+    -0.015411377,
+    -0.04159546,
+    -0.005680084,
+    -0.05065918,
+    0.07330322,
+    -0.057281494,
+    -0.050109863,
+    -0.015388489,
+    -0.042175293,
+    0.099975586,
+    -0.016799927,
+    0.005004883,
+    -0.06329346,
+    -0.007320404,
+    -0.0007452965,
+    0.02999878,
+    0.012687683,
+    -0.007820129,
+    0.020202637,
+    -0.0234375,
+    -0.06707764,
+    -0.031585693,
+    0.008666992,
+    0.005870819,
+    0.022567749,
+    -0.028793335,
+    -0.013656616,
+    0.012817383,
+    0.03149414,
+    0.04067993,
+    -0.017562866,
+    0.08917236,
+    -0.022781372,
+    0.0063934326,
+    -0.0073280334,
+    0.016418457,
+    0.022750854,
+    0.07928467,
+    0.083984375,
+    0.034606934,
+    0.012626648,
+    -0.041290283,
+    -0.017593384,
+    -0.02229309,
+    0.077819824,
+    0.005908966,
+    -0.019943237,
+    -0.051513672,
+    0.02305603,
+    0.013061523,
+    0.013580322,
+    -0.023590088,
+    0.00056028366,
+    -0.018920898,
+    0.051635742,
+    0.03781128,
+    -0.0018100739,
+    -0.0028324127,
+    0.021591187,
+    -0.018432617,
+    0.009941101,
+    -0.04071045,
+    0.030227661,
+    -0.03866577,
+    0.002040863,
+    -0.009567261,
+    -0.009773254,
+    -0.005683899,
+    0.032958984,
+    0.055511475,
+    0.06262207,
+    0.016479492,
+    -0.072021484,
+    -0.02885437,
+    0.010406494,
+    0.0099105835,
+    0.020965576,
+    -0.006259918,
+    -0.003753662,
+    0.02507019,
+    -0.022399902,
+    0.0335083,
+    -0.014854431,
+    -0.012863159,
+    0.012550354,
+    -0.029281616,
+    0.03286743,
+    0.0052948,
+    0.0027637482,
+    -0.047912598,
+    0.023284912,
+    -0.029525757,
+    -0.020812988,
+    -0.0059661865,
+    0.04058838,
+    -0.020446777,
+    -0.013092041,
+    0.032409668,
+    0.026412964,
+    -0.03768921,
+    0.008773804,
+    0.0178833,
+    0.027679443,
+    -0.026916504,
+    -0.032440186,
+    -0.0029239655,
+    0.004272461,
+    0.017364502,
+    0.024383545,
+    -0.013191223,
+    -0.053497314,
+    -0.016448975,
+    -0.043823242,
+    -0.018630981,
+    -0.06677246,
+    -0.06304932,
+    0.019317627,
+    0.05770874,
+    -0.01739502,
+    0.103149414,
+    -0.013168335,
+    0.014343262,
+    0.007411957,
+    0.039276123,
+    -0.025543213,
+    0.026657104,
+    0.018539429,
+    0.011276245,
+    0.017608643
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+    "file_name": "85615.md",
+    "file_size": 49115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Pasadena Police Department Heliport Evaluation",
+      "There was not an established monitored UNICOM frequency at the Pasadena Police Department Heliport.",
+      "There was no mechanism to alert ground personnel that a helicopter was arriving to the heliport other than by ground personnel hearing it approach.",
+      "The air division established monitored UNICOM as a result of the accident.",
+      "The air division established radio procedures for arrival and departure of helicopters at the heliport as a result of the accident.",
+      "Radio communications were established by the Pasadena Police Department.",
+      "Radio communications were identified in Pasadena Police Department's standard operating procedures.",
+      "Pilots were required to radio their intentions for departure.",
+      "Pilots were required to radio their intentions for landing.",
+      "Pilots were required to radio the direction they were taking off from.",
+      "Pilots were required to radio the direction they were landing.",
+      "Start-up was identified as a critical time for radio communications.",
+      "A parked helicopter's pilot had not yet powered up the helicopter during start-up time.",
+      "A parked helicopter's pilot had not yet turned on the radios during start-up time.",
+      "Pad 1 was 49x49 feet in dimensions.",
+      "The center of pad 1 to its outside edge was 25 feet.",
+      "The edge of pad 1 to center of pad 2 was 12 feet.",
+      "Thirty-seven feet separated the center of pad 1 from pad 2.",
+      "Pad 2's dimensions were 39 feet on the north side.",
+      "Pad 2's dimensions were 27 feet on the south side.",
+      "Pad 2's dimensions on the west and east sides were estimated to be about 25 feet.",
+      "The OH-58A helicopter main rotor blades are 35 feet in diameter.",
+      "The OH-58A helicopter has 11 feet of clearance.",
+      "The fuel pit was measured to be 29 feet from pad 1.",
+      "The Pasadena Police Department Heliport was evaluated by the California Department of Transportation - Division of Aeronautics.",
+      "The California Department of Transportation - Division of Aeronautics evaluation was requested by the National Transportation Safety Board Investigator In Charge.",
+      "The evaluation occurred on December 17, 2012.",
+      "The Pasadena Police Department Heliport was exempt from state heliport permit requirements.",
+      "The exemption was under applicable provisions of the California Code of Regulations, Title 21.",
+      "The California Code of Regulations provisions had been in effect in 1972.",
+      "The Pasadena Police Department Heliport was established in 1972.",
+      "The evaluation identified actions that would enhance heliport safety.",
+      "The evaluation identified actions that would bring the facility into conformance with current heliport design standards.",
+      "The current heliport design standards were in Advisory Circular Heliport Design AC 150/5390-2C.",
+      "The Advisory Circular Heliport Design AC 150/5390-2C was dated April 24, 2012.",
+      "The evaluation recommended trimming of a 38-foot tall oak tree to a height below the transitional surface.",
+      "The evaluation recommended removing the 38-foot tall oak tree entirely as an alternative."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Pasadena Police Department Heliport Evaluation",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pasadena Police Department Heliport",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "UNICOM",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pasadena Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "OH-58A helicopter",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "California Department of Transportation - Division of Aeronautics",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board Investigator In Charge",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "California Code of Regulations",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Advisory Circular Heliport Design AC 150/5390-2C",
+              "classification": "Document"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was not an established monitored UNICOM frequency at the Pasadena Police Department Heliport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LACKS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "UNICOM",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "UNICOM",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not established monitored frequency",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no mechanism to alert ground personnel that a helicopter was arriving to the heliport other than by ground personnel hearing it approach.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LACKS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "alert mechanism for arriving helicopters",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air division established monitored UNICOM as a result of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ESTABLISHED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "UNICOM",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "UNICOM",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "established monitored",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "UNICOM",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "ESTABLISHMENT REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "result of the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air division established radio procedures for arrival and departure of helicopters at the heliport as a result of the accident.",
+              "details": [
+                "radio procedures PURPOSE for arrival and departure of helicopters",
+                "radio procedures ESTABLISHMENT REASON result of the accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ESTABLISHED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio procedures",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "for arrival and departure of helicopters",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio procedures",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ESTABLISHMENT REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "result of the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Radio communications were established by the Pasadena Police Department.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ESTABLISHED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio communications",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Radio communications were identified in Pasadena Police Department's standard operating procedures.",
+              "details": [
+                "standard operating procedures INCLUDES radio communications"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "standard operating procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "standard operating procedures",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio communications",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots were required to radio their intentions for departure.",
+              "details": [
+                "pilots REQUIREMENT radio intentions for departure"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio intentions for departure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots were required to radio their intentions for landing.",
+              "details": [
+                "pilots REQUIREMENT radio intentions for landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio intentions for landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots were required to radio the direction they were taking off from.",
+              "details": [
+                "pilots REQUIREMENT radio takeoff direction"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio takeoff direction",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots were required to radio the direction they were landing.",
+              "details": [
+                "pilots REQUIREMENT radio landing direction"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radio landing direction",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Start-up was identified as a critical time for radio communications.",
+              "details": [
+                "start-up IDENTIFIED AS critical time for radio communications"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "start-up",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "critical time for radio communications",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A parked helicopter's pilot had not yet powered up the helicopter during start-up time.",
+              "details": [
+                "parked helicopter STATUS not yet powered up during start-up time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "parked helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not yet powered up during start-up time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A parked helicopter's pilot had not yet turned on the radios during start-up time.",
+              "details": [
+                "parked helicopter RADIO STATUS not yet turned on during start-up time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "parked helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RADIO STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not yet turned on during start-up time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pad 1 was 49x49 feet in dimensions.",
+              "details": [
+                "Pad 1 PART OF Pasadena Police Department Heliport",
+                "Pad 1 DIMENSIONS 49x49 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DIMENSIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "49x49 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The center of pad 1 to its outside edge was 25 feet.",
+              "details": [
+                "Pad 1 CENTER TO EDGE DISTANCE 25 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CENTER TO EDGE DISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "25 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The edge of pad 1 to center of pad 2 was 12 feet.",
+              "details": [
+                "Pad 1 ADJACENT TO Pad 2",
+                "Pad 2 PART OF Pasadena Police Department Heliport",
+                "Pad 1 EDGE TO PAD2 CENTER DISTANCE 12 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ADJACENT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 2",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 2",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EDGE TO PAD2 CENTER DISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "12 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Thirty-seven feet separated the center of pad 1 from pad 2.",
+              "details": [
+                "Pad 1 CENTER TO PAD2 DISTANCE 37 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CENTER TO PAD2 DISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "37 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pad 2's dimensions were 39 feet on the north side.",
+              "details": [
+                "Pad 2 NORTH SIDE DIMENSION 39 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 2",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NORTH SIDE DIMENSION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "39 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pad 2's dimensions were 27 feet on the south side.",
+              "details": [
+                "Pad 2 SOUTH SIDE DIMENSION 27 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 2",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SOUTH SIDE DIMENSION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "27 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pad 2's dimensions on the west and east sides were estimated to be about 25 feet.",
+              "details": [
+                "Pad 2 WEST EAST SIDES DIMENSION about 25 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 2",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEST EAST SIDES DIMENSION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 25 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The OH-58A helicopter main rotor blades are 35 feet in diameter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAIN ROTOR DIAMETER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "35 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The OH-58A helicopter has 11 feet of clearance.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CLEARANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "11 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pit was measured to be 29 feet from pad 1.",
+              "details": [
+                "fuel pit PART OF Pasadena Police Department Heliport",
+                "fuel pit DISTANCE FROM PAD1 29 feet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pit",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pit",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE FROM PAD1"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "29 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Pasadena Police Department Heliport was evaluated by the California Department of Transportation - Division of Aeronautics.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Department of Transportation - Division of Aeronautics",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "EVALUATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The California Department of Transportation - Division of Aeronautics evaluation was requested by the National Transportation Safety Board Investigator In Charge.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board Investigator In Charge",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REQUESTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Department of Transportation - Division of Aeronautics evaluation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The evaluation occurred on December 17, 2012.",
+              "details": [
+                "California Department of Transportation - Division of Aeronautics evaluation DATE December 17, 2012"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Department of Transportation - Division of Aeronautics evaluation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 17, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Pasadena Police Department Heliport was exempt from state heliport permit requirements.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PERMIT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exempt from state requirements",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The exemption was under applicable provisions of the California Code of Regulations, Title 21.",
+              "details": [
+                "exemption BASIS applicable provisions of California Code of Regulations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Code of Regulations",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "GOVERNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exemption",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Code of Regulations",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "TITLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "21",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exemption",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "BASIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "applicable provisions of California Code of Regulations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The California Code of Regulations provisions had been in effect in 1972.",
+              "details": [
+                "California Code of Regulations provisions STATUS IN 1972 in effect"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Code of Regulations provisions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS IN 1972"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "in effect",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Pasadena Police Department Heliport was established in 1972.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department Heliport",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "ESTABLISHMENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1972",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The evaluation identified actions that would enhance heliport safety.",
+              "details": [
+                "California Department of Transportation - Division of Aeronautics evaluation IDENTIFIED actions to enhance heliport safety"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Department of Transportation - Division of Aeronautics evaluation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actions to enhance heliport safety",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The evaluation identified actions that would bring the facility into conformance with current heliport design standards.",
+              "details": [
+                "California Department of Transportation - Division of Aeronautics evaluation IDENTIFIED actions for conformance with current standards"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Department of Transportation - Division of Aeronautics evaluation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actions for conformance with current standards",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The current heliport design standards were in Advisory Circular Heliport Design AC 150/5390-2C.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Advisory Circular Heliport Design AC 150/5390-2C",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current heliport design standards",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Advisory Circular Heliport Design AC 150/5390-2C was dated April 24, 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Advisory Circular Heliport Design AC 150/5390-2C",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 24, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The evaluation recommended trimming of a 38-foot tall oak tree to a height below the transitional surface.",
+              "details": [
+                "California Department of Transportation - Division of Aeronautics evaluation RECOMMENDATION trimming 38-foot tall oak tree below transitional surface",
+                "oak tree HEIGHT 38-foot tall"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Department of Transportation - Division of Aeronautics evaluation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RECOMMENDATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trimming 38-foot tall oak tree below transitional surface",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oak tree",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "38-foot tall",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The evaluation recommended removing the 38-foot tall oak tree entirely as an alternative.",
+              "details": [
+                "California Department of Transportation - Division of Aeronautics evaluation ALTERNATIVE RECOMMENDATION removing 38-foot tall oak tree entirely"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Department of Transportation - Division of Aeronautics evaluation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ALTERNATIVE RECOMMENDATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removing 38-foot tall oak tree entirely",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2aa9a0b7:1482",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a45c36e0d4254ce290d515a8c90431d59411a5f52134b921e4be9debc05a3ddf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::2aa9a0b7:1482:354f3fc4",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0dcc521c56608fbfd82db2dd85341a082f72383c7e114abeadcd757ba32c71a5",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2aa9a0b7:1482:f4aeb16c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "b57d9b544747992efb7aac65fb3ea4ea4bfc6f4b3e9b2d2665d15033312c3e29",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Heliport Evaluation\n\n## TEST AND RESEARCH\n\nThere was not an established monitored UNICOM frequency. There was also no mechanism to alert ground personnel that a helicopter was arriving to the heliport other than by ground personnel \"hearing\" it approach. As a result of the accident, the air division established monitored UNICOM and radio procedures for arrival and departure of helicopters at the heliport.\n\nRadio communications were established by the Pasadena PD, and identified in their standard operating procedures. Pilots were required to radio their intentions for departure and landing, along with the direction they were taking off from or direction they were landing. Start-up was identified as a critical time for radio communications as a parked helicopters' pilot had not yet powered up the helicopter and turned on the radios.\n\nPad 1 was 49x49 feet; the center of pad 1 to its outside edge was 25 feet. The edge of pad 1 to center of pad 2 was 12 feet. Thirty-seven feet separated the center of pad 1 from pad 2.\n\nPad 2's dimensions were 39 feet on the north side, 27 feet on the south side, with the west and east sides estimated to be about 25 feet.\n\nThe OH-58A main rotor blades are 35 feet in diameter, with 11 feet of clearance for this model of helicopter. The fuel pit was measured to be 29 feet from pad 1.\n\n## Heliport Evaluation\n\nThe Pasadena PD Heliport was evaluated by the California DOT - Division of Aeronautics as requested by the NTSB IIC on December 17, 2012. It was noted that the facility was exempt from state heliport permit requirements under applicable provisions of the California Code of Regulations, Title 21 that had been in effect in 1972, when the heliport was established.\n\nAs a result of the evaluation, the following actions were identified that would enhance heliport safety, and bring the facility into conformance with current heliport design standards (Advisory Circular Heliport Design AC 150/5390-2C dated April 24, 2012):\n\n1. Recommend trimming of a 38-foot tall oak tree to a height below the transitional surface or remove the tree entirely.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2101,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

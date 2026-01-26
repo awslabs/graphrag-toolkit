@@ -1,0 +1,18 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_AZ8OsKiBQk6co7e9ldlqQA", "name": "ntsb"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"que"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ry\": \"Rob"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "in"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "son h"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "elicopter"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " m"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ast "}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "bump"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ing accid"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ents de"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sign facto"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rs\"}"}}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 13714, "outputTokens": 61, "totalTokens": 13775}, "metrics": {"latencyMs": 2665}}}

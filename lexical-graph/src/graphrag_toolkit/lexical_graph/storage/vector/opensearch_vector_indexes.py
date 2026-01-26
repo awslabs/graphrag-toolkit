@@ -23,6 +23,8 @@ from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 logger = logging.getLogger(__name__)
 
+MAX_ID_BATCH_SIZE = 50000
+
 try:
     from llama_index.vector_stores.opensearch import OpensearchVectorClient
     from opensearchpy.exceptions import NotFoundError, RequestError
@@ -660,28 +662,27 @@ class OpenSearchIndex(VectorIndex):
         if not self.writeable:
             raise IndexError(f'Index {self.index_name} is read-only')
             
-        non_existent_node_ids = self._remove_existing_nodes([node.node_id for node in nodes])
+        nodes_to_embed_map = self._remove_existing_nodes([node.node_id for node in nodes])
         
-        nodes = [
+        nodes_to_embed = [
             node
             for node in nodes
-            if node.node_id in non_existent_node_ids
+            if node.node_id in nodes_to_embed_map
         ]
         
         id_to_embed_map = embed_nodes(
-            nodes, self.embed_model
+            nodes_to_embed, self.embed_model
         )
 
-        for node in nodes:
-
+        for node in nodes_to_embed:
             node.embedding = id_to_embed_map[node.node_id]
 
-        if nodes:
-            errors = self.client.index_results(nodes)
+        if nodes_to_embed:
+            errors = self.client.index_results(nodes_to_embed)
             if errors:
                 logger.error(f'Errors while adding embeddings: {errors}')
         
-        return nodes 
+        return nodes_to_embed 
     
     def _update_filters_recursive(self, filters:MetadataFilters):
         """
@@ -851,11 +852,11 @@ class OpenSearchIndex(VectorIndex):
                     if retry_count > 3:
                         raise e
                     else:
-                        logger.debug(f'Index not found while conducting paginated search - retrying after 5 seconds [index: {self.underlying_index_name()}, retry_count: {retry_count}]')
+                        logger.debug(f'[{self.underlying_index_name()}] Index not found while conducting paginated search - retrying after 5 seconds [retry_count: {retry_count}]')
                         time.sleep(5)
                         response = None
                 except Exception as ee:
-                    logger.error(f'Error while conducting search with client: {client}')
+                    logger.error(f'[{self.underlying_index_name()}] Error while conducting search with client: {str(ee)}')
                     raise e
 
             hits = response['hits']['hits']
@@ -909,86 +910,116 @@ class OpenSearchIndex(VectorIndex):
         Returns:
             List: A list of embedding data corresponding to the provided IDs.
         """
-        query = {
-            "terms": {
-                f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(ids)]
-            }
-        }
+        results = []
 
-        results = self.get_all_embeddings(query, max_results=len(ids) * 2)
+        id_batches = [
+            ids[x:x+MAX_ID_BATCH_SIZE] 
+            for x in range(0, len(ids), MAX_ID_BATCH_SIZE)
+        ]
+
+        for id_batch in id_batches:
+
+            query = {
+                "terms": {
+                    f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(id_batch)]
+                }
+            }
+
+            results.extend(self.get_all_embeddings(query, max_results=len(id_batch) * 2))
         
         return results
     
-    def _remove_existing_nodes(self, node_ids):
+    def _remove_existing_nodes(self, node_ids) -> Dict[str, Any]:
         
-        existing_doc_ids = self._get_existing_doc_ids_for_ids(node_ids)
+        existing_doc_ids_map = self._get_existing_doc_ids_for_ids(node_ids)
         
-        filtered_nodes = [
-            node_id
+        node_ids_to_embed_map = {
+            node_id:None
             for node_id in node_ids
-            if node_id not in existing_doc_ids
-        ]
+            if node_id not in existing_doc_ids_map
+        }
         
-        doc_ids_to_delete = [
+        doc_ids_to_delete = {
             d
-            for doc_ids in list(existing_doc_ids.values())
+            for doc_ids in list(existing_doc_ids_map.values())
             for d in doc_ids[1:]
-        ]
-        
-        logger.debug(f'existing_doc_ids: {existing_doc_ids}')
-        
-        for doc_id in doc_ids_to_delete:
-            logger.debug(f'deleting duplicate doc: {doc_id}')
-            self.client._os_client.delete(self.client._index, doc_id)
-       
-        
-        return filtered_nodes
+        }
+
+        requests = {}
+
+        for doc_id_to_delete in doc_ids_to_delete:  
+            requests[doc_id_to_delete] = [f'{{ "delete" : {{"_id" : "{doc_id_to_delete}", "_index" : "{self.underlying_index_name()}" }} }}']     
+
+        if requests:
+            self._try_bulk_update(requests, 'delete')
+        else:
+            logger.debug(f'[{self.underlying_index_name()}] Delete bulk update request is empty')
+
+        return node_ids_to_embed_map
     
     def update_versioning(self, versioning_timestamp:int, ids:List[str]=[]) -> List[str]:
 
         allow_refresh = True
         doc_id_map = self._get_existing_doc_ids_for_ids(ids)
 
+        doc_ids_to_update = {
+            doc_id         
+            for item in doc_id_map.values()
+            for doc_id in item
+        }
+
+        logger.debug(f'[{self.underlying_index_name()}] Updating metadata for embeddings [num_ids: {len(ids)}, num_docs_to_update: {len(doc_ids_to_update)}]')
+
         start = time.time()
 
         while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
-            logger.debug('Unable to find documents for all ids in index, waiting 10 seconds')
+            logger.debug(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
         if len(doc_id_map.keys()) < len(ids):
-            logger.warning(f'Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
+            logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
-        requests = []
+        
         update_request = '{ "doc": {"metadata" : {"source" : {"versioning": {"valid_to": ' + str(versioning_timestamp) + '}}}}}'
 
-        for item in doc_id_map.values():
-            for doc_id in item:
-                requests.append(f'{{ "update" : {{"_id" : "{doc_id}", "_index" : "{self.underlying_index_name()}" }} }}')
-                requests.append(update_request)
+        requests = {}
 
+        for doc_id_to_update in doc_ids_to_update:
+            requests[doc_id_to_update] = [
+                f'{{ "update" : {{"_id" : "{doc_id_to_update}", "_index" : "{self.underlying_index_name()}" }} }}',
+                update_request
+            ]
+            
         if requests:
-            failed_doc_ids = self._try_bulk_update('\n'.join(requests))
+            failed_doc_ids = self._try_bulk_update(requests)
             return self._unmap_doc_ids(failed_doc_ids, doc_id_map)        
         else:
-            logger.warning(f'Versioning bulk update request is empty')
+            logger.debug(f'[{self.underlying_index_name()}] Versioning bulk update request is empty')
             return []
 
     
-    def _get_existing_doc_ids_for_ids(self, ids:List[str]=[]):
-   
-        query = {
-            "terms": {
-                f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(ids)]
-            }
-        }
-    
+    def _get_existing_doc_ids_for_ids(self, ids:List[str]=[]) -> Dict[str, List[str]]:
+
         all_results = []
+
+        id_batches = [
+            ids[x:x+MAX_ID_BATCH_SIZE] 
+            for x in range(0, len(ids), MAX_ID_BATCH_SIZE)
+        ]
+
+        for id_batch in id_batches:
+   
+            query = {
+                "terms": {
+                    f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(id_batch)]
+                }
+            }
         
-        for page in self.paginated_search(query, page_size=10000, ids_only=True):
-            all_results.extend(hit for hit in page)
+            for page in self.paginated_search(query, page_size=10000, ids_only=True):
+                all_results.extend(hit for hit in page)
         
         doc_id_map = {}
         
@@ -1006,31 +1037,41 @@ class OpenSearchIndex(VectorIndex):
         allow_refresh = True
         doc_id_map = self._get_existing_doc_ids_for_ids(ids)
 
+        doc_ids_to_update = {
+            doc_id         
+            for item in doc_id_map.values()
+            for doc_id in item
+        }
+
+        logger.debug(f'[{self.underlying_index_name()}] Updating metadata for embeddings [num_ids: {len(ids)}, num_docs_to_update: {len(doc_ids_to_update)}]')
+
         start = time.time()
 
         while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
-            logger.debug('Unable to find documents for all ids in index, waiting 10 seconds')
+            logger.debug('[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
         if len(doc_id_map.keys()) < len(ids):
-            logger.warning(f'Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
+            logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
-        requests = []
         update_request = '{ "doc": {"metadata" : {"source" : {"versioning": {"valid_from": ' + str(TIMESTAMP_LOWER_BOUND) + ', "valid_to": ' + str(TIMESTAMP_UPPER_BOUND) + '}}}}}'
+     
+        requests = {}
 
-        for item in doc_id_map.values():
-            for doc_id in item:
-                requests.append(f'{{ "update" : {{"_id" : "{doc_id}", "_index" : "{self.underlying_index_name()}" }} }}')
-                requests.append(update_request)
-
+        for doc_id_to_update in set(doc_ids_to_update):
+            requests[doc_id_to_update] = [
+                f'{{ "update" : {{"_id" : "{doc_id_to_update}", "_index" : "{self.underlying_index_name()}" }} }}',
+                update_request
+            ]
+            
         if requests:
-            failed_doc_ids = self._try_bulk_update('\n'.join(requests))
+            failed_doc_ids = self._try_bulk_update(requests)
             return self._unmap_doc_ids(failed_doc_ids, doc_id_map)      
         else:
-            logger.warning(f'Versioning bulk update request is empty')
+            logger.debug(f'[{self.underlying_index_name()}] Versioning bulk update request is empty')
             return []
         
     def _unmap_doc_ids(self, doc_ids:List[str], doc_id_map:Dict[str, List[str]]) -> List[str]:
@@ -1042,27 +1083,91 @@ class OpenSearchIndex(VectorIndex):
 
         return [reverse_doc_id_map[doc_id] for doc_id in doc_ids]
 
-    def _try_bulk_update(self, body:str):
+    def _try_bulk_update(self, requests:Dict[str, List[str]], operation:Optional[str]='update'):
 
         def is_transient(item:Dict):
-            return item.get('update', {}).get('status', 0) in [429, 503]
+            return item.get(operation, {}).get('status', 0) in [429, 503]
+        
+        def is_non_ignoreable_error(item:Dict):
+            if operation == 'delete' and item.get(operation, {}).get('status', 0) in [404]:
+                logger.warning(f"[{self.underlying_index_name()}] Ignoring delete for doc {item[operation]['_id']} because doc not found")
+                return False
+            else:
+                return item.get('error', None) is not None
 
-        for attempt_num in range(1, 6):
+        retriable_requests = requests.copy()
+        num_attempts = 0
+        failed_docs = {}
+
+        while retriable_requests and num_attempts < 6:
+            
+            num_attempts += 1
+            
+            body = '\n'.join([
+                doc_request
+                for doc_requests in retriable_requests.values()
+                for doc_request in doc_requests
+            ])
 
             response = self.client._os_client.bulk(body=body)
 
-            if response['errors']:
-                is_retriable = all([is_transient(item) for item in response.get('items', [])])
-                if is_retriable:
-                    logger.warning(f'Transient error during bulk update, retrying after {attempt_num} seconds')
-                    time.sleep(attempt_num)
-            else:
-                return []
-            
-        logger.error(f'Error during bulk update: {str(response)}')
+            retriable_requests = {}
 
-        return [
-            item['update']['_id'] 
-            for item in response['items']
-            if item.get('error', None)
-        ]
+            if response['errors']:
+                for item in response.get('items', []):
+                    doc_id = item[operation]['_id']
+                    if is_transient(item):
+                        retriable_requests[doc_id] = requests[doc_id]
+                    elif is_non_ignoreable_error(item):
+                        if doc_id not in failed_docs:
+                            failed_docs[doc_id] = []
+                        failed_docs[doc_id].append(item.get('error', None))
+
+            if retriable_requests:
+                logger.warning(f'[{self.underlying_index_name()}] Transient error during bulk {operation}, retrying {len(retriable_requests.keys())} docs after {6 - num_attempts} seconds')
+                time.sleep(6 - num_attempts)
+
+        if failed_docs:
+            logger.error(f'[{self.underlying_index_name()}] {len(failed_docs.keys())} docs failed during bulk {operation}: {failed_docs}')
+        
+        logger.debug(f'[{self.underlying_index_name()}] Bulk {operation} completed [succeeded: {len(requests.keys()) - len(failed_docs.keys())}, failed: {len(failed_docs.keys())}, attempts: {num_attempts}] {len(failed_docs.keys())}')
+        
+        return list(failed_docs.keys())
+    
+    def delete_embeddings(self, ids:List[str]=[]):
+
+        allow_refresh = True
+        doc_id_map = self._get_existing_doc_ids_for_ids(ids)
+
+        doc_ids_to_delete = {
+            doc_id         
+            for item in doc_id_map.values()
+            for doc_id in item
+        }
+
+        logger.debug(f'[{self.underlying_index_name()}] Deleting embeddings [num_ids: {len(ids)}, num_docs_to_delete: {len(doc_ids_to_delete)}]')
+
+        start = time.time()
+
+        while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
+            logger.debug(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
+            time.sleep(10)
+            doc_id_map = self._get_existing_doc_ids_for_ids(ids)
+            if int(time.time() - start) > 70:
+                allow_refresh = False
+
+        if len(doc_id_map.keys()) < len(ids):
+            logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
+
+        requests = {}
+
+        for doc_id_to_delete in doc_ids_to_delete:     
+            requests[doc_id_to_delete] = [f'{{ "delete" : {{"_id" : "{doc_id_to_delete}", "_index" : "{self.underlying_index_name()}" }} }}']   
+            
+        if requests:
+            failed_doc_ids = self._try_bulk_update(requests, 'delete')
+            return self._unmap_doc_ids(failed_doc_ids, doc_id_map)      
+        else:
+            logger.debug(f'[{self.underlying_index_name()}] Delete bulk update request is empty')
+            return []
+        

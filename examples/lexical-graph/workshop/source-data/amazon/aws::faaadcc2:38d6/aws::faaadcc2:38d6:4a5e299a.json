@@ -1,0 +1,2421 @@
+{
+  "id_": "aws::faaadcc2:38d6:4a5e299a",
+  "embedding": [
+    0.009307861,
+    -0.018707275,
+    -0.03555298,
+    -0.03152466,
+    -0.015914917,
+    -0.0071792603,
+    -0.0029716492,
+    0.014221191,
+    -0.037322998,
+    0.021987915,
+    -0.008979797,
+    0.034118652,
+    -0.032409668,
+    -0.012283325,
+    0.016845703,
+    -0.023208618,
+    0.030044556,
+    0.026916504,
+    0.048980713,
+    0.018493652,
+    0.02633667,
+    0.04776001,
+    -0.0077781677,
+    -0.020065308,
+    0.049957275,
+    -0.093933105,
+    0.024032593,
+    -0.012939453,
+    0.052703857,
+    0.005176544,
+    0.028442383,
+    -0.014778137,
+    0.022216797,
+    -0.019836426,
+    0.027038574,
+    -0.0064926147,
+    0.01638794,
+    -0.007713318,
+    0.011116028,
+    0.008934021,
+    0.01574707,
+    -0.01071167,
+    0.055541992,
+    -0.046325684,
+    0.040527344,
+    -0.019012451,
+    0.014884949,
+    -0.07281494,
+    0.009010315,
+    -0.019622803,
+    0.016357422,
+    0.033050537,
+    0.032470703,
+    0.0031013489,
+    -0.00021111965,
+    0.031280518,
+    0.016860962,
+    -0.028015137,
+    0.020233154,
+    -0.05429077,
+    -0.027313232,
+    0.003791809,
+    0.0491333,
+    0.038635254,
+    -0.01158905,
+    -0.020004272,
+    0.022354126,
+    -0.0064582825,
+    0.01663208,
+    0.0024585724,
+    0.011650085,
+    0.020004272,
+    -0.024368286,
+    0.03149414,
+    -0.027755737,
+    -0.03894043,
+    0.06994629,
+    0.019897461,
+    -0.026245117,
+    0.035339355,
+    -0.031280518,
+    0.01637268,
+    0.018997192,
+    -0.062683105,
+    0.045928955,
+    -0.016799927,
+    -0.0075798035,
+    0.0028743744,
+    0.0026168823,
+    0.019088745,
+    0.004486084,
+    0.023834229,
+    -0.027908325,
+    0.06591797,
+    0.014968872,
+    -0.008979797,
+    0.007949829,
+    0.0107421875,
+    0.00970459,
+    -0.008735657,
+    -0.0038051605,
+    -0.016281128,
+    -0.04537964,
+    8.434057e-05,
+    0.015296936,
+    -0.004085541,
+    0.03237915,
+    -0.027496338,
+    0.009643555,
+    -0.016357422,
+    -0.040618896,
+    0.056854248,
+    -0.014801025,
+    -0.038269043,
+    -0.021942139,
+    0.027404785,
+    -0.015129089,
+    0.01386261,
+    0.016067505,
+    0.017837524,
+    0.027145386,
+    0.022628784,
+    0.03137207,
+    -0.016983032,
+    0.00957489,
+    -0.0036678314,
+    -0.03466797,
+    -0.032043457,
+    -0.02835083,
+    0.06304932,
+    0.02809143,
+    0.02470398,
+    -0.089782715,
+    -0.06500244,
+    -0.0847168,
+    -0.012992859,
+    -0.02168274,
+    0.011161804,
+    0.007457733,
+    -0.00020062923,
+    0.031311035,
+    -0.020889282,
+    0.038604736,
+    0.052520752,
+    0.0073165894,
+    -0.018676758,
+    0.00756073,
+    0.043640137,
+    -0.005657196,
+    0.032836914,
+    -0.012207031,
+    -0.005176544,
+    0.027175903,
+    -0.00026345253,
+    -0.03668213,
+    -0.03250122,
+    -0.023834229,
+    -0.024475098,
+    0.0037899017,
+    -0.043670654,
+    0.006275177,
+    0.0079422,
+    0.068603516,
+    0.05706787,
+    0.025756836,
+    0.0016641617,
+    -0.006790161,
+    -0.00793457,
+    0.007865906,
+    0.035339355,
+    -0.04071045,
+    -0.003993988,
+    0.004043579,
+    -0.011489868,
+    -0.01348114,
+    0.008323669,
+    0.01184082,
+    -0.010124207,
+    -0.038330078,
+    0.0690918,
+    0.017700195,
+    -0.050109863,
+    -0.038909912,
+    0.022476196,
+    -0.011123657,
+    -0.0070877075,
+    0.021896362,
+    0.041259766,
+    -0.0024147034,
+    0.023498535,
+    -0.011497498,
+    0.009399414,
+    -0.0016241074,
+    -0.040100098,
+    -0.029785156,
+    -0.017974854,
+    0.020812988,
+    0.009971619,
+    -0.0016374588,
+    0.039245605,
+    0.05532837,
+    0.017425537,
+    0.011810303,
+    -0.03274536,
+    -0.030136108,
+    -0.024215698,
+    0.007423401,
+    0.032287598,
+    -0.03378296,
+    0.045043945,
+    0.03111267,
+    0.0041770935,
+    -0.017227173,
+    -0.00027751923,
+    0.015304565,
+    -0.020736694,
+    -0.011306763,
+    -0.04876709,
+    -0.01146698,
+    -0.042816162,
+    0.013824463,
+    0.061676025,
+    -0.016021729,
+    0.035186768,
+    -0.024673462,
+    0.0021591187,
+    0.002796173,
+    0.008918762,
+    0.030288696,
+    -0.0027656555,
+    0.10131836,
+    -0.029418945,
+    0.07788086,
+    0.1005249,
+    0.037322998,
+    0.004753113,
+    0.023010254,
+    -0.06726074,
+    0.016479492,
+    0.013580322,
+    0.027297974,
+    -0.06414795,
+    -0.00051546097,
+    0.045532227,
+    -0.0073509216,
+    -0.019622803,
+    0.014625549,
+    0.013114929,
+    0.007965088,
+    0.016586304,
+    0.008857727,
+    -0.021697998,
+    0.019515991,
+    0.04043579,
+    0.0019006729,
+    0.011482239,
+    -0.054473877,
+    0.0064849854,
+    -0.023956299,
+    0.00031208992,
+    -0.013160706,
+    0.037322998,
+    0.055480957,
+    -0.012779236,
+    -0.0418396,
+    0.0055160522,
+    -0.019363403,
+    -0.0061836243,
+    -0.016738892,
+    0.0058250427,
+    0.01914978,
+    -0.052764893,
+    -0.017913818,
+    0.02168274,
+    -0.0049972534,
+    -0.014678955,
+    -0.03363037,
+    0.008621216,
+    -0.0004491806,
+    0.018539429,
+    -0.0049324036,
+    0.005706787,
+    -0.009681702,
+    -0.011558533,
+    -0.023986816,
+    -0.032043457,
+    0.03656006,
+    0.024734497,
+    -0.0005788803,
+    -0.003314972,
+    0.032958984,
+    0.011764526,
+    -0.0008854866,
+    0.013465881,
+    0.017974854,
+    -0.023605347,
+    0.0017461777,
+    -0.007572174,
+    0.035003662,
+    -0.031341553,
+    -0.0018815994,
+    0.049987793,
+    -0.02960205,
+    0.034332275,
+    0.0038852692,
+    -0.0014009476,
+    0.04095459,
+    -0.018798828,
+    -0.016220093,
+    0.0259552,
+    -0.07904053,
+    -0.033111572,
+    0.012901306,
+    -0.00011605024,
+    0.008605957,
+    -0.005947113,
+    0.008239746,
+    0.014144897,
+    -0.010444641,
+    -0.004386902,
+    -0.04019165,
+    0.019638062,
+    0.035369873,
+    0.026672363,
+    0.021530151,
+    -0.0256958,
+    0.04144287,
+    0.01663208,
+    0.0029563904,
+    -0.06036377,
+    -0.08935547,
+    -0.11016846,
+    -0.111083984,
+    0.001739502,
+    0.007007599,
+    0.045166016,
+    -0.0036582947,
+    0.09234619,
+    -0.011703491,
+    -0.089904785,
+    -0.029541016,
+    -0.024093628,
+    -0.028579712,
+    0.037597656,
+    0.06561279,
+    -0.021713257,
+    -0.021621704,
+    0.03567505,
+    0.051239014,
+    0.03933716,
+    -0.07324219,
+    -0.022781372,
+    -0.0009126663,
+    -0.040100098,
+    0.027053833,
+    0.0074691772,
+    -0.008026123,
+    -0.039733887,
+    0.011230469,
+    -0.07086182,
+    0.026321411,
+    -0.0017337799,
+    -0.030700684,
+    -0.07165527,
+    0.0044670105,
+    -0.00092601776,
+    -0.033447266,
+    0.0025978088,
+    0.018554688,
+    0.010353088,
+    -0.04788208,
+    0.0066604614,
+    0.008529663,
+    -0.0046844482,
+    0.036468506,
+    0.026947021,
+    0.011276245,
+    -0.024490356,
+    -0.02960205,
+    -0.029037476,
+    -0.0043029785,
+    -0.013969421,
+    -0.004711151,
+    -0.05596924,
+    -0.00945282,
+    0.004119873,
+    -0.04446411,
+    -0.020935059,
+    0.025039673,
+    0.0154953,
+    0.041809082,
+    0.02859497,
+    0.04537964,
+    -0.03265381,
+    0.010658264,
+    -0.018692017,
+    -0.0007095337,
+    0.01991272,
+    -0.009277344,
+    -0.019424438,
+    0.06713867,
+    0.007160187,
+    -0.009292603,
+    0.039764404,
+    -0.02166748,
+    0.010513306,
+    0.051086426,
+    0.0009784698,
+    0.023742676,
+    0.04598999,
+    0.023269653,
+    0.04309082,
+    0.030258179,
+    0.043762207,
+    -0.010566711,
+    -0.0049972534,
+    -0.027572632,
+    0.0017709732,
+    0.014915466,
+    -0.02154541,
+    -0.01651001,
+    0.024887085,
+    -0.010551453,
+    0.021911621,
+    -0.03250122,
+    0.018356323,
+    0.0072784424,
+    0.041900635,
+    0.00036168098,
+    -0.005584717,
+    -0.0023021698,
+    -0.03729248,
+    0.0017156601,
+    -0.019332886,
+    -0.048187256,
+    0.006038666,
+    0.0039138794,
+    0.0017271042,
+    0.030593872,
+    -0.022827148,
+    0.0011377335,
+    0.022949219,
+    0.016448975,
+    0.022338867,
+    0.0033397675,
+    0.015357971,
+    0.025100708,
+    0.0023422241,
+    -0.022491455,
+    -0.017623901,
+    -0.018173218,
+    0.036895752,
+    0.036376953,
+    0.019836426,
+    0.028045654,
+    -0.013824463,
+    -0.015098572,
+    0.042236328,
+    0.015975952,
+    0.010124207,
+    0.048309326,
+    -0.011444092,
+    -0.014190674,
+    0.035461426,
+    -0.02508545,
+    0.02684021,
+    0.010932922,
+    0.028747559,
+    -0.007881165,
+    -0.016189575,
+    0.026733398,
+    0.019561768,
+    -0.04269409,
+    -0.027664185,
+    -0.02305603,
+    -0.032287598,
+    0.033721924,
+    -0.023117065,
+    0.09075928,
+    -0.025772095,
+    0.009902954,
+    -0.008712769,
+    0.015716553,
+    -0.02848816,
+    0.023422241,
+    -0.022033691,
+    -0.049194336,
+    -0.054595947,
+    -0.008705139,
+    -0.06365967,
+    -0.039245605,
+    -0.011207581,
+    0.008895874,
+    -0.03955078,
+    -0.013397217,
+    -0.03265381,
+    -0.0014858246,
+    0.008224487,
+    0.00894165,
+    -0.066467285,
+    0.007083893,
+    0.0034122467,
+    -0.025985718,
+    0.013244629,
+    0.027404785,
+    0.010108948,
+    0.012527466,
+    0.005355835,
+    -0.0019273758,
+    -0.00081300735,
+    0.03656006,
+    -0.022094727,
+    -0.0016555786,
+    -0.0011005402,
+    -0.019836426,
+    0.053649902,
+    -0.0067481995,
+    -0.062194824,
+    0.013015747,
+    0.017990112,
+    0.026504517,
+    0.058624268,
+    -0.032409668,
+    -0.017745972,
+    0.07055664,
+    0.011230469,
+    -0.05239868,
+    0.054260254,
+    -0.0010290146,
+    -0.016143799,
+    -0.03161621,
+    -0.033111572,
+    -0.0038814545,
+    0.022949219,
+    0.051208496,
+    0.025894165,
+    -0.0056533813,
+    -0.0058898926,
+    0.007041931,
+    -0.005508423,
+    -0.012626648,
+    -0.011451721,
+    -0.0033569336,
+    0.010917664,
+    0.0059127808,
+    0.008621216,
+    -0.017211914,
+    0.0715332,
+    -0.034851074,
+    0.045959473,
+    -0.019882202,
+    -0.03012085,
+    -0.048339844,
+    0.008110046,
+    0.029266357,
+    -0.07647705,
+    -0.09716797,
+    0.028015137,
+    0.035736084,
+    0.015129089,
+    0.0061798096,
+    -0.02229309,
+    -0.025482178,
+    0.027038574,
+    0.002035141,
+    0.01763916,
+    -0.023284912,
+    -0.06402588,
+    0.006790161,
+    -0.014930725,
+    -0.028808594,
+    -0.010261536,
+    0.014076233,
+    -0.016464233,
+    -0.019683838,
+    -0.026733398,
+    0.027999878,
+    0.031051636,
+    0.008049011,
+    -0.02923584,
+    -0.031341553,
+    0.006931305,
+    0.03466797,
+    0.023971558,
+    -0.012138367,
+    -0.0206604,
+    -0.0058937073,
+    0.003856659,
+    -0.034454346,
+    -0.03491211,
+    0.03427124,
+    -0.010154724,
+    -0.03842163,
+    -0.051086426,
+    0.047424316,
+    0.02973938,
+    -0.0028877258,
+    0.010871887,
+    0.030212402,
+    0.016052246,
+    -0.011802673,
+    -0.011878967,
+    -0.006942749,
+    -0.06341553,
+    0.0725708,
+    -0.052581787,
+    0.045715332,
+    -0.101867676,
+    -0.013069153,
+    0.026367188,
+    0.014595032,
+    -0.038085938,
+    0.024276733,
+    0.002111435,
+    0.013031006,
+    0.055725098,
+    -0.027633667,
+    0.037261963,
+    0.03387451,
+    0.029251099,
+    0.039001465,
+    -0.0026187897,
+    0.040740967,
+    -0.013061523,
+    -0.004951477,
+    0.03970337,
+    -0.041809082,
+    0.025619507,
+    -0.0234375,
+    -0.008491516,
+    0.013748169,
+    -0.034088135,
+    0.0014572144,
+    0.039123535,
+    0.0637207,
+    -0.07861328,
+    -0.016464233,
+    0.031311035,
+    0.013694763,
+    -0.008682251,
+    0.018676758,
+    0.006111145,
+    0.0015125275,
+    -0.03479004,
+    -0.0087509155,
+    -0.018966675,
+    -0.00036597252,
+    -0.01360321,
+    -0.011375427,
+    -0.028030396,
+    -0.007358551,
+    -0.009796143,
+    -0.046081543,
+    0.026779175,
+    0.02293396,
+    -0.028823853,
+    -0.04788208,
+    -0.008804321,
+    0.047210693,
+    -0.030822754,
+    -0.07080078,
+    0.024261475,
+    -0.0013380051,
+    0.010223389,
+    -0.028030396,
+    -0.023269653,
+    -0.031173706,
+    0.03515625,
+    -0.067871094,
+    0.05126953,
+    0.00919342,
+    -0.054260254,
+    0.00074768066,
+    0.04449463,
+    0.05355835,
+    0.028457642,
+    -0.041046143,
+    0.009742737,
+    -0.044555664,
+    0.02609253,
+    0.020309448,
+    -0.020812988,
+    -0.03466797,
+    -0.0066947937,
+    -0.00041294098,
+    0.024398804,
+    -0.006965637,
+    0.025772095,
+    0.00274086,
+    0.0096206665,
+    0.023391724,
+    0.03173828,
+    -0.026672363,
+    -0.0001411438,
+    0.008720398,
+    -0.021636963,
+    -0.035247803,
+    -0.04058838,
+    -0.01058197,
+    0.018554688,
+    0.0032653809,
+    -0.024108887,
+    0.023788452,
+    -0.032196045,
+    0.011909485,
+    0.0103302,
+    0.026260376,
+    -0.001209259,
+    0.030578613,
+    0.003583908,
+    0.013656616,
+    0.020736694,
+    -0.1048584,
+    -0.028839111,
+    0.021484375,
+    -0.024093628,
+    -0.027297974,
+    0.029678345,
+    0.053100586,
+    -0.022918701,
+    -0.028930664,
+    0.0010347366,
+    -0.0154418945,
+    -0.03982544,
+    0.020492554,
+    -0.017837524,
+    -0.04815674,
+    -0.0075187683,
+    0.008666992,
+    0.034820557,
+    0.024780273,
+    0.010429382,
+    0.079833984,
+    -0.021713257,
+    -0.03186035,
+    -0.06088257,
+    -0.009010315,
+    0.046020508,
+    0.0055389404,
+    -0.0043182373,
+    -0.05178833,
+    -0.01914978,
+    0.019088745,
+    -0.0051651,
+    -0.059448242,
+    -0.0061454773,
+    0.009262085,
+    0.009155273,
+    -0.013076782,
+    -0.041992188,
+    0.032073975,
+    0.02218628,
+    -0.064331055,
+    -0.028305054,
+    -0.0011920929,
+    -0.03967285,
+    -0.009613037,
+    0.00724411,
+    -0.054229736,
+    0.023483276,
+    0.0066833496,
+    0.015808105,
+    -0.015357971,
+    -0.042541504,
+    -0.047302246,
+    -0.042144775,
+    -0.04925537,
+    -0.0287323,
+    0.00042581558,
+    -0.0016126633,
+    -0.0119018555,
+    0.028045654,
+    -0.0040130615,
+    0.02947998,
+    -0.020706177,
+    0.0051651,
+    -0.0041503906,
+    -0.029388428,
+    -0.00021398067,
+    0.051757812,
+    0.030075073,
+    -0.024856567,
+    -0.054260254,
+    -0.02204895,
+    0.03930664,
+    -0.0028057098,
+    0.016433716,
+    -0.055908203,
+    0.04446411,
+    0.00034284592,
+    -0.029586792,
+    0.0054969788,
+    -0.008659363,
+    0.005176544,
+    0.024276733,
+    0.023483276,
+    0.0045700073,
+    -0.011024475,
+    0.004096985,
+    -0.024734497,
+    -0.046173096,
+    -0.0657959,
+    0.017654419,
+    0.0035743713,
+    0.021392822,
+    0.023620605,
+    0.015426636,
+    0.01625061,
+    -0.011184692,
+    -0.0006995201,
+    0.010177612,
+    -0.025650024,
+    0.06439209,
+    0.006778717,
+    0.029571533,
+    0.014511108,
+    -0.0002977848,
+    -0.014732361,
+    -0.008895874,
+    -0.0062713623,
+    -0.020812988,
+    0.02368164,
+    0.0067253113,
+    0.033966064,
+    -0.013717651,
+    0.018463135,
+    -0.00028252602,
+    -0.036346436,
+    0.021530151,
+    0.008674622,
+    0.014228821,
+    0.008132935,
+    -0.0056495667,
+    0.0030384064,
+    0.026947021,
+    -0.0023651123,
+    -0.011383057,
+    -0.012771606,
+    0.019134521,
+    0.017913818,
+    0.04776001,
+    -0.059051514,
+    0.07751465,
+    0.05545044,
+    -0.054382324,
+    0.021087646,
+    0.0024166107,
+    -0.012687683,
+    0.024337769,
+    0.044677734,
+    0.0008687973,
+    -0.012069702,
+    0.0029754639,
+    -0.011993408,
+    0.002828598,
+    0.018966675,
+    0.012825012,
+    -0.021057129,
+    0.019622803,
+    0.053100586,
+    -0.009361267,
+    0.009231567,
+    0.0021591187,
+    0.04638672,
+    0.017562866,
+    0.00032520294,
+    0.0063095093,
+    0.024291992,
+    0.00674057,
+    0.01878357,
+    0.02507019,
+    -0.036193848,
+    -0.011695862,
+    -0.0096206665,
+    -0.02885437,
+    0.01448822,
+    -0.0007786751,
+    0.03793335,
+    0.0026378632,
+    0.035095215,
+    -0.039031982,
+    -0.00844574,
+    -0.0054130554,
+    -0.03765869,
+    0.0022087097,
+    0.013435364,
+    -0.013946533,
+    0.013046265,
+    0.051513672,
+    0.005882263,
+    0.043273926,
+    -0.033111572,
+    -0.003578186,
+    0.046173096,
+    0.022720337,
+    0.02885437,
+    -0.008590698,
+    0.026245117,
+    0.0064048767,
+    -0.05557251,
+    0.009231567,
+    0.014289856,
+    0.027297974,
+    0.004711151,
+    -0.038513184,
+    -0.009506226,
+    -0.01789856,
+    0.018630981,
+    -0.007408142,
+    -0.06500244,
+    0.03253174,
+    -0.008323669,
+    0.004463196,
+    -0.0032253265,
+    -0.032440186,
+    0.030715942,
+    -0.01537323,
+    0.03756714,
+    0.01939392,
+    0.05340576,
+    -0.023590088,
+    -0.004234314,
+    0.019500732,
+    -0.011016846,
+    0.047790527,
+    0.0051841736,
+    0.058563232,
+    -0.035949707,
+    0.027938843,
+    -0.014785767,
+    0.013702393,
+    -0.029174805,
+    -0.07067871,
+    0.0061912537,
+    0.008872986,
+    -0.051116943,
+    -0.013824463,
+    -0.043518066,
+    0.0048065186,
+    0.038848877,
+    -0.026138306,
+    0.014030457,
+    -0.058258057,
+    0.014801025,
+    0.027069092,
+    0.051605225,
+    0.003534317,
+    0.01739502,
+    -0.050720215,
+    0.035705566,
+    0.0007328987,
+    0.031982422,
+    -0.0066986084,
+    0.020401001,
+    -0.028518677,
+    0.0070762634,
+    -0.047698975,
+    -0.057739258,
+    -0.044403076,
+    -0.008735657,
+    0.00085020065,
+    -0.018188477,
+    -0.002658844,
+    0.015609741,
+    -0.009880066,
+    0.062561035,
+    -0.0029773712,
+    -0.05706787,
+    0.008224487,
+    -0.029144287,
+    -0.00749588,
+    0.05822754,
+    -0.010223389,
+    0.031234741,
+    0.054595947,
+    0.005340576,
+    0.0015954971,
+    -0.026565552,
+    -0.024017334,
+    -0.020904541,
+    -0.030639648,
+    -0.02607727,
+    -0.0038528442,
+    0.038360596,
+    -0.004673004,
+    0.00035977364,
+    -0.01876831,
+    -0.044677734,
+    0.0040397644,
+    0.0017576218,
+    -0.04385376,
+    0.024642944,
+    -0.041625977,
+    -0.096069336,
+    0.05618286,
+    0.06323242,
+    -0.0045661926,
+    0.06762695,
+    -0.0064888,
+    -0.0309906,
+    -0.018692017,
+    0.04135132,
+    0.022521973,
+    0.042785645,
+    -0.046142578,
+    0.064453125,
+    0.020019531,
+    0.022369385,
+    -0.021499634,
+    0.07507324,
+    -0.0060424805,
+    0.04574585,
+    -0.043792725,
+    -0.009353638,
+    -0.03375244,
+    -0.0013303757,
+    0.01222229,
+    -0.014221191,
+    -0.011299133,
+    0.010772705,
+    0.002714157,
+    0.047851562,
+    -0.028747559,
+    0.007003784
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/",
+    "aws::graph::propositions": [
+      "# Amazon 10-K Filing Factors Affecting Business Operations",
+      "service, and product line expansions affect Amazon's operations.",
+      "the extent to which Amazon finances its current operations affects its business.",
+      "the terms of any financing for Amazon's current operations affects its business.",
+      "the terms of any financing for Amazon's future growth affects its business.",
+      "the outcomes of legal proceedings can have a material adverse impact on Amazon's operating results.",
+      "the outcomes of claims can include significant monetary damages.",
+      "the outcomes of claims can include injunctive relief.",
+      "the outcomes of claims can have a material adverse impact on Amazon's operating results.",
+      "variations in the mix of products Amazon sells affects its business.",
+      "variations in the mix of services Amazon sells affects its business.",
+      "variations in Amazon's level of merchandise returns affects its business.",
+      "variations in Amazon's level of vendor returns affects its business.",
+      "the extent to which Amazon offers fast delivery affects its business.",
+      "the extent to which Amazon offers free delivery affects its business.",
+      "the extent to which Amazon continues to reduce prices worldwide affects its business.",
+      "the extent to which Amazon provides additional benefits to its customers affects its business.",
+      "factors affecting Amazon's reputation affect its business.",
+      "factors affecting Amazon's brand image affect its business.",
+      "any actual inability to achieve Amazon's goals affects its reputation.",
+      "any perceived inability to achieve Amazon's goals affects its reputation.",
+      "Amazon's goals may be related to sustainability.",
+      "Amazon's goals may be related to customers.",
+      "Amazon's goals may be related to employees.",
+      "Amazon's goals may be related to other topics.",
+      "public perceptions regarding Amazon's positions on social issues affect its business.",
+      "public perceptions regarding Amazon's positions on ethical issues affect its business.",
+      "public perceptions regarding Amazon's development of artificial intelligence technologies affect its business.",
+      "public perceptions regarding Amazon's use of artificial intelligence technologies affect its business.",
+      "public perceptions regarding Amazon's development of machine learning technologies affect its business.",
+      "public perceptions regarding Amazon's use of machine learning technologies affect its business.",
+      "public perceptions regarding Amazon's development of automation technologies affect its business.",
+      "public perceptions regarding Amazon's use of automation technologies affect its business.",
+      "public perceptions regarding Amazon's automation products affect its business.",
+      "public perceptions regarding Amazon's automation services affect its business.",
+      "the extent to which Amazon invests in technology affects its business.",
+      "the extent to which Amazon invests in infrastructure affects its business."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Factors Affecting Amazon's Business Operations",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "artificial intelligence technologies",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "machine learning technologies",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "automation technologies",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "automation products",
+              "classification": "Product"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "automation services",
+              "classification": "Service"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "service, and product line expansions affect Amazon's operations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "service expansions",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "product line expansions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the extent to which Amazon finances its current operations affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extent of financing current operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the terms of any financing for Amazon's current operations affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "terms of financing for current operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the terms of any financing for Amazon's future growth affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "terms of financing for future growth",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the outcomes of legal proceedings can have a material adverse impact on Amazon's operating results.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "outcomes of legal proceedings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the outcomes of claims can include significant monetary damages.",
+              "details": [
+                "claims OUTCOMES INCLUDE significant monetary damages"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "claims",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OUTCOMES INCLUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant monetary damages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the outcomes of claims can include injunctive relief.",
+              "details": [
+                "claims OUTCOMES INCLUDE injunctive relief"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "claims",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OUTCOMES INCLUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "injunctive relief",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the outcomes of claims can have a material adverse impact on Amazon's operating results.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "outcomes of claims",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "variations in the mix of products Amazon sells affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "variations in product mix",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "variations in the mix of services Amazon sells affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "variations in service mix",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "variations in Amazon's level of merchandise returns affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "variations in merchandise returns",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "variations in Amazon's level of vendor returns affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "variations in vendor returns",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the extent to which Amazon offers fast delivery affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extent of fast delivery offerings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the extent to which Amazon offers free delivery affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extent of free delivery offerings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the extent to which Amazon continues to reduce prices worldwide affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extent of worldwide price reductions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the extent to which Amazon provides additional benefits to its customers affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extent of additional customer benefits",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "factors affecting Amazon's reputation affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "factors affecting reputation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "factors affecting Amazon's brand image affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "factors affecting brand image",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "any actual inability to achieve Amazon's goals affects its reputation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actual inability to achieve goals",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "any perceived inability to achieve Amazon's goals affects its reputation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "perceived inability to achieve goals",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's goals may be related to sustainability.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS GOALS RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sustainability",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's goals may be related to customers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS GOALS RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's goals may be related to employees.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS GOALS RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "employees",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's goals may be related to other topics.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS GOALS RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other topics",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's positions on social issues affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on social issue positions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's positions on ethical issues affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on ethical issue positions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's development of artificial intelligence technologies affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence technologies",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on AI development",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's use of artificial intelligence technologies affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence technologies",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on AI use",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's development of machine learning technologies affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "machine learning technologies",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on machine learning development",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's use of machine learning technologies affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "machine learning technologies",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on machine learning use",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's development of automation technologies affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automation technologies",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on automation technology development",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's use of automation technologies affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automation technologies",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on automation technology use",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's automation products affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OFFERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automation products",
+                    "classification": "Product"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on automation products",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "public perceptions regarding Amazon's automation services affect its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OFFERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automation services",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public perceptions on automation services",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the extent to which Amazon invests in technology affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extent of technology investment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "the extent to which Amazon invests in infrastructure affects its business.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extent of infrastructure investment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:74e275f5",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/"
+      },
+      "hash": "09de742d3f1bd00fe4acac8c705542a72322bc27717f4f7b345c8fc5e6ad66fb",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:7036edfe",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/"
+      },
+      "hash": "b1ac20b281f68ffc5ceb7b0a28e87cc709af40c161083bafbe27da33d2ee8deb",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "service, and product line expansions;\n\n* the extent to which we finance, and the terms of any such financing for, our current operations and future growth;\n\n* the outcomes of legal proceedings and claims, which may include significant monetary damages or injunctive relief and could have a material adverse impact on our operating results;\n\n* variations in the mix of products and services we sell;\n\n* variations in our level of merchandise and vendor returns;\n\n* the extent to which we offer fast and free delivery, continue to reduce prices worldwide, and provide additional benefits to our customers;\n\n* factors affecting our reputation or brand image (including any actual or perceived inability to achieve our goals or commitments, whether related to sustainability, customers, employees, or other topics), and public perceptions regarding our positions on social or ethical issues and our development and use of artificial intelligence, machine learning, and automation technologies, products, and services;\n\n* the extent to which we invest in technology and infrastructure,",
+  "mimetype": "text/plain",
+  "start_char_idx": 1823,
+  "end_char_idx": 2903,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2187 @@
+{
+  "id_": "aws::15439f7b:d55f:e3b8d294",
+  "embedding": [
+    0.021697998,
+    0.0012645721,
+    0.047698975,
+    -0.05935669,
+    0.0040397644,
+    0.02243042,
+    -0.023406982,
+    -0.015945435,
+    -0.030548096,
+    0.0019931793,
+    0.028900146,
+    0.0023536682,
+    -0.010643005,
+    -0.05444336,
+    0.04840088,
+    -0.020812988,
+    -0.008460999,
+    0.08856201,
+    0.027938843,
+    -0.019989014,
+    0.0017175674,
+    -0.024902344,
+    -0.018875122,
+    0.0074043274,
+    -0.027450562,
+    0.015304565,
+    -0.007724762,
+    -0.02456665,
+    -0.009529114,
+    -0.016159058,
+    -0.0041999817,
+    0.017654419,
+    0.019042969,
+    0.0040397644,
+    -0.0020694733,
+    -0.027572632,
+    0.004547119,
+    -0.00687027,
+    -0.020339966,
+    0.023925781,
+    0.015296936,
+    -0.016738892,
+    0.0847168,
+    0.009597778,
+    0.011489868,
+    0.0065460205,
+    0.021759033,
+    -0.03060913,
+    0.036499023,
+    0.047332764,
+    0.019515991,
+    0.04284668,
+    -0.004043579,
+    0.11853027,
+    -0.00056123734,
+    0.0016021729,
+    -0.005027771,
+    -0.029296875,
+    -0.007221222,
+    0.013259888,
+    0.003074646,
+    0.02166748,
+    0.024230957,
+    0.011405945,
+    -0.026123047,
+    -0.023391724,
+    -0.04284668,
+    0.017532349,
+    0.07354736,
+    -0.017074585,
+    -0.049072266,
+    0.037261963,
+    -0.017791748,
+    0.055633545,
+    0.006187439,
+    -0.07623291,
+    0.007545471,
+    0.005130768,
+    -0.016357422,
+    0.06951904,
+    -0.01309967,
+    -0.004207611,
+    -0.046295166,
+    0.0004608631,
+    -0.008323669,
+    0.026367188,
+    -0.021484375,
+    -0.01751709,
+    -0.00687027,
+    -0.043640137,
+    -0.0052871704,
+    -0.018478394,
+    0.024856567,
+    -0.012001038,
+    -0.035247803,
+    -0.036193848,
+    0.009185791,
+    -0.10180664,
+    0.016052246,
+    -0.06866455,
+    0.0395813,
+    -0.054992676,
+    -0.035217285,
+    0.051635742,
+    -0.013450623,
+    0.03591919,
+    -0.008934021,
+    0.0112838745,
+    0.018844604,
+    0.014465332,
+    -0.01928711,
+    -0.039001465,
+    0.010932922,
+    -0.058288574,
+    0.015388489,
+    0.04751587,
+    0.024307251,
+    0.05444336,
+    0.030975342,
+    0.055358887,
+    0.027923584,
+    0.04220581,
+    -0.054504395,
+    0.0072746277,
+    0.009147644,
+    -0.0017642975,
+    -0.0102005005,
+    0.02192688,
+    0.072265625,
+    0.015304565,
+    -0.031799316,
+    -0.009559631,
+    0.004085541,
+    -0.012191772,
+    0.014724731,
+    -0.011459351,
+    -0.007751465,
+    -0.0039787292,
+    -0.008491516,
+    -0.003704071,
+    -0.013938904,
+    0.018356323,
+    0.08013916,
+    -0.03463745,
+    -0.019332886,
+    0.03314209,
+    0.027435303,
+    -0.01210022,
+    -0.019241333,
+    -0.039611816,
+    0.0052871704,
+    -0.055267334,
+    0.052093506,
+    -0.03048706,
+    -0.034942627,
+    -0.06768799,
+    -0.00749588,
+    -0.048461914,
+    0.003944397,
+    -0.033935547,
+    -0.036071777,
+    -0.022415161,
+    -0.009284973,
+    0.00207901,
+    -0.02796936,
+    0.028656006,
+    0.020324707,
+    -0.008392334,
+    0.012367249,
+    -0.047332764,
+    0.016311646,
+    0.0045051575,
+    0.004261017,
+    -0.019042969,
+    -0.0020999908,
+    0.019592285,
+    0.01828003,
+    0.038116455,
+    0.013153076,
+    0.045898438,
+    0.04547119,
+    -0.0035057068,
+    0.079833984,
+    -0.022476196,
+    -0.0042648315,
+    0.005393982,
+    -0.0015182495,
+    -0.009140015,
+    -0.009506226,
+    0.001452446,
+    -0.015602112,
+    0.0340271,
+    0.0023212433,
+    -0.052459717,
+    0.0058517456,
+    -2.527237e-05,
+    -0.02067566,
+    -0.014373779,
+    -0.012123108,
+    0.038757324,
+    -0.040802002,
+    0.0048217773,
+    0.013572693,
+    0.014907837,
+    -0.012863159,
+    -0.012786865,
+    -0.0037841797,
+    0.027832031,
+    -0.028961182,
+    0.015174866,
+    0.04071045,
+    -0.04244995,
+    0.012802124,
+    -0.0020809174,
+    0.005191803,
+    -0.0047950745,
+    -0.0017023087,
+    -0.0006327629,
+    0.0072784424,
+    0.012245178,
+    -0.024475098,
+    0.04269409,
+    -0.03050232,
+    -0.009979248,
+    -0.0090408325,
+    -0.021148682,
+    -0.022491455,
+    -0.028030396,
+    -0.0060195923,
+    -0.0116119385,
+    0.035980225,
+    0.03881836,
+    0.032287598,
+    0.039978027,
+    -0.05105591,
+    -0.003396988,
+    -0.034820557,
+    0.036712646,
+    0.00045013428,
+    0.023254395,
+    -0.00920105,
+    -0.05432129,
+    -0.01751709,
+    0.046539307,
+    -0.08856201,
+    -0.051208496,
+    0.018203735,
+    0.013412476,
+    0.005405426,
+    0.061065674,
+    0.032470703,
+    0.009773254,
+    -0.009796143,
+    0.024963379,
+    0.013397217,
+    -0.0012617111,
+    0.004234314,
+    0.029953003,
+    0.021636963,
+    -0.03503418,
+    0.01386261,
+    -0.0059165955,
+    -0.037597656,
+    0.009239197,
+    -0.019195557,
+    0.05758667,
+    0.02394104,
+    0.051971436,
+    -0.037628174,
+    0.029586792,
+    0.005844116,
+    0.035339355,
+    0.013130188,
+    0.014122009,
+    -0.03555298,
+    0.025115967,
+    -0.027664185,
+    -0.010009766,
+    0.033966064,
+    0.011650085,
+    -0.0049858093,
+    0.019104004,
+    -0.0035362244,
+    0.0021190643,
+    0.029174805,
+    0.032165527,
+    -0.0064353943,
+    -0.019927979,
+    -0.013038635,
+    -1.4603138e-05,
+    0.04815674,
+    -0.014663696,
+    -0.002544403,
+    0.0137786865,
+    -0.05596924,
+    -0.024215698,
+    0.043792725,
+    0.013633728,
+    0.002494812,
+    -0.0011482239,
+    0.029403687,
+    0.052459717,
+    -0.03427124,
+    0.021621704,
+    -0.0028038025,
+    -0.031280518,
+    -0.01360321,
+    0.037353516,
+    0.02758789,
+    -0.004173279,
+    -0.022338867,
+    0.033233643,
+    0.00077199936,
+    0.00071811676,
+    0.024841309,
+    -0.004383087,
+    0.0087890625,
+    0.018157959,
+    0.024810791,
+    0.02696228,
+    -0.005050659,
+    -0.044036865,
+    0.040802002,
+    0.0052719116,
+    0.010406494,
+    -0.037841797,
+    0.011451721,
+    0.017227173,
+    0.050109863,
+    -0.033966064,
+    -0.01209259,
+    -0.00018012524,
+    -0.041748047,
+    0.0289917,
+    0.012321472,
+    0.00081539154,
+    -0.006259918,
+    0.010314941,
+    -0.039215088,
+    -0.07434082,
+    -0.08557129,
+    -0.07019043,
+    -0.006462097,
+    -0.02696228,
+    -0.030288696,
+    -0.020019531,
+    0.040405273,
+    0.020874023,
+    -0.014434814,
+    -0.014183044,
+    0.039367676,
+    -0.022232056,
+    -0.022338867,
+    -0.0031147003,
+    -0.0035114288,
+    -0.04949951,
+    0.009269714,
+    0.020721436,
+    0.0032043457,
+    -0.018615723,
+    -0.0032577515,
+    -0.027770996,
+    -0.0524292,
+    -0.011123657,
+    0.03793335,
+    0.006881714,
+    -0.019241333,
+    -0.01259613,
+    -0.027648926,
+    0.040802002,
+    -0.011024475,
+    -0.047210693,
+    0.003856659,
+    0.007972717,
+    -0.027023315,
+    0.009674072,
+    0.0335083,
+    -0.032073975,
+    0.0034255981,
+    0.016571045,
+    -0.00831604,
+    0.012283325,
+    0.024658203,
+    0.04434204,
+    0.035186768,
+    0.011108398,
+    0.003572464,
+    0.0043792725,
+    0.03805542,
+    0.0030899048,
+    0.0037441254,
+    -0.017959595,
+    0.01373291,
+    -0.020141602,
+    0.008117676,
+    -0.013046265,
+    -0.00042510033,
+    0.04574585,
+    -0.026260376,
+    -0.008125305,
+    -0.06829834,
+    0.004322052,
+    -0.007183075,
+    -0.022125244,
+    0.037902832,
+    -0.11151123,
+    0.026046753,
+    -0.049072266,
+    0.03540039,
+    0.066345215,
+    -0.04534912,
+    0.10595703,
+    -0.018081665,
+    0.055877686,
+    -0.032684326,
+    0.03302002,
+    -0.048217773,
+    -0.0033683777,
+    -0.019805908,
+    0.0385437,
+    0.04434204,
+    -0.040222168,
+    0.009742737,
+    0.05014038,
+    -0.0068359375,
+    -0.008613586,
+    -0.026290894,
+    0.009498596,
+    -0.0335083,
+    0.01739502,
+    -0.0098724365,
+    -0.014137268,
+    0.003036499,
+    0.025787354,
+    0.0104522705,
+    0.07098389,
+    0.0022792816,
+    0.0026111603,
+    0.026397705,
+    -0.035614014,
+    0.025512695,
+    0.009490967,
+    0.004688263,
+    -0.0072021484,
+    -0.015731812,
+    -0.010795593,
+    0.014259338,
+    0.044189453,
+    -0.038482666,
+    -0.03741455,
+    -0.0052871704,
+    0.0050964355,
+    0.032562256,
+    0.0236969,
+    0.0071983337,
+    0.06719971,
+    -0.0048294067,
+    0.021026611,
+    -0.0065727234,
+    -0.049591064,
+    -0.053588867,
+    -0.037231445,
+    0.017745972,
+    -0.019577026,
+    -0.008529663,
+    -0.012527466,
+    0.06842041,
+    0.022628784,
+    0.016235352,
+    -0.01424408,
+    -0.0019626617,
+    0.011772156,
+    -0.03111267,
+    0.0007004738,
+    -0.008163452,
+    -0.011238098,
+    0.004142761,
+    0.011878967,
+    0.03366089,
+    0.01083374,
+    -0.033355713,
+    0.010734558,
+    0.003850937,
+    0.047607422,
+    0.03640747,
+    -0.004753113,
+    0.036224365,
+    0.05545044,
+    0.009933472,
+    -0.006008148,
+    0.016921997,
+    -0.011993408,
+    0.032073975,
+    -0.0357666,
+    -0.010047913,
+    -0.01374054,
+    0.005695343,
+    -0.018295288,
+    -0.029251099,
+    -0.06732178,
+    -0.01776123,
+    -0.008583069,
+    -0.027877808,
+    0.017944336,
+    0.010185242,
+    0.01802063,
+    -0.010437012,
+    0.018295288,
+    0.011268616,
+    0.0131073,
+    -0.023620605,
+    0.00093507767,
+    0.058258057,
+    0.034332275,
+    -0.022735596,
+    0.06085205,
+    -0.009101868,
+    0.026153564,
+    -0.0037937164,
+    -0.025054932,
+    -0.04949951,
+    -0.057281494,
+    0.061645508,
+    0.05783081,
+    -0.031921387,
+    0.0063819885,
+    0.017623901,
+    0.0132751465,
+    -0.08666992,
+    -0.021011353,
+    0.004108429,
+    0.064697266,
+    -0.020095825,
+    -0.046325684,
+    0.06347656,
+    -0.0041923523,
+    -0.002527237,
+    0.014564514,
+    0.0017290115,
+    -0.04776001,
+    -0.0031967163,
+    0.018661499,
+    0.00016367435,
+    -0.025802612,
+    -0.0056419373,
+    -0.041259766,
+    -0.039978027,
+    -0.013763428,
+    -0.044891357,
+    -0.027145386,
+    0.02218628,
+    0.018005371,
+    0.045562744,
+    -0.035369873,
+    -0.05279541,
+    0.033599854,
+    0.017486572,
+    -0.015670776,
+    0.017303467,
+    0.024719238,
+    -0.01802063,
+    -0.029525757,
+    -0.0007200241,
+    0.029647827,
+    -0.04272461,
+    0.041137695,
+    -0.072387695,
+    -0.07232666,
+    -0.02432251,
+    -0.011909485,
+    -0.016555786,
+    -0.017593384,
+    0.070373535,
+    0.010406494,
+    -0.0046958923,
+    -0.017089844,
+    0.005722046,
+    0.053894043,
+    0.005332947,
+    0.025802612,
+    0.015487671,
+    0.017807007,
+    -0.016845703,
+    0.09625244,
+    -0.068115234,
+    0.045959473,
+    -0.017807007,
+    -0.0043258667,
+    -0.06317139,
+    -0.0131073,
+    0.049621582,
+    0.033050537,
+    -0.004398346,
+    -0.022216797,
+    -0.023529053,
+    0.024383545,
+    -0.044769287,
+    -0.034118652,
+    -0.013420105,
+    -0.00831604,
+    0.008399963,
+    0.026672363,
+    0.010955811,
+    -0.021530151,
+    -0.020492554,
+    0.040802002,
+    0.062805176,
+    -0.03378296,
+    0.026901245,
+    0.040649414,
+    -0.010284424,
+    -0.000117599964,
+    -0.0395813,
+    0.01626587,
+    0.016586304,
+    -0.0057525635,
+    -0.061431885,
+    0.05899048,
+    0.06604004,
+    0.007881165,
+    0.055145264,
+    -0.0017786026,
+    0.021713257,
+    0.017990112,
+    0.0071754456,
+    0.021484375,
+    -0.020065308,
+    -0.03375244,
+    -0.025390625,
+    0.0037460327,
+    -0.030258179,
+    -0.012313843,
+    -0.050994873,
+    -0.021087646,
+    -0.0071411133,
+    0.03060913,
+    -0.026367188,
+    -0.01953125,
+    -0.005706787,
+    -0.011100769,
+    -0.011924744,
+    -0.029876709,
+    -0.04534912,
+    0.00073575974,
+    -0.005569458,
+    -0.033843994,
+    -0.012969971,
+    0.0029659271,
+    -0.007801056,
+    -0.011047363,
+    -0.028945923,
+    0.009223938,
+    -0.081848145,
+    0.03250122,
+    0.04837036,
+    0.0015039444,
+    0.010467529,
+    0.01171875,
+    0.02420044,
+    -0.043548584,
+    -0.054992676,
+    0.0026245117,
+    -0.0023822784,
+    -0.049957275,
+    -0.051086426,
+    -0.014045715,
+    0.027252197,
+    -0.020950317,
+    -0.01763916,
+    -0.020019531,
+    -0.026367188,
+    0.011810303,
+    -0.035064697,
+    -0.04916382,
+    -0.035705566,
+    0.007045746,
+    0.02670288,
+    0.02923584,
+    0.028579712,
+    -0.044830322,
+    0.02758789,
+    -0.014678955,
+    -0.04006958,
+    -0.023529053,
+    -0.012580872,
+    0.031280518,
+    -0.044281006,
+    0.02796936,
+    -0.0020332336,
+    -0.02923584,
+    -0.019332886,
+    0.028366089,
+    -0.023635864,
+    -0.0019893646,
+    0.017593384,
+    -0.01071167,
+    -0.020324707,
+    0.0062446594,
+    0.004951477,
+    -0.042999268,
+    -0.0103302,
+    0.0055389404,
+    0.006198883,
+    -0.019744873,
+    -0.02508545,
+    0.024734497,
+    0.0003335476,
+    0.0579834,
+    -0.054626465,
+    -0.015686035,
+    0.010055542,
+    0.062927246,
+    -0.02746582,
+    -0.015388489,
+    0.010948181,
+    -0.0058403015,
+    0.00856781,
+    -0.012962341,
+    -0.027679443,
+    0.027374268,
+    -0.024291992,
+    0.044799805,
+    -0.022445679,
+    -0.029785156,
+    0.034484863,
+    -0.03527832,
+    -0.091430664,
+    0.013504028,
+    -0.037994385,
+    -0.06970215,
+    -0.040740967,
+    -0.0012178421,
+    -0.010787964,
+    -0.027923584,
+    -0.04977417,
+    0.013069153,
+    0.043304443,
+    0.025299072,
+    0.06341553,
+    -0.07293701,
+    -0.08453369,
+    0.0019168854,
+    0.03378296,
+    0.017730713,
+    -0.0072250366,
+    0.013404846,
+    0.03286743,
+    -0.06185913,
+    -0.027389526,
+    -0.0065689087,
+    0.024108887,
+    -0.054595947,
+    -0.030059814,
+    0.038238525,
+    0.005256653,
+    0.02923584,
+    0.00053691864,
+    0.028137207,
+    -0.02658081,
+    0.0014295578,
+    -0.038635254,
+    -0.0017719269,
+    -0.017211914,
+    0.024246216,
+    -0.008155823,
+    0.007633209,
+    -0.012878418,
+    -0.004711151,
+    -0.039215088,
+    -0.0057868958,
+    -0.018234253,
+    0.010650635,
+    -0.02645874,
+    -0.05114746,
+    0.06585693,
+    -0.015472412,
+    0.04272461,
+    -0.014175415,
+    -0.004764557,
+    -0.016418457,
+    -0.034484863,
+    0.025558472,
+    -0.041046143,
+    0.02810669,
+    -0.010635376,
+    -0.015411377,
+    -0.034942627,
+    0.028396606,
+    -0.009025574,
+    -0.003572464,
+    -0.058929443,
+    0.051940918,
+    -0.025497437,
+    -0.029891968,
+    -0.0027866364,
+    0.002943039,
+    -0.040863037,
+    -0.030380249,
+    -0.027648926,
+    -0.022369385,
+    -0.023239136,
+    -0.020050049,
+    0.034484863,
+    0.030639648,
+    0.00019061565,
+    -0.015090942,
+    0.03488159,
+    0.029846191,
+    0.027740479,
+    -0.01486969,
+    0.028793335,
+    -0.005634308,
+    0.06427002,
+    0.013114929,
+    0.0116119385,
+    0.031219482,
+    -0.055725098,
+    -0.03265381,
+    0.00856781,
+    0.032928467,
+    0.014915466,
+    0.019989014,
+    0.008926392,
+    0.012458801,
+    -0.0033721924,
+    0.035614014,
+    -0.017349243,
+    -0.009422302,
+    -0.00894928,
+    -0.009269714,
+    0.055358887,
+    0.011558533,
+    -0.0075912476,
+    0.0059776306,
+    -0.035949707,
+    0.031555176,
+    0.06542969,
+    -0.0052375793,
+    0.0087890625,
+    0.07006836,
+    -0.011360168,
+    0.005306244,
+    -0.036956787,
+    -0.00023460388,
+    -0.033203125,
+    0.002210617,
+    0.029785156,
+    0.0107803345,
+    0.01449585,
+    0.041503906,
+    0.011352539,
+    -0.01134491,
+    0.019485474,
+    -0.020050049,
+    0.010482788,
+    0.010444641,
+    0.0065689087,
+    -0.029891968,
+    -0.017822266,
+    0.007419586,
+    -0.015487671,
+    0.022750854,
+    0.024017334,
+    0.0059165955,
+    0.011054993,
+    0.0112838745,
+    -0.03515625,
+    0.026763916,
+    -0.020019531,
+    0.045806885,
+    0.024520874,
+    -0.011962891,
+    -0.085510254,
+    -0.03942871,
+    -0.014091492,
+    -0.035980225,
+    -6.455183e-05,
+    0.06933594,
+    -0.042419434,
+    0.062683105,
+    -0.06185913,
+    -0.046447754,
+    0.020980835,
+    -0.009002686,
+    -0.0023727417,
+    -0.04949951,
+    0.013946533,
+    -0.014045715,
+    0.056762695,
+    0.026611328,
+    0.030136108,
+    -0.014549255,
+    0.0008611679,
+    0.061676025,
+    0.038848877,
+    0.06982422,
+    -0.004421234,
+    0.026779175,
+    -0.04107666,
+    0.019042969,
+    -0.056121826,
+    -0.046966553,
+    0.039978027,
+    -0.023422241,
+    -0.019088745,
+    0.0069618225,
+    -0.012908936,
+    -0.07684326,
+    -0.012825012,
+    -0.029708862,
+    -0.016799927,
+    0.0049324036,
+    -0.014312744,
+    -0.005252838,
+    0.0074386597,
+    -0.0069503784,
+    -0.047698975,
+    -0.0078048706,
+    0.011047363,
+    -0.03967285,
+    -0.034362793,
+    0.0037899017,
+    -0.02494812,
+    0.026535034,
+    0.01625061,
+    -0.034423828,
+    0.031204224,
+    -0.03466797,
+    -0.017318726,
+    -0.010154724,
+    -0.014465332,
+    0.008773804,
+    0.09680176,
+    -0.008018494,
+    0.049194336,
+    0.01184845,
+    0.0017604828,
+    -0.019882202,
+    -0.016036987,
+    0.03363037,
+    0.018096924,
+    -0.041107178,
+    -0.018249512,
+    0.015792847,
+    -0.010276794,
+    -0.028869629,
+    0.035736084,
+    -0.04626465,
+    -0.04815674,
+    -0.028411865,
+    -0.02619934,
+    -0.01071167,
+    0.012573242,
+    0.0076179504,
+    0.032836914,
+    0.038208008,
+    -0.013877869,
+    0.009536743,
+    -0.027191162,
+    -0.023452759,
+    -0.022842407,
+    -0.029190063,
+    0.04019165,
+    0.009902954,
+    3.7789345e-05,
+    0.006175995,
+    -0.0018138885,
+    -0.032165527,
+    -0.02078247,
+    -0.031402588,
+    0.026657104,
+    -0.042663574,
+    -0.016342163,
+    -0.024414062,
+    -0.0121536255,
+    -0.035064697,
+    -0.021850586,
+    -0.017669678,
+    0.006286621,
+    -0.029281616,
+    0.009750366,
+    -0.0032081604,
+    -0.01852417,
+    0.00023388863,
+    0.056762695,
+    -0.070495605,
+    0.01083374,
+    -0.0039863586,
+    -0.012046814,
+    -0.02268982,
+    -0.044281006,
+    0.038604736,
+    0.016586304,
+    0.0015697479,
+    -0.020812988,
+    0.028381348,
+    0.0015888214,
+    -0.004840851,
+    -0.03277588,
+    -0.053466797,
+    -0.010299683,
+    0.0023078918,
+    0.023086548,
+    0.0029792786,
+    0.0042800903,
+    -0.0501709,
+    -0.008903503,
+    -0.0181427,
+    -0.03652954,
+    -0.026153564,
+    -0.026977539,
+    0.024459839,
+    -0.0034484863,
+    0.0126571655,
+    0.0501709,
+    0.005466461,
+    0.007801056,
+    0.021728516,
+    0.0052948,
+    -4.6551228e-05,
+    0.0121536255,
+    0.060394287,
+    0.0075950623,
+    0.007671356
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84853.md",
+    "file_name": "84853.md",
+    "file_size": 8608,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Aviat A-1 in Rolla, North Dakota",
+      "The accident occurred in Rolla, North Dakota.",
+      "The accident occurred on August 28, 2012, at 19:00 Local time.",
+      "The aircraft involved was an AVIAT INC A-1.",
+      "The defining event was loss of engine power (total).",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was CEN12LA587.",
+      "The aircraft registration was N49363.",
+      "The aircraft sustained substantial damage.",
+      "There were 2 occupants in the aircraft.",
+      "No injuries occurred in the accident.",
+      "The pilot self-fueled the airplane with 40 gallons of fuel before the cross-country flight.",
+      "The engine stopped producing power about 10 miles from the destination airport.",
+      "The pilot made a forced landing to a field.",
+      "The aircraft flipped over during the forced landing.",
+      "A postaccident examination revealed the right wing's fuel cap was missing.",
+      "The missing fuel cap could not be located.",
+      "The top of the wing area around the fuel cap was stained blue.",
+      "The blue staining extended back toward the trailing edge.",
+      "The blue staining was consistent with fuel venting overboard.",
+      "The left wing fuel tank was empty of fuel.",
+      "Less than 1 cup of fuel was drained from the right wing fuel tank.",
+      "No mechanical malfunctions were noted with the airplane.",
+      "No anomalies were noted with the airplane that would have precluded normal operation.",
+      "The National Transportation Safety Board determined the probable cause of the accident.",
+      "The probable cause was the pilot's failure to secure the right wing's fuel cap before the flight.",
+      "The probable cause included the pilot's failure to properly manage the available fuel supply during the flight.",
+      "The failure to secure the fuel cap and manage fuel resulted in a loss of engine power due to fuel exhaustion.",
+      "The findings included issues with aircraft fuel fluid management.",
+      "The findings included personnel issues related to decision making/judgment by the pilot."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Aviat A-1 in Rolla, North Dakota",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Rolla, North Dakota",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "AVIAT INC A-1",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of engine power",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CEN12LA587",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N49363",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Rolla, North Dakota.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rolla, North Dakota",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on August 28, 2012, at 1900 Local time.",
+              "details": [
+                "accident DATE August 28, 2012",
+                "accident TIME 19:00 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 28, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "19:00 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was an AVIAT INC A-1.",
+              "details": [
+                "accident INVOLVED AVIAT INC A-1"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of engine power (total).",
+              "details": [
+                "accident DEFINING EVENT loss of engine power (total)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power (total)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was CEN12LA587.",
+              "details": [
+                "accident NUMBER CEN12LA587"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN12LA587",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N49363.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N49363",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 2 occupants in the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No injuries occurred in the accident.",
+              "details": [
+                "accident INJURIES 0"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot self-fueled the airplane with 40 gallons of fuel before the cross-country flight.",
+              "details": [
+                "flight TYPE cross-country"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FUELED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL AMOUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "40 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cross-country",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine stopped producing power about 10 miles from the destination airport.",
+              "details": [
+                "engine STOPPED POWER 10 miles from destination airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STOPPED POWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 miles from destination airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot made a forced landing to a field.",
+              "details": [
+                "landing TYPE forced",
+                "landing LOCATION field"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forced",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft flipped over during the forced landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIPPED OVER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during forced landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A postaccident examination revealed the right wing's fuel cap was missing.",
+              "details": [
+                "right wing MISSING fuel cap"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MISSING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel cap",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The missing fuel cap could not be located.",
+              "details": [
+                "fuel cap STATUS could not be located"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel cap",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could not be located",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The top of the wing area around the fuel cap was stained blue.",
+              "details": [
+                "wing area STAINED blue"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing area",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STAINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blue",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The blue staining extended back toward the trailing edge.",
+              "details": [
+                "blue staining EXTENDED toward trailing edge"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blue staining",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXTENDED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "toward trailing edge",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The blue staining was consistent with fuel venting overboard.",
+              "details": [
+                "blue staining CONSISTENT WITH fuel venting overboard"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blue staining",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONSISTENT WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel venting overboard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left wing fuel tank was empty of fuel.",
+              "details": [
+                "left wing fuel tank FUEL STATUS empty"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left wing fuel tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "empty",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Less than 1 cup of fuel was drained from the right wing fuel tank.",
+              "details": [
+                "right wing fuel tank FUEL AMOUNT less than 1 cup"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing fuel tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL AMOUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "less than 1 cup",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No mechanical malfunctions were noted with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MECHANICAL MALFUNCTIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No anomalies were noted with the airplane that would have precluded normal operation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AVIAT INC A-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ANOMALIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause was the pilot's failure to secure the right wing's fuel cap before the flight.",
+              "details": [
+                "accident PROBABLE CAUSE pilot's failure to secure the right wing's fuel cap before the flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's failure to secure the right wing's fuel cap before the flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause included the pilot's failure to properly manage the available fuel supply during the flight.",
+              "details": [
+                "accident PROBABLE CAUSE pilot's failure to properly manage the available fuel supply during the flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's failure to properly manage the available fuel supply during the flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The failure to secure the fuel cap and manage fuel resulted in a loss of engine power due to fuel exhaustion.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure to secure fuel cap and manage fuel",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "DUE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel exhaustion",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The findings included issues with aircraft fuel fluid management.",
+              "details": [
+                "accident FINDINGS issues with aircraft fuel fluid management"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FINDINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "issues with aircraft fuel fluid management",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The findings included personnel issues related to decision making/judgment by the pilot.",
+              "details": [
+                "accident FINDINGS personnel issues related to decision making/judgment by the pilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FINDINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personnel issues related to decision making/judgment by the pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::15439f7b:d55f",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84853.md",
+        "file_name": "84853.md",
+        "file_size": 8608,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "03211cb38b97264745ea52ea351cf684fdabb29aaf511b2bb6bf23ace50e2329",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::15439f7b:d55f:4470d912",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84853.md",
+        "file_name": "84853.md",
+        "file_size": 8608,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "d1163fb3bd1e88cabbb68f18e3a81d7853ce1e13baca1bb887eb14d591871b9a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nRolla, North Dakota\n\n## Date & Time: \nAugust 28, 2012, 19:00 Local\n\n## Aircraft:\nAVIAT INC A-1\n\n## Defining Event:\nLoss of engine power (total)\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nCEN12LA587\n\n## Registration:\nN49363\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 None\n\n## Analysis\n\nThe pilot stated that he self-fueled the airplane with 40 gallons of fuel before the cross-country flight. About 10 miles from his destination airport, the engine stopped producing power. The pilot made a forced landing to a field and flipped over. A postaccident examination of the airplane revealed the right wing's fuel cap was missing and could not be located. The top of the wing area around the fuel cap and back toward the trailing edge was stained blue, which was consistent with fuel venting overboard. Examination of the left wing fuel tank revealed it was empty of fuel and less than 1 cup of fuel was drained from the right wing fuel tank. No mechanical malfunctions or anomalies were noted with the airplane that would have precluded normal operation.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be: The pilot's failure to secure the right wing's fuel cap before the flight and to properly manage the available fuel supply during the flight, which resulted in a loss of engine power due to fuel exhaustion.\n\n## Findings\n\n| | |\n|-|-|\n| Aircraft | Fuel - Fluid management |\n| Personnel issues | Decision making/judgment - Pilot |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1614,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

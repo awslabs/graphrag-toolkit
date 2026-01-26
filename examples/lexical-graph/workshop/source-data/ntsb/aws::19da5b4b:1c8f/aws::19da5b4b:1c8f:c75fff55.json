@@ -1,0 +1,2474 @@
+{
+  "id_": "aws::19da5b4b:1c8f:c75fff55",
+  "embedding": [
+    0.052215576,
+    0.0025539398,
+    0.020050049,
+    -0.042236328,
+    0.010108948,
+    -0.009117126,
+    -0.018310547,
+    -0.016036987,
+    -0.020767212,
+    -0.0070114136,
+    -0.009994507,
+    0.030197144,
+    -0.030456543,
+    -0.03945923,
+    0.053344727,
+    -0.028656006,
+    0.017120361,
+    -0.026885986,
+    -0.0033798218,
+    -0.014862061,
+    -0.0010528564,
+    -0.006504059,
+    0.042663574,
+    0.020874023,
+    0.034179688,
+    0.032806396,
+    -0.037353516,
+    0.03277588,
+    0.024353027,
+    -0.0041046143,
+    0.022888184,
+    -0.034606934,
+    0.0021095276,
+    0.062286377,
+    -0.05380249,
+    -0.041412354,
+    -0.04147339,
+    0.041015625,
+    -0.0154418945,
+    0.012969971,
+    0.009681702,
+    -0.005580902,
+    0.0725708,
+    -0.08239746,
+    0.02420044,
+    0.023010254,
+    0.007507324,
+    -0.03125,
+    0.04977417,
+    0.024810791,
+    0.015365601,
+    0.02154541,
+    0.01134491,
+    0.028717041,
+    -0.005748749,
+    0.010879517,
+    0.0023403168,
+    0.037597656,
+    0.000872612,
+    -0.051452637,
+    -0.018432617,
+    0.050231934,
+    0.027404785,
+    0.051696777,
+    -0.034210205,
+    -0.0053253174,
+    0.047454834,
+    0.0033073425,
+    0.036102295,
+    -0.0309906,
+    -0.026138306,
+    0.03717041,
+    -0.012069702,
+    0.040252686,
+    -0.022827148,
+    -0.049865723,
+    0.018692017,
+    -0.022079468,
+    -0.0012235641,
+    0.036132812,
+    0.0069351196,
+    0.025863647,
+    0.016586304,
+    -0.0062179565,
+    -0.00730896,
+    0.014762878,
+    -0.020706177,
+    -0.007572174,
+    0.009544373,
+    0.021377563,
+    -0.017745972,
+    0.025436401,
+    0.07867432,
+    -0.004611969,
+    -0.049041748,
+    -0.0035934448,
+    -0.05331421,
+    -0.063964844,
+    0.0015859604,
+    -0.016113281,
+    0.032440186,
+    -0.04675293,
+    0.015144348,
+    0.0021152496,
+    0.0052948,
+    0.022537231,
+    0.018081665,
+    -0.021072388,
+    0.022033691,
+    -0.009742737,
+    -0.02708435,
+    0.051452637,
+    -0.005695343,
+    -0.050079346,
+    0.00283432,
+    0.028930664,
+    -0.0010051727,
+    -0.012878418,
+    0.022460938,
+    -0.03186035,
+    0.021835327,
+    0.02897644,
+    -0.009689331,
+    0.019805908,
+    0.009086609,
+    0.027740479,
+    0.003780365,
+    -0.030334473,
+    0.06384277,
+    -0.035369873,
+    -0.02418518,
+    0.052093506,
+    0.011817932,
+    -0.026626587,
+    -0.012763977,
+    0.0072021484,
+    -0.0011978149,
+    -0.0008234978,
+    -0.035095215,
+    0.011795044,
+    -0.0211792,
+    -0.015640259,
+    0.04547119,
+    -0.032440186,
+    -0.0078048706,
+    0.03729248,
+    0.00982666,
+    -0.01184082,
+    0.008270264,
+    -0.038208008,
+    -0.02015686,
+    -0.034484863,
+    0.057434082,
+    0.0022583008,
+    -0.031585693,
+    -0.055725098,
+    0.03515625,
+    -0.06829834,
+    -0.006378174,
+    -0.08459473,
+    -0.010696411,
+    -0.001156807,
+    0.039855957,
+    -0.0010089874,
+    -0.045135498,
+    0.037506104,
+    -0.014312744,
+    -0.021606445,
+    0.0079193115,
+    -0.017593384,
+    0.01638794,
+    -0.041503906,
+    -0.06567383,
+    -0.005558014,
+    0.013587952,
+    0.03414917,
+    -0.0149002075,
+    0.045196533,
+    0.022872925,
+    -0.0047721863,
+    0.0033187866,
+    -0.04623413,
+    0.051635742,
+    -0.012893677,
+    -0.035308838,
+    0.02279663,
+    0.012252808,
+    0.0129776,
+    0.0067367554,
+    -0.0054779053,
+    0.046051025,
+    0.019180298,
+    0.022460938,
+    0.007007599,
+    0.015777588,
+    -0.032592773,
+    -0.04019165,
+    -0.015930176,
+    -0.010627747,
+    -0.005924225,
+    -0.023742676,
+    0.0124053955,
+    -0.014053345,
+    -0.0107803345,
+    -0.03479004,
+    -0.017044067,
+    -0.001543045,
+    0.025466919,
+    -0.0045166016,
+    0.0035591125,
+    0.020309448,
+    -0.03466797,
+    -0.03744507,
+    0.082336426,
+    -0.02017212,
+    -0.03503418,
+    0.019592285,
+    0.013092041,
+    0.037200928,
+    -0.0041160583,
+    0.0385437,
+    0.04989624,
+    0.0317688,
+    0.028121948,
+    -0.038909912,
+    0.0036582947,
+    -0.025054932,
+    0.013717651,
+    -0.038024902,
+    0.035827637,
+    0.038604736,
+    -0.016036987,
+    0.04425049,
+    0.010063171,
+    -0.03024292,
+    0.024932861,
+    0.012786865,
+    -0.017044067,
+    -0.024597168,
+    0.022369385,
+    -0.011917114,
+    -0.0637207,
+    -0.035461426,
+    0.07336426,
+    -0.11505127,
+    -0.080078125,
+    -0.009101868,
+    0.037384033,
+    -0.033935547,
+    -0.044708252,
+    0.04598999,
+    0.014411926,
+    0.03314209,
+    0.12011719,
+    0.022476196,
+    0.0037288666,
+    -0.04663086,
+    -0.024597168,
+    -0.031433105,
+    0.025894165,
+    0.015060425,
+    -0.03778076,
+    0.00057315826,
+    -0.019683838,
+    0.017349243,
+    0.006778717,
+    0.061462402,
+    0.052703857,
+    -0.038482666,
+    -0.013641357,
+    0.016967773,
+    0.08892822,
+    0.01121521,
+    0.03857422,
+    -0.022033691,
+    -0.0055351257,
+    -0.0124053955,
+    0.0038452148,
+    0.014450073,
+    0.0010538101,
+    -0.004711151,
+    0.04498291,
+    0.009162903,
+    -0.002363205,
+    -0.0068626404,
+    -0.009567261,
+    -0.0026760101,
+    -0.0013580322,
+    -0.043762207,
+    -0.010269165,
+    0.034851074,
+    -0.012718201,
+    -0.036071777,
+    0.008171082,
+    0.016677856,
+    -0.017822266,
+    0.027114868,
+    -0.039764404,
+    0.02885437,
+    -0.036956787,
+    0.045898438,
+    0.04626465,
+    -0.032440186,
+    -0.0011940002,
+    -0.010643005,
+    -0.022537231,
+    -0.020874023,
+    0.0010843277,
+    -0.007797241,
+    -0.009681702,
+    -0.03048706,
+    0.03060913,
+    0.024856567,
+    0.018615723,
+    -0.022750854,
+    -0.029251099,
+    -0.034210205,
+    0.010902405,
+    -0.055603027,
+    -0.03656006,
+    -0.040618896,
+    -0.011932373,
+    -0.0317688,
+    -0.015640259,
+    0.00030517578,
+    0.011558533,
+    -0.050323486,
+    0.013328552,
+    -0.015533447,
+    -0.014152527,
+    -0.012779236,
+    -0.04156494,
+    -0.06262207,
+    -0.008934021,
+    0.019302368,
+    0.03668213,
+    -0.0050621033,
+    -0.01197052,
+    -0.033081055,
+    -0.010879517,
+    -0.012779236,
+    -0.05831909,
+    0.0014696121,
+    -0.036834717,
+    -0.043060303,
+    -0.06945801,
+    -0.0031204224,
+    -0.024032593,
+    -0.0016183853,
+    -0.026977539,
+    0.06262207,
+    0.030807495,
+    -0.008422852,
+    -0.03643799,
+    0.025054932,
+    -0.0413208,
+    -0.031280518,
+    0.0014543533,
+    0.017913818,
+    -0.056121826,
+    -0.0026512146,
+    0.06329346,
+    0.018508911,
+    0.010269165,
+    -0.025527954,
+    -0.04763794,
+    0.006591797,
+    0.0552063,
+    -0.05621338,
+    -0.033172607,
+    -0.019729614,
+    -0.003540039,
+    -0.04244995,
+    -0.025360107,
+    -0.035705566,
+    0.044036865,
+    0.0184021,
+    -0.02279663,
+    -0.052764893,
+    -0.0058174133,
+    0.0029754639,
+    0.0035953522,
+    -0.0067100525,
+    0.014160156,
+    -0.06573486,
+    0.022659302,
+    -0.030151367,
+    -0.03189087,
+    0.025100708,
+    -0.011932373,
+    0.06210327,
+    0.08148193,
+    0.0115737915,
+    -0.02645874,
+    0.013412476,
+    0.0057754517,
+    -0.024795532,
+    -0.008644104,
+    -0.009117126,
+    -0.006275177,
+    -0.10888672,
+    0.007980347,
+    0.009170532,
+    -0.030410767,
+    0.02645874,
+    -0.03704834,
+    -0.043426514,
+    -0.056396484,
+    0.018829346,
+    0.07293701,
+    -0.016845703,
+    0.014091492,
+    -0.021697998,
+    0.005809784,
+    -0.009010315,
+    0.023117065,
+    -0.050354004,
+    -0.0418396,
+    0.017425537,
+    0.085632324,
+    0.02507019,
+    -0.021392822,
+    0.0052604675,
+    0.072021484,
+    -0.0005135536,
+    0.022521973,
+    -0.03277588,
+    -0.031280518,
+    0.017791748,
+    0.0541687,
+    -0.023101807,
+    0.032165527,
+    -0.011260986,
+    -0.04156494,
+    0.016403198,
+    0.009597778,
+    -0.023254395,
+    0.0074653625,
+    -0.021942139,
+    0.011856079,
+    -0.008224487,
+    -0.0075035095,
+    0.028198242,
+    0.040374756,
+    0.015670776,
+    -0.011924744,
+    -0.0284729,
+    0.000852108,
+    -0.026412964,
+    -0.052703857,
+    0.007888794,
+    0.020141602,
+    0.050048828,
+    0.027740479,
+    0.025863647,
+    0.031555176,
+    -0.0061950684,
+    0.019439697,
+    -0.05014038,
+    -0.01537323,
+    -0.025772095,
+    -0.024673462,
+    0.024520874,
+    -0.047668457,
+    0.0022144318,
+    -0.004310608,
+    0.02142334,
+    0.030258179,
+    0.010810852,
+    -0.0017566681,
+    0.03756714,
+    0.00969696,
+    -0.019836426,
+    -0.037139893,
+    -0.020507812,
+    -0.02696228,
+    0.014480591,
+    -0.03186035,
+    0.10211182,
+    0.009429932,
+    -0.029251099,
+    0.0043411255,
+    0.012893677,
+    0.032592773,
+    0.061157227,
+    0.009353638,
+    0.022842407,
+    0.047912598,
+    0.0010643005,
+    -0.011962891,
+    -0.0019369125,
+    -0.011070251,
+    0.015220642,
+    0.008644104,
+    -0.011413574,
+    -0.01965332,
+    0.010238647,
+    0.011581421,
+    -0.049438477,
+    -0.044891357,
+    -0.04534912,
+    -0.016296387,
+    -0.042907715,
+    0.0413208,
+    -0.011665344,
+    0.0046157837,
+    0.026351929,
+    0.024047852,
+    -0.0067367554,
+    -0.030441284,
+    0.03829956,
+    -0.019760132,
+    0.013671875,
+    0.037872314,
+    -0.033325195,
+    0.056671143,
+    -0.03805542,
+    0.0056495667,
+    -0.006526947,
+    -0.015930176,
+    -0.0022850037,
+    0.03427124,
+    0.02519226,
+    0.030517578,
+    -0.013763428,
+    -0.027938843,
+    0.013954163,
+    0.0074272156,
+    -0.017501831,
+    -0.0088272095,
+    -0.0029506683,
+    0.029312134,
+    0.018615723,
+    0.01701355,
+    0.016601562,
+    -0.0026168823,
+    -0.019088745,
+    0.006122589,
+    -0.0055007935,
+    -0.023529053,
+    -0.007019043,
+    0.03286743,
+    0.017944336,
+    -0.00034213066,
+    0.009567261,
+    -0.006969452,
+    0.015296936,
+    0.03845215,
+    0.0038986206,
+    -0.009963989,
+    0.011627197,
+    0.023880005,
+    0.048614502,
+    -0.028961182,
+    -0.062042236,
+    0.011505127,
+    0.00289917,
+    -0.0104522705,
+    0.03894043,
+    0.01675415,
+    0.0033454895,
+    0.012489319,
+    -0.042999268,
+    0.005531311,
+    0.021408081,
+    0.012031555,
+    0.03466797,
+    -0.021270752,
+    0.095947266,
+    -0.0259552,
+    -0.02961731,
+    -0.04083252,
+    0.09802246,
+    -0.0011148453,
+    0.035186768,
+    -0.04812622,
+    -0.037597656,
+    -0.01687622,
+    0.0053253174,
+    0.008056641,
+    -0.037139893,
+    0.009010315,
+    0.016143799,
+    -0.08093262,
+    -0.038757324,
+    0.02468872,
+    0.023971558,
+    -0.019836426,
+    -0.026000977,
+    -0.003709793,
+    0.038757324,
+    -7.945299e-05,
+    0.045074463,
+    0.06274414,
+    -0.031219482,
+    -0.033599854,
+    -0.012420654,
+    -0.11859131,
+    -0.01776123,
+    -0.029220581,
+    0.0008826256,
+    -0.015014648,
+    -0.00762558,
+    -0.011756897,
+    0.024475098,
+    0.032836914,
+    0.02482605,
+    -0.005329132,
+    0.002960205,
+    0.008155823,
+    0.010803223,
+    0.034088135,
+    -0.053344727,
+    0.012252808,
+    -0.035736084,
+    0.008140564,
+    -0.037628174,
+    0.05923462,
+    0.12792969,
+    0.007133484,
+    0.053466797,
+    0.03604126,
+    0.01398468,
+    0.0013742447,
+    0.008216858,
+    0.020751953,
+    -0.03265381,
+    -0.005493164,
+    -0.015106201,
+    0.0036888123,
+    0.0056762695,
+    -0.012069702,
+    -0.07208252,
+    0.007873535,
+    -0.030944824,
+    -0.03286743,
+    -0.025802612,
+    -0.05053711,
+    0.04522705,
+    -0.007221222,
+    -0.022583008,
+    -0.01486969,
+    -0.04510498,
+    0.044769287,
+    -0.0013904572,
+    -0.006980896,
+    0.0046958923,
+    -0.011932373,
+    -0.036956787,
+    -0.0017576218,
+    0.00093603134,
+    0.016036987,
+    -0.0060424805,
+    -0.025939941,
+    -0.012008667,
+    -0.013069153,
+    -0.036071777,
+    0.0051078796,
+    0.03201294,
+    -0.037750244,
+    -0.06347656,
+    0.033416748,
+    0.025619507,
+    -0.019165039,
+    -0.04940796,
+    0.010848999,
+    0.016357422,
+    0.018951416,
+    -0.005554199,
+    -0.010559082,
+    0.013931274,
+    -0.023483276,
+    0.004611969,
+    -0.026992798,
+    0.0072898865,
+    0.015159607,
+    0.00059843063,
+    0.016052246,
+    0.013061523,
+    -0.050476074,
+    0.030822754,
+    0.0016927719,
+    -0.01876831,
+    -0.0115737915,
+    -0.02458191,
+    0.017745972,
+    -0.055633545,
+    0.028900146,
+    -0.024719238,
+    0.005836487,
+    -0.0362854,
+    0.0076942444,
+    -0.014442444,
+    -0.0014982224,
+    0.010192871,
+    -0.02017212,
+    0.0070648193,
+    0.007843018,
+    -0.017318726,
+    -0.030532837,
+    0.015975952,
+    0.013961792,
+    0.009796143,
+    -0.0001462698,
+    -0.0029468536,
+    0.020095825,
+    0.019485474,
+    0.027236938,
+    0.0054855347,
+    -0.0052452087,
+    0.03652954,
+    0.032226562,
+    -0.027801514,
+    -0.02507019,
+    0.046691895,
+    -0.0065345764,
+    0.022460938,
+    0.002708435,
+    -0.013168335,
+    -0.013214111,
+    0.011009216,
+    0.047546387,
+    0.03704834,
+    -0.015838623,
+    0.03845215,
+    -0.017120361,
+    -0.03955078,
+    0.01576233,
+    -0.008369446,
+    -0.019012451,
+    -0.042755127,
+    -0.0072021484,
+    0.050323486,
+    -0.052368164,
+    -0.05218506,
+    -0.007419586,
+    0.0028190613,
+    -0.018356323,
+    -0.05593872,
+    0.009239197,
+    -0.0028591156,
+    0.0060691833,
+    0.0029678345,
+    -0.0234375,
+    -0.01687622,
+    -0.012367249,
+    0.001115799,
+    -0.040649414,
+    0.015731812,
+    0.0033245087,
+    0.04232788,
+    -0.024597168,
+    -0.054382324,
+    -0.02180481,
+    0.011711121,
+    -0.03744507,
+    -0.037475586,
+    0.0071792603,
+    -0.0413208,
+    0.017868042,
+    -0.037200928,
+    0.009208679,
+    0.01424408,
+    0.019195557,
+    -0.004928589,
+    0.0022182465,
+    -0.017654419,
+    0.030181885,
+    0.01222229,
+    -0.00970459,
+    0.004146576,
+    0.0340271,
+    0.0037231445,
+    -0.020370483,
+    -0.0009698868,
+    -0.025527954,
+    0.029373169,
+    -0.028869629,
+    0.0021820068,
+    -0.030258179,
+    -0.019714355,
+    0.010253906,
+    0.016860962,
+    0.01373291,
+    0.007896423,
+    0.037719727,
+    0.011924744,
+    -0.020507812,
+    0.035614014,
+    0.0041999817,
+    -0.035858154,
+    -0.0028095245,
+    -0.0059814453,
+    -0.06628418,
+    0.019989014,
+    0.01966858,
+    -0.048736572,
+    -0.04034424,
+    -0.036010742,
+    -0.013175964,
+    -0.014968872,
+    -0.003698349,
+    0.0049438477,
+    0.014892578,
+    -0.0015792847,
+    0.00028467178,
+    0.062194824,
+    -0.020309448,
+    -0.012145996,
+    -0.042510986,
+    0.0067253113,
+    -0.03704834,
+    0.03277588,
+    -0.021575928,
+    -0.026382446,
+    -0.0154418945,
+    -0.03363037,
+    -0.010910034,
+    -0.0023155212,
+    -0.009140015,
+    0.03086853,
+    0.043823242,
+    -0.0019607544,
+    0.008605957,
+    -0.0021705627,
+    -0.0056533813,
+    0.03857422,
+    -0.009841919,
+    -0.02859497,
+    0.05154419,
+    0.04714966,
+    0.009719849,
+    -0.035888672,
+    -0.016326904,
+    0.009719849,
+    0.017990112,
+    0.0002399683,
+    0.011993408,
+    0.027420044,
+    -0.004371643,
+    -0.034362793,
+    -0.025390625,
+    0.00038981438,
+    0.0033931732,
+    -0.02859497,
+    0.029083252,
+    0.01109314,
+    -0.012275696,
+    0.017486572,
+    0.06976318,
+    0.0036964417,
+    0.011039734,
+    0.06298828,
+    -0.061798096,
+    0.009048462,
+    0.013221741,
+    0.017974854,
+    -0.019989014,
+    -0.008117676,
+    0.014701843,
+    0.009719849,
+    0.016296387,
+    -0.012428284,
+    -0.026657104,
+    -0.037994385,
+    -0.0070877075,
+    -0.025024414,
+    0.0041007996,
+    0.04232788,
+    0.0107421875,
+    0.023483276,
+    -0.048339844,
+    -0.07098389,
+    0.0072402954,
+    -0.0022506714,
+    -0.037719727,
+    0.019515991,
+    0.050994873,
+    -0.01108551,
+    -0.009101868,
+    -0.057922363,
+    -0.027328491,
+    0.014778137,
+    0.019561768,
+    0.0034980774,
+    -0.060760498,
+    -0.00831604,
+    0.015197754,
+    0.029418945,
+    0.009056091,
+    -0.00434494,
+    0.0011644363,
+    -0.001991272,
+    0.044921875,
+    0.043792725,
+    0.049194336,
+    -0.006336212,
+    -0.0362854,
+    -0.054595947,
+    0.04611206,
+    -0.036712646,
+    -0.031951904,
+    -0.039367676,
+    -0.060302734,
+    0.032836914,
+    0.0107803345,
+    0.00040841103,
+    -0.084106445,
+    -0.00015246868,
+    -0.010620117,
+    -0.010238647,
+    0.007648468,
+    -0.020462036,
+    -0.00048327446,
+    0.021560669,
+    0.01838684,
+    -0.038146973,
+    -0.018814087,
+    0.0043029785,
+    -0.041870117,
+    -0.042999268,
+    -0.04849243,
+    0.01966858,
+    0.014205933,
+    0.010551453,
+    0.022872925,
+    0.00075674057,
+    -0.06689453,
+    0.013267517,
+    0.0017633438,
+    0.007789612,
+    0.000998497,
+    0.016647339,
+    0.07104492,
+    0.020874023,
+    0.002046585,
+    -0.03010559,
+    0.04751587,
+    -0.02142334,
+    0.03225708,
+    0.014030457,
+    -0.0552063,
+    0.025283813,
+    0.009109497,
+    0.0070266724,
+    -0.034332275,
+    0.039398193,
+    -0.0006508827,
+    -0.078430176,
+    0.001947403,
+    0.001958847,
+    0.002960205,
+    0.009284973,
+    0.00049352646,
+    0.010971069,
+    0.044555664,
+    0.004878998,
+    -0.011268616,
+    -0.011001587,
+    -0.06762695,
+    0.0028648376,
+    -0.049621582,
+    0.021118164,
+    -0.03286743,
+    0.017944336,
+    -0.014411926,
+    0.0058021545,
+    0.0058631897,
+    0.03463745,
+    0.023544312,
+    0.007583618,
+    -0.025650024,
+    -0.014038086,
+    -0.03817749,
+    -0.032470703,
+    -0.034820557,
+    -0.029724121,
+    0.018325806,
+    -0.015029907,
+    -0.02229309,
+    0.024047852,
+    0.0143966675,
+    -0.009689331,
+    0.014602661,
+    0.036895752,
+    -0.066589355,
+    0.015487671,
+    -0.0034980774,
+    -0.038482666,
+    -0.004196167,
+    -0.04888916,
+    0.026428223,
+    -0.00031638145,
+    0.018737793,
+    0.0071868896,
+    -0.0010948181,
+    0.04840088,
+    -0.055236816,
+    0.032470703,
+    0.0029067993,
+    -0.020111084,
+    0.009254456,
+    0.05783081,
+    0.00041890144,
+    -0.072387695,
+    -0.020462036,
+    0.011650085,
+    -0.028518677,
+    -0.048187256,
+    -0.070373535,
+    -0.06744385,
+    0.02229309,
+    0.023162842,
+    0.00025606155,
+    0.09448242,
+    -0.014289856,
+    0.004009247,
+    0.034179688,
+    0.0011672974,
+    0.014137268,
+    0.002243042,
+    0.06994629,
+    0.008239746,
+    -0.0018529892
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85892.md",
+    "file_name": "85892.md",
+    "file_size": 7478,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Bell 407 Helicopter Accident Information",
+      "The accident involved a Bell 407 helicopter.",
+      "The defining event was a collision during takeoff/land.",
+      "The pilot was a 27-year-old male.",
+      "The pilot held a Commercial certificate.",
+      "The pilot did not have airplane ratings.",
+      "The pilot had helicopter ratings.",
+      "The pilot had an instrument rating for helicopters.",
+      "The pilot did not have instructor ratings.",
+      "The pilot held a Class 2 medical certificate without waivers/limitations.",
+      "The pilot's last FAA medical exam was on January 25, 2012.",
+      "The pilot was an occupational pilot.",
+      "The pilot's last flight review or equivalent was on November 13, 2012.",
+      "The pilot had 2750 total flight hours in all aircraft.",
+      "The pilot had 200 hours in the Bell 407 helicopter.",
+      "The pilot had 2700 hours as Pilot In Command in all aircraft.",
+      "The pilot had 51 flight hours in the last 90 days in all aircraft.",
+      "The pilot had 20 flight hours in the last 30 days in all aircraft.",
+      "The pilot had 4 flight hours in the last 24 hours in all aircraft.",
+      "The pilot occupied the right seat.",
+      "No second pilot was present during the accident.",
+      "No toxicology was performed on the pilot.",
+      "The aircraft was a Bell 407 helicopter with no series designation.",
+      "The aircraft registration was N489AE.",
+      "The aircraft serial number was 54059.",
+      "The aircraft had a normal airworthiness certificate.",
+      "The aircraft was manufactured in an unknown year.",
+      "The aircraft was not amateur built.",
+      "The aircraft had high skid landing gear.",
+      "The aircraft had 3 seats.",
+      "The aircraft's last inspection was on December 3, 2012, as an Approved Aircraft Inspection Program (AAIP).",
+      "The aircraft's certified maximum gross weight was 5250 pounds.",
+      "The aircraft had 780 total airframe hours at the time of the accident.",
+      "The aircraft had one turbo shaft engine.",
+      "The aircraft engine was manufactured by Rolls Royce.",
+      "The engine model was 250-C47B.",
+      "The engine was rated at 674 horsepower.",
+      "The aircraft had an Emergency Locator Transmitter (ELT) installed but not activated.",
+      "The registered owner of the aircraft was Capital Source Bank.",
+      "The operator of the aircraft was Air Evac EMS.",
+      "The operator held an on-demand air taxi (135) operating certificate."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Bell 407 Helicopter Accident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 407",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N489AE",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Rolls Royce",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "250-C47B",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Capital Source Bank",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Air Evac EMS",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was a collision during takeoff/land.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision during takeoff/land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was a 27-year-old male.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "27",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "GENDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "male",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Commercial certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CERTIFICATE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Commercial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not have airplane ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS AIRPLANE RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had helicopter ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS HELICOPTER RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had an instrument rating for helicopters.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUMENT RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INSTRUMENT RATING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopters",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not have instructor ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Class 2 medical certificate without waivers/limitations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MEDICAL CERTIFICATE CLASS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS MEDICAL WAIVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last FAA medical exam was on January 25, 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST MEDICAL EXAM DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 25, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was an occupational pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "occupational pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last flight review or equivalent was on November 13, 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 13, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 2750 total flight hours in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2750",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 200 hours in the Bell 407 helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS BELL 407"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "200",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 2700 hours as Pilot In Command in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PIC HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2700",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 51 flight hours in the last 90 days in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 90 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "51",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 20 flight hours in the last 30 days in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 30 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "20",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 4 flight hours in the last 24 hours in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 24 HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot occupied the right seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No second pilot was present during the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SECOND PILOT PRESENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was a Bell 407 helicopter with no series designation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS SERIES DESIGNATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N489AE.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTERED AS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N489AE",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft serial number was 54059.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "54059",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had a normal airworthiness certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS CERTIFICATE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was manufactured in an unknown year.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURE YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was not amateur built.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AMATEUR BUILT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had high skid landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING GEAR TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "high skid",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had 3 seats.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SEAT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's last inspection was on December 3, 2012, as an Approved Aircraft Inspection Program (AAIP).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 3, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Approved Aircraft Inspection Program (AAIP)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's certified maximum gross weight was 5250 pounds.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAX GROSS WEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5250 pounds",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had 780 total airframe hours at the time of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TOTAL AIRFRAME HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "780",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had one turbo shaft engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turbo shaft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft engine was manufactured by Rolls Royce.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rolls Royce",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "250-C47B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine model was 250-C47B.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "250-C47B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was rated at 674 horsepower.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "250-C47B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HORSEPOWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "674",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had an Emergency Locator Transmitter (ELT) installed but not activated.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ELT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELT ACTIVATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The registered owner of the aircraft was Capital Source Bank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Capital Source Bank",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "OWNER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The operator of the aircraft was Air Evac EMS.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Air Evac EMS",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "OPERATOR OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 407",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The operator held an on-demand air taxi (135) operating certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Air Evac EMS",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "OPERATING CERTIFICATE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on-demand air taxi (135)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::19da5b4b:1c8f",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85892.md",
+        "file_name": "85892.md",
+        "file_size": 7478,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "e5b74668f817a137fca143e55859b399a5c01cec62bca29322a588d9def76e98",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::19da5b4b:1c8f:555f46e6",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85892.md",
+        "file_name": "85892.md",
+        "file_size": 7478,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "20c7f3135e401d5ed0852691df3576c5564b02ea7d6b42f9e1b13d216251b09d",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::19da5b4b:1c8f:2037e8e2",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85892.md",
+        "file_name": "85892.md",
+        "file_size": 7478,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "6d81809c71c569568760ca86223eecda34b4761a1bd0b642194c1c127a8e713f",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\nTakeoff | Collision during takeoff/land (Defining event)\n\n## Pilot Information\nCertificate: | Commercial\nAge: | 27,Male\nAirplane Rating(s): | None\nSeat Occupied: | Right\nOther Aircraft Rating(s): | Helicopter\nRestraint Used: |\nInstrument Rating(s): | Helicopter\nSecond Pilot Present: | No\nInstructor Rating(s): | None\nToxicology Performed: | No\nMedical Certification: | Class 2 Without waivers/limitations\nLast FAA Medical Exam: | January 25, 2012\nOccupational Pilot: | Yes\nLast Flight Review or Equivalent: | November 13, 2012\nFlight Time: | 2750 hours (Total, all aircraft), 200 hours (Total, this make and model), 2700 hours (Pilot In Command, all aircraft), 51 hours (Last 90 days, all aircraft), 20 hours (Last 30 days, all aircraft), 4 hours (Last 24 hours, all aircraft)\n\n## Aircraft and Owner/Operator Information\nAircraft Make: | Bell\nRegistration: | N489AE\nModel/Series: | 407 NO SERIES\nAircraft Category: | Helicopter\nYear of Manufacture: | Amateur Built:\nAirworthiness Certificate: | Normal\nSerial Number: | 54059\nLanding Gear Type: | High skid\nSeats: | 3\nDate/Type of Last Inspection: | December 3, 2012 AAIP\nCertified Max Gross Wt.: | 5250 lbs\nTime Since Last Inspection: | Engines: 1 Turbo shaft\nAirframe Total Time: | 780 Hrs at time of accident\nEngine Manufacturer: | Rolls Royce\nELT: | Installed, not activated\nEngine Model/Series: | 250-C47B\nRegistered Owner: | Capital Source Bank\nRated Power: | 674 Horsepower\nOperator: | Air Evac EMS\nOperating Certificate(s) Held: | On-demand air taxi (135)\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1562,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

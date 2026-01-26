@@ -1,0 +1,2404 @@
+{
+  "id_": "aws::49311f2f:c3d7:91f07fbc",
+  "embedding": [
+    0.017288208,
+    -0.006362915,
+    -0.003982544,
+    -0.046417236,
+    -0.009376526,
+    0.0008482933,
+    -0.02406311,
+    0.009460449,
+    -0.03289795,
+    0.012794495,
+    0.015563965,
+    -0.019729614,
+    -0.01222229,
+    -0.036315918,
+    0.0013151169,
+    -0.03186035,
+    -0.01448822,
+    0.04486084,
+    0.022064209,
+    -0.0070343018,
+    -0.0010614395,
+    0.011352539,
+    -0.035369873,
+    -0.027770996,
+    -0.011222839,
+    0.043518066,
+    0.0031757355,
+    -0.025360107,
+    -0.012161255,
+    -0.02961731,
+    0.010955811,
+    0.005138397,
+    0.027786255,
+    0.050811768,
+    -0.06756592,
+    0.004928589,
+    -0.042175293,
+    0.02835083,
+    -0.023971558,
+    0.028182983,
+    0.0158844,
+    -0.018600464,
+    0.090148926,
+    0.00907135,
+    0.014884949,
+    0.030303955,
+    0.005088806,
+    -0.029174805,
+    0.037719727,
+    0.024124146,
+    0.012519836,
+    0.010978699,
+    0.001458168,
+    0.036193848,
+    -0.024780273,
+    -0.016952515,
+    -0.01335907,
+    0.010719299,
+    -0.008323669,
+    -0.015098572,
+    0.012428284,
+    0.03643799,
+    0.031982422,
+    0.043670654,
+    -0.03692627,
+    -0.007511139,
+    0.018066406,
+    0.007270813,
+    0.03857422,
+    -0.021057129,
+    -0.023757935,
+    0.03717041,
+    -0.007385254,
+    -0.0036125183,
+    -0.013290405,
+    -0.008049011,
+    0.0031852722,
+    -0.006298065,
+    -0.021438599,
+    0.025421143,
+    0.042938232,
+    0.017654419,
+    0.0048599243,
+    0.010154724,
+    0.01676941,
+    0.053955078,
+    -0.005012512,
+    -0.038909912,
+    -0.016281128,
+    -0.0041275024,
+    -0.020141602,
+    -0.012069702,
+    0.017623901,
+    0.012123108,
+    -0.026931763,
+    -0.0035076141,
+    0.04940796,
+    -0.037200928,
+    -0.002614975,
+    -0.048950195,
+    0.015258789,
+    -0.048431396,
+    -0.027236938,
+    0.026901245,
+    -0.012687683,
+    0.023788452,
+    0.013763428,
+    0.009140015,
+    0.017608643,
+    0.0050964355,
+    -0.017944336,
+    0.032287598,
+    0.042999268,
+    -0.07287598,
+    -0.019104004,
+    0.035003662,
+    0.062469482,
+    -0.008468628,
+    0.058044434,
+    -0.023544312,
+    0.014282227,
+    0.028137207,
+    -0.025283813,
+    -0.008850098,
+    0.037841797,
+    0.010314941,
+    -0.051696777,
+    0.0289917,
+    0.105285645,
+    0.009857178,
+    -0.033721924,
+    0.016723633,
+    -0.061553955,
+    -0.05380249,
+    -0.016433716,
+    -0.0046691895,
+    -0.025802612,
+    0.019195557,
+    -0.0032730103,
+    0.012382507,
+    -0.025039673,
+    -0.036254883,
+    0.052520752,
+    -0.017425537,
+    -0.008415222,
+    0.05065918,
+    0.05227661,
+    -0.017715454,
+    -0.047058105,
+    -0.057647705,
+    -0.0236969,
+    -0.016082764,
+    0.04397583,
+    -0.0017375946,
+    -0.04309082,
+    -0.0619812,
+    0.008407593,
+    -0.05508423,
+    0.013687134,
+    -0.05517578,
+    -0.01259613,
+    -0.005088806,
+    0.006313324,
+    -0.014839172,
+    -0.02708435,
+    0.007598877,
+    -0.011444092,
+    0.004173279,
+    0.019256592,
+    -0.017791748,
+    -0.0029563904,
+    -0.06323242,
+    0.0074424744,
+    -0.0062217712,
+    -0.022491455,
+    0.067871094,
+    -0.0056762695,
+    0.040222168,
+    0.019348145,
+    0.0395813,
+    0.026306152,
+    -0.027664185,
+    0.06072998,
+    -0.002872467,
+    0.028152466,
+    -0.027648926,
+    0.03591919,
+    -0.023330688,
+    -0.020065308,
+    0.014884949,
+    -0.012962341,
+    0.022888184,
+    -0.018035889,
+    -0.037841797,
+    0.026626587,
+    0.00097608566,
+    0.009223938,
+    -0.018432617,
+    0.018295288,
+    -0.012016296,
+    -0.045959473,
+    0.054779053,
+    -0.011558533,
+    0.03250122,
+    -0.005744934,
+    0.031402588,
+    -0.0005927086,
+    0.045715332,
+    -0.01687622,
+    0.041778564,
+    0.033111572,
+    0.009712219,
+    -0.042877197,
+    0.024154663,
+    0.028869629,
+    -0.020050049,
+    -0.027038574,
+    0.030136108,
+    -0.0024051666,
+    0.052764893,
+    -0.027191162,
+    0.025054932,
+    -0.0137786865,
+    -0.007587433,
+    -0.028900146,
+    -0.0206604,
+    -0.031799316,
+    -0.024642944,
+    -0.044525146,
+    -0.030288696,
+    0.06112671,
+    0.051727295,
+    0.015136719,
+    0.05795288,
+    -0.033477783,
+    -0.0027618408,
+    -0.0073394775,
+    0.04058838,
+    0.005809784,
+    0.0020523071,
+    -0.017456055,
+    -0.029708862,
+    -0.03640747,
+    0.07043457,
+    -0.10534668,
+    -0.070617676,
+    -0.009048462,
+    0.046081543,
+    -0.013809204,
+    0.033935547,
+    -0.032226562,
+    0.0385437,
+    0.020507812,
+    0.035461426,
+    -0.0007214546,
+    0.039916992,
+    -0.0039596558,
+    -0.03930664,
+    -0.011779785,
+    0.014175415,
+    0.02734375,
+    -0.028900146,
+    -0.066711426,
+    0.009666443,
+    -0.018829346,
+    0.045074463,
+    0.037322998,
+    0.059509277,
+    -0.025817871,
+    0.014984131,
+    -0.0024204254,
+    0.03201294,
+    0.020080566,
+    0.008079529,
+    -0.052124023,
+    0.018859863,
+    -0.026657104,
+    0.012611389,
+    0.044799805,
+    -0.005695343,
+    -0.03656006,
+    -0.005012512,
+    0.00069236755,
+    -0.0064315796,
+    0.033416748,
+    0.009986877,
+    0.0072250366,
+    -0.045135498,
+    0.017990112,
+    0.016830444,
+    0.06210327,
+    -0.05206299,
+    -0.029296875,
+    0.005783081,
+    -0.017929077,
+    -0.043640137,
+    0.019439697,
+    0.0018939972,
+    -0.007789612,
+    -1.0550022e-05,
+    0.027175903,
+    0.05154419,
+    0.00040602684,
+    -0.0002667904,
+    0.0032291412,
+    -0.02909851,
+    -0.004722595,
+    -0.019210815,
+    -0.002254486,
+    0.034606934,
+    -0.051818848,
+    0.025741577,
+    0.018539429,
+    0.02508545,
+    0.0020446777,
+    -0.008277893,
+    -0.008239746,
+    0.026062012,
+    -0.0010843277,
+    -0.0007162094,
+    -0.057617188,
+    0.019622803,
+    -0.020141602,
+    0.032928467,
+    0.009742737,
+    -0.008415222,
+    0.032287598,
+    0.017623901,
+    0.034820557,
+    0.003665924,
+    -0.042633057,
+    0.006893158,
+    -0.051239014,
+    0.015731812,
+    -0.0039863586,
+    0.0090789795,
+    -0.00028514862,
+    0.045013428,
+    -0.025024414,
+    -0.03466797,
+    -0.026245117,
+    -0.10144043,
+    -0.014472961,
+    0.014320374,
+    -0.056030273,
+    -0.017593384,
+    0.027496338,
+    0.009796143,
+    -0.03616333,
+    -0.011116028,
+    0.053741455,
+    -0.026412964,
+    -0.0068626404,
+    0.025543213,
+    0.01663208,
+    -0.05041504,
+    -0.0107040405,
+    0.037261963,
+    -0.009506226,
+    -0.02949524,
+    0.0013008118,
+    -5.888939e-05,
+    -0.042633057,
+    -0.041015625,
+    0.0058403015,
+    0.0013570786,
+    -0.012619019,
+    -0.0068855286,
+    -0.06341553,
+    -0.009376526,
+    -0.019302368,
+    -0.03729248,
+    -0.0078048706,
+    -0.013328552,
+    -0.04232788,
+    0.03543091,
+    0.047454834,
+    -0.013183594,
+    -0.016448975,
+    0.011405945,
+    0.012313843,
+    -0.002243042,
+    0.009559631,
+    -0.002067566,
+    -0.008377075,
+    0.009735107,
+    -0.033843994,
+    0.02961731,
+    -0.018249512,
+    -0.00064468384,
+    -0.002243042,
+    0.026855469,
+    -0.003967285,
+    -0.02444458,
+    -0.006175995,
+    0.0135269165,
+    -0.04244995,
+    -0.014053345,
+    0.0037593842,
+    0.008796692,
+    -0.14697266,
+    0.005470276,
+    -0.0006723404,
+    -0.057769775,
+    0.0027389526,
+    -0.07940674,
+    -0.05130005,
+    -0.06378174,
+    0.02809143,
+    0.12927246,
+    0.00016009808,
+    0.029022217,
+    0.016662598,
+    0.038909912,
+    -0.00919342,
+    0.030670166,
+    -0.046325684,
+    -0.003314972,
+    -0.011222839,
+    0.029434204,
+    0.02720642,
+    -0.035491943,
+    0.021774292,
+    0.048187256,
+    -0.015007019,
+    0.017150879,
+    -0.005001068,
+    0.010414124,
+    0.016998291,
+    0.018417358,
+    -0.0015611649,
+    -0.015342712,
+    0.01197052,
+    -0.01928711,
+    -0.039489746,
+    0.0035209656,
+    -0.03515625,
+    -0.0021381378,
+    -0.0061187744,
+    -0.03643799,
+    0.030197144,
+    -0.01033783,
+    0.02330017,
+    0.03366089,
+    -0.019760132,
+    0.013595581,
+    -0.0036144257,
+    0.038604736,
+    0.029022217,
+    -0.033721924,
+    0.017974854,
+    -0.009384155,
+    0.05899048,
+    0.014678955,
+    -0.011871338,
+    0.07293701,
+    -0.030761719,
+    0.023361206,
+    0.0054092407,
+    -0.013092041,
+    -0.010009766,
+    -0.010650635,
+    -0.011642456,
+    -0.014266968,
+    -0.017623901,
+    -0.020706177,
+    0.023406982,
+    -0.0057373047,
+    -0.015144348,
+    0.020812988,
+    -0.025314331,
+    0.044525146,
+    -0.020614624,
+    -0.044830322,
+    0.02029419,
+    -0.031097412,
+    0.01927185,
+    -0.033691406,
+    0.058898926,
+    -0.028366089,
+    -0.055999756,
+    0.008087158,
+    0.036102295,
+    0.029174805,
+    0.018966675,
+    0.02645874,
+    0.049591064,
+    0.055511475,
+    0.007457733,
+    0.01158905,
+    0.051330566,
+    -0.013381958,
+    0.011039734,
+    0.03579712,
+    -0.0066108704,
+    -0.041412354,
+    0.010818481,
+    -0.0093688965,
+    -0.023071289,
+    -0.026763916,
+    -0.037506104,
+    0.011070251,
+    0.013381958,
+    0.019577026,
+    -0.03289795,
+    0.012741089,
+    0.018356323,
+    0.014083862,
+    0.018295288,
+    -0.050048828,
+    0.01889038,
+    -0.017105103,
+    -0.012283325,
+    0.022537231,
+    -0.051208496,
+    0.03668213,
+    -0.023345947,
+    -0.05053711,
+    0.0027599335,
+    0.018463135,
+    -0.027832031,
+    -0.041534424,
+    0.053375244,
+    0.061828613,
+    -0.049743652,
+    -0.011924744,
+    0.042266846,
+    -0.022613525,
+    -0.048217773,
+    -0.040771484,
+    0.040618896,
+    0.057556152,
+    0.014587402,
+    3.0219555e-05,
+    0.0035572052,
+    0.0070533752,
+    -0.020584106,
+    0.0064315796,
+    0.03012085,
+    -0.015052795,
+    -0.022872925,
+    -0.03967285,
+    -0.011207581,
+    0.010025024,
+    0.005592346,
+    -0.019897461,
+    -0.012916565,
+    0.015144348,
+    -0.059448242,
+    0.010032654,
+    -0.013504028,
+    -0.0143966675,
+    -0.04458618,
+    -0.048065186,
+    -0.034118652,
+    0.09698486,
+    0.018417358,
+    -0.0038490295,
+    -0.03817749,
+    -0.0011100769,
+    0.011871338,
+    -0.01121521,
+    -0.019836426,
+    -0.0143966675,
+    -0.020950317,
+    0.008369446,
+    0.023834229,
+    -0.010772705,
+    0.013374329,
+    -0.022567749,
+    -0.014533997,
+    -0.054626465,
+    0.012802124,
+    0.011627197,
+    -0.009277344,
+    0.012031555,
+    -0.022888184,
+    0.01953125,
+    -0.07458496,
+    -0.07165527,
+    0.030975342,
+    0.02507019,
+    0.009529114,
+    0.024993896,
+    -0.048431396,
+    0.03567505,
+    0.022994995,
+    -0.02973938,
+    -0.026885986,
+    0.0008234978,
+    0.03704834,
+    0.017059326,
+    0.0014677048,
+    0.009307861,
+    0.010147095,
+    0.029220581,
+    -0.025970459,
+    -0.0625,
+    0.02684021,
+    -0.0073394775,
+    -0.0044174194,
+    -0.006122589,
+    0.00983429,
+    -0.025482178,
+    0.03427124,
+    0.018218994,
+    0.013687134,
+    -0.0034542084,
+    0.04095459,
+    0.031143188,
+    -0.013412476,
+    -0.018463135,
+    -0.055847168,
+    0.054473877,
+    -0.01725769,
+    -0.020462036,
+    -0.037597656,
+    0.044921875,
+    0.0690918,
+    0.0056266785,
+    0.021362305,
+    -0.0066719055,
+    -0.002521515,
+    -0.043945312,
+    0.0019283295,
+    0.0001128912,
+    -0.03604126,
+    -0.019714355,
+    -0.011650085,
+    0.010192871,
+    -0.00018811226,
+    -0.0050811768,
+    -0.020568848,
+    0.008728027,
+    0.013511658,
+    0.0037117004,
+    -0.024520874,
+    -0.0015115738,
+    -0.015380859,
+    -0.019607544,
+    0.009307861,
+    0.016052246,
+    -0.050323486,
+    -0.01008606,
+    0.01448822,
+    -0.0010137558,
+    -0.010734558,
+    -0.014823914,
+    -0.015609741,
+    0.024047852,
+    0.029800415,
+    0.007095337,
+    -0.049468994,
+    -0.03378296,
+    0.010650635,
+    -0.030654907,
+    0.0121536255,
+    -0.0036449432,
+    -0.028656006,
+    -0.041503906,
+    -0.031921387,
+    -0.020721436,
+    -0.035858154,
+    -0.007423401,
+    -0.031433105,
+    -0.016174316,
+    0.06488037,
+    0.007587433,
+    -0.008148193,
+    -0.0395813,
+    0.0012950897,
+    0.0023784637,
+    0.031097412,
+    -0.013015747,
+    0.0022735596,
+    0.04135132,
+    0.071899414,
+    0.0025291443,
+    0.0541687,
+    -0.03274536,
+    0.01574707,
+    0.021835327,
+    0.030349731,
+    -0.017608643,
+    -0.043670654,
+    0.03805542,
+    -0.07922363,
+    -0.012901306,
+    -0.031158447,
+    -0.011550903,
+    -0.03414917,
+    0.010520935,
+    -0.032989502,
+    -0.0067863464,
+    0.0105896,
+    -0.033447266,
+    -0.015777588,
+    0.04586792,
+    0.00970459,
+    -0.027908325,
+    -0.006965637,
+    0.03894043,
+    0.0059547424,
+    0.026657104,
+    -0.03213501,
+    0.027709961,
+    0.017211914,
+    0.046173096,
+    -0.027297974,
+    0.0028705597,
+    0.013755798,
+    0.021987915,
+    -0.03793335,
+    -0.01386261,
+    0.005504608,
+    -0.01235199,
+    -0.004550934,
+    -0.02255249,
+    -0.025878906,
+    0.017822266,
+    -0.022262573,
+    0.019821167,
+    0.040527344,
+    -0.01146698,
+    0.041046143,
+    0.013381958,
+    -0.045074463,
+    0.01096344,
+    -0.026885986,
+    -0.0345459,
+    0.0017824173,
+    -0.019760132,
+    0.013114929,
+    -0.0082473755,
+    -0.04397583,
+    0.01789856,
+    0.0049057007,
+    0.030227661,
+    0.013206482,
+    -0.03643799,
+    -0.034210205,
+    -0.018951416,
+    0.03189087,
+    -0.010818481,
+    -0.0071029663,
+    -0.03225708,
+    0.01146698,
+    -0.06561279,
+    -0.012069702,
+    -0.0025367737,
+    0.0491333,
+    -0.056793213,
+    -0.042510986,
+    0.021392822,
+    0.009292603,
+    0.016342163,
+    0.013969421,
+    0.011169434,
+    -0.02760315,
+    -0.0059928894,
+    -0.031585693,
+    -0.005455017,
+    -0.016403198,
+    0.028289795,
+    -0.027069092,
+    -0.00065374374,
+    -0.0107421875,
+    -0.01576233,
+    0.043670654,
+    -0.005153656,
+    -0.032348633,
+    -0.0043182373,
+    0.008171082,
+    -0.0029067993,
+    0.041931152,
+    0.0128479,
+    -0.005092621,
+    -0.028778076,
+    -0.025253296,
+    -0.00573349,
+    0.03375244,
+    -0.018722534,
+    0.019332886,
+    0.0033416748,
+    -0.013366699,
+    0.020065308,
+    -0.025054932,
+    0.02507019,
+    0.015838623,
+    0.035308838,
+    -0.064697266,
+    0.009811401,
+    -0.013160706,
+    -0.031951904,
+    -0.009315491,
+    -0.04071045,
+    -0.06719971,
+    -0.010421753,
+    -0.018814087,
+    -0.045410156,
+    -0.050994873,
+    -0.0002310276,
+    -0.018966675,
+    0.040283203,
+    0.0017662048,
+    0.005935669,
+    0.0061569214,
+    0.034820557,
+    0.047729492,
+    -0.040496826,
+    0.025756836,
+    -0.048797607,
+    0.019500732,
+    -0.014450073,
+    0.032470703,
+    0.041168213,
+    -0.0440979,
+    -0.05001831,
+    0.009277344,
+    0.06555176,
+    0.00033211708,
+    0.018844604,
+    0.020507812,
+    0.013595581,
+    -0.042938232,
+    0.046691895,
+    0.009010315,
+    -0.025939941,
+    -0.055419922,
+    -0.01890564,
+    0.058624268,
+    -0.01953125,
+    -0.030273438,
+    -0.0069503784,
+    -0.046875,
+    0.02619934,
+    0.06088257,
+    0.04272461,
+    -0.018844604,
+    0.064331055,
+    -0.0076904297,
+    0.008255005,
+    -0.040008545,
+    -0.027069092,
+    -0.018005371,
+    -0.0015153885,
+    0.04208374,
+    0.0088272095,
+    -0.010070801,
+    0.020767212,
+    0.01725769,
+    -0.0071372986,
+    0.024246216,
+    -0.03878784,
+    0.010681152,
+    0.007659912,
+    -0.009925842,
+    -0.022705078,
+    0.009437561,
+    0.02418518,
+    -0.017288208,
+    0.034576416,
+    -0.013969421,
+    -0.014228821,
+    -0.011657715,
+    0.015899658,
+    -0.012664795,
+    -0.0012044907,
+    0.026824951,
+    -0.006164551,
+    0.015548706,
+    -0.010223389,
+    -0.07910156,
+    -0.015029907,
+    -0.027175903,
+    -0.023406982,
+    -0.010131836,
+    0.0925293,
+    -0.052703857,
+    0.019515991,
+    -0.0619812,
+    -0.047607422,
+    0.017181396,
+    -0.0065193176,
+    0.0033416748,
+    -0.057250977,
+    0.010398865,
+    -0.031173706,
+    0.05984497,
+    0.006626129,
+    -0.034179688,
+    -0.007980347,
+    -0.02658081,
+    0.016983032,
+    0.013641357,
+    0.08483887,
+    -0.01499176,
+    -0.0093307495,
+    -0.036376953,
+    -0.0022506714,
+    -0.0033512115,
+    -0.042144775,
+    -0.0054779053,
+    -0.064941406,
+    0.029708862,
+    -0.0035629272,
+    -0.009223938,
+    -0.076049805,
+    0.009262085,
+    -0.01360321,
+    -0.0010709763,
+    0.00920105,
+    -0.042022705,
+    0.00995636,
+    0.022598267,
+    -0.013298035,
+    -0.064697266,
+    -0.03994751,
+    -0.0066871643,
+    -0.08746338,
+    -0.053588867,
+    -0.0040130615,
+    -0.0020961761,
+    0.035888672,
+    0.031066895,
+    -0.038146973,
+    0.049560547,
+    -0.0017786026,
+    -0.026031494,
+    0.0029582977,
+    -0.009422302,
+    0.016983032,
+    0.096191406,
+    -0.05645752,
+    0.057434082,
+    0.0007596016,
+    -0.011695862,
+    -0.014404297,
+    -0.0059661865,
+    0.07537842,
+    0.019973755,
+    -0.028961182,
+    -0.030319214,
+    0.0025100708,
+    0.026931763,
+    -0.0390625,
+    0.027053833,
+    0.0104522705,
+    -0.054260254,
+    0.010620117,
+    -0.010444641,
+    -0.020019531,
+    0.022323608,
+    0.007926941,
+    0.0074768066,
+    0.06500244,
+    -0.005973816,
+    -0.020446777,
+    -0.03265381,
+    -0.10522461,
+    0.0036563873,
+    -0.003232956,
+    0.033050537,
+    0.004650116,
+    0.037872314,
+    -0.03756714,
+    0.00365448,
+    -0.013549805,
+    -0.0037078857,
+    -0.008392334,
+    0.0335083,
+    -0.021759033,
+    -0.028915405,
+    0.0073013306,
+    -0.012191772,
+    -0.056549072,
+    -0.009109497,
+    0.009880066,
+    0.055908203,
+    -0.0055770874,
+    0.0096588135,
+    0.043060303,
+    -0.043518066,
+    -0.037719727,
+    0.02029419,
+    -0.03829956,
+    0.008552551,
+    -0.0066871643,
+    -0.013725281,
+    0.0012331009,
+    -0.039245605,
+    0.027297974,
+    -0.005432129,
+    0.028137207,
+    -0.010284424,
+    0.022613525,
+    0.009849548,
+    0.02468872,
+    -0.006175995,
+    0.011505127,
+    -0.005859375,
+    0.0066604614,
+    0.037872314,
+    0.018661499,
+    -0.002199173,
+    -0.06008911,
+    -0.0076408386,
+    -0.063964844,
+    0.00983429,
+    -0.023544312,
+    -0.054016113,
+    0.06628418,
+    0.038330078,
+    -0.042755127,
+    0.046020508,
+    -0.0027446747,
+    0.026031494,
+    0.049926758,
+    0.01600647,
+    0.043304443,
+    0.004928589,
+    0.03717041,
+    0.022567749,
+    -0.012046814
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+    "file_name": "85918.md",
+    "file_size": 11717,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Cessna 210A Aircraft Accident at Chandler Municipal Airport",
+      "The accident occurred on December 31, 2012, around 1130 mountain standard time.",
+      "A Cessna 210A with registration N9507X experienced a loss of engine power on takeoff from runway 22R.",
+      "The loss of engine power was the defining event of the accident.",
+      "The pilot made a forced landing in an open field near Chandler Municipal Airport.",
+      "Chandler Municipal Airport is identified by the code CHD.",
+      "Chandler Municipal Airport is located in Chandler, Arizona.",
+      "The pilot operated the privately-owned borrowed airplane under the provisions of 14 Code of Federal Regulations Part 91.",
+      "The private pilot was not injured in the accident.",
+      "Three passengers were not injured in the accident.",
+      "The airplane sustained substantial damage to the fuselage.",
+      "The airplane sustained substantial damage to the wings.",
+      "Visual meteorological conditions prevailed for the local area flight.",
+      "No flight plan had been filed for the flight.",
+      "The pilot completed a full engine run up before takeoff in accordance with the aircraft handbook.",
+      "The pilot encountered no anomalies during the engine run up.",
+      "The pilot performed three touch-and-go takeoff and landings before the accident.",
+      "The engine lost power on the fourth takeoff.",
+      "The pilot made a forced landing in an open field about 1/4 mile from the departure end of runway 22R.",
+      "A Federal Aviation Administration inspector responded to the accident site.",
+      "The Federal Aviation Administration inspector reported that fuel was evident in the fuel tanks.",
+      "The Federal Aviation Administration inspector reported that no obvious mechanical problems were identified.",
+      "The pilot reported to the Federal Aviation Administration inspector that the engine quit right after takeoff.",
+      "The pilot stated the engine \"did not sputter or cough, it just quit.\"",
+      "Maintenance records indicated that the last annual inspection took place on October 3, 2012.",
+      "The engine had a total time of 3,231.3 hours at the last annual inspection.",
+      "The engine had 564.4 hours since overhaul at the last annual inspection.",
+      "There were no additional maintenance entries in the logbook following the annual inspection.",
+      "The mechanic was flying the airplane at the time of the accident.",
+      "The mechanic indicated that the engine's fuel system had been adjusted prior to the accident flight.",
+      "The fuel system adjustments were made in accordance with Continental Motor's Service Information Directive 97-3E.",
+      "Only \"minor adjustments\" were made to the fuel system.",
+      "There was no record of the fuel system work performed in the engine logbook."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Cessna 210A Aircraft Accident at Chandler Municipal Airport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna 210A",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N9507X",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Chandler Municipal Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CHD",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Chandler, Arizona",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration inspector",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Continental Motor's Service Information Directive 97-3E",
+              "classification": "Aircraftowner"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on December 31, 2012, around 1130 mountain standard time.",
+              "details": [
+                "Cessna 210A Aircraft Accident DATE December 31, 2012",
+                "Cessna 210A Aircraft Accident TIME 1130 mountain standard time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 31, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1130 mountain standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Cessna 210A with registration N9507X experienced a loss of engine power on takeoff from runway 22R.",
+              "details": [
+                "Cessna 210A Aircraft Accident DEFINING EVENT loss of engine power on takeoff",
+                "Cessna 210A Aircraft Accident RUNWAY 22R"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N9507X",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power on takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RUNWAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "22R",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The loss of engine power was the defining event of the accident.",
+              "details": [
+                "Cessna 210A Aircraft Accident DEFINING EVENT loss of engine power"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot made a forced landing in an open field near Chandler Municipal Airport.",
+              "details": [
+                "Cessna 210A Aircraft Accident LANDING LOCATION open field near Chandler Municipal Airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "open field near Chandler Municipal Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chandler Municipal Airport is identified by the code CHD.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CHD",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "CODE FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chandler Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chandler Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "CODE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CHD",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chandler Municipal Airport is located in Chandler, Arizona.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chandler Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chandler, Arizona",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot operated the privately-owned borrowed airplane under the provisions of 14 Code of Federal Regulations Part 91.",
+              "details": [
+                "Cessna 210A Aircraft Accident FLIGHT CONDUCTED UNDER 14 Code of Federal Regulations Part 91"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OWNERSHIP STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "privately-owned borrowed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot was not injured in the accident.",
+              "details": [
+                "Pilot INJURY STATUS not injured",
+                "Pilot LICENSE TYPE private"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LICENSE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Three passengers were not injured in the accident.",
+              "details": [
+                "Cessna 210A Aircraft Accident PASSENGER COUNT three",
+                "Cessna 210A Aircraft Accident PASSENGER INJURY STATUS not injured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "three",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane sustained substantial damage to the fuselage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane sustained substantial damage to the wings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed for the local area flight.",
+              "details": [
+                "Cessna 210A Aircraft Accident WEATHER CONDITIONS Visual meteorological conditions",
+                "Cessna 210A Aircraft Accident FLIGHT TYPE local area flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local area flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan had been filed for the flight.",
+              "details": [
+                "Cessna 210A Aircraft Accident FLIGHT PLAN STATUS No flight plan filed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No flight plan filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot completed a full engine run up before takeoff in accordance with the aircraft handbook.",
+              "details": [
+                "Pilot PRE FLIGHT ACTION completed a full engine run up before takeoff",
+                "Pilot PROCEDURE FOLLOWED aircraft handbook"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PRE FLIGHT ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "completed a full engine run up before takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROCEDURE FOLLOWED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft handbook",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot encountered no anomalies during the engine run up.",
+              "details": [
+                "Pilot ENGINE RUN UP RESULT no anomalies"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENGINE RUN UP RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot performed three touch-and-go takeoff and landings before the accident.",
+              "details": [
+                "Pilot PRE ACCIDENT ACTIONS performed three touch-and-go takeoff and landings"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PRE ACCIDENT ACTIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "performed three touch-and-go takeoff and landings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine lost power on the fourth takeoff.",
+              "details": [
+                "Cessna 210A Aircraft Accident ACCIDENT SEQUENCE engine lost power on the fourth takeoff"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT SEQUENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine lost power on the fourth takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot made a forced landing in an open field about 1/4 mile from the departure end of runway 22R.",
+              "details": [
+                "Cessna 210A Aircraft Accident LANDING LOCATION open field",
+                "Cessna 210A Aircraft Accident LANDING DISTANCE about 1/4 mile from the departure end of runway 22R"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "open field",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A Aircraft Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LANDING DISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 1/4 mile from the departure end of runway 22R",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Federal Aviation Administration inspector responded to the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "responded to the accident site",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration inspector reported that fuel was evident in the fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORT FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel was evident in the fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration inspector reported that no obvious mechanical problems were identified.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORT FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no obvious mechanical problems were identified",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported to the Federal Aviation Administration inspector that the engine quit right after takeoff.",
+              "details": [
+                "Pilot REPORT TO FAA engine quit right after takeoff"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORT TO FAA"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine quit right after takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot stated the engine \"did not sputter or cough, it just quit.\"",
+              "details": [
+                "Pilot ENGINE FAILURE DESCRIPTION \"did not sputter or cough, it just quit\""
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE DESCRIPTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "\"did not sputter or cough, it just quit\"",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Maintenance records indicated that the last annual inspection took place on October 3, 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST ANNUAL INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "October 3, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine had a total time of 3,231.3 hours at the last annual inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE TOTAL TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3,231.3 hours at the last annual inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine had 564.4 hours since overhaul at the last annual inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE TIME SINCE OVERHAUL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "564.4 hours at the last annual inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no additional maintenance entries in the logbook following the annual inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE RECORD STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no additional entries following annual inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The mechanic was flying the airplane at the time of the accident.",
+              "details": [
+                "Pilot OCCUPATION mechanic"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mechanic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The mechanic indicated that the engine's fuel system had been adjusted prior to the accident flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PRE FLIGHT MAINTENANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine's fuel system had been adjusted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel system adjustments were made in accordance with Continental Motor's Service Information Directive 97-3E.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE PROCEDURE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Continental Motor's Service Information Directive 97-3E",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Only \"minor adjustments\" were made to the fuel system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE EXTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "\"minor adjustments\" to the fuel system",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no record of the fuel system work performed in the engine logbook.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 210A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE DOCUMENTATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no record of fuel system work in engine logbook",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::49311f2f:c3d7",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+        "file_name": "85918.md",
+        "file_size": 11717,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "9818dc588d27f687d4024dfa74f0dc8e769176937b46aa7dd88d66dfa20dfa22",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::49311f2f:c3d7:957f96d4",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+        "file_name": "85918.md",
+        "file_size": 11717,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "8222f8e9f8cbfb813f817b0160d5a842de6d77d3b401a6bb175dcb45a4458f37",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::49311f2f:c3d7:f3ce3a2e",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+        "file_name": "85918.md",
+        "file_size": 11717,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "06f067945422c26ce5c4b0f0df8e26427faeebc1724667209ae6bf590d219d4c",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| | |\n|-|-|\n| Takeoff | Loss of engine power (total) (Defining event) |\n| Emergency descent | Collision with terr/obj (non-CFIT) |\n\nOn December 31, 2012, about 1130 mountain standard time, a Cessna 210A, N9507X, experienced a loss of engine power on takeoff from runway 22R, and the pilot made a forced landing in an open field near the Chandler Municipal Airport (CHD), Chandler, Arizona. The pilot operated the privately-owned borrowed airplane under the provisions of 14 Code of Federal Regulations Part 91. The private pilot and three passengers were not injured. The airplane sustained substantial damage to the fuselage and wings. Visual meteorological conditions prevailed for the local area flight, and no flight plan had been filed.\n\nThe pilot reported that before takeoff, he had completed a full engine run up in accordance with the aircraft handbook, with no anomalies encountered. He performed three touch-and-go takeoff and landings; on the fourth takeoff the engine lost power. The pilot made a forced landing in an open field about a 1/4 mile from the departure end of runway 22R.\n\nA Federal Aviation Administration (FAA) inspector responded to the accident site, and reported that fuel was evident in the fuel tanks, and no obvious mechanical problems were identified. The pilot reported to the FAA inspector that right after takeoff the engine quit, \"it did not sputter or cough, it just quit.\"\n\nMaintenance records indicated that the last annual inspection took place on October 3, 2012, at an engine total time of 3,231.3 hours (564.4 hours since overhaul). There were no additional maintenance entries in the logbook following the annual inspection. According to the FAA inspector, the mechanic who was flying the airplane at the time of the accident, indicated that the engine's fuel system had been adjusted prior to the accident flight in accordance with Continental Motor's Service Information Directive (SID) 97-3E with only \"minor adjustments\" being made. There was no record of the work performed in the engine logbook.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2092,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

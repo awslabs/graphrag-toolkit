@@ -1,0 +1,2235 @@
+{
+  "id_": "aws::a663f122:e904:c4e1f64c",
+  "embedding": [
+    0.05496216,
+    -0.009567261,
+    0.04135132,
+    -0.062805176,
+    -0.008926392,
+    0.0037708282,
+    -0.02279663,
+    -0.006263733,
+    -0.07470703,
+    -0.009269714,
+    -0.0069732666,
+    0.014259338,
+    -0.0027217865,
+    -0.041534424,
+    0.07354736,
+    -0.029327393,
+    0.017364502,
+    0.0335083,
+    0.07720947,
+    0.0067977905,
+    0.0032615662,
+    0.023391724,
+    0.033691406,
+    -0.00856781,
+    -0.008033752,
+    0.06970215,
+    -0.017562866,
+    -0.027511597,
+    -0.011680603,
+    -0.022476196,
+    0.0020771027,
+    0.0069732666,
+    -0.0018148422,
+    0.027786255,
+    -0.0038547516,
+    -0.00091838837,
+    0.0118255615,
+    0.014678955,
+    -0.01133728,
+    0.041046143,
+    0.0154418945,
+    -0.007007599,
+    0.054870605,
+    -0.017745972,
+    -0.004749298,
+    -0.01260376,
+    0.027526855,
+    0.0075798035,
+    0.04574585,
+    0.05783081,
+    0.006587982,
+    -0.0026397705,
+    -0.005619049,
+    0.020690918,
+    -0.009346008,
+    -0.023132324,
+    -0.072753906,
+    0.025497437,
+    0.016296387,
+    0.09942627,
+    0.03253174,
+    -0.0058670044,
+    -0.007904053,
+    -0.049713135,
+    -0.031463623,
+    -0.021331787,
+    -0.060668945,
+    0.024627686,
+    0.085998535,
+    -0.04071045,
+    -0.044830322,
+    0.04449463,
+    0.028503418,
+    0.0019292831,
+    -0.04156494,
+    -0.00039601326,
+    0.013183594,
+    0.047790527,
+    -0.002998352,
+    -0.011886597,
+    -0.0005054474,
+    0.07281494,
+    -0.030548096,
+    -0.02670288,
+    -0.013168335,
+    -0.021621704,
+    -0.0335083,
+    -0.023162842,
+    -0.036956787,
+    -0.006576538,
+    -0.029174805,
+    -0.013404846,
+    -0.04660034,
+    0.029296875,
+    -0.0072021484,
+    0.015777588,
+    -0.03552246,
+    -0.09082031,
+    0.0015487671,
+    -0.016281128,
+    0.0023231506,
+    -0.022201538,
+    -0.026306152,
+    0.014556885,
+    -0.0098724365,
+    0.022201538,
+    0.013130188,
+    -0.025482178,
+    0.004611969,
+    0.0041160583,
+    -0.036956787,
+    0.04638672,
+    0.0062179565,
+    0.02281189,
+    -0.039489746,
+    -0.037719727,
+    -0.04220581,
+    0.0029239655,
+    -0.0016393661,
+    0.007762909,
+    0.021148682,
+    0.029037476,
+    -0.060699463,
+    0.02520752,
+    0.020385742,
+    0.010284424,
+    -0.009605408,
+    0.022262573,
+    -0.00042963028,
+    -0.026062012,
+    0.017303467,
+    0.051635742,
+    -0.018859863,
+    -0.03366089,
+    -0.039001465,
+    0.026275635,
+    -0.008972168,
+    0.009185791,
+    0.007858276,
+    -0.012283325,
+    -0.031799316,
+    -0.0047416687,
+    0.07946777,
+    -0.008758545,
+    0.021957397,
+    0.0357666,
+    -0.0007610321,
+    -0.010925293,
+    0.029647827,
+    -0.0040245056,
+    -0.029067993,
+    -0.031173706,
+    0.030456543,
+    -0.014915466,
+    0.057647705,
+    -0.047851562,
+    0.073791504,
+    -0.0552063,
+    0.007724762,
+    -0.02748108,
+    -0.0015983582,
+    -0.040740967,
+    0.007762909,
+    0.041625977,
+    6.401539e-05,
+    0.0692749,
+    -0.0056381226,
+    0.007873535,
+    0.007911682,
+    0.04598999,
+    0.04006958,
+    0.02168274,
+    -0.059814453,
+    -0.00868988,
+    -0.002161026,
+    -0.02758789,
+    0.014053345,
+    0.0030212402,
+    0.012756348,
+    0.03817749,
+    0.016464233,
+    -0.01399231,
+    0.032073975,
+    -0.0060424805,
+    -0.03488159,
+    0.004436493,
+    0.0077171326,
+    -0.01033783,
+    0.02458191,
+    -0.0074424744,
+    0.046905518,
+    0.021835327,
+    0.013801575,
+    -0.022369385,
+    0.03314209,
+    -0.02986145,
+    -0.030670166,
+    -0.041015625,
+    -0.006214142,
+    0.024932861,
+    -0.05987549,
+    0.03567505,
+    -0.023971558,
+    0.022720337,
+    -0.029129028,
+    0.011138916,
+    -0.0077819824,
+    0.048828125,
+    0.03955078,
+    0.025741577,
+    0.015403748,
+    0.030075073,
+    -0.05029297,
+    0.034332275,
+    -0.04208374,
+    0.0009217262,
+    -0.009315491,
+    0.033294678,
+    -0.007144928,
+    0.042175293,
+    -0.032043457,
+    -0.003829956,
+    -0.035186768,
+    -0.008895874,
+    -0.01512146,
+    -0.010971069,
+    -0.018432617,
+    -0.007511139,
+    -0.007221222,
+    0.014274597,
+    0.022628784,
+    0.007259369,
+    -0.01939392,
+    0.0038433075,
+    -0.032409668,
+    0.0006761551,
+    0.011581421,
+    0.0184021,
+    0.024169922,
+    0.025390625,
+    0.005405426,
+    -0.030410767,
+    -0.014640808,
+    0.011772156,
+    -0.06762695,
+    -0.0692749,
+    0.010871887,
+    -0.002248764,
+    -0.03012085,
+    0.00070142746,
+    0.052581787,
+    0.010818481,
+    0.0069999695,
+    0.041229248,
+    0.023361206,
+    -0.0069007874,
+    0.0015974045,
+    -0.035827637,
+    -0.001666069,
+    0.013580322,
+    0.01890564,
+    -0.07611084,
+    -0.07745361,
+    -0.022354126,
+    0.010017395,
+    0.012031555,
+    0.030334473,
+    0.029556274,
+    -0.010894775,
+    0.00022876263,
+    0.009216309,
+    -0.005744934,
+    0.0067443848,
+    0.06567383,
+    -0.04748535,
+    -0.013114929,
+    -0.008705139,
+    -0.004119873,
+    0.021209717,
+    0.012184143,
+    -0.029632568,
+    0.0234375,
+    -0.037506104,
+    -0.017852783,
+    -3.4689903e-05,
+    0.0035858154,
+    -0.010322571,
+    -0.027374268,
+    -0.0029125214,
+    0.019943237,
+    0.046875,
+    -0.0074882507,
+    0.019546509,
+    -0.02507019,
+    0.040252686,
+    -0.01576233,
+    0.017150879,
+    0.0021209717,
+    0.012779236,
+    -0.010856628,
+    0.023742676,
+    0.02709961,
+    -0.030715942,
+    0.016082764,
+    -0.0014038086,
+    -0.0017089844,
+    0.024673462,
+    0.010192871,
+    0.0023212433,
+    0.00088357925,
+    -0.03704834,
+    -0.023406982,
+    0.020507812,
+    0.041137695,
+    -0.010612488,
+    -0.03289795,
+    0.0028133392,
+    0.028518677,
+    0.017654419,
+    0.033111572,
+    -0.005455017,
+    -0.014724731,
+    -0.0135269165,
+    0.03277588,
+    -0.0015830994,
+    -0.03552246,
+    0.05819702,
+    0.0012950897,
+    0.0072288513,
+    -0.01586914,
+    0.014541626,
+    -0.028640747,
+    -0.030715942,
+    -0.044952393,
+    0.005710602,
+    -0.017822266,
+    0.005508423,
+    -0.038360596,
+    -0.028823853,
+    0.014694214,
+    0.0050582886,
+    -0.036895752,
+    0.011184692,
+    -0.05215454,
+    -0.04748535,
+    -0.042419434,
+    -0.00051116943,
+    0.011146545,
+    -0.045806885,
+    -0.056427002,
+    0.08270264,
+    -0.042236328,
+    -0.007835388,
+    0.05999756,
+    -0.012054443,
+    -0.11401367,
+    0.018585205,
+    0.028656006,
+    -0.07885742,
+    -0.03515625,
+    0.015472412,
+    -0.00022614002,
+    -0.020462036,
+    -0.059631348,
+    0.0063476562,
+    0.018356323,
+    -0.05529785,
+    0.019210815,
+    0.017486572,
+    0.011627197,
+    0.024261475,
+    0.010353088,
+    0.010856628,
+    -0.023452759,
+    -0.016860962,
+    -0.047668457,
+    0.025680542,
+    -0.009384155,
+    0.013420105,
+    0.027862549,
+    0.038085938,
+    0.00096845627,
+    0.0390625,
+    -0.01335907,
+    -0.019073486,
+    -0.00014233589,
+    -0.023529053,
+    0.018127441,
+    -0.00030326843,
+    0.023086548,
+    -0.00080251694,
+    0.014930725,
+    -0.006629944,
+    -0.017318726,
+    -0.020858765,
+    -0.005153656,
+    0.025558472,
+    0.00258255,
+    0.0012998581,
+    -0.0154953,
+    -0.076049805,
+    -0.0017662048,
+    0.003709793,
+    -0.03164673,
+    0.0087509155,
+    0.010101318,
+    -0.017532349,
+    -0.042022705,
+    0.024047852,
+    0.050994873,
+    0.018005371,
+    0.0023994446,
+    0.037353516,
+    0.004047394,
+    -0.0079193115,
+    0.01210022,
+    -0.09490967,
+    -0.020614624,
+    0.006790161,
+    0.07067871,
+    -0.008834839,
+    -0.004486084,
+    -0.054748535,
+    0.031921387,
+    0.006816864,
+    -0.0524292,
+    0.018112183,
+    -0.0058021545,
+    -0.015083313,
+    0.03149414,
+    -0.007701874,
+    -0.02067566,
+    -0.027801514,
+    -0.03475952,
+    -0.035125732,
+    -0.013923645,
+    0.009513855,
+    -0.014381409,
+    0.017929077,
+    -0.027359009,
+    -0.006401062,
+    0.0070877075,
+    0.03262329,
+    -0.0013885498,
+    -0.008926392,
+    -0.0063552856,
+    0.0113220215,
+    0.023910522,
+    -0.0019416809,
+    -0.025634766,
+    -0.0027446747,
+    -0.0052337646,
+    0.058929443,
+    0.032348633,
+    0.016830444,
+    0.10211182,
+    0.030929565,
+    0.03677368,
+    -0.009132385,
+    -0.028259277,
+    0.0008058548,
+    -0.021209717,
+    -0.04348755,
+    -0.008506775,
+    0.023773193,
+    -0.025405884,
+    0.015129089,
+    -0.019134521,
+    -0.011764526,
+    0.015640259,
+    -0.017349243,
+    -0.008399963,
+    0.0007801056,
+    -0.010177612,
+    0.000259161,
+    -0.018829346,
+    0.009140015,
+    -0.029876709,
+    0.050231934,
+    0.006668091,
+    -0.028060913,
+    0.015335083,
+    0.03756714,
+    0.017807007,
+    0.007789612,
+    0.03137207,
+    0.00060224533,
+    0.0149383545,
+    0.022445679,
+    -0.009941101,
+    0.03781128,
+    -0.03894043,
+    0.031280518,
+    0.0058135986,
+    -0.013435364,
+    -0.031921387,
+    0.0044441223,
+    -0.039245605,
+    0.008903503,
+    -0.0028533936,
+    -0.07977295,
+    0.020904541,
+    -0.014297485,
+    -0.032836914,
+    -0.007926941,
+    0.0021514893,
+    0.006942749,
+    0.028549194,
+    -0.003753662,
+    -0.0029029846,
+    0.016204834,
+    0.0043182373,
+    0.036315918,
+    0.036010742,
+    -0.040893555,
+    0.0040664673,
+    -0.027923584,
+    0.027008057,
+    -0.05947876,
+    0.007209778,
+    -0.024551392,
+    -0.041748047,
+    0.04168701,
+    0.028411865,
+    -0.026687622,
+    0.018127441,
+    0.009735107,
+    0.0289917,
+    -0.031677246,
+    -0.017471313,
+    -0.008621216,
+    0.02607727,
+    -0.0071640015,
+    -0.00687027,
+    0.028823853,
+    -0.024002075,
+    -0.032592773,
+    0.04260254,
+    0.014144897,
+    -0.039489746,
+    0.0029678345,
+    0.0059394836,
+    -0.011184692,
+    -0.026779175,
+    -0.007549286,
+    -0.03982544,
+    -0.047943115,
+    0.019546509,
+    -0.06652832,
+    0.02519226,
+    -0.011138916,
+    -0.021316528,
+    0.024887085,
+    -0.0574646,
+    -0.03439331,
+    0.0028190613,
+    0.042114258,
+    -0.023880005,
+    0.0018529892,
+    0.009803772,
+    -0.010627747,
+    0.009941101,
+    -0.013046265,
+    -0.0022792816,
+    0.011306763,
+    0.011459351,
+    0.027694702,
+    -0.00497818,
+    0.041107178,
+    -0.01083374,
+    -0.009033203,
+    -0.02079773,
+    0.050720215,
+    -0.019500732,
+    0.0057640076,
+    -0.04397583,
+    -0.005584717,
+    -0.010528564,
+    -0.0067596436,
+    0.0015583038,
+    -0.051757812,
+    0.062683105,
+    0.06286621,
+    0.030822754,
+    -0.06384277,
+    0.011169434,
+    0.06542969,
+    -0.016815186,
+    -0.0018291473,
+    0.0048446655,
+    0.050750732,
+    -0.014434814,
+    -0.009918213,
+    0.0028324127,
+    -0.023742676,
+    -0.011383057,
+    -0.023284912,
+    0.017929077,
+    0.07446289,
+    -0.01486969,
+    0.0048828125,
+    0.026016235,
+    0.011703491,
+    -0.004283905,
+    0.0039100647,
+    0.043518066,
+    0.041229248,
+    0.0093688965,
+    0.031402588,
+    0.015686035,
+    0.027511597,
+    0.02456665,
+    -0.034576416,
+    0.033416748,
+    -0.008491516,
+    -0.051879883,
+    -0.057647705,
+    0.022613525,
+    0.029785156,
+    0.0014629364,
+    0.029327393,
+    0.018875122,
+    0.03756714,
+    -0.0019893646,
+    0.049987793,
+    -0.01424408,
+    -0.04272461,
+    -0.01979065,
+    0.0057678223,
+    -0.017547607,
+    -0.033721924,
+    -0.027572632,
+    -0.03616333,
+    -0.019165039,
+    -0.04949951,
+    -0.023910522,
+    0.02947998,
+    -0.014465332,
+    0.01927185,
+    -0.040222168,
+    0.0017814636,
+    0.01423645,
+    0.014953613,
+    -0.007843018,
+    -0.020462036,
+    -0.023605347,
+    -0.016082764,
+    -0.008003235,
+    0.007873535,
+    0.028900146,
+    0.044921875,
+    0.017623901,
+    -0.01335907,
+    -0.013542175,
+    -0.02809143,
+    0.04373169,
+    0.02772522,
+    -0.03668213,
+    -0.016616821,
+    -0.08325195,
+    -0.07354736,
+    -0.0680542,
+    -0.04928589,
+    -0.03942871,
+    -0.07312012,
+    -0.0049705505,
+    0.028625488,
+    -0.024246216,
+    0.0016736984,
+    -0.06542969,
+    -0.028793335,
+    0.026855469,
+    0.03479004,
+    0.0055885315,
+    0.0031433105,
+    0.016067505,
+    -0.005760193,
+    0.0018262863,
+    0.0093688965,
+    0.0043678284,
+    -0.002418518,
+    -0.015777588,
+    -0.00093984604,
+    -0.015296936,
+    -0.0030498505,
+    0.03765869,
+    -0.0038547516,
+    0.004760742,
+    -0.025024414,
+    0.033325195,
+    -0.034606934,
+    -0.009407043,
+    -0.003145218,
+    -0.008613586,
+    -0.027359009,
+    -0.02229309,
+    -0.016983032,
+    -0.039154053,
+    0.006679535,
+    -0.017974854,
+    0.016220093,
+    -0.022338867,
+    0.008453369,
+    -0.038269043,
+    -0.010688782,
+    0.05810547,
+    0.07952881,
+    0.039794922,
+    -0.011520386,
+    -0.037597656,
+    0.035827637,
+    0.07373047,
+    -0.009147644,
+    -0.030548096,
+    0.022949219,
+    0.04876709,
+    0.109375,
+    0.041259766,
+    0.019760132,
+    -0.010093689,
+    -0.02229309,
+    0.032989502,
+    0.013923645,
+    -0.03894043,
+    0.015823364,
+    -0.007736206,
+    -0.047973633,
+    0.004070282,
+    -0.0262146,
+    -0.031036377,
+    0.015731812,
+    -0.031829834,
+    -0.0037460327,
+    -0.010276794,
+    -0.026641846,
+    -0.016052246,
+    0.02027893,
+    0.045715332,
+    0.025817871,
+    0.0066070557,
+    -0.04650879,
+    -0.009552002,
+    0.03842163,
+    -0.0234375,
+    -0.008514404,
+    -0.005996704,
+    0.019302368,
+    -0.1262207,
+    -0.022460938,
+    -0.0049743652,
+    0.024383545,
+    -0.05303955,
+    -0.0791626,
+    -0.035064697,
+    0.0039367676,
+    -0.01876831,
+    5.1379204e-05,
+    -0.025100708,
+    -0.09118652,
+    0.01979065,
+    -0.013435364,
+    -0.011451721,
+    0.0032367706,
+    0.03717041,
+    -0.03112793,
+    0.04260254,
+    0.024459839,
+    -0.007041931,
+    0.010635376,
+    -0.020477295,
+    -0.020507812,
+    -0.012207031,
+    0.016693115,
+    0.037353516,
+    0.060028076,
+    -0.046936035,
+    0.0127334595,
+    -0.02218628,
+    -0.0027866364,
+    -0.021850586,
+    0.0022716522,
+    -0.01789856,
+    0.02633667,
+    0.006504059,
+    -0.014053345,
+    0.038238525,
+    -0.017837524,
+    0.01739502,
+    0.0004954338,
+    0.0061073303,
+    -0.05279541,
+    0.020904541,
+    0.0064430237,
+    -0.018432617,
+    -0.009429932,
+    -0.007663727,
+    -0.02204895,
+    -0.007965088,
+    -0.018127441,
+    -0.026046753,
+    -0.058746338,
+    -0.014854431,
+    -0.012168884,
+    0.04260254,
+    0.011451721,
+    -0.013008118,
+    0.043640137,
+    0.002248764,
+    0.059173584,
+    -0.054992676,
+    0.022827148,
+    -0.016555786,
+    0.0037765503,
+    -0.044708252,
+    -0.023712158,
+    0.043823242,
+    -0.03604126,
+    -0.023651123,
+    0.021255493,
+    -0.015602112,
+    0.017364502,
+    0.04159546,
+    -0.010322571,
+    0.016998291,
+    -0.012863159,
+    0.0062065125,
+    -0.026733398,
+    -0.021713257,
+    0.0031528473,
+    -0.036224365,
+    0.0013990402,
+    -0.014335632,
+    0.0340271,
+    0.0039367676,
+    -0.00093221664,
+    0.038757324,
+    0.06713867,
+    -0.022567749,
+    -0.010887146,
+    0.050445557,
+    0.04031372,
+    -0.059631348,
+    0.06695557,
+    0.024230957,
+    -0.020492554,
+    0.013214111,
+    0.029144287,
+    -0.019378662,
+    0.04159546,
+    0.008987427,
+    0.042541504,
+    -0.010894775,
+    -0.011985779,
+    -0.008056641,
+    0.027267456,
+    -0.0015830994,
+    0.052490234,
+    0.003616333,
+    -0.03286743,
+    0.012062073,
+    0.00969696,
+    0.030654907,
+    0.0690918,
+    0.017868042,
+    -0.0075645447,
+    0.031341553,
+    -0.021850586,
+    0.009025574,
+    0.012039185,
+    -0.013137817,
+    -0.00038671494,
+    0.03955078,
+    -0.087646484,
+    -0.019119263,
+    0.005329132,
+    -0.06896973,
+    0.035736084,
+    0.015777588,
+    -0.008552551,
+    0.03970337,
+    -0.11279297,
+    -0.030761719,
+    -0.037109375,
+    -0.030792236,
+    0.015640259,
+    -0.040039062,
+    -0.021697998,
+    0.0158844,
+    0.02999878,
+    0.0209198,
+    -0.0058059692,
+    -0.02545166,
+    -0.012382507,
+    0.019348145,
+    0.021774292,
+    0.079956055,
+    -0.011871338,
+    -0.012481689,
+    -0.046173096,
+    0.034423828,
+    -0.04034424,
+    -0.035003662,
+    -0.0029315948,
+    -0.05834961,
+    0.03060913,
+    0.0070648193,
+    0.0021018982,
+    -0.07611084,
+    0.019332886,
+    0.0025749207,
+    -0.0037784576,
+    0.035095215,
+    -0.02571106,
+    -0.015823364,
+    0.027404785,
+    0.02293396,
+    -0.038757324,
+    -0.03616333,
+    0.004776001,
+    -0.045440674,
+    -0.031585693,
+    0.01399231,
+    -0.0027885437,
+    -0.0047950745,
+    0.05090332,
+    -0.0104522705,
+    0.097595215,
+    -0.030059814,
+    -0.026519775,
+    -0.016067505,
+    -0.022369385,
+    -0.012413025,
+    0.073913574,
+    -0.017654419,
+    0.053253174,
+    -0.004928589,
+    0.040039062,
+    -0.022613525,
+    -0.017471313,
+    0.002286911,
+    0.014404297,
+    -0.027893066,
+    -0.022842407,
+    -0.011268616,
+    0.009025574,
+    0.0031700134,
+    0.00831604,
+    -0.0011062622,
+    -0.0748291,
+    0.014137268,
+    0.0030403137,
+    0.005569458,
+    0.004501343,
+    -0.00699234,
+    0.01789856,
+    0.033416748,
+    -0.016296387,
+    -0.06524658,
+    0.0003798008,
+    -0.08392334,
+    -0.0015983582,
+    -0.018798828,
+    0.0045433044,
+    0.021774292,
+    0.052337646,
+    0.024993896,
+    0.007785797,
+    -0.059753418,
+    0.0044403076,
+    -0.009048462,
+    -0.011856079,
+    -0.012832642,
+    -0.0037631989,
+    -0.026657104,
+    0.009132385,
+    -0.019363403,
+    -0.00390625,
+    -0.040161133,
+    0.020843506,
+    -0.020263672,
+    0.0018386841,
+    0.02558899,
+    -0.011741638,
+    -0.00018286705,
+    0.032073975,
+    0.023254395,
+    -0.024963379,
+    0.0075149536,
+    0.008171082,
+    -0.01235199,
+    0.0058631897,
+    0.027740479,
+    -0.006336212,
+    0.017715454,
+    -0.011062622,
+    -0.0030288696,
+    0.03010559,
+    -0.00092315674,
+    0.016189575,
+    0.0060691833,
+    -0.026138306,
+    0.005874634,
+    0.047454834,
+    0.009460449,
+    0.011802673,
+    -0.08605957,
+    -0.015007019,
+    -0.022583008,
+    -0.0181427,
+    0.021743774,
+    -0.05206299,
+    0.06915283,
+    0.05404663,
+    -0.031402588,
+    0.061523438,
+    -0.006526947,
+    0.012023926,
+    0.01878357,
+    0.0022621155,
+    0.060272217,
+    -0.045898438,
+    0.0011968613,
+    -0.009048462,
+    -0.030914307
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+    "file_name": "90419.md",
+    "file_size": 25711,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+      "Embraer EMB-505 airplane with registration C-GJOL experienced an uncommanded severe yaw to the right immediately after takeoff.",
+      "The incident occurred on November 23, 2014, at approximately 1104 Pacific standard time.",
+      "The incident occurred at Palm Springs International Airport (PSP) in Palm Springs, California.",
+      "The aircraft was owned by a private individual.",
+      "The aircraft was operated by Hawkeye Aviation Holdings Ltd.",
+      "Hawkeye Aviation Holdings Ltd is based in Kelowna, British Columbia.",
+      "The flight was operated in accordance with 14 Code of Federal Regulations Part 91.",
+      "Visual meteorological conditions prevailed during the flight.",
+      "The flight was planned as a cross-country flight.",
+      "An instrument flight rules flight plan was in effect at the time of the incident.",
+      "The reported destination was Springbank, British Columbia.",
+      "The defining event of the incident was a system/component malfunction/failure (non-power).",
+      "The aircraft experienced a collision with terrain/object (non-CFIT) during landing-landing roll.",
+      "The aircraft's left wing received minor damage during the landing.",
+      "An airline transport pilot was operating the aircraft.",
+      "Four passengers were on board the aircraft.",
+      "Neither the pilot nor any of the passengers were injured.",
+      "The pilot reported that preflight preparations were normal.",
+      "The pilot reported removing the control lock pin during preflight preparations.",
+      "The pilot detected an abnormal \"feel\" to the rudders during initial taxi.",
+      "All turns to runway 13L were right turns.",
+      "The pilot described the right turns as \"easily executed.\"",
+      "The pilot reported that initial takeoff acceleration was normal.",
+      "The aircraft drifted slightly right of centerline during takeoff.",
+      "Upon rotation, the aircraft experienced a significant yaw tendency to the right.",
+      "The yaw tendency was accompanied by a significant roll to the right.",
+      "The pilot counteracted the yaw and roll tendencies by applying left aileron.",
+      "The pilot elected to climb to a safe altitude due to the surrounding terrain.",
+      "The airplane was uncoordinated during the climb.",
+      "The electronic slip indicator was displaced significantly to the left during the climb."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-505",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "C-GJOL",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Palm Springs International Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "PSP",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Palm Springs, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Hawkeye Aviation Holdings Ltd",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Kelowna, British Columbia",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Springbank, British Columbia",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airline transport pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Embraer EMB-505 airplane with registration C-GJOL experienced an uncommanded severe yaw to the right immediately after takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uncommanded severe yaw to the right",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "C-GJOL",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred on November 23, 2014, at approximately 1104 Pacific standard time.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport OCCURRED ON November 23, 2014",
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport OCCURRED AT approximately 1104 Pacific standard time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 23, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1104 Pacific standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred at Palm Springs International Airport (PSP) in Palm Springs, California.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport OCCURRED AT Palm Springs International Airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Springs International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Springs, California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Springs International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS CODE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PSP",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was owned by a private individual.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OWNED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "a private individual",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was operated by Hawkeye Aviation Holdings Ltd.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hawkeye Aviation Holdings Ltd",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Hawkeye Aviation Holdings Ltd is based in Kelowna, British Columbia.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hawkeye Aviation Holdings Ltd",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "BASED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kelowna, British Columbia",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was operated in accordance with 14 Code of Federal Regulations Part 91.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport OPERATED UNDER 14 Code of Federal Regulations Part 91"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed during the flight.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport WEATHER CONDITIONS Visual meteorological conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was planned as a cross-country flight.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport FLIGHT TYPE cross-country flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cross-country flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An instrument flight rules flight plan was in effect at the time of the incident.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport FLIGHT PLAN instrument flight rules"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instrument flight rules",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The reported destination was Springbank, British Columbia.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport DESTINATION Springbank, British Columbia"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Springbank, British Columbia",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the incident was a system/component malfunction/failure (non-power).",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport DEFINING EVENT system/component malfunction/failure (non-power)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "system/component malfunction/failure (non-power)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft experienced a collision with terrain/object (non-CFIT) during landing-landing roll.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision with terrain/object (non-CFIT)",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLISION DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing-landing roll",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's left wing received minor damage during the landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left wing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An airline transport pilot was operating the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Four passengers were on board the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "four",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Neither the pilot nor any of the passengers were injured.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported that preflight preparations were normal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preflight preparations were normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported removing the control lock pin during preflight preparations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removing the control lock pin during preflight preparations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot detected an abnormal \"feel\" to the rudders during initial taxi.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DETECTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "abnormal \"feel\" to the rudders during initial taxi",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All turns to runway 13L were right turns.",
+              "details": [
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport RUNWAY 13L",
+                "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport TURN DIRECTION right turns"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RUNWAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "13L",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505 Aircraft Incident at Palm Springs International Airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TURN DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right turns",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot described the right turns as \"easily executed.\"",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right turns as \"easily executed\"",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported that initial takeoff acceleration was normal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initial takeoff acceleration was normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft drifted slightly right of centerline during takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TAKEOFF BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drifted slightly right of centerline",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Upon rotation, the aircraft experienced a significant yaw tendency to the right.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ROTATION BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant yaw tendency to the right",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The yaw tendency was accompanied by a significant roll to the right.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "YAW ACCOMPANIED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant roll to the right",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot counteracted the yaw and roll tendencies by applying left aileron.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COUNTERACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yaw and roll tendencies by applying left aileron",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot elected to climb to a safe altitude due to the surrounding terrain.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ELECTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "to climb to a safe altitude due to the surrounding terrain",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was uncoordinated during the climb.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CLIMB BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uncoordinated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electronic slip indicator was displaced significantly to the left during the climb.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELECTRONIC SLIP INDICATOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "displaced significantly to the left during the climb",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::a663f122:e904",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "bfc6677b9ecbf9c8a8b56916090e9e00d927333974d70462562d251fb4439169",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::a663f122:e904:c2b639b5",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "a94d3ece5ac86567046bbd87f7ffbf6376db38a045ed3338c55c98a9aa83fa9c",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::a663f122:e904:ba88c05f",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "c4fe2a969c1af4fe46cee11ed59c05e52c2117291be6f5766c925cf252bbe83c",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| | |\n| --- | --- |\n| Initial climb | Sys/Comp malf/fail (non-power) (Defining event) |\n| Landing-landing roll | Collision with terr/obj (non-CFIT) |\n\nOn November 23, 2014, about 1104 Pacific standard time, an Embraer EMB-505 airplane, C-GJOL, experienced an uncommanded severe yaw to the right immediately after takeoff from the Palm Springs International Airport (PSP), Palm Springs, California. Neither the airline transport pilot or the 4 passengers on board were injured. The airplane, which was owned by a private individual, was operated by Hawkeye Aviation Holdings Ltd, Kelowna, British Columbia. Visual meteorological conditions prevailed for the planned cross-country flight, which was being operated in accordance with 14 Code of Federal Regulations Part 91. The left wing received minor damage during the landing. An instrument flight rules flight plan was in effect at the time of the event, with Springbank, British Columbia, the reported destination.\n\nIn a statement provided to the National Transportation Safety Board investigator-in-charge, the pilot reported that prior to takeoff the preflight preparations were normal, including the removal of the control lock pin. The pilot stated that the initial taxi out was normal, although he \"detected an abnormal 'feel' to the rudders.\" All turns to runway 13L were right turns, which the pilot described as \"easily executed.\" The pilot opined that the initial takeoff acceleration was normal, but at some point he drifted slightly right of centerline. Upon rotation the pilot noticed a significant yaw tendency to the right, accompanied by a significant roll to the right. The pilot stated that both tendencies were easily counteracted by application of left aileron, after which he flew the departure procedure to the best of his ability. The pilot reported that due to the surrounding terrain, he elected to climb to a safe altitude in order to deal with the problem. At this time the airplane was uncoordinated, with the electronic slip indicator displaced significantly to the left.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2096,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,8 @@
+Choosing instance types for Amazon Neptune
+
+Amazon Neptune is a service that offers a number of different instance sizes and families.
+Amazon Neptune instance sizes and families offer different capabilities suited to different graph workloads.
+The section about choosing instance types for Amazon Neptune is meant to help users choose the best instance type for their needs.
+Each instance-type in Amazon Neptune families has pricing information.
+The pricing information for Amazon Neptune instance-types is available on the Neptune pricing page.
+The Neptune pricing page is located at https://aws.amazon.com/neptune/pricing/.

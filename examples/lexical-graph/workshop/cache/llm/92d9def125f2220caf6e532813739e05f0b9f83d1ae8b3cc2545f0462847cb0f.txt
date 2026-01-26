@@ -1,0 +1,18 @@
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has VpcId 'vpc-0f81e2d959d7be034'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has SecurityGroupArn 'arn:aws:ec2:us-east-1:1234567890:security-group/sg-08526dcf557ad13aa'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has OwnerId '1234567890'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has GroupName 'NeptuneQuickStart-NeptuneStack-RJ9H6B5T5L0K-NeptuneSG-ldTVhxFS6f25'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has Description 'Allow Neptune DBPort Access'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissionsEgress with IpProtocol '-1'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissionsEgress with UserIdGroupPairs None
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissionsEgress with IpRanges with CidrIp '0.0.0.0/0'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissionsEgress with Ipv6Ranges None
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissionsEgress with PrefixListIds None
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with IpProtocol 'tcp'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with FromPort 8182
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with ToPort 8182
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with UserIdGroupPairs None
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with IpRanges with Description 'http access'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with IpRanges with CidrIp '0.0.0.0/0'
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with Ipv6Ranges None
+The SecurityGroup with GroupId 'sg-08526dcf557ad13aa' has IpPermissions with PrefixListIds None

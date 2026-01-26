@@ -1,0 +1,2755 @@
+{
+  "id_": "aws::3dd88aa8:3e5d:0c5ae4ad",
+  "embedding": [
+    0.02003479,
+    0.006652832,
+    -0.015098572,
+    -0.03640747,
+    -0.0035514832,
+    -0.02998352,
+    -0.023376465,
+    0.0087890625,
+    -0.017288208,
+    0.02458191,
+    -0.0390625,
+    -0.003490448,
+    0.011627197,
+    -0.01210022,
+    -0.0049858093,
+    -0.03704834,
+    0.020080566,
+    0.03387451,
+    0.03753662,
+    -0.007827759,
+    -0.0018825531,
+    0.00605011,
+    0.03265381,
+    0.013015747,
+    -0.00970459,
+    0.054901123,
+    -0.032287598,
+    0.023620605,
+    -0.049621582,
+    -0.020401001,
+    -0.0045700073,
+    0.032836914,
+    0.019882202,
+    0.06097412,
+    -0.036193848,
+    0.06817627,
+    -0.015556335,
+    0.035888672,
+    0.035858154,
+    0.001115799,
+    0.017807007,
+    -0.025161743,
+    0.08001709,
+    -0.0546875,
+    0.017608643,
+    0.025512695,
+    -0.00233078,
+    -0.043884277,
+    0.03567505,
+    0.10064697,
+    -0.0013599396,
+    0.0010232925,
+    -0.035369873,
+    0.045288086,
+    0.0052337646,
+    -0.023849487,
+    -0.010414124,
+    0.0017910004,
+    -0.00655365,
+    0.022628784,
+    0.0066719055,
+    0.056793213,
+    0.006801605,
+    -0.005092621,
+    -0.0340271,
+    0.016159058,
+    0.012809753,
+    -0.010169983,
+    0.09692383,
+    -0.005317688,
+    -0.06878662,
+    0.04156494,
+    -0.014976501,
+    0.0440979,
+    -0.0001411438,
+    -0.05731201,
+    0.0076828003,
+    -0.013877869,
+    0.008529663,
+    0.058929443,
+    0.04019165,
+    0.01751709,
+    0.05218506,
+    -0.0031356812,
+    0.0023078918,
+    0.007347107,
+    0.0021972656,
+    -0.029449463,
+    -0.011230469,
+    0.015335083,
+    -0.021453857,
+    0.018203735,
+    0.04837036,
+    -0.007972717,
+    -0.051208496,
+    0.02784729,
+    0.008430481,
+    -0.054260254,
+    0.023071289,
+    -0.03945923,
+    0.004508972,
+    -0.026046753,
+    -0.050079346,
+    0.033721924,
+    0.0019741058,
+    0.010925293,
+    -0.024673462,
+    -0.044647217,
+    0.023803711,
+    0.029724121,
+    -0.029251099,
+    0.0019607544,
+    -0.03189087,
+    -0.06451416,
+    -0.004486084,
+    0.099487305,
+    0.0026721954,
+    -0.011672974,
+    0.023864746,
+    0.023422241,
+    0.022705078,
+    0.020736694,
+    -0.05078125,
+    -0.0061454773,
+    0.01335144,
+    -0.03353882,
+    -0.046539307,
+    0.055511475,
+    0.047210693,
+    -0.014945984,
+    -0.03677368,
+    0.01637268,
+    0.020614624,
+    -0.0051879883,
+    0.014259338,
+    -0.0047302246,
+    -0.017745972,
+    0.012748718,
+    0.020935059,
+    -0.03314209,
+    0.012138367,
+    -0.009933472,
+    0.056488037,
+    0.019866943,
+    -0.029342651,
+    0.039886475,
+    0.03451538,
+    -0.008293152,
+    -0.031799316,
+    -0.055908203,
+    -0.002248764,
+    -0.010536194,
+    0.037506104,
+    -0.024490356,
+    -0.08874512,
+    -0.044677734,
+    -0.087646484,
+    -0.0119018555,
+    0.026153564,
+    -0.02331543,
+    -0.026565552,
+    -0.012268066,
+    -0.013069153,
+    -0.01852417,
+    -0.049865723,
+    0.011642456,
+    0.03515625,
+    0.009666443,
+    -0.0013885498,
+    0.0020751953,
+    0.026367188,
+    0.013710022,
+    -0.07800293,
+    -0.015220642,
+    0.011497498,
+    -0.016616821,
+    0.037109375,
+    0.0357666,
+    0.013076782,
+    0.0003848076,
+    0.00051259995,
+    -0.02998352,
+    0.051513672,
+    -0.022598267,
+    -0.014038086,
+    0.038757324,
+    -0.0060920715,
+    6.181002e-05,
+    0.007221222,
+    -0.020645142,
+    0.014122009,
+    0.04196167,
+    0.030654907,
+    -0.0011882782,
+    0.016067505,
+    -0.031921387,
+    -0.022994995,
+    0.003955841,
+    -0.010101318,
+    -0.022201538,
+    -0.01612854,
+    0.019607544,
+    -0.0024528503,
+    0.012878418,
+    -0.054534912,
+    0.0012388229,
+    -0.015853882,
+    0.040252686,
+    -0.030471802,
+    0.024993896,
+    0.04486084,
+    -0.0146484375,
+    -0.042938232,
+    0.023742676,
+    0.0071487427,
+    -0.0158844,
+    0.01260376,
+    0.024459839,
+    0.03616333,
+    0.033172607,
+    0.016296387,
+    0.040405273,
+    -0.00027823448,
+    -0.04019165,
+    -0.028656006,
+    -0.004333496,
+    -0.0096206665,
+    -0.0178833,
+    0.034820557,
+    -0.03036499,
+    0.13122559,
+    0.017852783,
+    0.020721436,
+    0.050445557,
+    -0.006454468,
+    0.0036087036,
+    0.036590576,
+    -0.010803223,
+    0.016784668,
+    0.01637268,
+    -0.0079422,
+    -0.055358887,
+    -0.031433105,
+    0.06085205,
+    -0.07611084,
+    -0.053466797,
+    -0.0031585693,
+    0.033081055,
+    0.016098022,
+    0.03918457,
+    0.029541016,
+    0.029067993,
+    -0.002002716,
+    0.048797607,
+    0.027755737,
+    0.0019187927,
+    -0.0053634644,
+    0.0042762756,
+    0.004558563,
+    -0.00390625,
+    0.01499939,
+    -0.011978149,
+    -0.034973145,
+    0.0044822693,
+    0.034423828,
+    0.0132751465,
+    0.060058594,
+    0.058288574,
+    -0.008468628,
+    -0.0024299622,
+    -0.021835327,
+    0.015388489,
+    0.019607544,
+    -0.03668213,
+    -0.12756348,
+    -0.02986145,
+    -0.009269714,
+    0.05029297,
+    0.039916992,
+    -0.06359863,
+    -0.0049743652,
+    0.020004272,
+    -0.017333984,
+    -0.018096924,
+    0.037628174,
+    -0.026168823,
+    -0.029571533,
+    -0.016357422,
+    0.03491211,
+    0.012451172,
+    0.062042236,
+    -0.053466797,
+    -0.03643799,
+    0.024978638,
+    0.030349731,
+    -0.06732178,
+    0.0690918,
+    0.008087158,
+    -0.0030345917,
+    0.030044556,
+    0.019119263,
+    0.04168701,
+    0.01737976,
+    -0.01209259,
+    0.012458801,
+    -0.045928955,
+    -0.0002861023,
+    0.015701294,
+    0.020233154,
+    -0.0034751892,
+    -0.019180298,
+    0.07720947,
+    0.025466919,
+    0.034576416,
+    -0.013320923,
+    -0.020492554,
+    -0.02658081,
+    0.027191162,
+    -0.0099105835,
+    -0.007896423,
+    -0.041290283,
+    -0.036254883,
+    -0.008758545,
+    0.011634827,
+    -0.02268982,
+    0.012214661,
+    0.017486572,
+    0.01071167,
+    -0.025787354,
+    -0.04321289,
+    -0.013175964,
+    -0.0692749,
+    -0.031021118,
+    0.034301758,
+    0.011253357,
+    0.0121536255,
+    -0.015144348,
+    0.066223145,
+    -0.02835083,
+    -0.030456543,
+    -0.06549072,
+    -0.04260254,
+    -0.0022697449,
+    -0.032714844,
+    -0.03829956,
+    -0.021438599,
+    -0.0007033348,
+    0.0066375732,
+    0.013679504,
+    -0.028900146,
+    0.051483154,
+    0.00069999695,
+    -0.026931763,
+    0.044433594,
+    -0.0019702911,
+    -0.08898926,
+    0.028060913,
+    0.047973633,
+    -0.05734253,
+    -0.020355225,
+    0.022827148,
+    -0.009429932,
+    -0.040374756,
+    -0.068481445,
+    0.030075073,
+    -0.0008416176,
+    -0.06097412,
+    -0.011634827,
+    -0.03086853,
+    0.023254395,
+    -0.062561035,
+    -0.008560181,
+    -0.003993988,
+    0.008888245,
+    -0.0069770813,
+    0.04586792,
+    0.04776001,
+    -0.02935791,
+    0.02468872,
+    0.03060913,
+    0.0077400208,
+    0.028366089,
+    -0.02532959,
+    -0.0040283203,
+    0.0368042,
+    0.015899658,
+    0.010025024,
+    0.010726929,
+    0.016799927,
+    0.0016222,
+    0.0015106201,
+    0.007949829,
+    0.01852417,
+    -0.023880005,
+    0.012084961,
+    0.0057868958,
+    -0.02255249,
+    0.0046081543,
+    -0.030975342,
+    -0.012954712,
+    -0.023025513,
+    -0.025344849,
+    -0.051330566,
+    0.022583008,
+    0.0022602081,
+    -0.05545044,
+    0.017044067,
+    -0.05331421,
+    0.029251099,
+    0.0027942657,
+    -0.038085938,
+    0.020767212,
+    -0.054229736,
+    0.0036735535,
+    -0.041259766,
+    0.0043258667,
+    -0.035095215,
+    -0.022964478,
+    0.013771057,
+    0.04324341,
+    0.027801514,
+    -0.04937744,
+    0.0030822754,
+    0.052947998,
+    0.01701355,
+    -0.0127334595,
+    0.014717102,
+    0.007637024,
+    -0.0070533752,
+    0.0072898865,
+    0.0029182434,
+    -0.03439331,
+    -0.027526855,
+    -0.05706787,
+    -0.015487671,
+    0.0069007874,
+    0.01033783,
+    0.019195557,
+    0.020614624,
+    0.0059814453,
+    -0.011306763,
+    0.01084137,
+    -0.0075187683,
+    -0.0034503937,
+    -0.019577026,
+    -0.007156372,
+    0.00072813034,
+    -0.005619049,
+    0.012420654,
+    -0.048309326,
+    -0.01953125,
+    -0.0003721714,
+    0.09033203,
+    0.029342651,
+    0.008285522,
+    0.03994751,
+    0.010650635,
+    0.04019165,
+    0.03353882,
+    -0.042114258,
+    -0.042266846,
+    -0.038116455,
+    0.015686035,
+    0.007080078,
+    -0.02798462,
+    -0.020706177,
+    0.028900146,
+    -0.0030727386,
+    -0.009017944,
+    -0.009674072,
+    -0.036956787,
+    0.07043457,
+    -0.011299133,
+    -0.017837524,
+    -0.0345459,
+    -0.008331299,
+    0.03643799,
+    -0.014427185,
+    0.059417725,
+    -0.0031528473,
+    -0.06323242,
+    0.014183044,
+    -0.015686035,
+    0.051361084,
+    0.03010559,
+    -0.00020158291,
+    0.0546875,
+    0.05734253,
+    -0.0065727234,
+    0.01651001,
+    -0.047058105,
+    0.038909912,
+    -0.019744873,
+    0.039367676,
+    -0.0031642914,
+    0.0077705383,
+    0.005126953,
+    0.00014448166,
+    -0.023406982,
+    -0.06939697,
+    -0.010368347,
+    -0.0007843971,
+    0.008354187,
+    0.032836914,
+    0.008926392,
+    0.0015239716,
+    -0.013145447,
+    0.044006348,
+    0.03527832,
+    0.015914917,
+    -0.010131836,
+    0.0032749176,
+    0.007713318,
+    0.022476196,
+    -0.024536133,
+    0.026947021,
+    0.019058228,
+    0.005821228,
+    0.011230469,
+    -0.009605408,
+    -0.04333496,
+    -0.009391785,
+    0.044830322,
+    0.036743164,
+    -0.03363037,
+    0.028457642,
+    -0.0028495789,
+    0.067871094,
+    -0.022476196,
+    -0.003276825,
+    0.020019531,
+    0.013435364,
+    0.018722534,
+    0.0018472672,
+    0.012481689,
+    0.014602661,
+    -0.007583618,
+    0.051879883,
+    0.013175964,
+    -0.04550171,
+    -0.027755737,
+    0.015609741,
+    0.042907715,
+    -0.03125,
+    0.0061035156,
+    -0.012863159,
+    -0.0027713776,
+    -0.008010864,
+    -0.042297363,
+    -0.048431396,
+    -0.0046691895,
+    0.028533936,
+    -0.023422241,
+    -0.02255249,
+    -0.028671265,
+    0.043182373,
+    0.0008788109,
+    -0.005935669,
+    -0.018478394,
+    -0.001083374,
+    -0.0053863525,
+    -0.015975952,
+    -0.023513794,
+    0.03479004,
+    0.017196655,
+    0.031707764,
+    -0.03793335,
+    -0.06573486,
+    0.0018444061,
+    0.00856781,
+    -0.04336548,
+    -0.03289795,
+    0.021255493,
+    -0.0028190613,
+    -0.04055786,
+    -0.01689148,
+    -0.0103302,
+    0.05645752,
+    -0.022064209,
+    0.00034999847,
+    0.012779236,
+    0.00289917,
+    -0.029846191,
+    0.07385254,
+    -0.024353027,
+    -0.030532837,
+    0.013725281,
+    -0.05105591,
+    -0.035736084,
+    -0.045776367,
+    0.055419922,
+    -0.0068473816,
+    0.011642456,
+    0.01676941,
+    -0.018203735,
+    -0.0154418945,
+    -0.0021591187,
+    -0.036193848,
+    0.028259277,
+    -0.010032654,
+    -0.0033874512,
+    0.010871887,
+    0.005657196,
+    -0.015457153,
+    -0.021987915,
+    0.057159424,
+    9.804964e-05,
+    0.023712158,
+    -0.0076293945,
+    -0.01737976,
+    0.023651123,
+    -0.0018081665,
+    -0.06652832,
+    0.030792236,
+    -0.047332764,
+    0.0014429092,
+    -0.03274536,
+    0.06945801,
+    0.06774902,
+    4.0888786e-05,
+    0.041534424,
+    0.034118652,
+    0.019943237,
+    -0.014289856,
+    -0.029571533,
+    -0.012229919,
+    -0.01473999,
+    -0.058380127,
+    -0.033447266,
+    0.05831909,
+    -0.018798828,
+    0.023101807,
+    -0.053863525,
+    0.007675171,
+    -0.008102417,
+    0.0012693405,
+    -0.02279663,
+    -0.008621216,
+    -0.0012407303,
+    -0.048950195,
+    -0.023513794,
+    0.025375366,
+    -0.021652222,
+    0.036712646,
+    0.021270752,
+    -0.008926392,
+    0.02217102,
+    -0.020629883,
+    -0.0066375732,
+    0.0025634766,
+    -0.005882263,
+    0.0037021637,
+    -0.052825928,
+    -0.020492554,
+    0.028640747,
+    -0.0051956177,
+    0.008102417,
+    -0.036132812,
+    0.0021324158,
+    -0.06750488,
+    -0.08850098,
+    -0.04751587,
+    -0.03540039,
+    -0.029144287,
+    -0.03729248,
+    -0.027404785,
+    0.0446167,
+    0.006587982,
+    -0.010353088,
+    -0.036834717,
+    -0.0021800995,
+    0.002111435,
+    -0.0024032593,
+    -0.011985779,
+    -0.0025978088,
+    0.057495117,
+    0.01612854,
+    0.011909485,
+    0.009468079,
+    -0.0020389557,
+    0.011978149,
+    -0.03552246,
+    -0.002696991,
+    -0.04147339,
+    0.00674057,
+    0.024810791,
+    -0.024353027,
+    0.017684937,
+    -0.022354126,
+    -0.0030345917,
+    -0.044158936,
+    0.011299133,
+    -0.023330688,
+    -0.014884949,
+    0.005077362,
+    -0.032562256,
+    -0.004322052,
+    0.041168213,
+    0.0060577393,
+    -0.0597229,
+    -0.022064209,
+    0.041381836,
+    0.0057754517,
+    0.023666382,
+    -0.02267456,
+    0.022018433,
+    0.024047852,
+    0.045654297,
+    -0.012367249,
+    -0.011169434,
+    0.02456665,
+    0.035247803,
+    0.030303955,
+    0.010467529,
+    0.029510498,
+    -0.0002374649,
+    -0.010887146,
+    -0.026229858,
+    -0.08807373,
+    0.012069702,
+    -0.010231018,
+    -0.025726318,
+    0.014091492,
+    -0.00068712234,
+    0.05239868,
+    -0.041046143,
+    -0.0060653687,
+    0.0043182373,
+    -0.02079773,
+    -0.02130127,
+    -0.024368286,
+    -0.025543213,
+    0.002521515,
+    -0.020828247,
+    -0.028121948,
+    -5.1915646e-05,
+    0.0017929077,
+    0.010559082,
+    -0.009941101,
+    -0.027450562,
+    -0.055541992,
+    -0.0016222,
+    0.01146698,
+    0.005584717,
+    -0.010108948,
+    -0.015602112,
+    -0.010848999,
+    0.0152282715,
+    -0.0054473877,
+    -0.0118637085,
+    0.020065308,
+    -0.010047913,
+    -0.08013916,
+    0.013473511,
+    0.041748047,
+    0.028869629,
+    -0.05758667,
+    -0.039245605,
+    -0.0758667,
+    0.04336548,
+    -0.0019130707,
+    0.018127441,
+    0.014266968,
+    0.026397705,
+    -0.0011901855,
+    0.06365967,
+    -0.014183044,
+    -0.016311646,
+    0.019424438,
+    -0.015335083,
+    -0.03640747,
+    0.0075149536,
+    -0.015113831,
+    -0.026031494,
+    0.057159424,
+    -0.011741638,
+    0.030563354,
+    -0.0039482117,
+    -0.013885498,
+    -0.06359863,
+    -0.047210693,
+    -0.008422852,
+    0.017501831,
+    0.044799805,
+    -0.074401855,
+    0.031951904,
+    -0.0055122375,
+    0.112976074,
+    -0.053588867,
+    0.024414062,
+    0.026290894,
+    0.056396484,
+    0.020812988,
+    -0.061035156,
+    0.017318726,
+    0.007347107,
+    -0.040252686,
+    -0.025390625,
+    -0.06088257,
+    -0.02180481,
+    -0.004886627,
+    -0.0008587837,
+    -0.031829834,
+    0.013687134,
+    -0.030212402,
+    -0.023376465,
+    -0.0077934265,
+    0.046417236,
+    0.025909424,
+    -0.042297363,
+    0.020263672,
+    -0.034301758,
+    0.04660034,
+    0.0070266724,
+    0.014198303,
+    0.025436401,
+    -0.01360321,
+    -0.045318604,
+    0.009529114,
+    0.056274414,
+    0.008102417,
+    0.022567749,
+    0.023391724,
+    0.013511658,
+    -0.022262573,
+    0.05810547,
+    -0.033691406,
+    -0.0357666,
+    0.019195557,
+    0.0056037903,
+    0.017745972,
+    0.043426514,
+    -0.019897461,
+    -0.0012283325,
+    -0.0033226013,
+    0.021636963,
+    0.016113281,
+    -0.011131287,
+    0.0115356445,
+    0.034118652,
+    0.005130768,
+    -0.017807007,
+    0.0032596588,
+    -0.009597778,
+    -0.01687622,
+    -0.000954628,
+    0.01713562,
+    0.0003774166,
+    0.048095703,
+    0.06384277,
+    0.009475708,
+    -0.0129852295,
+    0.01939392,
+    -0.028076172,
+    0.005016327,
+    0.009483337,
+    -0.011993408,
+    -0.03704834,
+    0.011657715,
+    0.015296936,
+    -0.018493652,
+    0.020187378,
+    -0.046142578,
+    -0.020248413,
+    0.013687134,
+    0.021408081,
+    0.0019950867,
+    0.015380859,
+    -0.004447937,
+    0.0317688,
+    0.033447266,
+    -0.01802063,
+    -0.07550049,
+    -0.02645874,
+    -0.017333984,
+    -0.012504578,
+    -0.0066452026,
+    0.057861328,
+    -0.01751709,
+    -0.0017690659,
+    -0.0256958,
+    -0.01259613,
+    0.029815674,
+    0.019561768,
+    0.0048217773,
+    -0.03427124,
+    -0.012687683,
+    0.016647339,
+    0.027648926,
+    0.014877319,
+    -0.0070610046,
+    -0.035736084,
+    -0.018676758,
+    0.0044937134,
+    -0.009605408,
+    0.056884766,
+    0.040283203,
+    -0.001584053,
+    -0.03189087,
+    0.001326561,
+    0.007335663,
+    -0.06329346,
+    0.024276733,
+    -0.035308838,
+    0.020523071,
+    -0.017166138,
+    -0.025482178,
+    -0.037261963,
+    -0.029907227,
+    -0.035461426,
+    0.053222656,
+    -0.0039024353,
+    -0.019180298,
+    0.009422302,
+    0.022232056,
+    -0.02355957,
+    -0.05029297,
+    -0.02394104,
+    0.009346008,
+    -0.06085205,
+    -0.038909912,
+    -0.02458191,
+    0.0048561096,
+    0.024795532,
+    0.046661377,
+    0.009338379,
+    0.03338623,
+    -0.04763794,
+    0.02822876,
+    -0.03466797,
+    -0.024749756,
+    -0.009353638,
+    0.046051025,
+    0.04437256,
+    0.04067993,
+    0.0017309189,
+    0.0063171387,
+    0.0019931793,
+    -0.025939941,
+    0.023788452,
+    0.024169922,
+    -0.032287598,
+    -0.006210327,
+    -0.005138397,
+    0.011291504,
+    -0.03540039,
+    0.05230713,
+    -0.026763916,
+    -0.06506348,
+    -0.0027160645,
+    -0.010620117,
+    -0.009643555,
+    0.0017471313,
+    -0.016815186,
+    0.006877899,
+    0.0012302399,
+    -0.051574707,
+    -0.018875122,
+    -0.011657715,
+    0.030654907,
+    -0.012168884,
+    -0.0112838745,
+    0.023406982,
+    0.009765625,
+    -0.015563965,
+    0.019073486,
+    -0.012031555,
+    -0.027114868,
+    -0.010925293,
+    -0.011894226,
+    0.037902832,
+    0.008842468,
+    -0.0309906,
+    0.013137817,
+    0.009475708,
+    -0.03366089,
+    0.009300232,
+    -0.007827759,
+    -0.010803223,
+    -0.003376007,
+    -0.021514893,
+    -0.03744507,
+    -0.021606445,
+    -0.0025024414,
+    -0.00056552887,
+    -0.054504395,
+    0.013893127,
+    -0.015289307,
+    -0.023239136,
+    0.015914917,
+    -0.0715332,
+    0.029083252,
+    -0.05871582,
+    -0.02468872,
+    0.020996094,
+    0.019439697,
+    -0.016067505,
+    0.0019817352,
+    0.02357483,
+    0.01927185,
+    0.0072402954,
+    0.02520752,
+    0.013427734,
+    0.03439331,
+    -0.016601562,
+    0.018371582,
+    0.008575439,
+    -0.032714844,
+    -0.049468994,
+    -0.045135498,
+    -0.057617188,
+    0.026321411,
+    0.006668091,
+    0.0053901672,
+    0.06512451,
+    -0.01625061,
+    0.016815186,
+    0.02268982,
+    0.034210205,
+    0.031951904,
+    -0.0027389526,
+    -0.012504578,
+    -0.0014982224,
+    -0.008811951
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+    "file_name": "89181.md",
+    "file_size": 28636,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Engine Information and Fuel Management in Aircraft Accident",
+      "FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information\" states fuel injection disadvantages include difficulty in starting a hot engine.",
+      "FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information\" states fuel injection disadvantages include problems associated with restarting an engine that quits because of fuel starvation.",
+      "The airplane was equipped with two Grand Rapids Technologies brand Model 4000 EIS devices.",
+      "Grand Rapids Technologies brand Model 4000 EIS stands for Engine Information System.",
+      "The airplane had one Grand Rapids Technologies brand Model 4000 EIS device per cockpit.",
+      "Grand Rapids Technologies brand Model 4000 EIS devices display multiple engine parameters.",
+      "Grand Rapids Technologies brand Model 4000 EIS devices display fuel flow.",
+      "Grand Rapids Technologies brand Model 4000 EIS devices display fuel remaining.",
+      "Fuel remaining is a derived parameter calculated by the Grand Rapids Technologies brand Model 4000 EIS device.",
+      "The Grand Rapids Technologies brand Model 4000 EIS device calculates fuel remaining by integrating fuel flow over time.",
+      "The Grand Rapids Technologies brand Model 4000 EIS device subtracts integrated fuel flow from a pilot-entered initial fuel quantity.",
+      "The pilot referred to the Grand Rapids Technologies brand Model 4000 EIS device as a \"totalizer.\"",
+      "The Grand Rapids Technologies brand Model 4000 EIS devices are display only.",
+      "The Grand Rapids Technologies brand Model 4000 EIS devices do not retain historical flight information.",
+      "The Grand Rapids Technologies brand Model 4000 EIS devices do not retain historical operational information.",
+      "The pilot reported using the Grand Rapids Technologies brand Model 4000 EIS device's displayed information to monitor fuel flow during the accident leg.",
+      "The pilot reported using the Grand Rapids Technologies brand Model 4000 EIS device's displayed information to monitor fuel quantity remaining during the accident leg.",
+      "The pilot entered a fuel quantity of 53 gallons into the Grand Rapids Technologies brand Model 4000 EIS device prior to departure from DLS.",
+      "The investigation did not obtain information regarding the calibration of the fuel flow information provided to the Grand Rapids Technologies brand Model 4000 EIS.",
+      "The investigation did not obtain information regarding the accuracy of the fuel flow information provided to the Grand Rapids Technologies brand Model 4000 EIS.",
+      "Inaccuracies in Grand Rapids Technologies brand Model 4000 EIS fuel flow values would affect fuel remaining calculations.",
+      "The pilot departed DLS on the main tank.",
+      "The pilot remained on the main tank for the climbout.",
+      "The pilot remained on the main tank for the initial portion of the cruise segment.",
+      "The pilot switched to the aux tank at some point during the flight.",
+      "The pilot remained on the aux tank for 1 hour and 20 minutes.",
+      "The pilot used the Grand Rapids Technologies brand Model 4000 EIS to determine when there were about 2 to 3 gallons remaining in the aux tank.",
+      "The pilot switched back to the main tank when the aux tank had about 2 to 3 gallons remaining.",
+      "The aircraft experienced a power loss during the flight.",
+      "After the power loss, the pilot switched to the aux tank.",
+      "The pilot did not recall whether he subsequently re-positioned the selector valve again after switching to the aux tank following the power loss.",
+      "The pilot did not recall whether he re-positioned the selector valve to the main tank after the power loss.",
+      "The pilot did not recall whether he re-positioned the selector valve to the OFF position after the power loss.",
+      "The pilot reported that during the flight, \"the totalizer and the main gauge appeared to agree.\"",
+      "The pilot estimated that at the time of the power loss, there was about 9 gallons remaining in the main tank.",
+      "The pilot estimated that at the time of the power loss, there was a total of about 11 gallons of fuel remaining in the aircraft."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Engine Information and Fuel Management in Aircraft Accident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information\"",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Grand Rapids Technologies brand Model 4000 EIS",
+              "classification": "Equipment"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "DLS",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main tank",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "aux tank",
+              "classification": "Aircraftcomponent"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information\" states fuel injection disadvantages include difficulty in starting a hot engine.",
+              "details": [
+                "fuel injection HAS DISADVANTAGE difficulty in starting a hot engine"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information\"",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel injection",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel injection",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS DISADVANTAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "difficulty in starting a hot engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information\" states fuel injection disadvantages include problems associated with restarting an engine that quits because of fuel starvation.",
+              "details": [
+                "fuel injection HAS DISADVANTAGE problems associated with restarting an engine that quits because of fuel starvation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information\"",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel injection",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel injection",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS DISADVANTAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "problems associated with restarting an engine that quits because of fuel starvation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was equipped with two Grand Rapids Technologies brand Model 4000 EIS devices.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "HAS QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Grand Rapids Technologies brand Model 4000 EIS stands for Engine Information System.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "STANDS FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Engine Information System",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane had one Grand Rapids Technologies brand Model 4000 EIS device per cockpit.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "HAS QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "one per cockpit",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Grand Rapids Technologies brand Model 4000 EIS devices display multiple engine parameters.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple engine parameters",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Grand Rapids Technologies brand Model 4000 EIS devices display fuel flow.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel flow",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Grand Rapids Technologies brand Model 4000 EIS devices display fuel remaining.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel remaining",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Fuel remaining is a derived parameter calculated by the Grand Rapids Technologies brand Model 4000 EIS device.",
+              "details": [
+                "fuel remaining IS TYPE derived parameter"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "CALCULATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel remaining",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel remaining",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IS TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "derived parameter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Grand Rapids Technologies brand Model 4000 EIS device calculates fuel remaining by integrating fuel flow over time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "CALCULATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel remaining by integrating fuel flow over time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Grand Rapids Technologies brand Model 4000 EIS device subtracts integrated fuel flow from a pilot-entered initial fuel quantity.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "USES INPUT FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "CALCULATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "subtracts integrated fuel flow from a pilot-entered initial fuel quantity",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot referred to the Grand Rapids Technologies brand Model 4000 EIS device as a \"totalizer.\"",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REFERS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "ALSO KNOWN AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "totalizer",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Grand Rapids Technologies brand Model 4000 EIS devices are display only.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "FUNCTIONALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "display only",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Grand Rapids Technologies brand Model 4000 EIS devices do not retain historical flight information.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "do not retain historical flight information",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Grand Rapids Technologies brand Model 4000 EIS devices do not retain historical operational information.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "do not retain historical operational information",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported using the Grand Rapids Technologies brand Model 4000 EIS device's displayed information to monitor fuel flow during the accident leg.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MONITORING ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "monitor fuel flow during the accident leg",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported using the Grand Rapids Technologies brand Model 4000 EIS device's displayed information to monitor fuel quantity remaining during the accident leg.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MONITORING ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "monitor fuel quantity remaining during the accident leg",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot entered a fuel quantity of 53 gallons into the Grand Rapids Technologies brand Model 4000 EIS device prior to departure from DLS.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "DLS",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INPUT ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "entered a fuel quantity of 53 gallons into the Grand Rapids Technologies brand Model 4000 EIS device",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The investigation did not obtain information regarding the calibration of the fuel flow information provided to the Grand Rapids Technologies brand Model 4000 EIS.",
+              "details": [
+                "investigation LACKS INFORMATION ABOUT Grand Rapids Technologies brand Model 4000 EIS",
+                "investigation INFORMATION GAP calibration of the fuel flow information"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKS INFORMATION ABOUT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INFORMATION GAP"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "calibration of the fuel flow information",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The investigation did not obtain information regarding the accuracy of the fuel flow information provided to the Grand Rapids Technologies brand Model 4000 EIS.",
+              "details": [
+                "investigation LACKS INFORMATION ABOUT Grand Rapids Technologies brand Model 4000 EIS",
+                "investigation INFORMATION GAP accuracy of the fuel flow information"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKS INFORMATION ABOUT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INFORMATION GAP"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accuracy of the fuel flow information",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Inaccuracies in Grand Rapids Technologies brand Model 4000 EIS fuel flow values would affect fuel remaining calculations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "POTENTIAL ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inaccuracies in fuel flow values would affect fuel remaining calculations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot departed DLS on the main tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "DLS",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "USAGE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during departure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot remained on the main tank for the climbout.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "USAGE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during climbout",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot remained on the main tank for the initial portion of the cruise segment.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "USAGE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during initial portion of the cruise segment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot switched to the aux tank at some point during the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "USAGE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "at some point during the flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot remained on the aux tank for 1 hour and 20 minutes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "USAGE DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1 hour and 20 minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot used the Grand Rapids Technologies brand Model 4000 EIS to determine when there were about 2 to 3 gallons remaining in the aux tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "MONITORS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUEL REMAINING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 2 to 3 gallons when pilot switched tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot switched back to the main tank when the aux tank had about 2 to 3 gallons remaining.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUEL REMAINING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 2 to 3 gallons when pilot switched tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft experienced a power loss during the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power loss during the flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After the power loss, the pilot switched to the aux tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aux tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "USAGE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after the power loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not recall whether he subsequently re-positioned the selector valve again after switching to the aux tank following the power loss.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MEMORY GAP"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not recall whether he subsequently re-positioned the selector valve again",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not recall whether he re-positioned the selector valve to the main tank after the power loss.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MEMORY GAP"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not recall whether he re-positioned the selector valve to the main tank",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not recall whether he re-positioned the selector valve to the OFF position after the power loss.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MEMORY GAP"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not recall whether he re-positioned the selector valve to the OFF position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported that during the flight, \"the totalizer and the main gauge appeared to agree.\"",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTS ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Rapids Technologies brand Model 4000 EIS",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "AGREEMENT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "appeared to agree with main gauge",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot estimated that at the time of the power loss, there was about 9 gallons remaining in the main tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUEL REMAINING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 9 gallons at time of power loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot estimated that at the time of the power loss, there was a total of about 11 gallons of fuel remaining in the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FUEL REMAINING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 11 gallons at time of power loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::3dd88aa8:3e5d",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "69e01b7394bfac113f1d42ab0377efa9a281b97dbf3f13460a18ffd81fbc4ae1",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::3dd88aa8:3e5d:4023c088",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "989e94d6488b773110172451984fe477c40ab1526a46b6e2a3f29f2796a6170d",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::3dd88aa8:3e5d:d122a40f",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0b98c7d946ccbf5b8b6f7e680f066e6143600a97612e6c66971e8883f6041660",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Annual Report\n\n## Re-Starting Fuel Injected Engines\n\nAccording to FAA publication H-8083-25 \"Pilot's Handbook of Aeronautical Information,\" disadvantages of fuel injection include \"difficulty in starting a hot engine\" and \"problems associated with restarting an engine that quits because of fuel starvation.\"\n\n## Engine Information System\n\nThe airplane was equipped with two (one per cockpit) Grand Rapids Technologies brand Model 4000 EIS (Engine Information System) devices, which display a number of engine parameters, including fuel flow and fuel remaining. Fuel remaining is a derived parameter, calculated by the device by integrating fuel flow over time, and subtracting that from a pilot-entered initial fuel quantity.\n\nThe pilot referred to the device as a \"totalizer.\" The devices are display only; they do not retain historical flight or operational information. The pilot reported that on the accident leg, he used the device's displayed information to monitor fuel flow and fuel quantity remaining. Integral to the fuel remaining calculation process, after the fuel upload at DLS, the pilot entered a fuel quantity of 53 gallons into the device prior to departure.\n\nThe investigation did not obtain any information regarding the calibration or accuracy of the fuel flow information provided to the EIS. Inaccuracies in EIS fuel flow values would affect EIS fuel remaining calculations.\n\n## Additional Pilot-Provided Information\n\nBased on the pilot's statements, he departed DLS on the main tank, and remained on that tank for the climbout and the initial portion of the cruise segment. At some point he switched to the aux tank, and remained on that for 1 hour and 20 minutes. The pilot used the EIS to determine when there were about 2 to 3 gallons remaining in the aux tank, and then switched back to the main tank. After the power loss, the pilot switched to the aux tank. However, he did not recall whether he subsequently re-positioned the selector valve again, either to the main tank, or to the OFF position.\n\nThe pilot reported that during the flight, \"the totalizer and the main gauge appeared to agree.\" He also estimated that at the time of the power loss, there was about 9 gallons remaining in the main tank, for a total estimated remaining quantity of about 11 gallons.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2298,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

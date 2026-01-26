@@ -1,9 +1,8 @@
 from abc import ABC
-import os
-import sys
-parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(parent_dir)
-from utils import load_yaml, parse_response
+import re
+import logging
+
+from ..utils import load_yaml, parse_response
 
 
 class GRetriever(ABC):
@@ -349,18 +348,55 @@ class GraphQueryRetriever(GRetriever):
     and provides options for returning both results and answers.
     """
 
-    def __init__(self, graph_store):
+    def __init__(self, graph_store, block_graph_modification=True):
         """
         Initialize the GraphQueryRetriever.
 
         Args:
             graph_store: Component that implements graph query execution
+            block_graph_modification (bool): Whether to block modification queries.
+                Defaults to True for security.
+            
         Raises:
             AttributeError: If graph_store doesn't implement required methods
         """
         if not hasattr(graph_store, 'execute_query'):
             raise AttributeError("graph_store must implement 'execute_query' method")
+        
         self.graph_store = graph_store
+        self.block_graph_modification = block_graph_modification
+
+    def is_query_safe(self, graph_query: str) -> bool:
+        """
+        Check if a query is safe to execute without actually executing it.
+        
+        Args:
+            graph_query (str): The graph query to check
+            
+        Returns:
+            bool: True if query is safe, False if it contains blocked keywords
+        """
+        # if not self.block_graph_modification:
+        #     return True
+        
+        # Keywords that indicate graph modification operations
+        modification_keywords = [
+            'CREATE', 'MERGE', 'SET', 'REMOVE', 'DELETE', 'DETACH DELETE',
+            'DROP', 'DETACH'
+        ]
+        
+        # Normalize query for case-insensitive matching, preserve newlines
+        query_upper = graph_query.upper()
+        
+        # Check for each blocked keyword
+        for keyword in modification_keywords:
+            # Use word boundaries to avoid matching keywords within other words
+            # re.MULTILINE flag ensures proper handling of multi-line queries with \n
+            pattern = r'\b' + re.escape(keyword) + r'\b'
+            if re.search(pattern, query_upper, re.MULTILINE):
+                return False
+        
+        return True
 
     def retrieve(self, graph_query: str, return_answers=False, **kwargs):
         """
@@ -382,6 +418,14 @@ class GraphQueryRetriever(GRetriever):
             Exception: If query execution or verbalization fails
         """
         try:
+            # Security validation
+            if not self.is_query_safe(graph_query):
+                error_msg = "Cannot execute query that modifies the graph"
+                if return_answers:
+                    return [error_msg], []
+                else:
+                    return [error_msg]
+            
             # Execute the query
             results = self.graph_store.execute_query(graph_query)
             
@@ -397,9 +441,9 @@ class GraphQueryRetriever(GRetriever):
                 return [context]
                 
         except Exception as e:
-            # Log the error and re-raise
+            # Return error context based on return_answers flag
+            error_context = f"Error executing query: {graph_query}\nError: {str(e)}"
             if return_answers:
-                return [f"Error executing query: {graph_query}"], []
+                return [error_context], []
             else:
-                return [f"Error executing query: {graph_query}"]
-
+                return [error_context]

@@ -1,0 +1,28 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Let me search for more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210 accidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to get a broader"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " view of the patterns"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_7b9QTcCwQQizUc1A1Sp0jw", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ": \"Ce"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ssna 210"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " ac"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "cid"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ents"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " fuel syste"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "m pr"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "oblems ca"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uretor eng"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ine"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " power loss"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " forced"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " landing g"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ear up\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 11759, "outputTokens": 94, "totalTokens": 11853}, "metrics": {"latencyMs": 3971}}}

@@ -1,10 +1,6 @@
 from typing import List, Tuple, Optional, Set
-import os
-import sys
-# Add the parent directory to the Python path
-parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(parent_dir)
-from utils import load_yaml, parse_response
+
+from .utils import load_yaml, parse_response
 
 
 class ByoKGQueryEngine:
@@ -40,15 +36,15 @@ class ByoKGQueryEngine:
         self.schema = graph_store.get_schema()
 
         if llm_generator is None:
-            from llm import BedrockGenerator
+            from .llm.bedrock_llms import BedrockGenerator
             llm_generator= BedrockGenerator(
                 model_name='us.anthropic.claude-3-5-sonnet-20240620-v1:0',
                 region_name='us-west-2')
         self.llm_generator = llm_generator
             
         if entity_linker is None:
-            from indexing import FuzzyStringIndex
-            from graph_retrievers import EntityLinker
+            from .indexing import FuzzyStringIndex
+            from .graph_retrievers import EntityLinker
             string_index = FuzzyStringIndex()
             string_index.add(self.graph_store.nodes())
             entity_retriever = string_index.as_entity_matcher()
@@ -57,8 +53,8 @@ class ByoKGQueryEngine:
         self.direct_query_linking = direct_query_linking
         
         if triplet_retriever is None:
-            from graph_retrievers import AgenticRetriever
-            from graph_retrievers import GTraversal, TripletGVerbalizer
+            from .graph_retrievers import AgenticRetriever
+            from .graph_retrievers import GTraversal, TripletGVerbalizer
             graph_traversal = GTraversal(self.graph_store)
             graph_verbalizer = TripletGVerbalizer()
             triplet_retriever = AgenticRetriever(
@@ -68,8 +64,8 @@ class ByoKGQueryEngine:
         self.triplet_retriever = triplet_retriever
         
         if path_retriever is None:
-            from graph_retrievers import PathRetriever
-            from graph_retrievers import GTraversal, PathVerbalizer
+            from .graph_retrievers import PathRetriever
+            from .graph_retrievers import GTraversal, PathVerbalizer
             graph_traversal = GTraversal(self.graph_store)
             path_verbalizer = PathVerbalizer()
             path_retriever = PathRetriever(
@@ -78,12 +74,12 @@ class ByoKGQueryEngine:
         self.path_retriever = path_retriever
 
         if graph_query_executor is None and hasattr(graph_store, 'execute_query'):
-            from graph_retrievers import GraphQueryRetriever
+            from .graph_retrievers import GraphQueryRetriever
             graph_query_executor = GraphQueryRetriever(self.graph_store)
         self.graph_query_executor = graph_query_executor
 
         if kg_linker is None and cypher_kg_linker is None: #initialize KGLinker as default
-            from graph_connectors import KGLinker
+            from .graph_connectors import KGLinker
             kg_linker = KGLinker(
                 llm_generator=self.llm_generator,
                 graph_store=self.graph_store
@@ -97,6 +93,10 @@ class ByoKGQueryEngine:
         if cypher_kg_linker is not None:
             assert hasattr(cypher_kg_linker, "is_cypher_linker"), "cypher_kg_linker must be an instance of CypherKGLinker"
         self.cypher_kg_linker = cypher_kg_linker
+        
+        if self.cypher_kg_linker is not None:
+            self.cypher_kg_linker_prompts = self.cypher_kg_linker.task_prompts
+            self.cypher_kg_linker_prompts_iterative = self.cypher_kg_linker.task_prompts_iterative
 
     def _add_to_context(self, context_list: List[str], new_items: List[str]) -> None:
         """
@@ -113,7 +113,7 @@ class ByoKGQueryEngine:
                 seen.add(item)
 
     
-    def query(self, query: str, iterations: int = 2, cypher_iterations: int = 2) -> Tuple[List[str], List[str]]:
+    def query(self, query: str, iterations: int = 2, cypher_iterations: int = 2, user_input: str = "") -> Tuple[List[str], List[str]]:
         """
         Process a query through the retrieval and generation pipeline.
 
@@ -121,6 +121,7 @@ class ByoKGQueryEngine:
             query: The search query
             iterations: Number of retrieval iterations to perform
             cypher_iterations: Number of cypher generation retries
+            user_input: Optional user input for additional instructions or context
 
         Returns:
             Tuple of (retrieved context, final answers)
@@ -142,21 +143,30 @@ class ByoKGQueryEngine:
             assert self.graph_query_executor is not None, "graph_query_executor must be initialized"
             
             for iteration in range(cypher_iterations):
-                # Generate response for current iteration
+                # Generate response for current iteration using iterative prompts after first iteration
+                if iteration == 0:
+                    task_prompts = self.cypher_kg_linker.task_prompts
+                else:
+                    task_prompts = self.cypher_kg_linker.task_prompts_iterative
 
                 response = self.cypher_kg_linker.generate_response(
                     question=query,
                     schema=self.schema,
                     graph_context="\n".join(cypher_context_with_feedback) if cypher_context_with_feedback else "",
-                    task_prompts = self.cypher_kg_linker.task_prompts
+                    task_prompts = task_prompts,
+                    user_input=user_input
                 )
                 artifacts = self.cypher_kg_linker.parse_response(response)
+
+                # Check for task completion when using iterative prompts - do this early to avoid unnecessary query execution
+                task_completion = parse_response(response, r"<task-completion>(.*?)</task-completion>")
+                if "FINISH" in " ".join(task_completion):
+                    break
 
                 if "opencypher-linking" in artifacts:
                     linking_query = " ".join(artifacts["opencypher-linking"])
                     context, linked_entities_cypher = self.graph_query_executor.retrieve(linking_query, return_answers=True)
                     cypher_context_with_feedback += context
-                    context, linked_entities_cypher = self.graph_query_executor.retrieve(linking_query, return_answers=True)
                     if len(linked_entities_cypher) == 0:
                         cypher_context_with_feedback.append("No executable results for the above cypher query for entity linking. Please improve cypher generation in the future for linking.")
                     
@@ -166,7 +176,7 @@ class ByoKGQueryEngine:
                     context, answers = self.graph_query_executor.retrieve(graph_query, return_answers=True)
                     cypher_context_with_feedback += context
                     if len(answers) == 0:
-                        cypher_context_with_feedback.append("No executable resuls for the above. Please improve cypher generation in the future by focusing more on the given schema and the relations between node types.")
+                        cypher_context_with_feedback.append("No executable results for the above. Please improve cypher generation in the future by focusing more on the given schema and the relations between node types.")
             
             if self.kg_linker is None:
                 return cypher_context_with_feedback
@@ -185,7 +195,8 @@ class ByoKGQueryEngine:
                 question=query,
                 schema=self.schema,
                 graph_context="\n".join(retrieved_context) if retrieved_context else "",
-                task_prompts = task_prompts
+                task_prompts = task_prompts,
+                user_input=user_input
             )
             artifacts = self.kg_linker.parse_response(response)
 
@@ -225,13 +236,14 @@ class ByoKGQueryEngine:
                 break
         return cypher_context_with_feedback + retrieved_context
 
-    def generate_response(self, query: str, graph_context: str = "", task_prompt = None) -> Tuple[List[str], str]:
+    def generate_response(self, query: str, graph_context: str = "", task_prompt = None, user_input: str = "") -> Tuple[List[str], str]:
         
         if task_prompt is None:
             task_prompt = load_yaml("prompts/generation_prompts.yaml")["generate-response-qa"]
             user_prompt_formatted = task_prompt.format(
                 question=query, 
-                graph_context=graph_context
+                graph_context=graph_context,
+                user_input=user_input
             )
             response =  self.llm_generator.generate(
                 prompt=user_prompt_formatted, 

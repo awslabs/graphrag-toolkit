@@ -1,0 +1,2178 @@
+{
+  "id_": "aws::59e05964:fda5:9393fdc7",
+  "embedding": [
+    -0.024139404,
+    -0.008964539,
+    0.021392822,
+    -0.005607605,
+    -0.030471802,
+    0.016189575,
+    -0.012176514,
+    -0.010002136,
+    -0.038757324,
+    0.0071411133,
+    -0.031799316,
+    0.064697266,
+    -0.040252686,
+    -0.020233154,
+    0.052703857,
+    -0.012458801,
+    -0.018737793,
+    0.033111572,
+    0.04321289,
+    -0.013183594,
+    0.032073975,
+    -0.016708374,
+    -0.015686035,
+    -0.057495117,
+    0.0029754639,
+    0.066711426,
+    -0.07354736,
+    0.00046396255,
+    -0.015975952,
+    0.009132385,
+    0.002216339,
+    -0.026184082,
+    0.014221191,
+    0.03781128,
+    -0.037261963,
+    0.0032615662,
+    -0.014442444,
+    0.018463135,
+    -0.028213501,
+    0.039520264,
+    0.026275635,
+    -0.004322052,
+    0.04837036,
+    -0.0345459,
+    -0.031829834,
+    0.03717041,
+    0.0031318665,
+    0.024642944,
+    0.046905518,
+    -0.0023002625,
+    0.014205933,
+    0.0095825195,
+    0.034820557,
+    0.035339355,
+    -0.013916016,
+    -0.00025820732,
+    -0.048583984,
+    -0.002313614,
+    -0.025741577,
+    0.07757568,
+    0.05429077,
+    0.05670166,
+    -0.017242432,
+    0.0119018555,
+    -0.0061149597,
+    -0.042541504,
+    -0.0012960434,
+    0.025985718,
+    0.06829834,
+    0.009613037,
+    0.0050354004,
+    0.04611206,
+    -0.009605408,
+    0.055786133,
+    0.01448822,
+    -0.06854248,
+    0.011077881,
+    0.009056091,
+    -0.022888184,
+    0.08013916,
+    0.0231781,
+    0.03463745,
+    -0.01499939,
+    -0.016494751,
+    0.004096985,
+    0.010505676,
+    -0.018157959,
+    -0.02909851,
+    -0.06689453,
+    -0.01777649,
+    -0.037322998,
+    -0.02217102,
+    -0.032287598,
+    -0.011169434,
+    -0.02458191,
+    0.011764526,
+    0.0053634644,
+    -0.035369873,
+    -0.002067566,
+    -0.055755615,
+    0.013946533,
+    -0.033172607,
+    -0.04800415,
+    0.029891968,
+    0.0058670044,
+    0.036071777,
+    0.024673462,
+    0.027038574,
+    0.015258789,
+    -0.005756378,
+    -0.011245728,
+    0.011253357,
+    -0.0071525574,
+    -0.020217896,
+    -0.036376953,
+    0.030975342,
+    -0.010284424,
+    -0.0025539398,
+    0.011276245,
+    0.008804321,
+    0.012031555,
+    0.031707764,
+    -0.029800415,
+    -0.011436462,
+    0.018722534,
+    -0.0050086975,
+    -0.05090332,
+    0.038513184,
+    0.014228821,
+    0.013328552,
+    0.015716553,
+    0.038238525,
+    -0.06390381,
+    -0.06173706,
+    -0.066589355,
+    0.017166138,
+    -0.03945923,
+    0.003168106,
+    -0.0070343018,
+    -0.00598526,
+    -0.050811768,
+    -0.020889282,
+    0.072021484,
+    -0.02470398,
+    -0.030349731,
+    0.03881836,
+    0.014579773,
+    -0.00090169907,
+    -0.030380249,
+    -0.014373779,
+    -0.008636475,
+    -0.04446411,
+    0.056152344,
+    -0.015853882,
+    -0.029296875,
+    -0.016937256,
+    0.042938232,
+    -0.03390503,
+    -0.057769775,
+    -0.053955078,
+    0.013877869,
+    -0.0014324188,
+    0.0013055801,
+    0.017730713,
+    -0.019165039,
+    0.022216797,
+    -0.011917114,
+    0.004886627,
+    0.021942139,
+    0.03652954,
+    0.05316162,
+    -0.022857666,
+    -0.06060791,
+    -0.014793396,
+    -0.009460449,
+    -0.0016460419,
+    0.017807007,
+    0.06329346,
+    0.021392822,
+    0.028930664,
+    0.017089844,
+    -0.029586792,
+    0.09838867,
+    -0.029754639,
+    -0.011955261,
+    -0.025100708,
+    0.029907227,
+    0.048187256,
+    -0.0060653687,
+    0.05001831,
+    0.00041532516,
+    -0.009963989,
+    0.034301758,
+    0.0021743774,
+    -0.004627228,
+    -0.024597168,
+    -0.03793335,
+    -0.003206253,
+    -0.027954102,
+    0.0020008087,
+    -0.053588867,
+    0.06112671,
+    -0.009811401,
+    0.059631348,
+    0.05508423,
+    0.025283813,
+    0.029403687,
+    0.017730713,
+    0.008140564,
+    -0.0024986267,
+    0.019454956,
+    -0.008865356,
+    -0.035614014,
+    0.014205933,
+    -0.04776001,
+    -0.01687622,
+    -0.025512695,
+    -0.025344849,
+    -0.011421204,
+    0.0038051605,
+    -0.023910522,
+    0.035339355,
+    -0.026031494,
+    0.035217285,
+    0.030014038,
+    -0.012557983,
+    -0.0031375885,
+    -0.014213562,
+    0.029022217,
+    0.01751709,
+    0.009773254,
+    -0.008605957,
+    -0.009513855,
+    0.025054932,
+    -0.01108551,
+    0.024475098,
+    0.010261536,
+    -0.023971558,
+    0.011474609,
+    0.016708374,
+    -0.0063323975,
+    -0.023147583,
+    -0.037139893,
+    0.014503479,
+    -0.039031982,
+    -0.0423584,
+    -0.00712204,
+    0.004863739,
+    -0.0050964355,
+    -0.0013179779,
+    0.005531311,
+    0.009117126,
+    0.03201294,
+    0.01499176,
+    0.050842285,
+    0.0053977966,
+    -0.0541687,
+    -0.052642822,
+    0.020431519,
+    -0.010009766,
+    0.030303955,
+    -0.04058838,
+    -0.036468506,
+    -0.007850647,
+    -0.004722595,
+    -0.013374329,
+    0.001572609,
+    -0.0052337646,
+    -0.0029945374,
+    -0.0022239685,
+    0.0010414124,
+    -0.04019165,
+    0.007335663,
+    0.02079773,
+    -0.033416748,
+    0.038269043,
+    -0.03036499,
+    -0.011833191,
+    0.01977539,
+    0.0010318756,
+    -0.044433594,
+    0.0141067505,
+    -0.049835205,
+    -0.009094238,
+    -0.034362793,
+    -0.04156494,
+    0.0018348694,
+    -0.0073013306,
+    -0.00023412704,
+    0.032196045,
+    0.045562744,
+    0.028717041,
+    0.013496399,
+    0.0069770813,
+    -0.008522034,
+    0.001783371,
+    0.060028076,
+    0.0051727295,
+    0.030181885,
+    0.0051231384,
+    0.024749756,
+    0.05657959,
+    -0.025878906,
+    0.045776367,
+    -0.015945435,
+    0.008911133,
+    -0.03604126,
+    0.009048462,
+    0.008392334,
+    -0.024139404,
+    0.009025574,
+    0.027374268,
+    0.024169922,
+    0.055755615,
+    -0.0060539246,
+    -0.018478394,
+    0.0027065277,
+    0.059783936,
+    0.003709793,
+    -0.0029964447,
+    -0.025894165,
+    0.026168823,
+    -0.007610321,
+    0.026275635,
+    0.02607727,
+    -0.019119263,
+    0.0143966675,
+    0.002904892,
+    -0.02645874,
+    -0.001077652,
+    -0.009918213,
+    -0.012298584,
+    -0.0128479,
+    -0.0005197525,
+    0.011489868,
+    -0.0035305023,
+    0.009017944,
+    -0.029037476,
+    -0.028381348,
+    -0.0047683716,
+    -0.022491455,
+    -0.028823853,
+    0.010292053,
+    -0.041290283,
+    -0.07519531,
+    0.009338379,
+    -0.0025806427,
+    0.01727295,
+    -0.052612305,
+    -0.048797607,
+    0.0692749,
+    -0.023391724,
+    -0.04714966,
+    -0.015296936,
+    -0.01612854,
+    -0.07421875,
+    0.036743164,
+    0.008087158,
+    -0.03137207,
+    -0.04272461,
+    0.037109375,
+    0.0041770935,
+    0.01146698,
+    -0.08416748,
+    -0.027648926,
+    -0.00027561188,
+    -0.029693604,
+    -0.014503479,
+    0.025939941,
+    0.02368164,
+    -0.0007100105,
+    0.015113831,
+    -0.006866455,
+    -0.010810852,
+    -0.01335907,
+    -0.027816772,
+    0.022109985,
+    -0.02607727,
+    -0.010360718,
+    -0.0004901886,
+    0.014884949,
+    0.007286072,
+    0.011604309,
+    -0.01776123,
+    -0.030136108,
+    0.029296875,
+    0.0031833649,
+    0.019515991,
+    0.0023059845,
+    -0.025985718,
+    0.038116455,
+    0.07342529,
+    -0.06756592,
+    0.005836487,
+    -0.024887085,
+    -0.00030255318,
+    0.030456543,
+    -0.028213501,
+    -0.030059814,
+    -0.023757935,
+    -0.14746094,
+    0.016693115,
+    0.014518738,
+    -0.056884766,
+    -0.0024986267,
+    -0.061065674,
+    -0.08251953,
+    -0.06591797,
+    0.026428223,
+    0.068847656,
+    -0.02746582,
+    0.015396118,
+    -0.02168274,
+    0.014808655,
+    -0.02003479,
+    0.02545166,
+    -0.046783447,
+    -0.011016846,
+    -0.018630981,
+    0.04458618,
+    0.041778564,
+    -0.045135498,
+    0.018203735,
+    0.03894043,
+    0.02104187,
+    0.0073394775,
+    -0.033996582,
+    -0.029281616,
+    -0.017059326,
+    0.02432251,
+    -0.014465332,
+    0.013557434,
+    0.008056641,
+    0.0079422,
+    -0.009727478,
+    0.015083313,
+    -0.006126404,
+    0.009483337,
+    0.033691406,
+    -0.04736328,
+    0.044647217,
+    0.018096924,
+    0.018615723,
+    0.00484848,
+    -2.771616e-05,
+    -0.0018062592,
+    0.020950317,
+    0.05630493,
+    0.0060577393,
+    -0.04776001,
+    -0.00983429,
+    0.015777588,
+    0.03692627,
+    0.021560669,
+    -0.00056028366,
+    0.009765625,
+    -0.0026187897,
+    0.017059326,
+    -0.0002387762,
+    0.009170532,
+    0.012008667,
+    -0.0029449463,
+    -0.024093628,
+    -0.0004594326,
+    -0.007160187,
+    0.015174866,
+    0.05557251,
+    0.017166138,
+    0.027755737,
+    -0.004497528,
+    -0.004722595,
+    -0.032318115,
+    0.0062789917,
+    -0.0031356812,
+    0.0010023117,
+    -0.0014009476,
+    0.0030975342,
+    -0.026748657,
+    0.036224365,
+    0.002779007,
+    -0.045410156,
+    0.03439331,
+    -0.012992859,
+    0.034118652,
+    -0.00079393387,
+    0.0146865845,
+    0.0071868896,
+    0.024780273,
+    -0.030044556,
+    0.010505676,
+    0.005065918,
+    0.010971069,
+    0.031158447,
+    -0.037597656,
+    -0.01638794,
+    -0.016448975,
+    0.009880066,
+    -0.005207062,
+    0.008239746,
+    -0.014434814,
+    -0.06060791,
+    -0.0013437271,
+    -0.009803772,
+    -0.016571045,
+    -0.0074691772,
+    0.043701172,
+    -0.028015137,
+    0.0006790161,
+    0.0090408325,
+    -0.0020179749,
+    -0.05517578,
+    -0.032348633,
+    0.020812988,
+    0.052947998,
+    -0.034729004,
+    0.08312988,
+    0.008918762,
+    0.0859375,
+    -0.0073776245,
+    -0.04525757,
+    -0.031799316,
+    -0.052703857,
+    0.09307861,
+    0.039154053,
+    -0.09094238,
+    0.02607727,
+    0.044708252,
+    0.02079773,
+    -0.060913086,
+    0.0007328987,
+    -0.020935059,
+    0.07519531,
+    -0.010559082,
+    -0.04296875,
+    0.04586792,
+    -0.052459717,
+    -0.012138367,
+    0.003358841,
+    -0.03479004,
+    -0.022918701,
+    -0.022583008,
+    -0.01008606,
+    0.01966858,
+    -0.027618408,
+    -0.013671875,
+    0.030776978,
+    0.01309967,
+    0.06500244,
+    -0.027862549,
+    0.018875122,
+    0.012214661,
+    0.021087646,
+    0.024276733,
+    -0.049804688,
+    -0.055511475,
+    0.07092285,
+    0.029022217,
+    -0.037506104,
+    -0.0058288574,
+    0.057617188,
+    0.0009012222,
+    -0.046203613,
+    -0.00027513504,
+    0.028259277,
+    0.010894775,
+    0.016235352,
+    -0.009864807,
+    -0.057128906,
+    -0.04220581,
+    -0.011520386,
+    -0.020721436,
+    0.0020580292,
+    0.06359863,
+    -0.032073975,
+    0.0054893494,
+    -0.017501831,
+    -0.0005340576,
+    0.028930664,
+    -0.0099105835,
+    0.0009551048,
+    -0.016983032,
+    0.014579773,
+    0.002363205,
+    0.036834717,
+    -0.03604126,
+    0.013717651,
+    0.011016846,
+    -0.0040626526,
+    -0.013618469,
+    0.0126571655,
+    0.043823242,
+    -0.020141602,
+    0.0021095276,
+    -0.034240723,
+    0.0015048981,
+    0.003566742,
+    -0.03302002,
+    -0.036346436,
+    0.0005617142,
+    0.0014820099,
+    -0.00409317,
+    -0.0071372986,
+    -0.015464783,
+    -0.024780273,
+    0.05923462,
+    0.007881165,
+    0.024307251,
+    0.0022411346,
+    0.06188965,
+    0.09753418,
+    -0.0036582947,
+    -0.024337769,
+    -0.05014038,
+    0.03945923,
+    0.025238037,
+    -0.01525116,
+    -0.012901306,
+    0.021240234,
+    0.037231445,
+    -0.018569946,
+    0.042999268,
+    -0.008117676,
+    0.01940918,
+    0.01285553,
+    0.04260254,
+    -0.0017814636,
+    -0.025543213,
+    0.009017944,
+    -0.0002822876,
+    -0.030593872,
+    -0.01727295,
+    -0.030731201,
+    -0.031433105,
+    0.016586304,
+    -0.021469116,
+    -0.017868042,
+    -0.0072746277,
+    -0.004650116,
+    0.044158936,
+    -0.014060974,
+    -0.013549805,
+    0.018722534,
+    0.02168274,
+    -0.023620605,
+    0.019302368,
+    -0.052215576,
+    -0.033935547,
+    -0.00015878677,
+    -0.00029969215,
+    -0.025543213,
+    0.029846191,
+    -0.006462097,
+    -0.061309814,
+    0.015571594,
+    0.002828598,
+    -0.008110046,
+    0.003042221,
+    -0.0019626617,
+    0.014343262,
+    -0.037628174,
+    -0.0869751,
+    -0.018341064,
+    -0.017715454,
+    -0.04159546,
+    -0.045959473,
+    -0.011520386,
+    0.091308594,
+    -0.018585205,
+    0.024124146,
+    -0.055511475,
+    -0.031707764,
+    0.039001465,
+    0.014587402,
+    -0.049987793,
+    -0.010894775,
+    0.015144348,
+    0.049713135,
+    0.01007843,
+    0.05645752,
+    -0.06561279,
+    0.009056091,
+    -0.028869629,
+    0.014213562,
+    -0.039031982,
+    -0.006023407,
+    0.00026082993,
+    0.0032634735,
+    0.037994385,
+    -0.020858765,
+    0.011604309,
+    -0.043151855,
+    0.0037555695,
+    0.006259918,
+    -0.012237549,
+    -0.033569336,
+    -0.038391113,
+    0.014984131,
+    -0.029678345,
+    0.017318726,
+    -0.048614502,
+    0.006034851,
+    -0.006149292,
+    -0.008979797,
+    -0.010871887,
+    0.0038814545,
+    0.03012085,
+    -0.011878967,
+    0.02053833,
+    -0.01386261,
+    -0.016235352,
+    0.010620117,
+    0.057769775,
+    -0.02015686,
+    -0.024154663,
+    -0.0127334595,
+    0.018493652,
+    0.056488037,
+    -0.012023926,
+    0.0020179749,
+    0.031433105,
+    0.0027046204,
+    0.029968262,
+    0.019332886,
+    -0.0066337585,
+    0.030456543,
+    -0.023223877,
+    -0.04586792,
+    0.039031982,
+    0.0022525787,
+    -0.009819031,
+    -0.024673462,
+    -0.021057129,
+    -0.00554657,
+    -0.026046753,
+    -0.018936157,
+    0.017822266,
+    -0.0033740997,
+    -0.00844574,
+    -0.048309326,
+    0.047790527,
+    -0.021438599,
+    0.012931824,
+    -0.005191803,
+    -0.012649536,
+    -0.01737976,
+    -0.03945923,
+    0.015670776,
+    -0.09838867,
+    -0.02079773,
+    -0.0181427,
+    0.05154419,
+    -0.061920166,
+    -0.070251465,
+    -0.046813965,
+    0.0005207062,
+    -0.037322998,
+    0.026382446,
+    0.007598877,
+    -0.057922363,
+    0.007545471,
+    -0.027496338,
+    0.017562866,
+    0.026367188,
+    0.008384705,
+    -0.0184021,
+    0.009963989,
+    -0.081604004,
+    -0.022720337,
+    -0.054626465,
+    -0.009124756,
+    0.024093628,
+    -0.010795593,
+    -0.020584106,
+    -0.018539429,
+    0.050994873,
+    -0.0077056885,
+    0.017532349,
+    -0.04446411,
+    -0.01210022,
+    -0.005634308,
+    0.013496399,
+    -0.010047913,
+    -0.0026855469,
+    -0.00081539154,
+    0.006164551,
+    -0.021255493,
+    -0.033203125,
+    0.007537842,
+    0.005794525,
+    0.008758545,
+    -0.03842163,
+    0.034606934,
+    -0.018051147,
+    0.022201538,
+    0.016662598,
+    0.011924744,
+    -0.0011940002,
+    -0.011878967,
+    -0.026062012,
+    -0.033477783,
+    -0.014419556,
+    -0.027770996,
+    -0.027801514,
+    0.008552551,
+    -0.016983032,
+    0.008758545,
+    0.0014066696,
+    0.030075073,
+    0.046905518,
+    -0.06744385,
+    0.026489258,
+    -0.042938232,
+    0.04626465,
+    -0.0038280487,
+    0.00258255,
+    0.042419434,
+    -0.06756592,
+    -0.02532959,
+    0.0041542053,
+    -0.024246216,
+    0.020050049,
+    0.041229248,
+    -0.014526367,
+    0.009841919,
+    -0.051879883,
+    0.031707764,
+    -0.013542175,
+    -0.03878784,
+    0.022476196,
+    -0.032409668,
+    -0.019561768,
+    -0.03010559,
+    0.018722534,
+    0.04019165,
+    0.00081062317,
+    -0.015670776,
+    0.035888672,
+    0.014183044,
+    0.0021762848,
+    0.03262329,
+    -0.019821167,
+    -0.018234253,
+    -0.019317627,
+    -0.017562866,
+    -0.05883789,
+    -0.0012807846,
+    0.019439697,
+    0.021469116,
+    0.03527832,
+    0.05783081,
+    0.022338867,
+    -0.0062065125,
+    0.041625977,
+    -0.02494812,
+    -0.007835388,
+    -0.021957397,
+    0.028518677,
+    -0.012840271,
+    0.0008687973,
+    0.020767212,
+    -0.013587952,
+    0.027664185,
+    -0.006767273,
+    -0.016082764,
+    -0.028778076,
+    0.017044067,
+    -0.044799805,
+    0.057678223,
+    -0.02166748,
+    0.07885742,
+    0.010246277,
+    -0.008392334,
+    -0.08312988,
+    -0.011108398,
+    -0.00034713745,
+    -0.021957397,
+    0.012069702,
+    0.053771973,
+    -0.00762558,
+    0.011856079,
+    -0.052093506,
+    -0.099609375,
+    -0.010696411,
+    -0.03668213,
+    -0.008468628,
+    -0.0791626,
+    0.045532227,
+    0.022964478,
+    0.08453369,
+    0.012023926,
+    -0.0073661804,
+    0.0048294067,
+    -0.005264282,
+    0.0362854,
+    0.03845215,
+    0.03704834,
+    -0.0012130737,
+    0.0033340454,
+    -0.037750244,
+    0.010375977,
+    -0.040496826,
+    -0.035888672,
+    0.03479004,
+    -0.041503906,
+    0.040496826,
+    0.021377563,
+    0.0121154785,
+    -0.075683594,
+    0.02154541,
+    0.0023078918,
+    -0.011657715,
+    0.02128601,
+    -0.037109375,
+    -0.021118164,
+    0.028961182,
+    0.018447876,
+    -0.031829834,
+    -0.039642334,
+    0.026992798,
+    -0.032714844,
+    -0.010177612,
+    0.010375977,
+    0.0005097389,
+    0.012268066,
+    0.020523071,
+    -0.011810303,
+    0.07244873,
+    -0.018569946,
+    -0.029144287,
+    -0.016220093,
+    -0.031921387,
+    -0.01626587,
+    0.060455322,
+    -0.01322937,
+    0.049713135,
+    -0.01158905,
+    0.0047302246,
+    -0.0051078796,
+    0.013031006,
+    -0.01826477,
+    -0.0052833557,
+    -0.013999939,
+    -0.042388916,
+    -0.0021095276,
+    -0.0043029785,
+    -0.046447754,
+    0.018127441,
+    -0.03869629,
+    -0.037506104,
+    0.00044846535,
+    0.028549194,
+    -0.031707764,
+    0.04248047,
+    0.0033054352,
+    0.01966858,
+    0.05126953,
+    -0.03866577,
+    -0.006187439,
+    -0.047821045,
+    -0.033599854,
+    -0.0016021729,
+    -0.038208008,
+    0.01979065,
+    -0.0011835098,
+    0.011505127,
+    -0.018692017,
+    0.001917839,
+    -0.017288208,
+    0.02178955,
+    0.035308838,
+    -0.006565094,
+    -0.024414062,
+    -0.00053310394,
+    -0.03564453,
+    -0.03253174,
+    -0.035491943,
+    -0.015975952,
+    0.034240723,
+    0.012550354,
+    -0.0390625,
+    0.028869629,
+    0.013458252,
+    -0.020446777,
+    -0.057128906,
+    -0.019546509,
+    -0.0038394928,
+    -0.015556335,
+    -0.023101807,
+    -0.017318726,
+    0.026550293,
+    -0.036071777,
+    9.185076e-05,
+    0.032989502,
+    -0.0052375793,
+    -0.012023926,
+    0.016601562,
+    0.028427124,
+    -0.029434204,
+    -0.017349243,
+    -0.035827637,
+    -0.0030326843,
+    -0.012283325,
+    0.018692017,
+    -0.007663727,
+    0.025146484,
+    -0.053375244,
+    -0.019927979,
+    -0.06384277,
+    -0.028839111,
+    0.023849487,
+    -0.045440674,
+    0.039794922,
+    -0.0010032654,
+    0.005783081,
+    0.059173584,
+    -0.01876831,
+    0.017730713,
+    0.022338867,
+    -0.027740479,
+    0.018127441,
+    -0.022247314,
+    0.03466797,
+    -0.0048561096,
+    -0.009025574
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84981.md",
+    "file_name": "84981.md",
+    "file_size": 8322,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Civil Air Patrol Aircraft Hard Landing Incident in Marion, South Carolina",
+      "Cessna 182T aircraft was involved in a hard landing incident.",
+      "The incident occurred on September 7, 2012, at 08:10 Local time.",
+      "The incident occurred in Marion, South Carolina.",
+      "The aircraft registration was N635CP.",
+      "The aircraft sustained substantial damage.",
+      "Two people were aboard the aircraft.",
+      "No injuries were reported in the incident.",
+      "The flight was conducted under Part 91: General aviation - Other work use.",
+      "The aircraft was being used for a Civil Air Patrol mission.",
+      "The Civil Air Patrol mission was assigned by the U.S. Air Force.",
+      "The pilot flying was a flight instructor seated in the left seat.",
+      "The pilot-not-flying was a private pilot seated in the right seat.",
+      "The flight instructor turned over the controls to the private pilot.",
+      "The private pilot performed a normal landing initially.",
+      "The private pilot took off to practice a short-field landing.",
+      "Both pilots reported the airplane touched down \"firm\" on the main landing gear.",
+      "As the airplane decelerated, it felt as if the airplane had a flat tire.",
+      "The propeller began to strike the runway shortly after touchdown.",
+      "A postaccident examination revealed damage to the nose landing gear attachment assembly.",
+      "A postaccident examination revealed substantial damage to the firewall.",
+      "Neither pilot could recall the airspeed during the approach.",
+      "Neither pilot could recall the flap configuration during the approach.",
+      "The flight instructor described the landing flare as a \"momentary or short flare.\"",
+      "The National Transportation Safety Board determined the probable cause of this accident to be the pilot's improper landing flare.",
+      "The improper landing flare resulted in a hard landing.",
+      "The National Transportation Safety Board identified \"Aircraft control - Pilot\" as a personnel issue in their findings.",
+      "The National Transportation Safety Board identified \"Landing flare - Incorrect use/operation\" as an aircraft issue in their findings.",
+      "The accident number assigned was ERA12CA553."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Civil Air Patrol Aircraft Hard Landing Incident in Marion, South Carolina",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna 182T",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N635CP",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Marion, South Carolina",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Civil Air Patrol",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "U.S. Air Force",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ERA12CA553",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "flight instructor",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "private pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cessna 182T aircraft was involved in a hard landing incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred on September 7, 2012, at 0810 Local time.",
+              "details": [
+                "hard landing incident OCCURRED ON September 7, 2012",
+                "hard landing incident OCCURRED AT 08:10 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "September 7, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "08:10 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred in Marion, South Carolina.",
+              "details": [
+                "hard landing incident OCCURRED IN Marion, South Carolina"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Marion, South Carolina",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N635CP.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N635CP",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Two people were aboard the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PEOPLE ABOARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No injuries were reported in the incident.",
+              "details": [
+                "hard landing incident INJURIES none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Other work use.",
+              "details": [
+                "hard landing incident FLIGHT CONDUCTED UNDER Part 91: General aviation - Other work use"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Other work use",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was being used for a Civil Air Patrol mission.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Civil Air Patrol",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "USED FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Civil Air Patrol mission",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Civil Air Patrol mission was assigned by the U.S. Air Force.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. Air Force",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ASSIGNED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Civil Air Patrol mission",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot flying was a flight instructor seated in the left seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left seat",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot flying",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-not-flying was a private pilot seated in the right seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right seat",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-not-flying",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor turned over the controls to the private pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TURNED OVER CONTROLS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot performed a normal landing initially.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal landing initially",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot took off to practice a short-field landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PRACTICE OBJECTIVE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "short-field landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both pilots reported the airplane touched down \"firm\" on the main landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TOUCHDOWN QUALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "firm",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TOUCHDOWN LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "As the airplane decelerated, it felt as if the airplane had a flat tire.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DECELERATION SENSATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "felt like flat tire",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller began to strike the runway shortly after touchdown.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PROPELLER CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "struck runway after touchdown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A postaccident examination revealed damage to the nose landing gear attachment assembly.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose landing gear attachment assembly",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A postaccident examination revealed substantial damage to the firewall.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 182T",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "firewall",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Neither pilot could recall the airspeed during the approach.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALL OF APPROACH AIRSPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALL OF APPROACH AIRSPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Neither pilot could recall the flap configuration during the approach.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALL OF FLAP CONFIGURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALL OF FLAP CONFIGURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor described the landing flare as a \"momentary or short flare.\"",
+              "details": [
+                "landing flare DESCRIBED AS momentary or short flare"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing flare",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "momentary or short flare",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of this accident to be the pilot's improper landing flare.",
+              "details": [
+                "hard landing incident PROBABLE CAUSE pilot's improper landing flare"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improper landing flare",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's improper landing flare",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The improper landing flare resulted in a hard landing.",
+              "details": [
+                "improper landing flare RESULTED IN hard landing incident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improper landing flare",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board identified \"Aircraft control - Pilot\" as a personnel issue in their findings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED PERSONNEL ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft control - Pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board identified \"Landing flare - Incorrect use/operation\" as an aircraft issue in their findings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED AIRCRAFT ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Landing flare - Incorrect use/operation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number assigned was ERA12CA553.",
+              "details": [
+                "hard landing incident HAS ACCIDENT NUMBER ERA12CA553"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS ACCIDENT NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ERA12CA553",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::59e05964:fda5",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84981.md",
+        "file_name": "84981.md",
+        "file_size": 8322,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "bb017053ce4522016a18da885986c167c2303ad22a41b130c1b87d5e8ab58519",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::59e05964:fda5:1b18608c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84981.md",
+        "file_name": "84981.md",
+        "file_size": 8322,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "12968190262ad1d055a152a737d303667a19d41030ec4be2eaf79b6d5bc32b68",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nMarion, South Carolina\n\n## Date & Time: \nSeptember 7, 2012, 08:10 Local\n\n## Aircraft:\nCessna 182T\n\n## Defining Event:\nHard landing\n\n## Flight Conducted Under:\nPart 91: General aviation - Other work use\n\n## Accident Number:\nERA12CA553\n\n## Registration:\nN635CP\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 None\n\n## Analysis\n\nAs the airplane arrived in the area of the destination airport, where the pilots would commence a Civil Air Patrol, U.S Air Force-assigned mission, the pilot flying (a flight instructor in the left seat) asked the pilot-not-flying (a private pilot in the right seat) if he wanted to practice takeoffs and landings. The flight instructor turned over the controls to the private pilot, and he performed a normal landing. The private pilot then took off to practice a short-field landing. Both pilots reported the airplane touched down \"firm\" on the main landing gear, and as the airplane decelerated, it felt as if the airplane had a flat tire. Shortly after, the propeller began to strike the runway. A postaccident examination of the airplane revealed damage to the nose landing gear attachment assembly and substantial damage to the firewall. During postaccident interviews, neither pilot could recall the airspeed during the approach or the flap configuration. The flight instructor described the landing flare as a \"momentary or short flare.\"\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\nThe pilot's improper landing flare, which resulted in a hard landing.\n\n## Findings\n\n| Aircraft | Landing flare - Incorrect use/operation |\n| --- | --- |\n| Personnel issues | Aircraft control - Pilot |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1761,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

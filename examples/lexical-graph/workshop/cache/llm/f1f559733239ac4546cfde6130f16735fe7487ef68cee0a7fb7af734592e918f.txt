@@ -1,0 +1,18 @@
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has VpcId 'vpc-0ce6486d890849dc3'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has SecurityGroupArn 'arn:aws:ec2:us-east-1:1234567890:security-group/sg-0dbfaf14497e4be94'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has OwnerId '1234567890'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has GroupName 'doc-1-neptune-sg'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has Description 'GraphRAG Neptune security group'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with IpProtocol '-1'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with UserIdGroupPairs None
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with IpRanges with CidrIp '0.0.0.0/0'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with Ipv6Ranges None
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with PrefixListIds None
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with IpProtocol 'tcp'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with FromPort 8182
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with ToPort 8182
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with UserIdGroupPairs with UserId '1234567890'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with UserIdGroupPairs with GroupId 'sg-01f7984ad35475636'
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with IpRanges None
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with Ipv6Ranges None
+The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with PrefixListIds None

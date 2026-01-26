@@ -1,918 +1,932 @@
 {
-	"Description": "Creates a graphrag-toolkit environment (Neptune Analytics, OpenSearch Serverless collection, and SageMaker notebook)",
-	"Parameters": {
-		"ApplicationId": {
-			"Description": "Application id (used to name all resources in the environment)",
-			"Type": "String",
-			"Default": "graphrag-toolkit",
-			"AllowedPattern": "[a-z][a-z0-9-]*",
-			"MaxLength": 16,
-			"MinLength": 3,
-			"ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
-		},
-		"ProvisionedMemory": {
-			"Description": "Number of m-NCUs to be allocated to the graph",
-			"Type": "String",
-			"Default": "16",
-			"AllowedValues": [
-				"16",
-				"32",
-				"64",
-				"128",
-				"256",
-				"384",
-				"512",
-				"768",
-				"1024"
-			]
-		},
-		"IamPolicyArn": {
-			"Type": "String",
-			"Description": "Spaced-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
-			"Default": ""
-		},
-		"NotebookInstanceType": {
-			"Description": "SageMaker notebook instance type (use ml.p3.2xlarge to provision a GPU instance)",
-			"Type": "String",
-			"Default": "ml.m5.xlarge",
-			"AllowedValues": [
-				"ml.m5.xlarge",
-				"ml.p3.2xlarge"
-			],
-			"ConstraintDescription": "Must be a valid SageMaker instance type."
-		},
-		"ExampleNotebooksURL": {
-			"Type": "String",
-			"Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
-			"Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip"
-		}
-	},
-	"Metadata": {
-		"AWS::CloudFormation::Interface": {
-			"ParameterGroups": [
-				{
-					"Label": {
-						"default": "Setup"
-					},
-					"Parameters": [
-						"ApplicationId"
-					]
-				},
-				{
-					"Label": {
-						"default": "Neptune"
-					},
-					"Parameters": [
-						"ProvisionedMemory"
-					]
-				},
-				{
-					"Label": {
-						"default": "Notebook"
-					},
-					"Parameters": [
-						"NotebookInstanceType",
-						"ExampleNotebooksURL",
-						"IamPolicyArn"
-					]
-				}
-			]
-		}
-	},
-	"Conditions": {
-		"ExampleNotebooksURLIsNotBlank": {
-			"Fn::Not": [
-				{
-					"Fn::Equals": [
-						{
-							"Ref": "ExampleNotebooksURL"
-						},
-						""
-					]
-				}
-			]
-		},
-		"IsS3ExampleNotebooksURL": {
-			"Fn::Equals": [
-				{
-					"Fn::Select": [
-						0,
-						{
-							"Fn::Split": [
-								":",
-								{
-									"Ref": "ExampleNotebooksURL"
-								}
-							]
-						}
-					]
-				},
-				"s3"
-			]
-		},
-		"IsIadRegion": {
-			"Fn::Equals": [
-				{
-					"Ref": "AWS::Region"
-				},
-				"us-east-1"
-			]
-		},
-		"AddIamPolicyArn": {
-			"Fn::Not": [
-				{
-					"Fn::Equals": [
-						{
-							"Ref": "IamPolicyArn"
-						},
-						""
-					]
-				}
-			]
-		}
-	},
-	"Resources": {
-		"Graph": {
-			"Type": "AWS::NeptuneGraph::Graph",
-			"Properties": {
-				"GraphName": {
-					"Fn::Sub": "${ApplicationId}-graph"
-				},
-				"DeletionProtection": false,
-				"ProvisionedMemory": {
-					"Ref": "ProvisionedMemory"
-				},
-				"PublicConnectivity": true,
-				"ReplicaCount": 1,
-				"VectorSearchConfiguration": {
-					"VectorSearchDimension": 1024
-				},
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-graph"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"GraphRAGClientRole": {
-			"Type": "AWS::IAM::Role",
-			"Properties": {
-				"AssumeRolePolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Principal": {
-								"Service": [
-									"sagemaker.amazonaws.com"
-								]
-							},
-							"Action": [
-								"sts:AssumeRole"
-							]
-						}
-					]
-				},
-				"ManagedPolicyArns": {
-					"Fn::If": [
-						"AddIamPolicyArn",
-						{
-							"Fn::Split": [
-								" ",
-								{
-									"Ref": "IamPolicyArn"
-								}
-							]
-						},
-						[
-							{
-								"Ref": "AWS::NoValue"
-							}
-						]
-					]
-				},
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"GraphRAGClientRolePolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-graphrag-client-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Sid": "S3ListBucketAndGetObject",
-							"Effect": "Allow",
-							"Action": [
-								"s3:GetObject",
-								"s3:ListBucket"
-							],
-							"Resource": [
-								{
-									"Fn::If": [
-										"IsIadRegion",
-										"arn:aws:s3:::aws-neptune-notebook",
-										{
-											"Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}"
-										}
-									]
-								},
-								{
-									"Fn::If": [
-										"IsIadRegion",
-										"arn:aws:s3:::aws-neptune-notebook/*",
-										{
-											"Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}/*"
-										}
-									]
-								}
-							]
-						},
-						{
-							"Sid": "LogGroupAccess",
-							"Effect": "Allow",
-							"Action": [
-								"logs:CreateLogGroup",
-								"logs:CreateLogStream",
-								"logs:PutLogEvents"
-							],
-							"Resource": [
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/sagemaker/*"
-								}
-							]
-						},
-						{
-							"Sid": "SageMakerNotebookAccess",
-							"Effect": "Allow",
-							"Action": "sagemaker:DescribeNotebookInstance",
-							"Resource": [
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:sagemaker:${AWS::Region}:${AWS::AccountId}:notebook-instance/*"
-								}
-							]
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"BedrockInvokeModelPolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-bedrock-invoke-model-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"bedrock:InvokeModel",
-								"bedrock:InvokeModelWithResponseStream"
-							],
-							"Resource": [
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
-								},
-								{
-									"Fn::Sub": [
-										"arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-haiku-20241022-v1:0",
-										{
-											"partition": {
-												"Ref": "AWS::Partition"
-											},
-											"region": {
-												"Ref": "AWS::Region"
-											},
-											"accountId": {
-												"Ref": "AWS::AccountId"
-											},
-											"regionPrefix": {
-												"Fn::Select": [
-													0,
-													{
-														"Fn::Split": [
-															"-",
-															{
-																"Ref": "AWS::Region"
-															}
-														]
-													}
-												]
-											}
-										}
-									]
-								},
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
-								},
-								{
-									"Fn::Sub": [
-										"arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-										{
-											"partition": {
-												"Ref": "AWS::Partition"
-											},
-											"region": {
-												"Ref": "AWS::Region"
-											},
-											"accountId": {
-												"Ref": "AWS::AccountId"
-											},
-											"regionPrefix": {
-												"Fn::Select": [
-													0,
-													{
-														"Fn::Split": [
-															"-",
-															{
-																"Ref": "AWS::Region"
-															}
-														]
-													}
-												]
-											}
-										}
-									]
-								},
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
-								},
-								{
-									"Fn::Sub": [
-										"arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
-										{
-											"partition": {
-												"Ref": "AWS::Partition"
-											},
-											"region": {
-												"Ref": "AWS::Region"
-											},
-											"accountId": {
-												"Ref": "AWS::AccountId"
-											},
-											"regionPrefix": {
-												"Fn::Select": [
-													0,
-													{
-														"Fn::Split": [
-															"-",
-															{
-																"Ref": "AWS::Region"
-															}
-														]
-													}
-												]
-											}
-										}
-									]
-								},
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
-								}
-							]
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"NeptuneAnalyticsDataAccessPolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-neptune-analytics-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"neptune-graph:ReadDataViaQuery",
-								"neptune-graph:WriteDataViaQuery",
-								"neptune-graph:DeleteDataViaQuery",
-								"neptune-graph:GetGraph"
-							],
-							"Resource": {
-								"Fn::Sub": [
-									"arn:${partition}:neptune-graph:${region}:${account_id}:graph/${resource_id}",
-									{
-										"partition": {
-											"Ref": "AWS::Partition"
-										},
-										"region": {
-											"Ref": "AWS::Region"
-										},
-										"account_id": {
-											"Ref": "AWS::AccountId"
-										},
-										"resource_id": {
-											"Ref": "Graph"
-										}
-									}
-								]
-							}
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"NeptuneNotebookInstance": {
-			"Type": "AWS::SageMaker::NotebookInstance",
-			"Properties": {
-				"InstanceType": {
-					"Ref": "NotebookInstanceType"
-				},
-				"PlatformIdentifier": "notebook-al2-v3",
-				"NotebookInstanceName": {
-					"Fn::Sub": "aws-neptune-${ApplicationId}"
-				},
-				"RoleArn": {
-					"Fn::GetAtt": [
-						"GraphRAGClientRole",
-						"Arn"
-					]
-				},
-				"LifecycleConfigName": {
-					"Fn::GetAtt": [
-						"NeptuneNotebookInstanceLifecycleConfig",
-						"NotebookInstanceLifecycleConfigName"
-					]
-				},
-				"Tags": [
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"NeptuneNotebookInstanceLifecycleConfig": {
-			"Type": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
-			"Properties": {
-				"OnStart": [
-					{
-						"Content": {
-							"Fn::Base64": {
-								"Fn::Join": [
-									"",
-									[
-										"#!/bin/bash\n\n",
-										"sudo -u ec2-user -i <<'EOF'\n",
-										"\n",
-										"sudo pip install packaging==24.2\n",
-										"echo \"export STACK_ID=",
-										{
-											"Ref": "AWS::StackId"
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export EXTRACTION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
-										"echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
-										"echo \"export RESPONSE_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export EVALUATION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_PORT=8182\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_STORE=",
-										{
-											"Fn::Sub": [
-												"neptune-graph://${graphid}",
-												{
-													"graphid": {
-														"Fn::GetAtt": [
-															"Graph",
-															"GraphId"
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export VECTOR_STORE=",
-										{
-											"Fn::Sub": [
-												"neptune-graph://${graphid}",
-												{
-													"graphid": {
-														"Fn::GetAtt": [
-															"Graph",
-															"GraphId"
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-graph\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_HOST=",
-										{
-											"Fn::GetAtt": [
-												"Graph",
-												"Endpoint"
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export AWS_REGION=",
-										{
-											"Ref": "AWS::Region"
-										},
-										"\" >> ~/.bashrc\n\n",
-										"aws s3 cp s3://",
-										{
-											"Fn::If": [
-												"IsIadRegion",
-												"aws-neptune-notebook",
-												{
-													"Fn::Sub": "aws-neptune-notebook-${AWS::Region}"
-												}
-											]
-										},
-										"/graph_notebook.tar.gz /tmp/graph_notebook.tar.gz\n",
-										"rm -rf /tmp/graph_notebook\n",
-										"tar -zxvf /tmp/graph_notebook.tar.gz -C /tmp\n",
-										"chmod +x /tmp/graph_notebook/install_jl4x.sh\n",
-										"/tmp/graph_notebook/install_jl4x.sh\n",
-										"\n",
-										"cd /home/ec2-user/SageMaker\n",
-										"if [ ! -d graphrag-toolkit ]; then\n",
-										"  mkdir graphrag-toolkit\n",
-										"  chmod -R 777 graphrag-toolkit\n",
-										{
-											"Fn::If": [
-												"ExampleNotebooksURLIsNotBlank",
-												{
-													"Fn::If": [
-														"IsS3ExampleNotebooksURL",
-														{
-															"Fn::Join": [
-																"",
-																[
-																	"  aws s3 cp \"",
-																	{
-																		"Ref": "ExampleNotebooksURL"
-																	},
-																	"\" .\n",
-																	"  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
-																	"  rm -rf lexical-graph-examples.zip\n"
-																]
-															]
-														},
-														{
-															"Fn::Join": [
-																"",
-																[
-																	"  curl -LO \"",
-																	{
-																		"Ref": "ExampleNotebooksURL"
-																	},
-																	"\" -o lexical-graph-examples.zip\n",
-																	"  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
-																	"  rm -rf lexical-graph-examples.zip\n"
-																]
-															]
-														}
-													]
-												},
-												{
-													"Ref": "AWS::NoValue"
-												}
-											]
-										},
-										"  cd graphrag-toolkit\n",
-										"  echo \"export STACK_ID=",
-										{
-											"Ref": "AWS::StackId"
-										},
-										"\" >> .env\n",
-										"  echo \"export GRAPH_STORE=",
-										{
-											"Fn::Sub": [
-												"neptune-graph://${graphid}",
-												{
-													"graphid": {
-														"Fn::GetAtt": [
-															"Graph",
-															"GraphId"
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export VECTOR_STORE=",
-										{
-											"Fn::Sub": [
-												"neptune-graph://${graphid}",
-												{
-													"graphid": {
-														"Fn::GetAtt": [
-															"Graph",
-															"GraphId"
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export EXTRACTION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
-										"  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
-										"  echo \"export RESPONSE_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export EVALUATION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  if [ -f \"./run_test_suite.sh\" ]\n",
-										"  then\n",
-										"    echo \"Running test suite\"\n",
-										"    screen -L -m -d sh run_test_suite.sh\n",
-										"  else\n",
-										"    echo \"No test suite\"\n",
-										"  fi\n",
-										"fi\n",
-										"EOF"
-									]
-								]
-							}
-						}
-					}
-				]
-			}
-		}
-	},
-	"Outputs": {
-		"NeptuneAnalyticsGraphId": {
-			"Value": {
-				"Fn::GetAtt": [
-					"Graph",
-					"GraphId"
-				]
-			}
-		},
-		"NeptuneSagemakerNotebook": {
-			"Description": "SageMaker notebook URL",
-			"Value": {
-				"Fn::Join": [
-					"",
-					[
-						"https://",
-						{
-							"Fn::Select": [
-								1,
-								{
-									"Fn::Split": [
-										"/",
-										{
-											"Ref": "NeptuneNotebookInstance"
-										}
-									]
-								}
-							]
-						},
-						".notebook.",
-						{
-							"Ref": "AWS::Region"
-						},
-						".sagemaker.aws/nbclassic/tree"
-					]
-				]
-			}
-		}
-	}
+  "Description": "Creates a graphrag-toolkit environment (Neptune Analytics, OpenSearch Serverless collection, and SageMaker notebook)",
+  "Parameters": {
+    "ApplicationId": {
+      "Description": "Application id (used to name all resources in the environment)",
+      "Type": "String",
+      "Default": "graphrag-toolkit",
+      "AllowedPattern": "[a-z][a-z0-9-]*",
+      "MaxLength": 16,
+      "MinLength": 3,
+      "ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
+    },
+    "ProvisionedMemory": {
+      "Description": "Number of m-NCUs to be allocated to the graph",
+      "Type": "String",
+      "Default": "16",
+      "AllowedValues": [
+        "16",
+        "32",
+        "64",
+        "128",
+        "256",
+        "384",
+        "512",
+        "768",
+        "1024"
+      ]
+    },
+    "IamPolicyArn": {
+      "Type": "String",
+      "Description": "Spaced-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
+      "Default": ""
+    },
+    "NotebookInstanceType": {
+      "Description": "SageMaker notebook instance type (use ml.p3.2xlarge to provision a GPU instance)",
+      "Type": "String",
+      "Default": "ml.m5.xlarge",
+      "AllowedValues": [
+        "ml.m5.xlarge",
+        "ml.m5.2xlarge",
+        "ml.m5.4xlarge",
+        "ml.p3.2xlarge"
+      ],
+      "ConstraintDescription": "Must be a valid SageMaker instance type."
+    },
+    "ExampleNotebooksURL": {
+      "Type": "String",
+      "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
+      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip"
+    }
+  },
+  "Metadata": {
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [
+        {
+          "Label": {
+            "default": "Setup"
+          },
+          "Parameters": [
+            "ApplicationId"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Neptune"
+          },
+          "Parameters": [
+            "ProvisionedMemory"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Notebook"
+          },
+          "Parameters": [
+            "NotebookInstanceType",
+            "ExampleNotebooksURL",
+            "IamPolicyArn"
+          ]
+        }
+      ]
+    }
+  },
+  "Conditions": {
+    "ExampleNotebooksURLIsNotBlank": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "ExampleNotebooksURL"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "IsS3ExampleNotebooksURL": {
+      "Fn::Equals": [
+        {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::Split": [
+                ":",
+                {
+                  "Ref": "ExampleNotebooksURL"
+                }
+              ]
+            }
+          ]
+        },
+        "s3"
+      ]
+    },
+    "IsIadRegion": {
+      "Fn::Equals": [
+        {
+          "Ref": "AWS::Region"
+        },
+        "us-east-1"
+      ]
+    },
+    "AddIamPolicyArn": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "IamPolicyArn"
+            },
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "Resources": {
+    "Graph": {
+      "Type": "AWS::NeptuneGraph::Graph",
+      "Properties": {
+        "GraphName": {
+          "Fn::Sub": "${ApplicationId}-graph"
+        },
+        "DeletionProtection": false,
+        "ProvisionedMemory": {
+          "Ref": "ProvisionedMemory"
+        },
+        "PublicConnectivity": true,
+        "ReplicaCount": 1,
+        "VectorSearchConfiguration": {
+          "VectorSearchDimension": 1024
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-graph"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "GraphRAGClientRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "sagemaker.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "ManagedPolicyArns": {
+          "Fn::If": [
+            "AddIamPolicyArn",
+            {
+              "Fn::Split": [
+                " ",
+                {
+                  "Ref": "IamPolicyArn"
+                }
+              ]
+            },
+            [
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          ]
+        },
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "GraphRAGClientRolePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-graphrag-client-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "S3ListBucketAndGetObject",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Fn::If": [
+                    "IsIadRegion",
+                    "arn:aws:s3:::aws-neptune-notebook",
+                    {
+                      "Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}"
+                    }
+                  ]
+                },
+                {
+                  "Fn::If": [
+                    "IsIadRegion",
+                    "arn:aws:s3:::aws-neptune-notebook/*",
+                    {
+                      "Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}/*"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "LogGroupAccess",
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/sagemaker/*"
+                }
+              ]
+            },
+            {
+              "Sid": "SageMakerNotebookAccess",
+              "Effect": "Allow",
+              "Action": "sagemaker:DescribeNotebookInstance",
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:sagemaker:${AWS::Region}:${AWS::AccountId}:notebook-instance/*"
+                }
+              ]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "BedrockInvokeModelPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-bedrock-invoke-model-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-haiku-20241022-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.rerank-v3-5:0"
+                }
+              ]
+            },
+            {
+              "Action": [
+                "bedrock:Rerank"
+              ],
+              "Resource": [
+                "*"
+              ],
+              "Effect": "Allow"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "NeptuneAnalyticsDataAccessPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-neptune-analytics-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "neptune-graph:ReadDataViaQuery",
+                "neptune-graph:WriteDataViaQuery",
+                "neptune-graph:DeleteDataViaQuery",
+                "neptune-graph:GetGraph"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:${partition}:neptune-graph:${region}:${account_id}:graph/${resource_id}",
+                  {
+                    "partition": {
+                      "Ref": "AWS::Partition"
+                    },
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account_id": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "resource_id": {
+                      "Ref": "Graph"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "NeptuneNotebookInstance": {
+      "Type": "AWS::SageMaker::NotebookInstance",
+      "Properties": {
+        "InstanceType": {
+          "Ref": "NotebookInstanceType"
+        },
+        "PlatformIdentifier": "notebook-al2-v3",
+        "NotebookInstanceName": {
+          "Fn::Sub": "aws-neptune-${ApplicationId}"
+        },
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "GraphRAGClientRole",
+            "Arn"
+          ]
+        },
+        "LifecycleConfigName": {
+          "Fn::GetAtt": [
+            "NeptuneNotebookInstanceLifecycleConfig",
+            "NotebookInstanceLifecycleConfigName"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "NeptuneNotebookInstanceLifecycleConfig": {
+      "Type": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+      "Properties": {
+        "OnStart": [
+          {
+            "Content": {
+              "Fn::Base64": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "#!/bin/bash\n\n",
+                    "sudo -u ec2-user -i <<'EOF'\n",
+                    "\n",
+                    "sudo pip install packaging==24.2\n",
+                    "echo \"export STACK_ID=",
+                    {
+                      "Ref": "AWS::StackId"
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export EXTRACTION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
+                    "echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
+                    "echo \"export RESPONSE_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export EVALUATION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_PORT=8182\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export VECTOR_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-graph\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_HOST=",
+                    {
+                      "Fn::GetAtt": [
+                        "Graph",
+                        "Endpoint"
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export AWS_REGION=",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "\" >> ~/.bashrc\n\n",
+                    "aws s3 cp s3://",
+                    {
+                      "Fn::If": [
+                        "IsIadRegion",
+                        "aws-neptune-notebook",
+                        {
+                          "Fn::Sub": "aws-neptune-notebook-${AWS::Region}"
+                        }
+                      ]
+                    },
+                    "/graph_notebook.tar.gz /tmp/graph_notebook.tar.gz\n",
+                    "rm -rf /tmp/graph_notebook\n",
+                    "tar -zxvf /tmp/graph_notebook.tar.gz -C /tmp\n",
+                    "chmod +x /tmp/graph_notebook/install_jl4x.sh\n",
+                    "/tmp/graph_notebook/install_jl4x.sh\n",
+                    "\n",
+                    "cd /home/ec2-user/SageMaker\n",
+                    "if [ ! -d graphrag-toolkit ]; then\n",
+                    "  mkdir graphrag-toolkit\n",
+                    "  chmod -R 777 graphrag-toolkit\n",
+                    {
+                      "Fn::If": [
+                        "ExampleNotebooksURLIsNotBlank",
+                        {
+                          "Fn::If": [
+                            "IsS3ExampleNotebooksURL",
+                            {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "  aws s3 cp \"",
+                                  {
+                                    "Ref": "ExampleNotebooksURL"
+                                  },
+                                  "\" .\n",
+                                  "  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
+                                  "  rm -rf lexical-graph-examples.zip\n"
+                                ]
+                              ]
+                            },
+                            {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "  curl -LO \"",
+                                  {
+                                    "Ref": "ExampleNotebooksURL"
+                                  },
+                                  "\" -o lexical-graph-examples.zip\n",
+                                  "  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
+                                  "  rm -rf lexical-graph-examples.zip\n"
+                                ]
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Ref": "AWS::NoValue"
+                        }
+                      ]
+                    },
+                    "  cd graphrag-toolkit\n",
+                    "  echo \"export STACK_ID=",
+                    {
+                      "Ref": "AWS::StackId"
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export GRAPH_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export VECTOR_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EXTRACTION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
+                    "  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
+                    "  echo \"export RESPONSE_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EVALUATION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  if [ -f \"./run_test_suite.sh\" ]\n",
+                    "  then\n",
+                    "    echo \"Running test suite\"\n",
+                    "    screen -L -m -d sh run_test_suite.sh\n",
+                    "  else\n",
+                    "    echo \"No test suite\"\n",
+                    "  fi\n",
+                    "fi\n",
+                    "EOF"
+                  ]
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "NeptuneAnalyticsGraphId": {
+      "Value": {
+        "Fn::GetAtt": [
+          "Graph",
+          "GraphId"
+        ]
+      }
+    },
+    "NeptuneSagemakerNotebook": {
+      "Description": "SageMaker notebook URL",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Fn::Select": [
+                1,
+                {
+                  "Fn::Split": [
+                    "/",
+                    {
+                      "Ref": "NeptuneNotebookInstance"
+                    }
+                  ]
+                }
+              ]
+            },
+            ".notebook.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".sagemaker.aws/nbclassic/tree"
+          ]
+        ]
+      }
+    }
+  }
 }

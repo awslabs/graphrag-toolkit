@@ -1,0 +1,2405 @@
+{
+  "id_": "aws::108b2d39:b52a:77d42445",
+  "embedding": [
+    0.06524658,
+    0.0071144104,
+    0.024246216,
+    -0.09185791,
+    0.007499695,
+    0.023712158,
+    -0.042633057,
+    0.005622864,
+    -0.0592041,
+    -0.0070343018,
+    -0.014030457,
+    0.020111084,
+    -0.011009216,
+    -0.035369873,
+    0.078186035,
+    -0.046813965,
+    0.0044670105,
+    0.055725098,
+    0.037963867,
+    -0.0013618469,
+    0.001367569,
+    0.016998291,
+    -0.013069153,
+    -0.03479004,
+    -0.008796692,
+    0.050750732,
+    -0.09124756,
+    0.013198853,
+    -0.022781372,
+    -0.024856567,
+    -0.015426636,
+    0.03387451,
+    0.013122559,
+    0.049346924,
+    -0.03829956,
+    -0.0025348663,
+    -0.030410767,
+    0.019180298,
+    -0.0063552856,
+    0.022537231,
+    0.030853271,
+    -0.025726318,
+    0.012428284,
+    -0.081726074,
+    -0.010475159,
+    0.02116394,
+    0.0078048706,
+    0.015625,
+    0.03829956,
+    0.013023376,
+    0.019943237,
+    0.027435303,
+    0.017196655,
+    0.019882202,
+    -0.0025806427,
+    -0.012641907,
+    -0.01928711,
+    0.0016927719,
+    -0.006614685,
+    -4.9352646e-05,
+    -0.0033130646,
+    0.01701355,
+    0.04284668,
+    0.029418945,
+    -0.04324341,
+    -0.011726379,
+    0.021865845,
+    -0.004650116,
+    0.006313324,
+    -0.052490234,
+    0.0016651154,
+    0.035858154,
+    -0.011238098,
+    0.010887146,
+    0.009117126,
+    -0.041534424,
+    0.015037537,
+    -0.006122589,
+    -0.006248474,
+    0.03640747,
+    0.026901245,
+    0.017837524,
+    -0.023620605,
+    -0.016067505,
+    0.013671875,
+    0.02243042,
+    -0.008224487,
+    -0.015808105,
+    -0.008666992,
+    0.0063552856,
+    -0.016433716,
+    -0.046966553,
+    0.042785645,
+    0.05621338,
+    -0.041870117,
+    0.028579712,
+    -0.0118255615,
+    -0.02519226,
+    -0.029052734,
+    -0.058685303,
+    -0.002922058,
+    -0.015853882,
+    -0.08947754,
+    0.02470398,
+    0.006336212,
+    0.07293701,
+    0.019073486,
+    -0.019485474,
+    0.010284424,
+    -0.03451538,
+    -0.01197052,
+    0.040039062,
+    -0.017059326,
+    -0.038970947,
+    -0.014175415,
+    0.016326904,
+    -0.022109985,
+    -0.014579773,
+    0.009208679,
+    -0.052520752,
+    0.01612854,
+    0.04788208,
+    -0.045043945,
+    -0.033294678,
+    -0.0026187897,
+    -0.020553589,
+    -0.0030002594,
+    0.0053710938,
+    0.036132812,
+    -0.018539429,
+    0.0022201538,
+    0.037597656,
+    -0.044921875,
+    -0.0546875,
+    -0.04937744,
+    0.0126953125,
+    -0.024749756,
+    -0.022232056,
+    -0.042999268,
+    0.027679443,
+    -0.05895996,
+    -0.005859375,
+    0.09765625,
+    -0.06915283,
+    -0.024429321,
+    0.054138184,
+    0.0023326874,
+    -0.017364502,
+    0.00091409683,
+    -0.06390381,
+    -6.747246e-05,
+    -0.070251465,
+    0.056274414,
+    -0.0030593872,
+    -0.10424805,
+    -0.01991272,
+    -0.07940674,
+    0.00057792664,
+    0.0022850037,
+    -0.036346436,
+    0.0135650635,
+    0.0050964355,
+    0.036468506,
+    0.0034694672,
+    -0.020935059,
+    0.0028247833,
+    -0.03173828,
+    -0.021759033,
+    0.013214111,
+    -0.0016946793,
+    0.039215088,
+    -0.021957397,
+    -0.06915283,
+    -0.043273926,
+    -0.020996094,
+    -0.0050468445,
+    -0.013069153,
+    0.021881104,
+    0.018478394,
+    0.013786316,
+    -0.0014324188,
+    -0.039093018,
+    0.03475952,
+    -0.0044021606,
+    -0.004852295,
+    -0.017074585,
+    0.007820129,
+    -0.026489258,
+    0.03213501,
+    0.0005888939,
+    0.026412964,
+    -0.0029735565,
+    0.012634277,
+    -0.00920105,
+    0.009796143,
+    -0.017852783,
+    -0.030960083,
+    -0.023483276,
+    -0.021835327,
+    0.0053138733,
+    -0.041809082,
+    0.001168251,
+    0.026351929,
+    0.030258179,
+    0.039886475,
+    0.012969971,
+    0.01033783,
+    0.0006351471,
+    -0.012901306,
+    0.012702942,
+    0.004699707,
+    -0.01927185,
+    -0.019958496,
+    0.025344849,
+    0.00067949295,
+    -0.018218994,
+    0.0042495728,
+    -0.029937744,
+    0.011062622,
+    -0.033325195,
+    0.011749268,
+    0.02255249,
+    0.001660347,
+    0.051086426,
+    -0.026550293,
+    -1.835823e-05,
+    -0.012962341,
+    0.008216858,
+    -0.011787415,
+    0.021453857,
+    0.04486084,
+    -0.018920898,
+    0.031082153,
+    0.033447266,
+    -0.0385437,
+    0.012741089,
+    -0.024719238,
+    0.023529053,
+    -0.020309448,
+    0.014511108,
+    -0.02520752,
+    -0.03845215,
+    -0.04058838,
+    0.082092285,
+    -0.08123779,
+    -0.09777832,
+    -0.04953003,
+    0.07324219,
+    -0.051818848,
+    -0.0008778572,
+    0.036132812,
+    0.04699707,
+    0.026000977,
+    0.043548584,
+    -0.011711121,
+    0.045166016,
+    -0.027526855,
+    -0.0015096664,
+    0.008392334,
+    -0.0039520264,
+    0.016571045,
+    -0.063964844,
+    -0.011627197,
+    -0.023712158,
+    -0.012207031,
+    0.026184082,
+    0.033416748,
+    0.037322998,
+    -0.007858276,
+    0.01096344,
+    -0.0070152283,
+    -0.004245758,
+    -0.00856781,
+    0.05529785,
+    -0.06958008,
+    0.008407593,
+    -0.040924072,
+    0.028869629,
+    -0.021881104,
+    -0.005580902,
+    0.018356323,
+    0.06237793,
+    0.035736084,
+    -0.011161804,
+    0.027832031,
+    0.021850586,
+    -0.001490593,
+    0.0014019012,
+    0.016983032,
+    0.0037155151,
+    0.041503906,
+    -0.017929077,
+    -0.02067566,
+    0.007068634,
+    0.0390625,
+    -0.038635254,
+    0.013244629,
+    0.032836914,
+    -0.015090942,
+    -0.010185242,
+    -0.0033569336,
+    0.028060913,
+    -0.051696777,
+    0.026992798,
+    -0.011856079,
+    -0.053710938,
+    -0.009719849,
+    -0.00033926964,
+    0.012619019,
+    -0.005672455,
+    -0.007335663,
+    0.068359375,
+    -0.007461548,
+    -0.008018494,
+    -0.060180664,
+    -0.026763916,
+    -0.04937744,
+    -0.020446777,
+    -0.072021484,
+    0.023971558,
+    -0.030410767,
+    0.0140686035,
+    -0.028366089,
+    -0.0025634766,
+    0.020568848,
+    0.011138916,
+    -0.020706177,
+    -0.015419006,
+    0.06335449,
+    0.028503418,
+    -0.04324341,
+    0.03173828,
+    -0.054656982,
+    0.0071144104,
+    -0.007888794,
+    0.024337769,
+    -0.00699234,
+    0.020584106,
+    -0.042388916,
+    -0.027069092,
+    -0.053649902,
+    -0.04360962,
+    -0.0014886856,
+    -0.066101074,
+    -0.072265625,
+    -0.044311523,
+    0.03479004,
+    -0.0019626617,
+    -0.019638062,
+    -0.02532959,
+    0.06298828,
+    -0.0061683655,
+    -0.0110321045,
+    0.026245117,
+    0.0024986267,
+    -0.052886963,
+    0.0074806213,
+    0.05895996,
+    0.0034942627,
+    -0.020980835,
+    0.023834229,
+    0.0413208,
+    0.0018672943,
+    -0.067871094,
+    -0.00422287,
+    -0.024276733,
+    -0.007701874,
+    -0.013145447,
+    -0.033233643,
+    -0.020202637,
+    -0.02078247,
+    -0.033569336,
+    0.009750366,
+    -0.0028953552,
+    0.0005617142,
+    0.02494812,
+    -0.00818634,
+    -0.035614014,
+    -0.016342163,
+    -0.017318726,
+    -0.010467529,
+    -0.01625061,
+    0.031021118,
+    -0.0052986145,
+    -0.027938843,
+    0.026977539,
+    -0.0625,
+    -0.003929138,
+    -0.04095459,
+    -0.0095825195,
+    0.008972168,
+    0.08453369,
+    0.016418457,
+    -0.01727295,
+    0.025222778,
+    0.00944519,
+    -0.057922363,
+    -0.02645874,
+    -0.04244995,
+    0.011001587,
+    -0.10748291,
+    -0.0014095306,
+    0.01134491,
+    -0.045837402,
+    0.010276794,
+    -0.07940674,
+    -0.06173706,
+    -0.04800415,
+    0.0058898926,
+    0.08251953,
+    -0.0154953,
+    0.0048942566,
+    -0.014373779,
+    0.03778076,
+    0.011161804,
+    0.006072998,
+    -0.02822876,
+    -0.010055542,
+    -0.013504028,
+    0.0077934265,
+    0.008125305,
+    -0.0058250427,
+    0.03842163,
+    0.037750244,
+    0.039245605,
+    0.026489258,
+    0.0022907257,
+    -0.056671143,
+    0.014175415,
+    0.015289307,
+    -0.014335632,
+    -0.0018367767,
+    0.0028381348,
+    -0.04006958,
+    -0.013519287,
+    -0.0022563934,
+    -0.021850586,
+    -0.028869629,
+    -0.023620605,
+    -0.024719238,
+    0.02633667,
+    -0.0048294067,
+    -0.013427734,
+    0.026351929,
+    -0.002910614,
+    -0.019241333,
+    -0.03024292,
+    0.014762878,
+    -0.02822876,
+    -0.04067993,
+    -0.0036296844,
+    0.023635864,
+    0.02583313,
+    0.034820557,
+    -0.00010710955,
+    0.038085938,
+    0.03527832,
+    0.038238525,
+    -0.021911621,
+    -0.008850098,
+    -0.010566711,
+    -0.020080566,
+    0.013137817,
+    -0.02545166,
+    -0.02243042,
+    -0.028244019,
+    0.055755615,
+    0.01651001,
+    0.0040130615,
+    -0.0013332367,
+    -0.025726318,
+    0.030426025,
+    -0.021209717,
+    -0.007411957,
+    -0.011672974,
+    0.0149002075,
+    -0.009185791,
+    -0.030654907,
+    0.05645752,
+    0.036315918,
+    -0.039276123,
+    0.009506226,
+    0.028701782,
+    0.054016113,
+    0.044952393,
+    0.016357422,
+    0.019561768,
+    0.027130127,
+    -0.032592773,
+    -0.011299133,
+    -0.021087646,
+    0.024520874,
+    -0.013084412,
+    0.01889038,
+    -0.013771057,
+    -0.03463745,
+    -0.0047912598,
+    0.085632324,
+    -0.03591919,
+    -0.052124023,
+    -0.021514893,
+    -0.036010742,
+    0.0005221367,
+    0.049224854,
+    0.029449463,
+    0.012809753,
+    0.048065186,
+    0.009613037,
+    0.0054779053,
+    0.021591187,
+    0.07910156,
+    0.0055770874,
+    0.0056762695,
+    -0.0042037964,
+    -0.02520752,
+    -0.0052108765,
+    0.009086609,
+    -0.064453125,
+    0.0075302124,
+    0.019439697,
+    -0.03982544,
+    -0.009513855,
+    0.027755737,
+    0.060394287,
+    -0.03857422,
+    -0.00043416023,
+    -0.025497437,
+    0.016357422,
+    -0.015594482,
+    -0.03918457,
+    0.0044174194,
+    0.03866577,
+    -0.0034370422,
+    0.011543274,
+    0.0103302,
+    -0.00011360645,
+    -0.03753662,
+    -0.014259338,
+    -0.0041999817,
+    -0.02507019,
+    0.0025424957,
+    0.0070495605,
+    -0.02470398,
+    0.0077400208,
+    0.0055732727,
+    0.019210815,
+    0.011543274,
+    0.0725708,
+    -0.012550354,
+    0.018478394,
+    -0.018325806,
+    0.011955261,
+    -0.00737381,
+    -0.05633545,
+    -0.03326416,
+    -0.0011930466,
+    0.029937744,
+    -0.009223938,
+    -0.010498047,
+    -0.00907135,
+    0.013038635,
+    -0.012748718,
+    -0.036834717,
+    0.009803772,
+    0.027008057,
+    0.005290985,
+    0.06311035,
+    -0.0071640015,
+    0.044677734,
+    -0.0076293945,
+    -0.018325806,
+    -0.045074463,
+    0.04434204,
+    0.002483368,
+    -0.0067481995,
+    -0.024307251,
+    -0.0362854,
+    0.0064811707,
+    0.030059814,
+    0.052520752,
+    -0.019256592,
+    -0.026672363,
+    -0.032836914,
+    -0.06112671,
+    -0.058685303,
+    -0.014045715,
+    0.061798096,
+    -0.027923584,
+    -0.014778137,
+    -0.007827759,
+    0.061798096,
+    -0.004878998,
+    0.027893066,
+    0.01625061,
+    -0.033172607,
+    -0.007610321,
+    -0.045959473,
+    -0.053619385,
+    0.022491455,
+    -0.026260376,
+    -0.01625061,
+    0.016860962,
+    0.0124435425,
+    -0.021347046,
+    -0.002193451,
+    0.014442444,
+    -0.03225708,
+    0.024902344,
+    0.007358551,
+    0.03543091,
+    -0.0013446808,
+    0.0057792664,
+    -0.053710938,
+    0.019638062,
+    -0.03515625,
+    0.029647827,
+    8.773804e-05,
+    0.02671814,
+    0.042785645,
+    -0.03439331,
+    0.019500732,
+    0.025939941,
+    0.008308411,
+    -0.013916016,
+    0.037261963,
+    0.000518322,
+    -0.037353516,
+    0.012374878,
+    0.007369995,
+    -0.031951904,
+    0.019378662,
+    -0.034423828,
+    -0.041503906,
+    0.016326904,
+    0.0090789795,
+    -0.018859863,
+    -0.019943237,
+    -0.027191162,
+    0.009597778,
+    -0.018081665,
+    -0.010009766,
+    0.0068130493,
+    0.02079773,
+    0.009223938,
+    0.0027942657,
+    -0.034362793,
+    -0.005176544,
+    -0.005027771,
+    0.0060768127,
+    -0.027526855,
+    -0.00033569336,
+    0.0038928986,
+    -0.021636963,
+    -0.034240723,
+    0.035217285,
+    -0.014442444,
+    -0.043548584,
+    0.031280518,
+    -0.0390625,
+    -0.0018148422,
+    -0.036499023,
+    0.0059928894,
+    0.02355957,
+    -0.0047302246,
+    -0.07397461,
+    0.0440979,
+    0.009757996,
+    0.020095825,
+    0.011497498,
+    -0.066467285,
+    0.015174866,
+    0.019973755,
+    -0.00087213516,
+    -0.0029525757,
+    0.001364708,
+    0.015327454,
+    0.038635254,
+    0.015319824,
+    0.03515625,
+    -0.046173096,
+    0.019134521,
+    0.025878906,
+    0.014976501,
+    -0.02508545,
+    -0.018737793,
+    0.036468506,
+    -0.03466797,
+    0.009002686,
+    -0.031982422,
+    0.004135132,
+    -0.050842285,
+    -0.0017271042,
+    -0.008087158,
+    -0.011276245,
+    0.007232666,
+    -0.010810852,
+    -0.019073486,
+    -0.008049011,
+    -0.0060157776,
+    -0.0013685226,
+    0.028930664,
+    0.0060310364,
+    -0.011657715,
+    -0.031082153,
+    0.0067100525,
+    0.03387451,
+    0.042114258,
+    -0.016464233,
+    -0.0009255409,
+    -0.032470703,
+    0.001156807,
+    0.05609131,
+    -0.04660034,
+    -0.018722534,
+    0.066223145,
+    -0.0006365776,
+    -0.0037345886,
+    0.03024292,
+    -0.008018494,
+    -0.041412354,
+    0.006175995,
+    0.029174805,
+    -0.0022678375,
+    0.02230835,
+    0.04837036,
+    -0.044708252,
+    -0.052764893,
+    0.035583496,
+    -0.007160187,
+    -0.020050049,
+    0.014152527,
+    -0.012817383,
+    -0.009933472,
+    -0.0033454895,
+    -0.012481689,
+    0.008758545,
+    -0.015312195,
+    0.057128906,
+    0.03366089,
+    -0.023040771,
+    0.0054969788,
+    -0.029907227,
+    0.043426514,
+    -9.7453594e-05,
+    -0.023788452,
+    -0.041381836,
+    -0.00048327446,
+    -0.06317139,
+    -0.019714355,
+    -0.02420044,
+    0.031280518,
+    -0.023620605,
+    -0.070739746,
+    -0.026473999,
+    0.0008921623,
+    -0.004825592,
+    0.013214111,
+    -0.0061073303,
+    -0.06549072,
+    0.00116539,
+    -0.01663208,
+    0.02809143,
+    0.015899658,
+    0.00699234,
+    -0.0018720627,
+    0.0029945374,
+    -0.049957275,
+    -0.021057129,
+    0.01386261,
+    -0.0055007935,
+    -0.009414673,
+    0.00034689903,
+    0.0061950684,
+    0.007129669,
+    0.0109939575,
+    -0.0069885254,
+    0.026535034,
+    -0.048706055,
+    -0.023086548,
+    -0.036621094,
+    0.019363403,
+    -0.009506226,
+    0.07824707,
+    0.007408142,
+    0.039978027,
+    0.013420105,
+    0.0054244995,
+    -0.045776367,
+    0.035369873,
+    -0.016738892,
+    -0.04586792,
+    0.009849548,
+    -0.027877808,
+    -0.030578613,
+    -0.016021729,
+    0.034362793,
+    0.029891968,
+    -0.04006958,
+    -0.013320923,
+    -0.011108398,
+    -0.01386261,
+    -0.018234253,
+    0.017120361,
+    0.0025253296,
+    -0.0058937073,
+    -0.0107803345,
+    0.05319214,
+    -0.0014038086,
+    -0.006072998,
+    -0.017944336,
+    -0.0006594658,
+    -0.062805176,
+    0.03741455,
+    -0.03717041,
+    0.041625977,
+    -0.0030288696,
+    -0.04333496,
+    -0.027664185,
+    0.0236969,
+    -0.00058174133,
+    -0.013336182,
+    0.018600464,
+    -0.0018825531,
+    0.009246826,
+    0.02758789,
+    0.003900528,
+    -0.015777588,
+    0.024475098,
+    -0.013145447,
+    -0.013381958,
+    0.038604736,
+    -0.0032672882,
+    -0.045410156,
+    -0.037017822,
+    -0.025909424,
+    0.04449463,
+    0.027282715,
+    -0.031677246,
+    0.02772522,
+    0.048858643,
+    -0.008804321,
+    0.030395508,
+    -0.044952393,
+    0.012672424,
+    -0.027862549,
+    -0.015640259,
+    0.02104187,
+    0.008659363,
+    0.0023326874,
+    0.09350586,
+    -0.003479004,
+    0.013549805,
+    0.03543091,
+    -0.0048828125,
+    -0.015464783,
+    0.018539429,
+    0.015686035,
+    -0.014427185,
+    -0.010223389,
+    0.01739502,
+    -0.017791748,
+    0.02909851,
+    0.03112793,
+    0.011047363,
+    -0.0020961761,
+    0.00945282,
+    0.027374268,
+    -0.01285553,
+    0.050842285,
+    -0.006023407,
+    0.016906738,
+    -0.035705566,
+    -0.08898926,
+    -0.008163452,
+    -0.0075531006,
+    -0.048065186,
+    0.0135269165,
+    0.06890869,
+    -0.04135132,
+    0.022567749,
+    -0.042266846,
+    -0.029205322,
+    0.0070152283,
+    -0.024795532,
+    0.00497818,
+    -0.01637268,
+    0.005470276,
+    0.03277588,
+    0.07696533,
+    -0.007045746,
+    -0.004524231,
+    0.023452759,
+    -0.004989624,
+    0.0519104,
+    0.03225708,
+    0.0011262894,
+    0.03161621,
+    -0.018829346,
+    -0.052978516,
+    0.036834717,
+    -0.04434204,
+    -0.05267334,
+    0.022262573,
+    -0.03479004,
+    0.046875,
+    0.0055618286,
+    0.005558014,
+    -0.08105469,
+    0.014442444,
+    -0.00024211407,
+    -0.0035037994,
+    -0.0030136108,
+    -0.027450562,
+    -0.013221741,
+    0.02482605,
+    0.03250122,
+    -0.028457642,
+    -0.031036377,
+    0.02545166,
+    -0.03869629,
+    -0.03564453,
+    -0.0006432533,
+    0.016143799,
+    0.014984131,
+    0.05126953,
+    -0.031799316,
+    0.13098145,
+    -0.040618896,
+    -0.012290955,
+    -0.016830444,
+    -0.009651184,
+    -0.02961731,
+    0.010192871,
+    0.04257202,
+    0.012504578,
+    -0.017471313,
+    -0.003501892,
+    0.0032310486,
+    -0.0113220215,
+    -0.00010663271,
+    0.001458168,
+    -0.02279663,
+    0.0077285767,
+    0.01940918,
+    0.046020508,
+    -0.032318115,
+    0.055267334,
+    -0.009391785,
+    -0.059020996,
+    0.015777588,
+    0.025054932,
+    0.025939941,
+    0.017303467,
+    0.010826111,
+    0.009727478,
+    0.03704834,
+    -0.03540039,
+    0.0069503784,
+    -0.035003662,
+    -0.0052490234,
+    -0.00068998337,
+    0.0066337585,
+    -0.011108398,
+    -0.009887695,
+    0.049804688,
+    0.009780884,
+    0.022460938,
+    -0.003643036,
+    0.02432251,
+    0.025115967,
+    0.006996155,
+    -0.007965088,
+    -0.0023097992,
+    -0.0132751465,
+    -0.0020999908,
+    -0.038116455,
+    -0.038238525,
+    0.033935547,
+    0.0007042885,
+    -0.022399902,
+    0.037322998,
+    0.050231934,
+    -0.010902405,
+    -0.00945282,
+    0.013145447,
+    -0.025817871,
+    -0.006389618,
+    -0.015716553,
+    0.00051784515,
+    0.0050811768,
+    -0.03894043,
+    0.019592285,
+    0.008506775,
+    0.02355957,
+    -0.021957397,
+    0.037719727,
+    0.02041626,
+    -0.024093628,
+    -0.021087646,
+    -0.010063171,
+    -0.0033950806,
+    -0.02432251,
+    0.04107666,
+    -0.022323608,
+    -0.009498596,
+    -0.07348633,
+    -0.006454468,
+    -0.09802246,
+    -0.02973938,
+    -0.007385254,
+    -0.046844482,
+    0.06933594,
+    0.045410156,
+    -0.03149414,
+    0.08270264,
+    -0.015258789,
+    0.0075683594,
+    -0.0075187683,
+    -0.04473877,
+    0.011299133,
+    -0.0012207031,
+    0.053100586,
+    -0.041900635,
+    -0.00028157234
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89563.md",
+    "file_name": "89563.md",
+    "file_size": 7810,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Flight Incident Information",
+      "The incident occurred during taxi-from runway.",
+      "Windshear or thunderstorm was present during the incident.",
+      "Loss of control on ground was the defining event of the incident.",
+      "The aircraft experienced a nose over/nose down condition.",
+      "The incident resulted in collision with terrain/object (non-CFIT).",
+      "The flight instructor held a Commercial pilot certificate.",
+      "The flight instructor held a Flight instructor certificate.",
+      "The flight instructor was 24 years old.",
+      "The flight instructor had airplane ratings for Single-engine land.",
+      "The flight instructor had airplane ratings for Multi-engine land.",
+      "The flight instructor occupied the right seat.",
+      "The flight instructor had no other aircraft ratings.",
+      "The flight instructor used a 3-point restraint.",
+      "The flight instructor held an Instrument Rating for Airplane.",
+      "A second pilot was present during the incident.",
+      "The flight instructor held instructor ratings for Airplane multi-engine.",
+      "The flight instructor held instructor ratings for Airplane single-engine.",
+      "The flight instructor held instructor ratings for Instrument airplane.",
+      "No toxicology was performed on the flight instructor.",
+      "The flight instructor held a Class 1 Medical Certification without waivers/limitations.",
+      "The flight instructor's last FAA Medical Exam was on July 18, 2013.",
+      "The flight instructor was an occupational pilot.",
+      "The flight instructor's last Flight Review or Equivalent was on June 25, 2013.",
+      "The flight instructor had 1614 total flight hours in all aircraft.",
+      "The flight instructor had 1024 total flight hours in this make and model.",
+      "The flight instructor had 1513 Pilot In Command hours in all aircraft.",
+      "The flight instructor had 88 flight hours in the last 90 days in all aircraft.",
+      "The flight instructor had 20 flight hours in the last 30 days in all aircraft.",
+      "The flight instructor had 3 flight hours in the last 24 hours in all aircraft.",
+      "The student pilot held no pilot certificate.",
+      "The student pilot was 47 years old.",
+      "The student pilot had no airplane ratings.",
+      "The student pilot occupied the left seat.",
+      "The student pilot had no other aircraft ratings.",
+      "The student pilot used a 3-point restraint.",
+      "The student pilot had no instrument ratings.",
+      "The student pilot had no instructor ratings.",
+      "No toxicology was performed on the student pilot.",
+      "The student pilot had no medical certification.",
+      "The student pilot was not an occupational pilot.",
+      "The student pilot had 9 total flight hours in all aircraft.",
+      "The student pilot had 9 total flight hours in this make and model."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Flight Incident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "flight instructor",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "student pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred during taxi-from runway.",
+              "details": [
+                "incident OCCURRED DURING taxi-from runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "taxi-from runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Windshear or thunderstorm was present during the incident.",
+              "details": [
+                "incident WEATHER CONDITION windshear or thunderstorm"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "windshear or thunderstorm",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Loss of control on ground was the defining event of the incident.",
+              "details": [
+                "incident DEFINING EVENT loss of control on ground"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control on ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft experienced a nose over/nose down condition.",
+              "details": [
+                "aircraft EXPERIENCED CONDITION nose over/nose down"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose over/nose down",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident resulted in collision with terrain/object (non-CFIT).",
+              "details": [
+                "incident RESULTED IN collision with terrain/object (non-CFIT)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision with terrain/object (non-CFIT)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor held a Commercial pilot certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Commercial pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor held a Flight instructor certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight instructor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor was 24 years old.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "24 years",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had airplane ratings for Single-engine land.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Single-engine land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had airplane ratings for Multi-engine land.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Multi-engine land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor occupied the right seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had no other aircraft ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OTHER AIRCRAFT RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor used a 3-point restraint.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED RESTRAINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3-point restraint",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor held an Instrument Rating for Airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Instrument Rating for Airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A second pilot was present during the incident.",
+              "details": [
+                "incident HAD PRESENT second pilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAD PRESENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor held instructor ratings for Airplane multi-engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane multi-engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor held instructor ratings for Airplane single-engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane single-engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor held instructor ratings for Instrument airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Instrument airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the flight instructor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor held a Class 1 Medical Certification without waivers/limitations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class 1 without waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor's last FAA Medical Exam was on July 18, 2013.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST FAA MEDICAL EXAM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "July 18, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor was an occupational pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "occupational pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor's last Flight Review or Equivalent was on June 25, 2013.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "June 25, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had 1614 total flight hours in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1614",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had 1024 total flight hours in this make and model.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS IN MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had 1513 Pilot In Command hours in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PILOT IN COMMAND HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1513",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had 88 flight hours in the last 90 days in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 90 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "88",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had 20 flight hours in the last 30 days in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 30 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "20",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor had 3 flight hours in the last 24 hours in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 24 HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot held no pilot certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HOLDS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot was 47 years old.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "47 years",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no airplane ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot occupied the left seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no other aircraft ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OTHER AIRCRAFT RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot used a 3-point restraint.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED RESTRAINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3-point restraint",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no instrument ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUMENT RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no instructor ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the student pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no medical certification.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot was not an occupational pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not occupational pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had 9 total flight hours in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "9",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had 9 total flight hours in this make and model.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS IN MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "9",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::108b2d39:b52a",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89563.md",
+        "file_name": "89563.md",
+        "file_size": 7810,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "0f54db72774343bd2cfd4d6a724e469d1a467532dbef3bcf26a7bca4a36adaf0",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::108b2d39:b52a:25d22b1d",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89563.md",
+        "file_name": "89563.md",
+        "file_size": 7810,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "cb75a318e7025a969103db2d0bc5d14a44d365dc2da2b46e8ab6eee5bd6c5f1a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::108b2d39:b52a:fc9657f8",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89563.md",
+        "file_name": "89563.md",
+        "file_size": 7810,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "cb2555d4cc6b64cc08a49b9173a4f1ccb391f73c78ece4a5bff56986d1ae26b5",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Taxi-from runway | Windshear or thunderstorm |\n| Taxi-from runway | Loss of control on ground (Defining event) |\n| Taxi-from runway | Nose over/nose down |\n| Taxi-from runway | Collision with terr/obj (non-CFIT) |\n\n## Flight instructor Information\n\n| Certificate: | Commercial; Flight instructor |\n| Age: | 24 |\n| Airplane Rating(s): | Single-engine land; Multi-engine land |\n| Seat Occupied: | Right |\n| Other Aircraft Rating(s): | None |\n| Restraint Used: | 3-point |\n| Instrument Rating(s): | Airplane |\n| Second Pilot Present: | Yes |\n| Instructor Rating(s): | Airplane multi-engine; Airplane single-engine; Instrument airplane |\n| Toxicology Performed: | No |\n| Medical Certification: | Class 1 Without waivers/limitations |\n| Last FAA Medical Exam: | July 18, 2013 |\n| Occupational Pilot: | Yes |\n| Last Flight Review or Equivalent: | June 25, 2013 |\n| Flight Time: | 1614 hours (Total, all aircraft), 1024 hours (Total, this make and model), 1513 hours (Pilot In Command, all aircraft), 88 hours (Last 90 days, all aircraft), 20 hours (Last 30 days, all aircraft), 3 hours (Last 24 hours, all aircraft) |\n\n## Student pilot Information\n\n| Certificate: | None |\n| Age: | 47 |\n| Airplane Rating(s): | None |\n| Seat Occupied: | Left |\n| Other Aircraft Rating(s): | None |\n| Restraint Used: | 3-point |\n| Instrument Rating(s): | None |\n| Second Pilot Present: | Yes |\n| Instructor Rating(s): | None |\n| Toxicology Performed: | No |\n| Medical Certification: | None |\n| Occupational Pilot: | No |\n| Flight Time: | 9 hours (Total, all aircraft), 9 hours (Total, this make and model) |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1635,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2167 @@
+{
+  "id_": "aws::3dd88aa8:3e5d:3f5e2efa",
+  "embedding": [
+    0.015777588,
+    0.013771057,
+    0.0037403107,
+    -0.06329346,
+    0.003616333,
+    0.0029659271,
+    -0.04486084,
+    -0.0032806396,
+    -0.03137207,
+    0.022277832,
+    0.009307861,
+    0.009162903,
+    0.025650024,
+    -0.02470398,
+    0.039245605,
+    -0.031402588,
+    0.02079773,
+    0.059570312,
+    0.04748535,
+    -0.015472412,
+    0.021026611,
+    0.0006875992,
+    0.00026154518,
+    0.052703857,
+    -0.0012598038,
+    0.03466797,
+    -0.04611206,
+    0.021697998,
+    -0.015960693,
+    -0.00019705296,
+    0.0023593903,
+    0.00258255,
+    0.008903503,
+    0.039611816,
+    -0.027664185,
+    -0.005897522,
+    -0.003194809,
+    0.012527466,
+    -0.008766174,
+    0.028900146,
+    0.02609253,
+    -0.026428223,
+    0.036987305,
+    -0.05517578,
+    0.009887695,
+    -0.016784668,
+    0.03945923,
+    -0.019683838,
+    0.024307251,
+    0.056793213,
+    0.016723633,
+    -0.009140015,
+    0.018127441,
+    0.047027588,
+    -0.003074646,
+    -0.0127334595,
+    -0.082092285,
+    0.050445557,
+    -0.0052948,
+    0.02911377,
+    0.03765869,
+    0.021148682,
+    0.021453857,
+    0.03010559,
+    -0.042236328,
+    -0.00592041,
+    0.0335083,
+    0.00466156,
+    0.041381836,
+    -0.03543091,
+    -0.019134521,
+    0.048675537,
+    -0.0015325546,
+    0.040802002,
+    -0.024169922,
+    -0.04937744,
+    0.009277344,
+    -0.017822266,
+    0.0031642914,
+    0.044189453,
+    0.059448242,
+    -0.010421753,
+    0.01348114,
+    -0.013664246,
+    0.01914978,
+    0.03048706,
+    0.009407043,
+    -0.026153564,
+    0.029190063,
+    -0.001115799,
+    -0.008354187,
+    0.007030487,
+    0.017608643,
+    0.025390625,
+    -0.036010742,
+    -0.007980347,
+    0.039611816,
+    -0.022262573,
+    0.01727295,
+    -0.03277588,
+    -0.00095796585,
+    -0.03970337,
+    -0.04776001,
+    0.009819031,
+    -0.019195557,
+    0.017700195,
+    0.02583313,
+    -0.017913818,
+    0.0024433136,
+    0.0028209686,
+    -0.045532227,
+    0.031066895,
+    -0.0027446747,
+    -0.060760498,
+    0.005104065,
+    0.06573486,
+    0.030883789,
+    0.004852295,
+    0.029922485,
+    -0.006111145,
+    -0.002231598,
+    0.025253296,
+    -0.047943115,
+    -0.02420044,
+    0.013954163,
+    -0.03475952,
+    -0.0075263977,
+    0.034820557,
+    0.057281494,
+    -0.022537231,
+    0.011550903,
+    0.047058105,
+    -0.07305908,
+    -0.0546875,
+    -0.04031372,
+    0.028381348,
+    -0.051513672,
+    0.0047683716,
+    0.006248474,
+    -0.0131073,
+    -0.02973938,
+    -0.011016846,
+    0.0826416,
+    0.010154724,
+    0.010360718,
+    0.029388428,
+    0.031829834,
+    0.0029201508,
+    -0.0028209686,
+    -0.033447266,
+    -0.010597229,
+    0.026123047,
+    0.042755127,
+    -0.008171082,
+    -0.017593384,
+    -0.06536865,
+    -0.016601562,
+    -0.033569336,
+    0.035003662,
+    -0.04928589,
+    -0.004196167,
+    -0.0037956238,
+    0.026489258,
+    0.0043525696,
+    -0.060394287,
+    0.024414062,
+    -0.0054969788,
+    -0.025604248,
+    0.012542725,
+    0.04827881,
+    0.027252197,
+    -0.002948761,
+    -0.042266846,
+    0.003293991,
+    -0.021575928,
+    -0.009765625,
+    0.006000519,
+    0.003730774,
+    0.00440979,
+    0.018676758,
+    0.016281128,
+    -0.012939453,
+    0.04449463,
+    -0.018753052,
+    -0.023910522,
+    0.017410278,
+    0.021530151,
+    0.0435791,
+    0.005706787,
+    0.014259338,
+    0.03567505,
+    0.017745972,
+    0.0211792,
+    -0.010787964,
+    -0.0054893494,
+    -0.023376465,
+    -0.009521484,
+    0.0017061234,
+    -0.02456665,
+    0.0056915283,
+    -0.04473877,
+    0.0046539307,
+    0.027389526,
+    0.005760193,
+    -0.041534424,
+    0.024383545,
+    -0.024765015,
+    0.04937744,
+    -0.03274536,
+    0.017349243,
+    0.028213501,
+    -0.030929565,
+    -0.025970459,
+    0.0602417,
+    0.0066490173,
+    -0.016723633,
+    -0.00737381,
+    -0.012619019,
+    0.016998291,
+    0.002035141,
+    -0.016616821,
+    0.06616211,
+    -0.038604736,
+    -0.021591187,
+    0.011260986,
+    0.0023097992,
+    -0.009971619,
+    -0.006401062,
+    0.036621094,
+    0.006965637,
+    0.03274536,
+    -0.031433105,
+    0.020812988,
+    0.028320312,
+    -0.03201294,
+    0.0020141602,
+    0.004020691,
+    0.0052757263,
+    0.016708374,
+    0.017227173,
+    -0.008110046,
+    -0.034210205,
+    -0.018112183,
+    0.05581665,
+    -0.13647461,
+    -0.09033203,
+    0.003982544,
+    0.010887146,
+    -0.049835205,
+    0.02458191,
+    0.049438477,
+    0.04748535,
+    0.009407043,
+    0.06842041,
+    -0.034210205,
+    0.014678955,
+    -0.003440857,
+    -0.017425537,
+    0.02293396,
+    -0.010437012,
+    0.015434265,
+    -0.06567383,
+    -0.050628662,
+    -0.011505127,
+    0.030212402,
+    0.03161621,
+    0.0725708,
+    0.072509766,
+    -0.009353638,
+    0.01689148,
+    -0.016189575,
+    0.0067825317,
+    -0.0016641617,
+    0.04788208,
+    -0.02784729,
+    0.0035324097,
+    -0.007881165,
+    -0.0058555603,
+    0.003320694,
+    0.0018625259,
+    0.0062026978,
+    0.058654785,
+    -0.021865845,
+    -0.012466431,
+    0.008972168,
+    -0.0064468384,
+    -0.032592773,
+    -0.011367798,
+    -0.011505127,
+    0.030944824,
+    0.04373169,
+    -0.005016327,
+    -0.032592773,
+    0.0046653748,
+    0.01235199,
+    -0.006942749,
+    0.029663086,
+    0.0104904175,
+    -0.0017871857,
+    0.014450073,
+    0.03579712,
+    0.06732178,
+    -0.00995636,
+    0.041381836,
+    0.022521973,
+    -0.0032100677,
+    0.030578613,
+    -0.008880615,
+    0.0065574646,
+    0.033843994,
+    -0.03665161,
+    0.05065918,
+    0.036712646,
+    0.055145264,
+    -0.034698486,
+    -0.033203125,
+    -0.022994995,
+    0.028427124,
+    -0.02470398,
+    -0.014778137,
+    -0.0053977966,
+    -0.011634827,
+    -0.017944336,
+    0.025512695,
+    -0.008972168,
+    0.0020427704,
+    0.028869629,
+    -0.0048828125,
+    0.0004734993,
+    0.032287598,
+    -0.05142212,
+    -0.03265381,
+    -0.054779053,
+    -0.033203125,
+    -0.030288696,
+    0.024902344,
+    -0.0023670197,
+    0.0043144226,
+    -0.024017334,
+    -0.007610321,
+    -0.052368164,
+    -0.032073975,
+    0.01676941,
+    -0.08105469,
+    -0.07556152,
+    -0.012367249,
+    0.01007843,
+    0.008781433,
+    -0.078125,
+    -0.04324341,
+    0.07543945,
+    -0.017562866,
+    -0.01071167,
+    0.018920898,
+    0.03692627,
+    -0.11077881,
+    -0.038513184,
+    0.05706787,
+    -0.011566162,
+    -0.029418945,
+    0.007949829,
+    0.036468506,
+    -0.008522034,
+    -0.036499023,
+    -0.011474609,
+    -0.028961182,
+    -0.020080566,
+    0.017791748,
+    -0.00023651123,
+    0.039642334,
+    -0.049560547,
+    0.032928467,
+    0.0007147789,
+    -0.015342712,
+    -0.0030498505,
+    0.007686615,
+    0.04296875,
+    -0.032440186,
+    0.046905518,
+    0.029159546,
+    -0.004600525,
+    0.019622803,
+    0.019042969,
+    0.026748657,
+    0.042175293,
+    -0.0038490295,
+    -0.014961243,
+    0.011146545,
+    0.009994507,
+    0.025802612,
+    -0.006175995,
+    -0.02949524,
+    -0.009819031,
+    -0.036315918,
+    0.0011529922,
+    0.008346558,
+    -0.010536194,
+    -0.021606445,
+    2.9861927e-05,
+    -0.011810303,
+    -0.08856201,
+    0.0019874573,
+    -0.016937256,
+    -0.031280518,
+    -0.0035572052,
+    -0.101501465,
+    -0.014717102,
+    -0.06100464,
+    0.020019531,
+    0.071899414,
+    -0.0158844,
+    0.03756714,
+    0.0004298687,
+    0.04486084,
+    -0.01777649,
+    0.01576233,
+    -0.004398346,
+    -0.01625061,
+    -0.010787964,
+    0.032226562,
+    0.022583008,
+    -0.031036377,
+    -0.011886597,
+    0.01550293,
+    -0.0025367737,
+    -0.024780273,
+    -0.018295288,
+    -0.003534317,
+    -0.05618286,
+    0.04522705,
+    -0.02229309,
+    -0.0027637482,
+    -0.004508972,
+    -0.04449463,
+    -0.03955078,
+    0.033233643,
+    0.0046958923,
+    0.010566711,
+    0.013893127,
+    -0.013824463,
+    -0.008277893,
+    -0.02394104,
+    0.020584106,
+    -0.008392334,
+    -0.00058841705,
+    -0.0066947937,
+    -0.02053833,
+    0.037750244,
+    0.006965637,
+    -0.04321289,
+    -0.01499939,
+    -0.017578125,
+    0.07519531,
+    0.036956787,
+    0.007713318,
+    0.07733154,
+    -0.019500732,
+    0.029205322,
+    0.032470703,
+    -0.047454834,
+    -0.0102005005,
+    -0.008636475,
+    -0.06021118,
+    -0.003917694,
+    -0.008598328,
+    -0.002670288,
+    -0.025558472,
+    0.0050201416,
+    0.020858765,
+    -0.025650024,
+    0.0010499954,
+    0.047454834,
+    -0.017929077,
+    -0.034942627,
+    0.004322052,
+    0.0064926147,
+    0.020889282,
+    -0.025482178,
+    0.044128418,
+    -0.0070610046,
+    -0.06817627,
+    0.019561768,
+    -0.021484375,
+    0.025146484,
+    -0.0013189316,
+    0.018676758,
+    0.015823364,
+    0.028305054,
+    -0.0090789795,
+    0.023635864,
+    -0.004627228,
+    0.039031982,
+    0.023071289,
+    0.020935059,
+    0.007865906,
+    0.007019043,
+    0.01171875,
+    -0.0524292,
+    -0.022384644,
+    -0.028030396,
+    -0.037017822,
+    -0.016784668,
+    -0.020645142,
+    0.00041007996,
+    -0.005630493,
+    0.02017212,
+    0.01864624,
+    0.021270752,
+    -0.0029125214,
+    -0.03543091,
+    0.014823914,
+    -0.015808105,
+    -0.013381958,
+    0.009124756,
+    -0.04248047,
+    0.057250977,
+    -0.018249512,
+    -0.035858154,
+    -0.0058021545,
+    -0.008857727,
+    -0.049926758,
+    -0.005092621,
+    0.06585693,
+    0.06451416,
+    -0.09063721,
+    -0.009681702,
+    0.03994751,
+    0.016174316,
+    -0.02734375,
+    -0.020996094,
+    0.0395813,
+    0.008369446,
+    -0.022766113,
+    -0.024459839,
+    0.026947021,
+    0.023666382,
+    -0.009796143,
+    0.010375977,
+    -0.0143585205,
+    -0.046813965,
+    -0.0053138733,
+    0.023712158,
+    -0.0013628006,
+    -0.028533936,
+    0.028533936,
+    -0.048980713,
+    0.02394104,
+    0.026153564,
+    -0.047210693,
+    -0.003025055,
+    -0.027877808,
+    -0.008796692,
+    -0.0033187866,
+    -0.048461914,
+    -0.05227661,
+    0.066101074,
+    0.04547119,
+    -0.019454956,
+    -0.016952515,
+    -0.008644104,
+    0.00374794,
+    -0.0037555695,
+    -0.011070251,
+    -0.00048804283,
+    0.013809204,
+    0.02508545,
+    -0.0023403168,
+    -0.049804688,
+    0.054534912,
+    -0.018035889,
+    -0.021148682,
+    -0.030059814,
+    0.09307861,
+    0.017486572,
+    0.02217102,
+    -0.031158447,
+    0.000813961,
+    0.055511475,
+    -0.032684326,
+    -0.033050537,
+    -0.0079574585,
+    -0.0076179504,
+    -0.009918213,
+    0.0435791,
+    -0.018554688,
+    0.020431519,
+    -0.0061912537,
+    -0.0066719055,
+    -0.025756836,
+    -0.04434204,
+    -0.0309906,
+    0.028533936,
+    0.0029563904,
+    0.044647217,
+    0.013366699,
+    -0.022338867,
+    0.0119018555,
+    -0.07116699,
+    0.039611816,
+    0.0023612976,
+    -0.029251099,
+    -0.0154953,
+    -0.007575989,
+    -0.020568848,
+    0.071899414,
+    0.029541016,
+    -0.038848877,
+    0.022369385,
+    0.00223732,
+    0.018997192,
+    0.006088257,
+    0.02154541,
+    -0.057800293,
+    0.0011692047,
+    -0.016448975,
+    -0.015289307,
+    -0.019546509,
+    0.0181427,
+    -0.0012254715,
+    -0.015182495,
+    0.01675415,
+    0.02418518,
+    0.034301758,
+    -0.016464233,
+    0.025665283,
+    -0.0026988983,
+    -0.059417725,
+    -0.034210205,
+    -0.013114929,
+    0.0446167,
+    -0.008987427,
+    0.00021994114,
+    -0.0501709,
+    -0.04360962,
+    -0.055664062,
+    0.03302002,
+    -0.009239197,
+    -0.053466797,
+    -0.01701355,
+    -0.029907227,
+    -0.02319336,
+    0.028137207,
+    0.015151978,
+    -0.027496338,
+    0.018005371,
+    -0.020492554,
+    -0.001543045,
+    -0.0021953583,
+    -0.004676819,
+    -0.017105103,
+    -0.034423828,
+    0.007873535,
+    -0.010520935,
+    -0.0037517548,
+    0.02670288,
+    -0.016952515,
+    -0.0071411133,
+    -0.0317688,
+    0.005039215,
+    -0.058441162,
+    -0.08117676,
+    -0.040802002,
+    -0.03604126,
+    -0.023910522,
+    -0.07116699,
+    0.02885437,
+    0.03579712,
+    0.026550293,
+    0.01058197,
+    -0.07470703,
+    0.00042891502,
+    0.072631836,
+    -0.03338623,
+    -0.010917664,
+    -4.87566e-05,
+    0.003326416,
+    0.02508545,
+    0.028213501,
+    -0.004638672,
+    -0.037017822,
+    0.013809204,
+    0.036102295,
+    0.03414917,
+    0.021713257,
+    -0.047027588,
+    0.058624268,
+    -0.05178833,
+    -0.031311035,
+    -0.04611206,
+    0.004096985,
+    -0.025817871,
+    0.047210693,
+    -0.027786255,
+    0.021072388,
+    -0.009277344,
+    -0.02168274,
+    0.015357971,
+    0.0050964355,
+    -0.026245117,
+    -0.053131104,
+    -0.0070991516,
+    0.013130188,
+    0.0127334595,
+    0.021575928,
+    -0.008735657,
+    -0.0047798157,
+    -0.03665161,
+    0.0042877197,
+    -0.026794434,
+    -0.009025574,
+    -0.006164551,
+    0.043121338,
+    0.01108551,
+    0.01512146,
+    0.034118652,
+    -0.019363403,
+    -0.017425537,
+    -0.016296387,
+    -0.06335449,
+    0.012680054,
+    0.003358841,
+    0.040222168,
+    0.026794434,
+    -0.047332764,
+    0.026123047,
+    -0.035064697,
+    0.0021209717,
+    0.023788452,
+    0.0036029816,
+    0.027328491,
+    0.0011348724,
+    -0.056762695,
+    0.05255127,
+    -0.019424438,
+    -0.035247803,
+    -0.029144287,
+    -0.022415161,
+    0.049987793,
+    -0.004432678,
+    -0.03744507,
+    -0.029571533,
+    -0.022964478,
+    0.031051636,
+    -0.019104004,
+    -0.078552246,
+    -0.0140686035,
+    -0.013633728,
+    -0.09863281,
+    -0.04663086,
+    -0.06640625,
+    0.0034179688,
+    -0.022994995,
+    -0.026428223,
+    0.018127441,
+    0.0053901672,
+    0.032196045,
+    0.012374878,
+    -0.02949524,
+    -0.036346436,
+    -0.006374359,
+    -0.034088135,
+    0.03390503,
+    0.025985718,
+    0.018798828,
+    0.024230957,
+    0.05517578,
+    -0.013267517,
+    -0.021743774,
+    0.012702942,
+    -0.011581421,
+    -0.028762817,
+    0.0060157776,
+    -0.007820129,
+    -0.016220093,
+    0.039276123,
+    -0.00894165,
+    0.053344727,
+    -0.020874023,
+    -0.022888184,
+    -0.03567505,
+    -0.017105103,
+    -0.012130737,
+    -0.042785645,
+    0.019943237,
+    -0.037017822,
+    0.01272583,
+    -0.027114868,
+    0.050994873,
+    -0.03778076,
+    0.009140015,
+    -0.024093628,
+    0.048217773,
+    -0.017288208,
+    0.018814087,
+    -0.0012645721,
+    -0.011352539,
+    -0.01965332,
+    -0.01096344,
+    -0.002878189,
+    -0.03665161,
+    -0.026260376,
+    -0.0052108765,
+    -0.00038266182,
+    0.03491211,
+    -0.01626587,
+    -0.017684937,
+    0.020309448,
+    0.049987793,
+    0.036499023,
+    -0.03918457,
+    0.020492554,
+    -0.052825928,
+    0.034088135,
+    0.010513306,
+    0.012840271,
+    0.041412354,
+    -0.029968262,
+    -0.03970337,
+    0.026321411,
+    0.0036735535,
+    0.0063819885,
+    0.028457642,
+    0.043945312,
+    -0.03060913,
+    0.016921997,
+    0.020874023,
+    -0.022216797,
+    -0.013343811,
+    0.009307861,
+    -0.031021118,
+    0.022872925,
+    0.0027275085,
+    -0.009017944,
+    -0.016296387,
+    -0.00026392937,
+    0.04284668,
+    0.010620117,
+    -0.025558472,
+    0.016067505,
+    0.027755737,
+    -0.0647583,
+    0.0044822693,
+    -0.033721924,
+    -0.014411926,
+    -0.03768921,
+    0.042938232,
+    0.026626587,
+    0.0062332153,
+    0.056762695,
+    0.07678223,
+    -0.0021781921,
+    0.0015392303,
+    0.03086853,
+    -0.03277588,
+    -0.00022268295,
+    0.021881104,
+    0.012901306,
+    -0.033996582,
+    -2.43783e-05,
+    0.019699097,
+    -0.014892578,
+    0.013076782,
+    -0.023925781,
+    0.0033435822,
+    0.013725281,
+    0.044403076,
+    -0.02986145,
+    0.015350342,
+    -0.0309906,
+    0.05847168,
+    0.025375366,
+    0.005470276,
+    -0.049102783,
+    -0.017532349,
+    -0.008651733,
+    -0.030212402,
+    0.023757935,
+    0.031982422,
+    -0.032104492,
+    0.015014648,
+    -0.01991272,
+    -0.024017334,
+    0.042541504,
+    0.018875122,
+    0.0033855438,
+    -0.041290283,
+    -0.0052833557,
+    0.0032730103,
+    0.050323486,
+    0.02229309,
+    -0.011260986,
+    -0.019165039,
+    -0.0041618347,
+    0.024368286,
+    0.0008111,
+    0.05105591,
+    0.0039749146,
+    -0.039276123,
+    -0.038238525,
+    0.016418457,
+    -0.0065956116,
+    -0.030914307,
+    -0.008666992,
+    -0.06112671,
+    0.026397705,
+    -0.026229858,
+    -0.00982666,
+    -0.031066895,
+    -0.03515625,
+    -0.030563354,
+    0.05267334,
+    0.010124207,
+    -0.05380249,
+    0.0066833496,
+    0.028060913,
+    -0.035736084,
+    -0.06921387,
+    -0.046813965,
+    0.0055885315,
+    -0.030761719,
+    -0.038269043,
+    -0.05102539,
+    0.016311646,
+    0.01676941,
+    0.04901123,
+    0.013496399,
+    0.05407715,
+    -0.082092285,
+    -0.0027256012,
+    0.0059013367,
+    0.01058197,
+    0.00068616867,
+    0.057495117,
+    -0.052124023,
+    0.038879395,
+    -0.018753052,
+    -0.011398315,
+    -0.017196655,
+    -0.042053223,
+    0.009490967,
+    0.0035305023,
+    -0.03793335,
+    0.009666443,
+    0.054626465,
+    0.027069092,
+    0.021148682,
+    0.0001784563,
+    -0.01109314,
+    -0.04260254,
+    0.014968872,
+    -0.019760132,
+    0.018371582,
+    0.01121521,
+    -0.009819031,
+    0.015487671,
+    0.029968262,
+    -0.05307007,
+    -0.0076408386,
+    -0.026382446,
+    -0.015640259,
+    -0.005027771,
+    0.046325684,
+    0.021408081,
+    0.037139893,
+    0.005458832,
+    0.051330566,
+    -0.0066375732,
+    -0.04949951,
+    -0.009140015,
+    0.025863647,
+    -0.0015792847,
+    -0.019424438,
+    0.007434845,
+    -0.02178955,
+    -0.0056419373,
+    -0.049468994,
+    0.036743164,
+    -0.01260376,
+    0.006538391,
+    0.025222778,
+    -0.026016235,
+    0.04208374,
+    -0.01826477,
+    -0.013114929,
+    0.014633179,
+    -0.07684326,
+    0.02407837,
+    0.0051193237,
+    -0.013694763,
+    -0.0024871826,
+    -0.05444336,
+    0.043701172,
+    -0.0034370422,
+    -0.012489319,
+    -0.0262146,
+    0.020324707,
+    -0.0023231506,
+    0.022583008,
+    -0.013420105,
+    -0.03363037,
+    -0.032287598,
+    -0.012268066,
+    0.030578613,
+    -0.015594482,
+    0.0023021698,
+    -0.07293701,
+    -0.012397766,
+    -0.05105591,
+    -0.018203735,
+    -0.00806427,
+    -0.05822754,
+    0.03326416,
+    0.011520386,
+    -0.013900757,
+    0.029464722,
+    0.018981934,
+    0.00034570694,
+    0.034973145,
+    0.0031280518,
+    0.028030396,
+    -0.009399414,
+    -0.0524292,
+    -0.004447937,
+    -0.028121948
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+    "file_name": "89181.md",
+    "file_size": 28636,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aircraft Examination and Flight Recorder Information",
+      "The propeller was manually rotated during examination.",
+      "Thumb compressions were detected on all cylinders during examination.",
+      "All ignition leads remained attached to their respective spark plugs.",
+      "All examined spark plug electrodes were consistent with near-new condition.",
+      "The two separate magnetos appeared undamaged.",
+      "All the ignition harnesses appeared undamaged.",
+      "The magnetos and ignition systems were not tested due to accessibility problems.",
+      "The magnetos and ignition systems were not tested due to the low likelihood of a simultaneous dual magneto failure.",
+      "Damage to the airplane precluded a complete determination of the ignition system integrity.",
+      "Lack of design and construction information precluded a complete determination of the ignition system integrity.",
+      "Limited resources precluded a complete determination of the ignition system functionality.",
+      "The examination did not reveal any pre-impact mechanical deficiencies associated with the power loss.",
+      "Additional examination details may be found in the public docket for this accident.",
+      "The airplane was equipped with a Garmin GPSMap 496.",
+      "The Garmin GPSMap 496 was removed and sent to the National Transportation Safety Board (NTSB) Recorders Laboratory for data download.",
+      "The last flight record on the Garmin GPSMap 496 occurred on May 3, 2014.",
+      "The last flight originated at DLS.",
+      "The last flight covered 598.1 statute miles.",
+      "The last flight lasted approximately 3.5 hours.",
+      "The last flight was the accident leg.",
+      "The flight prior to the accident leg was also captured by the Garmin GPSMap 496.",
+      "The flight prior to the accident leg originated at AWO.",
+      "The flight prior to the accident leg covered 319.4 statute miles.",
+      "The flight prior to the accident leg lasted approximately 2 hours.",
+      "There was no recorded track data associated with any of these flights.",
+      "Additional details may be found in the public docket for this accident."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Examination and Flight Recorder Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "propeller",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cylinders",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ignition leads",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "spark plugs",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "spark plug electrodes",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "magnetos",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ignition harnesses",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ignition system",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Garmin GPSMap 496",
+              "classification": "Equipment"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "NTSB Recorders Laboratory",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "DLS",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "AWO",
+              "classification": "Airport"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller was manually rotated during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manually rotated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Thumb compressions were detected on all cylinders during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thumb compressions detected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All ignition leads remained attached to their respective spark plugs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remained attached",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All examined spark plug electrodes were consistent with near-new condition.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plug electrodes",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near-new",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The two separate magnetos appeared undamaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two separate",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "undamaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All the ignition harnesses appeared undamaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition harnesses",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "undamaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The magnetos and ignition systems were not tested due to accessibility problems.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not tested",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not tested",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accessibility problems",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accessibility problems",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The magnetos and ignition systems were not tested due to the low likelihood of a simultaneous dual magneto failure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not tested",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not tested",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low likelihood of simultaneous dual magneto failure",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low likelihood of simultaneous dual magneto failure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Damage to the airplane precluded a complete determination of the ignition system integrity.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "INTEGRITY DETERMINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precluded by airplane damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Lack of design and construction information precluded a complete determination of the ignition system integrity.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "INTEGRITY DETERMINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precluded by lack of design and construction information",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Limited resources precluded a complete determination of the ignition system functionality.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUNCTIONALITY DETERMINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precluded by limited resources",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The examination did not reveal any pre-impact mechanical deficiencies associated with the power loss.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no pre-impact mechanical deficiencies associated with power loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was equipped with a Garmin GPSMap 496.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Garmin GPSMap 496 was removed and sent to the National Transportation Safety Board (NTSB) Recorders Laboratory for data download.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "SENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "SENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB Recorders Laboratory",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data download",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last flight record on the Garmin GPSMap 496 occurred on May 3, 2014.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 3, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last flight originated at DLS.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "DLS",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "origin of last flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last flight covered 598.1 statute miles.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT DISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "598.1 statute miles",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last flight lasted approximately 3.5 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 3.5 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last flight was the accident leg.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident leg",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight prior to the accident leg was also captured by the Garmin GPSMap 496.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "RECORDED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight prior to accident leg",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight prior to the accident leg originated at AWO.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AWO",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "origin of flight prior to accident leg",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight prior to the accident leg covered 319.4 statute miles.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PRIOR FLIGHT DISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "319.4 statute miles",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight prior to the accident leg lasted approximately 2 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PRIOR FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 2 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no recorded track data associated with any of these flights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin GPSMap 496",
+                    "classification": "Equipment"
+                  },
+                  "predicate": {
+                    "value": "TRACK DATA STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none recorded",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::3dd88aa8:3e5d",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "69e01b7394bfac113f1d42ab0377efa9a281b97dbf3f13460a18ffd81fbc4ae1",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::3dd88aa8:3e5d:e345442b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "385565b4b011ae92d20fa2ae93022d0892c0903402f508b9e33523c9e18b25da",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::3dd88aa8:3e5d:89f598e2",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "839c31d3788902d3f73f75babc2d83bf83df74237bd41fbb063eca8e14edec78",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "All ignition leads remained attached to their respective spark plugs. All examined spark plug electrodes were consistent with near-new condition. The propeller was manually rotated, and thumb compressions were detected on all cylinders. The two separate magnetos and all the ignition harnesses appeared undamaged, but the systems were not tested, due to accessibility problems, and the low likelihood of a simultaneous dual magneto failure. Damage to the airplane, lack of design and construction information, and limited resources precluded a complete determination of the ignition system integrity or functionality.\n\nThe examination did not reveal any pre-impact mechanical deficiencies that could be associated with the power loss. Additional examination details may be found in the public docket for this accident.\n\n## FLIGHT RECORDER INFORMATION\n\nThe airplane was equipped with a Garmin GPSMap 496, which was removed and sent to the NTSB Recorders Laboratory for data download. The last flight record on the device occurred on May 3, 2014. The flight originated at DLS, covered 598.1 statute miles, and lasted approximately 3.5 hours; that flight was the accident leg. The flight prior to the accident leg was also captured by the device. That flight, which originated at AWO, covered 319.4 statute miles, and lasted approximately 2 hours. There was no recorded track data associated with any of these flights. Additional details may be found in the public docket for this accident.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 2162,
+  "end_char_idx": 3654,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

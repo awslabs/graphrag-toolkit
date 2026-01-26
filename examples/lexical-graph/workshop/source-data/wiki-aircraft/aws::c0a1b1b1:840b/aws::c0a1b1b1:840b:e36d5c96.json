@@ -1,0 +1,2277 @@
+{
+  "id_": "aws::c0a1b1b1:840b:e36d5c96",
+  "embedding": [
+    -0.07739258,
+    -0.02532959,
+    -0.023239136,
+    0.01838684,
+    -0.0647583,
+    0.017227173,
+    -0.042419434,
+    0.0034751892,
+    -0.013519287,
+    0.029449463,
+    0.0004119873,
+    -0.005153656,
+    0.02923584,
+    -0.03161621,
+    0.004371643,
+    -0.031036377,
+    -0.009048462,
+    0.0178833,
+    0.0045661926,
+    -0.027450562,
+    0.03286743,
+    -0.04989624,
+    0.008666992,
+    0.023834229,
+    -0.0064926147,
+    -0.015563965,
+    -0.042541504,
+    0.032562256,
+    -0.042938232,
+    -0.022720337,
+    -0.012001038,
+    0.041015625,
+    0.0181427,
+    0.0138549805,
+    -0.011222839,
+    0.05645752,
+    -0.01197052,
+    0.022766113,
+    -0.0027179718,
+    0.030456543,
+    0.04058838,
+    -0.02998352,
+    0.10083008,
+    -0.03363037,
+    0.042541504,
+    -0.018035889,
+    0.08111572,
+    -0.03527832,
+    0.024780273,
+    0.064086914,
+    0.030212402,
+    -0.0043525696,
+    0.012458801,
+    0.056732178,
+    -0.0067481995,
+    -0.0036201477,
+    -0.004383087,
+    0.025909424,
+    0.028625488,
+    0.010253906,
+    -0.020355225,
+    0.0011062622,
+    0.015289307,
+    -0.03375244,
+    -0.041259766,
+    -0.011680603,
+    -0.02809143,
+    0.021209717,
+    0.07342529,
+    -0.036254883,
+    -0.033935547,
+    0.030258179,
+    0.015235901,
+    0.028900146,
+    -0.046051025,
+    -0.03414917,
+    0.018920898,
+    -0.004524231,
+    0.02619934,
+    -0.0025596619,
+    -0.013954163,
+    0.07965088,
+    -0.0440979,
+    -0.021438599,
+    -0.008705139,
+    -0.0154418945,
+    -0.017242432,
+    -0.028747559,
+    -0.02658081,
+    -0.0340271,
+    -0.02760315,
+    -0.049316406,
+    -0.03338623,
+    0.012611389,
+    -0.007106781,
+    -0.02406311,
+    0.006248474,
+    -0.02406311,
+    0.03125,
+    -0.003791809,
+    0.02041626,
+    -0.025756836,
+    -0.037902832,
+    0.011123657,
+    -0.018035889,
+    0.02619934,
+    0.021270752,
+    0.048980713,
+    0.021118164,
+    0.025238037,
+    0.0044059753,
+    0.01701355,
+    -0.05984497,
+    -0.06817627,
+    -0.00081157684,
+    0.06402588,
+    -0.03933716,
+    0.0030822754,
+    0.018707275,
+    -0.010856628,
+    -0.008857727,
+    0.0158844,
+    -0.0066604614,
+    0.015556335,
+    0.0022068024,
+    0.0066986084,
+    -0.004196167,
+    -0.015701294,
+    0.0569458,
+    0.017028809,
+    -0.012748718,
+    -0.008911133,
+    -0.0005187988,
+    0.032165527,
+    0.014862061,
+    -0.01361084,
+    0.0057373047,
+    -0.013298035,
+    -0.0077705383,
+    0.025924683,
+    0.0021133423,
+    -0.0152282715,
+    0.03842163,
+    0.0048294067,
+    -0.011749268,
+    0.01109314,
+    0.015670776,
+    -0.006790161,
+    -0.002117157,
+    -0.00566864,
+    -0.025543213,
+    -0.023727417,
+    0.021621704,
+    0.020263672,
+    0.055358887,
+    -0.01651001,
+    0.079956055,
+    -0.04309082,
+    0.017974854,
+    -0.054351807,
+    -0.026947021,
+    -0.009521484,
+    -0.021697998,
+    0.025680542,
+    0.012306213,
+    0.02255249,
+    0.06738281,
+    0.03604126,
+    0.024353027,
+    0.044311523,
+    -0.006248474,
+    -0.01525116,
+    0.01701355,
+    0.02420044,
+    0.004371643,
+    0.02079773,
+    -0.013015747,
+    0.023834229,
+    0.025024414,
+    -0.03366089,
+    -0.0042762756,
+    -0.029891968,
+    0.044525146,
+    0.001373291,
+    -0.039001465,
+    -0.017120361,
+    0.030822754,
+    0.04623413,
+    0.036071777,
+    0.006126404,
+    0.07757568,
+    -0.017105103,
+    0.044647217,
+    -0.07897949,
+    -0.016525269,
+    -0.01133728,
+    -0.023406982,
+    0.005455017,
+    -0.01914978,
+    0.029891968,
+    -0.024810791,
+    0.05102539,
+    -0.036010742,
+    0.03930664,
+    -0.023651123,
+    0.0043678284,
+    0.002204895,
+    0.021591187,
+    0.070373535,
+    0.029129028,
+    -0.016342163,
+    -0.007827759,
+    0.003604889,
+    -0.00983429,
+    -0.06762695,
+    -0.04660034,
+    -0.007217407,
+    0.02645874,
+    0.0143585205,
+    0.017059326,
+    -0.010314941,
+    0.0154418945,
+    -0.0026779175,
+    -0.032165527,
+    -0.04284668,
+    0.012664795,
+    -0.03515625,
+    0.004447937,
+    -0.039093018,
+    0.002532959,
+    0.06536865,
+    0.019500732,
+    -0.01461792,
+    0.01965332,
+    -0.023727417,
+    -0.006942749,
+    0.011047363,
+    -0.010620117,
+    0.027313232,
+    0.026535034,
+    0.017532349,
+    -0.06021118,
+    0.013435364,
+    0.02659607,
+    -0.103393555,
+    -0.079833984,
+    0.028060913,
+    -0.014022827,
+    -0.03869629,
+    -0.0020999908,
+    0.08325195,
+    -0.0046539307,
+    -0.0074424744,
+    0.040283203,
+    0.019546509,
+    -0.019714355,
+    -0.029205322,
+    -0.02935791,
+    0.038848877,
+    -0.0035114288,
+    0.0023155212,
+    0.043640137,
+    0.026443481,
+    0.014770508,
+    0.013183594,
+    0.011749268,
+    0.058898926,
+    0.04888916,
+    -0.010871887,
+    -0.038635254,
+    0.0038490295,
+    0.045928955,
+    0.00031280518,
+    -0.0029563904,
+    -0.034729004,
+    0.010093689,
+    -0.03286743,
+    0.019851685,
+    -0.0058517456,
+    -0.005355835,
+    -0.010192871,
+    -0.007621765,
+    0.0019569397,
+    -0.0021572113,
+    0.013420105,
+    -0.030075073,
+    0.0368042,
+    0.013519287,
+    -0.035888672,
+    -0.029342651,
+    0.010437012,
+    0.047302246,
+    -0.0065574646,
+    0.025466919,
+    -0.0146865845,
+    -0.003929138,
+    0.046966553,
+    0.022903442,
+    -0.020599365,
+    0.022979736,
+    0.024993896,
+    0.03024292,
+    0.019744873,
+    -0.02619934,
+    0.00022006035,
+    -0.0118637085,
+    0.01121521,
+    0.018753052,
+    0.015686035,
+    -0.044769287,
+    0.017822266,
+    0.024353027,
+    0.009857178,
+    -0.00019836426,
+    0.017974854,
+    0.010406494,
+    0.008026123,
+    0.030929565,
+    0.04522705,
+    0.059326172,
+    -0.015670776,
+    -0.014060974,
+    0.039489746,
+    -0.02255249,
+    0.015174866,
+    -0.027282715,
+    -0.012039185,
+    0.016693115,
+    -0.008987427,
+    0.03805542,
+    0.043029785,
+    0.054107666,
+    0.043029785,
+    -0.009292603,
+    0.00018692017,
+    -0.023666382,
+    0.014846802,
+    -0.036895752,
+    0.0053253174,
+    0.03353882,
+    0.05227661,
+    -0.0009727478,
+    -0.0052490234,
+    -0.04083252,
+    0.027023315,
+    -0.08886719,
+    -0.024627686,
+    0.00315094,
+    0.11791992,
+    -0.004547119,
+    0.003578186,
+    0.027008057,
+    0.009933472,
+    0.019332886,
+    0.025100708,
+    -0.00756073,
+    -0.019195557,
+    0.046722412,
+    0.027053833,
+    -0.0075149536,
+    -0.0051879883,
+    0.024734497,
+    0.009628296,
+    0.0070266724,
+    -0.021209717,
+    -0.028869629,
+    0.011688232,
+    0.017044067,
+    -0.0023651123,
+    -0.0031051636,
+    -0.014442444,
+    0.021453857,
+    -0.024765015,
+    -0.027816772,
+    -0.0051879883,
+    0.016342163,
+    0.040985107,
+    0.0059280396,
+    0.013824463,
+    0.029174805,
+    0.061462402,
+    0.02809143,
+    0.048980713,
+    0.0058555603,
+    -0.0049438477,
+    0.009033203,
+    0.0016651154,
+    0.00705719,
+    0.053131104,
+    0.006576538,
+    0.047912598,
+    0.017333984,
+    -0.038482666,
+    -0.020507812,
+    0.009597778,
+    0.03201294,
+    -0.012123108,
+    -0.03274536,
+    -0.018615723,
+    -0.031234741,
+    -0.020141602,
+    -0.015129089,
+    -0.025421143,
+    -0.03805542,
+    0.007850647,
+    -0.062561035,
+    -0.00289917,
+    -0.048736572,
+    0.024795532,
+    0.027404785,
+    -0.028579712,
+    -0.017318726,
+    -0.018188477,
+    -0.04095459,
+    -0.011001587,
+    0.013183594,
+    -0.05987549,
+    -0.019592285,
+    0.011024475,
+    0.023498535,
+    0.009117126,
+    -0.041137695,
+    -0.013168335,
+    0.029907227,
+    -0.026229858,
+    -0.012458801,
+    -0.016113281,
+    0.02494812,
+    -0.040649414,
+    0.013977051,
+    -0.023254395,
+    -0.018173218,
+    -0.021408081,
+    -0.00042533875,
+    0.004512787,
+    0.06842041,
+    0.020767212,
+    0.02734375,
+    0.006313324,
+    -0.016784668,
+    0.0029754639,
+    0.008255005,
+    0.002960205,
+    0.036071777,
+    0.0181427,
+    -0.03161621,
+    -0.005218506,
+    -0.029373169,
+    0.026123047,
+    -0.02015686,
+    -0.018997192,
+    -0.018066406,
+    0.04034424,
+    0.037628174,
+    -0.021575928,
+    0.07293701,
+    -0.019699097,
+    0.029159546,
+    -0.0020713806,
+    -0.0049057007,
+    0.002922058,
+    -0.01676941,
+    -0.00038146973,
+    -0.008544922,
+    -0.020080566,
+    0.07507324,
+    -0.049041748,
+    0.0657959,
+    -0.019744873,
+    -0.00077819824,
+    0.064819336,
+    -0.03668213,
+    0.03842163,
+    -0.010559082,
+    -0.010986328,
+    -0.043823242,
+    0.024902344,
+    -0.013282776,
+    0.03756714,
+    -0.030914307,
+    -0.025939941,
+    -0.0011425018,
+    0.013458252,
+    0.05142212,
+    0.042419434,
+    -0.0064926147,
+    0.025558472,
+    0.0014162064,
+    0.030044556,
+    0.034484863,
+    0.085754395,
+    0.0031929016,
+    0.04647827,
+    0.06323242,
+    0.023925781,
+    -0.034088135,
+    0.028427124,
+    -0.11175537,
+    0.027893066,
+    0.0063438416,
+    -0.08831787,
+    0.064697266,
+    -0.007774353,
+    -0.028442383,
+    -0.027633667,
+    -0.025665283,
+    0.028381348,
+    0.031433105,
+    0.04345703,
+    -0.018127441,
+    0.039215088,
+    0.0076293945,
+    0.0024814606,
+    -0.00705719,
+    -0.012664795,
+    0.06274414,
+    -0.013504028,
+    -0.030273438,
+    0.034484863,
+    -0.013916016,
+    0.023666382,
+    0.015579224,
+    0.03439331,
+    0.03253174,
+    -0.02128601,
+    -0.020950317,
+    0.018692017,
+    -0.034301758,
+    -0.045043945,
+    -0.023590088,
+    0.017181396,
+    0.048828125,
+    -0.010131836,
+    -0.020141602,
+    0.018493652,
+    -0.017608643,
+    -0.024856567,
+    0.064941406,
+    0.047424316,
+    -0.030548096,
+    -0.029296875,
+    -0.014587402,
+    0.017456055,
+    0.0024223328,
+    -0.026550293,
+    -0.0013542175,
+    -0.022659302,
+    0.027679443,
+    0.011688232,
+    -0.008270264,
+    0.015182495,
+    0.017440796,
+    -0.0234375,
+    -0.05065918,
+    -0.042114258,
+    0.058410645,
+    0.013374329,
+    -0.004562378,
+    -0.010765076,
+    0.0019054413,
+    -0.023986816,
+    -0.032226562,
+    0.011306763,
+    -0.001947403,
+    0.024642944,
+    0.0284729,
+    0.016998291,
+    -0.024871826,
+    0.06524658,
+    -0.07116699,
+    -0.030349731,
+    -0.032287598,
+    0.054748535,
+    0.0055236816,
+    0.04748535,
+    -0.00017929077,
+    0.024871826,
+    0.020431519,
+    -0.024795532,
+    -0.048095703,
+    -0.022994995,
+    0.05496216,
+    0.06100464,
+    0.11352539,
+    -0.061584473,
+    0.09320068,
+    0.0012321472,
+    0.011474609,
+    -0.029571533,
+    0.026031494,
+    -0.0027427673,
+    0.03866577,
+    0.0012140274,
+    -0.038085938,
+    0.0051345825,
+    -0.024658203,
+    0.013381958,
+    -0.0037002563,
+    -0.0018005371,
+    0.020996094,
+    -0.0076446533,
+    -0.016952515,
+    0.00011444092,
+    -0.020202637,
+    0.027130127,
+    0.0026683807,
+    0.002702713,
+    -0.027038574,
+    -0.016967773,
+    0.06201172,
+    -0.01537323,
+    -0.02243042,
+    0.043640137,
+    -0.034179688,
+    0.05407715,
+    0.040496826,
+    -0.008323669,
+    0.052642822,
+    0.020019531,
+    -0.040130615,
+    -0.0014543533,
+    0.032806396,
+    0.006454468,
+    -0.01260376,
+    0.039367676,
+    -0.015106201,
+    0.010063171,
+    -0.026275635,
+    -0.01914978,
+    0.0010910034,
+    -0.064453125,
+    -0.0055274963,
+    -0.07165527,
+    -0.042236328,
+    -0.017425537,
+    0.038848877,
+    -0.021560669,
+    -0.027145386,
+    -0.0040893555,
+    -0.04940796,
+    0.043151855,
+    -0.032165527,
+    -0.053588867,
+    0.04437256,
+    -0.0647583,
+    0.0121536255,
+    0.034423828,
+    -0.023651123,
+    -0.008415222,
+    0.0055236816,
+    0.05670166,
+    0.021438599,
+    0.010475159,
+    -0.027679443,
+    -0.039733887,
+    0.018005371,
+    -0.060668945,
+    0.0004043579,
+    0.034820557,
+    -0.017608643,
+    -0.06402588,
+    0.052703857,
+    0.0056114197,
+    0.012321472,
+    -0.024993896,
+    -0.0095825195,
+    0.014282227,
+    -0.0015583038,
+    0.009376526,
+    -0.062286377,
+    -0.016555786,
+    0.012786865,
+    -0.03048706,
+    0.01675415,
+    -0.010261536,
+    0.041809082,
+    0.022918701,
+    0.011894226,
+    -0.030838013,
+    0.023544312,
+    0.021560669,
+    -0.016235352,
+    -0.01259613,
+    -0.0002784729,
+    -0.01725769,
+    0.016281128,
+    -0.01676941,
+    0.017288208,
+    -0.01965332,
+    0.00024795532,
+    -0.07904053,
+    -0.03967285,
+    -0.017089844,
+    -0.054138184,
+    -0.016113281,
+    -0.03314209,
+    -0.01713562,
+    -0.01033783,
+    -0.047546387,
+    0.008743286,
+    0.050567627,
+    -0.0256958,
+    0.027572632,
+    -0.016647339,
+    -0.028808594,
+    0.04864502,
+    0.03186035,
+    0.011291504,
+    0.008483887,
+    0.009994507,
+    0.031829834,
+    -0.012771606,
+    -0.00022125244,
+    -0.01600647,
+    0.0062026978,
+    -0.007911682,
+    0.061767578,
+    0.06994629,
+    0.02645874,
+    -0.0138549805,
+    0.01335144,
+    0.08166504,
+    0.05303955,
+    -0.063964844,
+    0.014724731,
+    0.012565613,
+    -0.014099121,
+    0.04586792,
+    -0.0034179688,
+    0.003730774,
+    0.00021743774,
+    0.024108887,
+    0.0209198,
+    -0.007965088,
+    -0.020492554,
+    -0.02458191,
+    0.043914795,
+    -0.045043945,
+    -0.036102295,
+    0.01890564,
+    0.02671814,
+    0.00806427,
+    0.02330017,
+    0.0029010773,
+    0.0027389526,
+    -0.021362305,
+    0.006893158,
+    -0.060913086,
+    -0.006252289,
+    -0.005924225,
+    0.04055786,
+    -0.045684814,
+    -0.031082153,
+    -0.034698486,
+    -0.00081062317,
+    -0.02381897,
+    0.008552551,
+    0.016555786,
+    -0.015686035,
+    -0.004272461,
+    -0.036346436,
+    0.0113220215,
+    0.009689331,
+    0.015007019,
+    -0.010635376,
+    0.02079773,
+    -0.034210205,
+    0.0011100769,
+    -0.015670776,
+    -0.008110046,
+    -0.0035552979,
+    -0.006877899,
+    -0.0075798035,
+    0.014038086,
+    0.036315918,
+    0.004814148,
+    0.0048599243,
+    -0.03894043,
+    -0.0033855438,
+    0.04058838,
+    0.031234741,
+    0.021743774,
+    -0.038635254,
+    -0.03302002,
+    -0.018569946,
+    0.003736496,
+    0.080566406,
+    0.0037231445,
+    0.018341064,
+    0.04449463,
+    0.041412354,
+    -0.0010108948,
+    -0.0020523071,
+    0.00037002563,
+    -0.0395813,
+    -0.035949707,
+    0.027877808,
+    -0.004447937,
+    -0.017807007,
+    -0.027832031,
+    -0.01776123,
+    -0.046813965,
+    -0.006958008,
+    0.024475098,
+    -0.021026611,
+    0.036499023,
+    -0.03152466,
+    0.054229736,
+    -0.007980347,
+    0.012313843,
+    0.00057935715,
+    -0.0146484375,
+    0.042022705,
+    -0.045532227,
+    0.030944824,
+    -0.010253906,
+    0.015106201,
+    -0.021224976,
+    0.008590698,
+    0.021331787,
+    -0.004386902,
+    0.02218628,
+    0.013832092,
+    0.026275635,
+    0.037597656,
+    0.025482178,
+    -0.03149414,
+    -0.007762909,
+    0.0042762756,
+    -0.091674805,
+    0.019256592,
+    -0.021118164,
+    0.015625,
+    0.003414154,
+    0.031433105,
+    0.03945923,
+    0.018920898,
+    -0.032958984,
+    0.023910522,
+    0.016311646,
+    0.021377563,
+    0.006832123,
+    -0.00057792664,
+    0.019104004,
+    -0.009208679,
+    0.030548096,
+    0.026428223,
+    -0.026763916,
+    -0.013244629,
+    -0.024047852,
+    0.02468872,
+    -0.05899048,
+    -0.034362793,
+    -0.022384644,
+    0.032196045,
+    -0.0045700073,
+    0.05267334,
+    0.00756073,
+    0.024719238,
+    0.029037476,
+    -0.010787964,
+    0.06536865,
+    0.05569458,
+    -0.0037193298,
+    -0.04107666,
+    0.026168823,
+    -0.041900635,
+    0.04888916,
+    0.007446289,
+    0.103637695,
+    0.03616333,
+    -0.0038719177,
+    -0.037475586,
+    -0.026351929,
+    -0.0118255615,
+    0.017303467,
+    -0.013946533,
+    0.039123535,
+    -0.00037145615,
+    0.03451538,
+    -0.04714966,
+    0.043792725,
+    0.046081543,
+    0.011230469,
+    0.030258179,
+    -0.052642822,
+    -0.04333496,
+    0.07373047,
+    0.032592773,
+    0.01977539,
+    0.0059547424,
+    -0.045806885,
+    -0.007030487,
+    0.01739502,
+    0.05105591,
+    0.06341553,
+    0.0010032654,
+    -0.011978149,
+    -0.005580902,
+    -0.01890564,
+    0.012794495,
+    -0.016204834,
+    -0.0039634705,
+    -0.024047852,
+    -0.021118164,
+    -0.009796143,
+    0.008087158,
+    -0.01184082,
+    0.033447266,
+    -0.020751953,
+    -0.013618469,
+    0.03036499,
+    -0.032684326,
+    -0.00308609,
+    0.014968872,
+    -0.018539429,
+    -0.054870605,
+    -0.029525757,
+    -0.017333984,
+    -0.017242432,
+    -0.01626587,
+    0.026382446,
+    -0.02355957,
+    -0.0017852783,
+    -0.049682617,
+    -0.0030517578,
+    -0.043762207,
+    -0.010665894,
+    -0.01159668,
+    -0.013519287,
+    0.0029010773,
+    -0.013542175,
+    0.03933716,
+    0.0093688965,
+    0.033203125,
+    -0.006790161,
+    0.011802673,
+    -0.015357971,
+    -0.025894165,
+    0.0024871826,
+    -0.004886627,
+    -0.007663727,
+    0.008300781,
+    0.026443481,
+    -0.012069702,
+    0.028717041,
+    -0.0023040771,
+    0.010894775,
+    0.04046631,
+    0.05731201,
+    0.03933716,
+    -0.025238037,
+    0.0005607605,
+    -0.008232117,
+    0.06222534,
+    0.038330078,
+    -0.010864258,
+    0.05392456,
+    0.030731201,
+    -0.028305054,
+    0.008178711,
+    -0.026184082,
+    0.015808105,
+    -0.022781372,
+    -0.029525757,
+    -0.027557373,
+    -0.012588501,
+    0.011276245,
+    -0.019348145,
+    0.055786133,
+    0.009750366,
+    0.01612854,
+    0.0037498474,
+    -0.011581421,
+    -0.0036010742,
+    -0.041870117,
+    -0.03845215,
+    -0.039367676,
+    0.0020427704,
+    -0.053131104,
+    0.006591797,
+    -0.02432251,
+    -0.031066895,
+    0.019851685,
+    0.014823914,
+    -0.008071899,
+    -0.014213562,
+    -0.02041626,
+    0.025543213,
+    -0.012001038,
+    -0.032043457,
+    0.03677368,
+    -0.059295654,
+    0.0043640137,
+    0.010864258,
+    0.018188477,
+    -0.011291504,
+    -0.009902954,
+    -0.009002686,
+    0.047851562,
+    -0.051818848,
+    0.007385254,
+    0.031402588,
+    0.008735657,
+    -0.03265381,
+    0.0015678406,
+    0.03277588,
+    0.004638672,
+    -0.038208008,
+    -0.029174805,
+    -0.037902832,
+    0.018920898,
+    -0.03378296,
+    0.022323608,
+    0.0028514862,
+    0.0032310486,
+    0.031829834,
+    -0.006164551,
+    0.053009033,
+    0.032196045,
+    0.0005569458,
+    0.01890564,
+    -0.027755737,
+    -0.007434845
+  ],
+  "metadata": {
+    "title": "Piper PA-28 Cherokee",
+    "original_title": "Piper PA-28 Cherokee",
+    "wikipedia_id": "172948",
+    "url": "https://en.wikipedia.org/wiki/Piper_PA-28_Cherokee",
+    "header_path": "/Development/",
+    "aws::graph::propositions": [
+      "Brazilian, Argentinian and Chilean Production of Piper PA-28 Cherokee",
+      "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711A.",
+      "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711C Corisco.",
+      "The Embraer EMB-711C Corisco is equivalent to the Piper PA-28R-200.",
+      "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711B.",
+      "The Embraer EMB-711B is equivalent to the Piper PA-28R-201.",
+      "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711T.",
+      "The Embraer EMB-711T is equivalent to the Piper PA-28RT-201.",
+      "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711ST Corisco Turbo.",
+      "The Embraer EMB-711ST Corisco Turbo is equivalent to the Piper PA-28RT-201T.",
+      "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-712 Tupi.",
+      "The Embraer EMB-712 Tupi is equivalent to the Piper PA-28-181.",
+      "Piper PA-28 Cherokee aircraft were built under license in Argentina by Chincul SACAIFI.",
+      "Chincul SACAIFI is located in San Juan, Argentina.",
+      "Chincul SACAIFI built 960 airplanes between 1972 and 1995.",
+      "Chincul SACAIFI built the Cherokee Archer.",
+      "Chincul SACAIFI built the Dakota.",
+      "Chincul SACAIFI built the Arrow.",
+      "Chincul SACAIFI built the Turbo Arrow.",
+      "The Piper PA-28-236 Dakota was assembled under license by the Maintenance Wing of the Chilean Air Force.",
+      "The Maintenance Wing of the Chilean Air Force later became known as ENAER.",
+      "By September 1982, 20 Dakotas had been assembled in Chile."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Brazilian, Argentinian and Chilean Production of Piper PA-28 Cherokee",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28 Cherokee",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-711A",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-711C Corisco",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28R-200",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-711B",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28R-201",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-711T",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28RT-201",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-711ST Corisco Turbo",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28RT-201T",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-712 Tupi",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28-181",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Chincul SACAIFI",
+              "classification": "Manufacturer"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "San Juan, Argentina",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cherokee Archer",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Dakota",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Arrow",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Turbo Arrow",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28-236 Dakota",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Maintenance Wing of the Chilean Air Force",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ENAER",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Brazil",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Argentina",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Chile",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711A.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711A",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VERSION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Brazil",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711A",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711A",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "built under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711C Corisco.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711C Corisco",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VERSION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Brazil",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711C Corisco",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711C Corisco",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "built under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-711C Corisco is equivalent to the Piper PA-28R-200.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711C Corisco",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIVALENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28R-200",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711B.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711B",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VERSION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Brazil",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711B",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711B",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "built under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-711B is equivalent to the Piper PA-28R-201.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711B",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIVALENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28R-201",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711T.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711T",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VERSION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Brazil",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711T",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711T",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "built under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-711T is equivalent to the Piper PA-28RT-201.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711T",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIVALENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28RT-201",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-711ST Corisco Turbo.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711ST Corisco Turbo",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VERSION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Brazil",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711ST Corisco Turbo",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711ST Corisco Turbo",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "built under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-711ST Corisco Turbo is equivalent to the Piper PA-28RT-201T.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-711ST Corisco Turbo",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIVALENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28RT-201T",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-28 Cherokee aircraft were built under license in Brazil as the Embraer EMB-712 Tupi.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-712 Tupi",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VERSION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Brazil",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-712 Tupi",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-712 Tupi",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "built under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-712 Tupi is equivalent to the Piper PA-28-181.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-712 Tupi",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIVALENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-181",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-28 Cherokee aircraft were built under license in Argentina by Chincul SACAIFI.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Argentina",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28 Cherokee",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "built under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chincul SACAIFI is located in San Juan, Argentina.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Juan, Argentina",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Juan, Argentina",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Argentina",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chincul SACAIFI built 960 airplanes between 1972 and 1995.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "960 airplanes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION PERIOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "between 1972 and 1995",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chincul SACAIFI built the Cherokee Archer.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cherokee Archer",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chincul SACAIFI built the Dakota.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dakota",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chincul SACAIFI built the Arrow.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Arrow",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Chincul SACAIFI built the Turbo Arrow.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chincul SACAIFI",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turbo Arrow",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Piper PA-28-236 Dakota was assembled under license by the Maintenance Wing of the Chilean Air Force.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Maintenance Wing of the Chilean Air Force",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-236 Dakota",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chile",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-236 Dakota",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-236 Dakota",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "assembled under license",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Maintenance Wing of the Chilean Air Force later became known as ENAER.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Maintenance Wing of the Chilean Air Force",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "BECAME"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ENAER",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "By September 1982, 20 Dakotas had been assembled in Chile.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chile",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION LOCATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dakota",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dakota",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "20",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dakota",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "By September 1982",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::c0a1b1b1:840b",
+      "node_type": "4",
+      "metadata": {
+        "title": "Piper PA-28 Cherokee",
+        "original_title": "Piper PA-28 Cherokee",
+        "wikipedia_id": "172948",
+        "url": "https://en.wikipedia.org/wiki/Piper_PA-28_Cherokee"
+      },
+      "hash": "2202b50a58091419f241fdfbe4d6ac46bb2bb2944b213a5e1eafb3015cb8e0fd",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::c0a1b1b1:840b:a362296c",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper PA-28 Cherokee",
+        "original_title": "Piper PA-28 Cherokee",
+        "wikipedia_id": "172948",
+        "url": "https://en.wikipedia.org/wiki/Piper_PA-28_Cherokee",
+        "header_path": "/Development/"
+      },
+      "hash": "46f8bdd67167ef356c2014ba6f9a22555a5e991a40c55e53a87f45933a1b17e4",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::c0a1b1b1:840b:d07e7386",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper PA-28 Cherokee",
+        "original_title": "Piper PA-28 Cherokee",
+        "wikipedia_id": "172948",
+        "url": "https://en.wikipedia.org/wiki/Piper_PA-28_Cherokee",
+        "header_path": "/Development/"
+      },
+      "hash": "b45a401451b732a21083160dde5afc54667cb0f76ef7f2e06af0bb052dc76e56",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "### Brazilian, Argentinian and Chilean production\nPA-28s were built under license in Brazil as the Embraer EMB-711A and EMB-711C Corisco (PA-28R-200), EMB-711B (PA-28R-201), EMB-711T (PA-28RT-201) and EMB-711ST Corisco Turbo (PA-28RT-201T) and the EMB-712 Tupi (PA-28-181). Argentinian production was carried out by Chincul SACAIFI of San Juan, Argentina. Chincul S. A. built 960 airplanes between 1972 and 1995, including the Cherokee Archer, Dakota, Arrow and Turbo Arrow. The PA-28-236 Dakota was also assembled under license by the Maintenance Wing of the Chilean Air Force (which later became known as ENAER). By September 1982, 20 Dakotas had been assembled in Chile.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 673,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

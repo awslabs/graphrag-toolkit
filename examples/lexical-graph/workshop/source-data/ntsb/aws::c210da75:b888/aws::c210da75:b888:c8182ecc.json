@@ -1,0 +1,2173 @@
+{
+  "id_": "aws::c210da75:b888:c8182ecc",
+  "embedding": [
+    -0.01625061,
+    -0.006511688,
+    0.0019483566,
+    0.0045318604,
+    -0.03439331,
+    -0.0043563843,
+    -0.007396698,
+    -0.025115967,
+    -0.029541016,
+    0.0063934326,
+    -0.035247803,
+    0.047180176,
+    -0.021621704,
+    -0.014526367,
+    0.028167725,
+    -0.023635864,
+    0.026397705,
+    0.035858154,
+    0.056427002,
+    0.0076904297,
+    -0.0113220215,
+    0.023208618,
+    0.033599854,
+    -0.009811401,
+    -0.010940552,
+    0.023468018,
+    0.018859863,
+    -0.009994507,
+    -0.023925781,
+    -0.021347046,
+    -0.010543823,
+    0.00705719,
+    0.036712646,
+    -0.008140564,
+    -0.011016846,
+    -0.008987427,
+    -0.06021118,
+    0.018295288,
+    -0.037475586,
+    0.03125,
+    0.016418457,
+    -0.002626419,
+    -0.00504303,
+    -0.012954712,
+    -0.033813477,
+    -0.017562866,
+    0.030410767,
+    0.0135269165,
+    0.055877686,
+    0.059143066,
+    -0.008216858,
+    0.0074653625,
+    -0.020828247,
+    0.024246216,
+    -0.011680603,
+    -0.01776123,
+    -0.032318115,
+    -0.011665344,
+    -0.014846802,
+    0.05770874,
+    0.038146973,
+    0.02722168,
+    -0.0029029846,
+    -0.0017547607,
+    -0.03665161,
+    -0.025924683,
+    -0.021713257,
+    0.023773193,
+    0.068237305,
+    -0.022155762,
+    -0.024261475,
+    0.05206299,
+    -0.0029754639,
+    0.015686035,
+    0.033447266,
+    -0.034820557,
+    -0.002363205,
+    -0.0032176971,
+    -0.02166748,
+    0.04800415,
+    0.017288208,
+    -0.004119873,
+    0.025421143,
+    -0.03286743,
+    0.026687622,
+    0.026779175,
+    -0.015388489,
+    -0.023361206,
+    -0.0146484375,
+    0.021881104,
+    -0.017166138,
+    -0.02116394,
+    0.027526855,
+    0.018661499,
+    -0.013580322,
+    0.008850098,
+    -0.021713257,
+    -0.05368042,
+    0.010551453,
+    -0.014045715,
+    0.009742737,
+    -0.03756714,
+    -0.018447876,
+    0.015449524,
+    0.008491516,
+    0.014762878,
+    0.004787445,
+    -0.02180481,
+    0.012672424,
+    -0.0030937195,
+    -0.0236969,
+    0.0075531006,
+    0.0059127808,
+    0.0031223297,
+    -0.05215454,
+    0.005592346,
+    -0.0070114136,
+    -0.034851074,
+    -0.0049209595,
+    -0.01626587,
+    0.045013428,
+    0.050201416,
+    -0.012481689,
+    -0.017150879,
+    -0.01763916,
+    -0.022445679,
+    -0.038330078,
+    -0.016357422,
+    0.051330566,
+    -0.000497818,
+    0.005077362,
+    0.044708252,
+    -0.10662842,
+    -0.09869385,
+    -0.07836914,
+    0.0104904175,
+    -0.0362854,
+    0.02670288,
+    -0.015037537,
+    0.00881958,
+    -0.028320312,
+    -0.01574707,
+    0.062194824,
+    -0.019866943,
+    0.051483154,
+    0.019485474,
+    0.030410767,
+    -0.0036888123,
+    -0.012176514,
+    -0.006134033,
+    -0.0021533966,
+    0.015716553,
+    0.06112671,
+    -0.013648987,
+    -0.054016113,
+    -0.07891846,
+    0.0017852783,
+    -0.058380127,
+    0.00868988,
+    -0.07421875,
+    0.029006958,
+    0.0031757355,
+    0.009475708,
+    0.039245605,
+    -0.0134887695,
+    0.030822754,
+    -0.015083313,
+    -0.004142761,
+    0.004901886,
+    0.016235352,
+    0.020904541,
+    -0.010139465,
+    -0.100097656,
+    0.005958557,
+    0.021087646,
+    0.0015287399,
+    0.023910522,
+    0.05117798,
+    0.0027275085,
+    -0.034454346,
+    -0.02558899,
+    -0.058258057,
+    0.023468018,
+    -0.018447876,
+    -0.00012028217,
+    0.015312195,
+    4.351139e-06,
+    -0.020080566,
+    0.023071289,
+    0.0011863708,
+    -0.017089844,
+    0.030044556,
+    0.022033691,
+    -0.0029678345,
+    -0.0046310425,
+    -0.019714355,
+    -0.029663086,
+    0.0051574707,
+    -0.02658081,
+    -0.012390137,
+    -0.076049805,
+    0.066223145,
+    -0.018569946,
+    0.07147217,
+    0.05923462,
+    0.022079468,
+    0.030929565,
+    0.029220581,
+    -0.0287323,
+    0.003578186,
+    0.025344849,
+    -0.016281128,
+    -0.042877197,
+    0.039093018,
+    -0.025024414,
+    -0.045135498,
+    0.0058784485,
+    -0.0014705658,
+    0.004558563,
+    -0.010765076,
+    -0.00881958,
+    0.03463745,
+    -0.01864624,
+    0.030822754,
+    -0.021240234,
+    0.016494751,
+    -0.007949829,
+    0.0011224747,
+    -0.0048103333,
+    -0.0045433044,
+    0.051513672,
+    0.025375366,
+    0.0008215904,
+    -0.006214142,
+    -0.043823242,
+    0.023010254,
+    0.020568848,
+    0.00856781,
+    -0.0050354004,
+    0.03253174,
+    0.019714355,
+    -0.046325684,
+    0.0058135986,
+    0.05633545,
+    -0.036376953,
+    -0.06097412,
+    0.016464233,
+    -0.0011529922,
+    0.00015497208,
+    0.073913574,
+    -0.026306152,
+    0.016540527,
+    0.00014424324,
+    0.006126404,
+    0.01247406,
+    0.020248413,
+    -0.0061302185,
+    -0.080322266,
+    0.027755737,
+    0.009635925,
+    0.043395996,
+    -0.019515991,
+    -0.08728027,
+    0.04257202,
+    -0.0105896,
+    0.010803223,
+    -0.00762558,
+    0.0079956055,
+    -0.023208618,
+    0.026489258,
+    0.011917114,
+    -0.03842163,
+    0.0109939575,
+    -0.017410278,
+    -0.07519531,
+    0.03640747,
+    -0.02822876,
+    0.028915405,
+    0.013885498,
+    -0.02848816,
+    -0.008842468,
+    0.023971558,
+    0.02178955,
+    -0.0058135986,
+    0.025665283,
+    0.011940002,
+    0.0013141632,
+    -0.008872986,
+    0.012802124,
+    0.004257202,
+    0.039093018,
+    -0.014564514,
+    -0.021087646,
+    0.004825592,
+    0.027999878,
+    -0.048309326,
+    0.01373291,
+    0.007133484,
+    0.016967773,
+    -0.010040283,
+    0.018508911,
+    0.05908203,
+    -0.015197754,
+    0.024780273,
+    -0.0031661987,
+    -0.0236969,
+    -0.045440674,
+    0.035888672,
+    0.025741577,
+    -0.020095825,
+    -0.0051345825,
+    0.07733154,
+    0.041015625,
+    0.0345459,
+    0.039154053,
+    -0.00041389465,
+    0.0036525726,
+    0.07116699,
+    0.0040664673,
+    0.01285553,
+    -0.010971069,
+    -0.017623901,
+    -0.046173096,
+    0.010604858,
+    -0.018478394,
+    0.0038337708,
+    -0.004611969,
+    -0.006313324,
+    -0.05847168,
+    0.019134521,
+    -0.022323608,
+    -0.027877808,
+    0.0036621094,
+    -0.008323669,
+    -0.021697998,
+    -0.0025177002,
+    0.022338867,
+    -0.020462036,
+    -0.008125305,
+    0.0079574585,
+    0.014709473,
+    -0.068481445,
+    -0.0062789917,
+    -0.008171082,
+    -0.0317688,
+    -0.02545166,
+    -0.019332886,
+    0.0126953125,
+    -0.06390381,
+    -0.02607727,
+    0.06781006,
+    -0.019317627,
+    -0.028656006,
+    0.023803711,
+    -0.0048103333,
+    -0.04827881,
+    0.03439331,
+    0.02861023,
+    -0.027496338,
+    -0.034240723,
+    0.05834961,
+    -0.017990112,
+    -0.0053634644,
+    -0.05102539,
+    -0.0025558472,
+    -0.010215759,
+    -0.047454834,
+    -0.0071640015,
+    0.012756348,
+    0.02154541,
+    -0.03857422,
+    0.025512695,
+    -0.0044555664,
+    -0.008216858,
+    0.0082092285,
+    -0.004837036,
+    0.006385803,
+    -0.036224365,
+    0.049591064,
+    0.015625,
+    0.0064468384,
+    0.0058250427,
+    0.033569336,
+    -0.020263672,
+    -0.03463745,
+    0.023345947,
+    -0.033050537,
+    -0.028640747,
+    -0.003414154,
+    0.017288208,
+    -0.0019607544,
+    0.027328491,
+    -0.023651123,
+    0.004760742,
+    -0.011665344,
+    -0.0013198853,
+    -0.01802063,
+    -0.024902344,
+    -0.06591797,
+    0.002216339,
+    -0.13342285,
+    -0.00026392937,
+    -0.0017929077,
+    -0.048431396,
+    0.018005371,
+    -0.034942627,
+    -0.04031372,
+    -0.07006836,
+    0.037231445,
+    0.046691895,
+    -0.04449463,
+    0.01927185,
+    -0.06359863,
+    0.044769287,
+    -0.045715332,
+    0.023864746,
+    -0.00036025047,
+    -0.010391235,
+    0.029937744,
+    -0.00894165,
+    0.029846191,
+    -0.072143555,
+    0.024108887,
+    0.034240723,
+    -0.01525116,
+    0.030899048,
+    0.0012540817,
+    0.009719849,
+    0.017364502,
+    0.021224976,
+    0.0033073425,
+    0.0065078735,
+    -0.0061416626,
+    0.016098022,
+    -0.017547607,
+    0.0552063,
+    0.0054740906,
+    0.00995636,
+    0.04736328,
+    -0.052978516,
+    0.009727478,
+    0.0049858093,
+    0.012069702,
+    0.017089844,
+    -0.022750854,
+    0.013595581,
+    0.0009889603,
+    0.0060691833,
+    -0.029708862,
+    -0.03616333,
+    -0.002527237,
+    0.023925781,
+    0.05810547,
+    0.027755737,
+    0.018157959,
+    0.039733887,
+    0.021743774,
+    0.03945923,
+    -0.006866455,
+    0.018707275,
+    0.026473999,
+    -0.024169922,
+    0.009712219,
+    0.014625549,
+    0.026977539,
+    0.006877899,
+    0.023895264,
+    -0.015136719,
+    -0.02709961,
+    0.040130615,
+    -0.012359619,
+    -0.05606079,
+    0.015556335,
+    0.0012817383,
+    -0.011329651,
+    -0.01309967,
+    -0.004508972,
+    -0.030441284,
+    0.03753662,
+    0.014907837,
+    -0.046020508,
+    0.020629883,
+    0.0446167,
+    -0.0054397583,
+    0.0042381287,
+    0.00554657,
+    0.012420654,
+    0.004776001,
+    -0.011474609,
+    0.018234253,
+    0.029754639,
+    0.0152282715,
+    0.006034851,
+    0.056030273,
+    -0.0013580322,
+    -0.036865234,
+    0.0013437271,
+    -0.020614624,
+    -4.8339367e-05,
+    -0.012908936,
+    -0.06286621,
+    -0.014060974,
+    -0.022735596,
+    -0.015991211,
+    0.008781433,
+    0.02897644,
+    0.015914917,
+    0.04840088,
+    0.008346558,
+    -0.005580902,
+    0.019165039,
+    -0.0019359589,
+    -0.0076942444,
+    -0.01109314,
+    -0.025939941,
+    0.070373535,
+    -0.059753418,
+    0.035491943,
+    -0.02798462,
+    -0.020858765,
+    -0.03201294,
+    -0.010406494,
+    0.03540039,
+    0.042144775,
+    -0.036071777,
+    -0.0033473969,
+    -0.007949829,
+    0.016998291,
+    -0.057495117,
+    -0.034057617,
+    0.0029296875,
+    0.027572632,
+    -0.0072364807,
+    -0.0070114136,
+    0.03967285,
+    0.015083313,
+    -0.02722168,
+    -0.00060749054,
+    -0.022155762,
+    -0.030014038,
+    -0.029464722,
+    0.012580872,
+    0.047668457,
+    -0.008110046,
+    0.033050537,
+    -0.003376007,
+    0.03942871,
+    0.082336426,
+    -0.08441162,
+    0.06750488,
+    -0.031097412,
+    -0.023986816,
+    -0.011459351,
+    -0.062438965,
+    -0.060150146,
+    0.08508301,
+    0.062072754,
+    -0.030975342,
+    -0.0025844574,
+    0.017562866,
+    -0.034484863,
+    -0.0013017654,
+    -0.039276123,
+    0.048736572,
+    -0.043151855,
+    0.03387451,
+    -0.011390686,
+    -0.0178833,
+    0.05731201,
+    -0.046661377,
+    -0.002117157,
+    -0.023040771,
+    0.11260986,
+    0.018798828,
+    0.027938843,
+    -0.03274536,
+    -0.006084442,
+    0.013549805,
+    -0.011398315,
+    0.006790161,
+    -0.040008545,
+    0.0077400208,
+    0.0010843277,
+    -0.033691406,
+    -0.034301758,
+    0.007843018,
+    0.007484436,
+    0.021102905,
+    -0.028442383,
+    0.013069153,
+    0.06616211,
+    -0.031173706,
+    0.007965088,
+    -0.038238525,
+    -0.00015902519,
+    -0.009147644,
+    -0.036102295,
+    -0.026367188,
+    0.018371582,
+    0.0038833618,
+    -0.00018012524,
+    -0.005672455,
+    0.0015125275,
+    -0.030639648,
+    0.05230713,
+    0.0071487427,
+    -0.0011825562,
+    0.0039901733,
+    0.0047721863,
+    0.00680542,
+    0.0039138794,
+    -0.019378662,
+    -0.019866943,
+    0.022827148,
+    -0.006855011,
+    0.011604309,
+    -0.018005371,
+    0.011238098,
+    0.018585205,
+    -0.0022125244,
+    0.017959595,
+    -0.015449524,
+    0.021942139,
+    0.0044898987,
+    0.0463562,
+    -0.033599854,
+    -0.01889038,
+    -0.04586792,
+    -0.027252197,
+    -0.009559631,
+    -0.054992676,
+    -0.0088272095,
+    -0.032440186,
+    -0.022903442,
+    0.003921509,
+    0.018310547,
+    -0.012702942,
+    -0.0064735413,
+    -0.013473511,
+    -0.0138549805,
+    0.015541077,
+    -0.02178955,
+    -0.025253296,
+    -0.0095825195,
+    -0.016448975,
+    -0.035583496,
+    -0.012107849,
+    0.0028247833,
+    -0.0025920868,
+    -0.026275635,
+    0.005012512,
+    0.004283905,
+    -0.01701355,
+    0.03074646,
+    -0.002166748,
+    0.023254395,
+    -0.0463562,
+    0.009300232,
+    -0.03265381,
+    -0.039764404,
+    -0.1060791,
+    -0.06225586,
+    0.024780273,
+    -0.031433105,
+    -0.0690918,
+    0.012626648,
+    0.082458496,
+    0.009185791,
+    0.017166138,
+    -0.058502197,
+    -0.0137786865,
+    0.07684326,
+    0.00033020973,
+    -0.025436401,
+    0.0046310425,
+    0.014503479,
+    0.04309082,
+    0.010734558,
+    0.02684021,
+    -0.07751465,
+    -0.00724411,
+    -0.047546387,
+    0.017868042,
+    -0.015113831,
+    -0.0067977905,
+    0.032226562,
+    -0.008605957,
+    -0.004901886,
+    -0.025131226,
+    0.047576904,
+    -0.056488037,
+    -0.005317688,
+    0.0052719116,
+    0.0038795471,
+    -0.026062012,
+    -0.03262329,
+    0.0064735413,
+    0.0016145706,
+    0.008522034,
+    -0.04727173,
+    0.008369446,
+    0.018066406,
+    0.014007568,
+    0.014839172,
+    0.016281128,
+    -0.0031337738,
+    0.06695557,
+    -0.046020508,
+    0.027801514,
+    -0.005908966,
+    -0.025817871,
+    0.048797607,
+    0.0056991577,
+    -0.006340027,
+    -0.022537231,
+    0.014945984,
+    0.07293701,
+    0.0006623268,
+    -0.000667572,
+    0.024246216,
+    -0.003250122,
+    -0.019607544,
+    0.042999268,
+    0.016021729,
+    0.031021118,
+    0.04208374,
+    -0.024780273,
+    0.01789856,
+    -0.0042877197,
+    0.010437012,
+    0.009780884,
+    -0.007434845,
+    0.00020253658,
+    -0.008216858,
+    -0.005203247,
+    -0.03265381,
+    -0.014579773,
+    -0.028320312,
+    -0.042755127,
+    -0.009635925,
+    -0.036254883,
+    -0.0043678284,
+    -0.008842468,
+    0.0009522438,
+    -0.013755798,
+    0.0061950684,
+    0.013809204,
+    -0.1239624,
+    0.01247406,
+    0.013153076,
+    0.046142578,
+    -0.0574646,
+    -0.0914917,
+    -0.018295288,
+    0.0029716492,
+    0.020767212,
+    0.040863037,
+    -0.025772095,
+    -0.095703125,
+    0.014053345,
+    0.0023918152,
+    0.011253357,
+    0.009307861,
+    0.00089883804,
+    -0.031311035,
+    0.016693115,
+    -0.016983032,
+    -0.029830933,
+    -0.006893158,
+    -0.017623901,
+    0.0034828186,
+    -0.017532349,
+    0.010650635,
+    0.047058105,
+    0.04647827,
+    -0.023345947,
+    0.03201294,
+    -0.054718018,
+    -0.046691895,
+    -0.012420654,
+    0.047058105,
+    -0.031707764,
+    -0.0037345886,
+    -0.009994507,
+    0.0034332275,
+    0.023117065,
+    -0.012504578,
+    0.007041931,
+    -0.02798462,
+    -0.03970337,
+    -0.034179688,
+    0.039031982,
+    0.018157959,
+    -0.0074157715,
+    0.029556274,
+    0.013290405,
+    -0.022918701,
+    -0.0072021484,
+    0.0026855469,
+    -0.02760315,
+    -0.051330566,
+    -0.0027446747,
+    -0.025543213,
+    0.03286743,
+    -0.013877869,
+    0.026138306,
+    0.025756836,
+    0.018554688,
+    0.030075073,
+    -0.02986145,
+    0.01739502,
+    -0.01637268,
+    -0.012535095,
+    0.013145447,
+    -0.013923645,
+    0.057891846,
+    -0.025726318,
+    -0.026321411,
+    0.022354126,
+    -0.017318726,
+    0.0011434555,
+    0.029815674,
+    0.007472992,
+    0.0060043335,
+    -0.03286743,
+    0.01373291,
+    -0.0011453629,
+    -0.04345703,
+    0.002632141,
+    -0.027359009,
+    -0.0129470825,
+    -0.023544312,
+    0.020507812,
+    0.0074501038,
+    -0.00705719,
+    0.029571533,
+    -0.008598328,
+    0.069885254,
+    -0.050048828,
+    0.014694214,
+    -0.00075006485,
+    -0.017715454,
+    -0.000726223,
+    -0.013214111,
+    -0.03515625,
+    0.009689331,
+    0.01914978,
+    0.004169464,
+    0.026931763,
+    0.044555664,
+    0.032043457,
+    -0.0047569275,
+    0.01499176,
+    -0.016723633,
+    -0.0010137558,
+    -0.0073432922,
+    -0.034423828,
+    -0.050201416,
+    -0.023254395,
+    0.026748657,
+    0.027404785,
+    -0.018493652,
+    -0.037963867,
+    -0.02017212,
+    -0.011138916,
+    0.042938232,
+    -0.02949524,
+    0.027908325,
+    0.0016679764,
+    0.057739258,
+    0.020446777,
+    -0.0034618378,
+    -0.072387695,
+    -0.008544922,
+    -0.016952515,
+    -0.018173218,
+    0.004436493,
+    0.04525757,
+    -0.009063721,
+    -0.007873535,
+    0.015625,
+    -0.049194336,
+    0.0016021729,
+    -0.034729004,
+    -0.02772522,
+    -0.015533447,
+    0.02458191,
+    0.0014381409,
+    0.06304932,
+    -0.00623703,
+    -0.060333252,
+    0.024291992,
+    -0.02003479,
+    -0.0003874302,
+    0.025878906,
+    0.03074646,
+    0.008796692,
+    0.0014801025,
+    -0.04196167,
+    0.04586792,
+    -0.050079346,
+    -0.049591064,
+    0.023254395,
+    -0.031921387,
+    0.0519104,
+    0.011932373,
+    0.042266846,
+    -0.07305908,
+    -0.0158844,
+    -0.016296387,
+    0.006450653,
+    -0.036224365,
+    -0.026000977,
+    -0.0021476746,
+    0.0035133362,
+    -2.503395e-06,
+    -0.038208008,
+    -0.012191772,
+    0.012268066,
+    -0.02267456,
+    -0.04953003,
+    0.014373779,
+    -0.015487671,
+    0.011657715,
+    0.008270264,
+    -0.006954193,
+    0.030456543,
+    -0.027938843,
+    0.0031986237,
+    0.006099701,
+    0.017868042,
+    0.0178833,
+    0.05734253,
+    -0.018447876,
+    0.03475952,
+    -0.010040283,
+    -0.042266846,
+    0.009712219,
+    -0.0076179504,
+    -0.004901886,
+    -0.024871826,
+    -0.014251709,
+    -0.015487671,
+    0.03100586,
+    0.026153564,
+    -0.008239746,
+    0.023239136,
+    0.035186768,
+    0.023895264,
+    0.054656982,
+    0.03741455,
+    -0.030059814,
+    0.04321289,
+    -0.034729004,
+    0.08123779,
+    0.06347656,
+    -0.01133728,
+    0.07611084,
+    0.0054397583,
+    -0.06939697,
+    0.008110046,
+    -0.027572632,
+    0.028839111,
+    -0.0007119179,
+    -0.048797607,
+    -0.028503418,
+    -0.017990112,
+    -0.0072517395,
+    -0.013511658,
+    0.018371582,
+    -0.013069153,
+    0.011528015,
+    -0.011558533,
+    0.009399414,
+    0.025482178,
+    -0.043060303,
+    0.03314209,
+    0.0284729,
+    -0.0069389343,
+    0.022415161,
+    -0.029953003,
+    0.013381958,
+    -0.026443481,
+    -0.027999878,
+    0.028457642,
+    -0.0021266937,
+    -0.005718231,
+    0.021713257,
+    -0.023086548,
+    0.005203247,
+    -0.0041389465,
+    0.0085372925,
+    -0.017349243,
+    0.049438477,
+    -0.027572632,
+    -0.01121521,
+    0.015403748,
+    -0.012481689,
+    0.0046691895,
+    0.020690918,
+    0.020477295,
+    0.014053345,
+    0.016723633,
+    0.04296875,
+    0.04006958,
+    -0.074401855,
+    -0.037902832,
+    -0.08258057,
+    -0.019805908,
+    -0.035217285,
+    -0.0385437,
+    0.042022705,
+    0.050201416,
+    -0.025756836,
+    0.10076904,
+    -0.041748047,
+    0.042419434,
+    0.0287323,
+    0.02406311,
+    0.06185913,
+    -0.011222839,
+    0.0022411346,
+    -0.015403748,
+    -0.02796936
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85465.md",
+    "file_name": "85465.md",
+    "file_size": 9964,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Diamond DA-42 Twinstar Hard Landing Incident at Flagler County Airport",
+      "Diamond DA-42 Twinstar with registration N607PA was substantially damaged following a hard landing at Flagler County Airport.",
+      "The hard landing occurred on October 11, 2012, at approximately 1330 eastern daylight time.",
+      "Flagler County Airport is located in Palm Coast, Florida.",
+      "The designated pilot examiner (DPE) and private pilot were uninjured in the incident.",
+      "The airplane was registered to Phoenix East Aviation.",
+      "The airplane was operated by Phoenix East Aviation.",
+      "The flight operated under the provisions of 14 Code of Federal Regulations Part 91.",
+      "The flight was classified as an instructional flight.",
+      "Visual meteorological conditions prevailed during the flight.",
+      "No flight plan was filed for the flight.",
+      "The flight departed from Daytona Beach International Airport at 1000.",
+      "Daytona Beach International Airport is located in Daytona Beach, Florida.",
+      "The purpose of the flight was to complete a multi-engine check ride.",
+      "During an approach, the pilot was instructed to demonstrate a short field landing.",
+      "While on short final, the pilot reduced power and slowed the airspeed.",
+      "As the airplane crossed the runway threshold, the airplane descended rapidly.",
+      "The airplane landed hard on the runway.",
+      "Both the DPE and pilot reported no flight control anomalies.",
+      "Both the DPE and pilot reported no mechanical malfunctions that would have precluded normal operation.",
+      "A post-accident examination was conducted by a Federal Aviation Administration inspector.",
+      "The post-accident examination revealed that the composite wing spar fractured at the fuselage bulkhead.",
+      "Phoenix East Aviation's training manual required pilots to obtain 82 knots indicated airspeed for short-field approach to landing.",
+      "Diamond Aircraft normal operating procedures specified that the minimum airspeed with flaps applied for landing is 84 knots indicated airspeed.",
+      "There is not a published short field landing procedure in the Diamond Aircraft DA-42 operations manual.",
+      "During the approach to land, the DPE stated that the airspeed was approximately between 75-80 knots indicated airspeed.",
+      "The DPE indicated the airspeed was 67 knots before touchdown."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Diamond DA-42 Twinstar Hard Landing Incident at Flagler County Airport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Diamond DA-42 Twinstar",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N607PA",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Flagler County Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Palm Coast, Florida",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "designated pilot examiner",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "private pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Phoenix East Aviation",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "14 Code of Federal Regulations Part 91",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Daytona Beach International Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Daytona Beach, Florida",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration inspector",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Diamond Aircraft",
+              "classification": "Aircraftmake"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Diamond DA-42 Twinstar with registration N607PA was substantially damaged following a hard landing at Flagler County Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N607PA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flagler County Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hard landing occurred on October 11, 2012, at approximately 1330 eastern daylight time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "October 11, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1330 eastern daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Flagler County Airport is located in Palm Coast, Florida.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flagler County Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Coast, Florida",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The designated pilot examiner (DPE) and private pilot were uninjured in the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated pilot examiner",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uninjured",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uninjured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was registered to Phoenix East Aviation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTERED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Phoenix East Aviation",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was operated by Phoenix East Aviation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Phoenix East Aviation",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight operated under the provisions of 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was classified as an instructional flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructional flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed during the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan was filed for the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no flight plan filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed from Daytona Beach International Airport at 1000.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Daytona Beach International Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1000",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Daytona Beach International Airport is located in Daytona Beach, Florida.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Daytona Beach International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Daytona Beach, Florida",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The purpose of the flight was to complete a multi-engine check ride.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "complete a multi-engine check ride",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During an approach, the pilot was instructed to demonstrate a short field landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated pilot examiner",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INSTRUCTED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DEMONSTRATION TASK"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "short field landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "While on short final, the pilot reduced power and slowed the airspeed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reduced power and slowed the airspeed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "As the airplane crossed the runway threshold, the airplane descended rapidly.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESCENT BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "descended rapidly at runway threshold",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane landed hard on the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING QUALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both the DPE and pilot reported no flight control anomalies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated pilot examiner",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED ANOMALIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no flight control anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED ANOMALIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no flight control anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both the DPE and pilot reported no mechanical malfunctions that would have precluded normal operation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated pilot examiner",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED MALFUNCTIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no mechanical malfunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED MALFUNCTIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no mechanical malfunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A post-accident examination was conducted by a Federal Aviation Administration inspector.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "post-accident examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The post-accident examination revealed that the composite wing spar fractured at the fuselage bulkhead.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond DA-42 Twinstar",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAILS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "composite wing spar fractured at the fuselage bulkhead",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Phoenix East Aviation's training manual required pilots to obtain 82 knots indicated airspeed for short-field approach to landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Phoenix East Aviation",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED APPROACH SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "82 knots indicated airspeed for short-field approach",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Diamond Aircraft normal operating procedures specified that the minimum airspeed with flaps applied for landing is 84 knots indicated airspeed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond Aircraft",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MINIMUM LANDING SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "84 knots indicated airspeed with flaps applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There is not a published short field landing procedure in the Diamond Aircraft DA-42 operations manual.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Diamond Aircraft",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MISSING PROCEDURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "short field landing procedure in DA-42 operations manual",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the approach to land, the DPE stated that the airspeed was approximately between 75-80 knots indicated airspeed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated pilot examiner",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED APPROACH SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately between 75-80 knots indicated airspeed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The DPE indicated the airspeed was 67 knots before touchdown.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated pilot examiner",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED TOUCHDOWN SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "67 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::c210da75:b888",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85465.md",
+        "file_name": "85465.md",
+        "file_size": 9964,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "78d093c4ee38c3c19b91282d009c3c47d55db7809ec6e14cf34f2eee0ecaa289",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::c210da75:b888:7e204b4a",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85465.md",
+        "file_name": "85465.md",
+        "file_size": 9964,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "754501f3616f3ac99524659f091b2745cd76635e9beba47a83e33d4fa575c757",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::c210da75:b888:0b37bb5d",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85465.md",
+        "file_name": "85465.md",
+        "file_size": 9964,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "7718e20b0152b04e6d0e1c1faa395b068ec0e4fd773525b67c46ba311340c9e8",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Landing-flare/touchdown | Hard landing (Defining event) |\n\nOn October 11, 2012, about 1330 eastern daylight time, a Diamond DA-42 Twinstar, N607PA, was substantially damaged following a hard landing at Flagler County Airport (XFL), Palm Coast, Florida. The designated pilot examiner (DPE) and private pilot were uninjured. The airplane was registered to and operated by Phoenix East Aviation under the provisions of 14 Code of Federal Regulations Part 91 as an instructional flight. Visual meteorological conditions prevailed and no flight plan was filed. The flight departed from Daytona Beach International Airport (DAB), Daytona Beach, Florida at 1000.\n\nAccording to the DPE and the pilot, the purpose of the flight was to complete a multi-engine check ride. During an approach, the pilot was instructed to demonstrate a short field landing. While on short final, the pilot reduced power and slowed the airspeed. As the airplane crossed the runway threshold, the airplane descended rapidly and landed hard on the runway. Both pilots reported no flight control anomalies or mechanical malfunctions that would have precluded normal operation. A post-accident examination by a Federal Aviation Administration inspector revealed that the composite wing spar fractured at the fuselage bulkhead.\n\nA review of the Phoenix East Aviation's training manual revealed that the procedures for short-field approach to landing required the pilot to obtain 82 knots indicated airspeed (KIAS). A review of the Diamond Aircraft normal operating procedures revealed that the minimum airspeed with flaps applied for landing is 84 KIAS. There is not a published short field landing procedure in the Diamond Aircraft DA-42 operations manual. During the approach to land the DPE stated that the airspeed was approximately between 75-80 KIAS and indicated 67 knots before touchdown.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1913,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,23 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_ZF1KUXLERFqqkSISSI-7MA", "name": "ntsb"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\""}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ": \"Cessna"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " 172 engine "}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "failur"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "e power lo"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ss acci"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "dents t"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "raining fli"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ghts mec"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "hanical p"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rob"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "lems "}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Lyc"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "oming Co"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nti"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nental engin"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "es\"}"}}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 6147, "outputTokens": 72, "totalTokens": 6219}, "metrics": {"latencyMs": 2814}}}

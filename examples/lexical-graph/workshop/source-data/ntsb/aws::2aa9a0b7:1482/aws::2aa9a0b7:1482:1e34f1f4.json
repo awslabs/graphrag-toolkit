@@ -1,0 +1,2450 @@
+{
+  "id_": "aws::2aa9a0b7:1482:1e34f1f4",
+  "embedding": [
+    0.017044067,
+    -0.008522034,
+    0.0015411377,
+    -0.042419434,
+    -0.011886597,
+    0.00029921532,
+    -0.016571045,
+    0.0072135925,
+    -0.06274414,
+    0.013122559,
+    0.0031394958,
+    0.048309326,
+    -0.040802002,
+    -0.03692627,
+    0.05206299,
+    -0.028884888,
+    0.019500732,
+    0.0022144318,
+    0.0014467239,
+    -0.01727295,
+    0.0031051636,
+    0.0059547424,
+    -0.025390625,
+    0.031082153,
+    0.017089844,
+    0.037506104,
+    -0.051086426,
+    0.01689148,
+    -0.0046424866,
+    -0.0048828125,
+    0.014633179,
+    -0.004272461,
+    0.010978699,
+    0.060394287,
+    -0.07910156,
+    -0.050323486,
+    -0.013168335,
+    0.008293152,
+    -0.028305054,
+    0.04220581,
+    0.027359009,
+    -0.017333984,
+    -0.005466461,
+    -0.043029785,
+    -0.03741455,
+    0.010566711,
+    0.0103302,
+    0.016586304,
+    0.039794922,
+    0.042999268,
+    0.021728516,
+    0.0011577606,
+    -0.0016107559,
+    0.06341553,
+    -0.011360168,
+    0.0064048767,
+    -0.0062217712,
+    0.014862061,
+    0.03439331,
+    -0.007736206,
+    -0.032073975,
+    -0.016082764,
+    0.032196045,
+    -0.013916016,
+    -0.04736328,
+    0.0032081604,
+    0.04852295,
+    -0.011367798,
+    0.014724731,
+    -0.037994385,
+    -0.007762909,
+    0.039855957,
+    -0.017501831,
+    0.003528595,
+    -0.009315491,
+    -0.0007457733,
+    -0.015823364,
+    -0.00073957443,
+    0.017501831,
+    0.019699097,
+    0.043304443,
+    0.015426636,
+    0.05456543,
+    -0.023361206,
+    0.020996094,
+    0.009460449,
+    -0.0037670135,
+    -0.00894165,
+    0.025436401,
+    0.034851074,
+    -0.0054244995,
+    0.035217285,
+    0.050994873,
+    0.047088623,
+    -0.03753662,
+    0.026535034,
+    0.015151978,
+    -0.0059051514,
+    0.014625549,
+    -0.0035057068,
+    -0.015388489,
+    -0.036376953,
+    -0.02217102,
+    -0.008293152,
+    -0.005821228,
+    0.035339355,
+    0.005130768,
+    -0.018966675,
+    0.008270264,
+    -0.006629944,
+    -0.023727417,
+    -0.013679504,
+    -0.0071411133,
+    -0.0011386871,
+    -0.04714966,
+    0.009963989,
+    -0.01335907,
+    -0.014762878,
+    -0.0044670105,
+    0.006248474,
+    0.007911682,
+    0.028945923,
+    -0.028381348,
+    -0.032409668,
+    -0.0115356445,
+    -0.03665161,
+    -0.016479492,
+    0.018203735,
+    0.05343628,
+    -0.028503418,
+    -0.0015058517,
+    0.033721924,
+    -0.03817749,
+    -0.015777588,
+    -0.022521973,
+    0.011039734,
+    -0.016067505,
+    -0.040130615,
+    -0.028121948,
+    0.01965332,
+    -0.02619934,
+    -0.022094727,
+    0.03894043,
+    -0.031982422,
+    0.029968262,
+    0.038269043,
+    0.0019664764,
+    -0.0061912537,
+    0.022109985,
+    -0.043426514,
+    0.066711426,
+    -0.09350586,
+    0.03353882,
+    0.02709961,
+    -0.013435364,
+    -0.0015621185,
+    0.034210205,
+    -0.022125244,
+    -0.007965088,
+    -0.04800415,
+    -0.023529053,
+    -0.023544312,
+    0.012054443,
+    -6.902218e-05,
+    -0.06100464,
+    0.0579834,
+    -0.0128479,
+    -0.016418457,
+    0.013313293,
+    -0.007701874,
+    0.0473938,
+    -0.05609131,
+    -0.042877197,
+    -0.026290894,
+    -0.011680603,
+    0.01953125,
+    -0.015060425,
+    0.052520752,
+    0.034942627,
+    -0.022903442,
+    -0.0070228577,
+    -0.039031982,
+    0.095581055,
+    -0.011512756,
+    0.008262634,
+    0.037506104,
+    -0.006122589,
+    0.007537842,
+    -0.0018892288,
+    0.0028095245,
+    -0.015838623,
+    0.027236938,
+    -0.023330688,
+    -0.029571533,
+    0.0017204285,
+    0.024215698,
+    -0.0042877197,
+    0.019226074,
+    0.017959595,
+    -0.03189087,
+    -0.06536865,
+    0.01977539,
+    -0.006462097,
+    0.0016860962,
+    0.027923584,
+    0.0073127747,
+    0.004638672,
+    0.037841797,
+    -0.009460449,
+    0.032348633,
+    0.013877869,
+    -0.015808105,
+    -0.040618896,
+    0.026794434,
+    -0.0064201355,
+    -0.049194336,
+    0.019607544,
+    0.0005683899,
+    0.023132324,
+    0.0052337646,
+    0.042266846,
+    0.03604126,
+    0.03741455,
+    0.050445557,
+    -0.048858643,
+    0.014976501,
+    -0.008476257,
+    0.028198242,
+    0.00038909912,
+    0.010025024,
+    0.09387207,
+    -0.042236328,
+    0.017959595,
+    -0.0018625259,
+    -0.026947021,
+    0.01272583,
+    0.017593384,
+    -0.041656494,
+    -0.013412476,
+    0.02279663,
+    -0.0008254051,
+    0.0038776398,
+    -0.00080251694,
+    0.06097412,
+    -0.014701843,
+    -0.041748047,
+    -0.0030078888,
+    0.030441284,
+    -0.08099365,
+    -0.028335571,
+    0.0637207,
+    0.05267334,
+    0.014480591,
+    0.10144043,
+    -0.009552002,
+    0.022338867,
+    -0.03277588,
+    -0.030441284,
+    -0.013679504,
+    0.017959595,
+    0.017807007,
+    0.0038089752,
+    0.0052375793,
+    0.0022277832,
+    0.045562744,
+    0.039123535,
+    0.05319214,
+    0.055480957,
+    -0.06695557,
+    0.030670166,
+    0.01424408,
+    0.04446411,
+    -0.0074653625,
+    0.031829834,
+    -0.09881592,
+    0.005569458,
+    -0.020019531,
+    0.05038452,
+    -0.032562256,
+    -0.02494812,
+    0.008636475,
+    0.05291748,
+    0.0068855286,
+    -0.0062789917,
+    0.0027275085,
+    -0.037078857,
+    -0.010398865,
+    0.006790161,
+    0.0054473877,
+    0.0065689087,
+    0.044799805,
+    -0.01991272,
+    -0.021072388,
+    -0.0006632805,
+    0.04864502,
+    -0.03353882,
+    0.03201294,
+    -0.03463745,
+    0.02357483,
+    -0.024627686,
+    0.029724121,
+    0.062408447,
+    -0.0007853508,
+    -0.0022583008,
+    -0.02609253,
+    0.044952393,
+    -0.016281128,
+    -0.0005450249,
+    0.004673004,
+    -0.059814453,
+    0.054626465,
+    0.05633545,
+    0.021224976,
+    -0.028381348,
+    0.020874023,
+    -0.018035889,
+    -0.011810303,
+    0.008613586,
+    -0.064941406,
+    -0.015899658,
+    -0.01436615,
+    0.018615723,
+    -0.04244995,
+    -0.016952515,
+    0.0014362335,
+    0.023361206,
+    -0.04559326,
+    -0.0062217712,
+    -0.025680542,
+    0.006340027,
+    -0.03250122,
+    -0.037139893,
+    -0.031082153,
+    0.015525818,
+    -0.00021886826,
+    0.022354126,
+    0.015701294,
+    -0.037231445,
+    0.008163452,
+    0.02609253,
+    0.057678223,
+    -0.031921387,
+    0.008232117,
+    -0.0021972656,
+    -0.10192871,
+    0.009895325,
+    0.053009033,
+    -0.018463135,
+    -0.016448975,
+    -0.022125244,
+    0.062927246,
+    -0.012184143,
+    0.008239746,
+    -0.0011386871,
+    0.017959595,
+    -0.0074691772,
+    -0.021484375,
+    0.024765015,
+    -0.002658844,
+    -0.03555298,
+    0.03010559,
+    0.026351929,
+    0.0014333725,
+    -0.05517578,
+    -0.023117065,
+    -0.02029419,
+    -0.019042969,
+    -0.007408142,
+    -0.03451538,
+    -0.028030396,
+    -0.028121948,
+    -0.020355225,
+    -0.021392822,
+    -0.018066406,
+    -0.008224487,
+    0.045166016,
+    -0.058776855,
+    -0.039520264,
+    0.017288208,
+    -0.038146973,
+    0.023803711,
+    0.013885498,
+    0.029846191,
+    0.008270264,
+    -0.057525635,
+    0.03161621,
+    -0.042877197,
+    -0.0413208,
+    -0.0005297661,
+    -0.010681152,
+    0.042053223,
+    0.085510254,
+    0.012817383,
+    -0.022979736,
+    -0.003189087,
+    0.020050049,
+    -0.03765869,
+    -0.019348145,
+    -0.008132935,
+    -0.010177612,
+    -0.15063477,
+    0.035186768,
+    0.0234375,
+    -0.046173096,
+    -0.0067977905,
+    -0.042297363,
+    -0.0859375,
+    -0.058929443,
+    0.013023376,
+    0.070251465,
+    -0.054656982,
+    0.03857422,
+    -0.04373169,
+    0.044525146,
+    -0.009185791,
+    0.023605347,
+    -0.08843994,
+    -0.021865845,
+    -0.0040664673,
+    0.052520752,
+    0.013053894,
+    -0.05178833,
+    0.009269714,
+    0.054382324,
+    -0.021347046,
+    0.0016803741,
+    -0.03970337,
+    -0.0079956055,
+    -0.030883789,
+    0.03515625,
+    -0.041290283,
+    0.025650024,
+    -0.001707077,
+    -0.035705566,
+    -0.00868988,
+    -0.0035247803,
+    -0.04434204,
+    -0.0012998581,
+    -0.02659607,
+    -0.0004351139,
+    0.028793335,
+    0.042236328,
+    0.0079193115,
+    0.025787354,
+    -0.0066337585,
+    -0.011428833,
+    0.026824951,
+    0.019058228,
+    0.012802124,
+    -0.024871826,
+    -0.00844574,
+    0.0118255615,
+    0.08135986,
+    0.03488159,
+    0.0023059845,
+    -0.0014343262,
+    -0.032226562,
+    0.031341553,
+    -0.0010671616,
+    -0.016967773,
+    0.0077056885,
+    -0.024642944,
+    -0.026733398,
+    -0.0036525726,
+    -0.01939392,
+    0.011566162,
+    -0.010147095,
+    0.02935791,
+    0.006061554,
+    -0.021560669,
+    0.00945282,
+    0.041137695,
+    -0.04547119,
+    -0.048583984,
+    0.0025920868,
+    -0.01158905,
+    0.02418518,
+    -0.04360962,
+    0.10534668,
+    0.011520386,
+    -0.04348755,
+    0.021621704,
+    0.01965332,
+    -0.0046577454,
+    0.013389587,
+    0.010643005,
+    -0.0020713806,
+    -0.0058021545,
+    -0.011955261,
+    0.010719299,
+    0.04611206,
+    0.007335663,
+    0.051818848,
+    0.0072364807,
+    0.01272583,
+    -0.045654297,
+    0.007545471,
+    0.027694702,
+    0.03967285,
+    0.013015747,
+    -0.04147339,
+    0.013748169,
+    -0.035186768,
+    -0.047027588,
+    -0.014785767,
+    0.03491211,
+    -0.0099487305,
+    -0.013465881,
+    -0.025848389,
+    -0.06463623,
+    -0.013343811,
+    -0.049072266,
+    0.012390137,
+    0.050476074,
+    -0.053375244,
+    0.03164673,
+    -0.038604736,
+    0.009506226,
+    -0.036468506,
+    -0.007217407,
+    0.004989624,
+    0.0046539307,
+    0.023803711,
+    0.020965576,
+    0.00025129318,
+    0.000279665,
+    -0.008995056,
+    0.0154418945,
+    -0.014526367,
+    -0.04345703,
+    -0.009239197,
+    0.005569458,
+    0.004688263,
+    0.038757324,
+    0.027786255,
+    0.030899048,
+    -0.013534546,
+    0.011833191,
+    0.0002104044,
+    -0.04940796,
+    0.010017395,
+    -0.0025043488,
+    -0.01637268,
+    -0.03289795,
+    -0.012878418,
+    -0.0051994324,
+    0.012428284,
+    0.04449463,
+    -0.011009216,
+    0.00021100044,
+    0.0059814453,
+    0.009803772,
+    -0.012214661,
+    -0.07611084,
+    -0.064453125,
+    0.051086426,
+    0.041809082,
+    -0.016723633,
+    -0.008628845,
+    -0.010192871,
+    0.013763428,
+    0.008796692,
+    -0.03475952,
+    -0.014427185,
+    0.0051078796,
+    0.0025138855,
+    0.034698486,
+    -0.021942139,
+    0.044769287,
+    -0.023010254,
+    -0.04510498,
+    -0.05569458,
+    0.009429932,
+    0.015174866,
+    -0.032348633,
+    -0.004196167,
+    0.016113281,
+    0.029434204,
+    -0.009506226,
+    -0.018341064,
+    0.032440186,
+    -0.0017147064,
+    -0.015068054,
+    0.014465332,
+    -0.05807495,
+    0.0102005005,
+    0.029205322,
+    0.0038032532,
+    -0.034057617,
+    0.0016288757,
+    0.07556152,
+    -0.019165039,
+    0.015487671,
+    -0.0018377304,
+    -0.02798462,
+    0.0027275085,
+    0.0038490295,
+    -0.056793213,
+    -0.01826477,
+    -0.019683838,
+    0.008583069,
+    -0.006778717,
+    0.0063819885,
+    -0.025024414,
+    0.0013074875,
+    -0.0020008087,
+    -0.0030822754,
+    0.013000488,
+    0.020935059,
+    0.020050049,
+    0.010848999,
+    -0.006958008,
+    -0.052337646,
+    0.04019165,
+    -0.02758789,
+    -0.013519287,
+    -0.032958984,
+    0.0105896,
+    0.0715332,
+    0.022445679,
+    0.01701355,
+    -0.0062561035,
+    -0.0064086914,
+    -0.030349731,
+    0.0055007935,
+    0.020050049,
+    0.0030937195,
+    0.023727417,
+    -0.006313324,
+    -0.01486969,
+    0.008628845,
+    -0.03189087,
+    -0.020858765,
+    -0.04232788,
+    -0.02281189,
+    0.021362305,
+    -0.011367798,
+    -0.05429077,
+    0.0018644333,
+    0.038269043,
+    0.0076789856,
+    0.0013198853,
+    -0.044433594,
+    -0.0046653748,
+    -0.02911377,
+    -0.023529053,
+    -0.021896362,
+    -0.03829956,
+    -0.0037727356,
+    -0.0017280579,
+    -0.006298065,
+    0.000975132,
+    0.034301758,
+    -0.055419922,
+    -0.021331787,
+    -0.010276794,
+    0.004508972,
+    -0.015129089,
+    -0.009765625,
+    -0.070617676,
+    -0.07702637,
+    -0.0670166,
+    -0.008415222,
+    -0.0491333,
+    -0.031280518,
+    0.00059747696,
+    0.024017334,
+    0.0046195984,
+    -0.0017366409,
+    -0.038208008,
+    -0.014076233,
+    0.011871338,
+    0.027389526,
+    -0.04043579,
+    -0.015701294,
+    0.042144775,
+    -0.0027103424,
+    0.0127334595,
+    0.014503479,
+    -0.016662598,
+    0.024780273,
+    0.020828247,
+    0.02116394,
+    -0.037109375,
+    -0.024765015,
+    0.011398315,
+    -0.052215576,
+    0.023666382,
+    0.013969421,
+    0.043518066,
+    -0.018035889,
+    -0.022857666,
+    0.033966064,
+    -0.03225708,
+    -0.05038452,
+    -0.009849548,
+    -0.025375366,
+    0.009132385,
+    -0.021987915,
+    -0.030426025,
+    -0.0024700165,
+    0.025848389,
+    -0.0053863525,
+    0.007217407,
+    0.012397766,
+    0.02204895,
+    0.020065308,
+    -0.027450562,
+    0.0015220642,
+    -0.022659302,
+    -0.008453369,
+    0.056396484,
+    -0.020248413,
+    -0.02519226,
+    0.012428284,
+    -0.007926941,
+    0.026382446,
+    0.031036377,
+    0.009399414,
+    -0.02458191,
+    -0.022354126,
+    0.019958496,
+    -0.046936035,
+    -0.021484375,
+    0.021118164,
+    -0.051239014,
+    -0.071777344,
+    0.006324768,
+    -0.02003479,
+    -0.017089844,
+    -0.005859375,
+    -0.029418945,
+    0.025222778,
+    -0.015396118,
+    -0.043060303,
+    0.02659607,
+    -0.0178833,
+    0.049224854,
+    -0.01789856,
+    -0.0021572113,
+    0.004169464,
+    -0.034576416,
+    0.024108887,
+    -0.021270752,
+    -0.0013475418,
+    -0.012779236,
+    0.011886597,
+    -0.03414917,
+    -0.047790527,
+    -0.018692017,
+    0.0149002075,
+    -0.044067383,
+    -0.08770752,
+    -0.03729248,
+    0.007232666,
+    -0.0021457672,
+    0.04232788,
+    -0.01612854,
+    -0.08868408,
+    0.019989014,
+    -0.014389038,
+    -0.00019037724,
+    -0.0063667297,
+    0.022125244,
+    -0.031341553,
+    0.019134521,
+    -0.02772522,
+    -0.033935547,
+    0.0096206665,
+    -0.0021190643,
+    0.0026798248,
+    0.002450943,
+    0.007194519,
+    -0.0006079674,
+    0.00041532516,
+    0.02067566,
+    0.030029297,
+    -0.059509277,
+    -0.0066223145,
+    -0.013999939,
+    0.020339966,
+    -0.010406494,
+    0.014762878,
+    0.0032920837,
+    0.022201538,
+    -0.005836487,
+    -0.038208008,
+    -0.014465332,
+    -0.014587402,
+    -0.042510986,
+    -0.02923584,
+    0.041870117,
+    -0.001950264,
+    -0.04006958,
+    -0.0032672882,
+    0.014083862,
+    -0.04458618,
+    -0.015655518,
+    0.03353882,
+    -0.018585205,
+    -0.0057907104,
+    -0.03717041,
+    0.0028476715,
+    0.029830933,
+    -0.01586914,
+    0.0098724365,
+    -0.0061683655,
+    0.04260254,
+    0.0030078888,
+    0.0008068085,
+    -0.0005812645,
+    -0.028717041,
+    0.064941406,
+    -5.865097e-05,
+    0.05795288,
+    0.018096924,
+    -0.08929443,
+    -0.033935547,
+    0.010894775,
+    -0.0035972595,
+    0.021087646,
+    0.037597656,
+    0.010147095,
+    -0.0005722046,
+    -0.028381348,
+    -0.0067596436,
+    -0.005695343,
+    -0.013954163,
+    0.015716553,
+    0.02154541,
+    -0.00819397,
+    0.002002716,
+    -0.032592773,
+    -0.030075073,
+    -0.050811768,
+    0.061523438,
+    0.04864502,
+    0.014854431,
+    -3.5345554e-05,
+    0.058135986,
+    -0.019989014,
+    -0.012428284,
+    -0.004863739,
+    0.00063991547,
+    -0.024124146,
+    0.0077552795,
+    0.0030651093,
+    0.004295349,
+    -0.025161743,
+    0.06945801,
+    0.01763916,
+    0.0017538071,
+    0.058441162,
+    -0.0064048767,
+    -0.011756897,
+    -0.03152466,
+    0.023406982,
+    -0.021820068,
+    -0.005947113,
+    0.03845215,
+    0.021606445,
+    0.020904541,
+    0.010726929,
+    -0.020126343,
+    0.041137695,
+    0.028869629,
+    0.018463135,
+    -0.022064209,
+    -0.009124756,
+    -0.008773804,
+    0.031051636,
+    -0.0154418945,
+    -0.08026123,
+    0.0051078796,
+    -0.0040893555,
+    -0.038116455,
+    0.02218628,
+    0.05053711,
+    -0.0103302,
+    -0.04083252,
+    -0.047973633,
+    -0.07104492,
+    -0.018981934,
+    -0.029266357,
+    -0.026626587,
+    -0.053222656,
+    0.014709473,
+    -0.00459671,
+    0.07147217,
+    0.011436462,
+    -0.011566162,
+    -0.021026611,
+    -0.02281189,
+    -0.004322052,
+    0.019821167,
+    0.024017334,
+    -0.010658264,
+    -0.019577026,
+    -0.04348755,
+    0.016479492,
+    -0.021438599,
+    -0.04498291,
+    0.01247406,
+    -0.072143555,
+    0.049926758,
+    0.0061950684,
+    0.03866577,
+    -0.09509277,
+    0.0027561188,
+    -0.0062789917,
+    -0.01876831,
+    -0.025909424,
+    -0.018920898,
+    0.0076179504,
+    -0.0054969788,
+    -0.059509277,
+    -0.022033691,
+    0.005924225,
+    0.022003174,
+    -0.0058555603,
+    -0.041534424,
+    -0.042785645,
+    0.025146484,
+    0.0473938,
+    0.031799316,
+    -0.017166138,
+    0.0914917,
+    -0.0340271,
+    0.04309082,
+    -0.03387451,
+    -0.019973755,
+    -0.007446289,
+    0.03967285,
+    0.11895752,
+    0.038909912,
+    0.0107803345,
+    -0.041229248,
+    -0.010253906,
+    -0.0236969,
+    0.08178711,
+    0.007701874,
+    -0.008583069,
+    -0.029922485,
+    0.03668213,
+    0.007965088,
+    0.012817383,
+    -0.017333984,
+    0.0023612976,
+    -0.0234375,
+    0.044525146,
+    0.039215088,
+    -0.0016908646,
+    0.016815186,
+    0.017425537,
+    0.006034851,
+    0.051971436,
+    -0.0181427,
+    -0.01158905,
+    -0.029724121,
+    -0.04586792,
+    0.0056381226,
+    -0.009010315,
+    -0.035308838,
+    -0.017089844,
+    0.063964844,
+    0.035736084,
+    0.03366089,
+    -0.038146973,
+    0.015464783,
+    0.044799805,
+    0.012924194,
+    5.4061413e-05,
+    -0.0072631836,
+    -0.0068740845,
+    -0.02468872,
+    -0.036010742,
+    0.019012451,
+    0.006996155,
+    0.0071144104,
+    0.013450623,
+    -0.01939392,
+    0.062438965,
+    0.00018012524,
+    -0.0069122314,
+    -0.010932922,
+    0.008171082,
+    -0.022003174,
+    0.0021800995,
+    -0.0045166016,
+    0.025024414,
+    0.0042304993,
+    0.014945984,
+    0.045654297,
+    0.018203735,
+    -0.0019760132,
+    0.005493164,
+    0.048950195,
+    -0.00037670135,
+    0.016281128,
+    -0.041229248,
+    -0.022521973,
+    -0.0022258759,
+    0.03277588,
+    0.0061836243,
+    -0.035003662,
+    -0.033294678,
+    -0.0063095093,
+    -0.02130127,
+    -0.021591187,
+    -0.0049591064,
+    -0.0446167,
+    0.022445679,
+    0.033081055,
+    -0.0015602112,
+    0.06542969,
+    0.0013399124,
+    0.019897461,
+    0.024475098,
+    0.032714844,
+    0.012229919,
+    0.016555786,
+    -0.023498535,
+    0.002872467,
+    -0.0041885376
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+    "file_name": "85615.md",
+    "file_size": 49115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Pasadena Police Department Heliport Accident Information",
+      "Heliport requires replacement of hooded light figures with flush green perimeter lights according to FAA AC 150/5390-2C.",
+      "Heliport requires marking of the FATO in accordance with AC 150-5390-2C figures 2-22 and 2-23.",
+      "Heliport requires removal of all helicopter parking spot markings.",
+      "Heliport requires redesign of the parking plan according to AC 150-5390-2C, paragraph 214, table 2-1, and figures 2-17 and 2-18.",
+      "Pasadena Police Department made heliport upgrades after the accident.",
+      "Pasadena Police Department conducted an internal review after the accident.",
+      "Pasadena Police Department reviewed and updated their standard operating procedures manual.",
+      "Pasadena Police Department heliport upgrades included new lighting.",
+      "Pasadena Police Department heliport upgrades included new markings.",
+      "Pasadena Police Department heliport upgrades included new pad assignments.",
+      "Pasadena Police Department heliport upgrades included obstruction clearance.",
+      "Pasadena Police Department heliport upgrades included tree removal.",
+      "Pasadena Police Department heliport upgrades included ground obstacle removal.",
+      "Pasadena Police Department heliport upgrades included procedural review.",
+      "Pasadena Police Department increased safety/section meetings for timely identification and response to issues.",
+      "Pasadena Police Department continued emphasis on factory and local flight training.",
+      "Pasadena Police Department increased ground and flight training for Tactical Flight Officers (TFOs).",
+      "Pasadena Police Department improved section training library for personal development.",
+      "Pasadena Police Department resolved irrigation issues associated with flight line drainage.",
+      "Pasadena Police Department conducted table top exercises related to lost aircraft/aircraft accident.",
+      "Pasadena Police Department increased ride checks with pilots and TFOs to ensure compliance with established procedures.",
+      "The pilot held a Commercial certificate.",
+      "The pilot did not have Airplane Rating(s).",
+      "The pilot had Helicopter Rating(s).",
+      "The pilot did not have Instrument Rating(s).",
+      "The pilot did not have Instructor Rating(s).",
+      "The pilot had Class 2 Medical Certification with waivers/limitations.",
+      "The pilot was an Occupational Pilot.",
+      "The pilot had an estimated 16200 hours of total flight time in all aircraft.",
+      "The pilot had an estimated 8000 hours of total flight time in this make and model.",
+      "The pilot was 49 years old.",
+      "The pilot was female.",
+      "The pilot occupied the right seat.",
+      "The pilot's restraint use was unknown.",
+      "There was no second pilot present.",
+      "Toxicology was not performed on the pilot.",
+      "The pilot's last FAA medical exam was on June 6, 2012.",
+      "The pilot's last flight review or equivalent was on July 11, 2011."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Pasadena Police Department Heliport Accident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pasadena Police Department",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "FAA AC 150/5390-2C",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Tactical Flight Officers",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Heliport requires replacement of hooded light figures with flush green perimeter lights according to FAA AC 150/5390-2C.",
+              "details": [
+                "Heliport REQUIRES replacement of hooded light figures with flush green perimeter lights"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Heliport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "replacement of hooded light figures with flush green perimeter lights",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA AC 150/5390-2C",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lighting standards",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Heliport requires marking of the FATO in accordance with AC 150-5390-2C figures 2-22 and 2-23.",
+              "details": [
+                "Heliport REQUIRES marking of the FATO"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Heliport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "marking of the FATO",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA AC 150/5390-2C",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "figures 2-22 and 2-23",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Heliport requires removal of all helicopter parking spot markings.",
+              "details": [
+                "Heliport REQUIRES removal of all helicopter parking spot markings"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Heliport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removal of all helicopter parking spot markings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Heliport requires redesign of the parking plan according to AC 150-5390-2C, paragraph 214, table 2-1, and figures 2-17 and 2-18.",
+              "details": [
+                "Heliport REQUIRES redesign of the parking plan"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Heliport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "redesign of the parking plan",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA AC 150/5390-2C",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "paragraph 214",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA AC 150/5390-2C",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "table 2-1",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA AC 150/5390-2C",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "figures 2-17 and 2-18",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department made heliport upgrades after the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Heliport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "MADE UPGRADES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "heliport upgrades after the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department conducted an internal review after the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internal review after the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department reviewed and updated their standard operating procedures manual.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "REVIEWED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "standard operating procedures manual",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPDATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "standard operating procedures manual",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department heliport upgrades included new lighting.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPGRADED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new lighting",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department heliport upgrades included new markings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPGRADED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new markings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department heliport upgrades included new pad assignments.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPGRADED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new pad assignments",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department heliport upgrades included obstruction clearance.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPGRADED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "obstruction clearance",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department heliport upgrades included tree removal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPGRADED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tree removal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department heliport upgrades included ground obstacle removal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPGRADED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ground obstacle removal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department heliport upgrades included procedural review.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "UPGRADED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "procedural review",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department increased safety/section meetings for timely identification and response to issues.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "INCREASED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "safety/section meetings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department continued emphasis on factory and local flight training.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "EMPHASIZED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "factory and local flight training",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department increased ground and flight training for Tactical Flight Officers (TFOs).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "EMPLOYS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officers",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "INCREASED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ground and flight training for TFOs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department improved section training library for personal development.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "IMPROVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "section training library",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department resolved irrigation issues associated with flight line drainage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "RESOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "irrigation issues with flight line drainage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department conducted table top exercises related to lost aircraft/aircraft accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "table top exercises for lost aircraft/aircraft accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena Police Department increased ride checks with pilots and TFOs to ensure compliance with established procedures.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena Police Department",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "INCREASED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ride checks with pilots and TFOs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Commercial certificate.",
+              "details": [
+                "Pilot HELD Commercial certificate"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HELD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Commercial certificate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not have Airplane Rating(s).",
+              "details": [
+                "Pilot LACKED Airplane Rating(s)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane Rating(s)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had Helicopter Rating(s).",
+              "details": [
+                "Pilot HAD Helicopter Rating(s)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Helicopter Rating(s)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not have Instrument Rating(s).",
+              "details": [
+                "Pilot LACKED Instrument Rating(s)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Instrument Rating(s)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not have Instructor Rating(s).",
+              "details": [
+                "Pilot LACKED Instructor Rating(s)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Instructor Rating(s)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had Class 2 Medical Certification with waivers/limitations.",
+              "details": [
+                "Pilot HAD Class 2 Medical Certification with waivers/limitations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class 2 Medical Certification with waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was an Occupational Pilot.",
+              "details": [
+                "Pilot OCCUPATION Occupational Pilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Occupational Pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had an estimated 16200 hours of total flight time in all aircraft.",
+              "details": [
+                "Pilot FLIGHT HOURS TOTAL 16200 hours"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS TOTAL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "16200 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had an estimated 8000 hours of total flight time in this make and model.",
+              "details": [
+                "Pilot FLIGHT HOURS MAKE MODEL 8000 hours"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS MAKE MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "8000 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was 49 years old.",
+              "details": [
+                "Pilot AGE 49 years"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "49 years",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was female.",
+              "details": [
+                "Pilot GENDER female"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "GENDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "female",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot occupied the right seat.",
+              "details": [
+                "Pilot SEAT POSITION right seat"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's restraint use was unknown.",
+              "details": [
+                "Pilot RESTRAINT USE unknown"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESTRAINT USE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Toxicology was not performed on the pilot.",
+              "details": [
+                "Pilot TOXICOLOGY PERFORMED no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last FAA medical exam was on June 6, 2012.",
+              "details": [
+                "Pilot LAST FAA MEDICAL EXAM June 6, 2012"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LAST FAA MEDICAL EXAM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "June 6, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last flight review or equivalent was on July 11, 2011.",
+              "details": [
+                "Pilot LAST FLIGHT REVIEW July 11, 2011"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "July 11, 2011",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2aa9a0b7:1482",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a45c36e0d4254ce290d515a8c90431d59411a5f52134b921e4be9debc05a3ddf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::2aa9a0b7:1482:77ccc2d8",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "39f5af3904e7aca968e720d88a59f50108fac1ed2b79b1c6d54e155792c3aebd",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2aa9a0b7:1482:30cc2a4d",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "2e8bd231a0f8da91ded7d194955e73fc5ce1e3818c025c1e0a153f326290b91b",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Page 8 of 22\n\n## Heliport Upgrades\n\n1. Replace hooded light figures with flush green perimeter lights in accordance with Federal Aviation Administration (FAA) AC 150/5390-2C, Heliport Design, paragraph 216.\n\n2. Mark the FATO in accordance with AC 150-5390-2C figures 2-22 and 2-23.\n\n3. Remove all helicopter parking spot markings, and redesign the heliport parking plan in accordance with AC 150-5390-2C, paragraph 214, table 2-1, and figures 2-17 and 2-18.\n\n## OTHER INFORMATION\n\nAs a result of the accident, along with their own internal review, the Pasadena Police Department made several heliport upgrades and procedural changes:\n\n* Reviewed and updated their standard operating procedures manual\n* Heliport upgrades included new lighting, markings, pad assignments, obstruction clearance, tree removal, ground obstacle removal, and procedural review\n* Increased safety/section meetings for timely identification and response to issues\n* Continued emphasis on factory and local flight training\n* Increased ground and flight training for TFO's\n* Improved section training library for personal development\n* Resolved irrigation issues associated with flight line drainage\n* Conducted table top exercises related to lost aircraft/aircraft accident\n* Increased ride checks with pilots and TFO's to insure compliance with established procedures\n\n## Pilot Information\n\n| | |\n|-|-|\n| Certificate: | Commercial |\n| Airplane Rating(s): | None |\n| Other Aircraft Rating(s): | Helicopter |\n| Instrument Rating(s): | None |\n| Instructor Rating(s): | None |\n| Medical Certification: | Class 2 With waivers/limitations |\n| Occupational Pilot: | Yes |\n| Flight Time: | (Estimated) 16200 hours (Total, all aircraft), 8000 hours (Total, this make and model) |\n| Age: | 49,Female |\n| Seat Occupied: | Right |\n| Restraint Used: | Unknown |\n| Second Pilot Present: | No |\n| Toxicology Performed: | No |\n| Last FAA Medical Exam: | June 6, 2012 |\n| Last Flight Review or Equivalent: | July 11, 2011 |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1989,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

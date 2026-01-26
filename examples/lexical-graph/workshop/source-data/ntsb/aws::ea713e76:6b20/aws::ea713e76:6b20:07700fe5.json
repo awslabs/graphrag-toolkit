@@ -1,0 +1,2623 @@
+{
+  "id_": "aws::ea713e76:6b20:07700fe5",
+  "embedding": [
+    0.01486969,
+    -0.0035190582,
+    0.028686523,
+    -0.06274414,
+    -0.022338867,
+    0.0051841736,
+    -0.047729492,
+    -0.032287598,
+    -0.024551392,
+    0.028747559,
+    0.0013055801,
+    0.015899658,
+    -0.011039734,
+    -0.014099121,
+    0.012901306,
+    -0.025222778,
+    0.0054740906,
+    0.037200928,
+    0.012069702,
+    -0.012573242,
+    -0.0008678436,
+    0.007030487,
+    -0.039520264,
+    -0.0014190674,
+    -0.021575928,
+    0.101379395,
+    -0.052093506,
+    0.020812988,
+    -0.04788208,
+    -0.0068588257,
+    -0.009605408,
+    0.023071289,
+    0.017501831,
+    0.06060791,
+    -0.055236816,
+    0.028808594,
+    0.008232117,
+    0.018859863,
+    -0.00015032291,
+    0.025634766,
+    0.0029449463,
+    -0.0013885498,
+    0.031311035,
+    0.0146865845,
+    -0.0030345917,
+    -0.01486969,
+    -0.008201599,
+    -0.03363037,
+    0.06427002,
+    0.03010559,
+    0.0038051605,
+    -0.010307312,
+    0.006767273,
+    0.050689697,
+    -0.035247803,
+    -0.011917114,
+    -0.0619812,
+    0.012763977,
+    0.015777588,
+    0.04147339,
+    0.028076172,
+    -0.0060195923,
+    0.011039734,
+    -0.01448822,
+    -0.013755798,
+    -0.01638794,
+    -0.027832031,
+    -0.0037326813,
+    0.073791504,
+    0.015434265,
+    -0.009277344,
+    0.035949707,
+    0.0013017654,
+    0.012413025,
+    0.0234375,
+    -0.02607727,
+    -0.01626587,
+    0.0069084167,
+    0.016174316,
+    0.042907715,
+    0.016555786,
+    0.0076789856,
+    0.0016174316,
+    -0.014556885,
+    0.0018491745,
+    0.02861023,
+    -0.012878418,
+    -0.027557373,
+    0.012229919,
+    -0.011734009,
+    -0.0259552,
+    -0.019363403,
+    0.042877197,
+    0.019714355,
+    -0.04019165,
+    -0.024749756,
+    -0.019317627,
+    -0.047332764,
+    0.017959595,
+    -0.013084412,
+    -0.0024738312,
+    -0.035583496,
+    -0.023376465,
+    0.008544922,
+    -0.032165527,
+    0.0018129349,
+    0.034820557,
+    -0.04837036,
+    -0.015007019,
+    0.0028629303,
+    -0.038513184,
+    0.010719299,
+    -0.027053833,
+    -0.019958496,
+    -0.042785645,
+    0.032989502,
+    -0.029144287,
+    -0.009857178,
+    0.018112183,
+    0.01058197,
+    0.00084877014,
+    0.032806396,
+    -0.055023193,
+    -0.03125,
+    0.0032749176,
+    -0.02935791,
+    -0.0110321045,
+    0.026000977,
+    0.034057617,
+    -0.0044136047,
+    0.014007568,
+    0.03274536,
+    -0.05871582,
+    -0.07067871,
+    -0.05279541,
+    0.012252808,
+    -0.053649902,
+    0.014076233,
+    0.02998352,
+    -0.032989502,
+    0.0010528564,
+    -0.0015525818,
+    0.084472656,
+    0.017425537,
+    -0.04257202,
+    0.03933716,
+    0.027679443,
+    -0.010513306,
+    -0.0362854,
+    -0.05859375,
+    -0.022216797,
+    0.0028591156,
+    0.04663086,
+    -0.015213013,
+    -0.037506104,
+    -0.07421875,
+    -0.0026359558,
+    -0.051635742,
+    0.013374329,
+    -0.068603516,
+    0.003917694,
+    0.0060272217,
+    0.036743164,
+    -0.023529053,
+    -0.059570312,
+    0.0022277832,
+    -0.030059814,
+    -0.019714355,
+    0.015914917,
+    8.7082386e-05,
+    0.03353882,
+    0.006286621,
+    -0.032470703,
+    -0.0069274902,
+    0.00541687,
+    -0.003967285,
+    0.01247406,
+    -0.0012559891,
+    0.023620605,
+    0.02470398,
+    0.009117126,
+    -0.009986877,
+    0.028564453,
+    -0.0040283203,
+    -0.03253174,
+    0.026809692,
+    0.0023479462,
+    0.026977539,
+    0.04421997,
+    0.00085020065,
+    0.014305115,
+    -0.00035381317,
+    0.032714844,
+    -0.03048706,
+    0.00059461594,
+    -0.06915283,
+    0.045806885,
+    -0.040008545,
+    -0.00655365,
+    0.036956787,
+    -0.033935547,
+    0.013175964,
+    -0.009895325,
+    0.016342163,
+    -0.034179688,
+    -0.020751953,
+    0.0060539246,
+    0.0390625,
+    0.0016860962,
+    0.011146545,
+    0.0021705627,
+    -0.04257202,
+    -0.0020141602,
+    0.026504517,
+    -0.014549255,
+    -0.03152466,
+    0.02217102,
+    0.019989014,
+    0.0070152283,
+    0.008476257,
+    -0.051330566,
+    0.016983032,
+    -0.046447754,
+    0.009979248,
+    -0.036468506,
+    -0.016174316,
+    -0.010421753,
+    -0.00045871735,
+    0.009498596,
+    -0.021270752,
+    0.082458496,
+    0.016143799,
+    -0.022338867,
+    0.016036987,
+    -0.026611328,
+    0.0096206665,
+    -0.017593384,
+    0.021713257,
+    0.004055023,
+    0.01335907,
+    0.0020427704,
+    -0.011512756,
+    -0.02079773,
+    0.036102295,
+    -0.074279785,
+    -0.0524292,
+    -0.0050621033,
+    0.0018119812,
+    -0.037139893,
+    0.0029010773,
+    0.024810791,
+    0.0067253113,
+    0.017562866,
+    -0.01260376,
+    -0.02255249,
+    0.05758667,
+    -0.041046143,
+    -0.051757812,
+    0.015457153,
+    -0.020401001,
+    0.040039062,
+    -0.08306885,
+    -0.06781006,
+    -0.012702942,
+    0.036987305,
+    0.0056762695,
+    0.05392456,
+    0.053649902,
+    -0.0023002625,
+    -0.019256592,
+    -0.005554199,
+    0.003293991,
+    -0.00023269653,
+    0.015945435,
+    -0.044128418,
+    -0.050933838,
+    0.013946533,
+    0.016204834,
+    -0.024154663,
+    -0.040618896,
+    -0.0058555603,
+    0.0690918,
+    0.015235901,
+    -0.01084137,
+    -0.0036830902,
+    0.03137207,
+    -0.011520386,
+    -0.020721436,
+    -0.035491943,
+    0.009346008,
+    0.055419922,
+    -0.026977539,
+    -0.041412354,
+    -0.011451721,
+    0.0076026917,
+    -0.023651123,
+    0.02861023,
+    0.048187256,
+    -0.0075416565,
+    0.02029419,
+    -0.008300781,
+    0.023620605,
+    -0.014625549,
+    0.0069999695,
+    0.012542725,
+    -0.029815674,
+    -0.024612427,
+    0.010429382,
+    0.003868103,
+    0.052337646,
+    -0.09033203,
+    0.056671143,
+    0.015686035,
+    0.06829834,
+    -0.027191162,
+    -0.030014038,
+    0.0035209656,
+    0.029342651,
+    0.006916046,
+    0.013916016,
+    -0.012741089,
+    -0.029830933,
+    0.012023926,
+    0.0031204224,
+    0.009025574,
+    -0.023864746,
+    0.002166748,
+    0.007637024,
+    -0.0012722015,
+    -0.022125244,
+    -0.017349243,
+    -0.03665161,
+    -0.044708252,
+    0.01890564,
+    0.009529114,
+    0.02003479,
+    -0.002286911,
+    -0.0095825195,
+    -0.038360596,
+    -0.0206604,
+    -0.026168823,
+    -0.032043457,
+    0.013931274,
+    -0.025131226,
+    -0.046875,
+    0.00049591064,
+    0.03237915,
+    0.014640808,
+    -0.015472412,
+    -0.0012397766,
+    0.03366089,
+    -0.02041626,
+    -0.033203125,
+    0.060058594,
+    0.005115509,
+    -0.073791504,
+    0.030426025,
+    0.052612305,
+    -0.05670166,
+    -0.03250122,
+    -0.0036563873,
+    -0.023788452,
+    -0.0690918,
+    0.013786316,
+    0.06036377,
+    -0.01361084,
+    -0.010787964,
+    -0.032562256,
+    0.011001587,
+    0.03881836,
+    -0.028518677,
+    0.023010254,
+    -0.0038204193,
+    -0.0032863617,
+    -0.011985779,
+    -0.024124146,
+    0.017929077,
+    -0.037261963,
+    0.031951904,
+    0.012878418,
+    -0.013168335,
+    0.00071811676,
+    0.0060272217,
+    0.0019664764,
+    0.045196533,
+    -0.0066490173,
+    -0.035339355,
+    -0.011795044,
+    0.014122009,
+    0.027786255,
+    -0.012710571,
+    -0.026992798,
+    -0.01259613,
+    -0.012809753,
+    0.010223389,
+    -0.005039215,
+    -0.020629883,
+    -0.011512756,
+    -0.0552063,
+    -0.003004074,
+    -0.101623535,
+    0.0022239685,
+    -0.01600647,
+    -0.022415161,
+    -0.023986816,
+    -0.020004272,
+    -0.04977417,
+    -0.04574585,
+    0.031021118,
+    0.0657959,
+    -0.03640747,
+    0.03552246,
+    -0.007736206,
+    0.029556274,
+    -0.02229309,
+    0.015136719,
+    -0.003080368,
+    -0.0135650635,
+    0.025543213,
+    0.012542725,
+    0.005630493,
+    -0.011878967,
+    -0.012779236,
+    0.015060425,
+    -0.00178051,
+    -0.022613525,
+    0.0012426376,
+    -0.017242432,
+    -0.036346436,
+    0.07531738,
+    -0.003396988,
+    0.006385803,
+    -0.009742737,
+    0.010406494,
+    -0.055236816,
+    0.0079574585,
+    0.01285553,
+    0.0047302246,
+    0.04547119,
+    -0.04446411,
+    -0.025253296,
+    -1.2814999e-05,
+    -0.003955841,
+    -0.01802063,
+    -0.047668457,
+    -0.004009247,
+    0.03149414,
+    0.0002605915,
+    -0.034851074,
+    -0.032196045,
+    -0.03010559,
+    0.005306244,
+    0.022384644,
+    0.039093018,
+    0.014198303,
+    0.07507324,
+    0.053985596,
+    0.044891357,
+    0.038360596,
+    -0.029174805,
+    -0.008903503,
+    -0.031158447,
+    -0.013305664,
+    0.03149414,
+    -0.048828125,
+    -0.019958496,
+    0.028533936,
+    -0.031585693,
+    -0.038757324,
+    0.02456665,
+    -0.08862305,
+    0.10882568,
+    -0.010726929,
+    -0.021896362,
+    -0.004398346,
+    -0.023269653,
+    0.010681152,
+    -0.039093018,
+    0.07659912,
+    0.018218994,
+    -0.066589355,
+    0.010177612,
+    0.016952515,
+    0.010406494,
+    0.021606445,
+    0.0059318542,
+    0.043823242,
+    0.05404663,
+    -0.007965088,
+    0.009681702,
+    0.010650635,
+    0.0033950806,
+    0.0030326843,
+    0.01550293,
+    -0.014007568,
+    -0.011131287,
+    0.012023926,
+    0.0029411316,
+    -0.011764526,
+    -0.047943115,
+    -0.06488037,
+    0.0047416687,
+    0.0013380051,
+    -0.016677856,
+    0.044433594,
+    0.023223877,
+    0.040924072,
+    0.025360107,
+    -0.033996582,
+    0.035186768,
+    0.04949951,
+    -0.018814087,
+    -0.014274597,
+    0.019042969,
+    -0.033203125,
+    0.02784729,
+    -0.015090942,
+    0.06665039,
+    -0.044647217,
+    -0.024795532,
+    -0.032104492,
+    -0.0473938,
+    0.04071045,
+    0.04650879,
+    -0.059265137,
+    0.0491333,
+    -0.031280518,
+    0.02885437,
+    -0.02583313,
+    -0.047546387,
+    0.024337769,
+    0.02519226,
+    -0.015716553,
+    0.010551453,
+    -0.0024547577,
+    0.019454956,
+    -0.03805542,
+    0.05316162,
+    -0.024719238,
+    -0.066833496,
+    -0.03744507,
+    0.0014820099,
+    0.019760132,
+    -0.022445679,
+    0.011978149,
+    -0.0016946793,
+    0.035369873,
+    0.070007324,
+    -0.05316162,
+    0.017669678,
+    -0.001121521,
+    0.010276794,
+    0.02861023,
+    -0.021408081,
+    -0.05621338,
+    0.010040283,
+    0.016983032,
+    -0.01449585,
+    0.009361267,
+    0.03366089,
+    0.001534462,
+    -0.061920166,
+    3.5464764e-05,
+    0.03353882,
+    0.012207031,
+    0.017715454,
+    0.014083862,
+    -0.052978516,
+    -0.013023376,
+    -0.007156372,
+    -0.029403687,
+    -0.017974854,
+    0.04260254,
+    -0.0006685257,
+    -0.0023880005,
+    -0.013763428,
+    -0.026153564,
+    0.012191772,
+    -0.03173828,
+    -0.007282257,
+    -0.051330566,
+    0.033325195,
+    0.0076179504,
+    0.014595032,
+    -0.04296875,
+    0.009338379,
+    0.025619507,
+    -0.010665894,
+    -0.021896362,
+    -0.008766174,
+    0.03050232,
+    -0.004714966,
+    0.016815186,
+    -0.009025574,
+    -0.010154724,
+    0.03692627,
+    -0.034729004,
+    -0.06335449,
+    -0.02230835,
+    -0.007701874,
+    0.04058838,
+    -0.009277344,
+    0.0032482147,
+    -0.015090942,
+    -0.023864746,
+    -0.03010559,
+    0.009124756,
+    -0.00548172,
+    0.0026245117,
+    0.03314209,
+    -0.005504608,
+    -0.027572632,
+    0.0109939575,
+    0.00089788437,
+    0.023101807,
+    -0.00831604,
+    -0.050445557,
+    0.058685303,
+    0.07171631,
+    -0.017623901,
+    0.03463745,
+    0.027435303,
+    -0.00063562393,
+    0.015930176,
+    0.047546387,
+    -0.011054993,
+    -0.083740234,
+    -0.02909851,
+    -0.0019721985,
+    0.007167816,
+    -0.009315491,
+    0.00037789345,
+    -0.032470703,
+    0.048706055,
+    0.021697998,
+    -0.044158936,
+    -0.012962341,
+    -0.008514404,
+    0.014266968,
+    -0.031036377,
+    -0.023284912,
+    0.020080566,
+    0.009719849,
+    -0.013671875,
+    -0.017181396,
+    -0.03768921,
+    -0.008758545,
+    -0.017501831,
+    -0.009254456,
+    -0.045562744,
+    0.0069885254,
+    0.0005207062,
+    -0.010864258,
+    -0.0051002502,
+    0.012817383,
+    -0.02545166,
+    0.0020446777,
+    -0.0017986298,
+    -0.013084412,
+    -0.06762695,
+    -0.093322754,
+    -0.059387207,
+    -0.016220093,
+    -0.05581665,
+    -0.034484863,
+    0.0446167,
+    0.056854248,
+    0.01689148,
+    0.03225708,
+    -0.03302002,
+    -0.03475952,
+    0.09454346,
+    -0.011169434,
+    -0.034423828,
+    -0.01965332,
+    -0.0013866425,
+    0.027313232,
+    0.017532349,
+    0.012802124,
+    -0.0541687,
+    0.01713562,
+    -0.022872925,
+    -0.00055885315,
+    -0.024047852,
+    -0.0020484924,
+    0.044036865,
+    -0.0184021,
+    -0.012771606,
+    -0.061462402,
+    0.026473999,
+    -0.036590576,
+    0.031799316,
+    -0.025680542,
+    0.011802673,
+    -0.054626465,
+    -0.07635498,
+    0.02784729,
+    -0.017547607,
+    -0.030227661,
+    -0.07739258,
+    0.014053345,
+    0.017791748,
+    0.012252808,
+    0.01966858,
+    -0.04220581,
+    0.041259766,
+    0.028121948,
+    -0.009605408,
+    -0.060821533,
+    -0.0076141357,
+    -0.03591919,
+    0.036468506,
+    0.009346008,
+    -0.0049705505,
+    0.051239014,
+    0.031143188,
+    0.05670166,
+    0.015701294,
+    -0.019195557,
+    -0.021316528,
+    -0.015136719,
+    0.059783936,
+    0.053649902,
+    -0.07098389,
+    0.02734375,
+    -0.000954628,
+    -0.020126343,
+    0.007820129,
+    -0.016662598,
+    -0.01260376,
+    0.024169922,
+    -0.011688232,
+    0.0074043274,
+    -0.0063095093,
+    -0.0077209473,
+    -0.035308838,
+    -0.0050697327,
+    -0.0034255981,
+    0.001376152,
+    0.0024471283,
+    -0.017425537,
+    -0.0030555725,
+    0.020309448,
+    0.004840851,
+    -0.06427002,
+    -0.006790161,
+    0.014976501,
+    -0.09637451,
+    -0.0070877075,
+    -0.041107178,
+    0.03289795,
+    -0.03878784,
+    -0.091674805,
+    -0.01878357,
+    0.0154953,
+    0.04159546,
+    0.01121521,
+    -0.03353882,
+    -0.10974121,
+    0.028747559,
+    -0.033081055,
+    0.0067710876,
+    -0.026397705,
+    0.008934021,
+    0.013320923,
+    0.013786316,
+    0.030776978,
+    -0.016296387,
+    -0.03302002,
+    0.014099121,
+    0.01777649,
+    0.006549835,
+    -0.0099105835,
+    0.0026016235,
+    -0.016708374,
+    -0.012756348,
+    0.01108551,
+    -0.020248413,
+    -0.01461792,
+    0.0037441254,
+    0.0140686035,
+    0.009056091,
+    -0.007472992,
+    -0.005760193,
+    -0.006160736,
+    0.0031738281,
+    -0.0027198792,
+    0.005645752,
+    -0.0055274963,
+    0.004638672,
+    0.0053977966,
+    0.005760193,
+    -0.021194458,
+    -0.051727295,
+    0.010093689,
+    -0.008422852,
+    -0.07537842,
+    -0.03604126,
+    -0.045898438,
+    -0.040100098,
+    -0.04083252,
+    -0.01878357,
+    0.00024914742,
+    0.009773254,
+    0.003627777,
+    0.00655365,
+    0.076538086,
+    -0.0025730133,
+    0.036315918,
+    -0.04928589,
+    0.0044441223,
+    -0.021514893,
+    0.020629883,
+    0.0076446533,
+    -0.026473999,
+    0.046966553,
+    -0.026748657,
+    -0.027252197,
+    -0.0018157959,
+    0.018600464,
+    0.0040740967,
+    0.024963379,
+    0.04486084,
+    -0.010528564,
+    0.033966064,
+    0.012939453,
+    -0.021347046,
+    -0.023834229,
+    0.03390503,
+    0.0034217834,
+    0.0032978058,
+    0.015914917,
+    0.00071525574,
+    -0.04248047,
+    -0.0060920715,
+    0.06958008,
+    0.00121212,
+    0.043640137,
+    -0.0395813,
+    0.041503906,
+    -0.038360596,
+    -0.010772705,
+    -0.03427124,
+    -0.024719238,
+    0.0047073364,
+    -0.014389038,
+    -0.018234253,
+    0.021377563,
+    0.001627922,
+    0.044525146,
+    0.013389587,
+    -0.016174316,
+    0.041107178,
+    -0.017333984,
+    -0.0102005005,
+    -0.02571106,
+    0.018951416,
+    -0.029312134,
+    -0.049316406,
+    -0.0074310303,
+    0.01725769,
+    -0.009902954,
+    -0.00048446655,
+    -0.004322052,
+    -0.03805542,
+    0.036315918,
+    0.011543274,
+    0.020217896,
+    0.07965088,
+    0.040771484,
+    0.03338623,
+    -0.046447754,
+    -0.019607544,
+    -0.021453857,
+    -0.024719238,
+    -0.00019276142,
+    -0.013717651,
+    0.028381348,
+    -0.03945923,
+    0.0101623535,
+    -0.062561035,
+    -0.03543091,
+    -0.00907135,
+    -0.018081665,
+    0.008285522,
+    -0.03250122,
+    -0.01727295,
+    0.020431519,
+    0.046203613,
+    0.026306152,
+    0.0058021545,
+    -0.020843506,
+    -0.007801056,
+    0.024261475,
+    0.023651123,
+    0.020080566,
+    0.0049705505,
+    0.0075569153,
+    -0.042419434,
+    0.010658264,
+    -0.033935547,
+    -0.061798096,
+    0.050720215,
+    -0.05529785,
+    0.046142578,
+    0.0017051697,
+    0.006465912,
+    -0.070617676,
+    0.01625061,
+    -0.008216858,
+    0.0035209656,
+    0.02796936,
+    -0.029632568,
+    0.010910034,
+    0.0064888,
+    -0.04260254,
+    -0.038909912,
+    -0.0076522827,
+    0.0027370453,
+    -0.0031433105,
+    0.0058403015,
+    0.043823242,
+    0.033081055,
+    -0.03930664,
+    -0.031082153,
+    -0.036743164,
+    0.11212158,
+    0.030303955,
+    -0.0010347366,
+    0.0045166016,
+    0.0042419434,
+    0.002336502,
+    0.05078125,
+    -0.061157227,
+    0.048950195,
+    -0.019561768,
+    0.008087158,
+    -0.040863037,
+    -0.020446777,
+    0.074523926,
+    0.007774353,
+    -0.028457642,
+    -0.039978027,
+    0.00047254562,
+    0.004547119,
+    0.02053833,
+    0.019119263,
+    -0.03338623,
+    -0.03552246,
+    0.013282776,
+    0.0050354004,
+    0.0008621216,
+    0.014457703,
+    0.0023498535,
+    0.020446777,
+    0.030685425,
+    -0.036346436,
+    0.0006957054,
+    -0.014427185,
+    -0.013504028,
+    -0.018753052,
+    0.02217102,
+    0.020904541,
+    0.027328491,
+    0.014663696,
+    0.025863647,
+    0.0059776306,
+    -0.045776367,
+    -0.002254486,
+    -0.005126953,
+    -0.004016876,
+    -0.008125305,
+    -0.0069732666,
+    -0.01852417,
+    0.007457733,
+    -0.026535034,
+    -0.0024642944,
+    0.008453369,
+    -0.019470215,
+    -0.029876709,
+    -0.0060272217,
+    -0.02696228,
+    -0.0077781677,
+    -0.01537323,
+    0.012557983,
+    0.0049858093,
+    -0.026184082,
+    -0.0140686035,
+    -0.004886627,
+    0.010139465,
+    -0.027450562,
+    0.0034637451,
+    0.0007390976,
+    0.015548706,
+    -0.054718018,
+    0.022064209,
+    -0.0039405823,
+    0.025787354,
+    -0.054718018,
+    -0.016677856,
+    -0.010505676,
+    -0.006969452,
+    0.017089844,
+    0.010971069,
+    0.0061798096,
+    -0.04067993,
+    -0.00029969215,
+    -0.05419922,
+    -0.0395813,
+    0.057525635,
+    -0.009681702,
+    0.0067596436,
+    -0.006198883,
+    0.02305603,
+    0.055541992,
+    -0.053100586,
+    0.027740479,
+    0.04864502,
+    0.064453125,
+    0.04208374,
+    -0.0049362183,
+    0.0435791,
+    0.02407837,
+    -0.018249512
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84476.md",
+    "file_name": "84476.md",
+    "file_size": 26050,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aircraft Emergency Procedures and Accident Information",
+      "The Emergency Section of the Aircraft Flight Manual (AFM) Supplement contains a warning in the AFTER TAKEOFF section.",
+      "The AFM Supplement warning instructs pilots not to attempt to manually fly the airplane with the autopilot engaged.",
+      "The autopilot servos will oppose pilot input when the autopilot is engaged.",
+      "The autopilot will trim opposite the direction of pilot input in the pitch axis only when the autopilot is engaged.",
+      "Opposing the autopilot could lead to a significant out-of-trim condition.",
+      "Pilots should disconnect the autopilot if manual control is desired.",
+      "Pilots should release the A/P DISC/TRIM INTER button.",
+      "Pilots should not engage the autopilot after an autopilot malfunction until the cause has been corrected.",
+      "Pilots should not operate the manual electric trim after an autopilot malfunction until the cause has been corrected.",
+      "Pilots should not operate the manual electric trim after an autotrim malfunction until the cause has been corrected.",
+      "Pilots should not operate the manual electric trim after a manual electric trim system malfunction until the cause has been corrected.",
+      "Pilots should not attempt to overpower the autopilot in the event of a pitch mistrim.",
+      "Autopilot servos will oppose pilot input in the event of a pitch mistrim.",
+      "Autopilot servos will cause pitch trim to run opposite the direction of pilot input in the event of a pitch mistrim.",
+      "A pitch mistrim will lead to a significant out-of-trim condition.",
+      "A significant out-of-trim condition results in large control wheel force when disengaging the autopilot.",
+      "The surface weather observation at ADG was recorded at 0853.",
+      "The wind at ADG was light and variable at 0853.",
+      "The sky at ADG was clear at 0853.",
+      "The visibility at ADG was 10 miles at 0853.",
+      "The temperature at ADG was 24 degrees Celsius at 0853.",
+      "The dew point at ADG was 19 degrees Celsius at 0853.",
+      "The altimeter at ADG was 29.85 inches of mercury at 0853.",
+      "A Federal Aviation Administration avionics inspector examined the airplane at the accident site.",
+      "The Federal Aviation Administration avionics inspector examined the airplane after it was moved into a hangar at ADG.",
+      "The airplane impacted the terrain about 450 feet short of runway 23.",
+      "The main landing gear sheared off during impact.",
+      "The landing gear doors sheared off during impact.",
+      "The nose gear collapsed into the wheel well during impact.",
+      "The propeller blades were bent back as the airplane skidded through the grass.",
+      "The airplane skidded across the asphalt threshold after initial impact.",
+      "The airplane skidded into the grass for another 450 feet after crossing the asphalt threshold.",
+      "The airplane came to rest after skidding approximately 900 feet from the initial impact point."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Emergency Procedures",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Aircraft Flight Manual Supplement",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "autopilot",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "autopilot servos",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "A/P DISC/TRIM INTER button",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "manual electric trim",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "autotrim",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "manual electric trim system",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "control wheel",
+              "classification": "Aircraftcomponent"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Emergency Section of the Aircraft Flight Manual (AFM) Supplement contains a warning in the AFTER TAKEOFF section.",
+              "details": [
+                "Emergency Section HAS WARNING AFTER TAKEOFF section"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Flight Manual Supplement",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Emergency Section",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Emergency Section",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS WARNING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AFTER TAKEOFF section",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AFM Supplement warning instructs pilots not to attempt to manually fly the airplane with the autopilot engaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Flight Manual Supplement",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "INSTRUCTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Flight Manual Supplement",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "WARNING CONTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not to attempt to manually fly the airplane with the autopilot engaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autopilot servos will oppose pilot input when the autopilot is engaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot servos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot servos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oppose pilot input when the autopilot is engaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autopilot will trim opposite the direction of pilot input in the pitch axis only when the autopilot is engaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trim opposite the direction of pilot input in the pitch axis only when engaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Opposing the autopilot could lead to a significant out-of-trim condition.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONSEQUENCE OF OPPOSING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant out-of-trim condition",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots should disconnect the autopilot if manual control is desired.",
+              "details": [
+                "pilots SHOULD DISCONNECT autopilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHOULD DISCONNECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DISCONNECTION CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "if manual control is desired",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots should release the A/P DISC/TRIM INTER button.",
+              "details": [
+                "pilots SHOULD RELEASE A/P DISC/TRIM INTER button"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHOULD RELEASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "A/P DISC/TRIM INTER button",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots should not engage the autopilot after an autopilot malfunction until the cause has been corrected.",
+              "details": [
+                "pilots SHOULD NOT ENGAGE autopilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHOULD NOT ENGAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "ENGAGEMENT RESTRICTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after an autopilot malfunction until the cause has been corrected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots should not operate the manual electric trim after an autopilot malfunction until the cause has been corrected.",
+              "details": [
+                "pilots SHOULD NOT OPERATE manual electric trim"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHOULD NOT OPERATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "OPERATION RESTRICTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after an autopilot malfunction until the cause has been corrected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots should not operate the manual electric trim after an autotrim malfunction until the cause has been corrected.",
+              "details": [
+                "pilots SHOULD NOT OPERATE manual electric trim"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHOULD NOT OPERATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "OPERATION RESTRICTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after an autotrim malfunction until the cause has been corrected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots should not operate the manual electric trim after a manual electric trim system malfunction until the cause has been corrected.",
+              "details": [
+                "pilots SHOULD NOT OPERATE manual electric trim"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHOULD NOT OPERATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual electric trim",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "OPERATION RESTRICTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after a manual electric trim system malfunction until the cause has been corrected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pilots should not attempt to overpower the autopilot in the event of a pitch mistrim.",
+              "details": [
+                "pilots SHOULD NOT OVERPOWER autopilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilots",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHOULD NOT OVERPOWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "OVERPOWER RESTRICTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "in the event of a pitch mistrim",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Autopilot servos will oppose pilot input in the event of a pitch mistrim.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot servos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oppose pilot input in the event of a pitch mistrim",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Autopilot servos will cause pitch trim to run opposite the direction of pilot input in the event of a pitch mistrim.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot servos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EFFECT ON PITCH TRIM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cause pitch trim to run opposite the direction of pilot input in the event of a pitch mistrim",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A pitch mistrim will lead to a significant out-of-trim condition.",
+              "details": [
+                "pitch mistrim CONSEQUENCE significant out-of-trim condition"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pitch mistrim",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONSEQUENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant out-of-trim condition",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A significant out-of-trim condition results in large control wheel force when disengaging the autopilot.",
+              "details": [
+                "significant out-of-trim condition AFFECTS control wheel",
+                "significant out-of-trim condition RESULT large control wheel force when disengaging the autopilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant out-of-trim condition",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "control wheel",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant out-of-trim condition",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "large control wheel force when disengaging the autopilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Accident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ADG",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration avionics inspector",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "runway 23",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main landing gear",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "landing gear doors",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "nose gear",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "propeller blades",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "asphalt threshold",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The surface weather observation at ADG was recorded at 0853.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ADG",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WEATHER OBSERVATION TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0853",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wind at ADG was light and variable at 0853.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ADG",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "light and variable at 0853",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The sky at ADG was clear at 0853.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ADG",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "SKY CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "clear at 0853",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The visibility at ADG was 10 miles at 0853.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ADG",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 miles at 0853",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The temperature at ADG was 24 degrees Celsius at 0853.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ADG",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TEMPERATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "24 degrees Celsius at 0853",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The dew point at ADG was 19 degrees Celsius at 0853.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ADG",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DEW POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "19 degrees Celsius at 0853",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The altimeter at ADG was 29.85 inches of mercury at 0853.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ADG",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "ALTIMETER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "29.85 inches of mercury at 0853",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Federal Aviation Administration avionics inspector examined the airplane at the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration avionics inspector",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration avionics inspector",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration avionics inspector examined the airplane after it was moved into a hangar at ADG.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration avionics inspector",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MOVED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hangar at ADG",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration avionics inspector",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hangar at ADG",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted the terrain about 450 feet short of runway 23.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "IMPACT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "terrain about 450 feet short of runway 23",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main landing gear sheared off during impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main landing gear",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main landing gear",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sheared off during impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The landing gear doors sheared off during impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear doors",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear doors",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sheared off during impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The nose gear collapsed into the wheel well during impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose gear",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose gear",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collapsed into the wheel well during impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller blades were bent back as the airplane skidded through the grass.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller blades",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller blades",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bent back",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "skidded through the grass",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane skidded across the asphalt threshold after initial impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "skidded across the asphalt threshold after initial impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane skidded into the grass for another 450 feet after crossing the asphalt threshold.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "skidded into the grass for another 450 feet after crossing the asphalt threshold",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to rest after skidding approximately 900 feet from the initial impact point.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "came to rest after skidding approximately 900 feet from the initial impact point",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::ea713e76:6b20",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84476.md",
+        "file_name": "84476.md",
+        "file_size": 26050,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "d18e929fc2efd44835cb132b746da4efb2f94c011f0869c3b46834b37dd18449",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::ea713e76:6b20:65f91f12",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84476.md",
+        "file_name": "84476.md",
+        "file_size": 26050,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "60dcee32ff51802fa322c76740e5a0d307b0c06f583f2bc60be0ca7828e97e34",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::ea713e76:6b20:42f7f2e1",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84476.md",
+        "file_name": "84476.md",
+        "file_size": 26050,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "fff184dc699c61178816fd224ada8551bab7432bb2b62ec9d7daebecfe75107a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# 5) A/P DISC/TRIM INTER button---RELEASE\n\n## -WARNING-\n\nFOLLOWING AN AUTOPILOT, AUTOTRIM OR MANUAL ELECTRIC TRIM SYSTEM MALFUNCTION, DO NOT ENGAGE THE AUTOPILOT OR OPERATE THE MANUAL ELECTRIC TRIM UNTIL THE CAUSE OF THE MALFUNCTION HAS BEEN CORRECTED.\n\n## -WARNING-\n\nDO NOT ATTEMPT TO OVERPOWER THE AUTOPILOT IN THE EVENT OF A PITCH MISTRIM. THE AUTOPILOT SERVOS WILL OPPOSE THE PILOT INPUT AND WILL CAUSE PITCH TRIM TO RUN OPPOSITE THE DIRECTION OF PILOT INPUT. THIS WILL LEAD TO A SIGNIFICANT OUT-OF-TRIM CONDITION RESULTING IN LARGE CONTROL WHEEL FORCE WHEN DISENGAGING THE AUTOPILOT\n\nThe Emergency Section of the AFM Supplement contains this warning in the AFTER TAKEOFF section. It reads in part:\n\n## -WARNING-\n\n...DO NOT ATTEMPT TO MANUALLY FLY THE AIRPLANE WITH THE AUTOPILOT ENGAGED. THE AUTOPILOT SERVOS WILL OPPOSE THE PILOT INPUT AND WILL TRIM OPPOSITE THE DIRECTION OF PILOT INPUT (PITCH AXIS ONLY). THIS COULD LEAD TO A SIGNIFICANT OUT-OF-TRIM CONDITION. DISCONNECT THE AUTOPILOT IF MANUAL CONTROL IS DESIRED...\n\n## METEOROLOGICAL INFORMATION\n\nAt 0853, the surface weather observation at ADG was: wind light and variable, sky clear, visibility 10 miles, temperature 24 degrees Celsius (C), dew point 19 degrees C, and altimeter 29.85 inches of mercury.\n\n## WRECKAGE AND IMPACT INFORMATION\n\nA Federal Aviation Administration avionics inspector examined the airplane at the accident site and after the airplane was moved into a hangar at ADG. The examination of the accident site revealed that the airplane impacted the terrain about 450 feet short of runway 23. The main landing gear and doors sheared off, the nose gear collapsed into the wheel well, the propeller blades were bent back as the airplane skidded though the grass, across the asphalt threshold, and into the grass for another 450 feet before it came to rest.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1836,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

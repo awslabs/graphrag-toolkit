@@ -1,0 +1,2355 @@
+{
+  "id_": "aws::00a69cae:36fd:56828ebc",
+  "embedding": [
+    0.04562378,
+    -0.008415222,
+    0.019927979,
+    0.0041618347,
+    -0.0038814545,
+    -0.007461548,
+    0.04159546,
+    -0.026794434,
+    -0.010345459,
+    0.021759033,
+    0.0039787292,
+    0.023635864,
+    0.025177002,
+    -0.023223877,
+    0.037902832,
+    -0.002614975,
+    0.050811768,
+    -0.023864746,
+    0.035339355,
+    0.014678955,
+    -0.0024433136,
+    0.05795288,
+    0.022598267,
+    -0.028289795,
+    0.028793335,
+    -0.012046814,
+    -0.0031833649,
+    0.0073242188,
+    0.031433105,
+    0.019348145,
+    0.02722168,
+    -0.04095459,
+    0.012969971,
+    0.011199951,
+    0.008460999,
+    -0.019485474,
+    0.011184692,
+    0.004360199,
+    -0.006465912,
+    0.040405273,
+    0.021972656,
+    -0.00894928,
+    0.12158203,
+    -0.01499176,
+    0.047454834,
+    -0.018417358,
+    0.035583496,
+    -0.06866455,
+    -0.004383087,
+    0.006248474,
+    0.030303955,
+    0.016967773,
+    0.029159546,
+    -0.016937256,
+    -0.007904053,
+    -0.005092621,
+    -0.00028657913,
+    -0.0063056946,
+    0.002084732,
+    -0.030212402,
+    0.0044021606,
+    0.030319214,
+    0.024810791,
+    0.0423584,
+    -0.0077209473,
+    0.014823914,
+    -6.574392e-05,
+    0.020751953,
+    -0.013168335,
+    -0.011558533,
+    -0.009269714,
+    -0.021469116,
+    -0.015655518,
+    -0.00079488754,
+    -0.009254456,
+    0.0011177063,
+    -0.0077285767,
+    -0.0022144318,
+    0.012573242,
+    0.031829834,
+    -0.03768921,
+    0.031585693,
+    0.026260376,
+    -0.070007324,
+    -0.009857178,
+    -0.043762207,
+    -0.02281189,
+    0.014076233,
+    0.011909485,
+    -0.0006804466,
+    0.009880066,
+    -0.019363403,
+    -0.036346436,
+    0.052856445,
+    0.033203125,
+    -0.05102539,
+    -0.0029735565,
+    -0.006061554,
+    -0.019821167,
+    -0.047088623,
+    0.050354004,
+    -0.035461426,
+    -0.042907715,
+    0.016540527,
+    -0.0070228577,
+    0.012535095,
+    0.007881165,
+    0.006111145,
+    0.02482605,
+    0.021408081,
+    -0.011291504,
+    0.04928589,
+    0.027999878,
+    0.00070381165,
+    -0.03265381,
+    0.0096588135,
+    0.0048675537,
+    0.005214691,
+    0.0031471252,
+    0.0062179565,
+    0.002286911,
+    0.019424438,
+    -0.0362854,
+    0.02720642,
+    -0.00422287,
+    -0.012176514,
+    0.017120361,
+    0.00031280518,
+    -0.01259613,
+    0.039489746,
+    -0.0060157776,
+    0.028900146,
+    -0.035858154,
+    -0.030380249,
+    -0.055419922,
+    -0.018829346,
+    0.036315918,
+    -0.01197052,
+    0.03741455,
+    -0.019210815,
+    0.06112671,
+    -0.015975952,
+    -0.022644043,
+    0.075805664,
+    0.02166748,
+    0.009513855,
+    0.013938904,
+    0.0070114136,
+    0.007785797,
+    0.017471313,
+    -0.029846191,
+    0.009590149,
+    0.03503418,
+    0.0076789856,
+    -0.023895264,
+    -0.03024292,
+    0.04937744,
+    -0.062469482,
+    -0.026245117,
+    -0.06982422,
+    0.046020508,
+    -0.016052246,
+    0.010864258,
+    0.019470215,
+    -0.012260437,
+    0.016906738,
+    -0.036315918,
+    -0.008018494,
+    0.012504578,
+    0.05419922,
+    -0.050109863,
+    -0.00010192394,
+    -0.01914978,
+    -0.006717682,
+    -0.010383606,
+    0.009117126,
+    -0.014884949,
+    -0.014160156,
+    0.033813477,
+    0.01626587,
+    0.016693115,
+    -0.0037460327,
+    0.04916382,
+    0.014022827,
+    0.0017986298,
+    0.026916504,
+    0.0181427,
+    0.024307251,
+    -0.019317627,
+    0.009773254,
+    -0.04107666,
+    0.051971436,
+    0.0028533936,
+    -0.018096924,
+    -0.021820068,
+    -0.033416748,
+    0.014053345,
+    0.0037345886,
+    -0.0018377304,
+    0.034301758,
+    0.06762695,
+    0.0075187683,
+    -0.013557434,
+    -0.02458191,
+    -0.04446411,
+    -0.035369873,
+    -0.0015211105,
+    0.010620117,
+    -0.06274414,
+    0.039154053,
+    0.039154053,
+    0.011833191,
+    -0.036071777,
+    0.00013697147,
+    0.041412354,
+    -0.0063056946,
+    -0.027297974,
+    -0.033355713,
+    0.0006155968,
+    -0.0065345764,
+    -0.0012674332,
+    0.04776001,
+    -0.031921387,
+    -0.0104522705,
+    -0.008972168,
+    -0.0039596558,
+    0.0035514832,
+    0.020385742,
+    0.101135254,
+    -0.011558533,
+    0.13720703,
+    -0.049957275,
+    0.03225708,
+    0.06439209,
+    0.0062789917,
+    -0.020217896,
+    0.018569946,
+    -0.076416016,
+    0.016952515,
+    0.03213501,
+    0.040039062,
+    0.008888245,
+    -0.017150879,
+    0.00041866302,
+    -0.020477295,
+    -0.08770752,
+    0.0006752014,
+    0.007106781,
+    -0.004306793,
+    0.002773285,
+    0.050598145,
+    -0.004169464,
+    0.023361206,
+    0.055267334,
+    0.025009155,
+    -0.0051193237,
+    -0.030914307,
+    -0.024734497,
+    -0.02746582,
+    0.04067993,
+    -0.0050315857,
+    0.036071777,
+    0.0143966675,
+    0.0015850067,
+    -0.0069007874,
+    -0.025253296,
+    -0.004436493,
+    -0.004383087,
+    0.013137817,
+    -0.025222778,
+    0.019500732,
+    -0.05569458,
+    -0.007663727,
+    -0.025756836,
+    0.03555298,
+    0.017669678,
+    -0.022750854,
+    0.0037517548,
+    0.013877869,
+    -0.004951477,
+    -0.0041656494,
+    0.05834961,
+    -0.01902771,
+    -0.015556335,
+    -0.042022705,
+    -0.0050086975,
+    -0.012145996,
+    0.0121536255,
+    0.008636475,
+    0.0034236908,
+    0.053344727,
+    -0.03717041,
+    -0.039764404,
+    0.007160187,
+    0.022842407,
+    -0.038024902,
+    0.03253174,
+    0.0018367767,
+    0.023147583,
+    -0.02017212,
+    0.017532349,
+    0.04647827,
+    -0.0345459,
+    0.024993896,
+    0.014305115,
+    -0.012557983,
+    0.04824829,
+    -0.031097412,
+    -0.006160736,
+    0.008476257,
+    -0.04345703,
+    0.03314209,
+    0.013885498,
+    -0.053833008,
+    0.049591064,
+    0.0149002075,
+    0.009666443,
+    0.010635376,
+    -0.010032654,
+    0.012130737,
+    -0.029937744,
+    0.031311035,
+    0.03161621,
+    -0.0006699562,
+    0.039794922,
+    -0.015197754,
+    0.002149582,
+    0.012626648,
+    -0.005908966,
+    -0.040771484,
+    -0.06982422,
+    -0.09069824,
+    -0.07330322,
+    -0.003063202,
+    -0.014053345,
+    0.019378662,
+    -0.019226074,
+    0.08526611,
+    -0.036132812,
+    -0.114990234,
+    -0.07922363,
+    -0.032562256,
+    -0.006717682,
+    0.028747559,
+    0.01737976,
+    -0.046203613,
+    0.007873535,
+    0.014221191,
+    0.0046920776,
+    -0.008293152,
+    0.013298035,
+    -0.014701843,
+    0.008201599,
+    -0.026687622,
+    0.010749817,
+    -0.005554199,
+    -0.027267456,
+    -0.042022705,
+    -0.010025024,
+    -0.08203125,
+    0.007873535,
+    0.015449524,
+    -0.015640259,
+    -0.050964355,
+    -0.0002837181,
+    -0.030319214,
+    0.00049829483,
+    -0.022735596,
+    0.04699707,
+    0.051605225,
+    -0.03201294,
+    0.0119018555,
+    -0.023269653,
+    0.0036067963,
+    0.040527344,
+    0.0059432983,
+    -0.005126953,
+    -0.044647217,
+    -0.0015716553,
+    -0.019195557,
+    -0.014968872,
+    -0.011482239,
+    0.020355225,
+    0.012771606,
+    -0.020080566,
+    0.03652954,
+    0.0041236877,
+    -0.030319214,
+    -0.011703491,
+    -0.018234253,
+    0.005634308,
+    0.029190063,
+    0.0018568039,
+    -0.026245117,
+    0.026794434,
+    0.0028381348,
+    -0.036590576,
+    0.034057617,
+    -0.04046631,
+    -0.017364502,
+    0.10168457,
+    -0.040039062,
+    -0.018569946,
+    -0.004146576,
+    0.013587952,
+    -0.08972168,
+    0.053894043,
+    0.013641357,
+    0.036499023,
+    -0.02709961,
+    0.015701294,
+    0.009918213,
+    0.036468506,
+    -0.037902832,
+    0.001288414,
+    -0.013702393,
+    -0.016967773,
+    0.005558014,
+    -0.008911133,
+    -0.02319336,
+    -0.010177612,
+    0.019683838,
+    -0.017608643,
+    -0.020935059,
+    9.894371e-05,
+    0.034210205,
+    -0.0077323914,
+    0.00015616417,
+    0.01802063,
+    0.011833191,
+    -0.001912117,
+    -0.00028419495,
+    0.017333984,
+    0.045440674,
+    -0.020126343,
+    -0.005634308,
+    -0.014839172,
+    -0.06781006,
+    0.05581665,
+    -0.06561279,
+    -0.06390381,
+    -0.023590088,
+    0.018707275,
+    -0.0029678345,
+    0.027420044,
+    -0.01727295,
+    -0.01109314,
+    -0.051727295,
+    0.026153564,
+    0.054626465,
+    -0.02558899,
+    -0.006351471,
+    0.025878906,
+    0.038146973,
+    -0.033935547,
+    -0.026443481,
+    -0.025482178,
+    0.032928467,
+    0.027297974,
+    -0.00026988983,
+    0.031341553,
+    -0.010734558,
+    -0.050231934,
+    0.03555298,
+    0.0014867783,
+    0.048919678,
+    -0.03878784,
+    0.0234375,
+    -0.009971619,
+    0.006313324,
+    0.050720215,
+    -0.013427734,
+    -0.029327393,
+    -0.029724121,
+    -0.025375366,
+    -0.04171753,
+    0.04434204,
+    -0.0104522705,
+    0.072509766,
+    -0.04156494,
+    -0.005004883,
+    0.023010254,
+    0.051605225,
+    -0.007461548,
+    -0.020523071,
+    0.018157959,
+    -0.042877197,
+    -0.048919678,
+    0.01574707,
+    -0.058898926,
+    -0.046173096,
+    -0.023330688,
+    0.017196655,
+    -0.03817749,
+    -0.0036792755,
+    -0.0014982224,
+    -0.023620605,
+    0.07824707,
+    0.006072998,
+    -0.05886841,
+    0.048217773,
+    -0.02041626,
+    -0.027740479,
+    0.0362854,
+    -0.009765625,
+    0.019500732,
+    0.0016908646,
+    0.0036506653,
+    0.008338928,
+    -0.034454346,
+    -0.010307312,
+    -0.034851074,
+    0.019882202,
+    -0.00045204163,
+    -0.0234375,
+    0.07128906,
+    -0.06021118,
+    -0.032440186,
+    -0.017730713,
+    0.011390686,
+    0.0075645447,
+    0.011779785,
+    0.0006246567,
+    0.020858765,
+    0.02029419,
+    0.003118515,
+    -0.035614014,
+    -0.0018844604,
+    -0.03302002,
+    0.008415222,
+    -0.010414124,
+    0.012512207,
+    -0.0112838745,
+    -0.022949219,
+    0.03744507,
+    -0.0093307495,
+    -0.04232788,
+    -0.031799316,
+    -0.011192322,
+    0.009094238,
+    -0.037231445,
+    -0.025283813,
+    0.006061554,
+    0.054870605,
+    0.013328552,
+    -0.00944519,
+    -0.002155304,
+    0.045837402,
+    -0.05142212,
+    0.06738281,
+    -0.031188965,
+    -0.056488037,
+    -0.020553589,
+    -0.010002136,
+    0.0031929016,
+    -0.025512695,
+    -0.034118652,
+    0.012168884,
+    0.009094238,
+    0.026809692,
+    0.009796143,
+    -0.06298828,
+    -0.023284912,
+    0.04159546,
+    -0.0041389465,
+    0.022018433,
+    -0.035247803,
+    -0.08728027,
+    -0.03427124,
+    -0.0088272095,
+    -0.05807495,
+    -0.015037537,
+    0.021118164,
+    0.0026988983,
+    -0.013473511,
+    -0.012214661,
+    0.06439209,
+    0.018722534,
+    0.0047950745,
+    -0.07086182,
+    -0.027023315,
+    0.026184082,
+    0.060699463,
+    0.07104492,
+    -0.045959473,
+    -0.04031372,
+    0.04449463,
+    -0.065979004,
+    -0.038391113,
+    -0.019012451,
+    0.066101074,
+    -0.004497528,
+    -0.016098022,
+    -0.03451538,
+    0.006954193,
+    -0.0069351196,
+    -0.020721436,
+    0.040893555,
+    0.07922363,
+    0.014190674,
+    0.04031372,
+    -0.04473877,
+    0.0023441315,
+    -0.029144287,
+    0.017181396,
+    -0.08190918,
+    0.0014333725,
+    0.010238647,
+    0.011199951,
+    0.1048584,
+    -0.043640137,
+    -0.036224365,
+    0.016555786,
+    -0.032409668,
+    0.030273438,
+    0.04901123,
+    0.024307251,
+    0.010864258,
+    0.027908325,
+    -0.014480591,
+    0.044311523,
+    0.029769897,
+    0.03427124,
+    0.021316528,
+    -0.020843506,
+    0.004676819,
+    -0.022247314,
+    0.022491455,
+    -0.0066452026,
+    0.0038490295,
+    0.040527344,
+    -0.014762878,
+    -0.0018310547,
+    -0.008857727,
+    0.034362793,
+    0.013977051,
+    0.00017738342,
+    0.0053520203,
+    -0.042755127,
+    -0.010894775,
+    0.022064209,
+    -0.0206604,
+    -0.048461914,
+    -0.0018539429,
+    0.0019989014,
+    0.00409317,
+    -0.0011091232,
+    0.008270264,
+    -0.023849487,
+    -0.0073280334,
+    -0.003168106,
+    0.000105023384,
+    -0.07501221,
+    0.04537964,
+    0.045684814,
+    -0.025436401,
+    -0.026443481,
+    0.024551392,
+    0.009231567,
+    -0.017547607,
+    -0.043395996,
+    0.02746582,
+    0.006587982,
+    -0.021652222,
+    0.02696228,
+    -0.0036811829,
+    0.030319214,
+    0.03857422,
+    -0.012290955,
+    0.02645874,
+    -0.0010576248,
+    -0.01864624,
+    -0.00920105,
+    0.007457733,
+    -0.009819031,
+    0.033203125,
+    0.0024299622,
+    0.009651184,
+    -0.020690918,
+    0.022232056,
+    -0.0026626587,
+    -0.04953003,
+    -0.023620605,
+    0.040252686,
+    -0.029083252,
+    0.029556274,
+    -0.039001465,
+    0.0024490356,
+    0.0006070137,
+    0.0047569275,
+    -0.04144287,
+    -0.013572693,
+    -0.0030899048,
+    -0.0027885437,
+    0.011543274,
+    0.0016450882,
+    -0.019317627,
+    -0.047790527,
+    -0.014602661,
+    -0.010650635,
+    0.026397705,
+    -0.03161621,
+    0.0059661865,
+    -0.027328491,
+    0.03201294,
+    0.01399231,
+    0.08001709,
+    -0.10369873,
+    0.085510254,
+    0.01727295,
+    -0.027786255,
+    -0.029129028,
+    -0.05480957,
+    0.01272583,
+    -0.020431519,
+    -0.008216858,
+    -0.06774902,
+    -0.043823242,
+    -0.021865845,
+    0.040863037,
+    -0.00894165,
+    0.05316162,
+    0.009864807,
+    -0.062683105,
+    0.016815186,
+    -0.030654907,
+    -0.024917603,
+    0.008056641,
+    0.013847351,
+    0.034851074,
+    0.031677246,
+    0.0013208389,
+    0.049041748,
+    8.85725e-05,
+    -0.028549194,
+    -0.0154953,
+    0.023345947,
+    -0.0126571655,
+    0.009788513,
+    -0.024719238,
+    0.008895874,
+    -0.0048828125,
+    0.041870117,
+    0.0025348663,
+    -0.048065186,
+    -0.03314209,
+    -0.0058898926,
+    -0.011024475,
+    -0.024490356,
+    -0.050231934,
+    0.037841797,
+    0.007335663,
+    -0.030212402,
+    -0.052490234,
+    -0.002412796,
+    -0.049682617,
+    6.1392784e-06,
+    -0.04336548,
+    -0.04244995,
+    0.0038280487,
+    -0.009109497,
+    0.01776123,
+    -0.014785767,
+    -0.021072388,
+    -0.015617371,
+    -0.021942139,
+    0.041748047,
+    0.02859497,
+    0.03164673,
+    -0.020645142,
+    -0.04647827,
+    0.030273438,
+    -0.006511688,
+    0.011383057,
+    0.0063095093,
+    -0.017471313,
+    -0.0101623535,
+    -0.006881714,
+    0.026107788,
+    0.0053977966,
+    -0.0025043488,
+    0.03274536,
+    -0.0016536713,
+    -0.0003399849,
+    0.028671265,
+    0.013969421,
+    0.0005698204,
+    -0.03378296,
+    0.028762817,
+    -0.031341553,
+    -0.012283325,
+    0.009407043,
+    -0.037841797,
+    -0.039215088,
+    -0.043060303,
+    -0.006095886,
+    0.022613525,
+    -0.032196045,
+    0.0034999847,
+    -0.015258789,
+    -0.027511597,
+    -0.009765625,
+    -0.03878784,
+    -0.008605957,
+    -0.022567749,
+    0.032989502,
+    0.024749756,
+    -0.017822266,
+    -0.026565552,
+    0.042114258,
+    -0.00472641,
+    -0.020095825,
+    0.030166626,
+    -0.023773193,
+    0.019989014,
+    -0.021194458,
+    0.00969696,
+    0.019897461,
+    -0.017288208,
+    -0.06903076,
+    0.00806427,
+    0.039154053,
+    -0.038146973,
+    0.041900635,
+    0.06329346,
+    -0.022460938,
+    0.005683899,
+    -0.00365448,
+    0.033447266,
+    -0.013664246,
+    -0.0049972534,
+    0.0046844482,
+    0.032287598,
+    0.0070381165,
+    0.046966553,
+    0.044281006,
+    0.002916336,
+    0.027664185,
+    -0.03778076,
+    0.010261536,
+    0.050872803,
+    -0.007472992,
+    0.027770996,
+    0.053619385,
+    -0.025863647,
+    -0.0030879974,
+    0.027297974,
+    -0.015525818,
+    0.01876831,
+    0.039733887,
+    0.013504028,
+    -0.012702942,
+    -0.010322571,
+    -0.014785767,
+    0.014518738,
+    0.024337769,
+    0.016403198,
+    -0.018493652,
+    0.01675415,
+    0.05419922,
+    -0.0076179504,
+    0.011978149,
+    -0.0022716522,
+    0.02909851,
+    -0.0037612915,
+    -0.008346558,
+    0.011734009,
+    -0.0004377365,
+    0.028564453,
+    -0.018630981,
+    0.016418457,
+    -0.04458618,
+    0.016662598,
+    -0.0055770874,
+    -0.021713257,
+    0.024368286,
+    0.0023021698,
+    0.014472961,
+    -0.01058197,
+    0.044555664,
+    0.00053834915,
+    -0.015235901,
+    0.034576416,
+    -0.029556274,
+    0.008056641,
+    0.0076675415,
+    0.015716553,
+    -0.013534546,
+    0.029632568,
+    0.00869751,
+    0.0181427,
+    -0.04272461,
+    -0.01737976,
+    0.023605347,
+    -0.017425537,
+    0.031463623,
+    -0.014968872,
+    0.05984497,
+    0.01876831,
+    -0.0625,
+    -0.0146102905,
+    -0.0021820068,
+    0.06185913,
+    0.024368286,
+    -0.0040740967,
+    -0.035614014,
+    -0.022369385,
+    0.013252258,
+    -0.0021762848,
+    -0.045196533,
+    0.042541504,
+    0.020217896,
+    -0.00065374374,
+    0.0021858215,
+    -0.02508545,
+    -0.007293701,
+    -0.015296936,
+    0.023040771,
+    0.030761719,
+    0.05014038,
+    -0.012481689,
+    0.010093689,
+    -0.015991211,
+    -0.023727417,
+    0.030807495,
+    0.027786255,
+    0.0015287399,
+    -0.06542969,
+    -0.07635498,
+    0.051849365,
+    0.03640747,
+    -0.008354187,
+    -0.016540527,
+    -0.012832642,
+    -0.007297516,
+    -0.019714355,
+    0.015853882,
+    0.013442993,
+    -0.0072135925,
+    -0.032684326,
+    -0.004600525,
+    -0.023986816,
+    0.0013713837,
+    -0.0065956116,
+    0.03286743,
+    0.020736694,
+    0.0049591064,
+    0.044158936,
+    -0.041503906,
+    0.06311035,
+    0.030059814,
+    0.028961182,
+    -0.055358887,
+    0.048980713,
+    -0.011932373,
+    0.033843994,
+    0.01411438,
+    0.015556335,
+    0.011634827,
+    -0.04083252,
+    -0.010643005,
+    -0.024139404,
+    0.019134521,
+    -0.00868988,
+    -0.0018997192,
+    0.019882202,
+    -0.008781433,
+    -0.017837524,
+    -0.027160645,
+    -0.02067566,
+    0.036987305,
+    0.03765869,
+    -0.0065460205,
+    -0.013916016,
+    0.029647827,
+    0.003107071,
+    0.011207581,
+    -0.030319214,
+    -0.01184845,
+    -0.03491211,
+    -0.032104492,
+    -0.034851074,
+    -0.0023155212,
+    -0.03488159,
+    0.049804688,
+    0.016311646,
+    -0.031234741,
+    -0.016220093,
+    -0.01637268,
+    -0.004119873,
+    -0.02217102,
+    -0.04925537,
+    -0.04852295,
+    -0.066101074,
+    0.026626587,
+    0.09460449,
+    -0.03857422,
+    0.029815674,
+    -0.052734375,
+    0.00198555,
+    -0.007774353,
+    0.02671814,
+    0.02432251,
+    0.03387451,
+    -0.06359863,
+    0.04925537,
+    0.016677856,
+    0.010665894,
+    -0.014671326,
+    -0.007045746,
+    -0.04446411,
+    0.03387451,
+    -0.02861023,
+    0.0023937225,
+    -0.009140015,
+    0.009643555,
+    0.023239136,
+    -0.047027588,
+    0.018051147,
+    -0.009857178,
+    -0.035339355,
+    0.02027893,
+    -0.015731812,
+    0.00015974045
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/equity-research/wells_fargo_amazon_analysis.md",
+    "file_name": "wells_fargo_amazon_analysis.md",
+    "file_size": 11562,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/Wells Fargo Securities Equity Research: Amazon.com Inc. (AMZN)/Rating: HOLD | Price Target: $175 | Current Price: $185/",
+    "aws::graph::propositions": [
+      "# Amazon Regulatory and Geopolitical Challenges Analysis",
+      "Amazon faces increasing regulatory scrutiny across multiple jurisdictions.",
+      "Regulatory scrutiny could constrain Amazon's operations.",
+      "Regulatory scrutiny could increase Amazon's costs.",
+      "The Federal Trade Commission (FTC) has filed an antitrust lawsuit against Amazon.",
+      "The FTC's antitrust lawsuit threatens structural remedies for Amazon.",
+      "European AI regulations limit Amazon's service deployment in key international markets.",
+      "US technology tariffs are set at 25% on emerging technology companies.",
+      "US technology tariffs create operational challenges for Amazon's global expansion.",
+      "Data sovereignty requirements create operational challenges for Amazon's global expansion.",
+      "Restrictions could fragment Amazon's operations.",
+      "Restrictions could reduce economies of scale that drive Amazon's competitive advantages.",
+      "A cybersecurity skills shortage exists globally.",
+      "There are 4.8 million unfilled cybersecurity positions globally.",
+      "The cybersecurity skills shortage increases operational risks for Amazon.",
+      "The cybersecurity skills shortage increases costs for Amazon.",
+      "The cybersecurity skills shortage makes it difficult for Amazon to adequately protect against sophisticated threats.",
+      "Amazon has massive data holdings.",
+      "Amazon's massive data holdings make it an attractive target for cyberattacks.",
+      "Cyberattacks against Amazon could result in significant financial penalties.",
+      "Cyberattacks against Amazon could result in customer defections."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Amazon Regulatory and Geopolitical Challenges Analysis",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Trade Commission",
+              "classification": "Government"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "FTC",
+              "classification": "Government"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "European AI regulations",
+              "classification": "Regulation"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "US technology tariffs",
+              "classification": "Regulation"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon faces increasing regulatory scrutiny across multiple jurisdictions.",
+              "details": [
+                "regulatory scrutiny DESCRIBED BY increasing",
+                "regulatory scrutiny OCCURS ACROSS multiple jurisdictions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FACES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulatory scrutiny",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulatory scrutiny",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "increasing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulatory scrutiny",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURS ACROSS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple jurisdictions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Regulatory scrutiny could constrain Amazon's operations.",
+              "details": [
+                "regulatory scrutiny IMPACTS Amazon",
+                "regulatory scrutiny COULD CONSTRAIN operations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulatory scrutiny",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulatory scrutiny",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COULD CONSTRAIN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Regulatory scrutiny could increase Amazon's costs.",
+              "details": [
+                "regulatory scrutiny IMPACTS Amazon",
+                "regulatory scrutiny COULD INCREASE costs"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulatory scrutiny",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulatory scrutiny",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COULD INCREASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "costs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Trade Commission (FTC) has filed an antitrust lawsuit against Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Trade Commission",
+                    "classification": "Government"
+                  },
+                  "predicate": {
+                    "value": "FILED LAWSUIT AGAINST"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Trade Commission",
+                    "classification": "Government"
+                  },
+                  "predicate": {
+                    "value": "HAS LAWSUIT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitrust",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The FTC's antitrust lawsuit threatens structural remedies for Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Trade Commission",
+                    "classification": "Government"
+                  },
+                  "predicate": {
+                    "value": "THREATENS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Trade Commission",
+                    "classification": "Government"
+                  },
+                  "predicate": {
+                    "value": "HAS LAWSUIT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitrust",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Trade Commission",
+                    "classification": "Government"
+                  },
+                  "predicate": {
+                    "value": "THREATENS WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "structural remedies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "European AI regulations limit Amazon's service deployment in key international markets.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "European AI regulations",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "LIMIT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "European AI regulations",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "LIMIT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "service deployment",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "European AI regulations",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "LIMIT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "key international markets",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "US technology tariffs are set at 25% on emerging technology companies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US technology tariffs",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "APPLY TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emerging technology companies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US technology tariffs",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "HAS RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "25%",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "US technology tariffs create operational challenges for Amazon's global expansion.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US technology tariffs",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "IMPACT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US technology tariffs",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "CREATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operational challenges",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global expansion",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Data sovereignty requirements create operational challenges for Amazon's global expansion.",
+              "details": [
+                "Data sovereignty requirements IMPACT Amazon",
+                "Data sovereignty requirements CREATE operational challenges"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Data sovereignty requirements",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Data sovereignty requirements",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CREATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operational challenges",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global expansion",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Restrictions could fragment Amazon's operations.",
+              "details": [
+                "Restrictions IMPACT Amazon",
+                "Restrictions COULD FRAGMENT operations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Restrictions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Restrictions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COULD FRAGMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Restrictions could reduce economies of scale that drive Amazon's competitive advantages.",
+              "details": [
+                "Restrictions IMPACT Amazon",
+                "Restrictions COULD REDUCE economies of scale",
+                "economies of scale DRIVE competitive advantages"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Restrictions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Restrictions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COULD REDUCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "economies of scale",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "economies of scale",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DRIVE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitive advantages",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitive advantages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A cybersecurity skills shortage exists globally.",
+              "details": [
+                "cybersecurity skills shortage EXISTS globally"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity skills shortage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXISTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "globally",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There are 4.8 million unfilled cybersecurity positions globally.",
+              "details": [
+                "cybersecurity positions HAS QUANTITY 4.8 million",
+                "cybersecurity positions HAS STATUS unfilled",
+                "cybersecurity positions HAS LOCATION globally"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity positions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4.8 million",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity positions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unfilled",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity positions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "globally",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cybersecurity skills shortage increases operational risks for Amazon.",
+              "details": [
+                "cybersecurity skills shortage IMPACTS Amazon",
+                "cybersecurity skills shortage INCREASES operational risks"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity skills shortage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity skills shortage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCREASES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operational risks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cybersecurity skills shortage increases costs for Amazon.",
+              "details": [
+                "cybersecurity skills shortage IMPACTS Amazon",
+                "cybersecurity skills shortage INCREASES costs"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity skills shortage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity skills shortage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCREASES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "costs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cybersecurity skills shortage makes it difficult for Amazon to adequately protect against sophisticated threats.",
+              "details": [
+                "cybersecurity skills shortage IMPACTS Amazon",
+                "cybersecurity skills shortage CREATES DIFFICULTY adequately protect against sophisticated threats"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity skills shortage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cybersecurity skills shortage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CREATES DIFFICULTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "adequately protect against sophisticated threats",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has massive data holdings.",
+              "details": [
+                "data holdings DESCRIBED BY massive"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data holdings",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data holdings",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "massive",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's massive data holdings make it an attractive target for cyberattacks.",
+              "details": [
+                "data holdings DESCRIBED BY massive"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data holdings",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data holdings",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "massive",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "IS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attractive target for cyberattacks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cyberattacks against Amazon could result in significant financial penalties.",
+              "details": [
+                "Cyberattacks TARGET Amazon",
+                "Cyberattacks COULD RESULT IN significant financial penalties"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cyberattacks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TARGET"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cyberattacks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COULD RESULT IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant financial penalties",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cyberattacks against Amazon could result in customer defections.",
+              "details": [
+                "Cyberattacks TARGET Amazon",
+                "Cyberattacks COULD RESULT IN customer defections"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cyberattacks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TARGET"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cyberattacks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COULD RESULT IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customer defections",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::00a69cae:36fd",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/equity-research/wells_fargo_amazon_analysis.md",
+        "file_name": "wells_fargo_amazon_analysis.md",
+        "file_size": 11562,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "dc594307560619f037107c901f572cadc6134c78d25fae08fe0aaece8a441d17",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::00a69cae:36fd:38f8ca6d",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/equity-research/wells_fargo_amazon_analysis.md",
+        "file_name": "wells_fargo_amazon_analysis.md",
+        "file_size": 11562,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/Wells Fargo Securities Equity Research: Amazon.com Inc. (AMZN)/Rating: HOLD | Price Target: $175 | Current Price: $185/"
+      },
+      "hash": "81653d39502575be4c5ebc1cb9c904c21f11ba9da7d1f69117c704bd3f6e9b1e",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::00a69cae:36fd:72a43c37",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/equity-research/wells_fargo_amazon_analysis.md",
+        "file_name": "wells_fargo_amazon_analysis.md",
+        "file_size": 11562,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/Wells Fargo Securities Equity Research: Amazon.com Inc. (AMZN)/Rating: HOLD | Price Target: $175 | Current Price: $185/"
+      },
+      "hash": "42b2acb512d78fa334a3c73a940de8d871b9ffc41ccaa40ec0734ea34c5eaafb",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "### Regulatory and Geopolitical Headwinds\n\nAmazon faces increasing regulatory scrutiny across multiple jurisdictions that could constrain operations and increase costs. The FTC's antitrust lawsuit threatens structural remedies, while European AI regulations limit service deployment in key international markets.\n\nUS technology tariffs (25% on emerging technology companies) and data sovereignty requirements create operational challenges for global expansion. These restrictions could fragment Amazon's operations and reduce economies of scale that drive competitive advantages.\n\nThe cybersecurity skills shortage (4.8 million unfilled positions globally) increases operational risks and costs while making it difficult to adequately protect against sophisticated threats. Amazon's massive data holdings make it an attractive target for cyberattacks that could result in significant financial penalties and customer defections.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 928,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,19 @@
+r6g family instance types and Graviton2 processor characteristics
+
+The r6g family is a family of instance types.
+AWS has developed its own ARM-based processor called Graviton.
+Graviton is an ARM-based processor.
+AWS developed Graviton.
+Graviton delivers better price/performance than the Intel and AMD equivalents.
+The r6g family uses the Graviton2 processor.
+Graviton2 is a processor.
+The Graviton2 processor offers 10-20% better performance for OLTP-style (constrained) graph queries.
+OLTP-style queries are constrained graph queries.
+Larger, OLAP-ish queries may be slightly less performant with the Graviton2 processors than with Intel ones.
+The slightly less performant performance of larger, OLAP-ish queries with Graviton2 processors is owing to slightly less performant memory-paging performance.
+Intel processors have slightly more performant memory-paging performance than Graviton2 processors.
+The r6g family has a single-socket architecture.
+Performance scales linearly with compute capacity from an r6g.large to an r6g.16xlarge in the r6g family.
+r6g.large is an instance type in the r6g family.
+r6g.16xlarge is an instance type in the r6g family.
+r6g.16xlarge is the largest type in the r6g family.

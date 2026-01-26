@@ -1,0 +1,2401 @@
+{
+  "id_": "aws::a663f122:e904:2744dac6",
+  "embedding": [
+    0.03225708,
+    -0.013008118,
+    0.049072266,
+    0.0013475418,
+    -0.025985718,
+    0.0040779114,
+    -0.0045204163,
+    -0.04425049,
+    -0.019607544,
+    0.016952515,
+    0.006690979,
+    -0.016113281,
+    0.035064697,
+    -0.04336548,
+    0.03201294,
+    0.0026226044,
+    0.026565552,
+    0.040008545,
+    0.08300781,
+    0.003129959,
+    -0.0020046234,
+    0.028701782,
+    0.029312134,
+    -0.031097412,
+    0.00037574768,
+    0.05923462,
+    -0.029342651,
+    -0.019500732,
+    -0.01008606,
+    -0.014038086,
+    0.0062065125,
+    -0.002576828,
+    0.001077652,
+    0.04348755,
+    -0.008834839,
+    0.012145996,
+    0.001991272,
+    0.024002075,
+    0.0011119843,
+    0.040496826,
+    0.03488159,
+    -0.016174316,
+    0.03326416,
+    0.01234436,
+    -0.03048706,
+    0.003627777,
+    0.03152466,
+    0.010353088,
+    0.038879395,
+    0.0690918,
+    0.0015201569,
+    -0.014793396,
+    -0.0096588135,
+    0.025177002,
+    -0.0050086975,
+    -0.026931763,
+    -0.056427002,
+    -0.01625061,
+    0.023101807,
+    0.13342285,
+    0.03753662,
+    -0.032440186,
+    -0.014793396,
+    -0.0914917,
+    -0.022232056,
+    -0.03173828,
+    -0.059936523,
+    0.019851685,
+    0.1104126,
+    -0.003118515,
+    -0.031585693,
+    0.052703857,
+    0.013214111,
+    0.010429382,
+    -0.0011110306,
+    -0.012458801,
+    -0.00063943863,
+    0.031402588,
+    0.004173279,
+    0.016113281,
+    0.046020508,
+    0.076171875,
+    -0.0032215118,
+    -0.00856781,
+    -0.0070495605,
+    -0.011352539,
+    -0.020889282,
+    -0.04232788,
+    -0.029876709,
+    -0.005241394,
+    -0.024642944,
+    0.0015678406,
+    -0.019332886,
+    0.030929565,
+    -0.027404785,
+    0.022918701,
+    -0.035980225,
+    -0.085510254,
+    0.015777588,
+    -0.011375427,
+    0.021820068,
+    -0.02835083,
+    -0.016555786,
+    0.018569946,
+    -0.018035889,
+    -0.0048599243,
+    -0.010528564,
+    -0.035491943,
+    -0.0005850792,
+    0.025680542,
+    -0.050567627,
+    -0.0026474,
+    -0.029556274,
+    -0.010734558,
+    -0.03086853,
+    -0.007987976,
+    -0.052886963,
+    -0.006591797,
+    0.015129089,
+    -0.027191162,
+    -0.0042037964,
+    0.018112183,
+    -0.09655762,
+    0.041229248,
+    0.015357971,
+    -0.0034618378,
+    0.00819397,
+    0.059448242,
+    0.024414062,
+    -0.0017356873,
+    0.011184692,
+    0.052246094,
+    -0.013580322,
+    -0.0680542,
+    -0.049835205,
+    0.014671326,
+    -0.014625549,
+    0.04272461,
+    0.030700684,
+    -0.017318726,
+    -0.019760132,
+    0.015167236,
+    0.1005249,
+    -0.004371643,
+    -0.011978149,
+    0.030395508,
+    0.0017318726,
+    0.0076789856,
+    0.016983032,
+    -0.014183044,
+    -0.021881104,
+    -0.024612427,
+    0.021728516,
+    -0.0049743652,
+    0.017700195,
+    -0.033599854,
+    0.050994873,
+    -0.040222168,
+    0.005783081,
+    -0.039215088,
+    0.016143799,
+    -0.03552246,
+    -0.038085938,
+    0.01914978,
+    -0.0385437,
+    0.056365967,
+    0.018417358,
+    0.011695862,
+    0.006084442,
+    0.062469482,
+    0.026443481,
+    0.026428223,
+    -0.06756592,
+    -0.021591187,
+    -0.008468628,
+    -0.04473877,
+    0.0016288757,
+    0.0029354095,
+    0.0362854,
+    0.0017471313,
+    0.007549286,
+    -0.0054969788,
+    0.053863525,
+    -0.0044021606,
+    -0.024856567,
+    0.00040245056,
+    0.022399902,
+    -0.009643555,
+    -0.00087833405,
+    0.0021438599,
+    0.039855957,
+    0.052764893,
+    0.014450073,
+    -0.044525146,
+    0.049560547,
+    -0.023071289,
+    -0.024047852,
+    -0.03857422,
+    0.009552002,
+    0.02709961,
+    -0.024795532,
+    0.03213501,
+    -0.03213501,
+    0.0007300377,
+    -0.04647827,
+    -0.010810852,
+    0.010437012,
+    0.022598267,
+    0.036254883,
+    0.034179688,
+    0.009391785,
+    0.031799316,
+    -0.05255127,
+    0.06707764,
+    -0.0009889603,
+    0.01928711,
+    -0.02545166,
+    0.016677856,
+    -0.004508972,
+    0.03274536,
+    -0.028427124,
+    -0.009117126,
+    -0.03289795,
+    -0.007209778,
+    -0.018295288,
+    -0.024108887,
+    -0.009857178,
+    -0.010398865,
+    -0.02760315,
+    0.015281677,
+    -0.0009446144,
+    0.0049095154,
+    -0.032104492,
+    -0.026168823,
+    -0.05947876,
+    -0.0006828308,
+    -0.025466919,
+    0.025741577,
+    0.00793457,
+    0.030883789,
+    0.019332886,
+    -0.03152466,
+    -0.0037517548,
+    0.00083351135,
+    -0.096069336,
+    -0.08514404,
+    0.028259277,
+    -0.022064209,
+    -0.021270752,
+    0.012573242,
+    0.0519104,
+    0.0010671616,
+    0.001709938,
+    0.043395996,
+    0.012672424,
+    0.0018463135,
+    -0.018554688,
+    -0.041137695,
+    -0.010971069,
+    0.020614624,
+    0.019088745,
+    -0.080566406,
+    -0.06994629,
+    -0.026992798,
+    0.06185913,
+    0.00019156933,
+    0.047912598,
+    0.03753662,
+    -0.031677246,
+    0.009048462,
+    0.007698059,
+    -0.018081665,
+    0.002500534,
+    0.07952881,
+    -0.032043457,
+    0.007858276,
+    -0.004573822,
+    -0.018341064,
+    0.0065956116,
+    0.023773193,
+    -0.01991272,
+    0.05279541,
+    -0.036743164,
+    -0.026397705,
+    -0.01399231,
+    0.028289795,
+    -0.0131073,
+    -0.031982422,
+    0.02746582,
+    0.03918457,
+    0.044189453,
+    0.022628784,
+    0.0209198,
+    0.013420105,
+    0.04248047,
+    -0.0013523102,
+    0.040100098,
+    0.015823364,
+    -0.007911682,
+    0.010116577,
+    0.022766113,
+    0.032440186,
+    0.0011882782,
+    -0.016235352,
+    0.013679504,
+    -0.010223389,
+    0.041168213,
+    -9.417534e-05,
+    0.011947632,
+    0.025344849,
+    -0.036315918,
+    0.026824951,
+    0.01852417,
+    0.058166504,
+    -0.0066337585,
+    -0.0362854,
+    0.02458191,
+    0.032836914,
+    0.032989502,
+    0.015960693,
+    -0.025558472,
+    -0.015083313,
+    -0.003643036,
+    0.041229248,
+    0.010925293,
+    -0.022491455,
+    0.0579834,
+    0.008361816,
+    -0.014595032,
+    -0.01361084,
+    0.01651001,
+    -0.013916016,
+    -0.016189575,
+    0.0041885376,
+    0.012573242,
+    0.0034885406,
+    -0.00011712313,
+    0.005191803,
+    -0.029342651,
+    -0.034179688,
+    -0.021270752,
+    -0.04486084,
+    -0.01033783,
+    -0.019332886,
+    -0.06713867,
+    -0.022857666,
+    0.017715454,
+    0.0030441284,
+    -0.045806885,
+    -0.04046631,
+    0.08117676,
+    -0.04537964,
+    0.003025055,
+    0.040130615,
+    0.005393982,
+    -0.062438965,
+    -0.0006251335,
+    -0.009750366,
+    -0.039245605,
+    -0.054656982,
+    0.033111572,
+    0.007297516,
+    -0.001868248,
+    -0.0385437,
+    -0.019470215,
+    -0.0053634644,
+    -0.024719238,
+    0.008453369,
+    0.01474762,
+    0.021072388,
+    0.018539429,
+    0.0071372986,
+    0.0063552856,
+    -0.020324707,
+    -0.02494812,
+    -0.047332764,
+    0.0049591064,
+    -0.02420044,
+    0.033203125,
+    0.01360321,
+    0.029647827,
+    -0.0014276505,
+    0.044952393,
+    -0.0013961792,
+    -0.02368164,
+    0.003982544,
+    -0.02330017,
+    0.005718231,
+    0.008964539,
+    0.011802673,
+    0.0020275116,
+    0.008293152,
+    -0.00919342,
+    -0.02293396,
+    -0.031204224,
+    -0.0020141602,
+    0.03225708,
+    -0.012214661,
+    0.0121536255,
+    -0.01928711,
+    -0.05697632,
+    -0.014045715,
+    -0.011070251,
+    -0.023498535,
+    0.017822266,
+    -0.011154175,
+    -0.0031032562,
+    -0.049835205,
+    0.043395996,
+    0.017593384,
+    -0.0018749237,
+    0.009277344,
+    0.021591187,
+    -0.023712158,
+    -0.034423828,
+    0.01927185,
+    -0.057647705,
+    -0.017211914,
+    -0.00137043,
+    0.057373047,
+    0.011932373,
+    -0.025604248,
+    -0.029174805,
+    0.037353516,
+    0.022140503,
+    -0.04333496,
+    0.022644043,
+    -0.0335083,
+    0.018981934,
+    0.049316406,
+    0.00077581406,
+    0.007789612,
+    -0.011810303,
+    0.008140564,
+    -0.030349731,
+    0.033111572,
+    0.02204895,
+    0.008644104,
+    0.05734253,
+    -0.049713135,
+    -0.03729248,
+    0.012504578,
+    0.022521973,
+    0.011749268,
+    0.006816864,
+    -0.029266357,
+    0.0061302185,
+    -0.019104004,
+    -0.0072784424,
+    -0.019134521,
+    0.020202637,
+    -0.014564514,
+    0.055267334,
+    0.01638794,
+    0.0140686035,
+    0.090148926,
+    0.011878967,
+    0.018112183,
+    0.017822266,
+    -0.033721924,
+    -0.010574341,
+    0.002532959,
+    -0.07348633,
+    -0.011398315,
+    -0.0037441254,
+    -0.016342163,
+    -0.02432251,
+    -0.007095337,
+    -0.009681702,
+    -0.0067863464,
+    -0.012619019,
+    0.039520264,
+    -0.01763916,
+    -0.020095825,
+    0.0009446144,
+    -0.023208618,
+    0.011222839,
+    -0.008758545,
+    0.04296875,
+    -0.0010299683,
+    -0.029647827,
+    0.0184021,
+    0.012107849,
+    0.01826477,
+    0.024246216,
+    0.009140015,
+    0.009666443,
+    0.01651001,
+    -0.0035915375,
+    0.00737381,
+    0.012832642,
+    -0.00749588,
+    0.023651123,
+    0.0028514862,
+    -0.016586304,
+    -0.020492554,
+    0.006969452,
+    -0.012466431,
+    0.001244545,
+    -0.01889038,
+    -0.099731445,
+    0.03060913,
+    0.0020980835,
+    -0.022918701,
+    0.023391724,
+    0.026321411,
+    -0.014945984,
+    0.029190063,
+    -0.023834229,
+    -0.008575439,
+    0.009025574,
+    -0.013977051,
+    0.053955078,
+    0.04849243,
+    -0.04714966,
+    0.016708374,
+    -0.03363037,
+    0.049224854,
+    -0.054870605,
+    -0.009674072,
+    -0.027679443,
+    -0.03164673,
+    0.03567505,
+    0.037017822,
+    -0.025650024,
+    0.0027713776,
+    0.0112838745,
+    0.023071289,
+    -0.01625061,
+    -0.020339966,
+    0.004432678,
+    -0.0032100677,
+    0.019836426,
+    0.015731812,
+    0.011230469,
+    0.014915466,
+    -0.021255493,
+    0.08911133,
+    -0.007423401,
+    -0.11315918,
+    -0.013931274,
+    0.04248047,
+    0.024612427,
+    -0.08203125,
+    0.00944519,
+    -0.034088135,
+    -0.025161743,
+    -0.0003118515,
+    -0.048339844,
+    0.009567261,
+    -0.02885437,
+    -0.021438599,
+    0.019500732,
+    -0.029541016,
+    -0.028427124,
+    0.03656006,
+    0.021148682,
+    -0.024291992,
+    -0.0025844574,
+    0.030517578,
+    -0.036956787,
+    0.0006799698,
+    -0.018753052,
+    0.029953003,
+    -0.020126343,
+    0.02709961,
+    0.0090789795,
+    0.0025482178,
+    0.016571045,
+    0.00076150894,
+    -0.009300232,
+    -0.008926392,
+    0.07598877,
+    -0.036376953,
+    0.0022182465,
+    -0.047088623,
+    -0.001996994,
+    0.012145996,
+    -0.0055351257,
+    0.011398315,
+    -0.017791748,
+    0.041778564,
+    0.021606445,
+    0.05923462,
+    -0.0552063,
+    0.04260254,
+    0.04598999,
+    0.025741577,
+    -0.0043144226,
+    0.025115967,
+    0.033691406,
+    -0.022445679,
+    0.008468628,
+    0.009056091,
+    -0.04119873,
+    -0.035949707,
+    0.0007648468,
+    -0.0012607574,
+    0.049987793,
+    -0.009979248,
+    -0.0060157776,
+    0.008529663,
+    0.008865356,
+    -0.00013434887,
+    0.027130127,
+    0.026062012,
+    0.0051727295,
+    0.034057617,
+    0.0026817322,
+    0.027526855,
+    0.008026123,
+    0.007820129,
+    -0.029785156,
+    0.0028018951,
+    -0.0063552856,
+    0.0031414032,
+    -0.07873535,
+    0.058685303,
+    0.0513916,
+    0.0028305054,
+    0.044769287,
+    0.0088272095,
+    0.026550293,
+    -0.014480591,
+    0.05606079,
+    0.019805908,
+    -0.04071045,
+    0.008125305,
+    0.007232666,
+    -0.02947998,
+    -0.02809143,
+    -0.032592773,
+    -0.06890869,
+    -0.0077667236,
+    -0.06463623,
+    -0.0029716492,
+    -0.0158844,
+    -0.03173828,
+    0.005367279,
+    -0.061553955,
+    -0.016494751,
+    0.022979736,
+    -0.002998352,
+    0.013938904,
+    -0.018844604,
+    -0.029647827,
+    -0.018951416,
+    -0.032318115,
+    0.02305603,
+    0.0076942444,
+    0.028167725,
+    0.008712769,
+    -0.017196655,
+    -0.014442444,
+    0.0041542053,
+    0.0335083,
+    0.012649536,
+    -0.020309448,
+    0.0068244934,
+    -0.072387695,
+    -0.08453369,
+    -0.053833008,
+    -0.022644043,
+    -0.061035156,
+    -0.081604004,
+    0.016281128,
+    0.05380249,
+    -0.025802612,
+    0.024215698,
+    -0.08093262,
+    -0.021087646,
+    0.058013916,
+    0.0077667236,
+    -0.008811951,
+    0.008628845,
+    0.005180359,
+    -0.0062675476,
+    0.019073486,
+    0.01096344,
+    -0.018798828,
+    0.014770508,
+    0.016464233,
+    0.0027008057,
+    -0.022628784,
+    -0.0101623535,
+    0.036712646,
+    -0.02279663,
+    0.0018835068,
+    -0.014587402,
+    0.025665283,
+    -0.036224365,
+    -0.0067367554,
+    -0.0075683594,
+    -0.031677246,
+    -0.032226562,
+    -0.038848877,
+    0.0021457672,
+    -0.024719238,
+    -0.008651733,
+    -0.027160645,
+    0.005256653,
+    -0.006023407,
+    0.027648926,
+    -0.009399414,
+    -0.019058228,
+    0.041290283,
+    0.037902832,
+    0.0758667,
+    -0.009849548,
+    -0.024658203,
+    0.062042236,
+    0.045410156,
+    0.029464722,
+    -0.018661499,
+    0.015945435,
+    0.02519226,
+    0.10675049,
+    0.026809692,
+    -0.0053215027,
+    0.003730774,
+    -0.020858765,
+    0.026733398,
+    0.0065956116,
+    -0.059631348,
+    0.014419556,
+    -0.027114868,
+    -0.03274536,
+    -0.00054073334,
+    -0.027648926,
+    -0.05697632,
+    0.015838623,
+    -0.03488159,
+    -0.04067993,
+    0.010772705,
+    -0.014427185,
+    0.006904602,
+    -0.0014543533,
+    0.038116455,
+    0.027877808,
+    0.015586853,
+    -0.032073975,
+    -0.008346558,
+    0.039154053,
+    0.017150879,
+    -0.024505615,
+    -0.020553589,
+    0.021118164,
+    -0.12719727,
+    -0.03945923,
+    -0.017974854,
+    0.027999878,
+    -0.0725708,
+    -0.080444336,
+    -0.025115967,
+    0.015792847,
+    0.011161804,
+    0.012062073,
+    -0.008712769,
+    -0.081848145,
+    0.01725769,
+    -0.019470215,
+    -0.0004911423,
+    0.00831604,
+    0.028747559,
+    -0.02305603,
+    0.043060303,
+    0.026306152,
+    0.0110321045,
+    -0.018341064,
+    0.0038490295,
+    -0.0033779144,
+    -0.0070610046,
+    0.00920105,
+    0.031433105,
+    0.010681152,
+    -0.020889282,
+    0.025863647,
+    -0.0018501282,
+    0.018844604,
+    -0.025619507,
+    -0.051879883,
+    0.012840271,
+    -0.03817749,
+    0.020904541,
+    -0.030578613,
+    0.03152466,
+    -0.03137207,
+    0.054656982,
+    -0.041046143,
+    -0.014091492,
+    -0.040100098,
+    0.04647827,
+    0.022659302,
+    -0.024612427,
+    -0.011528015,
+    -0.035308838,
+    -0.020965576,
+    -0.0033493042,
+    -0.031585693,
+    -0.022384644,
+    -0.032958984,
+    0.018600464,
+    -0.021774292,
+    0.021987915,
+    -0.009010315,
+    -0.03366089,
+    0.0703125,
+    -0.007045746,
+    0.064208984,
+    -0.015289307,
+    0.018310547,
+    -0.010063171,
+    0.0074157715,
+    -0.01940918,
+    0.018676758,
+    0.06573486,
+    -0.026397705,
+    -0.018035889,
+    0.015174866,
+    -0.014907837,
+    0.005329132,
+    0.03878784,
+    0.00014448166,
+    0.01020813,
+    0.008964539,
+    -0.0073394775,
+    0.014373779,
+    -0.028625488,
+    0.004890442,
+    -0.019470215,
+    0.0055236816,
+    -0.0079422,
+    0.01424408,
+    0.021224976,
+    0.023284912,
+    -0.006038666,
+    0.046844482,
+    -0.034088135,
+    0.032592773,
+    0.027175903,
+    0.02192688,
+    -0.06311035,
+    0.062469482,
+    0.032836914,
+    -0.06262207,
+    0.019317627,
+    0.019882202,
+    -0.020614624,
+    0.01737976,
+    0.058807373,
+    0.024093628,
+    0.009643555,
+    0.04071045,
+    -0.007648468,
+    0.013038635,
+    -0.0032367706,
+    0.054260254,
+    0.01033783,
+    -0.033966064,
+    0.04776001,
+    0.05065918,
+    0.010108948,
+    0.062072754,
+    -0.013504028,
+    -0.023086548,
+    0.016143799,
+    -0.014831543,
+    0.0069274902,
+    0.02519226,
+    -0.003068924,
+    0.008300781,
+    -0.0107421875,
+    -0.06262207,
+    -0.04095459,
+    2.169609e-05,
+    -0.064453125,
+    0.023773193,
+    -0.0043754578,
+    -0.025299072,
+    0.038513184,
+    -0.08148193,
+    0.009460449,
+    -0.015197754,
+    -0.022262573,
+    0.026611328,
+    -0.016052246,
+    -0.024856567,
+    0.022079468,
+    0.012718201,
+    0.01940918,
+    -0.035308838,
+    -0.021469116,
+    0.00010871887,
+    -0.0035362244,
+    0.02130127,
+    0.058410645,
+    -0.01612854,
+    -0.0071144104,
+    -0.03488159,
+    0.01689148,
+    -0.02684021,
+    -0.023605347,
+    -0.008972168,
+    -0.050750732,
+    0.025436401,
+    0.004173279,
+    -0.0077667236,
+    -0.050201416,
+    0.02494812,
+    -0.0055160522,
+    -0.0009236336,
+    0.041778564,
+    -0.024230957,
+    -0.015716553,
+    0.024551392,
+    0.021652222,
+    -0.040039062,
+    -0.042388916,
+    0.020309448,
+    -0.048034668,
+    -0.05078125,
+    0.0013656616,
+    -0.03579712,
+    0.008987427,
+    0.052246094,
+    0.010147095,
+    0.023971558,
+    -0.04751587,
+    -0.036071777,
+    -0.002828598,
+    -0.018493652,
+    -0.011978149,
+    0.05105591,
+    -0.021530151,
+    0.033233643,
+    -0.014167786,
+    0.021362305,
+    -0.068481445,
+    -0.027709961,
+    0.01524353,
+    0.008728027,
+    -0.034942627,
+    -0.041748047,
+    0.029769897,
+    0.005039215,
+    -0.005214691,
+    0.0103302,
+    -0.00095176697,
+    -0.07861328,
+    0.009086609,
+    0.010971069,
+    0.00089788437,
+    0.0109939575,
+    -0.0053520203,
+    0.006626129,
+    0.040985107,
+    -0.02482605,
+    -0.06866455,
+    -0.014434814,
+    -0.03945923,
+    0.00018537045,
+    -0.011779785,
+    0.016784668,
+    0.018310547,
+    0.017501831,
+    0.0043411255,
+    0.00069618225,
+    -0.04284668,
+    0.039367676,
+    -0.014541626,
+    -0.027008057,
+    -0.009063721,
+    -0.008834839,
+    -0.017410278,
+    -0.0057525635,
+    -0.008598328,
+    -0.0011205673,
+    -0.026000977,
+    0.025466919,
+    -0.016616821,
+    0.010169983,
+    0.04864502,
+    0.0056648254,
+    -0.031829834,
+    0.03010559,
+    0.017318726,
+    -0.018997192,
+    0.029418945,
+    -0.0046043396,
+    0.00029587746,
+    0.010192871,
+    0.027542114,
+    0.02772522,
+    0.015640259,
+    -0.02897644,
+    -0.012420654,
+    0.02293396,
+    0.010055542,
+    0.0015735626,
+    -0.021392822,
+    -0.028549194,
+    0.0068244934,
+    0.030212402,
+    0.010803223,
+    -0.015029907,
+    -0.0463562,
+    -0.0003838539,
+    0.008720398,
+    -0.023529053,
+    -0.0027599335,
+    -0.043823242,
+    0.03677368,
+    0.027862549,
+    -0.003332138,
+    0.036956787,
+    0.0011415482,
+    0.021606445,
+    0.03286743,
+    0.027313232,
+    0.053009033,
+    -0.021606445,
+    0.020828247,
+    -0.0027389526,
+    -0.02746582
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+    "file_name": "90419.md",
+    "file_size": 25711,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Embraer EMB-505 Aircraft Incident in Palm Springs with Rudder Gust Lock Failure",
+      "The incident occurred in Palm Springs, California.",
+      "The incident occurred on November 23, 2014, at 11:04 Local time.",
+      "The aircraft involved was an Embraer EMB-505.",
+      "The defining event was System/Component malfunction/failure (non-power).",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The incident number was WPR15IA046.",
+      "The aircraft registration was C-GJOL.",
+      "The aircraft sustained minor damage.",
+      "There were 5 people on board with no injuries.",
+      "An airline transport pilot was operating the aircraft.",
+      "The flight was a personal cross-country flight.",
+      "The pilot reported that preflight preparations were normal.",
+      "The pilot removed the rudder gust lock pin during preflight.",
+      "The taxi out for takeoff was normal.",
+      "The pilot detected an abnormal feel to the rudders during taxi.",
+      "All turns to the runway were right turns.",
+      "The pilot easily executed the right turns during taxi.",
+      "Following rotation on takeoff, the pilot noticed a significant right yaw and roll.",
+      "The pilot initially countered the right yaw and roll with left aileron.",
+      "As the airplane continued to climb, the flight was uncoordinated.",
+      "The pilot had to continuously apply left rudder to counter the right yaw.",
+      "The pilot attempted to apply left yaw trim.",
+      "Neither the left rudder nor left yaw trim resolved the issue.",
+      "The pilot advised air traffic control that he needed to return to the departure airport.",
+      "Air traffic control cleared the pilot for a visual approach.",
+      "The pilot landed the airplane.",
+      "The left wing tip sustained minor damage.",
+      "The damage occurred as the pilot unsuccessfully tried to correct a drift to the right after landing.",
+      "The pilot attempted to correct the drift using right rudder and aileron.",
+      "Initial examination revealed the rudder gust lock had failed in the locked position.",
+      "Further examination determined the gust lock actuator had likely begun to retract as commanded.",
+      "The solenoid located within the gust lock actuator failed.",
+      "The solenoid failure resulted in the pin no longer being held in the retracted position.",
+      "Once the pin released from its retracted position, it engaged the ball nut.",
+      "The engagement of the ball nut stopped the rotation of the actuator shaft."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Embraer EMB-505 Aircraft Incident in Palm Springs with Rudder Gust Lock Failure",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Palm Springs, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-505",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "C-GJOL",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "System/Component malfunction/failure",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR15IA046",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airline transport pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred in Palm Springs, California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Springs, California",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred on November 23, 2014, at 1104 Local time.",
+              "details": [
+                "incident DATE November 23, 2014",
+                "incident TIME 11:04 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 23, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "11:04 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was an Embraer EMB-505.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was System/Component malfunction/failure (non-power).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "System/Component malfunction/failure",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident number was WPR15IA046.",
+              "details": [
+                "incident NUMBER WPR15IA046"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR15IA046",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR15IA046",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was C-GJOL.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "C-GJOL",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained minor damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 5 people on board with no injuries.",
+              "details": [
+                "incident INJURIES no injuries"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PEOPLE ON BOARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An airline transport pilot was operating the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a personal cross-country flight.",
+              "details": [
+                "flight TYPE personal cross-country flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personal cross-country flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported that preflight preparations were normal.",
+              "details": [
+                "preflight preparations CONDITION normal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preflight preparations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot removed the rudder gust lock pin during preflight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REMOVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder gust lock pin",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The taxi out for takeoff was normal.",
+              "details": [
+                "taxi out CONDITION normal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "taxi out",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot detected an abnormal feel to the rudders during taxi.",
+              "details": [
+                "rudders CONDITION abnormal feel"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DETECTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "abnormal feel to rudders",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudders",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "abnormal feel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All turns to the runway were right turns.",
+              "details": [
+                "turns to runway DIRECTION right turns"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turns to runway",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right turns",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot easily executed the right turns during taxi.",
+              "details": [
+                "right turns execution DIFFICULTY easily"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right turns execution",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DIFFICULTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "easily",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Following rotation on takeoff, the pilot noticed a significant right yaw and roll.",
+              "details": [
+                "aircraft movement CONDITION significant right yaw and roll"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft movement",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant right yaw and roll",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot initially countered the right yaw and roll with left aileron.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COUNTERING METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left aileron",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "As the airplane continued to climb, the flight was uncoordinated.",
+              "details": [
+                "flight CONDITION uncoordinated"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uncoordinated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had to continuously apply left rudder to counter the right yaw.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COUNTERING METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left rudder",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attempted to apply left yaw trim.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ATTEMPTED ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "apply left yaw trim",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Neither the left rudder nor left yaw trim resolved the issue.",
+              "details": [
+                "left rudder EFFECTIVENESS did not resolve issue",
+                "left yaw trim EFFECTIVENESS did not resolve issue"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left rudder",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EFFECTIVENESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not resolve issue",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left yaw trim",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EFFECTIVENESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not resolve issue",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot advised air traffic control that he needed to return to the departure airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COMMUNICATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air traffic control",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REQUESTED ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "return to departure airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Air traffic control cleared the pilot for a visual approach.",
+              "details": [
+                "air traffic control CLEARED airline transport pilot",
+                "clearance TYPE visual approach"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air traffic control",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CLEARED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "clearance",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual approach",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot landed the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left wing tip sustained minor damage.",
+              "details": [
+                "left wing tip DAMAGE LEVEL minor damage"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left wing tip",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The damage occurred as the pilot unsuccessfully tried to correct a drift to the right after landing.",
+              "details": [
+                "damage CAUSE unsuccessful attempt to correct right drift after landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unsuccessful attempt to correct right drift after landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attempted to correct the drift using right rudder and aileron.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CORRECTION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right rudder and aileron",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Initial examination revealed the rudder gust lock had failed in the locked position.",
+              "details": [
+                "rudder gust lock FAILURE MODE locked position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder gust lock",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILURE MODE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "locked position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Further examination determined the gust lock actuator had likely begun to retract as commanded.",
+              "details": [
+                "gust lock actuator ACTION begun to retract as commanded"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gust lock actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "begun to retract as commanded",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The solenoid located within the gust lock actuator failed.",
+              "details": [
+                "solenoid LOCATED WITHIN gust lock actuator",
+                "solenoid STATUS failed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATED WITHIN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gust lock actuator",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The solenoid failure resulted in the pin no longer being held in the retracted position.",
+              "details": [
+                "solenoid failure RESULT pin no longer held in retracted position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid failure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pin no longer held in retracted position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Once the pin released from its retracted position, it engaged the ball nut.",
+              "details": [
+                "pin ENGAGED ball nut"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pin",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENGAGED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ball nut",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engagement of the ball nut stopped the rotation of the actuator shaft.",
+              "details": [
+                "ball nut engagement EFFECT stopped rotation of actuator shaft"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ball nut engagement",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "stopped rotation of actuator shaft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::a663f122:e904",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "bfc6677b9ecbf9c8a8b56916090e9e00d927333974d70462562d251fb4439169",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::a663f122:e904:7d2e6186",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "80e7dc153d0ead48c6101b8ee4f09637a33539274cef1104f4509f525bebd694",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nPalm Springs, California\n\n## Date & Time: \nNovember 23, 2014, 11:04 Local\n\n## Aircraft:\nEmbraer EMB-505\n\n## Defining Event:\nSys/Comp malf/fail (non-power)\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Incident Number:\nWPR15IA046\n\n## Registration:\nC-GJOL\n\n## Aircraft Damage:\nMinor\n\n## Injuries:\n5 None\n\n## Analysis\n\nThe airline transport pilot was preparing to take off for a personal cross-country flight. He reported that the preflight preparations were normal, including the removal of the rudder gust lock pin. He stated that the taxi out for takeoff was normal but that he \"detected an abnormal 'feel' to the rudders.\" He added that all of the turns to the runway were right turns and that he \"easily executed\" the turns. Following rotation on takeoff, the pilot noticed a significant right yaw and roll, which he initially countered with left aileron. As the airplane continued to climb, the airplane's flight was uncoordinated, and the pilot had to continuously apply left rudder to counter the right yaw; he also attempted to apply left yaw trim, but neither action resolved the issue. At this time, the pilot advised air traffic control (ATC) that he needed to return to the departure airport, and ATC cleared the pilot for a visual approach. The pilot landed the airplane; only minor damage to the left wing tip was incurred as the pilot tried to unsuccessfully correct (with the right rudder and aileron) a drift to the right after landing.\n\nThe initial examination of the airplane revealed that the rudder gust lock had failed in the locked position. Upon further examination, it was determined that the gust lock actuator had likely begun to retract as commanded by the pilot when he removed the rudder gust lock pin during the preflight/startup checks. However, the solenoid located within the gust lock actuator failed, which resulted in the pin no longer being held in the retracted position. Once the pin released from its retracted position, it engaged the ball nut, which then stopped the rotation of the actuator shaft.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2114,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

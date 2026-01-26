@@ -1,0 +1,2418 @@
+{
+  "id_": "aws::541d11d7:aa88:f8f900da",
+  "embedding": [
+    0.013725281,
+    0.009719849,
+    -0.0096588135,
+    -0.0770874,
+    -0.007347107,
+    0.002363205,
+    -0.05239868,
+    0.02368164,
+    -0.07775879,
+    0.0076789856,
+    0.020462036,
+    0.024765015,
+    -0.0017175674,
+    -0.05130005,
+    0.08850098,
+    -0.031829834,
+    -0.0005502701,
+    0.015205383,
+    0.030029297,
+    -0.008773804,
+    0.009857178,
+    -0.00047540665,
+    0.01852417,
+    -0.005405426,
+    0.024139404,
+    -0.029266357,
+    -0.032440186,
+    0.06149292,
+    -0.029724121,
+    -0.008369446,
+    0.006996155,
+    0.016738892,
+    0.016418457,
+    0.042236328,
+    -0.043945312,
+    0.005344391,
+    -0.058044434,
+    0.039642334,
+    -0.0074691772,
+    0.012451172,
+    0.025680542,
+    -0.006313324,
+    0.00029277802,
+    -0.043273926,
+    -0.027893066,
+    0.010856628,
+    -0.004486084,
+    -0.008216858,
+    0.023864746,
+    0.037719727,
+    -0.00090646744,
+    -0.015312195,
+    0.002067566,
+    0.022949219,
+    -0.009498596,
+    -0.024536133,
+    -0.005264282,
+    0.016799927,
+    0.016159058,
+    -0.027450562,
+    -0.012138367,
+    0.031982422,
+    0.02406311,
+    0.024368286,
+    -0.05645752,
+    0.015792847,
+    0.05102539,
+    -0.004180908,
+    0.037353516,
+    -0.047027588,
+    -0.03652954,
+    0.042297363,
+    0.0024356842,
+    0.020111084,
+    0.01574707,
+    -0.051635742,
+    -0.018692017,
+    -0.023376465,
+    -0.00026202202,
+    0.042419434,
+    0.036071777,
+    0.060546875,
+    -0.037902832,
+    -0.012107849,
+    -0.001449585,
+    0.02116394,
+    -0.00819397,
+    -0.037231445,
+    0.0119018555,
+    0.0010004044,
+    -0.017150879,
+    -0.056762695,
+    0.07293701,
+    0.034423828,
+    -0.05206299,
+    0.011772156,
+    -0.02418518,
+    -0.05630493,
+    0.0031375885,
+    -0.05126953,
+    0.027633667,
+    -0.032958984,
+    -0.04837036,
+    0.035339355,
+    -0.010047913,
+    0.062469482,
+    0.0143585205,
+    -0.019958496,
+    0.014945984,
+    -0.019927979,
+    0.012504578,
+    0.035095215,
+    -0.0055389404,
+    -0.068237305,
+    -0.008712769,
+    0.03955078,
+    0.0032691956,
+    0.0011816025,
+    0.0435791,
+    -0.0098724365,
+    -0.0019330978,
+    0.016235352,
+    0.008323669,
+    -0.014015198,
+    0.037109375,
+    0.013031006,
+    -0.031280518,
+    0.0036697388,
+    0.05303955,
+    -0.04916382,
+    -0.005054474,
+    0.074401855,
+    -0.05859375,
+    -0.068847656,
+    -0.03579712,
+    0.030639648,
+    -0.023803711,
+    -0.026153564,
+    -0.022628784,
+    0.010894775,
+    -0.02960205,
+    -0.014503479,
+    0.06549072,
+    -0.026550293,
+    -0.034484863,
+    0.03286743,
+    0.011749268,
+    0.008140564,
+    -0.019943237,
+    -0.040405273,
+    -0.024398804,
+    -0.039245605,
+    0.05307007,
+    -0.023117065,
+    -0.071777344,
+    -0.062927246,
+    -0.033447266,
+    -0.031082153,
+    0.01675415,
+    -0.07470703,
+    0.003768921,
+    -0.0020809174,
+    0.020706177,
+    0.01991272,
+    -0.028076172,
+    0.020385742,
+    -0.021011353,
+    -0.0096206665,
+    0.008117676,
+    0.016799927,
+    0.022918701,
+    -0.045166016,
+    -0.034088135,
+    -0.008903503,
+    -0.010017395,
+    0.02229309,
+    -0.024337769,
+    0.06994629,
+    0.01222229,
+    0.011665344,
+    0.02772522,
+    -0.03704834,
+    0.036865234,
+    0.016738892,
+    -0.0006198883,
+    -0.03652954,
+    0.03579712,
+    0.012161255,
+    0.013504028,
+    0.032409668,
+    0.042633057,
+    -0.016708374,
+    0.020050049,
+    0.006088257,
+    0.010978699,
+    -0.04248047,
+    0.03793335,
+    -0.0014667511,
+    0.0052375793,
+    -0.025100708,
+    -0.01739502,
+    -0.004016876,
+    0.015640259,
+    0.018936157,
+    -0.005393982,
+    0.015975952,
+    -0.0079193115,
+    0.01322937,
+    -0.032318115,
+    0.012954712,
+    0.03878784,
+    -0.008666992,
+    -0.048980713,
+    0.058380127,
+    0.0034275055,
+    -0.029296875,
+    0.0002539158,
+    0.0006799698,
+    0.017471313,
+    0.00066900253,
+    0.021759033,
+    0.031280518,
+    -0.0023918152,
+    0.03201294,
+    -0.026977539,
+    0.005584717,
+    -0.025848389,
+    0.007587433,
+    0.012535095,
+    0.015686035,
+    0.06866455,
+    -0.015602112,
+    -0.007843018,
+    0.00207901,
+    -0.061950684,
+    0.03869629,
+    -0.014778137,
+    0.05215454,
+    -0.028900146,
+    0.001783371,
+    -0.014320374,
+    -0.05532837,
+    -0.035583496,
+    0.06427002,
+    -0.07952881,
+    -0.0736084,
+    -0.010299683,
+    0.05090332,
+    -0.034240723,
+    0.0013456345,
+    0.0050086975,
+    0.068603516,
+    0.034576416,
+    0.09527588,
+    0.00042533875,
+    0.030471802,
+    -0.044067383,
+    -0.002073288,
+    0.005329132,
+    -0.0016841888,
+    0.020584106,
+    -0.014671326,
+    -0.0060920715,
+    -0.017425537,
+    -0.011779785,
+    0.0113220215,
+    0.056427002,
+    0.052856445,
+    -0.011619568,
+    -0.020645142,
+    -0.011352539,
+    0.050231934,
+    0.0044822693,
+    0.03137207,
+    -0.04260254,
+    0.011184692,
+    -0.031677246,
+    0.016067505,
+    0.0015172958,
+    -0.007896423,
+    8.165836e-06,
+    0.03579712,
+    -0.028305054,
+    0.006877899,
+    0.0048179626,
+    -0.016067505,
+    -0.0036258698,
+    0.056365967,
+    -0.012252808,
+    0.033355713,
+    0.053955078,
+    -0.005153656,
+    -0.02305603,
+    0.004283905,
+    0.012245178,
+    -0.0085372925,
+    0.028457642,
+    -0.0002541542,
+    0.0029125214,
+    -0.02368164,
+    -0.009498596,
+    0.029953003,
+    -0.013023376,
+    -0.0075569153,
+    -0.002904892,
+    -0.034606934,
+    -0.01637268,
+    -0.011711121,
+    -0.0041503906,
+    -0.006942749,
+    -0.022384644,
+    0.032928467,
+    0.010848999,
+    -0.01763916,
+    -0.014198303,
+    -0.01663208,
+    -0.033935547,
+    0.0017576218,
+    -0.050689697,
+    -0.0026416779,
+    -0.030792236,
+    -0.008911133,
+    -0.060638428,
+    0.017822266,
+    -0.005180359,
+    0.031799316,
+    -0.0062408447,
+    0.004184723,
+    0.025634766,
+    0.041046143,
+    -0.066589355,
+    0.020599365,
+    -0.0619812,
+    0.02949524,
+    -0.021133423,
+    0.036315918,
+    -0.0013246536,
+    0.0008215904,
+    -0.026947021,
+    -0.021499634,
+    -0.02293396,
+    -0.05279541,
+    -0.013885498,
+    -0.034210205,
+    -0.04272461,
+    -0.06567383,
+    0.033325195,
+    0.008682251,
+    -0.011489868,
+    -0.024261475,
+    0.06536865,
+    -0.0057907104,
+    -0.023803711,
+    -0.0019321442,
+    0.023910522,
+    -0.06549072,
+    -0.010055542,
+    0.038024902,
+    0.012138367,
+    -0.02734375,
+    0.023880005,
+    0.027069092,
+    -1.6331673e-05,
+    -0.056152344,
+    -0.00092220306,
+    -0.03375244,
+    -0.026931763,
+    0.01638794,
+    -0.01852417,
+    -0.02218628,
+    0.0033950806,
+    0.027328491,
+    -0.035369873,
+    -0.022277832,
+    -0.045806885,
+    -0.018157959,
+    0.019348145,
+    -0.027893066,
+    -0.024765015,
+    -0.008384705,
+    0.009338379,
+    0.017837524,
+    -0.016601562,
+    -0.00466156,
+    -0.04953003,
+    0.017852783,
+    -0.037506104,
+    0.004219055,
+    -0.031066895,
+    -0.00028920174,
+    0.020217896,
+    0.07110596,
+    -0.0040016174,
+    -0.018493652,
+    0.03857422,
+    -0.00026893616,
+    -0.013427734,
+    0.0317688,
+    -0.057891846,
+    -0.008560181,
+    -0.11834717,
+    -0.01675415,
+    0.0032920837,
+    -0.07098389,
+    0.018585205,
+    -0.049591064,
+    -0.06341553,
+    -0.050445557,
+    0.030410767,
+    0.09161377,
+    -0.021774292,
+    0.018859863,
+    -0.043945312,
+    0.0463562,
+    -0.031555176,
+    0.019699097,
+    -0.019363403,
+    -0.016952515,
+    -0.01424408,
+    0.031463623,
+    0.03881836,
+    -0.017044067,
+    0.020904541,
+    0.03945923,
+    0.0067596436,
+    0.022033691,
+    -0.010246277,
+    -0.021850586,
+    0.018829346,
+    -0.0009069443,
+    -0.04071045,
+    -0.01309967,
+    -0.0019760132,
+    -0.056365967,
+    -0.0368042,
+    -0.00093889236,
+    3.8146973e-06,
+    0.013389587,
+    0.006149292,
+    -0.022018433,
+    0.011184692,
+    -0.03265381,
+    0.028533936,
+    0.049468994,
+    0.021820068,
+    0.004348755,
+    -0.055847168,
+    0.022354126,
+    0.0066070557,
+    -0.043518066,
+    -0.011543274,
+    -0.0006966591,
+    0.08526611,
+    0.035461426,
+    0.009101868,
+    0.06829834,
+    -0.00944519,
+    0.014404297,
+    -0.033355713,
+    0.0063934326,
+    -0.0011701584,
+    -0.0062713623,
+    0.010612488,
+    -0.04949951,
+    -0.0231781,
+    0.027832031,
+    0.010131836,
+    -0.000213027,
+    -0.0068092346,
+    -1.4662743e-05,
+    -0.0014410019,
+    0.02456665,
+    -0.011123657,
+    -0.034057617,
+    -0.013298035,
+    -0.031951904,
+    0.03857422,
+    -0.020111084,
+    0.080200195,
+    -0.004634857,
+    -0.01473999,
+    0.00053215027,
+    0.016098022,
+    0.07788086,
+    0.042114258,
+    0.023788452,
+    0.021865845,
+    0.06427002,
+    0.009895325,
+    -0.02078247,
+    -0.016662598,
+    -0.022445679,
+    0.02027893,
+    0.0030784607,
+    -0.0022277832,
+    -0.019439697,
+    0.02508545,
+    -0.027633667,
+    -0.04006958,
+    -0.051635742,
+    -0.040039062,
+    0.01158905,
+    -0.029830933,
+    0.05340576,
+    -0.021621704,
+    0.011383057,
+    0.06365967,
+    -0.0064353943,
+    0.0007200241,
+    -0.008033752,
+    0.046783447,
+    -0.024780273,
+    0.01474762,
+    0.0335083,
+    -0.028274536,
+    0.029083252,
+    -0.010368347,
+    0.001660347,
+    -0.0059432983,
+    -0.011314392,
+    -0.04058838,
+    0.009063721,
+    0.032196045,
+    0.07092285,
+    -0.04486084,
+    -0.014099121,
+    0.007507324,
+    0.012901306,
+    -0.04043579,
+    -0.041534424,
+    0.006576538,
+    0.060577393,
+    0.039398193,
+    0.01802063,
+    0.0023040771,
+    -0.008636475,
+    -0.025253296,
+    -0.013755798,
+    -0.023849487,
+    -0.0038490295,
+    -0.008651733,
+    -0.0017194748,
+    -0.010177612,
+    0.011383057,
+    0.021362305,
+    -0.016906738,
+    0.050048828,
+    0.06604004,
+    -0.029891968,
+    -0.016220093,
+    0.016448975,
+    0.03552246,
+    0.008232117,
+    -0.040039062,
+    -0.01965332,
+    0.04244995,
+    0.03225708,
+    -0.028121948,
+    -0.0032901764,
+    0.007537842,
+    0.02809143,
+    0.024978638,
+    -0.02420044,
+    -0.025131226,
+    0.06390381,
+    0.0146865845,
+    0.032684326,
+    -0.035858154,
+    0.07019043,
+    -0.021850586,
+    -0.01184845,
+    -0.037963867,
+    0.095581055,
+    0.055267334,
+    0.028137207,
+    -0.036010742,
+    -0.047851562,
+    0.009429932,
+    -0.018630981,
+    0.023544312,
+    0.0013656616,
+    0.023269653,
+    -0.024291992,
+    0.018356323,
+    -0.021774292,
+    0.013412476,
+    -0.018112183,
+    -0.03463745,
+    -0.045196533,
+    -0.012802124,
+    0.049560547,
+    0.00422287,
+    0.014640808,
+    0.046417236,
+    0.0014696121,
+    0.007549286,
+    -0.020324707,
+    -0.08843994,
+    0.016738892,
+    -0.00655365,
+    -0.011161804,
+    -0.02444458,
+    -0.017456055,
+    -0.027450562,
+    0.059417725,
+    0.014228821,
+    0.004951477,
+    -0.02130127,
+    0.0070228577,
+    -0.027786255,
+    -0.0012273788,
+    0.0009274483,
+    -0.08074951,
+    0.048950195,
+    -0.08105469,
+    0.024917603,
+    -0.0071411133,
+    0.049194336,
+    0.06201172,
+    -0.0055618286,
+    0.035583496,
+    0.014137268,
+    0.0053520203,
+    -0.0061569214,
+    0.010017395,
+    0.025848389,
+    0.0009851456,
+    -0.018707275,
+    -0.029418945,
+    -0.010040283,
+    -0.029006958,
+    -0.019302368,
+    -0.04776001,
+    -0.04498291,
+    -0.0044021606,
+    0.032592773,
+    -0.0077819824,
+    -0.015068054,
+    0.030578613,
+    0.003080368,
+    -0.015991211,
+    0.0129852295,
+    -0.015838623,
+    0.03753662,
+    0.01550293,
+    -0.008262634,
+    -0.0005841255,
+    -0.013191223,
+    -0.022354126,
+    -0.031433105,
+    0.0020599365,
+    0.013122559,
+    -0.000992775,
+    -0.01576233,
+    -0.0132369995,
+    -0.0010223389,
+    -0.017700195,
+    0.0018749237,
+    -0.054595947,
+    -0.006580353,
+    -0.05935669,
+    -0.02154541,
+    -0.02458191,
+    0.01651001,
+    -0.0011472702,
+    0.019119263,
+    0.045166016,
+    0.041778564,
+    0.008705139,
+    -0.018920898,
+    0.017486572,
+    0.011306763,
+    0.03567505,
+    -0.01763916,
+    -0.002401352,
+    0.0069999695,
+    0.014167786,
+    -0.0007996559,
+    0.022216797,
+    -0.04510498,
+    8.0764294e-05,
+    -0.01600647,
+    0.025100708,
+    -0.013557434,
+    -0.045898438,
+    -0.009414673,
+    -0.045654297,
+    0.029067993,
+    -0.036102295,
+    0.005832672,
+    -0.053100586,
+    0.0013504028,
+    -0.031799316,
+    -0.023468018,
+    0.0028305054,
+    -0.041229248,
+    -0.004825592,
+    0.015419006,
+    -0.012718201,
+    -0.025802612,
+    0.009414673,
+    0.018463135,
+    0.010437012,
+    0.010948181,
+    -0.010375977,
+    0.009178162,
+    -0.020950317,
+    -0.007572174,
+    -0.026687622,
+    -0.010414124,
+    -0.005519867,
+    0.030181885,
+    -0.029815674,
+    -0.015304565,
+    0.03994751,
+    -0.012268066,
+    -0.02217102,
+    -0.013839722,
+    -0.04663086,
+    0.0024528503,
+    0.028686523,
+    0.0110321045,
+    -0.0019664764,
+    0.0143585205,
+    0.031021118,
+    -0.02168274,
+    -0.022857666,
+    0.054718018,
+    -0.008255005,
+    -0.010673523,
+    -0.009727478,
+    -0.01751709,
+    0.0473938,
+    -0.038635254,
+    -0.05050659,
+    -0.027038574,
+    -0.015991211,
+    0.018203735,
+    0.018798828,
+    -0.026382446,
+    -0.012191772,
+    -0.018051147,
+    0.030639648,
+    0.0211792,
+    -0.010437012,
+    -0.023849487,
+    -0.0077934265,
+    -0.099487305,
+    0.0126571655,
+    -0.005996704,
+    0.035583496,
+    -0.04714966,
+    -0.06878662,
+    -0.020980835,
+    0.0015134811,
+    -0.013832092,
+    -0.012771606,
+    -0.01158905,
+    -0.05984497,
+    0.009750366,
+    -0.0368042,
+    0.003944397,
+    0.0060310364,
+    0.03656006,
+    -0.0115737915,
+    0.005958557,
+    -0.018875122,
+    0.026794434,
+    0.009597778,
+    -0.0082473755,
+    -0.0069389343,
+    -0.0023097992,
+    0.009819031,
+    -0.004901886,
+    0.0154418945,
+    -0.005996704,
+    0.017532349,
+    -0.025253296,
+    -0.025512695,
+    -0.013023376,
+    0.011260986,
+    0.025756836,
+    -0.0030097961,
+    -0.0045166016,
+    0.0043907166,
+    0.031158447,
+    -0.00035715103,
+    -0.0096206665,
+    0.030776978,
+    0.0070266724,
+    -0.03668213,
+    0.00040864944,
+    -0.012306213,
+    -0.0035572052,
+    0.0154800415,
+    0.011329651,
+    -0.011650085,
+    -0.021774292,
+    -0.048950195,
+    -0.024536133,
+    0.013008118,
+    0.0023975372,
+    0.048187256,
+    0.038330078,
+    -0.00076293945,
+    -0.028762817,
+    0.06530762,
+    0.025238037,
+    0.008483887,
+    -0.033966064,
+    0.00086832047,
+    -0.061828613,
+    0.042785645,
+    -0.047027588,
+    0.023651123,
+    -0.003293991,
+    -0.005718231,
+    -0.016479492,
+    -0.0056610107,
+    0.041503906,
+    -0.050079346,
+    -0.00032043457,
+    0.013908386,
+    0.023010254,
+    0.012138367,
+    0.024108887,
+    -0.0037899017,
+    -0.004940033,
+    -0.018737793,
+    -0.036712646,
+    0.058746338,
+    -0.013168335,
+    -0.025390625,
+    0.0060157776,
+    0.018157959,
+    0.0009703636,
+    0.041229248,
+    -0.021575928,
+    0.032470703,
+    0.024230957,
+    -0.033843994,
+    -0.0038928986,
+    -0.013725281,
+    -0.007762909,
+    -0.038085938,
+    0.040740967,
+    0.044006348,
+    -0.011245728,
+    0.008323669,
+    0.054016113,
+    0.012397766,
+    -0.009277344,
+    0.033325195,
+    -0.021270752,
+    0.0015926361,
+    0.006465912,
+    -0.0015182495,
+    -0.010131836,
+    0.006504059,
+    0.06945801,
+    0.002450943,
+    -0.00040102005,
+    -0.023162842,
+    0.0057907104,
+    0.004600525,
+    -0.017623901,
+    -0.010322571,
+    0.0034313202,
+    0.0071640015,
+    0.006755829,
+    0.00818634,
+    -0.007785797,
+    -0.004623413,
+    -0.046691895,
+    -0.03152466,
+    -0.019500732,
+    0.0044021606,
+    0.0029506683,
+    -0.066223145,
+    0.046539307,
+    -0.0368042,
+    -0.04547119,
+    0.0385437,
+    -0.011917114,
+    0.01612854,
+    -0.031677246,
+    0.02381897,
+    -0.03173828,
+    0.10321045,
+    0.036193848,
+    0.013809204,
+    0.007183075,
+    -0.015136719,
+    0.07977295,
+    0.07446289,
+    0.09893799,
+    0.013763428,
+    -0.042816162,
+    -0.04373169,
+    0.0049858093,
+    -0.01537323,
+    -0.041900635,
+    0.034484863,
+    -0.07611084,
+    0.04345703,
+    -0.005176544,
+    -0.019927979,
+    -0.10998535,
+    -0.021255493,
+    -0.04373169,
+    -0.01322937,
+    -0.041778564,
+    -0.049865723,
+    -0.022949219,
+    0.03491211,
+    0.0115356445,
+    -0.07885742,
+    -0.038391113,
+    -0.013946533,
+    -0.045837402,
+    -0.012535095,
+    0.007347107,
+    0.0011920929,
+    -0.004535675,
+    -0.01083374,
+    -0.0036296844,
+    0.038757324,
+    -0.057159424,
+    -0.010528564,
+    0.022659302,
+    0.03074646,
+    0.011070251,
+    0.04434204,
+    -0.00447464,
+    0.013206482,
+    0.002298355,
+    -0.040222168,
+    0.03414917,
+    -0.036346436,
+    0.02760315,
+    0.0013237,
+    -0.026351929,
+    0.03387451,
+    0.03942871,
+    0.03475952,
+    -0.027923584,
+    0.060302734,
+    0.006477356,
+    -0.044158936,
+    -0.003419876,
+    -0.0043563843,
+    0.016571045,
+    0.016799927,
+    0.013916016,
+    0.0016708374,
+    0.039489746,
+    -0.020828247,
+    0.00374794,
+    -0.04663086,
+    -0.02911377,
+    -0.018707275,
+    -0.0018777847,
+    0.02192688,
+    -0.0031871796,
+    0.035827637,
+    0.009925842,
+    0.005077362,
+    0.00046682358,
+    0.0033016205,
+    0.037231445,
+    0.009376526,
+    0.010185242,
+    -0.0027980804,
+    0.00579834,
+    0.02268982,
+    -0.051696777,
+    0.0034942627,
+    0.034118652,
+    0.013450623,
+    -0.0016298294,
+    -0.0042152405,
+    0.022338867,
+    -0.028030396,
+    -0.03994751,
+    0.015434265,
+    -0.055786133,
+    0.009269714,
+    -0.008216858,
+    -0.00995636,
+    -0.00166893,
+    -0.045532227,
+    0.055267334,
+    -0.030761719,
+    -0.0129852295,
+    -0.005130768,
+    0.033966064,
+    0.009674072,
+    -0.03503418,
+    0.0069618225,
+    0.017242432,
+    -0.019515991,
+    -0.020217896,
+    0.03060913,
+    -0.032714844,
+    -0.035064697,
+    -0.04232788,
+    0.0093688965,
+    -0.047088623,
+    -0.032196045,
+    -0.033996582,
+    -0.055114746,
+    0.0491333,
+    0.03149414,
+    -0.03427124,
+    0.09240723,
+    -0.037963867,
+    0.0007867813,
+    -0.0026626587,
+    0.004962921,
+    -0.008201599,
+    0.008384705,
+    0.0087509155,
+    0.002073288,
+    0.008453369
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101212.md",
+    "file_name": "101212.md",
+    "file_size": 6868,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Factual Information about Aircraft Accident",
+      "The accident involved an emergency descent and collision with terrain/object.",
+      "The defining event of the accident was a hard landing.",
+      "The pilot held a Private certificate.",
+      "The pilot was a 66-year-old male.",
+      "The pilot had a Single-engine land airplane rating.",
+      "The pilot occupied the left seat.",
+      "The pilot had no other aircraft ratings.",
+      "The pilot had no instrument rating.",
+      "No second pilot was present during the accident.",
+      "The pilot had no instructor ratings.",
+      "No toxicology was performed on the pilot.",
+      "The pilot had BasicMed medical certification with waivers/limitations.",
+      "The pilot's last FAA medical exam was on November 26, 2019.",
+      "The pilot was not an occupational pilot.",
+      "The pilot's last flight review or equivalent was on November 25, 2019.",
+      "The pilot had an estimated 639 total flight hours in all aircraft.",
+      "The pilot had 166 flight hours in this make and model.",
+      "The pilot had 7 flight hours in the last 90 days in all aircraft.",
+      "The pilot had 3 flight hours in the last 30 days in all aircraft.",
+      "The pilot had 1 flight hour in the last 24 hours in all aircraft.",
+      "The aircraft was a Cook SONEX.",
+      "The aircraft registration was N1222C.",
+      "The aircraft category was Airplane.",
+      "The aircraft was manufactured in 2016.",
+      "The aircraft was amateur built.",
+      "The aircraft had an Experimental (Special) airworthiness certificate.",
+      "The aircraft serial number was 1662.",
+      "The aircraft had tailwheel landing gear.",
+      "The aircraft had 2 seats.",
+      "The last inspection of the aircraft was an Annual inspection on April 16, 2020.",
+      "The airframe had 130 total hours at the time of the accident.",
+      "The aircraft had a reciprocating engine.",
+      "The engine manufacturer was Jabiru.",
+      "The engine model/series was 3300.",
+      "The engine was rated at 120 Horsepower.",
+      "The aircraft was equipped with an ELT C126.",
+      "The ELT was installed and activated during the accident.",
+      "The ELT aided in locating the accident site."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Factual Information about Aircraft Accident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cook SONEX",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N1222C",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airplane",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Jabiru",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "3300",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ELT C126",
+              "classification": "Aircraftmodel"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved an emergency descent and collision with terrain/object.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency descent and collision with terrain/object",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was a hard landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Private certificate.",
+              "details": [
+                "Pilot CERTIFICATE TYPE Private"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CERTIFICATE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Private",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was a 66-year-old male.",
+              "details": [
+                "Pilot AGE 66",
+                "Pilot GENDER male"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "66",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "GENDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "male",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had a Single-engine land airplane rating.",
+              "details": [
+                "Pilot RATING Single-engine land airplane"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Single-engine land airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot occupied the left seat.",
+              "details": [
+                "Pilot SEAT POSITION left seat"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no other aircraft ratings.",
+              "details": [
+                "Pilot OTHER RATINGS none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OTHER RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no instrument rating.",
+              "details": [
+                "Pilot INSTRUMENT RATING none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INSTRUMENT RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No second pilot was present during the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SECOND PILOT PRESENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no instructor ratings.",
+              "details": [
+                "Pilot INSTRUCTOR RATINGS none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INSTRUCTOR RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the pilot.",
+              "details": [
+                "Pilot TOXICOLOGY PERFORMED no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had BasicMed medical certification with waivers/limitations.",
+              "details": [
+                "Pilot MEDICAL CERTIFICATION BasicMed with waivers/limitations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "BasicMed with waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last FAA medical exam was on November 26, 2019.",
+              "details": [
+                "Pilot LAST MEDICAL EXAM DATE November 26, 2019"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LAST MEDICAL EXAM DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 26, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was not an occupational pilot.",
+              "details": [
+                "Pilot OCCUPATIONAL PILOT no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATIONAL PILOT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last flight review or equivalent was on November 25, 2019.",
+              "details": [
+                "Pilot LAST FLIGHT REVIEW DATE November 25, 2019"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 25, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had an estimated 639 total flight hours in all aircraft.",
+              "details": [
+                "Pilot TOTAL FLIGHT HOURS 639"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "639",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 166 flight hours in this make and model.",
+              "details": [
+                "Pilot FLIGHT HOURS IN MODEL 166"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS IN MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "166",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 7 flight hours in the last 90 days in all aircraft.",
+              "details": [
+                "Pilot FLIGHT HOURS LAST 90 DAYS 7"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 90 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 3 flight hours in the last 30 days in all aircraft.",
+              "details": [
+                "Pilot FLIGHT HOURS LAST 30 DAYS 3"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 30 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 1 flight hour in the last 24 hours in all aircraft.",
+              "details": [
+                "Pilot FLIGHT HOURS LAST 24 HOURS 1"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 24 HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was a Cook SONEX.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N1222C",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N1222C.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N1222C",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft category was Airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CATEGORY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was manufactured in 2016.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURE YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2016",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was amateur built.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CONSTRUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "amateur built",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had an Experimental (Special) airworthiness certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental (Special)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft serial number was 1662.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1662",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had tailwheel landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING GEAR TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailwheel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had 2 seats.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SEAT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last inspection of the aircraft was an Annual inspection on April 16, 2020.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST INSPECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Annual",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 16, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airframe had 130 total hours at the time of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRFRAME HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "130",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had a reciprocating engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reciprocating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine manufacturer was Jabiru.",
+              "details": [
+                "Jabiru 3300 MANUFACTURER Jabiru"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Jabiru 3300",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Jabiru 3300",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Jabiru",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine model/series was 3300.",
+              "details": [
+                "Jabiru 3300 MODEL 3300"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Jabiru 3300",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3300",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was rated at 120 Horsepower.",
+              "details": [
+                "Jabiru 3300 HORSEPOWER 120"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Jabiru 3300",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HORSEPOWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "120",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was equipped with an ELT C126.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ELT C126",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The ELT was installed and activated during the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ELT C126",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INSTALLED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ELT C126",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTIVATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The ELT aided in locating the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ELT C126",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIDED LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::541d11d7:aa88",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101212.md",
+        "file_name": "101212.md",
+        "file_size": 6868,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a000f0a13d310a191724830036489f493aa07527adb9a5e179cf788596feced7",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::541d11d7:aa88:a0fd8ca4",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101212.md",
+        "file_name": "101212.md",
+        "file_size": 6868,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "73780efbaa2fe019f835a556a3aff1570fa0a400892a888b7822cd0f6da2bd67",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::541d11d7:aa88:4b8c3170",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101212.md",
+        "file_name": "101212.md",
+        "file_size": 6868,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "2b668f0fc0100b512583e38b9295de08bab374693e0757272f00060aa5151d82",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\nEmergency descent | Collision with terr/obj (non-CFIT)\nLanding | Hard landing (Defining event)\n\n## Pilot Information\nCertificate: | Private\nAge: | 66,Male\nAirplane Rating(s): | Single-engine land\nSeat Occupied: | Left\nOther Aircraft Rating(s): | None\nRestraint Used: |\nInstrument Rating(s): | None\nSecond Pilot Present: | No\nInstructor Rating(s): | None\nToxicology Performed: | No\nMedical Certification: | BasicMed With waivers/limitations\nLast FAA Medical Exam: | November 26, 2019\nOccupational Pilot: | No\nLast Flight Review or Equivalent: | November 25, 2019\nFlight Time: | (Estimated) 639 hours (Total, all aircraft), 166 hours (Total, this make and model), 7 hours (Last 90 days, all aircraft), 3 hours (Last 30 days, all aircraft), 1 hours (Last 24 hours, all aircraft)\n\n## Aircraft and Owner/Operator Information\nAircraft Make: | Cook\nRegistration: | N1222C\nModel/Series: | SONEX\nAircraft Category: | Airplane\nYear of Manufacture: | 2016\nAmateur Built: | Yes\nAirworthiness Certificate: | Experimental (Special)\nSerial Number: | 1662\nLanding Gear Type: | Tailwheel\nSeats: | 2\nDate/Type of Last Inspection: | April 16, 2020 Annual\nCertified Max Gross Wt.: |\nTime Since Last Inspection: | Engines: | Reciprocating\nAirframe Total Time: | 130 Hrs at time of accident\nEngine Manufacturer: | Jabiru\nELT: | C126 installed, activated, aided in locating accident\nEngine Model/Series: | 3300\nRegistered Owner: | On file\nRated Power: | 120 Horsepower\nOperator: | On file\nOperating Certificate(s) Held: | None\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1552,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

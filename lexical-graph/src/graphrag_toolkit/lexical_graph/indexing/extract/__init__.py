@@ -6,8 +6,6 @@ from .batch_config import BatchConfig
 from .llm_proposition_extractor import LLMPropositionExtractor
 from .batch_llm_proposition_extractor_sync import BatchLLMPropositionExtractorSync
 from .proposition_extractor import PropositionExtractor
-from .batch_llm_proposition_extractor import BatchLLMPropositionExtractor
-from .batch_topic_extractor import BatchTopicExtractor
 from .batch_topic_extractor_sync import BatchTopicExtractorSync
 from .topic_extractor import TopicExtractor
 from .file_system_tap import FileSystemTap

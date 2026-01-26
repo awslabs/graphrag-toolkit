@@ -1,0 +1,147 @@
+[
+	{
+		"GroupId": "sg-0dbfaf14497e4be94",
+		"IpPermissionsEgress": [
+			{
+				"IpProtocol": "-1",
+				"UserIdGroupPairs": [
+
+				],
+				"IpRanges": [
+					{
+						"CidrIp": "0.0.0.0/0"
+					}
+				],
+				"Ipv6Ranges": [
+
+				],
+				"PrefixListIds": [
+
+				]
+			}
+		],
+		"VpcId": "vpc-0ce6486d890849dc3",
+		"SecurityGroupArn": "arn:aws:ec2:us-east-1:1234567890:security-group/sg-0dbfaf14497e4be94",
+		"OwnerId": "1234567890",
+		"GroupName": "doc-1-neptune-sg",
+		"Description": "GraphRAG Neptune security group",
+		"IpPermissions": [
+			{
+				"IpProtocol": "tcp",
+				"FromPort": 8182,
+				"ToPort": 8182,
+				"UserIdGroupPairs": [
+					{
+						"UserId": "1234567890",
+						"GroupId": "sg-01f7984ad35475636"
+					}
+				],
+				"IpRanges": [
+
+				],
+				"Ipv6Ranges": [
+
+				],
+				"PrefixListIds": [
+
+				]
+			}
+		]
+	},
+	{
+		"GroupId": "sg-0d3ff7717958bd983",
+		"IpPermissionsEgress": [
+			{
+				"IpProtocol": "-1",
+				"UserIdGroupPairs": [
+
+				],
+				"IpRanges": [
+					{
+						"CidrIp": "0.0.0.0/0"
+					}
+				],
+				"Ipv6Ranges": [
+
+				],
+				"PrefixListIds": [
+
+				]
+			}
+		],
+		"VpcId": "vpc-0f81e2d959d7be034",
+		"SecurityGroupArn": "arn:aws:ec2:us-east-1:1234567890:security-group/sg-0d3ff7717958bd983",
+		"OwnerId": "1234567890",
+		"GroupName": "default",
+		"Description": "default VPC security group",
+		"IpPermissions": [
+			{
+				"IpProtocol": "-1",
+				"UserIdGroupPairs": [
+					{
+						"UserId": "1234567890",
+						"GroupId": "sg-0d3ff7717958bd983"
+					}
+				],
+				"IpRanges": [
+
+				],
+				"Ipv6Ranges": [
+
+				],
+				"PrefixListIds": [
+
+				]
+			}
+		]
+	},
+	{
+		"GroupId": "sg-08526dcf557ad13aa",
+		"IpPermissionsEgress": [
+			{
+				"IpProtocol": "-1",
+				"UserIdGroupPairs": [
+
+				],
+				"IpRanges": [
+					{
+						"CidrIp": "0.0.0.0/0"
+					}
+				],
+				"Ipv6Ranges": [
+
+				],
+				"PrefixListIds": [
+
+				]
+			}
+		],
+		"VpcId": "vpc-0f81e2d959d7be034",
+		"SecurityGroupArn": "arn:aws:ec2:us-east-1:1234567890:security-group/sg-08526dcf557ad13aa",
+		"OwnerId": "1234567890",
+		"GroupName": "NeptuneQuickStart-NeptuneStack-RJ9H6B5T5L0K-NeptuneSG-ldTVhxFS6f25",
+		"Description": "Allow Neptune DBPort Access",
+		"IpPermissions": [
+			{
+				"IpProtocol": "tcp",
+				"FromPort": 8182,
+				"ToPort": 8182,
+				"UserIdGroupPairs": [
+
+				],
+				"IpRanges": [
+					{
+						"Description": "http access",
+						"CidrIp": "0.0.0.0/0"
+					}
+				],
+				"Ipv6Ranges": [
+
+				],
+				"PrefixListIds": [
+
+				]
+			}
+		]
+	}
+]

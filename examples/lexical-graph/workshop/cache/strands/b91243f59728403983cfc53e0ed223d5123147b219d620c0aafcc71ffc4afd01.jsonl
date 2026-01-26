@@ -1,0 +1,29 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "I'll search for information about the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Piper PA-30 Twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Comanche's fuel system design an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d any"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " safety"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " issues"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " then"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " compare it to similar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " twin-engine aircraft."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_Nut6gzbtQguBJB013ovmPg", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Piper "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "PA-30 Twin"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Co"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "manch"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "e f"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uel syst"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "em design fe"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "atures"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " fuel starva"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tion pr"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "oblems\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 1752, "outputTokens": 108, "totalTokens": 1860}, "metrics": {"latencyMs": 2712}}}

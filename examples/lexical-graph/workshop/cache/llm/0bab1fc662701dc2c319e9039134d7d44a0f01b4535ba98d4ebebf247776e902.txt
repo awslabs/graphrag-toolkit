@@ -1,0 +1,179 @@
+topic: Neptune Database Infrastructure
+
+  entities:
+  
+    doc-1-db-1|DBInstance
+    doc-1-cluster|DBClusterIdentifier
+    db.serverless|DBInstanceClass
+    doc-1-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com|Endpoint
+    8182|Endpoint
+    ZUFXD4SLT2LS7|Endpoint
+    sg-0dbfaf14497e4be94|SecurityGroup
+    doc-1-subnet|DBSubnetGroup
+    vpc-0ce6486d890849dc3|VPC
+    subnet-09b7b1f27834423b2|Subnet
+    subnet-0f5a6feae3ebd0ece|Subnet
+    subnet-0778222c5785c51f8|Subnet
+    us-east-1a|SubnetAvailabilityZone
+    us-east-1c|SubnetAvailabilityZone
+    us-east-1b|SubnetAvailabilityZone
+  
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has DBClusterIdentifier 'doc-1-cluster'
+    
+    entity-entity relationships:
+    doc-1-db-1|HAS_DBCLUSTERIDENTIFIER|doc-1-cluster
+    
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+      
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has DBInstanceClass 'db.serverless'
+  
+    entity-entity relationships:
+    doc-1-db-1|HAS_DBINSTANCECLASS|db.serverless
+  
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has Endpoint with Address 'doc-1-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com'
+  
+    entity-entity relationships:
+    doc-1-db-1|HAS_ENDPOINT_WITH_ADDRESS|doc-1-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com
+  
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has Endpoint with Port 8182
+  
+    entity-entity relationships:
+    doc-1-db-1|HAS_ENDPOINT_WITH_PORT|8182
+  
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has Endpoint with HostedZoneId 'ZUFXD4SLT2LS7'
+  
+    entity-entity relationships:
+    doc-1-db-1|HAS_ENDPOINT_WITH_HOSTEDZONEID|ZUFXD4SLT2LS7
+  
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has VpcSecurityGroups with VpcSecurityGroupId 'sg-0dbfaf14497e4be94'
+  
+    entity-entity relationships:
+    doc-1-db-1|HAS_VPCSECURITYGROUPS_WITH_VPCSECURITYGROUPID|sg-0dbfaf14497e4be94
+  
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has VpcSecurityGroups with Status 'active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+    doc-1-db-1|HAS_VPCSECURITYGROUPS_WITH_STATUS|active
+
+  proposition: The DBInstance with DBInstanceIdentifier 'doc-1-db-1' has DBSubnetGroup with DBSubnetGroupName 'doc-1-subnet'
+  
+    entity-entity relationships:
+    doc-1-db-1|HAS_DBSUBNETGROUP_WITH_DBSUBNETGROUPNAME|doc-1-subnet
+  
+    entity-attributes:
+    doc-1-db-1|HAS_DBINSTANCEIDENTIFIER|doc-1-db-1
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'doc-1-subnet' has DBSubnetGroupDescription 'Neptune DB subnet group'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    doc-1-subnet|HAS_DBSUBNETGROUPNAME|doc-1-subnet
+    doc-1-subnet|HAS_DBSUBNETGROUPDESCRIPTION|Neptune DB subnet group
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'doc-1-subnet' has VpcId 'vpc-0ce6486d890849dc3'
+  
+    entity-entity relationships:
+    doc-1-subnet|HAS_VPCID|vpc-0ce6486d890849dc3
+  
+    entity-attributes:
+    doc-1-subnet|HAS_DBSUBNETGROUPNAME|doc-1-subnet
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'doc-1-subnet' has SubnetGroupStatus 'Complete'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    doc-1-subnet|HAS_DBSUBNETGROUPNAME|doc-1-subnet
+    doc-1-subnet|HAS_SUBNETGROUPSTATUS|Complete
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'doc-1-subnet' has Subnet with SubnetIdentifier 'subnet-09b7b1f27834423b2'
+  
+    entity-entity relationships:
+    doc-1-subnet|HAS_SUBNET_WITH_SUBNETIDENTIFIER|subnet-09b7b1f27834423b2
+  
+    entity-attributes:
+    doc-1-subnet|HAS_DBSUBNETGROUPNAME|doc-1-subnet
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-09b7b1f27834423b2' has SubnetAvailabilityZone with Name 'us-east-1a'
+  
+    entity-entity relationships:
+    subnet-09b7b1f27834423b2|HAS_SUBNETAVAILABILITYZONE_WITH_NAME|us-east-1a
+  
+    entity-attributes:
+    subnet-09b7b1f27834423b2|HAS_SUBNETIDENTIFIER|subnet-09b7b1f27834423b2
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-09b7b1f27834423b2' has SubnetStatus 'Active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    subnet-09b7b1f27834423b2|HAS_SUBNETIDENTIFIER|subnet-09b7b1f27834423b2
+    subnet-09b7b1f27834423b2|HAS_SUBNETSTATUS|Active
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'doc-1-subnet' has Subnet with SubnetIdentifier 'subnet-0f5a6feae3ebd0ece'
+  
+    entity-entity relationships:
+    doc-1-subnet|HAS_SUBNET_WITH_SUBNETIDENTIFIER|subnet-0f5a6feae3ebd0ece
+  
+    entity-attributes:
+    doc-1-subnet|HAS_DBSUBNETGROUPNAME|doc-1-subnet
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0f5a6feae3ebd0ece' has SubnetAvailabilityZone with Name 'us-east-1c'
+  
+    entity-entity relationships:
+    subnet-0f5a6feae3ebd0ece|HAS_SUBNETAVAILABILITYZONE_WITH_NAME|us-east-1c
+  
+    entity-attributes:
+    subnet-0f5a6feae3ebd0ece|HAS_SUBNETIDENTIFIER|subnet-0f5a6feae3ebd0ece
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0f5a6feae3ebd0ece' has SubnetStatus 'Active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    subnet-0f5a6feae3ebd0ece|HAS_SUBNETIDENTIFIER|subnet-0f5a6feae3ebd0ece
+    subnet-0f5a6feae3ebd0ece|HAS_SUBNETSTATUS|Active
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'doc-1-subnet' has Subnet with SubnetIdentifier 'subnet-0778222c5785c51f8'
+  
+    entity-entity relationships:
+    doc-1-subnet|HAS_SUBNET_WITH_SUBNETIDENTIFIER|subnet-0778222c5785c51f8
+  
+    entity-attributes:
+    doc-1-subnet|HAS_DBSUBNETGROUPNAME|doc-1-subnet
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0778222c5785c51f8' has SubnetAvailabilityZone with Name 'us-east-1b'
+  
+    entity-entity relationships:
+    subnet-0778222c5785c51f8|HAS_SUBNETAVAILABILITYZONE_WITH_NAME|us-east-1b
+  
+    entity-attributes:
+    subnet-0778222c5785c51f8|HAS_SUBNETIDENTIFIER|subnet-0778222c5785c51f8
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0778222c5785c51f8' has SubnetStatus 'Active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    subnet-0778222c5785c51f8|HAS_SUBNETIDENTIFIER|subnet-0778222c5785c51f8
+    subnet-0778222c5785c51f8|HAS_SUBNETSTATUS|Active

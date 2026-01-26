@@ -1,0 +1,2123 @@
+{
+  "id_": "aws::d317ec72:07ee:3785673c",
+  "embedding": [
+    -0.03225708,
+    -0.042633057,
+    0.006401062,
+    0.012428284,
+    -0.047698975,
+    0.00064468384,
+    -0.00579834,
+    -0.00077056885,
+    -0.022918701,
+    -0.019515991,
+    -0.006164551,
+    -0.014640808,
+    -0.019256592,
+    -0.032958984,
+    0.04034424,
+    -0.047668457,
+    0.059783936,
+    -0.021148682,
+    0.033233643,
+    -0.017471313,
+    0.011207581,
+    0.017852783,
+    0.06439209,
+    0.099853516,
+    -0.017242432,
+    0.00440979,
+    -0.007575989,
+    -0.012962341,
+    -0.026657104,
+    -0.024429321,
+    0.008895874,
+    0.019729614,
+    0.041931152,
+    -0.011497498,
+    -0.010475159,
+    0.015419006,
+    -0.032592773,
+    0.012893677,
+    -0.030685425,
+    0.015808105,
+    -0.005104065,
+    0.00869751,
+    0.042938232,
+    0.005138397,
+    -0.0048599243,
+    -0.0024795532,
+    -0.008979797,
+    -0.036956787,
+    0.025802612,
+    0.08795166,
+    -0.0019454956,
+    0.03881836,
+    -0.035491943,
+    0.06732178,
+    0.011932373,
+    0.002090454,
+    -0.04928589,
+    0.0154418945,
+    -0.0009918213,
+    0.07849121,
+    0.037200928,
+    0.029022217,
+    -0.029708862,
+    -0.0491333,
+    -0.02432251,
+    -0.008712769,
+    0.06829834,
+    0.00060653687,
+    0.017623901,
+    -0.016906738,
+    0.001203537,
+    0.033111572,
+    0.018508911,
+    -0.034698486,
+    0.0071983337,
+    -0.019607544,
+    0.0014190674,
+    -0.018585205,
+    -0.009887695,
+    0.012878418,
+    0.04208374,
+    -0.012435913,
+    0.056915283,
+    0.0010719299,
+    0.019012451,
+    0.0395813,
+    -0.0049819946,
+    -0.015625,
+    0.018127441,
+    -0.009803772,
+    -0.0011520386,
+    0.012908936,
+    0.026321411,
+    0.029937744,
+    -0.029052734,
+    -0.012786865,
+    -0.00016403198,
+    -0.074279785,
+    0.04071045,
+    0.01713562,
+    0.06951904,
+    -0.08093262,
+    0.07080078,
+    0.008239746,
+    -0.014511108,
+    -0.024810791,
+    0.05621338,
+    0.018463135,
+    0.01008606,
+    0.0009493828,
+    -0.059906006,
+    0.06866455,
+    0.041870117,
+    0.0016288757,
+    -0.056671143,
+    -0.0063323975,
+    0.025680542,
+    -0.022705078,
+    0.0017566681,
+    -0.012870789,
+    0.031402588,
+    0.061828613,
+    -0.055480957,
+    -0.009475708,
+    0.0057868958,
+    -0.009674072,
+    -0.00592041,
+    0.008071899,
+    0.036010742,
+    -0.029037476,
+    -0.037384033,
+    0.017715454,
+    0.04776001,
+    0.054718018,
+    0.049224854,
+    -0.0028305054,
+    -0.019866943,
+    0.0013618469,
+    -0.01008606,
+    0.01777649,
+    -0.0087509155,
+    -0.039855957,
+    0.060546875,
+    0.0012388229,
+    -0.04598999,
+    0.0071105957,
+    0.039398193,
+    0.018798828,
+    -0.033447266,
+    -0.03387451,
+    -0.012901306,
+    0.013900757,
+    0.020462036,
+    0.0023002625,
+    -0.015945435,
+    -0.030838013,
+    -0.03591919,
+    -0.006652832,
+    0.028182983,
+    -0.025009155,
+    0.014549255,
+    -0.004764557,
+    -0.022384644,
+    -0.018218994,
+    -0.040283203,
+    -0.005718231,
+    -0.0040664673,
+    -0.0044403076,
+    0.023651123,
+    0.005504608,
+    -0.0022010803,
+    0.017837524,
+    -0.0059127808,
+    0.034484863,
+    0.016937256,
+    0.01210022,
+    0.009094238,
+    -0.015808105,
+    0.024841309,
+    -0.012252808,
+    -0.015808105,
+    -0.015808105,
+    0.03643799,
+    -0.009643555,
+    0.0011444092,
+    -0.0021324158,
+    0.03100586,
+    0.05609131,
+    -0.019821167,
+    0.040771484,
+    -0.01828003,
+    0.008583069,
+    0.030395508,
+    -0.021255493,
+    -0.0052719116,
+    0.020126343,
+    0.0023155212,
+    0.04562378,
+    -0.012832642,
+    -0.049468994,
+    0.021697998,
+    0.036712646,
+    -0.020996094,
+    0.0019321442,
+    -0.030166626,
+    0.005004883,
+    -0.0027313232,
+    0.021484375,
+    -0.04623413,
+    0.00011730194,
+    0.009208679,
+    -0.052764893,
+    0.012145996,
+    0.008293152,
+    0.015457153,
+    0.008956909,
+    -0.04916382,
+    -0.012802124,
+    -0.016815186,
+    0.021606445,
+    -0.01348114,
+    0.0105896,
+    -0.020736694,
+    0.01209259,
+    -0.017089844,
+    0.046447754,
+    -0.035125732,
+    0.04574585,
+    0.0055351257,
+    0.050994873,
+    0.022644043,
+    -0.03918457,
+    0.03314209,
+    0.082336426,
+    -0.00409317,
+    0.011398315,
+    0.056915283,
+    0.054260254,
+    0.003042221,
+    -0.025299072,
+    0.0029830933,
+    -0.07788086,
+    -0.044403076,
+    0.032226562,
+    -0.08868408,
+    -0.080566406,
+    -0.031082153,
+    0.038482666,
+    -0.0670166,
+    -0.049682617,
+    0.03326416,
+    0.0357666,
+    0.041778564,
+    0.061767578,
+    -0.0022773743,
+    0.042541504,
+    -0.018676758,
+    0.0031661987,
+    0.032989502,
+    -0.039276123,
+    0.014801025,
+    -0.049194336,
+    -0.045562744,
+    -0.01524353,
+    0.04260254,
+    0.029418945,
+    0.06298828,
+    0.058654785,
+    -0.011634827,
+    -0.0073890686,
+    -0.004447937,
+    0.019989014,
+    0.008026123,
+    0.0023384094,
+    -0.010871887,
+    -0.035369873,
+    0.017501831,
+    -0.0063972473,
+    -0.007507324,
+    -0.02166748,
+    -0.021514893,
+    0.0067481995,
+    -0.0076408386,
+    -0.0075798035,
+    0.0026779175,
+    0.0090789795,
+    0.035369873,
+    0.020950317,
+    -0.003479004,
+    0.019683838,
+    0.054534912,
+    -0.021011353,
+    -0.03338623,
+    0.016555786,
+    -0.017166138,
+    -0.020980835,
+    0.011260986,
+    0.014823914,
+    0.010383606,
+    -0.028137207,
+    -0.019165039,
+    0.02947998,
+    -0.058166504,
+    0.046691895,
+    0.003047943,
+    0.005947113,
+    -0.006290436,
+    -0.012168884,
+    -0.00592041,
+    0.016708374,
+    -0.055145264,
+    -0.0010843277,
+    0.0048065186,
+    -0.03451538,
+    0.0027122498,
+    -0.010772705,
+    -0.013343811,
+    -0.005531311,
+    -0.014480591,
+    0.0021686554,
+    0.017486572,
+    -0.017486572,
+    -0.0647583,
+    0.011291504,
+    -0.03062439,
+    0.0073547363,
+    0.02229309,
+    -0.010040283,
+    -0.03918457,
+    -0.012611389,
+    -0.026382446,
+    -0.002822876,
+    -0.007820129,
+    0.13500977,
+    -0.0020446777,
+    0.025146484,
+    -0.004535675,
+    0.010864258,
+    -0.011558533,
+    0.019210815,
+    0.025772095,
+    -0.008331299,
+    0.016204834,
+    -0.021224976,
+    -0.044036865,
+    -0.044281006,
+    0.07299805,
+    -0.008895874,
+    -0.020202637,
+    0.013671875,
+    0.046691895,
+    -0.0138168335,
+    -0.0085372925,
+    0.010787964,
+    -0.007858276,
+    -0.015975952,
+    0.008491516,
+    0.03265381,
+    -0.015899658,
+    -0.024871826,
+    0.027267456,
+    0.011199951,
+    -0.00881958,
+    -0.051330566,
+    -0.009422302,
+    -0.021865845,
+    0.0011367798,
+    -0.0010967255,
+    0.03677368,
+    0.021224976,
+    -0.05859375,
+    0.038635254,
+    -0.039276123,
+    0.017089844,
+    0.0602417,
+    0.013824463,
+    0.01600647,
+    -0.030426025,
+    -0.030761719,
+    -0.01676941,
+    -0.02494812,
+    -0.02154541,
+    -0.0154418945,
+    0.0044403076,
+    0.013145447,
+    0.039733887,
+    0.024276733,
+    -0.023025513,
+    0.061798096,
+    -0.011184692,
+    0.025131226,
+    0.030883789,
+    -0.043823242,
+    -0.01914978,
+    0.02281189,
+    0.03579712,
+    -0.045135498,
+    -0.04547119,
+    -0.0209198,
+    -0.022903442,
+    -0.030151367,
+    -0.014862061,
+    0.0030269623,
+    -0.04119873,
+    0.0036354065,
+    -0.03665161,
+    -0.0070648193,
+    -0.025726318,
+    0.050933838,
+    0.05847168,
+    0.007507324,
+    0.03869629,
+    0.014045715,
+    0.026184082,
+    -0.05581665,
+    0.03729248,
+    -0.047790527,
+    -0.002872467,
+    -0.016784668,
+    0.030166626,
+    0.042510986,
+    -0.08117676,
+    0.027526855,
+    0.033477783,
+    0.008430481,
+    0.015548706,
+    -0.016220093,
+    0.000875473,
+    -0.027374268,
+    -0.0035133362,
+    -0.008163452,
+    -0.023254395,
+    -0.003578186,
+    0.0036849976,
+    -0.033172607,
+    0.014945984,
+    -0.009819031,
+    -0.03869629,
+    0.019989014,
+    -0.053100586,
+    -0.017547607,
+    -0.04724121,
+    -0.0039100647,
+    -0.0030975342,
+    0.005279541,
+    -0.0074157715,
+    -0.027404785,
+    -0.0016441345,
+    -0.018859863,
+    -0.055358887,
+    0.004508972,
+    0.009063721,
+    0.05770874,
+    0.008605957,
+    0.026123047,
+    0.057403564,
+    0.0357666,
+    0.039123535,
+    0.006401062,
+    -0.008514404,
+    0.012878418,
+    -0.018997192,
+    -0.006668091,
+    0.008956909,
+    0.025985718,
+    -0.048553467,
+    0.021057129,
+    -0.02760315,
+    -0.0033569336,
+    0.015914917,
+    -0.035308838,
+    0.027557373,
+    0.033813477,
+    -0.016937256,
+    -0.012420654,
+    -0.009315491,
+    0.040985107,
+    -0.013977051,
+    -0.016036987,
+    -0.062194824,
+    -0.038909912,
+    0.010894775,
+    -0.021438599,
+    0.089782715,
+    0.028762817,
+    0.005508423,
+    0.062316895,
+    0.051574707,
+    0.008361816,
+    0.02128601,
+    0.014320374,
+    -0.0022888184,
+    -0.0044403076,
+    0.019256592,
+    -0.031280518,
+    0.012138367,
+    0.012321472,
+    -0.0715332,
+    -0.0038852692,
+    0.011581421,
+    -0.11193848,
+    0.0047454834,
+    0.010383606,
+    -0.0335083,
+    -0.00067710876,
+    -0.010986328,
+    0.014587402,
+    0.034301758,
+    0.012817383,
+    0.022644043,
+    0.011703491,
+    0.011009216,
+    0.03729248,
+    0.005531311,
+    -0.0059928894,
+    0.062561035,
+    -0.022598267,
+    -0.010879517,
+    0.013320923,
+    -0.018478394,
+    -0.005973816,
+    -0.019424438,
+    0.012329102,
+    0.027191162,
+    0.0064926147,
+    -0.004219055,
+    0.024627686,
+    0.010345459,
+    -0.04675293,
+    0.00242424,
+    0.014968872,
+    0.041046143,
+    0.051361084,
+    -0.016174316,
+    0.0074005127,
+    -0.022506714,
+    0.016204834,
+    0.015426636,
+    0.0066833496,
+    -0.06500244,
+    0.024108887,
+    0.007171631,
+    -0.049987793,
+    -0.047424316,
+    0.037902832,
+    0.0021781921,
+    0.030578613,
+    0.022415161,
+    -0.035736084,
+    0.026000977,
+    -0.042755127,
+    -0.043426514,
+    -0.0076446533,
+    0.016433716,
+    0.00541687,
+    -0.023452759,
+    -0.00447464,
+    -0.027389526,
+    -0.040252686,
+    0.059143066,
+    -0.014259338,
+    -0.019195557,
+    -0.029449463,
+    0.038269043,
+    0.01171875,
+    0.009246826,
+    0.053375244,
+    -0.0075645447,
+    -0.016342163,
+    -0.015609741,
+    -0.013282776,
+    -0.020202637,
+    0.055145264,
+    -0.007522583,
+    0.017669678,
+    -0.024841309,
+    -0.03881836,
+    0.003484726,
+    -0.044158936,
+    -0.006877899,
+    -0.00844574,
+    0.031555176,
+    -0.007949829,
+    0.0107040405,
+    0.0059814453,
+    0.034362793,
+    0.024780273,
+    0.011665344,
+    0.0033798218,
+    0.0021133423,
+    -0.047973633,
+    -0.0017433167,
+    -0.020050049,
+    0.014945984,
+    0.017333984,
+    0.015914917,
+    0.020828247,
+    -0.039794922,
+    0.028411865,
+    0.011108398,
+    -0.0010824203,
+    0.0013408661,
+    0.013954163,
+    -0.0047302246,
+    -0.03439331,
+    0.007873535,
+    -0.0017242432,
+    -0.002418518,
+    0.009414673,
+    -0.024307251,
+    -0.017730713,
+    -0.011581421,
+    -0.030593872,
+    0.046020508,
+    -0.02154541,
+    -0.015777588,
+    -0.018539429,
+    -0.0095825195,
+    0.023071289,
+    -0.0013084412,
+    0.021591187,
+    -0.015556335,
+    0.012466431,
+    0.00831604,
+    0.024230957,
+    -0.02571106,
+    -0.05758667,
+    -0.025985718,
+    -0.00025749207,
+    0.014251709,
+    -0.0029640198,
+    0.0020999908,
+    -0.08874512,
+    -0.057525635,
+    -0.07574463,
+    0.07220459,
+    -0.03778076,
+    -0.030441284,
+    0.023406982,
+    -0.013893127,
+    -0.0024490356,
+    -0.0023021698,
+    -0.030273438,
+    -0.027496338,
+    0.03616333,
+    -0.016067505,
+    -0.010513306,
+    0.02154541,
+    -0.0178833,
+    -0.016326904,
+    0.0035514832,
+    0.02027893,
+    0.08569336,
+    -0.05987549,
+    -0.05154419,
+    -0.012062073,
+    -0.038391113,
+    -0.014015198,
+    0.015686035,
+    -0.06903076,
+    -0.120910645,
+    -0.04159546,
+    0.006134033,
+    -0.034301758,
+    -0.026275635,
+    -0.019317627,
+    0.072509766,
+    0.032196045,
+    0.0004119873,
+    -0.052825928,
+    0.019989014,
+    0.021652222,
+    0.0074310303,
+    -0.0050201416,
+    0.00062561035,
+    -0.007396698,
+    0.045562744,
+    0.0023880005,
+    0.0074157715,
+    -0.04864502,
+    0.011039734,
+    -0.042510986,
+    0.06304932,
+    -0.07720947,
+    0.0074920654,
+    -0.019607544,
+    -0.051574707,
+    0.046417236,
+    -0.003211975,
+    0.02154541,
+    -0.048797607,
+    -0.025985718,
+    -0.0065612793,
+    -0.02709961,
+    -0.002090454,
+    -0.041900635,
+    -0.024017334,
+    0.041870117,
+    -0.0043411255,
+    -0.04147339,
+    0.005306244,
+    0.05307007,
+    -0.016525269,
+    0.017608643,
+    -0.031036377,
+    0.028900146,
+    0.015640259,
+    0.012924194,
+    -0.033172607,
+    0.0060691833,
+    -0.021575928,
+    -0.01399231,
+    0.013572693,
+    0.005519867,
+    0.042510986,
+    -0.0019483566,
+    0.010406494,
+    0.0126571655,
+    -0.042907715,
+    0.0033569336,
+    -0.039886475,
+    0.040496826,
+    0.03366089,
+    -0.07562256,
+    0.0048065186,
+    0.016159058,
+    -0.046325684,
+    -0.025131226,
+    -0.0034255981,
+    0.0042877197,
+    0.039611816,
+    0.04156494,
+    -0.05532837,
+    0.031402588,
+    0.037506104,
+    -0.011459351,
+    0.073913574,
+    -0.06689453,
+    -0.004714966,
+    -0.08026123,
+    -0.034820557,
+    0.012710571,
+    0.015090942,
+    -0.009429932,
+    -0.027694702,
+    0.04296875,
+    0.016357422,
+    -0.031188965,
+    -0.0022830963,
+    0.0059051514,
+    0.0015621185,
+    -0.015113831,
+    -0.03729248,
+    -0.029891968,
+    0.022399902,
+    -0.012542725,
+    0.010894775,
+    -0.01977539,
+    -0.03314209,
+    0.00033187866,
+    0.017807007,
+    0.0036849976,
+    -0.011985779,
+    0.015457153,
+    -0.050323486,
+    0.022918701,
+    0.005744934,
+    -0.033569336,
+    -0.01473999,
+    0.00075531006,
+    0.01235199,
+    -0.0056762695,
+    0.0004415512,
+    0.015304565,
+    -0.010017395,
+    0.021514893,
+    0.015563965,
+    -0.0004272461,
+    -0.034606934,
+    0.019866943,
+    -0.012176514,
+    0.06060791,
+    -0.06359863,
+    -0.008644104,
+    -0.0064697266,
+    0.00094747543,
+    0.002696991,
+    0.01939392,
+    -0.034179688,
+    -0.017791748,
+    0.0357666,
+    0.043151855,
+    -0.020080566,
+    -0.036224365,
+    -0.050842285,
+    -0.035461426,
+    0.023895264,
+    -0.0063095093,
+    -0.04522705,
+    -0.031707764,
+    -0.06088257,
+    -7.247925e-05,
+    -0.026290894,
+    0.03768921,
+    0.0049095154,
+    0.01171875,
+    0.04269409,
+    -0.015365601,
+    0.023529053,
+    -0.033111572,
+    0.021987915,
+    -0.03756714,
+    0.054901123,
+    -0.0036849976,
+    0.036193848,
+    0.03466797,
+    -0.0960083,
+    -0.027664185,
+    -0.032470703,
+    -0.013252258,
+    0.035064697,
+    0.04272461,
+    -0.021636963,
+    0.026565552,
+    -0.028060913,
+    -0.020599365,
+    -0.0022239685,
+    0.04522705,
+    -0.03491211,
+    0.052581787,
+    0.023986816,
+    -0.011917114,
+    -0.034423828,
+    0.007610321,
+    0.02885437,
+    0.000415802,
+    0.0068130493,
+    -0.0027770996,
+    0.021865845,
+    -0.0011768341,
+    0.02696228,
+    -0.05279541,
+    0.068725586,
+    0.01966858,
+    -0.0071105957,
+    0.01586914,
+    -0.007896423,
+    -0.028259277,
+    -0.0368042,
+    0.03366089,
+    -0.02142334,
+    -0.024169922,
+    0.028381348,
+    -0.02331543,
+    0.0073394775,
+    0.045410156,
+    -0.000600338,
+    -0.029052734,
+    -0.027709961,
+    -0.018859863,
+    -0.011581421,
+    0.013160706,
+    0.023162842,
+    0.010627747,
+    -0.035949707,
+    0.018234253,
+    0.028793335,
+    -0.002029419,
+    0.090148926,
+    -0.0064353943,
+    0.0026378632,
+    -0.05706787,
+    0.0015068054,
+    0.00039291382,
+    -0.021057129,
+    -0.0026130676,
+    0.0090408325,
+    -0.010406494,
+    0.015853882,
+    -0.06616211,
+    -0.0073127747,
+    0.021484375,
+    0.06185913,
+    0.02027893,
+    0.03579712,
+    -0.040252686,
+    -0.004299164,
+    0.03149414,
+    0.048187256,
+    0.012878418,
+    -0.002752304,
+    -0.03967285,
+    -0.014755249,
+    -0.021102905,
+    -0.020980835,
+    -0.019760132,
+    -0.023391724,
+    -0.0044441223,
+    -0.014633179,
+    0.0055656433,
+    0.0048217773,
+    -0.008460999,
+    -0.011756897,
+    -0.019470215,
+    0.05682373,
+    -0.007575989,
+    -0.015068054,
+    -0.07647705,
+    0.012550354,
+    0.0046653748,
+    -0.0060043335,
+    0.028182983,
+    0.006729126,
+    0.015304565,
+    -0.026290894,
+    0.005050659,
+    -0.022735596,
+    0.024353027,
+    0.023513794,
+    0.047088623,
+    -0.047790527,
+    -0.006088257,
+    -0.019042969,
+    0.039611816,
+    0.056152344,
+    -0.009353638,
+    0.0309906,
+    -0.05117798,
+    -0.035949707,
+    -0.0027503967,
+    -0.013572693,
+    0.0015630722,
+    0.09802246,
+    -0.032440186,
+    0.05508423,
+    0.0014839172,
+    0.031921387,
+    -0.050048828,
+    -0.031982422,
+    -0.0037078857,
+    0.0078086853,
+    0.0044174194,
+    0.0030822754,
+    0.027496338,
+    0.015296936,
+    0.0011663437,
+    0.031951904,
+    -0.00041007996,
+    0.006603241,
+    0.029220581,
+    0.009628296,
+    -0.013122559,
+    -0.006095886,
+    -0.012924194,
+    0.0059280396,
+    0.03250122,
+    -0.01902771,
+    -0.036010742,
+    0.013328552,
+    -0.02607727,
+    -0.004131317,
+    0.015808105,
+    0.062805176,
+    0.033996582,
+    -0.064086914,
+    -0.013534546,
+    -0.033599854,
+    -0.016845703,
+    -0.005683899,
+    -0.011054993,
+    -0.009979248,
+    0.00868988,
+    -0.02027893,
+    0.011230469,
+    0.02357483,
+    -0.038085938,
+    -0.03994751,
+    -0.02041626,
+    -0.015686035,
+    -0.04598999,
+    0.024414062,
+    -0.012390137,
+    -0.009941101,
+    0.03652954,
+    -0.055267334,
+    -0.004508972,
+    0.009735107,
+    -0.007484436,
+    0.020401001,
+    0.029083252,
+    -0.036224365,
+    0.083496094,
+    -0.0050735474,
+    -0.032928467,
+    0.008453369,
+    0.040283203,
+    -0.003025055,
+    0.027511597,
+    -0.020019531,
+    -0.02180481,
+    -0.021362305,
+    0.020721436,
+    0.020874023,
+    0.02810669,
+    0.0066604614,
+    0.009735107,
+    0.02758789,
+    -0.019256592,
+    -0.039764404,
+    -0.011619568,
+    -0.07043457,
+    0.02243042,
+    -0.0054779053,
+    0.019699097,
+    0.034301758,
+    0.0345459,
+    0.012718201,
+    0.0126953125,
+    0.005683899,
+    0.019821167,
+    -0.004962921,
+    0.041748047,
+    -0.0016698837,
+    -0.0018157959
+  ],
+  "metadata": {
+    "title": "Robinson R22",
+    "original_title": "Robinson R22",
+    "wikipedia_id": "1121696",
+    "url": "https://en.wikipedia.org/wiki/Robinson_R22",
+    "header_path": "/Development/",
+    "aws::graph::propositions": [
+      "# Robinson R22 Drive System and Placard Information",
+      "A placard indicating a requirement is located on the CAT indicator.",
+      "A placard indicating a requirement is located in the pilot's operating handbook.",
+      "Power is transmitted from the engine to the drive system through drive belts.",
+      "The Robinson R22 originally used four separate v-belts running on multigroove sheaves.",
+      "The four separate v-belts system proved problematic.",
+      "Individual belts sometimes rolled over in their groove.",
+      "Individual belts sometimes failed.",
+      "In 1982, Robinson R22 operators received a kit from Robinson.",
+      "The kit was installed in the cockpit.",
+      "The kit was installed on the belt tension actuator.",
+      "The kit isolated the tensioning circuits.",
+      "The kit locked the clutch/drive system at take-off tension.",
+      "The kit was a temporary measure.",
+      "The problem was ultimately solved by replacing the four individual v-belts with two dual v-belts.",
+      "The upper sheave is driven.",
+      "The upper sheave is mounted on the main/tail rotor drive shaft.",
+      "The main/tail rotor drive shaft incorporates flexible couplings.",
+      "The upper sheave is raised and lowered relative to the engine-mounted driving sheave.",
+      "The upper sheave is raised and lowered by means of a belt tension actuator.",
+      "The driving sheave is engine-mounted.",
+      "During shutdown, the actuator is used to lower the upper sheave.",
+      "Lowering the upper sheave loosens the drive belts."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Robinson R22 Drive System and Placard Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Robinson R22",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CAT indicator",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot's operating handbook",
+              "classification": "Regulation"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "drive system",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "drive belts",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "v-belts",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "multigroove sheaves",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Robinson",
+              "classification": "Manufacturer"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "kit",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cockpit",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "belt tension actuator",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tensioning circuits",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "clutch/drive system",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "dual v-belts",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "upper sheave",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main/tail rotor drive shaft",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "flexible couplings",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "driving sheave",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "actuator",
+              "classification": "Component"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A placard indicating a requirement is located on the CAT indicator.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CAT indicator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS PLACARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "requirement placard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A placard indicating a requirement is located in the pilot's operating handbook.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's operating handbook",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "HAS PLACARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "requirement placard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Power is transmitted from the engine to the drive system through drive belts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "POWERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drive system",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drive belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drive belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drive system",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Robinson R22 originally used four separate v-belts running on multigroove sheaves.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "v-belts",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multigroove sheaves",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "v-belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "four separate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The four separate v-belts system proved problematic.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "v-belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "problematic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Individual belts sometimes rolled over in their groove.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "v-belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rolled over in groove",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Individual belts sometimes failed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "v-belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "In 1982, Robinson R22 operators received a kit from Robinson.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "RECEIVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1982",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The kit was installed in the cockpit.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "INSTALLED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cockpit",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The kit was installed on the belt tension actuator.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "INSTALLED ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "belt tension actuator",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The kit isolated the tensioning circuits.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tensioning circuits",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS FUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "isolated tensioning circuits",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The kit locked the clutch/drive system at take-off tension.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "clutch/drive system",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS FUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "locked clutch/drive system at take-off tension",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The kit was a temporary measure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "kit",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "temporary measure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The problem was ultimately solved by replacing the four individual v-belts with two dual v-belts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dual v-belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "REPLACES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "v-belts",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dual v-belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The upper sheave is driven.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper sheave",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "driven",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The upper sheave is mounted on the main/tail rotor drive shaft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper sheave",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MOUNTED ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main/tail rotor drive shaft",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main/tail rotor drive shaft incorporates flexible couplings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main/tail rotor drive shaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flexible couplings",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The upper sheave is raised and lowered relative to the engine-mounted driving sheave.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper sheave",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "POSITIONED RELATIVE TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "driving sheave",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "driving sheave",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MOUNTING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-mounted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The upper sheave is raised and lowered by means of a belt tension actuator.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "belt tension actuator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONTROLS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper sheave",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The driving sheave is engine-mounted.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "driving sheave",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MOUNTING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-mounted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During shutdown, the actuator is used to lower the upper sheave.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONTROLS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper sheave",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "USED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shutdown",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS FUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lower upper sheave",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Lowering the upper sheave loosens the drive belts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper sheave",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drive belts",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drive belts",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION WHEN SHEAVE LOWERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loosened",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::d317ec72:07ee",
+      "node_type": "4",
+      "metadata": {
+        "title": "Robinson R22",
+        "original_title": "Robinson R22",
+        "wikipedia_id": "1121696",
+        "url": "https://en.wikipedia.org/wiki/Robinson_R22"
+      },
+      "hash": "f1162a3b89a27fe16344ebb0abddbbce79e4b108a286392368f28be4a0e2c095",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::d317ec72:07ee:39ecc50b",
+      "node_type": "1",
+      "metadata": {
+        "title": "Robinson R22",
+        "original_title": "Robinson R22",
+        "wikipedia_id": "1121696",
+        "url": "https://en.wikipedia.org/wiki/Robinson_R22",
+        "header_path": "/Development/"
+      },
+      "hash": "70bd1dba74ac2207dad5f373196f386f90222c157664ce2a5315272adf8b5e29",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::d317ec72:07ee:c45f6900",
+      "node_type": "1",
+      "metadata": {
+        "title": "Robinson R22",
+        "original_title": "Robinson R22",
+        "wikipedia_id": "1121696",
+        "url": "https://en.wikipedia.org/wiki/Robinson_R22",
+        "header_path": "/Development/"
+      },
+      "hash": "c4b89ab10a677f8e3498d78920475901976392a0182a69c6f4516bbdb297d433",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "A placard indicating this requirement is located on the CAT indicator and in the pilot's operating handbook.\nPower is transmitted from the engine to the drive system through drive belts.  Originally, the R22 used four separate v-belts running on multigroove sheaves. This system proved problematic, as individual belts sometimes rolled over in their groove and fail.  As a temporary measure, in 1982, R22 operators received a kit from Robinson that was installed in the cockpit and on the belt tension actuator, isolating the tensioning circuits and locking the clutch/drive system at take-off tension. The problem was ultimately solved by replacing the four individual v-belts with two dual v-belts. The upper, driven sheave is mounted on the main/tail rotor drive shaft incorporating flexible couplings, and is raised and lowered relative to the engine-mounted, driving sheave by means of a belt tension actuator.  During shutdown, the actuator is used to lower the upper sheave to loosen the drive belts.",
+  "mimetype": "text/plain",
+  "start_char_idx": 2622,
+  "end_char_idx": 3629,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

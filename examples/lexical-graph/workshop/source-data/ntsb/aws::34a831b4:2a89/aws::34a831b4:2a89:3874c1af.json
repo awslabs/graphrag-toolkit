@@ -1,0 +1,2803 @@
+{
+  "id_": "aws::34a831b4:2a89:3874c1af",
+  "embedding": [
+    0.04763794,
+    0.0154953,
+    0.016403198,
+    -0.040985107,
+    0.021530151,
+    -0.0107421875,
+    0.0068473816,
+    -0.00793457,
+    -0.027008057,
+    0.023925781,
+    -0.034301758,
+    0.026275635,
+    0.00022935867,
+    -0.026123047,
+    0.033355713,
+    -0.027023315,
+    -0.01751709,
+    0.0692749,
+    0.024887085,
+    -0.012489319,
+    -0.027175903,
+    -0.005504608,
+    -0.02748108,
+    -0.051879883,
+    0.0057525635,
+    0.060760498,
+    -0.007785797,
+    0.0009994507,
+    0.0031280518,
+    -0.005809784,
+    0.0119018555,
+    -0.023452759,
+    0.007583618,
+    0.050811768,
+    -0.03363037,
+    0.0034885406,
+    -0.016952515,
+    0.029571533,
+    -0.00071144104,
+    0.025177002,
+    0.014511108,
+    -0.014808655,
+    0.049835205,
+    -0.06311035,
+    -0.0003798008,
+    0.019729614,
+    0.01876831,
+    -0.006324768,
+    0.016082764,
+    0.037139893,
+    0.014259338,
+    0.009468079,
+    0.009880066,
+    0.040863037,
+    0.0032215118,
+    -0.0011634827,
+    0.010665894,
+    0.026519775,
+    0.0066337585,
+    -0.016174316,
+    -0.018051147,
+    0.04699707,
+    0.015914917,
+    0.028457642,
+    -0.028900146,
+    0.003074646,
+    -0.015716553,
+    -0.00756073,
+    0.123046875,
+    -0.01424408,
+    -0.058502197,
+    0.054138184,
+    -0.017929077,
+    0.075805664,
+    -0.029632568,
+    -0.093322754,
+    0.027618408,
+    -0.04333496,
+    -0.009277344,
+    0.074523926,
+    0.018722534,
+    0.007522583,
+    -0.0015649796,
+    -0.041809082,
+    0.021621704,
+    -0.003982544,
+    -0.016937256,
+    -0.02003479,
+    -0.0026474,
+    0.005180359,
+    -0.020446777,
+    -0.008850098,
+    -0.022613525,
+    0.049560547,
+    -0.0046806335,
+    0.018218994,
+    -0.021057129,
+    -0.11376953,
+    0.036621094,
+    -0.010215759,
+    0.045043945,
+    -0.057006836,
+    0.00894928,
+    0.035614014,
+    -0.005756378,
+    0.0038547516,
+    0.0107040405,
+    0.0155181885,
+    0.033477783,
+    0.014625549,
+    -0.030227661,
+    0.051971436,
+    -0.036315918,
+    -0.06530762,
+    -0.00617218,
+    0.080566406,
+    -0.002664566,
+    -0.00041651726,
+    0.026977539,
+    0.024398804,
+    0.04260254,
+    0.04815674,
+    -0.020187378,
+    -0.032958984,
+    0.01424408,
+    -0.014137268,
+    -0.06085205,
+    0.003616333,
+    0.06427002,
+    -0.010009766,
+    0.00094509125,
+    0.026992798,
+    -0.0418396,
+    -0.043823242,
+    -0.022872925,
+    0.0010251999,
+    -0.019851685,
+    0.010940552,
+    -8.2194805e-05,
+    0.0025024414,
+    -0.039001465,
+    -0.026473999,
+    0.049468994,
+    -0.019241333,
+    -0.018920898,
+    0.055236816,
+    0.010910034,
+    -0.029296875,
+    -0.014389038,
+    -0.021224976,
+    -0.07543945,
+    0.0018787384,
+    0.07269287,
+    -0.015220642,
+    -0.027130127,
+    -0.05493164,
+    0.025161743,
+    -0.04421997,
+    -0.020370483,
+    -0.059936523,
+    0.023544312,
+    0.005832672,
+    0.016815186,
+    -0.015144348,
+    -0.018966675,
+    -0.01979065,
+    -0.02609253,
+    -0.011581421,
+    0.010047913,
+    0.03186035,
+    0.01777649,
+    -0.017105103,
+    -0.02796936,
+    -0.016204834,
+    -0.019439697,
+    0.007232666,
+    -0.014549255,
+    0.004108429,
+    0.004558563,
+    0.035583496,
+    0.028961182,
+    -0.009399414,
+    0.010505676,
+    0.010574341,
+    -0.007572174,
+    0.011184692,
+    0.036010742,
+    0.03378296,
+    -0.004875183,
+    0.018585205,
+    0.014839172,
+    0.03604126,
+    0.019836426,
+    -0.07373047,
+    0.009567261,
+    -0.015052795,
+    0.011917114,
+    -0.027420044,
+    0.0031909943,
+    0.059417725,
+    -0.016357422,
+    0.024856567,
+    -0.014541626,
+    0.022277832,
+    -0.024215698,
+    0.0018434525,
+    -0.0059928894,
+    0.024002075,
+    -0.0011825562,
+    0.02619934,
+    0.005027771,
+    -0.01940918,
+    -0.0022888184,
+    0.013420105,
+    -0.023086548,
+    -0.02494812,
+    -0.017242432,
+    0.0368042,
+    0.037872314,
+    0.008239746,
+    0.009063721,
+    0.0048713684,
+    0.009742737,
+    -0.009346008,
+    -0.019332886,
+    -0.025314331,
+    -0.013969421,
+    -0.016616821,
+    -0.02696228,
+    -0.008346558,
+    0.02418518,
+    0.011314392,
+    -0.0028686523,
+    -0.009796143,
+    -0.043121338,
+    0.0030498505,
+    8.2314014e-05,
+    -0.021560669,
+    0.008926392,
+    0.032806396,
+    -0.015029907,
+    -0.012420654,
+    -0.0107040405,
+    0.05697632,
+    -0.0904541,
+    -0.06378174,
+    -0.00053453445,
+    0.03201294,
+    -0.005115509,
+    0.021347046,
+    0.02645874,
+    0.002878189,
+    0.0027866364,
+    0.020004272,
+    0.025253296,
+    0.00024366379,
+    -0.0390625,
+    -0.01991272,
+    -0.012413025,
+    0.016723633,
+    0.0024414062,
+    0.023101807,
+    0.014709473,
+    0.0098724365,
+    0.00036597252,
+    0.016952515,
+    0.053466797,
+    0.048065186,
+    0.0004787445,
+    -0.01701355,
+    -0.010108948,
+    0.016448975,
+    0.003282547,
+    0.029937744,
+    -0.04144287,
+    -0.009788513,
+    0.011985779,
+    -0.011276245,
+    -0.009063721,
+    -0.018936157,
+    0.008918762,
+    0.032440186,
+    0.0053100586,
+    -0.003993988,
+    0.037994385,
+    0.023147583,
+    -0.00440979,
+    0.027893066,
+    -0.0435791,
+    -0.006389618,
+    0.039001465,
+    -0.018249512,
+    -0.018112183,
+    -0.008407593,
+    -0.011421204,
+    -0.02784729,
+    0.09075928,
+    0.004776001,
+    -0.006996155,
+    0.0071754456,
+    0.04574585,
+    0.042236328,
+    0.006603241,
+    -0.009750366,
+    0.01373291,
+    -0.04385376,
+    0.016342163,
+    0.019424438,
+    0.024734497,
+    0.032348633,
+    -0.055389404,
+    0.025924683,
+    0.027648926,
+    0.021133423,
+    0.002193451,
+    -0.012359619,
+    -0.0074920654,
+    0.04196167,
+    -0.008239746,
+    0.032073975,
+    -0.0132369995,
+    -0.016693115,
+    -0.041137695,
+    -0.005138397,
+    -0.0025234222,
+    -0.00017952919,
+    -0.0026721954,
+    -0.002248764,
+    -0.025512695,
+    0.038269043,
+    0.0051651,
+    -0.012527466,
+    -0.023468018,
+    -0.015144348,
+    -0.010681152,
+    0.014282227,
+    -0.0021038055,
+    -0.030792236,
+    -0.049743652,
+    -0.02659607,
+    -0.04019165,
+    -0.02305603,
+    0.016906738,
+    -0.06011963,
+    -0.07348633,
+    -0.020553589,
+    0.014831543,
+    -0.012229919,
+    -0.009880066,
+    -0.035369873,
+    0.07159424,
+    -0.008384705,
+    0.026794434,
+    0.01386261,
+    0.005924225,
+    -0.03555298,
+    -0.03515625,
+    0.0023841858,
+    -0.034454346,
+    -0.070251465,
+    -0.022323608,
+    0.039123535,
+    -0.022918701,
+    -0.02017212,
+    -0.0057144165,
+    -0.01109314,
+    -0.013435364,
+    0.03878784,
+    -0.03479004,
+    -0.025543213,
+    0.026947021,
+    -0.038391113,
+    0.013450623,
+    -0.014549255,
+    -0.015716553,
+    -0.009742737,
+    0.02848816,
+    -0.017074585,
+    -0.01309967,
+    0.014442444,
+    0.054626465,
+    0.028549194,
+    0.025131226,
+    -0.0075531006,
+    0.054382324,
+    -0.009475708,
+    -0.02746582,
+    0.027435303,
+    0.05770874,
+    0.024291992,
+    0.043518066,
+    0.0073890686,
+    -0.007270813,
+    0.0017261505,
+    -0.00894165,
+    0.00017297268,
+    -0.02609253,
+    -0.026016235,
+    -0.045898438,
+    -0.01083374,
+    -0.08453369,
+    -0.018325806,
+    -0.0149002075,
+    -0.05783081,
+    0.024108887,
+    -0.08648682,
+    -0.021591187,
+    -0.04824829,
+    0.03338623,
+    0.0715332,
+    -0.011512756,
+    0.018341064,
+    0.030838013,
+    -0.014785767,
+    -0.0067481995,
+    0.029922485,
+    0.014320374,
+    -0.020629883,
+    0.042938232,
+    0.0008277893,
+    0.02482605,
+    -0.064331055,
+    0.0017929077,
+    0.031707764,
+    -0.033233643,
+    0.022781372,
+    -0.026382446,
+    0.010177612,
+    -0.036895752,
+    0.053527832,
+    -0.016555786,
+    -0.0037517548,
+    0.024017334,
+    0.008895874,
+    -0.046417236,
+    -0.013191223,
+    -0.016998291,
+    -0.008033752,
+    0.015625,
+    -0.044067383,
+    0.078125,
+    0.006877899,
+    -0.0025863647,
+    0.04232788,
+    -0.029251099,
+    0.00995636,
+    -0.01687622,
+    0.06201172,
+    -0.008766174,
+    -0.03390503,
+    -0.0005364418,
+    -0.011550903,
+    0.066711426,
+    0.041015625,
+    0.027420044,
+    0.09460449,
+    0.012306213,
+    -0.013725281,
+    -0.022506714,
+    -0.018981934,
+    -0.033203125,
+    0.014778137,
+    -0.028152466,
+    -0.07525635,
+    -0.03540039,
+    -0.006038666,
+    -0.026260376,
+    0.039093018,
+    0.020324707,
+    -0.022216797,
+    0.0023975372,
+    0.089904785,
+    0.005180359,
+    -0.0101623535,
+    0.00038337708,
+    -0.003616333,
+    -0.005836487,
+    -0.0049934387,
+    0.0077705383,
+    -0.003704071,
+    -0.0680542,
+    0.010246277,
+    -0.009223938,
+    0.017684937,
+    0.028930664,
+    -0.014373779,
+    0.037719727,
+    0.034698486,
+    0.018966675,
+    -0.01020813,
+    0.010955811,
+    0.016342163,
+    0.061553955,
+    -0.036468506,
+    0.035980225,
+    -0.028717041,
+    -0.009597778,
+    0.020263672,
+    -0.0016794205,
+    -0.05508423,
+    0.021026611,
+    -0.0045814514,
+    -0.01725769,
+    0.017150879,
+    0.003271103,
+    0.0027694702,
+    -0.0126953125,
+    0.022094727,
+    0.053894043,
+    -0.0033473969,
+    -0.011756897,
+    0.011146545,
+    -0.006175995,
+    0.0234375,
+    -0.037475586,
+    0.044403076,
+    -0.027389526,
+    0.0037250519,
+    -0.019561768,
+    -0.009315491,
+    -0.03189087,
+    -0.0025691986,
+    0.05633545,
+    0.07409668,
+    -0.09881592,
+    -0.025375366,
+    0.043548584,
+    -0.01008606,
+    -0.011177063,
+    -0.023361206,
+    -0.01777649,
+    0.013328552,
+    -0.03302002,
+    -0.012481689,
+    0.0647583,
+    0.0041007996,
+    -0.007980347,
+    0.05303955,
+    0.017547607,
+    -0.05316162,
+    -0.026321411,
+    0.011444092,
+    0.027999878,
+    -0.036987305,
+    0.0032634735,
+    -0.04827881,
+    -0.009513855,
+    0.014724731,
+    -0.018798828,
+    -0.01789856,
+    0.01285553,
+    0.02268982,
+    0.0010080338,
+    -0.041534424,
+    -0.029693604,
+    0.07019043,
+    0.024490356,
+    -0.015335083,
+    -0.019012451,
+    0.05368042,
+    -0.005519867,
+    0.0005469322,
+    -0.0013179779,
+    -0.006164551,
+    -0.04385376,
+    0.04135132,
+    -0.021087646,
+    -0.023147583,
+    0.029403687,
+    -0.050811768,
+    -0.007701874,
+    -0.025375366,
+    0.0657959,
+    -0.0070648193,
+    0.024047852,
+    -0.016403198,
+    0.00289917,
+    0.041656494,
+    -0.01777649,
+    -0.01184845,
+    0.022201538,
+    -0.019424438,
+    -0.025314331,
+    0.0259552,
+    -0.059509277,
+    0.051727295,
+    0.0023174286,
+    0.019317627,
+    -0.035064697,
+    -0.02482605,
+    5.4001808e-05,
+    0.01939392,
+    0.028167725,
+    0.045074463,
+    -0.029464722,
+    -0.00031137466,
+    -0.051605225,
+    -0.07080078,
+    0.04248047,
+    -0.03463745,
+    0.0002849102,
+    0.0009551048,
+    0.0049095154,
+    -0.0007429123,
+    0.0063705444,
+    0.0071105957,
+    -0.017852783,
+    0.06542969,
+    0.016342163,
+    0.020355225,
+    0.023986816,
+    0.0071983337,
+    -0.027511597,
+    0.01637268,
+    -0.023925781,
+    0.0076828003,
+    -0.0592041,
+    0.05154419,
+    0.04626465,
+    0.008010864,
+    0.05065918,
+    0.00025510788,
+    0.038482666,
+    0.004272461,
+    0.054718018,
+    0.04296875,
+    -0.043304443,
+    0.014785767,
+    -0.0007238388,
+    -0.004085541,
+    -0.01763916,
+    -0.037719727,
+    -0.04522705,
+    0.0113220215,
+    -0.00062799454,
+    0.006565094,
+    -0.013832092,
+    -0.016494751,
+    -0.011100769,
+    -0.014717102,
+    -0.03277588,
+    0.04006958,
+    0.028915405,
+    0.011116028,
+    0.0077056885,
+    -0.031921387,
+    -0.010269165,
+    -0.039031982,
+    0.026367188,
+    0.011566162,
+    0.014434814,
+    -0.009170532,
+    -0.05130005,
+    -0.036346436,
+    0.038909912,
+    -0.02444458,
+    -0.008621216,
+    -0.024108887,
+    -0.043945312,
+    -0.07116699,
+    -0.08081055,
+    -0.07299805,
+    -0.020599365,
+    -0.016494751,
+    -0.051727295,
+    0.03161621,
+    0.03463745,
+    0.036315918,
+    0.007171631,
+    -0.045806885,
+    0.0009765625,
+    0.051849365,
+    -0.0076675415,
+    0.008705139,
+    0.013656616,
+    -0.00020492077,
+    -0.019226074,
+    0.013450623,
+    -0.03616333,
+    -0.00036883354,
+    0.012771606,
+    0.010787964,
+    0.00756073,
+    -0.031402588,
+    -0.015602112,
+    0.046783447,
+    -0.021896362,
+    -0.0049209595,
+    -0.0054740906,
+    -0.002565384,
+    -0.012809753,
+    0.033325195,
+    -0.0044441223,
+    -0.0025100708,
+    0.0149383545,
+    0.0029716492,
+    0.01940918,
+    0.036102295,
+    -0.03277588,
+    -0.058013916,
+    0.0040245056,
+    0.040893555,
+    0.017181396,
+    0.037353516,
+    -0.023269653,
+    0.012496948,
+    -0.010574341,
+    0.018341064,
+    -0.009162903,
+    -0.013076782,
+    0.0069084167,
+    0.037902832,
+    -0.034210205,
+    -0.016311646,
+    0.033721924,
+    0.028213501,
+    0.03930664,
+    -0.00047159195,
+    -0.021896362,
+    -0.008049011,
+    0.024108887,
+    0.03062439,
+    -0.0034160614,
+    -0.0070610046,
+    0.053771973,
+    -0.08178711,
+    -0.024337769,
+    0.030731201,
+    -0.011512756,
+    -0.025054932,
+    -0.0020141602,
+    -0.0013828278,
+    0.003648758,
+    -0.024978638,
+    -0.028671265,
+    -0.0053977966,
+    0.008514404,
+    0.008712769,
+    0.010177612,
+    0.036712646,
+    -0.0068969727,
+    -0.003042221,
+    0.044128418,
+    0.017425537,
+    -0.011688232,
+    -0.0128479,
+    0.0051460266,
+    -0.047088623,
+    -0.043426514,
+    -0.0064964294,
+    0.0052452087,
+    -0.035186768,
+    -0.06677246,
+    -0.030471802,
+    -0.0048561096,
+    -0.04257202,
+    0.016555786,
+    0.027694702,
+    -0.061462402,
+    0.009178162,
+    -0.024276733,
+    0.012870789,
+    0.005897522,
+    0.015396118,
+    -0.033966064,
+    -0.020462036,
+    -0.061401367,
+    -0.019134521,
+    -0.011291504,
+    0.012321472,
+    -0.0010671616,
+    -0.012283325,
+    -0.028839111,
+    -0.043273926,
+    0.047332764,
+    0.021438599,
+    0.040740967,
+    -0.025894165,
+    -0.020263672,
+    -0.021453857,
+    -0.01335907,
+    0.025405884,
+    -0.014984131,
+    0.007972717,
+    -0.018692017,
+    0.041534424,
+    -0.010040283,
+    0.017028809,
+    0.02079773,
+    0.037139893,
+    -0.06768799,
+    0.00749588,
+    -0.006504059,
+    -0.021026611,
+    0.008277893,
+    -0.006717682,
+    -0.034240723,
+    -0.022735596,
+    -0.04272461,
+    -0.02104187,
+    -0.027679443,
+    -0.0053253174,
+    -0.045288086,
+    -0.01411438,
+    -0.026245117,
+    -0.0016860962,
+    0.013023376,
+    -0.024230957,
+    0.036987305,
+    -0.027694702,
+    0.01737976,
+    -0.017868042,
+    0.017166138,
+    -0.004142761,
+    -0.01727295,
+    0.04434204,
+    -0.05230713,
+    -0.011238098,
+    -0.009719849,
+    -0.0061798096,
+    0.019241333,
+    0.043792725,
+    0.016983032,
+    -0.001250267,
+    -0.010887146,
+    0.0038318634,
+    -0.036224365,
+    -0.0059394836,
+    0.04071045,
+    0.0030765533,
+    -0.013175964,
+    0.0018482208,
+    -0.031982422,
+    -0.024505615,
+    -0.030822754,
+    0.012886047,
+    0.027053833,
+    0.014312744,
+    -0.0005893707,
+    0.043670654,
+    0.014778137,
+    0.05493164,
+    -0.036834717,
+    0.013397217,
+    -0.02267456,
+    0.013542175,
+    0.050201416,
+    -0.0087509155,
+    0.026641846,
+    0.05960083,
+    0.014907837,
+    -0.01701355,
+    0.03262329,
+    -0.036102295,
+    -0.003967285,
+    -0.021224976,
+    0.013763428,
+    -0.026107788,
+    -0.013664246,
+    0.002462387,
+    0.0044822693,
+    0.042816162,
+    0.016937256,
+    -0.039245605,
+    -0.015136719,
+    0.053863525,
+    -0.030731201,
+    0.021820068,
+    0.0048103333,
+    0.06567383,
+    0.05633545,
+    0.0033740997,
+    -0.067871094,
+    -0.05480957,
+    -0.013870239,
+    -0.034484863,
+    -0.008216858,
+    0.012748718,
+    -0.028656006,
+    -0.0067481995,
+    -0.08496094,
+    -0.089782715,
+    -0.041168213,
+    -0.008171082,
+    -0.023254395,
+    -0.07672119,
+    -0.0045547485,
+    -0.03186035,
+    0.02255249,
+    0.0053482056,
+    -0.009109497,
+    -0.010520935,
+    -0.016555786,
+    0.03817749,
+    0.015327454,
+    0.091308594,
+    0.010101318,
+    -0.008262634,
+    -0.056549072,
+    0.03640747,
+    -0.048339844,
+    -0.05355835,
+    0.01638794,
+    -0.040496826,
+    0.06262207,
+    -0.0014076233,
+    0.0025482178,
+    -0.052124023,
+    0.020965576,
+    -0.0040779114,
+    0.025665283,
+    0.016677856,
+    -0.03866577,
+    0.017562866,
+    0.015945435,
+    -0.041778564,
+    -0.05609131,
+    -0.018295288,
+    0.004005432,
+    -0.05496216,
+    -0.03970337,
+    0.02909851,
+    0.009651184,
+    0.0126571655,
+    0.013893127,
+    -0.046844482,
+    0.07977295,
+    0.016494751,
+    -0.04562378,
+    -0.016448975,
+    -0.028625488,
+    -0.025405884,
+    0.034210205,
+    -0.034301758,
+    0.031829834,
+    -0.018569946,
+    -0.01802063,
+    -0.0029754639,
+    0.014328003,
+    0.006855011,
+    0.008598328,
+    -0.047851562,
+    -0.05593872,
+    -0.0030727386,
+    -0.0014715195,
+    -0.025512695,
+    0.058013916,
+    -0.03970337,
+    -0.035217285,
+    -0.010574341,
+    -0.0062942505,
+    -0.02305603,
+    0.008155823,
+    -0.021362305,
+    0.029251099,
+    0.028518677,
+    -0.034606934,
+    -0.03286743,
+    0.00054359436,
+    -0.03086853,
+    0.014656067,
+    -0.04348755,
+    0.005683899,
+    -0.0015277863,
+    0.032318115,
+    -0.035186768,
+    0.015457153,
+    -0.028366089,
+    -0.00299263,
+    0.028427124,
+    0.040008545,
+    -0.018615723,
+    -0.0063209534,
+    -0.027313232,
+    -0.0262146,
+    -0.023147583,
+    0.0115737915,
+    0.023849487,
+    -0.010093689,
+    -0.02041626,
+    -0.011856079,
+    -0.013092041,
+    -0.0060653687,
+    -0.032562256,
+    0.007575989,
+    0.0047721863,
+    -0.015045166,
+    -0.024658203,
+    0.032318115,
+    -0.019332886,
+    -0.024505615,
+    0.08331299,
+    0.033050537,
+    0.040252686,
+    -0.054473877,
+    -0.0026226044,
+    0.027496338,
+    0.015853882,
+    -0.028335571,
+    -0.029281616,
+    -0.01828003,
+    -0.007736206,
+    0.03945923,
+    -0.00035429,
+    0.00012338161,
+    -0.07702637,
+    -0.010231018,
+    -0.044525146,
+    -0.02961731,
+    -0.05545044,
+    -0.056152344,
+    0.002008438,
+    0.008331299,
+    0.013397217,
+    0.06384277,
+    0.0028762817,
+    0.042114258,
+    0.02722168,
+    0.048980713,
+    0.070617676,
+    -0.029266357,
+    0.039611816,
+    0.011909485,
+    -0.028060913
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+    "file_name": "89406.md",
+    "file_size": 13499,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident in Newport, Vermont",
+      "The accident occurred in Newport, Vermont.",
+      "The accident occurred on June 7, 2014, at 17:00 Local time.",
+      "The aircraft involved was a Piper PA-28-140.",
+      "The defining event of the accident was an aerodynamic stall/spin.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was ERA14LA285.",
+      "The aircraft registration was N5169T.",
+      "The aircraft sustained substantial damage.",
+      "There were 2 occupants in the aircraft.",
+      "No injuries resulted from the accident.",
+      "The pilot was returning to his home airport after a local flight.",
+      "The local flight lasted about 2 hours.",
+      "The pilot conducted a go-around on his first attempted landing.",
+      "The pilot was \"high and fast\" on the second landing attempt.",
+      "The runway was equipped with a 2-light precision approach path indicator.",
+      "The precision approach path indicator would have given guidance to touch down within the first one-third of the runway.",
+      "The airplane touched down about 3,000 feet down the 3,998-foot runway.",
+      "The pilot applied full power to abort the landing.",
+      "After lifting off, the airplane pitched up.",
+      "According to the pilot, the engine failed.",
+      "The airplane was approximately 200 feet above ground level when it banked left.",
+      "The airplane settled back toward the ground.",
+      "The airplane impacted the ground.",
+      "The airplane slid to a stop about 850 feet off the end of the runway.",
+      "The pilot exited the wreckage immediately after the accident.",
+      "The pilot was observed leaving the airport after the accident.",
+      "A postaccident examination of the engine was conducted.",
+      "A test run of the engine was performed.",
+      "The examination and test run revealed no evidence of anomalies that would have precluded normal engine operation.",
+      "According to a witness, she observed the pilot on the morning of the accident.",
+      "The witness observed the pilot consume 12 to 16 alcoholic beverages.",
+      "The alcoholic beverages were consumed between 0745 and 1230.",
+      "The pilot left at 1230 to meet his passenger for the flight.",
+      "The Vermont State Police made contact with the pilot at his residence after the accident.",
+      "The pilot refused a breathalyzer test.",
+      "The airplane likely entered an aerodynamic stall.",
+      "The pilot failed to adequately maintain airspeed after the aborted landing.",
+      "The pilot failed to adequately maintain pitch control after the aborted landing.",
+      "The pilot's failure to maintain airspeed and pitch control was likely related to his consumption of alcohol."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident in Newport, Vermont",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Newport, Vermont",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-28-140",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N5169T",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ERA14LA285",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Vermont State Police",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Newport, Vermont.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport, Vermont",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on June 7, 2014, at 1700 Local time.",
+              "details": [
+                "accident DATE June 7, 2014",
+                "accident TIME 17:00 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "June 7, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "17:00 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Piper PA-28-140.",
+              "details": [
+                "accident INVOLVED Piper PA-28-140"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was an aerodynamic stall/spin.",
+              "details": [
+                "accident DEFINING EVENT aerodynamic stall/spin"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aerodynamic stall/spin",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was ERA14LA285.",
+              "details": [
+                "accident NUMBER ERA14LA285"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ERA14LA285",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N5169T.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N5169T",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 2 occupants in the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No injuries resulted from the accident.",
+              "details": [
+                "accident INJURIES 0"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was returning to his home airport after a local flight.",
+              "details": [
+                "pilot DESTINATION home airport",
+                "flight TYPE local"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "home airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The local flight lasted about 2 hours.",
+              "details": [
+                "flight DURATION about 2 hours"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 2 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot conducted a go-around on his first attempted landing.",
+              "details": [
+                "pilot ACTION go-around",
+                "landing ATTEMPT first"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "go-around",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ATTEMPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "first",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was \"high and fast\" on the second landing attempt.",
+              "details": [
+                "pilot CONDITION high and fast",
+                "landing ATTEMPT second"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "high and fast",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ATTEMPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The runway was equipped with a 2-light precision approach path indicator.",
+              "details": [
+                "runway EQUIPPED WITH 2-light precision approach path indicator"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2-light precision approach path indicator",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The precision approach path indicator would have given guidance to touch down within the first one-third of the runway.",
+              "details": [
+                "precision approach path indicator PROVIDES guidance",
+                "guidance TOUCHDOWN LOCATION first one-third of the runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precision approach path indicator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "guidance",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "guidance",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TOUCHDOWN LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "first one-third of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane touched down about 3,000 feet down the 3,998-foot runway.",
+              "details": [
+                "runway LENGTH 3,998-foot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TOUCHDOWN LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 3,000 feet down the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LENGTH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3,998-foot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot applied full power to abort the landing.",
+              "details": [
+                "pilot ACTION applied full power",
+                "pilot PURPOSE abort the landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "applied full power",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "abort the landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After lifting off, the airplane pitched up.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pitched up",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to the pilot, the engine failed.",
+              "details": [
+                "engine STATUS failed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was approximately 200 feet above ground level when it banked left.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 200 feet above ground level",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "banked left",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane settled back toward the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "settled back toward the ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impacted the ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane slid to a stop about 850 feet off the end of the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "slid to a stop",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 850 feet off the end of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot exited the wreckage immediately after the accident.",
+              "details": [
+                "pilot ACTION exited the wreckage",
+                "pilot TIMING immediately after the accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exited the wreckage",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "immediately after the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was observed leaving the airport after the accident.",
+              "details": [
+                "pilot ACTION leaving the airport",
+                "pilot TIMING after the accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "leaving the airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A postaccident examination of the engine was conducted.",
+              "details": [
+                "engine EXAMINATION postaccident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "postaccident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A test run of the engine was performed.",
+              "details": [
+                "engine TEST run"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TEST"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "run",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The examination and test run revealed no evidence of anomalies that would have precluded normal engine operation.",
+              "details": [
+                "examination and test run REVEALED no evidence of anomalies",
+                "anomalies WOULD PRECLUDE normal engine operation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "examination and test run",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REVEALED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence of anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "anomalies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WOULD PRECLUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal engine operation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to a witness, she observed the pilot on the morning of the accident.",
+              "details": [
+                "witness OBSERVED pilot",
+                "observation TIMING morning of the accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "witness",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "observation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "morning of the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The witness observed the pilot consume 12 to 16 alcoholic beverages.",
+              "details": [
+                "witness OBSERVED pilot consume alcoholic beverages",
+                "alcoholic beverages QUANTITY 12 to 16"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "witness",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot consume alcoholic beverages",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "alcoholic beverages",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "12 to 16",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The alcoholic beverages were consumed between 0745 and 1230.",
+              "details": [
+                "alcoholic beverages CONSUMED BETWEEN 0745 and 1230"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "alcoholic beverages",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONSUMED BETWEEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0745 and 1230",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot left at 1230 to meet his passenger for the flight.",
+              "details": [
+                "pilot LEFT AT 1230",
+                "pilot PURPOSE meet passenger for the flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LEFT AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1230",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "meet passenger for the flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Vermont State Police made contact with the pilot at his residence after the accident.",
+              "details": [
+                "contact LOCATION pilot's residence",
+                "contact TIMING after the accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Vermont State Police",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONTACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "contact",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's residence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "contact",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot refused a breathalyzer test.",
+              "details": [
+                "pilot REFUSED breathalyzer test"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REFUSED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "breathalyzer test",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane likely entered an aerodynamic stall.",
+              "details": [
+                "entry LIKELIHOOD likely"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-28-140",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENTERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aerodynamic stall",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "entry",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LIKELIHOOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "likely",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot failed to adequately maintain airspeed after the aborted landing.",
+              "details": [
+                "pilot FAILED TO MAINTAIN airspeed",
+                "failure TIMING after the aborted landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILED TO MAINTAIN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airspeed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after the aborted landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot failed to adequately maintain pitch control after the aborted landing.",
+              "details": [
+                "pilot FAILED TO MAINTAIN pitch control",
+                "failure TIMING after the aborted landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILED TO MAINTAIN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pitch control",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after the aborted landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's failure to maintain airspeed and pitch control was likely related to his consumption of alcohol.",
+              "details": [
+                "pilot's failure RELATED TO consumption of alcohol",
+                "relation LIKELIHOOD likely"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's failure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "consumption of alcohol",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "relation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LIKELIHOOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "likely",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::34a831b4:2a89",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "f3cbca4afb4dfb60992ac552a6bd720c2b025a1fc53f7bc611c6130893bfd274",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::34a831b4:2a89:d7ab3ae4",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "1f59dabc6512b9f6f39074aa8fc60d37e69a655fa3ca43eff09869efdc70188c",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nNewport, Vermont\n\n## Date & Time: \nJune 7, 2014, 17:00 Local\n\n## Aircraft:\nPiper PA-28-140\n\n## Defining Event:\nAerodynamic stall/spin\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nERA14LA285\n\n## Registration:\nN5169T\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 None\n\n## Analysis\n\nThe pilot was returning to his home airport after a local flight that lasted about 2 hours. On his first attempted landing, the pilot conducted a go-around. The pilot said that he was \"high and fast\" on the second attempt, even though the runway was equipped with a 2-light precision approach path indicator which would have given the pilot guidance to touch down with the first one-third of the runway. The airplane touched down about 3,000 feet down the 3,998-foot runway. The pilot then applied full power to abort the landing. After lifting off, the airplane pitched up, and, according to the pilot, the engine failed. About 200 feet above ground level, the airplane banked left and settled back toward the ground; it then impacted the ground and slid to a stop about 850 feet off the end of the runway. Immediately after the accident, the pilot exited the wreckage and was observed leaving the airport.\n\nA postaccident examination and test run of the engine revealed no evidence of any anomalies that would have precluded normal engine operation. According to a witness, on the morning of the accident, she observed the pilot consume 12 to 16 alcoholic beverages between 0745 and 1230 when the pilot left to meet his passenger for the flight. After the accident, the Vermont State Police made contact with the pilot at his residence, where he refused a breathalyzer test. Given the airplane's performance during and after the pitch up, and the absence of any indications of an engine anomaly, the airplane likely entered an aerodynamic stall; the pilot's failure to adequately maintain airspeed and pitch control after the aborted landing, which resulted in the stall, was likely related to his consumption of alcohol.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2235,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

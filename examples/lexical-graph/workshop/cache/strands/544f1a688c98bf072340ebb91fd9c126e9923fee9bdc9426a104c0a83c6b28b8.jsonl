@@ -1,0 +1,28 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_JxMcfVKRRXuYbth_OSU_SA", "name": "aircraft"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"qu"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ery\":"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Kitf"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ox e"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "xperime"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nta"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l aircraf"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "t "}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "se"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ri"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "es Denney"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Aerocra"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ft d"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "esign featur"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "es manu"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fact"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uring"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " specificat"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ions mode"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ls"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " vari"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ants\"}"}}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 3656, "outputTokens": 70, "totalTokens": 3726}, "metrics": {"latencyMs": 2485}}}

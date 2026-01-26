@@ -1,0 +1,16 @@
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has VpcId 'vpc-0f81e2d959d7be034'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has SecurityGroupArn 'arn:aws:ec2:us-east-1:1234567890:security-group/sg-0d3ff7717958bd983'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has OwnerId '1234567890'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has GroupName 'default'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has Description 'default VPC security group'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with IpProtocol '-1'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with UserIdGroupPairs None
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with IpRanges with CidrIp '0.0.0.0/0'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with Ipv6Ranges None
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with PrefixListIds None
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with IpProtocol '-1'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with UserIdGroupPairs with UserId '1234567890'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with UserIdGroupPairs with GroupId 'sg-0d3ff7717958bd983'
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with IpRanges None
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with Ipv6Ranges None
+The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with PrefixListIds None

@@ -1,0 +1,29 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "I"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "'ll help you analyze accidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " involving Robinson and Bell"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " helicopters manufactured after 2000"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", comparing their"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " frequency and severity,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and examining"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design differences that might"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " contribute to accident patterns"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_pLJjBgUdSDu_Ky37ZVfFAw", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"quer"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\": \"Ro"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "binson"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " hel"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "icopter "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "acciden"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ts after 2"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "000 frequenc"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "severi"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty patte"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rns\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 1757, "outputTokens": 99, "totalTokens": 1856}, "metrics": {"latencyMs": 2032}}}

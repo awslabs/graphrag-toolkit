@@ -1,0 +1,2374 @@
+{
+  "id_": "aws::d49c74c4:d6c6:df651ad8",
+  "embedding": [
+    0.004776001,
+    0.004802704,
+    0.005290985,
+    -0.04748535,
+    0.01108551,
+    0.008583069,
+    0.00041651726,
+    0.0099487305,
+    -0.020858765,
+    -0.02130127,
+    -0.03967285,
+    0.025222778,
+    -0.058654785,
+    -0.032562256,
+    0.045166016,
+    -0.051086426,
+    -0.023742676,
+    0.08166504,
+    0.029251099,
+    -0.014312744,
+    0.009803772,
+    -0.019012451,
+    -0.043670654,
+    -0.005569458,
+    -0.0126571655,
+    0.052703857,
+    -0.011146545,
+    -0.027160645,
+    -0.019958496,
+    -0.031219482,
+    -6.80089e-05,
+    0.021835327,
+    -0.0026741028,
+    0.064086914,
+    -0.055480957,
+    0.026321411,
+    -0.013412476,
+    0.033355713,
+    -0.01007843,
+    0.030319214,
+    0.017623901,
+    0.00051498413,
+    0.054840088,
+    0.00095796585,
+    -0.0050201416,
+    -0.005695343,
+    0.016555786,
+    -0.024002075,
+    0.038360596,
+    0.039978027,
+    -0.008354187,
+    0.008735657,
+    -0.01878357,
+    0.0062026978,
+    0.0059928894,
+    -0.016159058,
+    -0.04373169,
+    0.024002075,
+    -0.0054359436,
+    0.065979004,
+    0.031066895,
+    0.048065186,
+    -0.010185242,
+    -0.008018494,
+    -0.043304443,
+    -0.02748108,
+    -0.034606934,
+    -0.007545471,
+    0.03479004,
+    -0.029434204,
+    0.0019836426,
+    0.03640747,
+    -0.0037117004,
+    0.0057640076,
+    -0.030593872,
+    -0.031036377,
+    0.03326416,
+    -0.027374268,
+    -0.02319336,
+    0.017425537,
+    0.10015869,
+    0.04284668,
+    0.023117065,
+    -0.004917145,
+    0.0061569214,
+    0.00034427643,
+    0.0049934387,
+    -0.049987793,
+    -0.0104904175,
+    -0.043304443,
+    -0.013389587,
+    0.004550934,
+    -0.01966858,
+    -0.020004272,
+    -0.023223877,
+    -0.025421143,
+    0.002855301,
+    -0.083984375,
+    0.007411957,
+    -0.025177002,
+    0.03201294,
+    -0.048339844,
+    0.025344849,
+    0.018737793,
+    -0.012390137,
+    -0.0236969,
+    0.005973816,
+    -0.018341064,
+    0.0040740967,
+    0.009902954,
+    -0.05899048,
+    0.029037476,
+    -0.019729614,
+    -0.029342651,
+    -0.020126343,
+    0.04901123,
+    -0.013267517,
+    0.0077209473,
+    0.024398804,
+    0.02758789,
+    0.022613525,
+    0.0362854,
+    -0.037750244,
+    -0.022567749,
+    -0.008544922,
+    -0.033050537,
+    -0.035827637,
+    0.032073975,
+    0.06335449,
+    -0.014976501,
+    0.014053345,
+    0.03567505,
+    -0.07861328,
+    -0.054016113,
+    -0.047576904,
+    0.024841309,
+    0.022918701,
+    0.014305115,
+    -0.011962891,
+    -0.00072193146,
+    0.000664711,
+    0.018066406,
+    0.029434204,
+    -0.027786255,
+    -0.025054932,
+    0.024887085,
+    0.013290405,
+    0.00894165,
+    -0.025466919,
+    -0.015258789,
+    -0.017089844,
+    -0.024734497,
+    0.04232788,
+    0.00017917156,
+    -0.011238098,
+    -0.06036377,
+    0.049346924,
+    -0.06738281,
+    0.009384155,
+    -0.068725586,
+    -0.011604309,
+    -0.041381836,
+    -0.0033817291,
+    -0.056549072,
+    -0.053497314,
+    0.043426514,
+    -0.044647217,
+    -0.0014886856,
+    0.009727478,
+    0.024612427,
+    0.04434204,
+    -0.02168274,
+    -0.097229004,
+    -0.015701294,
+    0.0036125183,
+    -0.00434494,
+    0.009307861,
+    0.07952881,
+    0.001531601,
+    0.0027275085,
+    0.016799927,
+    -0.04171753,
+    0.056610107,
+    0.01007843,
+    -0.0041923523,
+    0.022079468,
+    0.005306244,
+    0.022262573,
+    0.01612854,
+    0.01083374,
+    -0.027938843,
+    0.033355713,
+    0.023101807,
+    -0.043670654,
+    -0.011558533,
+    -0.011810303,
+    0.02130127,
+    0.012207031,
+    -0.0096206665,
+    0.020507812,
+    -0.05984497,
+    0.06060791,
+    -0.018310547,
+    0.032409668,
+    0.0047569275,
+    0.03967285,
+    0.011749268,
+    0.042907715,
+    -0.01386261,
+    0.025177002,
+    0.024139404,
+    -0.0001116395,
+    -0.02746582,
+    0.007637024,
+    -0.009109497,
+    -0.022277832,
+    -0.010597229,
+    0.013175964,
+    0.02986145,
+    0.01776123,
+    0.03253174,
+    0.02130127,
+    0.026168823,
+    -0.00045967102,
+    -0.015289307,
+    0.015213013,
+    -0.031158447,
+    0.014625549,
+    -0.0053215027,
+    0.017730713,
+    0.039886475,
+    -0.010429382,
+    -0.021224976,
+    -0.012016296,
+    -0.03201294,
+    0.026229858,
+    0.009460449,
+    0.039886475,
+    -0.0018663406,
+    0.0006775856,
+    -0.0048599243,
+    -0.008110046,
+    -0.02810669,
+    0.046691895,
+    -0.077941895,
+    -0.062438965,
+    -0.00068950653,
+    0.038208008,
+    -0.03805542,
+    0.01134491,
+    0.035064697,
+    0.014389038,
+    0.0010061264,
+    0.078186035,
+    0.0015535355,
+    -0.009048462,
+    -0.0060806274,
+    -0.014297485,
+    -0.0007419586,
+    0.03111267,
+    0.0026016235,
+    -0.042175293,
+    -0.03125,
+    -0.019073486,
+    0.036834717,
+    0.032592773,
+    0.03048706,
+    0.022338867,
+    -0.053375244,
+    0.039031982,
+    0.011100769,
+    -0.01235199,
+    0.013366699,
+    0.05682373,
+    -0.085510254,
+    0.041748047,
+    -0.018722534,
+    0.0012865067,
+    0.003194809,
+    0.018554688,
+    0.011695862,
+    0.019927979,
+    0.009399414,
+    -0.006591797,
+    0.031677246,
+    -0.0034332275,
+    0.00034093857,
+    0.0206604,
+    -0.017913818,
+    0.018173218,
+    0.0574646,
+    -0.0072135925,
+    -0.013916016,
+    -0.005958557,
+    0.007587433,
+    -0.018508911,
+    -0.0025997162,
+    0.008926392,
+    0.0029354095,
+    0.010528564,
+    0.011138916,
+    0.0541687,
+    0.013931274,
+    -0.005908966,
+    -0.013160706,
+    -0.046966553,
+    -0.026977539,
+    -0.020599365,
+    -0.013748169,
+    -0.010795593,
+    -0.036132812,
+    0.0758667,
+    0.011131287,
+    0.0012454987,
+    0.004776001,
+    -0.022750854,
+    0.007411957,
+    0.011520386,
+    -0.021896362,
+    -0.003025055,
+    -0.07006836,
+    -0.01914978,
+    -0.009277344,
+    0.006011963,
+    -0.00308609,
+    0.0046539307,
+    0.01928711,
+    0.021194458,
+    -0.01525116,
+    0.027801514,
+    -0.03439331,
+    0.012145996,
+    -0.028625488,
+    0.02796936,
+    -0.02319336,
+    0.021942139,
+    -0.003835678,
+    -0.018157959,
+    -0.0413208,
+    0.0060806274,
+    0.001657486,
+    -0.05053711,
+    0.033966064,
+    -0.016616821,
+    -0.0793457,
+    -0.0051574707,
+    0.010520935,
+    0.018798828,
+    -0.023925781,
+    -0.040130615,
+    0.06695557,
+    -0.022247314,
+    -0.010299683,
+    0.01928711,
+    -0.020690918,
+    0.0027809143,
+    0.016021729,
+    0.0061569214,
+    -0.0017700195,
+    -0.04421997,
+    -0.019805908,
+    0.031234741,
+    -0.025177002,
+    -0.06768799,
+    0.009559631,
+    0.0040740967,
+    -0.04437256,
+    0.019836426,
+    -0.03111267,
+    0.0024032593,
+    0.010131836,
+    -0.006942749,
+    0.0012073517,
+    -0.02998352,
+    -0.05441284,
+    -0.015319824,
+    0.020584106,
+    -0.035888672,
+    -0.021911621,
+    -0.0048103333,
+    -0.014213562,
+    -0.019317627,
+    0.009468079,
+    -0.004940033,
+    -0.003353119,
+    0.02923584,
+    0.022537231,
+    0.00843811,
+    0.03378296,
+    -0.014442444,
+    0.033569336,
+    0.038635254,
+    -0.009017944,
+    -0.03982544,
+    0.01826477,
+    -0.006137848,
+    0.024505615,
+    0.0496521,
+    -0.0036754608,
+    -0.028686523,
+    -0.11248779,
+    0.0095825195,
+    -0.008277893,
+    -0.042419434,
+    0.011016846,
+    -0.07324219,
+    -0.023834229,
+    -0.06378174,
+    0.028167725,
+    0.047454834,
+    -0.034057617,
+    0.045715332,
+    -0.06311035,
+    0.06500244,
+    -0.051605225,
+    0.022628784,
+    0.011764526,
+    -0.019622803,
+    -0.0074005127,
+    0.034179688,
+    0.068115234,
+    -0.075683594,
+    0.0036411285,
+    0.025939941,
+    0.004005432,
+    0.0032749176,
+    -0.0064849854,
+    -0.005458832,
+    0.012702942,
+    -0.006214142,
+    -0.025466919,
+    -0.015037537,
+    -0.020492554,
+    -0.017837524,
+    -0.07067871,
+    -0.0030727386,
+    0.027786255,
+    0.023147583,
+    0.064697266,
+    -0.033996582,
+    0.049865723,
+    0.03741455,
+    0.0005478859,
+    0.05230713,
+    -0.020248413,
+    -0.0071105957,
+    0.019897461,
+    0.017333984,
+    0.008323669,
+    -0.044281006,
+    -0.00031089783,
+    -0.0056877136,
+    0.067993164,
+    0.025360107,
+    0.0065460205,
+    0.06732178,
+    0.025863647,
+    0.0019426346,
+    0.012466431,
+    -0.033966064,
+    -0.037078857,
+    0.0008673668,
+    -0.055419922,
+    -0.04156494,
+    0.015220642,
+    -0.032836914,
+    0.062347412,
+    0.010475159,
+    0.03744507,
+    -0.003993988,
+    -0.009140015,
+    0.013084412,
+    -0.036071777,
+    -0.041259766,
+    -0.004459381,
+    -0.018981934,
+    0.00868988,
+    -0.06640625,
+    0.12597656,
+    0.03137207,
+    -0.064575195,
+    0.024642944,
+    0.027038574,
+    -0.021606445,
+    0.011756897,
+    0.016860962,
+    0.008613586,
+    -0.007965088,
+    0.008071899,
+    -0.017868042,
+    0.031036377,
+    -0.005012512,
+    0.029388428,
+    0.027359009,
+    0.010101318,
+    -0.04800415,
+    0.017730713,
+    -0.04449463,
+    -0.017822266,
+    -0.017166138,
+    -0.08270264,
+    0.00066947937,
+    -0.0057868958,
+    0.001625061,
+    0.0131073,
+    0.021347046,
+    0.009780884,
+    0.034210205,
+    0.022827148,
+    0.017578125,
+    -0.018569946,
+    -0.0037117004,
+    0.03375244,
+    0.018753052,
+    -0.019134521,
+    0.068725586,
+    -0.037750244,
+    0.040649414,
+    -0.01725769,
+    -0.018447876,
+    -0.0038108826,
+    -0.0413208,
+    0.08178711,
+    0.042541504,
+    -0.080566406,
+    0.00724411,
+    0.04763794,
+    -0.018463135,
+    -0.03479004,
+    -0.022506714,
+    0.0047187805,
+    0.03314209,
+    -0.043945312,
+    -0.027816772,
+    0.052459717,
+    0.0038814545,
+    -0.023391724,
+    0.053985596,
+    -0.005256653,
+    -0.06414795,
+    -0.019622803,
+    0.0061302185,
+    0.004547119,
+    -0.03656006,
+    0.019699097,
+    -0.046142578,
+    -0.012611389,
+    -0.006793976,
+    -0.05114746,
+    -0.025512695,
+    -0.0009822845,
+    0.019500732,
+    0.0017681122,
+    -0.028442383,
+    -0.05038452,
+    0.07946777,
+    0.0146102905,
+    -0.009132385,
+    -0.018966675,
+    0.030471802,
+    0.011405945,
+    -0.033966064,
+    -0.006816864,
+    0.010795593,
+    0.015853882,
+    0.011009216,
+    0.024871826,
+    -0.027038574,
+    0.006755829,
+    -0.015586853,
+    -0.023635864,
+    -0.028335571,
+    0.10046387,
+    0.005138397,
+    0.0096206665,
+    -0.050354004,
+    0.021408081,
+    0.022338867,
+    -0.0052719116,
+    -0.042877197,
+    -0.021575928,
+    -0.0033130646,
+    0.026916504,
+    0.022491455,
+    -0.05834961,
+    0.055908203,
+    0.01675415,
+    0.009613037,
+    -0.02734375,
+    0.010238647,
+    0.028289795,
+    0.0025100708,
+    0.008148193,
+    -0.0026054382,
+    -0.017669678,
+    0.027801514,
+    -0.09234619,
+    -0.05606079,
+    0.02909851,
+    -0.024978638,
+    -0.033325195,
+    -0.009086609,
+    0.007698059,
+    -0.02319336,
+    0.05795288,
+    0.019012451,
+    -0.06628418,
+    0.05303955,
+    0.030807495,
+    0.04348755,
+    0.007106781,
+    0.013511658,
+    -0.062072754,
+    0.029846191,
+    -0.017913818,
+    -0.02166748,
+    0.026473999,
+    0.009490967,
+    0.034301758,
+    -0.043823242,
+    0.0062217712,
+    0.040222168,
+    -0.014579773,
+    -0.0009460449,
+    0.038757324,
+    -0.011871338,
+    -0.029968262,
+    0.009437561,
+    -0.003955841,
+    -0.015853882,
+    -0.007156372,
+    -0.018753052,
+    -0.039093018,
+    -0.027023315,
+    -0.030792236,
+    0.007762909,
+    0.004135132,
+    -0.03338623,
+    0.01083374,
+    -0.024291992,
+    -0.00082206726,
+    0.020721436,
+    0.0065460205,
+    -0.0029468536,
+    -0.013252258,
+    -0.027954102,
+    -0.017166138,
+    -0.022201538,
+    0.0052452087,
+    -0.013122559,
+    0.00749588,
+    0.00737381,
+    -0.029052734,
+    -0.0071792603,
+    0.013725281,
+    0.0040016174,
+    0.0029830933,
+    0.005207062,
+    -0.021224976,
+    -0.035736084,
+    -0.06121826,
+    -0.038726807,
+    -0.014770508,
+    -0.03829956,
+    -0.05444336,
+    0.009750366,
+    0.02809143,
+    0.020233154,
+    0.0064353943,
+    -0.045410156,
+    0.0013132095,
+    0.04257202,
+    -0.002986908,
+    0.0044403076,
+    0.021652222,
+    -0.04373169,
+    0.068725586,
+    -0.0024108887,
+    0.004699707,
+    -0.058563232,
+    0.002193451,
+    -0.03378296,
+    0.017593384,
+    -0.04067993,
+    -0.011291504,
+    0.014564514,
+    -0.045928955,
+    0.013938904,
+    -0.022537231,
+    -0.00039815903,
+    -0.07147217,
+    -0.040527344,
+    -0.019470215,
+    -0.06341553,
+    -0.01537323,
+    -0.03656006,
+    -0.006652832,
+    0.020935059,
+    -0.022109985,
+    -0.016433716,
+    -0.00617218,
+    0.022064209,
+    0.021850586,
+    0.028411865,
+    -0.019561768,
+    0.044036865,
+    -0.01461792,
+    0.07952881,
+    -0.048828125,
+    -0.019073486,
+    0.04837036,
+    0.057434082,
+    -0.011650085,
+    -0.018417358,
+    0.018692017,
+    -0.0102005005,
+    -0.0032520294,
+    0.049743652,
+    -0.00082731247,
+    -0.013374329,
+    0.008071899,
+    0.06695557,
+    0.050964355,
+    -0.06390381,
+    0.019989014,
+    0.005760193,
+    -0.019302368,
+    0.035247803,
+    -0.019577026,
+    -0.0395813,
+    0.013694763,
+    -0.084106445,
+    0.022079468,
+    -0.009735107,
+    -0.044769287,
+    0.0050697327,
+    0.011772156,
+    0.017303467,
+    -0.0045814514,
+    0.0069732666,
+    0.011054993,
+    -0.013946533,
+    0.038513184,
+    -0.009437561,
+    -0.012931824,
+    -0.0680542,
+    -0.008026123,
+    -0.03933716,
+    -0.014755249,
+    -0.033599854,
+    0.046539307,
+    -0.03414917,
+    -0.0715332,
+    -0.017303467,
+    0.009284973,
+    -0.00069761276,
+    -0.0005197525,
+    -0.017578125,
+    -0.070373535,
+    0.00422287,
+    -0.044921875,
+    0.0045700073,
+    0.0025901794,
+    0.02230835,
+    -0.015777588,
+    -0.021652222,
+    -0.060943604,
+    -0.031280518,
+    -0.005504608,
+    -0.0074005127,
+    -0.027313232,
+    0.0154418945,
+    -0.01272583,
+    -0.031982422,
+    0.05029297,
+    -0.010536194,
+    0.015029907,
+    -0.03744507,
+    0.0031661987,
+    0.019058228,
+    0.004924774,
+    0.007926941,
+    -0.02909851,
+    -0.016159058,
+    -0.014663696,
+    0.04385376,
+    0.029144287,
+    -0.007259369,
+    -0.021362305,
+    -0.021759033,
+    0.020706177,
+    0.014724731,
+    0.030639648,
+    -0.036132812,
+    0.006702423,
+    0.00060892105,
+    -0.02619934,
+    -0.015563965,
+    -0.0069351196,
+    -0.019165039,
+    -0.06323242,
+    -0.018981934,
+    -0.049346924,
+    0.024398804,
+    -0.00074100494,
+    0.032989502,
+    0.0041656494,
+    0.012207031,
+    0.045898438,
+    -0.026168823,
+    0.013221741,
+    -0.008224487,
+    0.02432251,
+    0.0006451607,
+    -0.022201538,
+    0.053527832,
+    -0.059509277,
+    -0.030151367,
+    -0.0052833557,
+    0.034301758,
+    0.004562378,
+    0.02947998,
+    0.04598999,
+    -0.007881165,
+    -0.0014438629,
+    0.035125732,
+    -0.0035705566,
+    -0.070373535,
+    0.025299072,
+    -0.033294678,
+    -0.005619049,
+    0.0076065063,
+    -0.010231018,
+    -0.043121338,
+    -0.0107421875,
+    0.06048584,
+    0.0066490173,
+    0.045562744,
+    -0.023025513,
+    0.034240723,
+    0.025726318,
+    -0.024841309,
+    0.0046043396,
+    0.015655518,
+    -0.014465332,
+    -0.0030460358,
+    0.015533447,
+    -0.020309448,
+    -0.030395508,
+    0.008934021,
+    0.03945923,
+    0.0031375885,
+    0.016845703,
+    -0.02432251,
+    0.0074882507,
+    -0.015357971,
+    0.008270264,
+    -0.023803711,
+    -0.012107849,
+    -0.0018053055,
+    -0.0032024384,
+    0.01928711,
+    0.016921997,
+    -0.011367798,
+    -0.022232056,
+    0.017044067,
+    -0.005207062,
+    0.011436462,
+    0.037628174,
+    0.011985779,
+    0.020935059,
+    -0.016616821,
+    -0.07867432,
+    -0.04727173,
+    -0.03463745,
+    -0.0040245056,
+    -0.03314209,
+    0.074645996,
+    -0.024749756,
+    -0.0022201538,
+    -0.016647339,
+    -0.04196167,
+    0.023025513,
+    -0.0104599,
+    0.009460449,
+    -0.05230713,
+    0.015197754,
+    0.033813477,
+    0.04611206,
+    0.0121154785,
+    0.0151901245,
+    -0.021591187,
+    -0.018203735,
+    0.03289795,
+    -0.006549835,
+    0.0435791,
+    0.026565552,
+    0.022781372,
+    -0.03479004,
+    0.008720398,
+    -0.008529663,
+    -0.06463623,
+    0.031311035,
+    -0.01651001,
+    0.033935547,
+    0.022705078,
+    0.05895996,
+    -0.064941406,
+    0.019515991,
+    0.012969971,
+    -0.018341064,
+    0.016235352,
+    -0.037322998,
+    0.0070648193,
+    0.0047950745,
+    -0.01927185,
+    -0.012573242,
+    0.004257202,
+    0.025421143,
+    -0.013153076,
+    -0.028778076,
+    -0.008178711,
+    0.03314209,
+    0.004627228,
+    0.017715454,
+    -0.026245117,
+    0.06896973,
+    0.011512756,
+    -0.001537323,
+    0.018630981,
+    0.030426025,
+    0.012062073,
+    0.025741577,
+    -0.016235352,
+    0.024291992,
+    -0.014549255,
+    -0.011299133,
+    0.011634827,
+    -0.030639648,
+    0.060028076,
+    0.021530151,
+    -0.03781128,
+    0.027160645,
+    0.028060913,
+    0.010154724,
+    0.042755127,
+    0.019210815,
+    -0.0063667297,
+    0.010925293,
+    0.02229309,
+    0.013679504,
+    0.012176514,
+    0.04119873,
+    -0.031036377,
+    0.07159424,
+    0.04824829,
+    -0.035247803,
+    0.05432129,
+    -0.006427765,
+    -0.06317139,
+    0.00982666,
+    0.010627747,
+    0.06021118,
+    0.051696777,
+    0.02293396,
+    -0.022369385,
+    -0.009559631,
+    -0.046691895,
+    0.0062294006,
+    0.0060768127,
+    -0.0121154785,
+    -0.014709473,
+    0.005897522,
+    -0.01966858,
+    0.0075798035,
+    -0.043823242,
+    0.0065956116,
+    -0.0028190613,
+    -0.0059432983,
+    0.011100769,
+    -0.00970459,
+    0.014930725,
+    -0.014549255,
+    0.027175903,
+    -0.02609253,
+    -0.0093307495,
+    -0.011192322,
+    -0.026229858,
+    -0.0012874603,
+    0.02168274,
+    -0.03729248,
+    0.01953125,
+    -0.0013084412,
+    -0.0024852753,
+    -0.005420685,
+    0.028182983,
+    0.013748169,
+    0.024276733,
+    -0.00484848,
+    -0.010009766,
+    -0.030471802,
+    0.011016846,
+    0.02418518,
+    -0.0027866364,
+    -0.0008583069,
+    -0.007972717,
+    0.027282715,
+    0.018707275,
+    0.0012683868,
+    0.0043144226,
+    -0.033325195,
+    0.050689697,
+    0.031341553,
+    -0.041534424,
+    0.053466797,
+    -0.051116943,
+    0.02279663,
+    0.03677368,
+    0.035064697,
+    0.033447266,
+    0.0032463074,
+    0.039123535,
+    0.019943237,
+    -0.015136719
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90502.md",
+    "file_name": "90502.md",
+    "file_size": 10556,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Piper PA-46-350P Runway Excursion and Landing Gear Collapse Incident",
+      "Piper PA-46-350P airplane with registration N224JJ departed the left side of the runway at Sugar Land Regional Airport.",
+      "The incident occurred on December 15, 2014, at approximately 1030 central standard time.",
+      "The airplane was registered to Dilkara Leasing LLC.",
+      "Dilkara Leasing LLC was based in Las Vegas, Nevada.",
+      "The flight was operated under the provisions of 14 Code of Federal Regulations Part 91.",
+      "The flight was classified as a personal flight.",
+      "Visual meteorological conditions prevailed at the time of the accident.",
+      "An instrument flight plan was filed for the flight.",
+      "The airplane departed from Georgetown Municipal Airport in Georgetown, Texas.",
+      "The departure from Georgetown Municipal Airport occurred at approximately 0940.",
+      "The commercial rated pilot was not injured in the incident.",
+      "The pilot reported crossing the runway threshold at 100 feet altitude.",
+      "The pilot reported crossing the runway threshold at 85 knots airspeed.",
+      "The pilot touched down on the runway at approximately 80-85 knots.",
+      "When the nosewheel touched the runway, the airplane veered sharply left.",
+      "The pilot applied right rudder to correct the leftward movement.",
+      "The airplane continued off the left side of the runway despite the pilot's corrective actions.",
+      "The nose gear collapsed during the runway excursion.",
+      "The airplane came to rest approximately 150 feet from the runway.",
+      "An operations supervisor from the Fixed Based Operator inspected the marks left on the runway after the accident.",
+      "The runway marks indicated the nosewheel turned 90 degrees to the left upon initial contact with the runway.",
+      "The accident caused damage to the airplane's propeller.",
+      "The accident caused damage to the airplane's nose landing gear.",
+      "The accident caused damage to the airplane's lower cowling.",
+      "The accident caused substantial damage to the airplane's firewall.",
+      "A Federal Aviation Administration Inspector examined the engine compartment after the incident.",
+      "The inspection revealed the engine mount had broken at the nose landing gear actuator attach point.",
+      "Piper Aircraft, Inc. issued Service Bulletin 1103 on April 22, 2002.",
+      "Service Bulletin 1103 addressed engine mount inspections of Piper Malibu and Mirage aircraft.",
+      "The Service Bulletin requires Piper Malibu operators to inspect engine mounts for cracks at the next scheduled maintenance event.",
+      "The Service Bulletin requires subsequent engine mount inspections every 100 hours of time in service.",
+      "The Service Bulletin requires engine mount inspections at each annual inspection."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Piper PA-46-350P Runway Excursion and Landing Gear Collapse Incident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-46-350P",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N224JJ",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Sugar Land Regional Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Dilkara Leasing LLC",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Las Vegas, Nevada",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "14 Code of Federal Regulations Part 91",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Georgetown Municipal Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Georgetown, Texas",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "commercial rated pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Fixed Based Operator",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration Inspector",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper Aircraft, Inc.",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Service Bulletin 1103",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper Malibu",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper Mirage",
+              "classification": "Aircraftmodel"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-46-350P airplane with registration N224JJ departed the left side of the runway at Sugar Land Regional Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-46-350P",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Sugar Land Regional Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "departed the left side of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred on December 15, 2014, at approximately 1030 central standard time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-46-350P",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 15, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-46-350P",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1030 central standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was registered to Dilkara Leasing LLC.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTERED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dilkara Leasing LLC",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Dilkara Leasing LLC was based in Las Vegas, Nevada.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dilkara Leasing LLC",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "BASED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Las Vegas, Nevada",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was operated under the provisions of 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was classified as a personal flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personal flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed at the time of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-46-350P",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An instrument flight plan was filed for the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instrument flight plan",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane departed from Georgetown Municipal Airport in Georgetown, Texas.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Georgetown Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Georgetown Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Georgetown, Texas",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The departure from Georgetown Municipal Airport occurred at approximately 0940.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 0940",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial rated pilot was not injured in the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "PILOTED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported crossing the runway threshold at 100 feet altitude.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED ALTITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "100 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported crossing the runway threshold at 85 knots airspeed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED AIRSPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "85 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot touched down on the runway at approximately 80-85 knots.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOUCHDOWN SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 80-85 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "When the nosewheel touched the runway, the airplane veered sharply left.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "veered sharply left when nosewheel touched runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot applied right rudder to correct the leftward movement.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CORRECTIVE ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "applied right rudder",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane continued off the left side of the runway despite the pilot's corrective actions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continued off the left side of the runway despite corrective actions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The nose gear collapsed during the runway excursion.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose gear collapsed during runway excursion",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to rest approximately 150 feet from the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 150 feet from the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An operations supervisor from the Fixed Based Operator inspected the marks left on the runway after the accident.",
+              "details": [
+                "operations supervisor WORKS FOR Fixed Based Operator",
+                "operations supervisor ACTION TAKEN inspected the marks left on the runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations supervisor",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WORKS FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Fixed Based Operator",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations supervisor",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inspected the marks left on the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The runway marks indicated the nosewheel turned 90 degrees to the left upon initial contact with the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nosewheel turned 90 degrees to the left upon initial contact with the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident caused damage to the airplane's propeller.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE COMPONENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident caused damage to the airplane's nose landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE COMPONENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident caused damage to the airplane's lower cowling.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE COMPONENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lower cowling",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident caused substantial damage to the airplane's firewall.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE COMPONENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "firewall",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Federal Aviation Administration Inspector examined the engine compartment after the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration Inspector",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "examined the engine compartment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The inspection revealed the engine mount had broken at the nose landing gear actuator attach point.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N224JJ",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine mount broken at the nose landing gear actuator attach point",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper Aircraft, Inc. issued Service Bulletin 1103 on April 22, 2002.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Aircraft, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "ISSUE DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 22, 2002",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Service Bulletin 1103 addressed engine mount inspections of Piper Malibu and Mirage aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "APPLIES TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Malibu",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "APPLIES TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Mirage",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "CONTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine mount inspections",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Service Bulletin requires Piper Malibu operators to inspect engine mounts for cracks at the next scheduled maintenance event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inspect engine mounts for cracks at the next scheduled maintenance event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Service Bulletin requires subsequent engine mount inspections every 100 hours of time in service.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "subsequent engine mount inspections every 100 hours of time in service",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Service Bulletin requires engine mount inspections at each annual inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Service Bulletin 1103",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine mount inspections at each annual inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::d49c74c4:d6c6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90502.md",
+        "file_name": "90502.md",
+        "file_size": 10556,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "36c5b8fb5c9862a51ae7ee4b013689aec2cfb74bfa4b1ac04a6f0af76891e301",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::d49c74c4:d6c6:c1b58ab8",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90502.md",
+        "file_name": "90502.md",
+        "file_size": 10556,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "33c7d8d82d0f3af97f52ba6cc3c0f4dd76a3d36bd35f6b4d32359ea91e1cb113",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::d49c74c4:d6c6:0b417a8b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90502.md",
+        "file_name": "90502.md",
+        "file_size": 10556,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "824af8ed857ad08adfd2c9dd6fc5cad7bb59b18d9cf5b2edde0535f9531893d4",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Prior to flight | Aircraft inspection event |\n| Landing-landing roll | Runway excursion |\n| Landing-landing roll | Landing gear collapse (Defining event) |\n| Landing-landing roll | Nose over/nose down |\n\nOn December 15, 2014, about 1030 central standard time, a Piper PA-46-350P airplane, N224JJ, departed the left side of the runway at the Sugar Land Regional Airport (SGR), Houston, Texas. The commercial rated pilot was not injured. The airplane was registered to operated by Dilkara Leasing LLC, Las Vegas, Nevada under the provisions of 14 Code of Federal Regulations Part 91 as a personal flight. Visual meteorological conditions prevailed at the time of the accident and an instrument flight plan was filed. The airplane departed the Georgetown Municipal Airport (KGTU) Georgetown, Texas, about 0940.\n\nThe pilot reported that he crossed the runway threshold at 100 feet and 85 knots, and touched down on the runway about 80-85 knots. When the nosewheel touched the runway, the airplane veered sharply left. He applied right rudder; however, the airplane continued off the left side of the runway. The nose gear collapsed and the airplane came to rest about 150 feet from the runway.\n\nThe pilot stated that after the accident, an operations supervisor from the Fixed Based Operator (FBO) inspected the marks left on the runway. The pilot added that at the point where the nosewheel first contacted the runway, it appeared the wheel turned 90 degrees to the left.\n\nExamination of the airplane revealed damage to the propeller, nose landing gear, lower cowling, and substantial damage to the firewall. An inspection of the engine compartment by the responding Federal Aviation Administration (FAA) Inspector, revealed the engine mount had broken at the nose landing gear actuator attach point.\n\nPiper Aircraft, Inc., issued Service Bulletin 1103 on April 22, 2002, which addressed engine mount inspections of Piper Malibu and Mirage aircraft. The Service Bulletin requires Piper Malibu operators to inspect the engine mounts for cracks at the next scheduled maintenance event, and each 100 hours' time in service, or annual inspection thereafter.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2197,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

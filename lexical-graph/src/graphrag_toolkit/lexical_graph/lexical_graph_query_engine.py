@@ -9,7 +9,7 @@ from json2xml import json2xml
 from typing import Optional, List, Type, Union
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
-from graphrag_toolkit.lexical_graph.versioning import VersioningConfig
+from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, to_versioning_config
 from graphrag_toolkit.lexical_graph.tenant_id import TenantIdType, to_tenant_id
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
@@ -101,12 +101,12 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         tenant_id = to_tenant_id(tenant_id)
 
         if versioning is not None:
-            versioning_config = VersioningConfig(enabled=versioning) if isinstance(versioning, bool) else versioning
+            versioning_config = to_versioning_config(versioning) if isinstance(versioning, bool) else versioning
         else:
-            versioning_config = VersioningConfig(enabled=GraphRAGConfig.enable_versioning)
+            versioning_config = to_versioning_config(GraphRAGConfig.enable_versioning)
 
         filter_config = filter_config or FilterConfig()
-        filter_config = filter_config.with_versioning(versioning_config)
+        filter_config = versioning_config.apply(filter_config)
         
         graph_store =  MultiTenantGraphStore.wrap(
             GraphStoreFactory.for_graph_store(graph_store), 
@@ -182,12 +182,12 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         tenant_id = to_tenant_id(tenant_id)
         
         if enable_versioning is not None:
-            versioning_config = VersioningConfig(enabled=enable_versioning) if isinstance(enable_versioning, bool) else enable_versioning
+            versioning_config = to_versioning_config(enable_versioning) if isinstance(enable_versioning, bool) else enable_versioning
         else:
-            versioning_config = VersioningConfig(enabled=GraphRAGConfig.enable_versioning)
+            versioning_config = to_versioning_config(GraphRAGConfig.enable_versioning)
 
         filter_config = filter_config or FilterConfig()
-        filter_config = filter_config.with_versioning(versioning_config)
+        filter_config = versioning_config.apply(filter_config) 
 
         graph_store = MultiTenantGraphStore.wrap(
             GraphStoreFactory.for_graph_store(graph_store),

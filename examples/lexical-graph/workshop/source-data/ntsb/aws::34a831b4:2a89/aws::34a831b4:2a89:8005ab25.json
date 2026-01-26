@@ -1,0 +1,2719 @@
+{
+  "id_": "aws::34a831b4:2a89:8005ab25",
+  "embedding": [
+    0.036224365,
+    0.026901245,
+    0.02961731,
+    -0.03479004,
+    0.021102905,
+    0.0056419373,
+    -0.005634308,
+    -0.011947632,
+    -0.08392334,
+    0.02784729,
+    0.022323608,
+    0.061553955,
+    0.002817154,
+    -0.028137207,
+    0.07305908,
+    -0.023391724,
+    0.015075684,
+    0.083618164,
+    0.050933838,
+    -0.015602112,
+    0.017318726,
+    0.018493652,
+    -0.030960083,
+    0.04345703,
+    0.029312134,
+    0.03945923,
+    -0.026245117,
+    0.030853271,
+    0.012001038,
+    0.015113831,
+    0.029190063,
+    -0.052246094,
+    0.028640747,
+    0.0154953,
+    -0.013038635,
+    -0.009552002,
+    0.013328552,
+    -0.012046814,
+    -0.023223877,
+    0.037872314,
+    0.013961792,
+    -0.012809753,
+    0.038208008,
+    -0.046020508,
+    0.003353119,
+    0.011047363,
+    0.008270264,
+    -0.029663086,
+    0.037078857,
+    0.020477295,
+    -8.940697e-05,
+    0.051361084,
+    0.0061149597,
+    0.015991211,
+    0.0050849915,
+    -0.004688263,
+    -0.020751953,
+    -0.005935669,
+    -0.0087509155,
+    -0.011421204,
+    0.027816772,
+    0.04638672,
+    0.027008057,
+    0.052581787,
+    -0.03414917,
+    -0.010475159,
+    0.02432251,
+    0.010910034,
+    0.07550049,
+    -0.037963867,
+    -0.0440979,
+    0.052459717,
+    0.004005432,
+    0.052642822,
+    0.0023841858,
+    -0.09918213,
+    0.0079193115,
+    -0.039978027,
+    0.018356323,
+    0.057434082,
+    0.043060303,
+    0.020965576,
+    -0.033599854,
+    -0.030715942,
+    0.02418518,
+    0.0011062622,
+    0.0037727356,
+    -0.02973938,
+    0.0070648193,
+    0.034851074,
+    -0.022216797,
+    -0.03781128,
+    0.068725586,
+    0.042816162,
+    -0.039123535,
+    0.024353027,
+    -0.011306763,
+    -0.049743652,
+    0.05303955,
+    -0.013282776,
+    0.028045654,
+    -0.04776001,
+    -0.02671814,
+    0.009185791,
+    -0.01626587,
+    -0.010887146,
+    0.028793335,
+    0.0046539307,
+    0.023498535,
+    0.01134491,
+    -0.03845215,
+    0.074645996,
+    -0.016937256,
+    -0.058654785,
+    0.024337769,
+    0.07879639,
+    0.029678345,
+    0.017471313,
+    0.018234253,
+    0.01966858,
+    0.036499023,
+    0.06549072,
+    -0.033996582,
+    -0.04711914,
+    -0.004787445,
+    -0.037841797,
+    -0.043395996,
+    0.0048980713,
+    0.03390503,
+    -0.026809692,
+    -0.006931305,
+    0.052703857,
+    -0.06173706,
+    -0.05709839,
+    -0.032806396,
+    0.016479492,
+    -0.03857422,
+    -0.02003479,
+    -0.010696411,
+    0.004497528,
+    -0.03466797,
+    -0.0098724365,
+    0.078308105,
+    -0.009635925,
+    -0.03643799,
+    0.010734558,
+    0.00630188,
+    0.016159058,
+    -0.0053901672,
+    -0.017150879,
+    -0.024505615,
+    0.010040283,
+    0.055541992,
+    -0.021331787,
+    -0.055725098,
+    -0.07330322,
+    -0.013748169,
+    -0.037506104,
+    0.017044067,
+    -0.05419922,
+    -0.019714355,
+    0.008049011,
+    0.048736572,
+    -0.047332764,
+    -0.087768555,
+    0.0056877136,
+    -0.05847168,
+    -0.031341553,
+    0.0027770996,
+    0.013214111,
+    0.040496826,
+    0.008895874,
+    -0.01576233,
+    -0.0074806213,
+    -0.013641357,
+    -0.014320374,
+    -0.009544373,
+    0.016464233,
+    0.00017046928,
+    0.055511475,
+    0.04333496,
+    -0.01789856,
+    0.03466797,
+    -0.008110046,
+    0.0039863586,
+    0.033996582,
+    0.00642395,
+    0.022994995,
+    -0.005744934,
+    0.0062217712,
+    -0.010879517,
+    0.02204895,
+    0.019332886,
+    -0.034942627,
+    0.032440186,
+    -0.031066895,
+    0.0050354004,
+    -0.039764404,
+    0.012641907,
+    0.020050049,
+    -0.011428833,
+    0.022369385,
+    -0.0079574585,
+    0.017791748,
+    -0.06707764,
+    0.016616821,
+    -0.02166748,
+    0.029800415,
+    -0.010848999,
+    0.04095459,
+    0.019210815,
+    0.00090169907,
+    -0.037750244,
+    0.03970337,
+    0.007587433,
+    -0.0317688,
+    -0.024505615,
+    0.021560669,
+    0.017684937,
+    0.0006284714,
+    -0.025299072,
+    0.0501709,
+    -0.016662598,
+    0.009361267,
+    -0.0011539459,
+    -0.017227173,
+    -0.012435913,
+    -0.016830444,
+    0.0011405945,
+    -0.008491516,
+    0.028427124,
+    0.00333786,
+    -0.00024032593,
+    0.020019531,
+    -0.02519226,
+    0.019470215,
+    0.01727295,
+    0.0048103333,
+    0.008171082,
+    0.004016876,
+    -0.0054626465,
+    -0.03845215,
+    -0.034088135,
+    0.041992188,
+    -0.094055176,
+    -0.07458496,
+    -0.0031585693,
+    0.031021118,
+    -0.02267456,
+    0.023529053,
+    -0.0034751892,
+    0.035003662,
+    0.02078247,
+    0.034240723,
+    -0.012329102,
+    0.024749756,
+    -0.037322998,
+    -0.045074463,
+    -0.015258789,
+    0.018554688,
+    0.018112183,
+    -0.022567749,
+    -0.023986816,
+    0.017440796,
+    0.012008667,
+    0.028503418,
+    0.043151855,
+    0.057373047,
+    -0.022415161,
+    0.0050735474,
+    0.0079956055,
+    0.027038574,
+    -0.0017852783,
+    0.02532959,
+    -0.061553955,
+    -0.02267456,
+    -0.0022258759,
+    0.021820068,
+    -0.033966064,
+    -0.029251099,
+    -0.013313293,
+    0.0052108765,
+    -0.020996094,
+    -0.0008740425,
+    0.036071777,
+    0.0077285767,
+    -0.016693115,
+    -0.013938904,
+    -0.047454834,
+    0.023635864,
+    0.05645752,
+    -0.00011831522,
+    -0.022888184,
+    -0.022781372,
+    -0.007965088,
+    0.0030937195,
+    0.08154297,
+    0.01171875,
+    -0.0019779205,
+    0.016738892,
+    0.03050232,
+    0.05267334,
+    -0.008781433,
+    0.008888245,
+    0.00053215027,
+    -0.009246826,
+    -0.015113831,
+    -0.0075798035,
+    -0.0062332153,
+    0.014831543,
+    -0.04309082,
+    0.024032593,
+    0.03640747,
+    0.031066895,
+    -0.015716553,
+    -0.010284424,
+    -0.019058228,
+    0.032989502,
+    -0.0055885315,
+    0.030654907,
+    -0.042388916,
+    -0.027633667,
+    -0.028747559,
+    -0.0051612854,
+    -0.006504059,
+    0.023498535,
+    -0.012496948,
+    0.0046920776,
+    0.008087158,
+    0.005580902,
+    -0.03656006,
+    -0.020187378,
+    -0.05065918,
+    0.0026931763,
+    -0.0025634766,
+    0.02053833,
+    -0.0039043427,
+    -0.021469116,
+    -0.036621094,
+    -0.015777588,
+    -0.035949707,
+    -0.0211792,
+    0.027999878,
+    -0.047027588,
+    -0.06439209,
+    -0.0309906,
+    0.027618408,
+    0.0028820038,
+    -0.04196167,
+    -0.029067993,
+    0.07287598,
+    -0.0075531006,
+    0.012481689,
+    0.047912598,
+    0.02508545,
+    -0.060028076,
+    -0.023452759,
+    0.03439331,
+    -0.023254395,
+    -0.036895752,
+    -0.029708862,
+    -0.0034885406,
+    -0.044769287,
+    -0.05441284,
+    0.03869629,
+    0.005138397,
+    -0.055908203,
+    0.025848389,
+    -0.01939392,
+    0.034973145,
+    0.019760132,
+    -0.011772156,
+    -0.033447266,
+    -0.026641846,
+    -0.04083252,
+    -0.02583313,
+    0.0231781,
+    -0.03353882,
+    -0.027175903,
+    -0.014923096,
+    0.006576538,
+    -0.014450073,
+    0.022903442,
+    -0.03161621,
+    0.05203247,
+    -0.010932922,
+    -0.0044517517,
+    0.0041618347,
+    0.059448242,
+    0.025283813,
+    0.02178955,
+    -0.03213501,
+    0.009880066,
+    -0.033111572,
+    0.009971619,
+    0.020370483,
+    -0.06100464,
+    0.0012655258,
+    -0.024520874,
+    0.005420685,
+    -0.10852051,
+    0.018371582,
+    0.008476257,
+    -0.052764893,
+    -0.0009083748,
+    -0.08532715,
+    -0.04989624,
+    -0.04208374,
+    0.022109985,
+    0.08050537,
+    -0.029800415,
+    -0.0023441315,
+    -0.020858765,
+    0.00028014183,
+    -0.012748718,
+    0.018676758,
+    0.007888794,
+    -0.01939392,
+    0.0287323,
+    0.00730896,
+    0.036865234,
+    -0.09222412,
+    0.01386261,
+    0.028030396,
+    -0.04421997,
+    0.0104522705,
+    -0.03704834,
+    0.025482178,
+    -0.020324707,
+    0.02027893,
+    -0.04348755,
+    -0.0012769699,
+    0.0078048706,
+    -0.01586914,
+    -0.008102417,
+    0.03024292,
+    -0.025924683,
+    0.021102905,
+    -0.0181427,
+    -0.027374268,
+    0.046081543,
+    0.005680084,
+    0.020141602,
+    0.018875122,
+    0.0095825195,
+    -0.029968262,
+    -0.006187439,
+    0.043945312,
+    -0.0007958412,
+    -0.068603516,
+    -0.012687683,
+    0.003610611,
+    0.07928467,
+    0.035736084,
+    0.02633667,
+    0.06488037,
+    0.035888672,
+    0.011955261,
+    -0.006801605,
+    0.013450623,
+    -0.0055885315,
+    0.011291504,
+    -0.0016489029,
+    -0.04019165,
+    -0.043823242,
+    -0.012329102,
+    0.028427124,
+    0.017425537,
+    0.0032978058,
+    -0.008132935,
+    -0.037353516,
+    0.072509766,
+    -0.047180176,
+    -0.0317688,
+    0.00995636,
+    -0.010147095,
+    0.008758545,
+    -0.02053833,
+    0.067871094,
+    0.003490448,
+    -0.07525635,
+    0.016601562,
+    0.004009247,
+    0.05517578,
+    0.013122559,
+    0.01424408,
+    0.05508423,
+    0.05493164,
+    -0.03186035,
+    0.025726318,
+    0.00038719177,
+    0.056243896,
+    0.00623703,
+    0.018066406,
+    -0.0061836243,
+    -0.014587402,
+    0.010505676,
+    0.0023651123,
+    -0.030929565,
+    -0.034179688,
+    -0.07788086,
+    -0.011276245,
+    -0.011543274,
+    0.03439331,
+    0.017532349,
+    0.0079956055,
+    -0.002363205,
+    0.015823364,
+    0.00074481964,
+    -0.007675171,
+    0.014923096,
+    -0.009536743,
+    0.004360199,
+    -0.0010156631,
+    -0.034240723,
+    0.027038574,
+    -0.020645142,
+    -0.0107803345,
+    -0.01171875,
+    0.0021743774,
+    -0.004497528,
+    -0.01197052,
+    0.04550171,
+    0.05117798,
+    -0.048034668,
+    -0.005332947,
+    0.017959595,
+    -0.0068511963,
+    -0.01979065,
+    -0.022476196,
+    0.014266968,
+    -0.006843567,
+    -0.048431396,
+    -0.014793396,
+    0.04888916,
+    0.011772156,
+    -0.018463135,
+    0.020126343,
+    -0.0021419525,
+    -0.042999268,
+    -0.021774292,
+    -0.016342163,
+    0.0146484375,
+    -0.025314331,
+    0.011375427,
+    -0.006454468,
+    0.028015137,
+    0.050048828,
+    -0.056243896,
+    0.004108429,
+    -0.0071258545,
+    0.018676758,
+    -0.011886597,
+    -0.055664062,
+    -0.027023315,
+    0.04953003,
+    0.023254395,
+    -0.01586914,
+    -0.008613586,
+    0.016708374,
+    0.03704834,
+    -0.03753662,
+    -0.012588501,
+    0.011154175,
+    -0.011436462,
+    0.0045776367,
+    -0.017059326,
+    -0.07006836,
+    0.009414673,
+    -0.01247406,
+    -0.04434204,
+    -0.020492554,
+    0.060668945,
+    0.013549805,
+    0.010803223,
+    -0.021759033,
+    0.014945984,
+    0.01940918,
+    0.011444092,
+    -0.002067566,
+    0.00081920624,
+    0.0050964355,
+    -0.0015296936,
+    0.029373169,
+    -0.05596924,
+    0.022628784,
+    0.009414673,
+    -0.0032539368,
+    -0.044799805,
+    -0.013946533,
+    0.046539307,
+    0.011878967,
+    0.0137786865,
+    0.030258179,
+    -0.000828743,
+    0.01007843,
+    -0.07110596,
+    -0.09527588,
+    0.03112793,
+    -0.0076789856,
+    -0.016082764,
+    -0.017242432,
+    -0.003780365,
+    -0.033996582,
+    0.044555664,
+    0.0077400208,
+    0.00274086,
+    -0.025390625,
+    0.02684021,
+    0.02218628,
+    0.00075769424,
+    -0.02041626,
+    -0.05834961,
+    0.043029785,
+    -0.030517578,
+    -0.012794495,
+    0.006980896,
+    0.010620117,
+    -0.007156372,
+    -0.027938843,
+    0.029190063,
+    0.021087646,
+    0.041809082,
+    -0.004951477,
+    0.0022792816,
+    0.012863159,
+    -0.011962891,
+    -0.01991272,
+    -0.0256958,
+    0.013313293,
+    -0.010093689,
+    -0.0068359375,
+    -0.024673462,
+    0.008399963,
+    -0.00028014183,
+    0.02078247,
+    -0.022964478,
+    -0.024337769,
+    -0.03970337,
+    -0.017227173,
+    -0.026428223,
+    0.034576416,
+    -0.01889038,
+    -0.008178711,
+    -0.0036449432,
+    -0.012893677,
+    -0.016937256,
+    -0.038909912,
+    -0.008781433,
+    -0.015777588,
+    -0.016433716,
+    0.004547119,
+    -0.007686615,
+    -0.004299164,
+    -0.009147644,
+    -0.0055885315,
+    -0.023132324,
+    -0.02519226,
+    -0.0033168793,
+    -0.062683105,
+    -0.10650635,
+    -0.04928589,
+    -0.0005207062,
+    -0.024429321,
+    -0.06982422,
+    0.038757324,
+    0.028274536,
+    0.025100708,
+    0.005428314,
+    -0.060577393,
+    -0.003862381,
+    0.0635376,
+    -0.07104492,
+    -0.035858154,
+    -0.009590149,
+    -0.008155823,
+    0.0063667297,
+    0.02218628,
+    -0.018493652,
+    -0.037597656,
+    -0.0071792603,
+    0.0027256012,
+    0.049224854,
+    -0.00082588196,
+    -0.047576904,
+    0.03387451,
+    -0.028747559,
+    -0.02319336,
+    -0.019378662,
+    0.0045433044,
+    0.017730713,
+    0.08081055,
+    -0.025009155,
+    0.02746582,
+    -0.021347046,
+    -0.028442383,
+    0.004760742,
+    0.008079529,
+    -0.049468994,
+    -0.023605347,
+    0.014701843,
+    0.009208679,
+    0.018981934,
+    0.0129852295,
+    0.0014657974,
+    0.009063721,
+    0.008544922,
+    0.011390686,
+    -0.011131287,
+    -0.013877869,
+    -0.0074043274,
+    0.05239868,
+    -0.0035057068,
+    -0.0102005005,
+    0.06359863,
+    -0.0030059814,
+    0.034362793,
+    0.006942749,
+    -0.043792725,
+    -0.023925781,
+    -0.0236969,
+    0.029693604,
+    -0.00061273575,
+    -0.048950195,
+    0.03265381,
+    -0.055267334,
+    -0.045440674,
+    0.0059051514,
+    0.0054855347,
+    0.0063934326,
+    0.009529114,
+    -0.007736206,
+    0.018341064,
+    -0.019454956,
+    -0.022109985,
+    -0.012275696,
+    -0.022247314,
+    0.027130127,
+    -0.015014648,
+    0.012039185,
+    -0.02217102,
+    -0.015838623,
+    0.017044067,
+    0.0031089783,
+    -0.025665283,
+    -0.019592285,
+    -0.0016899109,
+    -0.085510254,
+    -0.028442383,
+    -0.022247314,
+    0.036865234,
+    -0.04498291,
+    -0.030349731,
+    -0.009475708,
+    0.0073013306,
+    0.0011329651,
+    0.015357971,
+    -0.012863159,
+    -0.042144775,
+    -0.0020999908,
+    -0.0345459,
+    0.021072388,
+    0.0116119385,
+    0.023391724,
+    0.027740479,
+    0.025253296,
+    -0.025756836,
+    -0.004432678,
+    0.008277893,
+    -0.008956909,
+    -0.023269653,
+    0.008049011,
+    -0.001698494,
+    0.0012807846,
+    0.02520752,
+    -0.023254395,
+    0.027938843,
+    -0.028533936,
+    -0.012680054,
+    -0.033935547,
+    -0.013717651,
+    0.0007343292,
+    0.015792847,
+    0.019058228,
+    0.0020198822,
+    0.007637024,
+    -0.0057907104,
+    0.0049591064,
+    0.03225708,
+    0.025161743,
+    -0.0231781,
+    0.005504608,
+    0.008117676,
+    -0.045806885,
+    0.026870728,
+    -0.0029735565,
+    -0.079589844,
+    -0.007965088,
+    -0.013519287,
+    -0.022949219,
+    -0.041137695,
+    -0.010292053,
+    -0.0035076141,
+    0.016448975,
+    -0.00018680096,
+    0.008705139,
+    0.049743652,
+    -0.013961792,
+    0.05126953,
+    -0.09387207,
+    0.022415161,
+    -0.07312012,
+    0.031433105,
+    0.0069236755,
+    0.010093689,
+    0.043395996,
+    -0.06689453,
+    -0.028396606,
+    0.016082764,
+    0.008087158,
+    -0.026428223,
+    0.02053833,
+    0.008308411,
+    0.010444641,
+    0.014602661,
+    -0.012069702,
+    -0.03164673,
+    0.024551392,
+    0.032470703,
+    -0.0099487305,
+    0.01499176,
+    -0.0038394928,
+    0.017044067,
+    -0.010887146,
+    0.0067253113,
+    0.035339355,
+    0.010040283,
+    0.024215698,
+    -0.026351929,
+    0.033843994,
+    -0.0362854,
+    0.023849487,
+    -0.042388916,
+    -0.022033691,
+    -0.029449463,
+    0.025314331,
+    0.02897644,
+    0.013542175,
+    0.05230713,
+    0.062805176,
+    0.012489319,
+    0.010231018,
+    0.030700684,
+    -0.025802612,
+    0.0104904175,
+    0.005580902,
+    -0.0026435852,
+    -0.031158447,
+    -0.0028018951,
+    0.019088745,
+    -0.0048179626,
+    0.025527954,
+    0.0049209595,
+    -0.013511658,
+    -0.0124053955,
+    0.03967285,
+    -2.6106834e-05,
+    0.024291992,
+    0.019866943,
+    0.045288086,
+    0.027618408,
+    -0.009750366,
+    -0.044799805,
+    -0.039855957,
+    -0.022567749,
+    -0.036346436,
+    0.00037264824,
+    0.032806396,
+    -0.05606079,
+    -0.010612488,
+    -0.06756592,
+    -0.08917236,
+    -0.0038528442,
+    0.0012083054,
+    -0.018096924,
+    -0.08227539,
+    0.00630188,
+    -0.013450623,
+    0.056121826,
+    0.01675415,
+    0.0014381409,
+    -0.022155762,
+    -0.019485474,
+    0.025024414,
+    0.0032100677,
+    0.05392456,
+    -0.005065918,
+    -0.019851685,
+    -0.04437256,
+    0.031555176,
+    -0.040527344,
+    -0.03527832,
+    0.012756348,
+    -0.05026245,
+    0.024017334,
+    -0.008155823,
+    0.016479492,
+    -0.062805176,
+    -0.0418396,
+    -0.05166626,
+    0.03503418,
+    -0.026687622,
+    -0.037384033,
+    0.019073486,
+    0.01449585,
+    -0.027877808,
+    -0.039215088,
+    -0.027420044,
+    0.0071372986,
+    -0.057647705,
+    -0.017929077,
+    0.034698486,
+    -0.014732361,
+    -0.008171082,
+    0.041931152,
+    -0.02281189,
+    0.08605957,
+    -0.023422241,
+    0.012466431,
+    -0.013725281,
+    -0.0035858154,
+    0.005382538,
+    0.06173706,
+    -0.05847168,
+    0.050079346,
+    -0.019195557,
+    -0.018157959,
+    -0.038757324,
+    -0.004070282,
+    -0.0033111572,
+    -0.007637024,
+    -0.02796936,
+    -0.043273926,
+    0.03439331,
+    -0.00028061867,
+    -0.02381897,
+    0.036743164,
+    -0.05429077,
+    -0.054473877,
+    -0.007865906,
+    -0.006275177,
+    -0.015853882,
+    0.002614975,
+    0.0022678375,
+    0.005207062,
+    0.036987305,
+    -0.030532837,
+    -0.008964539,
+    -0.0357666,
+    -0.0345459,
+    -0.0013713837,
+    0.019805908,
+    -0.010345459,
+    -0.007835388,
+    0.029083252,
+    0.017745972,
+    0.015991211,
+    -0.0067710876,
+    -0.047332764,
+    -0.0066070557,
+    0.021972656,
+    -0.020370483,
+    0.006679535,
+    -0.04006958,
+    0.010101318,
+    -0.031433105,
+    -0.013717651,
+    -0.008415222,
+    -0.02394104,
+    -0.028945923,
+    -0.008331299,
+    -0.0024433136,
+    -0.0021762848,
+    -0.0061798096,
+    0.00970459,
+    -0.010696411,
+    -0.02154541,
+    -0.02104187,
+    0.02168274,
+    -0.014518738,
+    -0.024841309,
+    0.03488159,
+    -0.0019550323,
+    0.040130615,
+    -0.046691895,
+    0.0049095154,
+    0.008331299,
+    0.011230469,
+    -0.005874634,
+    -0.004119873,
+    -0.011817932,
+    -0.012901306,
+    0.037109375,
+    -0.014831543,
+    0.023208618,
+    -0.10675049,
+    -0.0309906,
+    -0.048065186,
+    -0.012008667,
+    -0.05569458,
+    -0.050689697,
+    0.028411865,
+    0.01965332,
+    -0.02166748,
+    0.059692383,
+    0.0046577454,
+    0.022262573,
+    0.04663086,
+    0.03829956,
+    0.05154419,
+    -0.016189575,
+    0.01828003,
+    0.019943237,
+    -0.026657104
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+    "file_name": "89406.md",
+    "file_size": 13499,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aircraft Accident Information",
+      "The airplane came to rest upright in a field approximately 850 feet off the end of runway 36.",
+      "The accident site revealed multiple propeller strike marks in the ground leading up to the main wreckage.",
+      "No evidence of any preimpact failures or malfunctions of the airplane were discovered during examination of the wreckage.",
+      "The nose landing gear had collapsed.",
+      "The right main landing gear had collapsed.",
+      "The left main landing gear had separated from the airplane.",
+      "The airplane's fuselage structure was substantially damaged.",
+      "The propeller of the aircraft exhibited evidence of rotation.",
+      "The propeller tips were twisted.",
+      "The propeller tips exhibited chordwise scratching.",
+      "Examination of the engine revealed no evidence of any preimpact failures or malfunctions that would have precluded normal engine operation.",
+      "A cold engine compression check was conducted.",
+      "No anomalies were found during the cold engine compression check.",
+      "The damaged propeller was replaced.",
+      "An engine start and run-up was conducted using the same fuel that was onboard the airplane at the time of the accident.",
+      "The engine was first run at 1500 RPM for approximately 3 minutes.",
+      "The engine was then shut down after the first run.",
+      "A second startup was conducted.",
+      "The engine power was subsequently increased to 2300 RPM during the second startup.",
+      "The power was reduced to 2100 RPM after reaching 2300 RPM.",
+      "A magneto check was conducted at 2100 RPM.",
+      "No anomalies were noted during the magneto check.",
+      "According to a witness, on the morning of the accident she observed the pilot consume 12 to 16 alcoholic beverages between 0745 and 1230.",
+      "The pilot left to meet his passenger for the flight after consuming the alcoholic beverages.",
+      "According to an Federal Aviation Administration inspector, after the accident the Vermont State Police made contact with the pilot at his residence.",
+      "The pilot refused a breathalyzer test when contacted by Vermont State Police.",
+      "The aircraft sustained substantial damage.",
+      "The aircraft did not catch fire.",
+      "The aircraft did not explode.",
+      "The accident occurred at latitude 44.88639, longitude -72.224166.",
+      "The crew consisted of 1 person.",
+      "The crew member was not injured.",
+      "There was 1 passenger on the aircraft.",
+      "The passenger was not injured.",
+      "There were no ground injuries.",
+      "Total injuries: 2 None."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Accident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "runway 36",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "propeller",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "nose landing gear",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right main landing gear",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "left main landing gear",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuselage",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "passenger",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration inspector",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Vermont State Police",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "aircraft",
+              "classification": "Aircraftcategory"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to rest upright in a field approximately 850 feet off the end of runway 36.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "LOCATED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 36",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upright",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "field",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 36",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE FROM AIRPLANE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 850 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident site revealed multiple propeller strike marks in the ground leading up to the main wreckage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS EVIDENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple strike marks in the ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No evidence of any preimpact failures or malfunctions of the airplane were discovered during examination of the wreckage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact failures or malfunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The nose landing gear had collapsed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose landing gear",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose landing gear",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collapsed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right main landing gear had collapsed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collapsed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left main landing gear had separated from the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left main landing gear",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left main landing gear",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "separated from the airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane's fuselage structure was substantially damaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller of the aircraft exhibited evidence of rotation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS EVIDENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rotation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller tips were twisted.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tips were twisted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller tips exhibited chordwise scratching.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tips exhibited chordwise scratching",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the engine revealed no evidence of any preimpact failures or malfunctions that would have precluded normal engine operation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact failures or malfunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A cold engine compression check was conducted.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cold compression check",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No anomalies were found during the cold engine compression check.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The damaged propeller was replaced.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "replaced",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An engine start and run-up was conducted using the same fuel that was onboard the airplane at the time of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "start and run-up",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS FUEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "same fuel as during accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was first run at 1500 RPM for approximately 3 minutes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST RPM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1500",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 3 minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was then shut down after the first run.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shut down after first run",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A second startup was conducted.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second startup",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine power was subsequently increased to 2300 RPM during the second startup.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST RPM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "increased to 2300",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The power was reduced to 2100 RPM after reaching 2300 RPM.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST RPM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reduced to 2100",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A magneto check was conducted at 2100 RPM.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magneto check",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST RPM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2100",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No anomalies were noted during the magneto check.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TEST RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies during magneto check",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to a witness, on the morning of the accident she observed the pilot consume 12 to 16 alcoholic beverages between 0745 and 1230.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONSUMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "12 to 16 alcoholic beverages",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONSUMPTION TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "between 0745 and 1230",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot left to meet his passenger for the flight after consuming the alcoholic beverages.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MET WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left to meet passenger after consuming alcoholic beverages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to an Federal Aviation Administration inspector, after the accident the Vermont State Police made contact with the pilot at his residence.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Vermont State Police",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONTACTED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Vermont State Police contacted pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "residence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot refused a breathalyzer test when contacted by Vermont State Police.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Vermont State Police",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONTACTED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "refused breathalyzer test",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft did not catch fire.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FIRE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not catch fire",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft did not explode.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "EXPLOSION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not explode",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred at latitude 44.88639, longitude -72.224166.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LATITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "44.88639",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LONGITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "-72.224166",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crew consisted of 1 person.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CREW OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CREW SIZE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1 person",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crew member was not injured.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was 1 passenger on the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The passenger was not injured.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no ground injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "GROUND INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Total injuries 2 None.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "TOTAL INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2 None",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::34a831b4:2a89",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "f3cbca4afb4dfb60992ac552a6bd720c2b025a1fc53f7bc611c6130893bfd274",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::34a831b4:2a89:595cf3ea",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "a68b2742ee063d25b1d138244c72e438c5a244e3d4f990fff0980285f88b75e7",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::34a831b4:2a89:30a8bf32",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "ec0f46197eeea8afd41e1ef948018011f6a2377c18ff7e20371f3eb7069ca319",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Wreckage and Impact Information\n\n## Crew Injuries:\n* 1 None\n\n## Passenger Injuries:\n* 1 None\n\n## Ground Injuries: \n* N/A\n\n## Total Injuries:\n* 2 None\n\n## Aircraft Damage:\n* Substantial\n\n## Aircraft Fire:\n* None\n\n## Aircraft Explosion:\n* None\n\n## Latitude, Longitude:\n* 44.88639,-72.224166\n\nThe airplane came to rest upright in a field approximately 850 feet off the end of runway 36. Examination of the accident site revealed multiple propeller strike marks in the ground leading up to the main wreckage.\n\nDuring examination of the wreckage, no evidence of any preimpact failures or malfunctions of the airplane were discovered.\n\nExamination of the wreckage revealed that the nose landing gear and right main landing gear had collapsed and the left main landing gear had separated from the airplane. The airplane's fuselage structure was substantially damaged.\n\nThe propeller of the aircraft exhibited evidence of rotation. The propeller tips were twisted and exhibited chordwise scratching.\n\nExamination of the engine revealed there was no evidence of any preimpact failures or malfunctions that would have precluded normal engine operation. A cold engine compression check was conducted and no anomalies were found. The damaged propeller was replaced and an engine start and run-up was conducted using the same fuel that was onboard the airplane at the time of the accident. The engine was first run at 1500 RPM for approximately 3 minutes and was then shut down. A second startup was conducted and the engine power was subsequently increased to 2300 RPM. At that time the power was reduced to 2100 RPM and a magneto check was conducted and no anomalies were noted.\n\n## Additional Information\n\nAccording to a witness, on the morning of the accident she observed the pilot consume 12 to 16 alcoholic beverages between 0745 and 1230, then the pilot left to meet his passenger for the flight.\n\nAccording to an FAA inspector, after the accident the Vermont State Police made contact with the pilot at his residence where he refused a breathalyzer test.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2057,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

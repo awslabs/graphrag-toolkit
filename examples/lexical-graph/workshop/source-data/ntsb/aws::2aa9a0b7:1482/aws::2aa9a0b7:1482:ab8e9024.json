@@ -1,0 +1,2711 @@
+{
+  "id_": "aws::2aa9a0b7:1482:ab8e9024",
+  "embedding": [
+    0.034240723,
+    -0.0004310608,
+    -0.004085541,
+    -0.07751465,
+    -7.325411e-05,
+    -0.007537842,
+    -0.053527832,
+    0.024139404,
+    -0.01763916,
+    0.013031006,
+    -0.0008239746,
+    0.013801575,
+    0.0036411285,
+    -0.040863037,
+    0.044158936,
+    0.0017385483,
+    0.020111084,
+    0.011299133,
+    -0.024230957,
+    -0.012527466,
+    -0.019515991,
+    0.00045657158,
+    -0.046081543,
+    0.043823242,
+    -0.008773804,
+    0.060943604,
+    -0.008605957,
+    0.022521973,
+    -0.0058631897,
+    -0.007331848,
+    0.008049011,
+    -0.032806396,
+    0.004119873,
+    0.053619385,
+    -0.045562744,
+    -0.06488037,
+    -0.028808594,
+    0.03265381,
+    -0.023391724,
+    0.030914307,
+    0.008430481,
+    -0.0055503845,
+    0.021759033,
+    -0.052337646,
+    -0.0035820007,
+    -0.007129669,
+    0.016830444,
+    -0.012680054,
+    0.024719238,
+    0.04107666,
+    0.03427124,
+    -0.01802063,
+    0.020233154,
+    0.056732178,
+    -0.022491455,
+    0.0035877228,
+    -0.033203125,
+    0.049743652,
+    0.017456055,
+    -0.017654419,
+    0.000992775,
+    -0.0015048981,
+    0.019714355,
+    0.031829834,
+    -0.014221191,
+    -0.0051498413,
+    0.051513672,
+    0.014717102,
+    0.0340271,
+    0.0022964478,
+    -0.023269653,
+    0.024459839,
+    -0.0037517548,
+    0.011962891,
+    0.0093688965,
+    -0.03930664,
+    0.0065307617,
+    -0.008834839,
+    0.00014185905,
+    0.03878784,
+    -0.0020160675,
+    0.026367188,
+    0.008125305,
+    -0.0050468445,
+    0.0050468445,
+    0.026107788,
+    -0.02128601,
+    -0.02192688,
+    -0.0077438354,
+    0.033203125,
+    -0.025970459,
+    0.042419434,
+    0.031982422,
+    0.021026611,
+    -0.05078125,
+    0.01763916,
+    0.009056091,
+    -0.007904053,
+    0.011054993,
+    -0.042266846,
+    -0.022949219,
+    -0.026885986,
+    -0.07421875,
+    0.0002629757,
+    -0.008720398,
+    0.030822754,
+    0.009246826,
+    -0.036743164,
+    0.025054932,
+    0.008705139,
+    -0.007369995,
+    0.017837524,
+    -0.052520752,
+    -0.035003662,
+    -0.024658203,
+    0.052215576,
+    -0.040527344,
+    0.0021686554,
+    0.0077934265,
+    0.011871338,
+    -0.012825012,
+    -0.004676819,
+    -0.028060913,
+    -0.061676025,
+    -0.013664246,
+    -0.080078125,
+    -0.04937744,
+    0.06124878,
+    0.04916382,
+    -0.037109375,
+    0.005630493,
+    0.058532715,
+    -0.040985107,
+    -0.034606934,
+    -0.048950195,
+    0.024215698,
+    0.020523071,
+    -0.026290894,
+    0.0032978058,
+    -0.030136108,
+    0.0423584,
+    0.019577026,
+    0.028137207,
+    -0.011451721,
+    -0.023391724,
+    0.020721436,
+    0.0063972473,
+    0.0010871887,
+    0.009101868,
+    -0.015617371,
+    0.0023555756,
+    -0.04675293,
+    0.023345947,
+    0.03186035,
+    -0.030975342,
+    -0.0317688,
+    0.030776978,
+    -0.0423584,
+    0.0013628006,
+    -0.05038452,
+    -0.013000488,
+    -0.019973755,
+    -0.020751953,
+    -0.04348755,
+    -0.07470703,
+    0.027313232,
+    0.030563354,
+    -5.4240227e-06,
+    0.009773254,
+    0.0040740967,
+    0.043060303,
+    -0.029907227,
+    -0.049591064,
+    -0.05770874,
+    -0.015731812,
+    -0.025497437,
+    -0.0064201355,
+    0.0040397644,
+    0.023910522,
+    0.0001680851,
+    0.00026345253,
+    -0.039489746,
+    0.03262329,
+    0.0043144226,
+    0.009017944,
+    0.010787964,
+    0.016113281,
+    -0.013519287,
+    -0.032043457,
+    0.021469116,
+    -0.0032844543,
+    0.05795288,
+    0.012145996,
+    -0.03567505,
+    0.012336731,
+    -0.012763977,
+    0.0005159378,
+    0.0015506744,
+    -0.01966858,
+    -0.01965332,
+    -0.049316406,
+    0.03286743,
+    0.01789856,
+    0.002122879,
+    0.013961792,
+    0.004348755,
+    -0.002117157,
+    0.046966553,
+    -0.0056381226,
+    0.019592285,
+    0.024337769,
+    -0.015853882,
+    -0.013145447,
+    -0.0034866333,
+    -0.02029419,
+    -0.014701843,
+    -0.008529663,
+    0.027359009,
+    0.0016498566,
+    -0.0041542053,
+    0.015914917,
+    0.027832031,
+    0.011207581,
+    0.005443573,
+    -0.007980347,
+    0.026123047,
+    -0.010047913,
+    0.026748657,
+    0.018325806,
+    0.033233643,
+    0.04244995,
+    -0.042816162,
+    -0.032440186,
+    -0.0066566467,
+    -0.0037117004,
+    0.0357666,
+    0.031051636,
+    -0.0073394775,
+    -0.005344391,
+    -0.0033664703,
+    -0.0018472672,
+    0.001203537,
+    -0.031143188,
+    0.013931274,
+    0.010139465,
+    0.02923584,
+    0.024398804,
+    -0.002029419,
+    -0.045684814,
+    0.006225586,
+    0.008079529,
+    0.0335083,
+    0.032073975,
+    0.035461426,
+    -0.008728027,
+    0.025146484,
+    -0.024383545,
+    -0.05480957,
+    0.054016113,
+    -0.0037155151,
+    0.018814087,
+    -0.012252808,
+    -0.024642944,
+    -0.0013942719,
+    0.01966858,
+    0.026550293,
+    0.03475952,
+    0.039764404,
+    -0.010253906,
+    0.005962372,
+    0.012779236,
+    -0.00088977814,
+    0.0053138733,
+    0.030822754,
+    -0.07019043,
+    -0.0023231506,
+    -0.0044670105,
+    0.010597229,
+    -0.02130127,
+    -0.029647827,
+    -0.0045204163,
+    0.02760315,
+    -0.02029419,
+    -0.031158447,
+    0.030029297,
+    0.014533997,
+    -0.04385376,
+    -0.055999756,
+    -0.0074920654,
+    0.039154053,
+    0.06341553,
+    0.00042414665,
+    -0.021133423,
+    -0.009742737,
+    -0.009498596,
+    -0.016662598,
+    0.051605225,
+    0.0070648193,
+    -0.018463135,
+    0.01360321,
+    0.02734375,
+    0.04284668,
+    0.00818634,
+    -0.021102905,
+    0.00044226646,
+    0.01852417,
+    -0.00944519,
+    0.028747559,
+    0.0062713623,
+    -0.03338623,
+    -0.020233154,
+    -0.008682251,
+    0.021057129,
+    -0.037261963,
+    0.02809143,
+    0.007167816,
+    -0.02784729,
+    0.012718201,
+    -0.017669678,
+    0.014205933,
+    0.025741577,
+    0.014060974,
+    0.0013017654,
+    -0.008239746,
+    0.012001038,
+    -0.035217285,
+    -0.011474609,
+    -0.008293152,
+    -0.012374878,
+    -0.014442444,
+    0.006538391,
+    0.0023555756,
+    -0.015007019,
+    0.037322998,
+    0.0181427,
+    0.010292053,
+    0.013343811,
+    -0.018630981,
+    0.012382507,
+    0.06713867,
+    0.041381836,
+    -0.007865906,
+    -0.0069999695,
+    -0.0713501,
+    -0.07879639,
+    0.009284973,
+    0.024261475,
+    -0.0049934387,
+    -0.053619385,
+    -0.043640137,
+    0.07470703,
+    -0.014274597,
+    -0.019897461,
+    -0.05722046,
+    -0.016540527,
+    -0.01171875,
+    0.0011005402,
+    -0.012908936,
+    0.009292603,
+    -0.05355835,
+    0.0049438477,
+    -0.012252808,
+    -0.051086426,
+    -0.0141067505,
+    0.014801025,
+    0.009963989,
+    -0.0050697327,
+    -0.027526855,
+    -0.031021118,
+    0.007247925,
+    -0.05203247,
+    -0.0146865845,
+    -0.039489746,
+    0.004650116,
+    0.00065279007,
+    0.07702637,
+    -0.011558533,
+    -0.04550171,
+    0.016494751,
+    -0.017120361,
+    -0.0042533875,
+    -0.00831604,
+    0.0011548996,
+    0.0060768127,
+    0.007850647,
+    0.0007147789,
+    -0.041778564,
+    0.0045433044,
+    -0.008575439,
+    0.010932922,
+    -0.0018634796,
+    0.02330017,
+    -0.011795044,
+    -0.033447266,
+    -0.015655518,
+    0.035461426,
+    -0.037963867,
+    -0.057128906,
+    0.027130127,
+    -0.017822266,
+    -0.13586426,
+    0.02003479,
+    0.0024032593,
+    -0.041778564,
+    -0.011451721,
+    0.008895874,
+    -0.070739746,
+    -0.04373169,
+    0.039642334,
+    0.036193848,
+    -0.009933472,
+    0.03692627,
+    -0.018661499,
+    0.060699463,
+    -0.021514893,
+    0.0031414032,
+    -0.0680542,
+    -0.026672363,
+    0.025054932,
+    0.06958008,
+    0.016693115,
+    -0.036376953,
+    -0.00031208992,
+    0.07232666,
+    -0.009414673,
+    -0.009010315,
+    -0.034210205,
+    -0.015319824,
+    -0.004447937,
+    0.042663574,
+    -0.027740479,
+    0.018447876,
+    0.02029419,
+    -0.009963989,
+    -0.04067993,
+    0.022613525,
+    -0.029388428,
+    0.045410156,
+    -0.0036697388,
+    -0.029281616,
+    0.00092458725,
+    0.012496948,
+    0.04006958,
+    0.01826477,
+    0.012016296,
+    0.0010786057,
+    0.007610321,
+    0.01713562,
+    -0.030654907,
+    -0.058288574,
+    -0.03161621,
+    0.026016235,
+    0.012413025,
+    0.024169922,
+    0.036132812,
+    0.006515503,
+    -0.011260986,
+    0.030151367,
+    0.01977539,
+    -0.023025513,
+    0.005680084,
+    -0.01033783,
+    -0.05895996,
+    0.008003235,
+    0.020721436,
+    -0.025222778,
+    -0.0012674332,
+    0.007270813,
+    0.021499634,
+    -0.004962921,
+    0.025024414,
+    0.04849243,
+    -0.009559631,
+    -0.0110321045,
+    -0.006111145,
+    -0.04043579,
+    0.0010976791,
+    -0.014389038,
+    0.07116699,
+    0.014724731,
+    -0.057250977,
+    0.014892578,
+    -0.045440674,
+    0.040649414,
+    0.024124146,
+    0.0016899109,
+    0.049102783,
+    0.0418396,
+    0.030471802,
+    -0.008712769,
+    0.0050354004,
+    -0.024856567,
+    0.033569336,
+    0.029296875,
+    0.017227173,
+    -0.010643005,
+    -0.012107849,
+    0.053009033,
+    0.0357666,
+    -0.017578125,
+    -0.011894226,
+    -0.0043411255,
+    -0.0099105835,
+    -0.059509277,
+    -0.017822266,
+    0.008384705,
+    -0.02027893,
+    0.0036296844,
+    0.00055933,
+    -0.06640625,
+    -0.01777649,
+    -0.031677246,
+    0.0015993118,
+    0.027450562,
+    -0.03652954,
+    0.025222778,
+    -0.009506226,
+    -0.0074386597,
+    -0.011528015,
+    0.00198555,
+    -0.0076828003,
+    -0.030349731,
+    0.051483154,
+    0.025970459,
+    -0.027938843,
+    0.014389038,
+    0.00035858154,
+    0.007572174,
+    -0.039367676,
+    -0.028915405,
+    -0.005710602,
+    0.036010742,
+    -0.019165039,
+    -0.005218506,
+    0.045959473,
+    -0.010864258,
+    -0.036346436,
+    0.07489014,
+    0.010505676,
+    -0.076293945,
+    -0.019012451,
+    0.015098572,
+    0.015594482,
+    -0.041625977,
+    0.037597656,
+    -0.009902954,
+    0.020401001,
+    0.032470703,
+    -0.078552246,
+    0.0051651,
+    -0.02128601,
+    -0.0038719177,
+    0.0020046234,
+    -0.06185913,
+    -0.0715332,
+    0.08203125,
+    0.053894043,
+    -0.038024902,
+    -0.02279663,
+    0.038726807,
+    0.024414062,
+    -0.038726807,
+    0.0012950897,
+    0.014678955,
+    0.04525757,
+    0.016143799,
+    -0.0035362244,
+    -0.07885742,
+    0.027359009,
+    -0.03604126,
+    -0.01687622,
+    -0.030639648,
+    0.05291748,
+    0.01600647,
+    0.0044021606,
+    -0.010269165,
+    -0.017959595,
+    0.0034065247,
+    -0.020996094,
+    -0.024230957,
+    0.027236938,
+    -0.0009889603,
+    -0.026123047,
+    -0.052856445,
+    -0.046051025,
+    0.021850586,
+    0.011291504,
+    -0.0048065186,
+    -0.009239197,
+    -0.011444092,
+    0.019989014,
+    -0.0093688965,
+    -0.0059432983,
+    -0.00995636,
+    -0.0013475418,
+    0.028900146,
+    0.0040512085,
+    -0.064697266,
+    -0.047210693,
+    -0.0060043335,
+    0.00016486645,
+    -0.0067863464,
+    -0.009231567,
+    -0.032836914,
+    0.008148193,
+    0.02708435,
+    0.018417358,
+    -0.013023376,
+    0.005882263,
+    0.012741089,
+    0.05050659,
+    0.025146484,
+    -0.06719971,
+    0.035583496,
+    -0.04498291,
+    -0.0049743652,
+    -0.061523438,
+    0.06604004,
+    0.09436035,
+    0.022094727,
+    0.047058105,
+    -0.010696411,
+    0.00028157234,
+    -0.015487671,
+    0.021453857,
+    -0.033569336,
+    -0.021255493,
+    -0.0134887695,
+    -0.0034122467,
+    0.00242424,
+    0.020065308,
+    -0.0043640137,
+    -0.067993164,
+    -0.091796875,
+    -0.06237793,
+    0.068359375,
+    -0.020721436,
+    -0.041809082,
+    0.015296936,
+    -0.011932373,
+    -0.03564453,
+    0.017333984,
+    -0.0077781677,
+    0.0003554821,
+    -0.017227173,
+    -0.0546875,
+    -0.042175293,
+    -0.03326416,
+    -0.009147644,
+    -0.011734009,
+    -0.019836426,
+    -0.011299133,
+    -0.002380371,
+    -0.04763794,
+    0.00026011467,
+    -0.03189087,
+    0.021820068,
+    0.012191772,
+    -0.032989502,
+    -0.057678223,
+    -0.066589355,
+    -0.06060791,
+    -0.0030441284,
+    -0.05026245,
+    -0.050750732,
+    -0.026229858,
+    0.039916992,
+    -0.010574341,
+    0.004283905,
+    -0.051605225,
+    -0.008239746,
+    -0.018829346,
+    -0.0032196045,
+    -0.028701782,
+    -0.011650085,
+    0.07147217,
+    0.025054932,
+    0.015975952,
+    0.023406982,
+    -0.02003479,
+    0.0037631989,
+    0.01675415,
+    0.009773254,
+    -0.027938843,
+    -0.0090408325,
+    0.055725098,
+    0.002073288,
+    -0.023223877,
+    0.022827148,
+    0.032043457,
+    -0.010223389,
+    0.009338379,
+    0.030532837,
+    -0.0087890625,
+    -0.055999756,
+    0.0137786865,
+    -0.028030396,
+    -0.020462036,
+    -0.035369873,
+    -0.02041626,
+    0.0030155182,
+    -0.002658844,
+    0.019638062,
+    -0.016311646,
+    0.007484436,
+    0.036254883,
+    -0.037506104,
+    0.05557251,
+    -0.03616333,
+    -0.017700195,
+    0.028030396,
+    0.06573486,
+    -0.03918457,
+    -0.03086853,
+    0.064941406,
+    0.02796936,
+    0.06506348,
+    -0.005252838,
+    -0.025894165,
+    -0.04107666,
+    -0.0044784546,
+    0.025863647,
+    0.016799927,
+    -0.021240234,
+    0.037475586,
+    -0.02911377,
+    -0.029174805,
+    0.005050659,
+    -0.023284912,
+    -0.032073975,
+    0.013626099,
+    -0.027893066,
+    0.029525757,
+    2.1994114e-05,
+    -0.04550171,
+    0.005241394,
+    -0.046661377,
+    0.04446411,
+    -0.05279541,
+    -0.003686905,
+    -0.006717682,
+    -0.029190063,
+    0.008277893,
+    -0.03527832,
+    -0.027191162,
+    -0.002735138,
+    0.0064353943,
+    -0.05303955,
+    -0.026016235,
+    -0.024795532,
+    0.014038086,
+    -0.01361084,
+    -0.045074463,
+    -0.013244629,
+    0.00085783005,
+    -0.024337769,
+    0.016479492,
+    -0.012626648,
+    -0.043640137,
+    0.00018298626,
+    0.0031986237,
+    0.021759033,
+    0.026275635,
+    0.010154724,
+    -0.03866577,
+    0.017196655,
+    -0.008155823,
+    0.00340271,
+    -0.0289917,
+    0.005176544,
+    0.014549255,
+    -0.007965088,
+    0.0046424866,
+    0.013671875,
+    0.012130737,
+    -0.0016794205,
+    0.0005040169,
+    -0.026779175,
+    -0.009101868,
+    0.017120361,
+    0.010902405,
+    0.01864624,
+    -0.024108887,
+    -0.014099121,
+    0.019302368,
+    0.0065345764,
+    -0.05267334,
+    -0.007785797,
+    0.027404785,
+    -0.018707275,
+    -0.078125,
+    0.00038599968,
+    0.0029144287,
+    -0.02243042,
+    0.026550293,
+    0.04168701,
+    -0.033477783,
+    -0.0184021,
+    -0.004753113,
+    -0.02003479,
+    0.026123047,
+    -0.009162903,
+    -0.015808105,
+    -0.011672974,
+    -0.038024902,
+    -0.008544922,
+    -0.025238037,
+    0.04095459,
+    0.013786316,
+    0.0014076233,
+    0.007865906,
+    -0.022415161,
+    0.05307007,
+    0.005935669,
+    0.0178833,
+    0.028305054,
+    -0.023422241,
+    -0.021224976,
+    -0.004421234,
+    0.011123657,
+    0.029586792,
+    0.04675293,
+    0.020523071,
+    -0.011650085,
+    -0.0385437,
+    0.0017023087,
+    -0.01687622,
+    0.008087158,
+    0.0033302307,
+    -0.009109497,
+    -0.004283905,
+    -0.0069389343,
+    -0.04724121,
+    -0.02645874,
+    -0.020202637,
+    0.023361206,
+    -0.012916565,
+    0.054656982,
+    -0.021728516,
+    0.015808105,
+    0.00013649464,
+    -0.02758789,
+    0.043273926,
+    0.008201599,
+    -0.01953125,
+    0.04107666,
+    0.04244995,
+    -0.028411865,
+    0.015602112,
+    0.06652832,
+    -0.0047416687,
+    0.0037956238,
+    0.031051636,
+    -0.005264282,
+    -0.010643005,
+    0.012374878,
+    0.050628662,
+    -0.02482605,
+    -0.012390137,
+    -0.005760193,
+    0.00016617775,
+    0.025436401,
+    0.022521973,
+    0.0058288574,
+    -0.0005302429,
+    -0.0043411255,
+    -0.03237915,
+    0.005092621,
+    -0.02381897,
+    0.014022827,
+    0.024658203,
+    -0.022232056,
+    -0.062408447,
+    -0.03579712,
+    -0.025115967,
+    -0.048980713,
+    0.0018997192,
+    0.05340576,
+    -0.050994873,
+    0.030929565,
+    -0.066345215,
+    -0.072265625,
+    0.0043754578,
+    0.021560669,
+    -0.009811401,
+    -0.09686279,
+    0.011077881,
+    -0.03491211,
+    0.054870605,
+    0.02003479,
+    0.022140503,
+    -0.022216797,
+    -0.022827148,
+    0.047302246,
+    0.012718201,
+    0.044921875,
+    -0.00459671,
+    -0.036895752,
+    -0.065979004,
+    0.07519531,
+    -0.043121338,
+    -0.047851562,
+    -0.004463196,
+    -0.047210693,
+    0.041259766,
+    -0.016098022,
+    0.01374054,
+    -0.052581787,
+    -0.021820068,
+    -0.016708374,
+    0.036895752,
+    -0.015197754,
+    -0.0046806335,
+    0.07043457,
+    -0.0008568764,
+    -0.038116455,
+    -0.08325195,
+    -0.038024902,
+    -0.009223938,
+    -0.12060547,
+    -0.041137695,
+    -0.010643005,
+    -0.01739502,
+    0.060058594,
+    0.09051514,
+    -0.026733398,
+    0.09649658,
+    -0.038085938,
+    0.0115356445,
+    -0.025436401,
+    -0.014175415,
+    -0.015602112,
+    0.04638672,
+    0.032073975,
+    0.047027588,
+    -0.006538391,
+    -0.020370483,
+    -0.058258057,
+    -0.0129776,
+    0.070739746,
+    -0.0013713837,
+    -0.012138367,
+    -0.08251953,
+    0.035583496,
+    0.009498596,
+    -0.013694763,
+    0.0087890625,
+    -0.009460449,
+    -0.038269043,
+    0.02633667,
+    0.015823364,
+    -0.004676819,
+    0.016616821,
+    -0.0051460266,
+    0.021606445,
+    0.030151367,
+    -0.023651123,
+    0.014762878,
+    -0.0020999908,
+    -0.047454834,
+    0.012390137,
+    0.018615723,
+    -0.008071899,
+    0.017822266,
+    0.001376152,
+    0.062408447,
+    0.01159668,
+    -0.04232788,
+    0.011047363,
+    0.008216858,
+    -0.0051574707,
+    0.023483276,
+    0.0059318542,
+    -0.036102295,
+    0.005748749,
+    0.013328552,
+    0.018035889,
+    -0.021377563,
+    -0.008743286,
+    -0.015975952,
+    -0.024536133,
+    -0.01209259,
+    -0.024383545,
+    0.021942139,
+    -0.08465576,
+    0.05105591,
+    -0.02015686,
+    0.0040893555,
+    -0.0011539459,
+    0.06201172,
+    0.008087158,
+    0.042877197,
+    -0.011657715,
+    -0.034210205,
+    0.0385437,
+    0.013168335,
+    0.020446777,
+    0.011886597,
+    0.04940796,
+    -0.024398804,
+    -0.00969696,
+    -0.0065078735,
+    0.034332275,
+    0.0068893433,
+    -0.008583069,
+    -0.042297363,
+    -0.020324707,
+    -0.05029297,
+    -0.008735657,
+    -0.018203735,
+    -0.042999268,
+    0.040222168,
+    0.017166138,
+    -0.018325806,
+    0.061920166,
+    -0.039489746,
+    0.01109314,
+    0.04055786,
+    0.043670654,
+    0.027038574,
+    -0.0029029846,
+    -0.04095459,
+    0.025543213,
+    -0.013626099
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+    "file_name": "85615.md",
+    "file_size": 49115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Helicopter Accident at Heliport",
+      "The Tactical Flight Officer (TFO) put on his gear at the helicopter.",
+      "The Tactical Flight Officer (TFO) climbed into the helicopter.",
+      "The Tactical Flight Officer (TFO) fastened his seatbelt in the helicopter.",
+      "A lieutenant came to the TFO's side of the helicopter.",
+      "The lieutenant asked if they wanted to respond due to the weather.",
+      "The TFO indicated that the traffic helicopter (N911FA) was still flying.",
+      "The TFO stated they would return to the heliport if the weather was bad once airborne.",
+      "The TFO heard a loud bang.",
+      "The TFO saw the lieutenant run toward a fire extinguisher.",
+      "The TFO had not been aware that another helicopter had landed.",
+      "The TFO looked up and saw the main rotor of the helicopter he was sitting in was gone.",
+      "The Director of Maintenance was the on duty mechanic on the day of the accident.",
+      "The Director of Maintenance's mission was to maintain the helicopters.",
+      "The Director of Maintenance's mission was to assist with helicopter movement.",
+      "The Director of Maintenance assisted with moving helicopter N96BM outside of the hangar to pad 1.",
+      "The Director of Maintenance had not realized that helicopter N96BM had been placed outside of the pad 1 landing box.",
+      "The Director of Maintenance realized helicopter N96BM was outside the pad 1 landing box after disconnecting the auxiliary power unit (APU).",
+      "The Director of Maintenance started back to the hangar after disconnecting the auxiliary power unit.",
+      "The duty mechanic stated that it should not have been an issue because the helicopter was getting ready to depart.",
+      "The duty mechanic had observed helicopter N911FA approaching the heliport.",
+      "The duty mechanic had been inside the hangar for about one minute when he heard a loud explosion.",
+      "The weather at Bob Hope Airport at 1628 indicated visibility of 3 statute miles.",
+      "Bob Hope Airport is located in Burbank, California.",
+      "Bob Hope Airport is 8 miles west of the accident site.",
+      "The weather at Bob Hope Airport at 1628 included light rain showers.",
+      "The wind at Bob Hope Airport at 1628 was from 180-degrees at 6 knots."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Helicopter Accident at Heliport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Tactical Flight Officer",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "helicopter",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "lieutenant",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "traffic helicopter",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N911FA",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "heliport",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Director of Maintenance",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N96BM",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "hangar",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pad 1",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "auxiliary power unit",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "duty mechanic",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bob Hope Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Burbank, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "accident site",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Tactical Flight Officer (TFO) put on his gear at the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "put on gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Tactical Flight Officer (TFO) climbed into the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ENTERED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "climbed into helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Tactical Flight Officer (TFO) fastened his seatbelt in the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INSIDE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fastened seatbelt",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A lieutenant came to the TFO's side of the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "APPROACHED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "APPROACHED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "came to TFO's side",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The lieutenant asked if they wanted to respond due to the weather.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "asked about responding",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONCERN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO indicated that the traffic helicopter (N911FA) was still flying.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REFERENCED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED AS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "traffic helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "still flying",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO stated they would return to the heliport if the weather was bad once airborne.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PLANNED RETURN TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "heliport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONTINGENCY PLAN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "return if weather bad",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO heard a loud bang.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HEARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loud bang",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO saw the lieutenant run toward a fire extinguisher.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ran toward fire extinguisher",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO had not been aware that another helicopter had landed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "AWARENESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unaware of landed helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO looked up and saw the main rotor of the helicopter he was sitting in was gone.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INSIDE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor gone",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor gone",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance was the on duty mechanic on the day of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on duty mechanic",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "day of accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance's mission was to maintain the helicopters.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MAINTAINS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maintain helicopters",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance's mission was to assist with helicopter movement.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ASSISTS WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "assist with helicopter movement",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance assisted with moving helicopter N96BM outside of the hangar to pad 1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "MOVED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hangar",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "MOVED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pad 1",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moved helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance had not realized that helicopter N96BM had been placed outside of the pad 1 landing box.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBLE FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITIONED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pad 1",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "AWARENESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unaware of incorrect positioning",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "outside landing box",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance realized helicopter N96BM was outside the pad 1 landing box after disconnecting the auxiliary power unit (APU).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DISCONNECTED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary power unit",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBLE FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REALIZATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter outside landing box",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "disconnected APU",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance started back to the hangar after disconnecting the auxiliary power unit.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hangar",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "returned to hangar",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The duty mechanic stated that it should not have been an issue because the helicopter was getting ready to depart.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "duty mechanic",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REFERENCED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "duty mechanic",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "STATEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "positioning not an issue",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preparing to depart",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The duty mechanic had observed helicopter N911FA approaching the heliport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "duty mechanic",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "APPROACHED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "heliport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approaching heliport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The duty mechanic had been inside the hangar for about one minute when he heard a loud explosion.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "duty mechanic",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hangar",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "duty mechanic",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DURATION IN LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about one minute",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "duty mechanic",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HEARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loud explosion",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The weather at Bob Hope Airport at 1628 indicated visibility of 3 statute miles.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3 statute miles",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1628",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Bob Hope Airport is located in Burbank, California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Burbank, California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Bob Hope Airport is 8 miles west of the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "RELATIVE TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE FROM ACCIDENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "8 miles west",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The weather at Bob Hope Airport at 1628 included light rain showers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "light rain showers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1628",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wind at Bob Hope Airport at 1628 was from 180-degrees at 6 knots.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "180-degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bob Hope Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1628",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2aa9a0b7:1482",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a45c36e0d4254ce290d515a8c90431d59411a5f52134b921e4be9debc05a3ddf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::2aa9a0b7:1482:8c065c8d",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "3bd581090a1f39f59869b1094575023dc7ecef115b8a47f4eb3622c71f744e01",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2aa9a0b7:1482:22979ceb",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "967b09e20068a992e25c568b863306b56987cdd5aa18a690fb6a04ee2cbcbb50",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The TFO recalled putting on his gear at the helicopter, climbing in and seat belting himself in. The lieutenant came to his side of the helicopter, and asked if they wanted to respond due to the weather. The TFO indicated that the traffic helicopter (N911FA) was still up; once they were airborne, if the weather was bad, they would come back to the heliport. The TFO stated he heard a loud bang and saw the lieutenant run toward a fire extinguisher. At the time, he had not been aware that another helicopter had landed. When he looked up he saw that the main rotor of the helicopter he was sitting in was gone.\n\nThe Director of Maintenance was the on duty mechanic on the day of the accident; his mission was to maintain the helicopters, and assist with helicopter movement. He recalled that he assisted with the movement of N96BM outside of the hangar to pad 1. He had not realized that N96BM had been placed outside of the pad 1 landing box until after he disconnected the auxiliary power unit (APU) and had started back to the hangar. The duty mechanic stated that, due to the fact that the helicopter was getting ready to depart, it should not have been an issue; he had observed N911FA on inbound to the heliport. He stated that he had been inside the hangar for about a minute when he heard a loud explosion.\n\n## METEOROLOGICAL INFORMATION\nWeather obtained at 1628 for the Bob Hope Airport (BUR), Burbank, California, 8 miles west of the accident site, indicated visibility as 3 statute miles, light rain showers, wind from 180-degrees at 6 knots.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 1762,
+  "end_char_idx": 3322,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

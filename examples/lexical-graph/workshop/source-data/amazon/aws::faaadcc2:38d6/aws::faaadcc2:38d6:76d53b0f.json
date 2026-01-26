@@ -1,0 +1,2512 @@
+{
+  "id_": "aws::faaadcc2:38d6:76d53b0f",
+  "embedding": [
+    0.01826477,
+    -0.017150879,
+    -0.011734009,
+    -0.06427002,
+    -0.013725281,
+    -0.0020523071,
+    -0.018844604,
+    0.012504578,
+    -0.058441162,
+    0.044830322,
+    0.011665344,
+    0.0592041,
+    0.015609741,
+    -0.032440186,
+    0.05303955,
+    -0.008728027,
+    0.05895996,
+    0.0021686554,
+    0.058685303,
+    0.016113281,
+    -0.018661499,
+    0.045410156,
+    0.090270996,
+    0.023086548,
+    0.04547119,
+    -0.05050659,
+    0.039154053,
+    0.003873825,
+    0.034851074,
+    0.013145447,
+    0.042510986,
+    -0.041900635,
+    0.013954163,
+    0.0015420914,
+    -0.015090942,
+    -0.02407837,
+    0.00592041,
+    0.004383087,
+    -0.018341064,
+    0.031555176,
+    0.044677734,
+    -0.043121338,
+    0.11199951,
+    -0.04168701,
+    0.059417725,
+    -0.010673523,
+    0.064697266,
+    -0.07006836,
+    0.024673462,
+    0.014320374,
+    0.0062217712,
+    0.0018548965,
+    0.0032176971,
+    0.0073280334,
+    -0.006210327,
+    0.010856628,
+    0.068725586,
+    -0.048065186,
+    0.040008545,
+    -0.06173706,
+    -0.049591064,
+    -0.013908386,
+    0.056915283,
+    0.005317688,
+    -0.010871887,
+    -0.002544403,
+    0.0077819824,
+    -0.0062065125,
+    -0.015396118,
+    -0.0043182373,
+    0.025161743,
+    -0.018859863,
+    -0.0126571655,
+    -0.00957489,
+    -0.00969696,
+    0.004135132,
+    0.021484375,
+    0.008682251,
+    -0.00034451485,
+    0.014381409,
+    0.008705139,
+    -0.008155823,
+    0.04006958,
+    -0.06286621,
+    0.06222534,
+    -0.0149383545,
+    0.0079422,
+    0.0048828125,
+    0.01979065,
+    0.0149383545,
+    0.013374329,
+    -0.009140015,
+    0.009231567,
+    0.052886963,
+    0.0046691895,
+    -0.030227661,
+    -0.008522034,
+    -0.0026359558,
+    -0.017211914,
+    -0.015945435,
+    -0.008972168,
+    -0.0038909912,
+    -0.025299072,
+    0.0049972534,
+    0.0013456345,
+    -0.007572174,
+    0.012107849,
+    -0.0058059692,
+    0.027557373,
+    0.023880005,
+    -0.017837524,
+    0.049316406,
+    -0.0023727417,
+    -0.0076293945,
+    -0.029296875,
+    0.007041931,
+    -0.024032593,
+    -0.010177612,
+    -0.0070266724,
+    -0.0028209686,
+    0.006717682,
+    0.010810852,
+    0.03704834,
+    -0.015281677,
+    0.012069702,
+    -0.0131073,
+    -0.022247314,
+    -0.028900146,
+    0.0178833,
+    0.026931763,
+    0.0013418198,
+    0.061065674,
+    -0.09088135,
+    -0.09051514,
+    -0.083740234,
+    0.011962891,
+    0.017593384,
+    0.022766113,
+    0.022033691,
+    -0.020065308,
+    0.015808105,
+    -0.0010118484,
+    0.006336212,
+    0.026977539,
+    0.0029335022,
+    -0.006580353,
+    0.008895874,
+    0.020080566,
+    -0.0039253235,
+    0.037353516,
+    -0.027862549,
+    0.014427185,
+    0.03604126,
+    -0.004425049,
+    -0.043029785,
+    -0.020553589,
+    0.013343811,
+    -0.04107666,
+    -0.021453857,
+    -0.048828125,
+    0.024551392,
+    0.016174316,
+    0.012573242,
+    0.020965576,
+    0.0035057068,
+    -0.013687134,
+    -0.027282715,
+    0.0056495667,
+    0.018875122,
+    0.028930664,
+    -0.0057640076,
+    -0.015266418,
+    -0.04345703,
+    -0.005935669,
+    -0.0015773773,
+    0.014030457,
+    0.02532959,
+    -0.03918457,
+    -0.008285522,
+    0.04147339,
+    -0.00048732758,
+    -0.019515991,
+    -0.01600647,
+    0.016189575,
+    -0.0071907043,
+    -0.0017786026,
+    -0.013130188,
+    0.011726379,
+    0.042785645,
+    -0.0059776306,
+    0.00844574,
+    -0.010978699,
+    -0.014892578,
+    -0.024124146,
+    -0.022659302,
+    -0.027435303,
+    -0.01689148,
+    -0.01676941,
+    -0.0035858154,
+    0.05429077,
+    0.0099487305,
+    0.025772095,
+    -0.024276733,
+    0.0011119843,
+    -0.0126571655,
+    -0.04269409,
+    0.0027008057,
+    0.010231018,
+    -0.04916382,
+    0.022720337,
+    0.04055786,
+    -0.0073661804,
+    -0.014045715,
+    -0.027923584,
+    0.006587982,
+    -0.0357666,
+    0.019927979,
+    0.030059814,
+    0.0012273788,
+    -0.01222229,
+    0.01235199,
+    0.0047912598,
+    0.001493454,
+    0.05154419,
+    0.011604309,
+    0.0206604,
+    0.0015649796,
+    0.013580322,
+    0.062561035,
+    0.019378662,
+    0.06616211,
+    -0.0362854,
+    0.03930664,
+    0.048675537,
+    0.022918701,
+    0.0035820007,
+    0.010795593,
+    -0.10876465,
+    0.0039482117,
+    0.029953003,
+    0.011207581,
+    -0.006465912,
+    -0.009124756,
+    0.029342651,
+    -0.011169434,
+    -0.052703857,
+    0.0012722015,
+    0.016845703,
+    0.022644043,
+    0.064941406,
+    0.047180176,
+    -0.003583908,
+    -0.00920105,
+    0.01247406,
+    0.024932861,
+    -0.0036411285,
+    -0.04446411,
+    -0.025405884,
+    -0.008903503,
+    0.019256592,
+    0.004306793,
+    0.0036678314,
+    0.038238525,
+    -0.02444458,
+    -0.047180176,
+    0.011444092,
+    -0.008964539,
+    0.005470276,
+    -0.010154724,
+    -0.013763428,
+    0.021499634,
+    -0.02003479,
+    -0.020568848,
+    0.03967285,
+    0.00028467178,
+    -0.051940918,
+    -0.03253174,
+    0.008674622,
+    -0.014129639,
+    0.006614685,
+    0.023925781,
+    0.015419006,
+    -0.029647827,
+    -0.008491516,
+    0.035888672,
+    -0.04046631,
+    -0.015060425,
+    0.04876709,
+    0.039245605,
+    -0.013366699,
+    0.03439331,
+    -0.034698486,
+    -0.029953003,
+    0.031036377,
+    0.010772705,
+    -0.06274414,
+    -0.010650635,
+    -0.008216858,
+    0.016464233,
+    -0.03668213,
+    -0.0025749207,
+    0.031463623,
+    -0.02027893,
+    -0.0045776367,
+    0.017959595,
+    -0.013450623,
+    0.055267334,
+    -0.036102295,
+    -0.013038635,
+    -0.0021953583,
+    -0.029541016,
+    0.008644104,
+    -0.004261017,
+    -0.07647705,
+    0.026184082,
+    0.0011539459,
+    -0.026260376,
+    -0.027801514,
+    -0.026016235,
+    0.04083252,
+    -0.044555664,
+    0.07836914,
+    0.024429321,
+    0.03668213,
+    0.05645752,
+    -0.020629883,
+    0.018966675,
+    0.010871887,
+    -0.0446167,
+    -0.027008057,
+    -0.045074463,
+    -0.06488037,
+    -0.060943604,
+    0.08111572,
+    -0.0017185211,
+    0.03845215,
+    -0.012252808,
+    0.1352539,
+    -0.03010559,
+    -0.14233398,
+    -0.06774902,
+    -0.053863525,
+    -0.045013428,
+    0.063964844,
+    0.027450562,
+    -0.055541992,
+    0.012336731,
+    -0.007865906,
+    0.030776978,
+    0.0044059753,
+    -0.0030155182,
+    -0.0077323914,
+    0.015403748,
+    -0.040130615,
+    0.0335083,
+    -0.014625549,
+    -0.025512695,
+    -0.049316406,
+    -0.008903503,
+    -0.0892334,
+    -0.0038700104,
+    -0.015022278,
+    -0.034362793,
+    -0.035125732,
+    0.025344849,
+    -0.013038635,
+    -0.029968262,
+    -0.0115356445,
+    0.04626465,
+    0.03338623,
+    -0.041381836,
+    0.00333786,
+    -0.0017852783,
+    0.007118225,
+    0.060760498,
+    0.018676758,
+    0.036102295,
+    -0.009017944,
+    -0.023666382,
+    0.00283432,
+    0.034729004,
+    0.012840271,
+    -0.0043640137,
+    -0.022842407,
+    -0.032043457,
+    0.04849243,
+    0.018600464,
+    -0.0045204163,
+    0.011688232,
+    -0.04360962,
+    0.03286743,
+    0.083740234,
+    0.07305908,
+    -0.028503418,
+    0.009056091,
+    0.0076789856,
+    -0.0368042,
+    0.030441284,
+    -0.005886078,
+    0.00059986115,
+    0.084472656,
+    -0.05142212,
+    -0.030303955,
+    0.014274597,
+    0.019607544,
+    -0.03543091,
+    0.07269287,
+    0.010032654,
+    0.022491455,
+    0.03805542,
+    0.01979065,
+    -0.010643005,
+    0.043914795,
+    -0.018432617,
+    0.011550903,
+    -0.006504059,
+    0.024795532,
+    -0.010063171,
+    0.004421234,
+    -0.011077881,
+    0.04006958,
+    -0.044799805,
+    0.031982422,
+    0.013694763,
+    -0.026245117,
+    0.008979797,
+    0.00340271,
+    0.039764404,
+    0.0012483597,
+    -0.00042319298,
+    -0.010009766,
+    -0.030380249,
+    -0.0034866333,
+    0.001291275,
+    -0.009399414,
+    0.027511597,
+    -0.0034980774,
+    -0.011024475,
+    0.014442444,
+    -0.02418518,
+    -0.031555176,
+    0.027801514,
+    0.0181427,
+    0.0019989014,
+    0.026031494,
+    -0.017181396,
+    0.04071045,
+    -0.026672363,
+    0.0259552,
+    -0.0005259514,
+    -0.005065918,
+    0.011726379,
+    0.05795288,
+    0.023025513,
+    -0.011779785,
+    -0.030685425,
+    -0.027770996,
+    0.032440186,
+    0.018676758,
+    0.005203247,
+    0.013549805,
+    -0.018966675,
+    -0.029434204,
+    0.02015686,
+    -0.013824463,
+    0.046173096,
+    -0.014038086,
+    0.027374268,
+    -0.0010919571,
+    -0.018371582,
+    0.03201294,
+    0.012893677,
+    -0.04510498,
+    -0.019927979,
+    0.0006828308,
+    -0.016036987,
+    0.021636963,
+    -0.017486572,
+    0.052215576,
+    -0.013008118,
+    -0.004512787,
+    -0.0037612915,
+    0.0154418945,
+    -0.0029029846,
+    0.023712158,
+    -0.010665894,
+    -0.027770996,
+    -0.020111084,
+    -0.004219055,
+    -0.019348145,
+    0.023086548,
+    -0.012542725,
+    0.032043457,
+    -0.040985107,
+    -0.03564453,
+    -0.009902954,
+    -0.019134521,
+    0.045410156,
+    0.02456665,
+    -0.06274414,
+    0.06088257,
+    -0.0056419373,
+    0.003540039,
+    0.01576233,
+    0.0005021095,
+    -0.00028467178,
+    -0.0016965866,
+    -0.0010509491,
+    0.010971069,
+    0.012557983,
+    -0.00072431564,
+    -0.007965088,
+    0.031311035,
+    0.024475098,
+    -0.022659302,
+    0.05758667,
+    -0.0413208,
+    0.001376152,
+    -0.029769897,
+    -0.0046844482,
+    0.06378174,
+    0.068847656,
+    -7.408857e-05,
+    0.0069465637,
+    0.015083313,
+    -0.033416748,
+    -0.015144348,
+    -0.045898438,
+    -0.0309906,
+    0.015640259,
+    0.008911133,
+    0.0069465637,
+    0.032958984,
+    -0.005180359,
+    0.01071167,
+    0.0063819885,
+    -0.033081055,
+    -0.032958984,
+    -0.0063591003,
+    0.01737976,
+    -0.017715454,
+    0.016281128,
+    0.01159668,
+    0.05407715,
+    0.0078125,
+    -0.0015182495,
+    -0.0053977966,
+    0.03643799,
+    -0.060272217,
+    0.041015625,
+    -0.032226562,
+    -0.023651123,
+    -0.0025634766,
+    -0.007003784,
+    0.015037537,
+    -0.09851074,
+    -0.06036377,
+    0.0042037964,
+    0.04598999,
+    0.03729248,
+    -0.012260437,
+    -0.052947998,
+    -0.0075035095,
+    0.029510498,
+    0.035308838,
+    0.0050621033,
+    0.006919861,
+    -0.048431396,
+    0.011947632,
+    -0.012756348,
+    -0.035491943,
+    -0.028625488,
+    -0.061065674,
+    -0.039154053,
+    -0.024871826,
+    0.009780884,
+    0.0079422,
+    0.024810791,
+    0.010658264,
+    -0.0045318604,
+    -0.040283203,
+    0.017913818,
+    0.032958984,
+    0.07550049,
+    -0.03265381,
+    0.0027256012,
+    0.021194458,
+    -0.023635864,
+    -0.025466919,
+    -0.023620605,
+    -0.006385803,
+    0.009460449,
+    -0.035461426,
+    -0.044189453,
+    0.008422852,
+    0.030807495,
+    -0.032165527,
+    0.062561035,
+    0.072509766,
+    0.009933472,
+    -0.012435913,
+    -0.04837036,
+    -0.017059326,
+    -0.042877197,
+    0.09680176,
+    -0.06903076,
+    0.015350342,
+    -0.060821533,
+    0.008140564,
+    0.047912598,
+    -0.026016235,
+    -0.056549072,
+    0.024047852,
+    0.01335144,
+    0.020217896,
+    0.037750244,
+    0.012420654,
+    -0.0057373047,
+    0.035736084,
+    0.01612854,
+    0.042053223,
+    0.019378662,
+    0.03265381,
+    0.0137786865,
+    -0.023849487,
+    -0.004047394,
+    -0.028930664,
+    0.013946533,
+    -0.014854431,
+    0.026809692,
+    0.04269409,
+    -0.0070991516,
+    -0.003835678,
+    0.05429077,
+    0.053009033,
+    -0.06896973,
+    -0.014343262,
+    0.0030841827,
+    -0.026107788,
+    -0.0010375977,
+    0.018569946,
+    0.0010938644,
+    -0.028961182,
+    -0.030380249,
+    0.022232056,
+    -0.017364502,
+    -0.006259918,
+    0.008522034,
+    -0.01864624,
+    -0.02053833,
+    0.0057296753,
+    -0.010932922,
+    -0.062408447,
+    0.005077362,
+    0.026901245,
+    -0.043304443,
+    -0.041381836,
+    0.02331543,
+    0.01586914,
+    0.016052246,
+    -0.031585693,
+    0.052978516,
+    0.005077362,
+    -0.0046691895,
+    -0.011962891,
+    -0.016143799,
+    -0.055877686,
+    0.0132751465,
+    -0.049682617,
+    0.030975342,
+    -0.0074882507,
+    -0.07305908,
+    -0.041503906,
+    0.0067367554,
+    0.010803223,
+    0.009399414,
+    -0.026870728,
+    0.016693115,
+    -0.058929443,
+    0.012565613,
+    0.008903503,
+    -0.026779175,
+    -0.0025119781,
+    -0.029525757,
+    0.0016937256,
+    0.019989014,
+    -0.029800415,
+    0.042999268,
+    -0.0014839172,
+    -0.023620605,
+    -0.008422852,
+    0.022537231,
+    -0.03302002,
+    0.00623703,
+    0.012611389,
+    -0.006904602,
+    -0.0209198,
+    -0.058013916,
+    0.01449585,
+    -0.025314331,
+    -0.009666443,
+    -0.03265381,
+    0.011962891,
+    -0.030639648,
+    0.030380249,
+    -0.008743286,
+    0.03010559,
+    -0.10192871,
+    0.06500244,
+    0.02658081,
+    -0.04159546,
+    -0.0058135986,
+    -0.015129089,
+    0.013542175,
+    -0.013061523,
+    -0.0524292,
+    -0.095947266,
+    -0.022064209,
+    -0.041381836,
+    0.043914795,
+    -0.012748718,
+    0.02357483,
+    -0.02281189,
+    -0.05130005,
+    0.013023376,
+    -0.060943604,
+    -0.03543091,
+    -0.0007610321,
+    0.00031495094,
+    0.015037537,
+    0.020706177,
+    0.0022201538,
+    0.06964111,
+    -0.0154953,
+    -0.021499634,
+    -0.050567627,
+    -0.005138397,
+    0.02734375,
+    0.0060310364,
+    -0.039489746,
+    0.010772705,
+    -0.04119873,
+    0.03982544,
+    -0.010650635,
+    -0.033599854,
+    0.00868988,
+    0.018814087,
+    0.0126571655,
+    -0.044036865,
+    -0.026885986,
+    -0.012275696,
+    0.0032844543,
+    -0.03805542,
+    -0.033721924,
+    0.01322937,
+    -0.03970337,
+    0.007019043,
+    0.010269165,
+    -0.046447754,
+    0.00065517426,
+    -0.006385803,
+    0.01626587,
+    -0.0038585663,
+    -0.010353088,
+    -0.011520386,
+    0.0071105957,
+    -0.030181885,
+    -0.025375366,
+    0.011451721,
+    -0.009361267,
+    -0.0025939941,
+    0.026367188,
+    0.0128479,
+    0.018096924,
+    -0.03274536,
+    0.003271103,
+    0.004337311,
+    -0.047454834,
+    -0.023483276,
+    0.01158905,
+    0.03552246,
+    -0.006450653,
+    -0.012336731,
+    -0.0045394897,
+    0.015510559,
+    0.026992798,
+    -0.0019798279,
+    -0.032318115,
+    0.0068511963,
+    -0.057006836,
+    -0.0043678284,
+    0.014663696,
+    -0.006706238,
+    -0.008094788,
+    -0.01260376,
+    0.012664795,
+    0.022140503,
+    -0.014709473,
+    0.010925293,
+    -0.022827148,
+    -0.03012085,
+    -0.044647217,
+    -0.0013027191,
+    0.02168274,
+    -0.0059394836,
+    0.03137207,
+    -0.0062065125,
+    0.022659302,
+    -0.0340271,
+    0.030883789,
+    -0.0038414001,
+    -0.03805542,
+    0.0012588501,
+    -0.045532227,
+    0.02520752,
+    -0.0256958,
+    0.019317627,
+    -0.00121212,
+    0.0006093979,
+    -0.06689453,
+    -0.011985779,
+    0.045715332,
+    0.008407593,
+    -0.015975952,
+    0.04119873,
+    -0.03805542,
+    0.018493652,
+    0.0335083,
+    0.016403198,
+    0.012565613,
+    0.01461792,
+    -0.0032539368,
+    0.022842407,
+    -0.0030288696,
+    0.04248047,
+    0.024002075,
+    -0.010360718,
+    -0.01309967,
+    0.00440979,
+    0.017974854,
+    -0.010658264,
+    0.010566711,
+    -0.02053833,
+    -0.0051727295,
+    0.020126343,
+    0.019134521,
+    -0.02420044,
+    -0.01360321,
+    0.05130005,
+    0.05456543,
+    0.004108429,
+    -0.00724411,
+    0.035949707,
+    -0.05984497,
+    -0.0013561249,
+    0.014129639,
+    0.03265381,
+    -0.0049705505,
+    0.034973145,
+    0.041381836,
+    -0.028030396,
+    0.032470703,
+    0.021438599,
+    0.0368042,
+    0.015281677,
+    0.017028809,
+    0.01322937,
+    0.017852783,
+    -0.004119873,
+    0.028259277,
+    0.020767212,
+    -0.026260376,
+    -0.03967285,
+    0.0001899004,
+    -0.024108887,
+    0.0032730103,
+    0.012435913,
+    0.0519104,
+    0.00058555603,
+    0.049835205,
+    -0.044921875,
+    0.013381958,
+    0.014450073,
+    -0.03048706,
+    0.016433716,
+    0.024917603,
+    -0.02381897,
+    -0.005882263,
+    0.016738892,
+    -0.0035533905,
+    0.0063438416,
+    -0.04486084,
+    -0.02017212,
+    -0.005569458,
+    -0.049102783,
+    -0.018035889,
+    0.009971619,
+    0.023880005,
+    -0.003370285,
+    -0.02293396,
+    -0.007484436,
+    -0.010566711,
+    0.03741455,
+    0.00349617,
+    0.0070343018,
+    -0.01763916,
+    -0.040740967,
+    -0.0093307495,
+    -0.024459839,
+    -0.02243042,
+    0.0519104,
+    0.016098022,
+    0.020507812,
+    0.0019350052,
+    -0.049926758,
+    -0.01776123,
+    0.020584106,
+    0.046203613,
+    0.06451416,
+    0.08734131,
+    -0.021499634,
+    -0.009971619,
+    0.011856079,
+    0.0026779175,
+    0.002439499,
+    0.014915466,
+    -0.0031414032,
+    -0.04647827,
+    -0.0037765503,
+    0.0056381226,
+    0.0068130493,
+    -0.016448975,
+    0.0028953552,
+    0.0287323,
+    0.017333984,
+    -0.01751709,
+    0.013969421,
+    0.006252289,
+    0.0030994415,
+    -0.015602112,
+    -0.0064582825,
+    0.0011348724,
+    -0.009788513,
+    -0.0031147003,
+    0.021026611,
+    -0.022003174,
+    0.036193848,
+    0.004737854,
+    -0.041870117,
+    0.034332275,
+    0.025726318,
+    0.009033203,
+    -0.0035915375,
+    0.01007843,
+    0.0034008026,
+    0.030166626,
+    -0.022994995,
+    -0.043395996,
+    -0.020446777,
+    -0.024658203,
+    -0.0024433136,
+    -0.010559082,
+    0.049621582,
+    0.02999878,
+    -0.07128906,
+    0.014022827,
+    -0.024337769,
+    -0.036895752,
+    -0.006877899,
+    -0.035949707,
+    0.026824951,
+    0.038391113,
+    -0.017486572,
+    0.004016876,
+    0.026565552,
+    0.010223389,
+    -0.013214111,
+    -0.020462036,
+    -0.02696228,
+    -0.050079346,
+    -0.014518738,
+    -0.06890869,
+    -0.014419556,
+    0.020843506,
+    0.00050640106,
+    0.036346436,
+    -0.022872925,
+    -0.02709961,
+    0.008979797,
+    0.008560181,
+    -0.01876831,
+    0.0074501038,
+    -0.053100586,
+    -0.029251099,
+    0.014305115,
+    0.03488159,
+    -0.017318726,
+    0.015403748,
+    0.000330925,
+    0.016937256,
+    -0.013908386,
+    0.07446289,
+    0.03829956,
+    0.085632324,
+    -0.07244873,
+    0.109802246,
+    0.058898926,
+    0.017562866,
+    -0.030822754,
+    0.0038051605,
+    -0.016662598,
+    0.037475586,
+    -0.02330017,
+    -0.0015420914,
+    0.019592285,
+    -0.021377563,
+    0.026641846,
+    -0.004383087,
+    -0.0037212372,
+    0.024932861,
+    -0.018753052,
+    0.0061569214,
+    -0.036102295,
+    -0.0070495605
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Legal and Regulatory Risks/",
+    "aws::graph::propositions": [
+      "Regulatory and Legal Framework Governing Amazon's Operations",
+      "These regulations and laws cover taxation.",
+      "These regulations and laws cover privacy.",
+      "These regulations and laws cover data use.",
+      "These regulations and laws cover data protection.",
+      "These regulations and laws cover data security.",
+      "These regulations and laws cover data localization.",
+      "These regulations and laws cover network security.",
+      "These regulations and laws cover consumer protection.",
+      "These regulations and laws cover pricing.",
+      "These regulations and laws cover content.",
+      "These regulations and laws cover copyrights.",
+      "These regulations and laws cover distribution.",
+      "These regulations and laws cover transportation.",
+      "These regulations and laws cover communications.",
+      "These regulations and laws cover electronic device certification.",
+      "These regulations and laws cover electronic waste.",
+      "These regulations and laws cover energy consumption.",
+      "These regulations and laws cover environmental regulation.",
+      "These regulations and laws cover climate-related regulation.",
+      "These regulations and laws cover electronic contracts.",
+      "These regulations and laws cover other communications.",
+      "These regulations and laws cover competition.",
+      "These regulations and laws cover employment.",
+      "These regulations and laws cover trade measures.",
+      "These regulations and laws cover protectionist measures.",
+      "These regulations and laws cover web services.",
+      "These regulations and laws cover the provision of online payment services.",
+      "These regulations and laws cover registration requirements.",
+      "These regulations and laws cover licensing requirements.",
+      "These regulations and laws cover information reporting requirements.",
+      "These regulations and laws cover unencumbered internet access to services.",
+      "These regulations and laws cover access to facilities.",
+      "These regulations and laws cover the design of websites.",
+      "These regulations and laws cover the operation of websites.",
+      "These regulations and laws cover health standards.",
+      "These regulations and laws cover safety standards.",
+      "These regulations and laws cover sanitation standards.",
+      "These regulations and laws cover the characteristics of products and services.",
+      "These regulations and laws cover the legality of products and services.",
+      "These regulations and laws cover the quality of products and services.",
+      "These regulations and laws cover product labeling.",
+      "These regulations and laws cover the commercial operation of unmanned aircraft systems.",
+      "These regulations and laws cover healthcare."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Regulatory and Legal Framework Governing Amazon's Operations",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Regulatory and Legal Framework",
+              "classification": "Regulation"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Regulatory and Legal Framework Governing Amazon's Operations",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "GOVERNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover taxation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "taxation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover privacy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "privacy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover data use.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data use",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover data protection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data protection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover data security.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data security",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover data localization.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data localization",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover network security.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "network security",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover consumer protection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "consumer protection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover pricing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pricing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover content.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "content",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover copyrights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "copyrights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover distribution.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "distribution",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover transportation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transportation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover communications.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "communications",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover electronic device certification.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic device certification",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover electronic waste.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic waste",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover energy consumption.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "energy consumption",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover environmental regulation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "environmental regulation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover climate-related regulation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "climate-related regulation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover electronic contracts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic contracts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover other communications.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other communications",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover competition.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competition",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover employment.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "employment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover trade measures.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trade measures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover protectionist measures.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protectionist measures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover web services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "web services",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover the provision of online payment services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "online payment services",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover registration requirements.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration requirements",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover licensing requirements.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "licensing requirements",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover information reporting requirements.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "information reporting requirements",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover unencumbered internet access to services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unencumbered internet access to services",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover access to facilities.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "access to facilities",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover the design of websites.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "website design",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover the operation of websites.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "website operation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover health standards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "health standards",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover safety standards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "safety standards",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover sanitation standards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sanitation standards",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover the characteristics of products and services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "product characteristics",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "service characteristics",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover the legality of products and services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "product legality",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "service legality",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover the quality of products and services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "product quality",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "service quality",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover product labeling.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "product labeling",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover the commercial operation of unmanned aircraft systems.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial operation of unmanned aircraft systems",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These regulations and laws cover healthcare.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Regulatory and Legal Framework",
+                    "classification": "Regulation"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "healthcare",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:08f2f06b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Legal and Regulatory Risks/"
+      },
+      "hash": "5b64bb001f8e94f5ae899bcdc2b1195a10b83952a39adfd90c638a7c5cfac53b",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:39739988",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Legal and Regulatory Risks/"
+      },
+      "hash": "e05aac658a7aa94854a81d83fbcbceadb7c07da7c5aa57f53dcb8f625696deee",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "These regulations and laws cover taxation, privacy, data use, data protection, data security, data localization, network security, consumer protection, pricing, content, copyrights, distribution, transportation, communications, electronic device certification, electronic waste, energy consumption, environmental and climate-related regulation, electronic contracts and other communications, competition, employment, trade and protectionist measures, web services, the provision of online payment services, registration, licensing, and information reporting requirements, unencumbered internet access to our services or access to our facilities, the design and operation of websites, health, safety, and sanitation standards, the characteristics, legality, and quality of products and services, product labeling, the commercial operation of unmanned aircraft systems, healthcare, and other matters.",
+  "mimetype": "text/plain",
+  "start_char_idx": 478,
+  "end_char_idx": 1376,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

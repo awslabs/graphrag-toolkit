@@ -1,0 +1,2481 @@
+{
+  "id_": "aws::3dd88aa8:3e5d:6d366b50",
+  "embedding": [
+    0.03137207,
+    0.06512451,
+    -0.026260376,
+    -0.042877197,
+    0.0541687,
+    -0.009994507,
+    -0.009033203,
+    -0.0362854,
+    -0.012466431,
+    0.0007519722,
+    0.022720337,
+    0.01977539,
+    0.0014677048,
+    -0.048583984,
+    0.038269043,
+    0.0043411255,
+    -0.0036697388,
+    0.030578613,
+    0.015220642,
+    -0.02142334,
+    -0.0055351257,
+    -0.0017642975,
+    -0.028915405,
+    0.032287598,
+    -0.0049858093,
+    0.055023193,
+    -0.032318115,
+    -0.013259888,
+    -0.0018472672,
+    -0.017486572,
+    0.0020503998,
+    0.004333496,
+    0.017074585,
+    0.036743164,
+    -0.026397705,
+    0.03604126,
+    0.030456543,
+    -0.005214691,
+    -0.0025081635,
+    0.032470703,
+    0.026916504,
+    -0.014450073,
+    0.028137207,
+    -0.028320312,
+    0.002216339,
+    -0.032714844,
+    0.06982422,
+    0.0012845993,
+    0.047210693,
+    0.061828613,
+    0.010398865,
+    0.023544312,
+    -0.01625061,
+    0.026489258,
+    -0.010429382,
+    -0.026611328,
+    0.01626587,
+    0.044433594,
+    -0.020492554,
+    0.0065689087,
+    0.0016431808,
+    0.087402344,
+    0.008232117,
+    0.02760315,
+    -0.011192322,
+    0.008903503,
+    0.02973938,
+    -0.008987427,
+    0.09100342,
+    0.016052246,
+    -0.029724121,
+    0.040374756,
+    -0.016799927,
+    0.014579773,
+    -0.025894165,
+    -0.010734558,
+    0.027175903,
+    0.008880615,
+    -0.026748657,
+    0.026535034,
+    -0.04498291,
+    0.0013952255,
+    -0.029830933,
+    -0.047027588,
+    0.0053520203,
+    -0.021270752,
+    -0.029815674,
+    0.010131836,
+    -0.0058174133,
+    0.014678955,
+    -0.01701355,
+    -0.008735657,
+    0.0072898865,
+    0.04547119,
+    -0.012031555,
+    0.018203735,
+    -0.014213562,
+    -0.08917236,
+    0.022155762,
+    -0.040740967,
+    0.021560669,
+    -0.032958984,
+    -0.045654297,
+    0.03945923,
+    -0.022644043,
+    0.044677734,
+    0.0093688965,
+    -0.036468506,
+    -0.010505676,
+    -0.00035834312,
+    -0.019821167,
+    0.0019369125,
+    0.013076782,
+    -0.037719727,
+    -0.0024604797,
+    0.0087509155,
+    -0.0035820007,
+    0.019683838,
+    0.021942139,
+    0.015174866,
+    0.02949524,
+    0.038330078,
+    -0.034179688,
+    0.033081055,
+    -0.04699707,
+    -0.026763916,
+    -0.013465881,
+    -0.018234253,
+    0.029647827,
+    0.022445679,
+    -0.017959595,
+    0.026901245,
+    -0.044128418,
+    -0.062438965,
+    -0.043762207,
+    -0.014762878,
+    -0.009941101,
+    0.035461426,
+    -0.0037555695,
+    0.01083374,
+    -0.052886963,
+    0.0015697479,
+    0.09680176,
+    -0.03756714,
+    -0.05911255,
+    0.045959473,
+    0.023391724,
+    -0.02848816,
+    -0.029754639,
+    -0.086120605,
+    -0.015174866,
+    -0.015609741,
+    0.012611389,
+    -0.008338928,
+    0.02407837,
+    -0.08483887,
+    0.005970001,
+    -0.050750732,
+    0.08392334,
+    -0.049713135,
+    -0.019058228,
+    -0.0053749084,
+    0.048461914,
+    0.024871826,
+    -0.017410278,
+    0.01876831,
+    -0.015464783,
+    -0.013267517,
+    0.021728516,
+    -0.0013828278,
+    0.060333252,
+    -0.035064697,
+    -0.032409668,
+    -0.024856567,
+    -0.015640259,
+    0.003232956,
+    0.013587952,
+    0.0513916,
+    0.002861023,
+    0.006259918,
+    0.020690918,
+    -0.028717041,
+    0.053710938,
+    -0.020568848,
+    -0.028656006,
+    0.019378662,
+    -0.002855301,
+    -0.017044067,
+    0.013435364,
+    -0.016159058,
+    0.036346436,
+    0.031173706,
+    0.049316406,
+    0.00932312,
+    0.011016846,
+    -0.06365967,
+    0.006641388,
+    -0.008743286,
+    -0.02104187,
+    -0.01876831,
+    -0.098083496,
+    0.010620117,
+    -0.014175415,
+    0.023345947,
+    -0.004852295,
+    -0.0065307617,
+    -0.000111699104,
+    0.0357666,
+    -0.010414124,
+    -0.000113487244,
+    0.02746582,
+    -0.0012359619,
+    -0.01285553,
+    -0.048309326,
+    -0.024429321,
+    -0.0037345886,
+    0.0070228577,
+    0.019882202,
+    0.024978638,
+    0.03277588,
+    -0.004005432,
+    0.031173706,
+    -0.0034885406,
+    -0.011688232,
+    -0.04550171,
+    -0.038635254,
+    -0.023483276,
+    -0.023834229,
+    -0.01979065,
+    -0.020492554,
+    0.07623291,
+    0.02217102,
+    0.047698975,
+    -0.0023555756,
+    -0.06341553,
+    0.019866943,
+    0.012512207,
+    0.014083862,
+    -0.013618469,
+    0.028915405,
+    0.013633728,
+    -0.0657959,
+    -0.012664795,
+    0.04711914,
+    -0.06262207,
+    -0.0095825195,
+    0.022445679,
+    0.0020427704,
+    -0.020019531,
+    0.04473877,
+    0.047027588,
+    0.049591064,
+    0.0036773682,
+    0.06323242,
+    0.0030574799,
+    -0.0026016235,
+    -0.015335083,
+    -0.051635742,
+    0.021484375,
+    -0.024353027,
+    0.056610107,
+    0.010063171,
+    -0.09631348,
+    0.03213501,
+    -0.0025672913,
+    0.0014953613,
+    0.019821167,
+    0.009887695,
+    0.0011796951,
+    -0.0023536682,
+    0.0071372986,
+    -0.03050232,
+    -0.020462036,
+    -0.030181885,
+    -0.04043579,
+    0.021957397,
+    -0.045837402,
+    0.045959473,
+    -0.0115356445,
+    -0.030532837,
+    -0.026046753,
+    -0.0178833,
+    0.015525818,
+    -0.006942749,
+    0.040008545,
+    -0.011009216,
+    0.020767212,
+    -0.008323669,
+    0.0024585724,
+    0.019515991,
+    0.055877686,
+    -0.013572693,
+    -0.0033035278,
+    -0.02067566,
+    0.020812988,
+    -0.04095459,
+    0.062164307,
+    -0.009483337,
+    0.007232666,
+    -0.0056037903,
+    0.042114258,
+    0.046295166,
+    -0.017456055,
+    0.022857666,
+    0.012809753,
+    -0.018157959,
+    0.010978699,
+    -0.0018825531,
+    0.0076293945,
+    0.039794922,
+    -0.07385254,
+    0.032989502,
+    0.021728516,
+    0.022521973,
+    0.0053482056,
+    -0.012527466,
+    -0.014266968,
+    0.030838013,
+    0.015556335,
+    0.038848877,
+    -0.035614014,
+    -0.017700195,
+    -0.037109375,
+    0.019683838,
+    -0.010108948,
+    0.019485474,
+    0.00932312,
+    -0.015541077,
+    0.017364502,
+    -0.03286743,
+    -0.021957397,
+    -0.08996582,
+    -0.073913574,
+    -0.04953003,
+    0.022094727,
+    0.0118255615,
+    -0.0131073,
+    0.01576233,
+    -0.013595581,
+    0.019256592,
+    -0.03475952,
+    -0.02166748,
+    0.0013494492,
+    -0.09240723,
+    -0.05307007,
+    -0.012420654,
+    0.02999878,
+    0.0013179779,
+    0.0050582886,
+    -0.012969971,
+    0.04598999,
+    -0.005470276,
+    -0.017562866,
+    0.006752014,
+    -0.015113831,
+    -0.06903076,
+    0.008728027,
+    0.013549805,
+    -0.0435791,
+    -0.0546875,
+    -0.025970459,
+    0.02734375,
+    -0.04324341,
+    -0.042907715,
+    0.038116455,
+    0.005130768,
+    -0.030273438,
+    0.00063323975,
+    0.012290955,
+    -0.0027656555,
+    0.08416748,
+    -0.0028705597,
+    -0.050811768,
+    -0.029876709,
+    -0.051818848,
+    -0.050720215,
+    0.07312012,
+    -0.008003235,
+    0.009132385,
+    0.05130005,
+    0.0022563934,
+    0.0048179626,
+    0.005115509,
+    -0.004650116,
+    0.02154541,
+    0.031158447,
+    0.00018179417,
+    0.010986328,
+    0.003271103,
+    -0.008590698,
+    -0.005607605,
+    -0.005332947,
+    -0.08111572,
+    -0.0051841736,
+    -0.0018091202,
+    -0.017120361,
+    0.024383545,
+    -0.00077962875,
+    -0.06161499,
+    -0.0184021,
+    -0.109558105,
+    -0.0034599304,
+    -0.0335083,
+    -0.036193848,
+    0.044036865,
+    -0.07702637,
+    -0.0060806274,
+    -0.07342529,
+    0.021347046,
+    0.061798096,
+    -0.018325806,
+    -0.0062294006,
+    -0.0014133453,
+    -0.001455307,
+    0.015579224,
+    -0.006828308,
+    -0.033966064,
+    -0.017974854,
+    0.04421997,
+    0.011871338,
+    -0.025054932,
+    -0.0017566681,
+    -0.016174316,
+    0.032348633,
+    -0.019546509,
+    0.036254883,
+    -0.0021305084,
+    -0.004760742,
+    0.004146576,
+    0.049224854,
+    -0.0022678375,
+    0.0025043488,
+    0.0033512115,
+    -0.046722412,
+    -0.064086914,
+    -0.01651001,
+    0.007686615,
+    0.036346436,
+    0.029159546,
+    -0.02067566,
+    0.013557434,
+    -0.01789856,
+    0.023040771,
+    0.043792725,
+    -0.017654419,
+    0.04083252,
+    -0.032104492,
+    0.0435791,
+    -0.022872925,
+    -0.010063171,
+    0.020614624,
+    -0.0037193298,
+    0.033447266,
+    0.008872986,
+    0.0022773743,
+    0.06945801,
+    0.040740967,
+    0.04260254,
+    0.021499634,
+    -0.043884277,
+    -0.015258789,
+    -0.026565552,
+    -0.027893066,
+    0.006793976,
+    0.0151901245,
+    0.0041885376,
+    0.0053482056,
+    -0.005466461,
+    0.020874023,
+    0.004119873,
+    0.0048446655,
+    0.020141602,
+    -0.016723633,
+    0.018753052,
+    -0.047332764,
+    0.027267456,
+    0.04119873,
+    -0.010314941,
+    0.038604736,
+    0.0095825195,
+    -0.041107178,
+    0.009811401,
+    -0.0012140274,
+    0.022109985,
+    0.038482666,
+    -0.0085372925,
+    0.039794922,
+    0.034942627,
+    0.026290894,
+    0.013031006,
+    0.0047950745,
+    -0.032318115,
+    0.008430481,
+    0.032226562,
+    -0.007484436,
+    0.008293152,
+    0.027130127,
+    -0.06744385,
+    0.006752014,
+    0.00036406517,
+    -0.045196533,
+    0.014762878,
+    -0.04647827,
+    -0.020889282,
+    -0.0022792816,
+    0.013397217,
+    -0.008773804,
+    0.044830322,
+    0.03817749,
+    -0.033111572,
+    0.016647339,
+    0.008850098,
+    0.030273438,
+    0.035217285,
+    -0.017913818,
+    0.029922485,
+    0.0018062592,
+    0.034729004,
+    -0.011856079,
+    -0.0066871643,
+    -0.022445679,
+    -0.013755798,
+    0.036346436,
+    0.07220459,
+    -0.08135986,
+    0.002866745,
+    0.010391235,
+    0.01159668,
+    -0.055480957,
+    -0.03878784,
+    0.0050354004,
+    0.08099365,
+    -0.022521973,
+    -0.029342651,
+    0.043914795,
+    -0.023223877,
+    -0.027420044,
+    -0.012237549,
+    0.014259338,
+    0.012207031,
+    -0.0010061264,
+    -0.011703491,
+    -0.0051193237,
+    0.012687683,
+    -0.0047950745,
+    -0.028076172,
+    -0.017715454,
+    0.02418518,
+    -0.025665283,
+    -0.021011353,
+    0.017089844,
+    0.004070282,
+    0.0065193176,
+    -0.060546875,
+    -0.053833008,
+    0.10192871,
+    0.047668457,
+    -0.008583069,
+    -0.0033721924,
+    -0.021057129,
+    -0.024291992,
+    -0.025299072,
+    -0.033081055,
+    0.056762695,
+    0.08459473,
+    -0.015304565,
+    0.06414795,
+    -0.0013208389,
+    0.038909912,
+    -0.020309448,
+    -0.009437561,
+    -0.05130005,
+    0.047912598,
+    0.0063209534,
+    -0.0043144226,
+    -0.030197144,
+    -0.019424438,
+    0.04385376,
+    -0.030883789,
+    -0.022125244,
+    0.018005371,
+    0.012207031,
+    -0.0090789795,
+    0.06903076,
+    -0.028823853,
+    0.031951904,
+    0.0041122437,
+    -0.028137207,
+    -0.019317627,
+    0.014091492,
+    0.061431885,
+    -0.00023293495,
+    0.017303467,
+    -0.015464783,
+    -0.02468872,
+    0.010070801,
+    -0.052886963,
+    -0.04360962,
+    -0.0027618408,
+    -0.01184082,
+    -0.014839172,
+    -0.0050697327,
+    0.0023460388,
+    -0.024917603,
+    0.02746582,
+    0.003370285,
+    -0.028060913,
+    0.0039596558,
+    -0.0077819824,
+    0.0050086975,
+    0.040924072,
+    0.01398468,
+    -0.013977051,
+    0.011016846,
+    -0.0054359436,
+    -0.02394104,
+    -0.022476196,
+    0.0128479,
+    0.052459717,
+    0.0067596436,
+    0.03439331,
+    0.019042969,
+    0.02407837,
+    0.0005912781,
+    0.0067100525,
+    -0.030090332,
+    -0.00043058395,
+    -0.029266357,
+    -0.027069092,
+    0.01424408,
+    -0.030822754,
+    0.0024223328,
+    -0.060577393,
+    -0.020141602,
+    -0.062683105,
+    0.004837036,
+    -0.028640747,
+    -0.064208984,
+    0.022003174,
+    0.010002136,
+    -0.025360107,
+    -0.0104904175,
+    -0.013839722,
+    -0.024414062,
+    0.02911377,
+    -0.039245605,
+    -0.020202637,
+    0.030593872,
+    -0.008056641,
+    -0.012260437,
+    -0.058502197,
+    -0.013366699,
+    -0.04663086,
+    -0.017822266,
+    0.03503418,
+    -0.017532349,
+    0.009788513,
+    0.011894226,
+    -0.04260254,
+    -0.034362793,
+    -0.038635254,
+    -0.038391113,
+    -0.040893555,
+    -0.01927185,
+    -0.07366943,
+    -0.012786865,
+    0.029800415,
+    0.01725769,
+    -0.0025672913,
+    -0.05709839,
+    0.002735138,
+    0.0021457672,
+    -0.018707275,
+    -0.015281677,
+    0.016098022,
+    -0.01448822,
+    -0.012504578,
+    0.018234253,
+    -0.021743774,
+    -0.040649414,
+    -0.0007529259,
+    -0.02861023,
+    0.017837524,
+    -0.039794922,
+    -0.005874634,
+    0.017028809,
+    -0.006134033,
+    0.01725769,
+    -0.01838684,
+    -0.0007405281,
+    -0.024749756,
+    0.041992188,
+    -0.019744873,
+    0.009895325,
+    0.0019760132,
+    -0.018554688,
+    0.04208374,
+    -0.0021953583,
+    -0.0014276505,
+    -0.09265137,
+    0.034210205,
+    0.030883789,
+    -0.04006958,
+    0.0113220215,
+    -0.015060425,
+    0.029449463,
+    0.0053634644,
+    -0.011764526,
+    -0.029785156,
+    -0.007522583,
+    -0.024475098,
+    0.029129028,
+    -0.020477295,
+    -0.0036697388,
+    -0.0049591064,
+    0.0066452026,
+    0.013450623,
+    -0.004524231,
+    -0.022033691,
+    0.0211792,
+    -0.017944336,
+    0.009254456,
+    0.0075798035,
+    -0.023483276,
+    0.0030174255,
+    0.0010128021,
+    -0.013885498,
+    0.018325806,
+    0.015991211,
+    0.02218628,
+    0.045562744,
+    -0.04977417,
+    0.00017726421,
+    0.025314331,
+    -0.023330688,
+    0.04727173,
+    -0.030029297,
+    0.006801605,
+    -0.016189575,
+    0.036621094,
+    -0.0058174133,
+    0.0025424957,
+    0.018692017,
+    0.0055999756,
+    -0.031463623,
+    -0.025650024,
+    -0.00819397,
+    -0.0904541,
+    0.009178162,
+    -0.017242432,
+    0.020614624,
+    -0.030059814,
+    -0.01007843,
+    0.027191162,
+    0.0049057007,
+    -0.019165039,
+    -0.016815186,
+    0.02281189,
+    -0.0031642914,
+    -0.016937256,
+    -0.005821228,
+    0.00081443787,
+    0.016464233,
+    0.021331787,
+    -0.008895874,
+    0.029663086,
+    0.023162842,
+    0.014450073,
+    -0.023422241,
+    -0.0039043427,
+    -0.0004916191,
+    -0.005252838,
+    -0.010734558,
+    -0.014663696,
+    0.048797607,
+    -0.0034828186,
+    0.044158936,
+    -0.047943115,
+    -0.03765869,
+    -0.013626099,
+    0.0022602081,
+    -0.011329651,
+    -0.03552246,
+    0.008163452,
+    -0.0015649796,
+    0.022384644,
+    0.0009498596,
+    -0.012901306,
+    0.010749817,
+    -0.0052337646,
+    -0.019470215,
+    0.009361267,
+    0.0030288696,
+    0.013961792,
+    0.00029230118,
+    -0.02684021,
+    -0.01071167,
+    0.0031795502,
+    -0.0022506714,
+    -0.04574585,
+    -0.048583984,
+    -0.005844116,
+    -0.023544312,
+    0.050964355,
+    -0.0040893555,
+    0.007396698,
+    -0.007411957,
+    0.032104492,
+    0.013977051,
+    -0.02017212,
+    0.011917114,
+    -0.02720642,
+    0.01928711,
+    -0.023742676,
+    0.019500732,
+    0.0101623535,
+    -0.046142578,
+    -0.030136108,
+    0.009552002,
+    0.025115967,
+    0.022705078,
+    0.047668457,
+    -6.66976e-05,
+    0.015640259,
+    0.007709503,
+    0.020141602,
+    -0.020721436,
+    -0.009468079,
+    0.004886627,
+    -0.00093364716,
+    0.025344849,
+    0.0033817291,
+    -0.0027217865,
+    0.010475159,
+    -0.0124053955,
+    0.019088745,
+    0.04373169,
+    0.07281494,
+    -0.033203125,
+    0.031982422,
+    -0.020126343,
+    0.0032215118,
+    -0.02835083,
+    -0.022735596,
+    -0.0067825317,
+    0.0036201477,
+    0.018814087,
+    0.009460449,
+    0.08905029,
+    0.031311035,
+    0.0234375,
+    -0.029159546,
+    -0.015182495,
+    -0.05053711,
+    0.012763977,
+    0.008018494,
+    0.014533997,
+    -0.013679504,
+    0.011581421,
+    0.04272461,
+    0.0016517639,
+    0.028625488,
+    0.011474609,
+    -0.0037879944,
+    0.051879883,
+    0.078430176,
+    0.02973938,
+    0.009307861,
+    0.0024414062,
+    0.021408081,
+    0.018310547,
+    0.04296875,
+    -0.04751587,
+    0.009933472,
+    -0.013160706,
+    -0.029281616,
+    0.020217896,
+    0.030014038,
+    -0.025650024,
+    -0.010803223,
+    -0.029373169,
+    -0.06652832,
+    -0.0017910004,
+    0.0044021606,
+    -0.029724121,
+    -0.06060791,
+    -0.0063285828,
+    0.016647339,
+    0.039245605,
+    0.012237549,
+    0.019561768,
+    -0.005836487,
+    -0.012786865,
+    0.06793213,
+    0.011512756,
+    0.068115234,
+    -0.00093221664,
+    -0.025283813,
+    -0.06274414,
+    0.03338623,
+    -0.047607422,
+    -0.042907715,
+    0.025238037,
+    -0.06542969,
+    0.020202637,
+    0.011169434,
+    -0.009422302,
+    -0.095703125,
+    -0.005832672,
+    -0.020126343,
+    -0.0045280457,
+    -0.0063552856,
+    -0.028503418,
+    0.016723633,
+    0.03237915,
+    -0.029830933,
+    -0.01889038,
+    -0.055877686,
+    0.0335083,
+    -0.09210205,
+    -0.028793335,
+    0.0028953552,
+    0.029296875,
+    -0.017486572,
+    0.00774765,
+    -0.0063476562,
+    0.05606079,
+    -0.010932922,
+    0.015975952,
+    -0.030822754,
+    -0.03918457,
+    -0.002155304,
+    0.09509277,
+    -0.042633057,
+    0.0848999,
+    -0.011268616,
+    0.024993896,
+    -0.015113831,
+    -0.032806396,
+    0.038360596,
+    0.0154418945,
+    -0.06976318,
+    -0.011367798,
+    0.017089844,
+    -0.0027618408,
+    0.035949707,
+    -0.012924194,
+    -0.010650635,
+    -0.03842163,
+    0.0065727234,
+    -0.012008667,
+    0.012672424,
+    0.017150879,
+    -0.024093628,
+    0.028274536,
+    0.015899658,
+    -0.03152466,
+    0.017303467,
+    0.0032958984,
+    -0.01776123,
+    0.0031356812,
+    -0.023956299,
+    0.014915466,
+    0.00995636,
+    0.036590576,
+    0.012687683,
+    -0.0047073364,
+    -0.034423828,
+    -0.00049877167,
+    -0.010543823,
+    0.002937317,
+    -0.022613525,
+    0.0071029663,
+    -0.0625,
+    -0.016311646,
+    -0.0042381287,
+    0.004463196,
+    0.020248413,
+    0.017684937,
+    0.0046920776,
+    -0.00554657,
+    0.019729614,
+    -0.043701172,
+    0.0044174194,
+    -0.001906395,
+    -0.049194336,
+    0.0072784424,
+    -0.03060913,
+    0.013893127,
+    -0.00071907043,
+    -0.06329346,
+    0.066589355,
+    -0.009376526,
+    -0.042633057,
+    0.0014734268,
+    -0.012802124,
+    0.022659302,
+    0.04763794,
+    0.031402588,
+    -0.04031372,
+    -0.04168701,
+    -0.01977539,
+    0.03970337,
+    -0.015357971,
+    -0.0019683838,
+    -0.060302734,
+    -0.0104904175,
+    -0.051330566,
+    -0.017105103,
+    -0.037963867,
+    -0.042388916,
+    0.051513672,
+    0.031280518,
+    -0.033081055,
+    0.071777344,
+    -0.032073975,
+    0.02545166,
+    0.028259277,
+    0.02532959,
+    0.035339355,
+    -0.006641388,
+    -0.00063943863,
+    -0.004055023,
+    -0.003004074
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+    "file_name": "89181.md",
+    "file_size": 28636,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Experimental Amateur-Built Pitts 12 Accident Near Bluffdale, Utah",
+      "The accident involved an experimental amateur-built Pitts 12 aircraft with registration N177MF.",
+      "The accident occurred on May 3, 2014, at approximately 1945 mountain daylight time.",
+      "The accident occurred near Bluffdale, Utah.",
+      "The aircraft was substantially damaged in an off-airport landing.",
+      "The pilot was the owner of the aircraft.",
+      "The pilot and passenger received minor injuries.",
+      "The passenger was the pilot's wife.",
+      "The flight was conducted under Title 14 Code of Federal Regulations Part 91.",
+      "The flight was a personal flight.",
+      "Visual meteorological conditions prevailed during the flight.",
+      "No Federal Aviation Administration flight plan was filed for the flight.",
+      "The pilot had recently purchased the airplane.",
+      "The pilot and his wife planned to fly the airplane from Washington state to their home airport in New Mexico.",
+      "The first flight of the day departed from Arlington Municipal airport in Arlington, Washington.",
+      "The first flight terminated at Columbia Gorge Regional Airport in The Dalles, Oregon.",
+      "The first flight leg was uneventful.",
+      "The pilot topped off the fuel tanks at Columbia Gorge Regional Airport.",
+      "The airplane departed from Columbia Gorge Regional Airport.",
+      "The pilot's next planned fuel stop was in the vicinity of Provo, Utah.",
+      "The pilot conducted the cruise portion of the flight at an altitude of 9,500 feet above mean sea level.",
+      "When the airplane was about 30 miles from Provo Municipal airport, the pilot began a gradual descent.",
+      "Shortly after beginning descent, the engine quit completely.",
+      "Loss of engine power was the defining event of the accident.",
+      "The pilot switched from the main fuel tank to the auxiliary fuel tank.",
+      "The pilot attempted to restart the engine without success.",
+      "The pilot selected an off-airport landing site in an open field.",
+      "The pilot turned off all electrical equipment in the airplane before landing.",
+      "The airplane landed hard during the off-airport landing.",
+      "The airplane flipped over onto its back after landing.",
+      "The pilot exited the overturned aircraft.",
+      "The pilot assisted his wife with exiting the overturned aircraft.",
+      "Both the pilot and his wife walked away from the airplane because they smelled fuel.",
+      "The accident report was modified on January 26, 2016."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Experimental Amateur-Built Pitts 12 Accident Near Bluffdale, Utah",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pitts 12",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N177MF",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bluffdale, Utah",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "passenger",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Washington state",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "New Mexico",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Arlington Municipal airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Arlington, Washington",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Columbia Gorge Regional Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Dalles, Oregon",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Provo, Utah",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Provo Municipal airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Title 14 Code of Federal Regulations Part 91",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of engine power",
+              "classification": "Definingevent"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved an experimental amateur-built Pitts 12 aircraft with registration N177MF.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N177MF",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CATEGORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "experimental amateur-built",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on May 3, 2014, at approximately 1945 mountain daylight time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 3, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1945 mountain daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred near Bluffdale, Utah.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bluffdale, Utah",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was substantially damaged in an off-airport landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "off-airport landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was the owner of the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OWNER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot and passenger received minor injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The passenger was the pilot's wife.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "SPOUSE OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Title 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Title 14 Code of Federal Regulations Part 91",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a personal flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personal flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed during the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No Federal Aviation Administration flight plan was filed for the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had recently purchased the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PURCHASE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recently purchased the airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot and his wife planned to fly the airplane from Washington state to their home airport in New Mexico.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RESIDENT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "New Mexico",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "RESIDENT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "New Mexico",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PLANNED ROUTE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "from Washington state to New Mexico",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The first flight of the day departed from Arlington Municipal airport in Arlington, Washington.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Arlington Municipal airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Arlington, Washington",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE POINT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Arlington Municipal airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The first flight terminated at Columbia Gorge Regional Airport in The Dalles, Oregon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Columbia Gorge Regional Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dalles, Oregon",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INTERMEDIATE STOP"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Columbia Gorge Regional Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The first flight leg was uneventful.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FIRST LEG STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uneventful",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot topped off the fuel tanks at Columbia Gorge Regional Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REFUELING LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Columbia Gorge Regional Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "topped off",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane departed from Columbia Gorge Regional Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SECOND DEPARTURE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Columbia Gorge Regional Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's next planned fuel stop was in the vicinity of Provo, Utah.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PLANNED FUEL STOP"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vicinity of Provo, Utah",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot conducted the cruise portion of the flight at an altitude of 9,500 feet above mean sea level.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CRUISE ALTITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "9,500 feet above mean sea level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "When the airplane was about 30 miles from Provo Municipal airport, the pilot began a gradual descent.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Provo Municipal airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Provo, Utah",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESCENT INITIATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 30 miles from Provo Municipal airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESCENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gradual",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Shortly after beginning descent, the engine quit completely.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shortly after beginning descent",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "quit completely",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Loss of engine power was the defining event of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "CAUSED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot switched from the main fuel tank to the auxiliary fuel tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "switched from main fuel tank to auxiliary fuel tank",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attempted to restart the engine without success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RESTART ATTEMPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "without success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot selected an off-airport landing site in an open field.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING SITE SELECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "open field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot turned off all electrical equipment in the airplane before landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SAFETY ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turned off all electrical equipment before landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane landed hard during the off-airport landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING QUALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane flipped over onto its back after landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POST LANDING POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flipped over onto its back",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot exited the overturned aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EVACUATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exited the overturned aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot assisted his wife with exiting the overturned aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ASSISTANCE PROVIDED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helped wife exit overturned aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both the pilot and his wife walked away from the airplane because they smelled fuel.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EVACUATION REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smelled fuel",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "EVACUATION REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smelled fuel",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POST ACCIDENT CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel leak",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident report was modified on January 26, 2016.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REPORT MODIFICATION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 26, 2016",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::3dd88aa8:3e5d",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "69e01b7394bfac113f1d42ab0377efa9a281b97dbf3f13460a18ffd81fbc4ae1",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::3dd88aa8:3e5d:d19c3db9",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "28df75277fb669d000bb4c99908bc8b9e265a57bb64e8ec9d6a3ef4da50ffc05",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::3dd88aa8:3e5d:55c627c3",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "add327c37924f9613ec155d0badade0e16eb6a270e6af81153be28f1ae5b7c78",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| | |\n|-|-|\n| Enroute-descent | Loss of engine power (total) (Defining event) |\n| Landing-landing roll | Collision with terr/obj (non-CFIT) |\n\n***This report was modified on January 26, 2016. Please see the docket for this accident to view the original report.***\n\n## HISTORY OF FLIGHT\n\nOn May 3, 2014, about 1945 mountain daylight time, an experimental amateur-built Pitts 12, N177MF, was substantially damaged in an off-airport landing near Bluffdale, Utah. The pilot/owner and his passenger received minor injuries. The personal flight was conducted under the provisions of Title 14 Code of Federal Regulations Part 91. Visual meteorological conditions prevailed, and no Federal Aviation Administration (FAA) flight plan was filed for the flight.\n\nAccording to the pilot, he had recently purchased the airplane, and he and his wife planned to fly it from the purchase location in Washington state to their home airport in New Mexico. The first flight of the day initiated from Arlington Municipal airport (AWO), Arlington Washington, and terminated in a planned stop at Columbia Gorge Regional Airport (DLS), The Dalles, Oregon. That flight leg was uneventful, and the pilot reported that he topped off the fuel tanks at DLS. The airplane departed DLS, with the pilot's next planned fuel stop in the vicinity of Provo, Utah.\n\nThe pilot reported that he conducted the cruise portion of that flight at an altitude of 9,500 feet above mean sea level (msl). When the airplane was about 30 miles from Provo Municipal airport (PVU), Provo, the pilot began a gradual descent, and shortly thereafter, the engine quit. The pilot switched from the main tank to the auxiliary tank and attempted to restart the engine, without success. The pilot then turned his attention to selecting an off-airport landing site in an open field, and turned off all electrical equipment in the airplane. The airplane landed hard, and \"flipped over on its back.\" The pilot exited, assisted his wife with her exit, and both walked away from the airplane because they smelled fuel.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2098,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

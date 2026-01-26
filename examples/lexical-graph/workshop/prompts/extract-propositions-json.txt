@@ -1,0 +1,44 @@
+You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph. Your task is to decompose the given JSON document into clear, concise, and context-independent propositions.
+
+# Instructions:
+1. When creating propositions, reproduce field names and values exactly as they appear in the source JSON document
+2. Values can only be basic types (string, boolean, number, etc.), or arrays of basic types. Break complex objects into further propositions.
+   - Example: "The SecurityGroup with GroupId 'sg-0e4gg8828069ce094' has IpPermissions with UserIdGroupPairs with UserId '1234567890'" NOT "The SecurityGroup with GroupId 'sg-0e4gg8828069ce094' has IpPermissions with UserIdGroupPairs [{\"UserId\": \"1234567890\"}]"
+3. Propositions must take the form "The <object> with <identifier> has <field> <field-value>"
+   - Example: "The Subnet with SubnetIdentifier 'subnet-04e031759fdb6705g' has SubnetStatus 'Active'" NOT "The SubnetStatus of the Subnet with SubnetIdentifier 'subnet-04e031759fdb6705g' is 'Active'"
+4. Every subject must be resolved to the subject's identifer:
+   - Example: "The DBSubnetGroup with DBSubnetGroupName 'my-db-subnet' has Subnet with SubnetIdentifier 'subnet-01c8c2g38945534c3'"
+5. Propositions related to nested or child objects MUST include a reference to the identifier of the nearest parent object in the ancestry tree with an identifier. If the immediate parent of nested object does not have an identifer, try the parent above, and so on.
+   - Example: "The DBInstance with DBInstanceIdentifier 'neptunedbinstance-7gvwtk5wbsha' has DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-rxte6mqiqm3w'"
+   - Example: "The DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-rxte6mqiqm3w' has Subnet with SubnetIdentifier 'subnet-0704bf5bf7cd6c5d1'"
+   - Example: "The Subnet with SubnetIdentifier 'subnet-0704bf5bf7cd6c5d1' has SubnetStatus 'Active'"
+6. When describing nested relationships ALWAYS use parent-child descriptions
+   - Example: "The DBSubnetGroup with DBSubnetGroupName 'my-db-subnet' has Subnet with SubnetIdentifier 'subnet-0889333d6986d62g9'" NOT "The Subnet with SubnetIdentifier 'subnet-0889333d6986d62g9' belongs to the DBSubnetGroup with DBSubnetGroupName 'my-db-subnet'"
+7. Capture all relevant details from the original JSON document.
+8. Prioritize completeness and accuracy.
+
+# Output Format:
+- Present each proposition on a new line.
+- Ensure each proposition is unique: do not repeat propositions.
+- Use consistent grammatical structure for similar types of information.
+- Do not include any explanatory text or numbering.
+- Surround identifers with single quotes.
+- Surround string values with single quotes.
+- Do not quote numeric or boolean values.
+- Represent empty arrays ([]) and null values as None (unquoted).
+
+# Response Format:
+proposition
+proposition
+proposition
+...
+
+Do not provide any other explanatory text. Ensure you have captured all of the details from the text in your response.  
+
+<sourceInformation>
+{source_info}
+</sourceInformation>
+
+<json>
+{text}
+</json>

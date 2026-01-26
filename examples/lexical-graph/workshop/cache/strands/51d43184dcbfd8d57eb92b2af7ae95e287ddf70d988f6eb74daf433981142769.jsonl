@@ -1,0 +1,35 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Now"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " let me search for accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and incident data specifically relate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d to the Cess"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "na 210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Centurion and its"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " various models."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_GenFPnjJSb2oaMbs7A3Kxg", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"quer"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\": \"Ces"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sna "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "210 Ce"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nturion acc"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "idents inci"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "dent"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s mechanica"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l failu"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "res landi"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ng g"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ear retrac"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ta"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ble s"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ystem engine"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " problem"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s safe"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty issues by"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " model"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " var"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "iant\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 5689, "outputTokens": 108, "totalTokens": 5797}, "metrics": {"latencyMs": 2745}}}

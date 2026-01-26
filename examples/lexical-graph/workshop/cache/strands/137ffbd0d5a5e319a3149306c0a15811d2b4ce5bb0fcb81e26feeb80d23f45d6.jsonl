@@ -1,0 +1,23 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_YmtHhs4bSz-Z0HuPISUBXw", "name": "aircraft"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"qu"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ery\": \""}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Cess"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "na 172 va"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "riants te"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "chnical s"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "pecification"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s m"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "echanical "}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "syste"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ms engines"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " components "}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "common diffe"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "re"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nces be"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tween mod"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "els\"}"}}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 3509, "outputTokens": 67, "totalTokens": 3576}, "metrics": {"latencyMs": 5905}}}

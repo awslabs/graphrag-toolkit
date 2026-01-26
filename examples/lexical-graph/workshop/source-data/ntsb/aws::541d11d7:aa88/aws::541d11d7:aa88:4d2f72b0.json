@@ -1,0 +1,2082 @@
+{
+  "id_": "aws::541d11d7:aa88:4d2f72b0",
+  "embedding": [
+    -0.005340576,
+    -0.0056877136,
+    -0.009590149,
+    -0.04156494,
+    -0.01210022,
+    -0.0059051514,
+    -0.024215698,
+    0.01676941,
+    -0.07574463,
+    -0.007282257,
+    0.0059051514,
+    0.036956787,
+    -0.00623703,
+    -0.051452637,
+    0.11407471,
+    -0.023452759,
+    -0.0015478134,
+    0.026870728,
+    0.033081055,
+    -0.0042686462,
+    0.012619019,
+    -0.0062713623,
+    -0.004432678,
+    -0.020874023,
+    -0.008041382,
+    0.017623901,
+    -0.044189453,
+    0.02406311,
+    -0.041992188,
+    -0.015899658,
+    -0.009788513,
+    0.034118652,
+    0.0155181885,
+    0.023925781,
+    -0.0440979,
+    -0.03274536,
+    -0.01071167,
+    0.007659912,
+    -0.03237915,
+    0.04269409,
+    0.0011453629,
+    -0.00881958,
+    0.050933838,
+    -0.040618896,
+    -0.00047564507,
+    0.008277893,
+    0.013465881,
+    -0.036132812,
+    0.004470825,
+    0.06304932,
+    0.026565552,
+    -0.0047569275,
+    0.020004272,
+    0.039276123,
+    0.011772156,
+    -0.011070251,
+    -0.053955078,
+    0.053497314,
+    -0.009979248,
+    0.021911621,
+    0.028839111,
+    0.059051514,
+    0.011940002,
+    0.032592773,
+    -0.06695557,
+    -0.019821167,
+    -0.0052337646,
+    -0.022659302,
+    0.07513428,
+    -0.034454346,
+    -0.014480591,
+    0.0748291,
+    -0.0009522438,
+    0.034942627,
+    0.0057792664,
+    -0.061309814,
+    -0.01586914,
+    -0.011505127,
+    -0.0034885406,
+    0.06555176,
+    -0.036895752,
+    -0.0023612976,
+    -0.006931305,
+    -0.061309814,
+    -0.00082302094,
+    -0.025772095,
+    -0.018875122,
+    0.0012550354,
+    -0.012992859,
+    -0.0041923523,
+    -0.009300232,
+    -0.021713257,
+    0.0067634583,
+    0.028305054,
+    -0.011199951,
+    0.0017700195,
+    -0.0038986206,
+    -0.0803833,
+    0.04348755,
+    -0.03390503,
+    0.05758667,
+    -0.07159424,
+    -0.0073661804,
+    0.042236328,
+    0.0061569214,
+    0.082092285,
+    0.0004544258,
+    0.0056915283,
+    0.04019165,
+    -0.0031166077,
+    0.015655518,
+    0.03543091,
+    0.033813477,
+    -0.051757812,
+    -0.038146973,
+    0.052520752,
+    0.060424805,
+    -0.009513855,
+    0.04034424,
+    0.016998291,
+    0.0024776459,
+    0.038757324,
+    -0.05117798,
+    -0.032806396,
+    0.04458618,
+    0.007686615,
+    -0.008575439,
+    0.023986816,
+    0.014892578,
+    -0.03942871,
+    -0.0030498505,
+    0.083618164,
+    -0.028060913,
+    -0.052703857,
+    -0.05770874,
+    0.018859863,
+    -0.0435791,
+    -0.006801605,
+    -0.0044517517,
+    0.0021686554,
+    -0.008926392,
+    -0.022460938,
+    0.06365967,
+    -0.008735657,
+    -0.0052223206,
+    0.019378662,
+    0.03137207,
+    0.014373779,
+    -0.032836914,
+    -0.02067566,
+    -0.0008120537,
+    -0.022506714,
+    0.044952393,
+    0.0028495789,
+    -0.046844482,
+    -0.05316162,
+    -0.0033073425,
+    -0.028396606,
+    0.006198883,
+    -0.054107666,
+    -0.0085372925,
+    -0.015808105,
+    0.0033111572,
+    0.032348633,
+    0.031341553,
+    0.018371582,
+    0.006374359,
+    0.01763916,
+    0.016708374,
+    -0.017929077,
+    0.04373169,
+    0.00623703,
+    -0.034057617,
+    -0.009933472,
+    0.023025513,
+    -0.014411926,
+    0.009727478,
+    0.043762207,
+    0.0074043274,
+    0.027160645,
+    0.022140503,
+    -0.040222168,
+    0.024246216,
+    0.0015697479,
+    0.014595032,
+    -0.002773285,
+    0.028198242,
+    0.023162842,
+    -0.020645142,
+    0.021835327,
+    -0.031036377,
+    0.029022217,
+    -0.032470703,
+    -0.00049066544,
+    -0.001408577,
+    -0.0065231323,
+    0.018753052,
+    0.0019216537,
+    0.0039978027,
+    -0.008758545,
+    -0.032470703,
+    0.037261963,
+    -0.032318115,
+    0.03665161,
+    -0.030731201,
+    0.022537231,
+    -0.0023384094,
+    0.024414062,
+    -0.0047416687,
+    -0.011520386,
+    0.012962341,
+    -0.030944824,
+    -0.026000977,
+    0.02027893,
+    -0.0423584,
+    0.00598526,
+    -0.007671356,
+    0.0284729,
+    0.017562866,
+    -0.018585205,
+    0.00356102,
+    0.009407043,
+    -0.0046844482,
+    0.017303467,
+    -0.009544373,
+    -0.004508972,
+    -0.003145218,
+    -0.008453369,
+    0.029556274,
+    -0.016693115,
+    0.1026001,
+    -0.008644104,
+    0.03643799,
+    0.04788208,
+    -0.03314209,
+    0.041290283,
+    0.024459839,
+    0.049224854,
+    -0.03390503,
+    -0.004863739,
+    -0.019012451,
+    0.002002716,
+    -0.02758789,
+    0.014404297,
+    -0.009536743,
+    -0.030319214,
+    -0.0065193176,
+    0.023239136,
+    -0.029083252,
+    0.027679443,
+    0.038116455,
+    0.066711426,
+    0.0066719055,
+    0.11138916,
+    0.008468628,
+    0.010856628,
+    -0.015426636,
+    -0.026107788,
+    0.039276123,
+    -0.020996094,
+    0.033294678,
+    -0.03186035,
+    -0.066345215,
+    0.0036144257,
+    -0.025390625,
+    0.025634766,
+    0.028030396,
+    0.036834717,
+    -0.023468018,
+    0.0035896301,
+    0.017822266,
+    0.042022705,
+    -0.0054855347,
+    0.0064353943,
+    -0.0017871857,
+    0.025299072,
+    -0.028930664,
+    0.0031757355,
+    0.028213501,
+    -0.007381439,
+    0.00087213516,
+    0.02684021,
+    -0.032318115,
+    -0.00982666,
+    0.005569458,
+    -0.030715942,
+    -0.0037612915,
+    0.040283203,
+    -0.021255493,
+    0.05392456,
+    0.07385254,
+    0.03982544,
+    0.0013542175,
+    0.008453369,
+    -0.04989624,
+    0.021957397,
+    0.03149414,
+    0.0010709763,
+    0.009033203,
+    -0.012367249,
+    0.010276794,
+    0.04309082,
+    -0.030563354,
+    0.027877808,
+    -0.0042152405,
+    -0.009307861,
+    -0.0031738281,
+    0.0034179688,
+    -0.0045700073,
+    -0.0008802414,
+    -0.042999268,
+    -0.007419586,
+    0.024414062,
+    0.0124435425,
+    0.028305054,
+    -0.009651184,
+    0.01777649,
+    0.044769287,
+    -0.014434814,
+    -0.022735596,
+    0.010917664,
+    0.041229248,
+    -0.025482178,
+    0.017501831,
+    0.0340271,
+    -0.014450073,
+    -0.0141067505,
+    -0.0035629272,
+    -0.023376465,
+    0.023986816,
+    -0.04031372,
+    -0.0006108284,
+    -0.022338867,
+    0.03225708,
+    -0.0016012192,
+    0.022903442,
+    0.010169983,
+    0.0038013458,
+    -0.01260376,
+    -0.0103302,
+    0.005947113,
+    -0.047851562,
+    0.0009965897,
+    -0.023147583,
+    -0.06573486,
+    -0.009590149,
+    0.022445679,
+    0.015068054,
+    -0.0758667,
+    -0.044189453,
+    0.08459473,
+    -0.03112793,
+    -0.02645874,
+    -0.009788513,
+    -0.013015747,
+    -0.053344727,
+    0.0037670135,
+    -0.016281128,
+    -0.022003174,
+    -0.046020508,
+    -0.023986816,
+    -0.0055999756,
+    -0.040130615,
+    -0.017227173,
+    0.049072266,
+    0.0026302338,
+    -0.042266846,
+    0.011955261,
+    -0.029388428,
+    0.005317688,
+    0.015106201,
+    -0.00045657158,
+    -0.019607544,
+    -0.02192688,
+    -0.056427002,
+    -0.027389526,
+    0.03463745,
+    -0.023117065,
+    -0.02406311,
+    0.0021686554,
+    0.008720398,
+    0.008476257,
+    -0.028686523,
+    -0.014129639,
+    -0.022567749,
+    0.020492554,
+    -0.032592773,
+    0.00039482117,
+    -0.01360321,
+    0.0067481995,
+    -0.0042037964,
+    0.027404785,
+    -0.014457703,
+    -0.008926392,
+    0.019348145,
+    -0.0037670135,
+    -0.011184692,
+    -0.0059814453,
+    -0.046081543,
+    -0.014816284,
+    -0.058013916,
+    -0.032684326,
+    -0.025863647,
+    -0.040405273,
+    0.020019531,
+    -0.019317627,
+    0.0031833649,
+    -0.04864502,
+    0.051971436,
+    0.026870728,
+    -0.026397705,
+    0.050628662,
+    -0.021194458,
+    0.017837524,
+    -0.054901123,
+    0.026824951,
+    0.0014038086,
+    -0.005821228,
+    0.0014095306,
+    -0.005001068,
+    0.015411377,
+    -0.010101318,
+    0.021850586,
+    0.033813477,
+    -0.029006958,
+    0.01146698,
+    -0.03302002,
+    0.035491943,
+    -0.02557373,
+    -0.022735596,
+    -0.058654785,
+    -0.025054932,
+    -0.009796143,
+    0.021484375,
+    -0.04333496,
+    0.053833008,
+    0.033325195,
+    0.003873825,
+    0.07965088,
+    -0.05618286,
+    0.0211792,
+    0.021453857,
+    0.0362854,
+    0.035583496,
+    -0.0044288635,
+    0.010948181,
+    0.024139404,
+    0.0054016113,
+    -0.028884888,
+    -0.06854248,
+    -0.007675171,
+    0.012748718,
+    0.07550049,
+    0.03652954,
+    0.035736084,
+    0.062347412,
+    -0.017715454,
+    0.03414917,
+    -0.0012216568,
+    -0.01146698,
+    -0.0071411133,
+    -0.014320374,
+    0.00579834,
+    -0.008331299,
+    -0.004108429,
+    0.011772156,
+    0.0046920776,
+    0.005104065,
+    -0.0028247833,
+    0.010551453,
+    0.01486969,
+    -0.0006260872,
+    0.007255554,
+    -0.023239136,
+    -0.017044067,
+    -0.08111572,
+    0.016555786,
+    0.012321472,
+    0.03491211,
+    -0.020858765,
+    -0.046081543,
+    0.023727417,
+    0.020980835,
+    0.029388428,
+    0.026885986,
+    0.018981934,
+    0.027954102,
+    0.02229309,
+    0.028900146,
+    -0.03527832,
+    0.013191223,
+    -0.057891846,
+    0.06390381,
+    -0.05795288,
+    -0.002828598,
+    -0.029281616,
+    0.0112838745,
+    -0.019439697,
+    0.022903442,
+    -0.01965332,
+    -0.026931763,
+    0.021820068,
+    -0.032958984,
+    -0.03112793,
+    -0.029769897,
+    0.005306244,
+    0.023849487,
+    0.012062073,
+    0.012741089,
+    -0.016204834,
+    0.029907227,
+    -0.00072717667,
+    0.017242432,
+    0.04458618,
+    -0.028533936,
+    0.05795288,
+    0.003250122,
+    0.04525757,
+    0.0031337738,
+    -0.024093628,
+    -0.04660034,
+    -0.037017822,
+    0.059661865,
+    0.04562378,
+    -0.07470703,
+    0.0032157898,
+    0.035308838,
+    0.027709961,
+    -0.049682617,
+    -0.033935547,
+    0.008178711,
+    0.06689453,
+    0.031829834,
+    -0.0056915283,
+    0.010269165,
+    -0.019332886,
+    -0.029266357,
+    0.026977539,
+    0.0067253113,
+    -0.023773193,
+    -0.017959595,
+    -0.013641357,
+    0.002811432,
+    -0.000620842,
+    0.03213501,
+    -0.058624268,
+    0.03643799,
+    0.0345459,
+    -0.07336426,
+    0.00283432,
+    0.008216858,
+    0.0033245087,
+    0.035003662,
+    -0.056030273,
+    -0.056030273,
+    0.060180664,
+    0.04498291,
+    -0.04827881,
+    0.0068359375,
+    0.046844482,
+    -0.008560181,
+    0.0018348694,
+    -0.03149414,
+    0.032440186,
+    -0.0066833496,
+    0.041870117,
+    -0.029647827,
+    -0.041900635,
+    0.03652954,
+    -0.01890564,
+    0.02015686,
+    -0.016784668,
+    0.11090088,
+    -0.00043821335,
+    0.03189087,
+    -0.047912598,
+    -0.002122879,
+    0.011260986,
+    0.005996704,
+    -0.009536743,
+    -0.027053833,
+    0.016418457,
+    0.016174316,
+    -0.0012493134,
+    -0.030426025,
+    0.030395508,
+    -0.0073280334,
+    -0.0368042,
+    -0.027191162,
+    0.0069847107,
+    0.080200195,
+    -0.008361816,
+    -0.009559631,
+    0.001077652,
+    0.019424438,
+    0.01939392,
+    0.0032138824,
+    -0.037841797,
+    0.0022010803,
+    0.009757996,
+    -0.013130188,
+    -0.02520752,
+    -0.0076522827,
+    -0.02746582,
+    0.07128906,
+    -0.016555786,
+    -0.0058937073,
+    -0.0067596436,
+    0.029266357,
+    0.032928467,
+    -0.0074272156,
+    0.004627228,
+    -0.074157715,
+    0.02935791,
+    -0.060577393,
+    -0.002872467,
+    -0.016098022,
+    0.06100464,
+    0.04220581,
+    -0.008155823,
+    0.04840088,
+    -0.029296875,
+    0.034057617,
+    0.016433716,
+    0.029388428,
+    0.045684814,
+    -0.03463745,
+    -0.00022625923,
+    -0.02230835,
+    -0.0463562,
+    -0.044067383,
+    -0.045166016,
+    -0.043884277,
+    0.02557373,
+    -0.036499023,
+    -0.03463745,
+    0.0051116943,
+    -0.031311035,
+    0.04724121,
+    0.02154541,
+    -0.00484848,
+    0.0069007874,
+    0.019439697,
+    -0.008041382,
+    0.012962341,
+    -0.04144287,
+    -0.021560669,
+    -0.005592346,
+    -0.0077667236,
+    -0.0019025803,
+    -0.01158905,
+    -0.008522034,
+    -0.0018749237,
+    -0.034088135,
+    0.008872986,
+    -0.037322998,
+    0.00868988,
+    0.0052833557,
+    -0.001206398,
+    -0.017471313,
+    -0.06402588,
+    -0.03112793,
+    -0.048797607,
+    -0.024383545,
+    -0.029373169,
+    0.019134521,
+    0.014533997,
+    0.019119263,
+    0.0012235641,
+    -0.010658264,
+    0.0054779053,
+    0.007091522,
+    0.017044067,
+    -0.06124878,
+    -0.02671814,
+    -0.0044670105,
+    -0.023345947,
+    0.011054993,
+    0.021636963,
+    -0.034942627,
+    -0.007080078,
+    -0.049682617,
+    -0.0115737915,
+    0.015914917,
+    -0.027328491,
+    0.0035476685,
+    -0.016067505,
+    0.033355713,
+    -0.035858154,
+    0.03744507,
+    -0.016204834,
+    0.027069092,
+    -0.013946533,
+    0.008132935,
+    -0.014457703,
+    -0.056518555,
+    0.011291504,
+    -0.02760315,
+    0.015686035,
+    -0.056915283,
+    -0.023986816,
+    0.013290405,
+    0.04888916,
+    0.022735596,
+    -0.040405273,
+    0.025314331,
+    0.0011787415,
+    0.0635376,
+    -0.06378174,
+    -0.024856567,
+    0.001964569,
+    0.06506348,
+    -0.0095825195,
+    0.0023593903,
+    -0.017120361,
+    -0.007797241,
+    -0.0011091232,
+    -0.0181427,
+    -0.028518677,
+    0.040740967,
+    -0.0048980713,
+    -0.0033016205,
+    0.01525116,
+    0.01436615,
+    0.03125,
+    -0.020629883,
+    -0.044952393,
+    0.015899658,
+    -0.02470398,
+    -0.027816772,
+    0.012001038,
+    -0.009513855,
+    0.058898926,
+    -0.026809692,
+    -0.07647705,
+    0.015022278,
+    -0.0035057068,
+    0.008979797,
+    0.030456543,
+    -0.014511108,
+    0.0019426346,
+    -0.014053345,
+    0.039215088,
+    0.02015686,
+    -0.00774765,
+    -0.030166626,
+    0.012359619,
+    -0.086364746,
+    0.0013484955,
+    0.000808239,
+    0.062072754,
+    -0.06719971,
+    -0.10479736,
+    -0.014732361,
+    0.031707764,
+    0.021591187,
+    -0.012710571,
+    -0.04827881,
+    -0.114990234,
+    0.027008057,
+    0.012306213,
+    0.00032186508,
+    0.016143799,
+    0.018127441,
+    -0.053985596,
+    0.022018433,
+    -0.022537231,
+    -0.010604858,
+    -0.02557373,
+    -0.010688782,
+    -0.0022640228,
+    -0.021575928,
+    -0.0038452148,
+    -0.0017433167,
+    0.058746338,
+    -0.02017212,
+    0.012535095,
+    -0.038024902,
+    -0.0044174194,
+    -0.011260986,
+    -0.0031585693,
+    0.03668213,
+    -0.0016374588,
+    0.011177063,
+    0.0084991455,
+    -0.018569946,
+    -0.011894226,
+    0.0011930466,
+    -0.016586304,
+    0.008987427,
+    -0.013641357,
+    0.04360962,
+    -0.017837524,
+    0.006904602,
+    0.009063721,
+    0.015411377,
+    0.0074691772,
+    -0.030639648,
+    -0.066589355,
+    -0.028060913,
+    -0.015777588,
+    0.014335632,
+    -0.041015625,
+    0.021621704,
+    -0.04788208,
+    -0.016021729,
+    -0.0030403137,
+    0.03781128,
+    0.01550293,
+    -0.023406982,
+    0.009803772,
+    -0.03451538,
+    0.07342529,
+    -0.02268982,
+    0.040374756,
+    0.012214661,
+    -0.044769287,
+    -0.039886475,
+    0.017562866,
+    0.044921875,
+    -0.007904053,
+    0.02003479,
+    0.0010251999,
+    0.021011353,
+    0.0033111572,
+    0.035949707,
+    -0.026321411,
+    -0.0022850037,
+    0.010765076,
+    0.026306152,
+    0.04083252,
+    0.01852417,
+    -0.022476196,
+    -0.003452301,
+    -0.03189087,
+    0.025482178,
+    0.054260254,
+    0.029800415,
+    -0.010627747,
+    0.041046143,
+    -0.01878357,
+    -0.049682617,
+    0.0026721954,
+    0.0020771027,
+    -0.07775879,
+    0.018676758,
+    0.03161621,
+    0.01071167,
+    0.04916382,
+    0.061279297,
+    0.00041604042,
+    0.009918213,
+    0.017410278,
+    -0.03289795,
+    0.010169983,
+    0.04916382,
+    0.028427124,
+    -0.006843567,
+    -0.01449585,
+    0.017227173,
+    0.0062294006,
+    0.022460938,
+    0.04928589,
+    0.017913818,
+    0.005847931,
+    0.013420105,
+    -0.032928467,
+    0.040496826,
+    -0.0009841919,
+    0.044677734,
+    0.013595581,
+    0.009544373,
+    -0.03164673,
+    -0.035858154,
+    -0.009178162,
+    -0.057800293,
+    0.015029907,
+    0.008453369,
+    -0.044311523,
+    0.03414917,
+    -0.0647583,
+    -0.054626465,
+    0.0019760132,
+    -0.0045204163,
+    -0.0032978058,
+    -0.04736328,
+    0.0018358231,
+    -0.024291992,
+    0.07757568,
+    0.029769897,
+    0.0049057007,
+    0.013923645,
+    0.0011758804,
+    0.05545044,
+    0.07330322,
+    0.053771973,
+    -0.008682251,
+    -0.03677368,
+    -0.0546875,
+    0.022277832,
+    -0.027694702,
+    -0.034484863,
+    0.033935547,
+    -0.10461426,
+    0.052093506,
+    -0.0076026917,
+    -0.010444641,
+    -0.092163086,
+    -0.009933472,
+    -0.018569946,
+    0.013160706,
+    -0.0063667297,
+    -0.020767212,
+    0.011672974,
+    0.0024909973,
+    -0.0030403137,
+    -0.03665161,
+    -0.02696228,
+    0.020248413,
+    -0.06222534,
+    -0.029907227,
+    0.02609253,
+    -0.018615723,
+    0.00040102005,
+    0.026306152,
+    -0.008216858,
+    0.041656494,
+    -0.017028809,
+    -0.0206604,
+    0.013618469,
+    0.00995636,
+    0.0113220215,
+    0.061828613,
+    -0.023269653,
+    0.02999878,
+    0.0016231537,
+    -0.025650024,
+    -0.02267456,
+    -0.0078086853,
+    0.043151855,
+    -0.0023956299,
+    -0.020828247,
+    -0.05331421,
+    0.024475098,
+    -0.0010948181,
+    0.017028809,
+    0.01979065,
+    -0.009986877,
+    -0.022491455,
+    0.023590088,
+    0.002456665,
+    -0.0045051575,
+    0.02067566,
+    0.007282257,
+    0.016647339,
+    0.050201416,
+    -0.015792847,
+    0.005870819,
+    -0.025482178,
+    -0.041900635,
+    -0.0011234283,
+    0.0077781677,
+    0.018127441,
+    0.013580322,
+    0.003627777,
+    0.017822266,
+    0.0025730133,
+    -0.025390625,
+    -0.010269165,
+    0.011940002,
+    0.03463745,
+    0.027038574,
+    -0.024719238,
+    0.027648926,
+    0.018188477,
+    -0.019363403,
+    -0.001531601,
+    0.0008635521,
+    0.0017614365,
+    -0.027770996,
+    0.00019085407,
+    0.0087509155,
+    -0.0019025803,
+    -0.050109863,
+    0.03189087,
+    -0.014144897,
+    0.0051841736,
+    0.008850098,
+    -0.0013837814,
+    -0.012023926,
+    -0.011558533,
+    0.032440186,
+    -0.0021133423,
+    -0.016662598,
+    0.036254883,
+    0.03161621,
+    0.023361206,
+    -0.03866577,
+    0.021087646,
+    0.0006656647,
+    -0.042663574,
+    -0.020126343,
+    0.040527344,
+    -0.025177002,
+    -0.009819031,
+    -0.05090332,
+    0.011291504,
+    -0.025405884,
+    -0.0463562,
+    -0.00016236305,
+    -0.04034424,
+    0.028686523,
+    0.011253357,
+    0.006324768,
+    0.06866455,
+    -0.023742676,
+    0.019821167,
+    -0.032348633,
+    0.013671875,
+    0.01600647,
+    -0.022155762,
+    0.007789612,
+    -0.012466431,
+    0.0012207031
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101212.md",
+    "file_name": "101212.md",
+    "file_size": 6868,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Cook SONEX N1222C in Upland, California",
+      "Cook SONEX is an aircraft type.",
+      "N1222C is the registration number of the Cook SONEX aircraft.",
+      "The accident occurred in Upland, California.",
+      "The accident occurred on April 27, 2020.",
+      "The accident occurred at 08:20 Local time.",
+      "The defining event of the accident was a hard landing.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was WPR20CA132.",
+      "The Cook SONEX aircraft sustained substantial damage.",
+      "The pilot suffered no injuries.",
+      "The pilot was the only occupant of the aircraft.",
+      "The pilot returned from a local flight.",
+      "The pilot was practicing touch-and-go landings.",
+      "During the second takeoff, the engine began to gradually lose power as the airplane gained altitude.",
+      "The pilot was unable to return to the runway.",
+      "The pilot initiated a precautionary landing to a strip of gravel.",
+      "The strip of gravel is perpendicular to the runway.",
+      "During the landing, the right wing of the Cook SONEX was substantially damaged.",
+      "The pilot did not believe there was a problem with the engine.",
+      "The pilot believed the problem was with the fuel-to-air mixture.",
+      "The fuel pressure regulator did not keep a continuous constant pressure.",
+      "The failure of the fuel pressure regulator led to the gradual loss of engine power.",
+      "The National Transportation Safety Board determined the probable cause of the accident.",
+      "The probable cause was a gradual loss of engine power during takeoff.",
+      "The loss of engine power was due to the pressure regulator not keeping continuous fuel pressure.",
+      "The loss of engine power led to a precautionary off-airport landing.",
+      "The precautionary landing resulted in a collision with terrain."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Cook SONEX N1222C in Upland, California",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cook SONEX",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N1222C",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Upland, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "hard landing",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR20CA132",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel pressure regulator",
+              "classification": "Component"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cook SONEX is an aircraft type.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft type",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N1222C is the registration number of the Cook SONEX aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N1222C",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Upland, California.",
+              "details": [
+                "accident LOCATION Upland, California"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Upland, California",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on April 27, 2020.",
+              "details": [
+                "accident DATE April 27, 2020"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 27, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred at 0820 Local time.",
+              "details": [
+                "accident TIME 08:20 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "08:20 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was a hard landing.",
+              "details": [
+                "accident DEFINING EVENT hard landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR20CA132.",
+              "details": [
+                "accident NUMBER WPR20CA132"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR20CA132",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Cook SONEX aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot suffered no injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was the only occupant of the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "only occupant",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot returned from a local flight.",
+              "details": [
+                "flight TYPE local flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was practicing touch-and-go landings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "practicing touch-and-go landings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the second takeoff, the engine began to gradually lose power as the airplane gained altitude.",
+              "details": [
+                "engine ISSUE gradually lose power",
+                "airplane PHASE OF FLIGHT second takeoff"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gradually lose power",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PHASE OF FLIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was unable to return to the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "UNABLE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "return to the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot initiated a precautionary landing to a strip of gravel.",
+              "details": [
+                "landing LOCATION strip of gravel"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initiated a precautionary landing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strip of gravel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The strip of gravel is perpendicular to the runway.",
+              "details": [
+                "strip of gravel ORIENTATION perpendicular to the runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strip of gravel",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ORIENTATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "perpendicular to the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the landing, the right wing of the Cook SONEX was substantially damaged.",
+              "details": [
+                "right wing DAMAGE EXTENT substantially damaged"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cook SONEX",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGED PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE EXTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not believe there was a problem with the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "BELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not believe there was a problem with the engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot believed the problem was with the fuel-to-air mixture.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "BELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "problem was with the fuel-to-air mixture",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pressure regulator did not keep a continuous constant pressure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pressure regulator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MALFUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not keep a continuous constant pressure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The failure of the fuel pressure regulator led to the gradual loss of engine power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pressure regulator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "FAILURE RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gradual loss of engine power",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause was a gradual loss of engine power during takeoff.",
+              "details": [
+                "accident PROBABLE CAUSE gradual loss of engine power during takeoff"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gradual loss of engine power during takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The loss of engine power was due to the pressure regulator not keeping continuous fuel pressure.",
+              "details": [
+                "loss of engine power CAUSE pressure regulator not keeping continuous fuel pressure"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pressure regulator not keeping continuous fuel pressure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The loss of engine power led to a precautionary off-airport landing.",
+              "details": [
+                "loss of engine power RESULT precautionary off-airport landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precautionary off-airport landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The precautionary landing resulted in a collision with terrain.",
+              "details": [
+                "precautionary landing RESULT collision with terrain"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precautionary landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision with terrain",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::541d11d7:aa88",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101212.md",
+        "file_name": "101212.md",
+        "file_size": 6868,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a000f0a13d310a191724830036489f493aa07527adb9a5e179cf788596feced7",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::541d11d7:aa88:a0fd8ca4",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101212.md",
+        "file_name": "101212.md",
+        "file_size": 6868,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "73780efbaa2fe019f835a556a3aff1570fa0a400892a888b7822cd0f6da2bd67",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nUpland, California\n\n## Date & Time: \nApril 27, 2020, 08:20 Local\n\n## Aircraft:\nCook SONEX\n\n## Defining Event:\nHard landing\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nWPR20CA132\n\n## Registration:\nN1222C\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nThe pilot reported that he returned from a local flight and was practicing touch-and-go landings. During the second takeoff, as the airplane gained altitude, the engine began to gradually lose power. Unable to return to the runway, the pilot initiated a precautionary landing to a strip of gravel that is perpendicular to the runway. During the landing, the right wing was substantially damaged.\n\nThe pilot reported that he did not believe there was problem with the engine, but that the problem was with the fuel-to-air mixture caused by the fuel pressure regulator not keeping a continuous constant pressure that led to the gradual loss of engine power.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be: A gradual loss of engine power during takeoff due to the pressure regulator not keeping continuous fuel pressure which led to a precautionary off airport landing and collision with terrain.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1346,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

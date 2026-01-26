@@ -1,0 +1,2537 @@
+{
+  "id_": "aws::c8c167ae:3b1a:0107c785",
+  "embedding": [
+    0.018234253,
+    0.022033691,
+    0.0001591444,
+    -0.048553467,
+    0.014411926,
+    1.5974045e-05,
+    0.00592041,
+    0.012084961,
+    0.0019006729,
+    -0.002023697,
+    0.028213501,
+    -0.006175995,
+    -0.025634766,
+    -0.060424805,
+    0.016296387,
+    -0.022338867,
+    -0.012435913,
+    0.010955811,
+    -0.017684937,
+    -0.026885986,
+    0.010505676,
+    -0.024749756,
+    -0.049224854,
+    -0.07299805,
+    0.014419556,
+    0.058746338,
+    -0.04699707,
+    -0.0031700134,
+    -0.017318726,
+    -0.01864624,
+    -0.0006403923,
+    0.011817932,
+    0.00020885468,
+    0.032348633,
+    -0.008522034,
+    -0.06958008,
+    -0.034332275,
+    0.03363037,
+    0.0003771782,
+    0.0035247803,
+    0.023513794,
+    -0.014419556,
+    0.040649414,
+    0.022445679,
+    -0.000890255,
+    -0.011558533,
+    0.03717041,
+    -0.009811401,
+    0.045776367,
+    0.052520752,
+    -0.002445221,
+    0.014190674,
+    -0.013458252,
+    -0.0063705444,
+    -0.0016498566,
+    -0.01058197,
+    -0.05593872,
+    0.026855469,
+    -0.0132751465,
+    0.029296875,
+    0.038970947,
+    0.058654785,
+    -0.0010137558,
+    0.053375244,
+    -0.045318604,
+    0.009414673,
+    0.014663696,
+    -0.010513306,
+    0.06518555,
+    -0.040771484,
+    -0.03314209,
+    0.05368042,
+    -0.00982666,
+    0.041534424,
+    -0.012107849,
+    -0.056793213,
+    0.012664795,
+    -0.014419556,
+    -0.017242432,
+    0.043945312,
+    -0.0020980835,
+    0.036315918,
+    0.022369385,
+    0.008613586,
+    -0.023529053,
+    0.027008057,
+    -0.035827637,
+    -0.017181396,
+    -0.013580322,
+    -0.011177063,
+    -0.017608643,
+    -0.033599854,
+    0.009483337,
+    0.0209198,
+    -0.035614014,
+    0.027893066,
+    0.013954163,
+    -0.06591797,
+    0.042144775,
+    0.00035119057,
+    0.01965332,
+    -0.06365967,
+    0.0069084167,
+    0.009399414,
+    -0.0047340393,
+    0.019515991,
+    0.0066719055,
+    0.0032844543,
+    0.04272461,
+    0.006374359,
+    -0.0032138824,
+    0.05596924,
+    -0.013572693,
+    -0.052215576,
+    -0.012718201,
+    0.0680542,
+    0.009849548,
+    -0.013809204,
+    0.033447266,
+    0.015342712,
+    0.013626099,
+    0.031463623,
+    -0.05822754,
+    -0.01007843,
+    0.021759033,
+    -0.01979065,
+    -0.036895752,
+    0.050933838,
+    0.012016296,
+    -0.014320374,
+    -0.03302002,
+    0.04043579,
+    -0.03692627,
+    -0.04559326,
+    -0.02458191,
+    0.014053345,
+    -0.033447266,
+    -0.017303467,
+    -0.013000488,
+    0.03881836,
+    -0.015975952,
+    -0.051208496,
+    0.040130615,
+    0.0043792725,
+    -0.030593872,
+    0.020721436,
+    0.023269653,
+    -0.0072669983,
+    -0.027786255,
+    -0.037353516,
+    -0.01209259,
+    -0.001291275,
+    0.061035156,
+    -0.03137207,
+    -0.025817871,
+    -0.063964844,
+    0.028442383,
+    -0.05303955,
+    -0.00028944016,
+    -0.05154419,
+    0.029708862,
+    -0.020629883,
+    -0.00088071823,
+    -0.04083252,
+    -0.07952881,
+    0.032470703,
+    -0.060058594,
+    -0.02394104,
+    0.010269165,
+    0.0035991669,
+    -0.022384644,
+    -0.01828003,
+    -0.013641357,
+    -0.021255493,
+    -0.014793396,
+    0.03010559,
+    0.034484863,
+    0.037902832,
+    -0.0011739731,
+    0.022384644,
+    -0.013801575,
+    -0.041931152,
+    0.043304443,
+    -0.037322998,
+    -0.007358551,
+    -0.039245605,
+    0.013633728,
+    -0.035827637,
+    0.01727295,
+    0.016983032,
+    0.0143966675,
+    0.016616821,
+    0.03894043,
+    -0.009162903,
+    -0.012496948,
+    -0.036590576,
+    -0.013389587,
+    0.00969696,
+    -0.03894043,
+    0.0031166077,
+    -0.03378296,
+    0.0141067505,
+    0.013916016,
+    0.009590149,
+    0.004760742,
+    0.0034179688,
+    -0.008430481,
+    0.030670166,
+    -0.024261475,
+    0.01210022,
+    0.030822754,
+    0.0014333725,
+    -0.009788513,
+    -0.029220581,
+    -0.0029773712,
+    -0.0038661957,
+    -0.020233154,
+    0.0032157898,
+    0.042419434,
+    0.01864624,
+    0.020431519,
+    0.02079773,
+    0.0026302338,
+    -0.028671265,
+    -0.041168213,
+    -0.03817749,
+    -0.0138549805,
+    -0.027435303,
+    -0.033233643,
+    -0.030517578,
+    0.08001709,
+    0.04095459,
+    0.034454346,
+    0.042907715,
+    -0.050933838,
+    0.023498535,
+    0.0206604,
+    0.052764893,
+    -0.01020813,
+    0.016204834,
+    -0.0096588135,
+    -0.023361206,
+    -0.014732361,
+    0.05593872,
+    -0.04269409,
+    -0.017089844,
+    0.013412476,
+    0.032043457,
+    -0.00014424324,
+    0.071777344,
+    -0.008605957,
+    0.04034424,
+    0.008110046,
+    -0.0015296936,
+    -0.011009216,
+    0.045196533,
+    -0.041656494,
+    -0.05307007,
+    -0.024230957,
+    0.0018186569,
+    0.041290283,
+    -0.017913818,
+    -0.04837036,
+    0.011947632,
+    -0.02558899,
+    0.0032577515,
+    0.040893555,
+    0.032318115,
+    0.013084412,
+    -0.016998291,
+    -0.006160736,
+    -0.00299263,
+    0.01424408,
+    0.023406982,
+    -0.062469482,
+    0.008865356,
+    -0.044799805,
+    0.02067566,
+    0.043151855,
+    -0.011001587,
+    -0.041381836,
+    0.0009598732,
+    -0.022842407,
+    -0.018539429,
+    0.011878967,
+    -0.017822266,
+    -0.011581421,
+    -0.029006958,
+    0.0048713684,
+    0.04598999,
+    0.04852295,
+    0.018066406,
+    0.009613037,
+    0.004722595,
+    -0.015899658,
+    -0.002708435,
+    0.050476074,
+    -0.0056877136,
+    0.009689331,
+    0.0011978149,
+    0.0118637085,
+    0.051879883,
+    0.013885498,
+    -0.0109939575,
+    0.00095129013,
+    -0.041809082,
+    -0.019943237,
+    0.02633667,
+    0.012001038,
+    -0.0023708344,
+    -0.020050049,
+    0.07836914,
+    0.0072021484,
+    0.0022296906,
+    0.015167236,
+    -0.019683838,
+    0.0068588257,
+    0.007534027,
+    -0.019744873,
+    -0.017623901,
+    -0.022323608,
+    0.010131836,
+    0.019699097,
+    0.008560181,
+    0.03149414,
+    -0.034454346,
+    0.0042152405,
+    0.012374878,
+    0.0289917,
+    -0.010864258,
+    -0.058380127,
+    -0.030685425,
+    -0.06488037,
+    0.039855957,
+    -0.0045051575,
+    0.023971558,
+    -0.013893127,
+    0.017105103,
+    -0.029083252,
+    -0.016616821,
+    -0.035247803,
+    -0.09893799,
+    0.022888184,
+    -0.023712158,
+    -0.064453125,
+    -0.043151855,
+    -0.005393982,
+    -0.0052604675,
+    0.008628845,
+    -0.03955078,
+    0.08178711,
+    -0.0032100677,
+    -0.034057617,
+    0.03366089,
+    -0.017715454,
+    -0.07495117,
+    0.04159546,
+    0.0109939575,
+    -0.050079346,
+    -0.04159546,
+    -0.03262329,
+    -0.015014648,
+    -0.068359375,
+    -0.052734375,
+    0.06640625,
+    0.009750366,
+    -0.032806396,
+    -0.022247314,
+    0.014831543,
+    0.022354126,
+    -0.014823914,
+    0.009819031,
+    -0.015808105,
+    -0.015159607,
+    -0.012496948,
+    -0.0096206665,
+    0.031082153,
+    -0.010643005,
+    0.027313232,
+    0.036193848,
+    0.02670288,
+    0.025985718,
+    0.035125732,
+    0.018203735,
+    0.0028629303,
+    0.002588272,
+    -0.04119873,
+    -0.008056641,
+    -0.004562378,
+    0.018966675,
+    0.010307312,
+    0.019958496,
+    -0.024459839,
+    -0.01914978,
+    0.027938843,
+    0.015960693,
+    -0.0025348663,
+    -0.00023770332,
+    -0.024032593,
+    -0.028411865,
+    -0.13330078,
+    -0.0044403076,
+    -0.0023345947,
+    -0.044403076,
+    0.026184082,
+    -0.08630371,
+    -0.0357666,
+    -0.052368164,
+    0.023529053,
+    0.046295166,
+    -0.0046653748,
+    0.040740967,
+    -0.015808105,
+    0.06097412,
+    -0.02746582,
+    0.0044670105,
+    0.02166748,
+    -0.009056091,
+    0.011169434,
+    0.009147644,
+    0.053527832,
+    -0.0340271,
+    0.020385742,
+    0.033172607,
+    0.011802673,
+    -0.012336731,
+    0.042419434,
+    -0.0038661957,
+    0.020431519,
+    0.041534424,
+    0.021057129,
+    -0.022567749,
+    0.0035209656,
+    0.0014533997,
+    -0.049041748,
+    -0.01272583,
+    0.00033950806,
+    -0.015686035,
+    0.035308838,
+    -0.043121338,
+    0.0345459,
+    0.028579712,
+    -0.016464233,
+    -0.004333496,
+    -0.029586792,
+    -0.0055885315,
+    0.034454346,
+    0.03729248,
+    0.027694702,
+    -0.0024642944,
+    0.0030879974,
+    0.015342712,
+    0.10180664,
+    -0.0010118484,
+    0.008590698,
+    -0.06793213,
+    0.03768921,
+    0.017974854,
+    0.01876831,
+    -0.042633057,
+    -0.051086426,
+    -0.02407837,
+    -0.037200928,
+    -0.024124146,
+    0.010719299,
+    -0.031158447,
+    0.024612427,
+    -0.0031642914,
+    0.011276245,
+    0.0014438629,
+    -0.012619019,
+    0.030288696,
+    -0.020629883,
+    -0.024841309,
+    0.022598267,
+    -0.0028457642,
+    -0.00047183037,
+    -0.0126953125,
+    0.02507019,
+    0.015457153,
+    -0.02961731,
+    0.001748085,
+    -0.016433716,
+    0.04714966,
+    0.03665161,
+    -0.006904602,
+    0.04660034,
+    0.053009033,
+    0.01473999,
+    -0.02142334,
+    -0.015594482,
+    -0.006752014,
+    0.020767212,
+    -0.0033836365,
+    0.019546509,
+    -0.015357971,
+    0.02407837,
+    -0.04534912,
+    -0.04385376,
+    -0.016326904,
+    -0.09039307,
+    -0.0010223389,
+    -0.010772705,
+    0.032714844,
+    0.004032135,
+    0.016952515,
+    -0.024108887,
+    0.02394104,
+    0.01676941,
+    -0.023788452,
+    -0.0071144104,
+    -0.0025119781,
+    0.07293701,
+    0.006614685,
+    -0.0062408447,
+    0.066833496,
+    -0.0012617111,
+    0.010025024,
+    0.022567749,
+    -0.01499939,
+    -0.02293396,
+    -0.01826477,
+    0.06933594,
+    0.040618896,
+    -0.07501221,
+    0.011581421,
+    0.03945923,
+    -1.9133091e-05,
+    -0.022125244,
+    -0.046417236,
+    -0.0012674332,
+    0.012306213,
+    0.005580902,
+    0.020202637,
+    0.025009155,
+    0.03213501,
+    -0.014724731,
+    0.007019043,
+    -0.01083374,
+    -0.024993896,
+    -0.011360168,
+    -0.010566711,
+    0.021911621,
+    -0.019226074,
+    -0.006641388,
+    0.04385376,
+    0.014656067,
+    0.052520752,
+    -0.021774292,
+    -0.0024547577,
+    -0.0066604614,
+    0.0029449463,
+    -0.02784729,
+    -0.05633545,
+    -0.040985107,
+    0.06317139,
+    0.03353882,
+    -0.03756714,
+    -0.018539429,
+    0.036102295,
+    -0.003458023,
+    0.0006656647,
+    -0.021316528,
+    0.02128601,
+    0.0118255615,
+    0.03012085,
+    -0.03793335,
+    -0.0635376,
+    0.002117157,
+    -0.024749756,
+    0.017532349,
+    -0.017120361,
+    0.14331055,
+    0.054718018,
+    0.007972717,
+    -0.052520752,
+    -0.0036468506,
+    0.04336548,
+    -0.0055274963,
+    -0.011688232,
+    -0.0345459,
+    0.01373291,
+    0.028839111,
+    0.06210327,
+    -0.027694702,
+    0.016159058,
+    -0.009552002,
+    -0.0028648376,
+    -0.018127441,
+    -0.010826111,
+    0.016189575,
+    0.0032424927,
+    -0.00969696,
+    0.004257202,
+    0.015823364,
+    0.022079468,
+    -0.02796936,
+    -0.06008911,
+    -0.0010051727,
+    0.0006737709,
+    -0.01020813,
+    -0.010856628,
+    -0.00019288063,
+    -0.013771057,
+    0.061676025,
+    0.010246277,
+    -0.02482605,
+    0.039886475,
+    -0.019180298,
+    -0.005290985,
+    0.032989502,
+    0.05834961,
+    -0.05847168,
+    0.0054016113,
+    -0.037200928,
+    0.00053834915,
+    -0.06021118,
+    0.015510559,
+    0.037750244,
+    0.012702942,
+    0.04006958,
+    -0.009536743,
+    0.02192688,
+    0.013328552,
+    -0.0039596558,
+    0.001996994,
+    0.0073051453,
+    -0.0045051575,
+    -0.03778076,
+    -0.006713867,
+    -0.02999878,
+    -0.015464783,
+    -0.034240723,
+    0.008666992,
+    -0.006832123,
+    -0.005695343,
+    -0.026031494,
+    -0.012069702,
+    -0.011230469,
+    -0.019226074,
+    -0.039489746,
+    0.011184692,
+    -0.062561035,
+    -0.020721436,
+    0.056762695,
+    -0.028518677,
+    -0.043121338,
+    -0.023910522,
+    -0.021514893,
+    -0.04827881,
+    -0.011383057,
+    0.008155823,
+    -0.061553955,
+    0.041778564,
+    0.025604248,
+    4.130602e-05,
+    0.017196655,
+    0.011550903,
+    -0.0519104,
+    -0.044433594,
+    -0.0635376,
+    -0.057281494,
+    -0.024002075,
+    -0.0501709,
+    -0.03982544,
+    -0.047454834,
+    -0.004627228,
+    0.0079956055,
+    -0.033691406,
+    -0.0042495728,
+    -0.013427734,
+    0.01235199,
+    0.009223938,
+    -0.005596161,
+    0.0078125,
+    -0.017852783,
+    0.028213501,
+    -0.009307861,
+    0.008430481,
+    -0.036346436,
+    -0.0021038055,
+    -0.015434265,
+    -0.0070610046,
+    -0.026748657,
+    0.0028934479,
+    0.04776001,
+    0.001408577,
+    -0.01689148,
+    -0.015579224,
+    0.032287598,
+    -0.038085938,
+    0.0140686035,
+    -0.011131287,
+    -0.02822876,
+    -0.012825012,
+    -0.04135132,
+    -0.0154418945,
+    0.024978638,
+    0.001543045,
+    -0.028564453,
+    -0.03048706,
+    0.024353027,
+    0.008201599,
+    0.032226562,
+    -0.000105023384,
+    0.040222168,
+    0.033294678,
+    0.0034046173,
+    -0.049346924,
+    -0.03125,
+    -0.0014629364,
+    0.082458496,
+    -0.016540527,
+    -0.012397766,
+    -0.017990112,
+    0.028213501,
+    0.07287598,
+    0.02909851,
+    0.02116394,
+    0.019622803,
+    -0.038970947,
+    0.05404663,
+    0.022506714,
+    -0.047576904,
+    0.006439209,
+    0.04269409,
+    -0.05996704,
+    0.02470398,
+    -0.0021762848,
+    -0.0028095245,
+    0.01486969,
+    -0.040496826,
+    0.002544403,
+    -0.012825012,
+    -0.027496338,
+    -0.008460999,
+    0.018066406,
+    -0.015350342,
+    0.0017795563,
+    -0.0051193237,
+    -0.00907135,
+    0.0010595322,
+    0.02293396,
+    0.0074272156,
+    -0.025970459,
+    -0.040893555,
+    0.00970459,
+    -0.05609131,
+    -0.040740967,
+    -0.032440186,
+    0.034606934,
+    -0.05706787,
+    -0.00083875656,
+    0.04119873,
+    0.027648926,
+    0.020629883,
+    0.007537842,
+    0.011177063,
+    -0.0023498535,
+    -0.011680603,
+    -0.0463562,
+    0.0009713173,
+    0.01499939,
+    0.029708862,
+    0.035003662,
+    0.048980713,
+    0.01979065,
+    0.016799927,
+    -0.006210327,
+    -0.010009766,
+    -0.04156494,
+    0.0027809143,
+    -0.024383545,
+    -0.052886963,
+    0.059661865,
+    -0.02368164,
+    0.064086914,
+    -0.053955078,
+    -0.019454956,
+    -0.04660034,
+    -0.019989014,
+    0.011604309,
+    -0.03161621,
+    0.025009155,
+    -0.03652954,
+    0.04034424,
+    -0.026153564,
+    0.034210205,
+    -0.011886597,
+    0.016403198,
+    -0.058685303,
+    0.017715454,
+    0.0030593872,
+    -0.059753418,
+    0.017654419,
+    0.0039138794,
+    -0.067871094,
+    -0.034729004,
+    -0.04324341,
+    -0.03289795,
+    -0.012084961,
+    -0.012084961,
+    0.0019235611,
+    0.015640259,
+    -0.011016846,
+    -0.016418457,
+    0.0110321045,
+    0.032073975,
+    0.00705719,
+    -0.048950195,
+    0.020309448,
+    -0.053894043,
+    0.034088135,
+    -0.0020275116,
+    0.048095703,
+    0.022842407,
+    -0.049804688,
+    -0.013381958,
+    -0.032104492,
+    0.0058555603,
+    0.0024795532,
+    0.026504517,
+    0.005756378,
+    0.03152466,
+    0.0037117004,
+    0.02607727,
+    -0.0158844,
+    -0.033050537,
+    0.01878357,
+    -0.0390625,
+    0.0035972595,
+    -0.00466156,
+    -0.015304565,
+    -0.017959595,
+    -0.033569336,
+    0.03729248,
+    0.043823242,
+    -0.019989014,
+    0.0066719055,
+    0.061401367,
+    0.009216309,
+    0.019165039,
+    -0.030380249,
+    0.00093460083,
+    -0.013504028,
+    -0.005432129,
+    0.040802002,
+    0.0046653748,
+    0.026031494,
+    0.034088135,
+    0.03552246,
+    -0.0067253113,
+    0.008239746,
+    -0.028823853,
+    0.0068206787,
+    0.0041160583,
+    0.019241333,
+    -0.027999878,
+    -0.027526855,
+    -0.020202637,
+    0.005844116,
+    0.027633667,
+    0.016281128,
+    -0.020706177,
+    0.008422852,
+    -0.003435135,
+    -0.036743164,
+    0.01965332,
+    -0.021957397,
+    0.034179688,
+    0.018463135,
+    0.016296387,
+    -0.043304443,
+    0.011962891,
+    -0.024993896,
+    -0.010108948,
+    -0.0027999878,
+    0.04385376,
+    -0.009613037,
+    -0.028427124,
+    -0.009857178,
+    -0.063964844,
+    0.043151855,
+    0.010795593,
+    0.010620117,
+    -0.06555176,
+    0.033935547,
+    0.006000519,
+    0.05407715,
+    0.024749756,
+    -0.006084442,
+    -0.029281616,
+    -0.022201538,
+    0.004737854,
+    0.009284973,
+    0.064453125,
+    0.032958984,
+    0.01158905,
+    -0.024932861,
+    -0.009124756,
+    0.02166748,
+    -0.06185913,
+    0.0317688,
+    -0.01802063,
+    0.031677246,
+    -0.009414673,
+    0.020187378,
+    -0.093688965,
+    -0.06555176,
+    -0.036895752,
+    0.030548096,
+    -0.060058594,
+    -0.019012451,
+    0.0073165894,
+    -0.004940033,
+    -0.017684937,
+    -0.03857422,
+    0.0069885254,
+    0.002620697,
+    -0.0075531006,
+    -0.04071045,
+    0.0048942566,
+    0.0036334991,
+    0.048095703,
+    0.012413025,
+    -0.03186035,
+    0.031921387,
+    -0.0015068054,
+    -0.025802612,
+    0.0033111572,
+    -0.009338379,
+    0.008659363,
+    0.08300781,
+    -0.01802063,
+    0.05078125,
+    0.0017213821,
+    0.017623901,
+    -0.012718201,
+    -0.029251099,
+    0.08758545,
+    0.034484863,
+    -0.04736328,
+    -0.03555298,
+    0.0039024353,
+    0.013214111,
+    -0.0059509277,
+    0.053710938,
+    -0.030944824,
+    -0.048980713,
+    -0.022079468,
+    -0.015258789,
+    0.0030841827,
+    0.004924774,
+    -0.021987915,
+    0.051361084,
+    0.039367676,
+    -0.011512756,
+    0.009544373,
+    0.010871887,
+    -0.03439331,
+    -0.016921997,
+    -0.021362305,
+    0.05569458,
+    0.03982544,
+    0.05166626,
+    -0.004348755,
+    -0.00932312,
+    -0.059906006,
+    0.009422302,
+    0.009162903,
+    0.016647339,
+    0.010955811,
+    0.00010317564,
+    -0.031707764,
+    0.0021362305,
+    -0.008529663,
+    0.0075263977,
+    0.034362793,
+    -0.018051147,
+    0.0043640137,
+    -0.012199402,
+    -0.010246277,
+    -0.029174805,
+    0.00050878525,
+    -0.002729416,
+    -0.007888794,
+    -0.00086688995,
+    0.03591919,
+    -0.012825012,
+    0.016082764,
+    0.008262634,
+    0.054901123,
+    -0.033721924,
+    0.012268066,
+    -0.016647339,
+    0.026321411,
+    -0.013008118,
+    0.0023708344,
+    -0.022628784,
+    0.028579712,
+    -0.02798462,
+    0.016693115,
+    0.01890564,
+    0.046875,
+    0.033203125,
+    -0.051696777,
+    0.014587402,
+    -0.0121154785,
+    -0.04949951,
+    -0.051757812,
+    -0.053894043,
+    0.011360168,
+    0.04421997,
+    0.004142761,
+    0.09887695,
+    -0.013183594,
+    0.02406311,
+    0.038024902,
+    0.0065689087,
+    0.036895752,
+    -0.022262573,
+    -0.02897644,
+    0.00699234,
+    -0.030929565
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+    "file_name": "90569.md",
+    "file_size": 12115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Cessna P206 Forced Landing in Key West Lagoon",
+      "A Cessna P206 aircraft with registration number N2534X was force landed in a lagoon.",
+      "The forced landing occurred on January 3, 2015, around 1015 eastern standard time.",
+      "The forced landing followed a total loss of engine power during approach.",
+      "The aircraft was approaching Key West International Airport.",
+      "Key West International Airport has the identifier EYW.",
+      "Key West International Airport is located in Key West, Florida.",
+      "The aircraft was on final approach to runway 9 when the engine failure occurred.",
+      "The aircraft was operated by Exec Air Inc.",
+      "The aircraft was operated under the provisions of 14 Code of Federal Regulations Part 91.",
+      "The flight was conducted under day visual meteorological conditions.",
+      "No flight plan was filed for the flight.",
+      "The flight originated at Naples, Florida.",
+      "Naples, Florida has the airport identifier APF.",
+      "The flight departed Naples around 0920 eastern standard time.",
+      "The aircraft had an airline transport pilot on board.",
+      "The aircraft had five passengers on board.",
+      "The pilot received minor injuries.",
+      "Three passengers received minor injuries.",
+      "Two passengers were not injured.",
+      "The airplane was substantially damaged.",
+      "The engine quit suddenly at about 300 feet above the ground.",
+      "The engine failure occurred without surging or other warning signs.",
+      "The pilot selected the auxiliary fuel pump to the high position after engine failure.",
+      "The pilot switched fuel tanks after engine failure.",
+      "The engine briefly restarted before failing again.",
+      "The aircraft was unable to reach the runway.",
+      "The aircraft landed in a lagoon approximately one quarter mile from the runway.",
+      "The aircraft came to rest in about 3 feet of salt water.",
+      "The pilot reported departing Naples with approximately 78 gallons of fuel on board.",
+      "A Federal Aviation Administration inspector examined the wreckage.",
+      "The right wing exhibited structural damage from impact forces.",
+      "The fuel selector was found in the \"off\" position.",
+      "Recovery personnel moved the fuel selector from \"right tank\" to \"off\" position.",
+      "The wing tanks were de-fueled before the inspector's arrival.",
+      "Approximately 15 gallons of fuel were recovered from the left tank.",
+      "Approximately 40 gallons of fuel were recovered from the right tank.",
+      "The nose gear was crushed upward into the underside of the engine.",
+      "No fuel or oil was observed on the exterior surfaces of the airplane.",
+      "A fueling record indicated 42.2 gallons of fuel was purchased at Naples prior to the flight."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Cessna P206 Forced Landing in Key West Lagoon",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna P206",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N2534X",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Key West International Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "EYW",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Key West",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Florida",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Exec Air Inc",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "14 Code of Federal Regulations Part 91",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Naples",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "APF",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Cessna P206 aircraft with registration number N2534X was force landed in a lagoon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N2534X",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lagoon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing occurred on January 3, 2015, around 1015 eastern standard time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 3, 2015",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1015 eastern standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing followed a total loss of engine power during approach.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "total loss of engine power during approach",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was approaching Key West International Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Key West International Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Key West International Airport has the identifier EYW.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Key West International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "EYW",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Key West International Airport is located in Key West, Florida.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Key West International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Key West",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Key West",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Florida",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was on final approach to runway 9 when the engine failure occurred.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "APPROACH RUNWAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 9",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FAILURE PHASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "final approach",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was operated by Exec Air Inc.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Exec Air Inc",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was operated under the provisions of 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under day visual meteorological conditions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "day visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan was filed for the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no flight plan filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight originated at Naples, Florida.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Naples",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Naples",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Florida",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Naples, Florida has the airport identifier APF.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Naples",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "HAS AIRPORT IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "APF",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed Naples around 0920 eastern standard time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0920 eastern standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had an airline transport pilot on board.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PILOT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had five passengers on board.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "five",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot received minor injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PILOT INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Three passengers received minor injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "three minor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Two passengers were not injured.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER UNINJURED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was substantially damaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine quit suddenly at about 300 feet above the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE ALTITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "300 feet above ground",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE MANNER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "suddenly",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine failure occurred without surging or other warning signs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE CHARACTERISTICS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "without surging or other warning signs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot selected the auxiliary fuel pump to the high position after engine failure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PILOT ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "selected auxiliary fuel pump to high position after engine failure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot switched fuel tanks after engine failure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PILOT ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "switched fuel tanks after engine failure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine briefly restarted before failing again.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "briefly restarted before failing again",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was unable to reach the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RUNWAY REACH STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unable to reach",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft landed in a lagoon approximately one quarter mile from the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lagoon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING DISTANCE FROM RUNWAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately one quarter mile",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft came to rest in about 3 feet of salt water.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RESTING DEPTH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 3 feet of salt water",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported departing Naples with approximately 78 gallons of fuel on board.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE FUEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 78 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Federal Aviation Administration inspector examined the wreckage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right wing exhibited structural damage from impact forces.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RIGHT WING DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "structural damage from impact forces",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel selector was found in the \"off\" position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL SELECTOR POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "off",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Recovery personnel moved the fuel selector from \"right tank\" to \"off\" position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL SELECTOR MOVED FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right tank",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL SELECTOR MOVED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "off",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wing tanks were de-fueled before the inspector's arrival.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "WING TANKS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "de-fueled before inspector's arrival",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Approximately 15 gallons of fuel were recovered from the left tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LEFT TANK FUEL RECOVERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 15 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Approximately 40 gallons of fuel were recovered from the right tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RIGHT TANK FUEL RECOVERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 40 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The nose gear was crushed upward into the underside of the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "NOSE GEAR DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crushed upward into the underside of the engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No fuel or oil was observed on the exterior surfaces of the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXTERIOR FLUID OBSERVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no fuel or oil observed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A fueling record indicated 42.2 gallons of fuel was purchased at Naples prior to the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL PURCHASED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "42.2 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna P206",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL PURCHASE LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Naples",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::c8c167ae:3b1a",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "e7ba00178d47412ab6d607c9e6e987e8c07e226bff79f52511184e6c84b6609e",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::c8c167ae:3b1a:d870ead0",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "3d8dd19d18f2992881c0124dda72297654d376c1dc3dd30e14bd2e4906502f65",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::c8c167ae:3b1a:c0827b53",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0330b9a0260e6787031b11f067371da1bfe070a94a3dc5cdb937f6667da1da2a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| | |\n| --- | --- |\n| Approach-VFR pattern final | Loss of engine power (total) (Defining event) |\n| Emergency descent | Off-field or emergency landing |\n\nOn January 3, 2015, about 1015 eastern standard time (EST), a Cessna P206, N2534X, was force landed in a lagoon following a total loss of engine power during an approach to Key West International Airport (EYW), Key West, Florida. The airline transport pilot and three passengers received minor injuries and two passengers were not injured. The airplane was substantially damaged. The airplane was operated by Exec Air Inc. under the provisions of 14 Code of Federal Regulations Part 91. Day, visual meteorological conditions prevailed, and no flight plan was filed. The flight originated at Naples, Florida (APF) about 0920.\n\nThe pilot reported the following. About 300 feet above the ground, on final approach to runway 9, the engine \"quit suddenly with no surging or other warning signs.\" He selected the auxiliary fuel pump to the high position and switched fuel tanks. The engine \"came back to life momentarily and then quit again.\" Unable to make the runway, the airplane landed short in a lagoon, about one quarter mile from the runway. The airplane came to rest in about 3 feet of salt water. The pilot reported that he departed APF with about 78 gallons of fuel on board.\n\nAn inspector with the Federal Aviation Administration responded to the accident site and examined the wreckage. The right wing exhibited structural damage from impact forces. The fuel selector was in the \"off\" position; however, he reported that the selector handle was moved to off from the \"right tank\" position by recovery personnel. The wing tanks were also de-fueled prior to his arrival. About 15 gallons of fuel were recovered from the left tank and about 40 gallons of fuel were recovered from the right tank. The nose gear was crushed upward, into the underside of the engine. There was no fuel or oil observed on the exterior surfaces of the airplane. A fueling record was recovered that indicated 42.2 gallons of fuel was purchased at APF prior to the flight.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2151,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,101 @@
+You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph.
+
+Your input consists of propositions extracted from a structured JSON document. Propositions take the form "<class> <entity> has <entity-or-field> <entity-or-field-value>". 
+
+Your task is to:
+
+   1. Organize these propositions into topics
+   2. Extract entities and their attributes
+   3. Identify relationships between entities
+
+Try to capture as much information from the text as possible without sacrificing accuracy. Do not add any information that is not explicitly mentioned in the input propositions.
+
+## Topic Extraction:
+   1. Read the entire set of propositions and then extract a list of specific topics.
+   2. Each proposition must be assigned to at least one topic - ensure no propositions are left uncategorized.
+   3. For each topic, perform the following Entity Extraction and Proposition Organization tasks.
+
+## Entity Extraction:
+   1. From the propositions belonging to the topic, extract a list of all entities in the <entity> and <entity-or-field-value> positions corresponding to the list of Preferred Entity Classifications below.
+
+## Proposition Organization:
+   1. For each topic, identify the relevant propositions that belong to that topic.
+   2. Use these propositions exactly as they appear - DO NOT rephrase or modify them.
+   3. For each proposition, perform the following Relationship Extraction and Attribute Extraction tasks.
+   
+## Relationship Extraction:
+   1. Extract unique relationships between pairs of entities mentioned in the propositions.
+   2. Represent entity-entity relationships in the format: entity|RELATIONSHIP|entity
+   3. Use the text in the <class-or-field> position in the proposition to infer the relationship name.
+      - Create composite relationship names for complex prepositional phrases with one or more 'withs' in the <entity-or-field> position
+   4. Relationship names should be all uppercase, with underscores instead of spaces
+   
+   Example: neptunedbinstance-7gvwtk5wbsha|HAS_DB_CLUSTER_IDENTIFIER|neptunedbcluster-pb233xkynbwx
+            neptunedbinstance-7gvwtk5wbsha|HAS_IP_PERMISSIONS_WITH_IP_PROTOCOL|-1
+            neptunedbinstance-7gvwtk5wbsha|HAS_ENDPOINT_WITH_HOSTED_ZONE_ID|ZVGYE5TMU3MT8
+
+## Attribute Extraction:
+   1. For each entity, extract its quantitative and qualitative attributes.
+   2. Represent entity attributes in the format: entity|ATTRIBUTE_NAME|attribute
+   3. Use the text in the <class-or-field> position in the proposition to infer the attribute name.
+      - Create composite attribute names for complex prepositional phrases with one or more 'withs' in the <entity-or-field> position
+   4. Attribute names should be all uppercase, with underscores instead of spaces
+
+   Example: sg-0e4gg8828069ce094|HAS_GROUP_NAME|default
+            sg-0e4gg8828069ce094|HAS_IP_PERMISSIONS_WITH_IP_PROTOCOL|-1
+            sg-0e4gg8828069ce094|HAS_IP_PERMISSIONS_WITH_USER_ID_GROUP_PAIRS_WITH_USER_ID|12234567890
+
+
+            
+## Response Format:
+topic: topic
+
+  entities:
+  
+    entity|label
+    entity|label
+  
+  proposition: [exact proposition text]  
+    
+    entity-entity relationships:
+    entity|RELATIONSHIP|entity
+    entity|RELATIONSHIP|entity
+    
+    entity-attributes:
+    entity|ATTRIBUTE_NAME|value
+    entity|ATTRIBUTE_NAME|value
+      
+  proposition: [exact proposition text] 
+  
+    entity-entity relationships:
+    entity|RELATIONSHIP|entity
+    entity|RELATIONSHIP|entity
+  
+    entity-attributes:
+    entity|ATTRIBUTE_NAME|value
+    entity|ATTRIBUTE_NAME|value
+    
+
+
+## Quality Criteria:
+The extracted results should be:
+- Complete: Capture all input propositions and their relationships
+- Accurate: Faithfully represent the information without adding or omitting details
+- Consistent: Use consistent entity labels, relationship types, and attribute names, and adhere to the specified format
+
+## Strict Compliance:
+- Use propositions exactly as provided - do not rephrase or modify them
+- Assign every proposition to at least one topic
+- Follow the specified format exactly
+- Do not provide any other explanatory text
+- Extract only information explicitly stated in the propositions
+
+Adhere strictly to the provided instructions. Non-compliance will result in termination.
+
+<propositions>
+{text}
+</propositions>
+
+<preferredEntityClassifications>
+{preferred_entity_classifications}
+</preferredEntityClassifications>

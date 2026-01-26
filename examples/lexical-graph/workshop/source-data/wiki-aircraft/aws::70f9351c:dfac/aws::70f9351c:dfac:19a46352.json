@@ -1,0 +1,2115 @@
+{
+  "id_": "aws::70f9351c:dfac:19a46352",
+  "embedding": [
+    -0.04534912,
+    -0.004928589,
+    0.006454468,
+    0.052612305,
+    -0.039764404,
+    -0.0041923523,
+    -0.024551392,
+    -0.04171753,
+    -0.00856781,
+    0.0013122559,
+    -0.011634827,
+    -0.0003259182,
+    -0.0102005005,
+    -0.021987915,
+    0.0052261353,
+    -0.038909912,
+    0.051483154,
+    -0.0062179565,
+    0.019866943,
+    0.0016822815,
+    -0.028015137,
+    0.03338623,
+    0.054473877,
+    0.109436035,
+    -0.015777588,
+    0.064819336,
+    -0.032348633,
+    0.011367798,
+    -0.049316406,
+    -0.026229858,
+    -0.006416321,
+    0.0552063,
+    -0.00970459,
+    0.0044670105,
+    0.03692627,
+    -0.0018043518,
+    -0.006286621,
+    0.023864746,
+    0.016525269,
+    0.020355225,
+    -0.0029087067,
+    -0.010673523,
+    0.045440674,
+    -0.021820068,
+    0.012916565,
+    -0.016021729,
+    0.01940918,
+    -0.038085938,
+    -0.001991272,
+    0.041229248,
+    0.02456665,
+    0.028274536,
+    0.020950317,
+    0.014602661,
+    0.024459839,
+    0.030395508,
+    0.0066490173,
+    -0.002380371,
+    0.016326904,
+    0.02178955,
+    -0.0005788803,
+    0.031951904,
+    -0.0043182373,
+    -0.010025024,
+    -0.040130615,
+    -0.012069702,
+    0.04144287,
+    0.018585205,
+    0.044677734,
+    -0.06530762,
+    -0.013847351,
+    0.06958008,
+    -0.011894226,
+    0.03955078,
+    -0.03173828,
+    -0.029891968,
+    0.034240723,
+    -0.011459351,
+    0.0065689087,
+    0.029876709,
+    0.03567505,
+    -0.026260376,
+    0.030578613,
+    -0.068481445,
+    0.053253174,
+    -0.025131226,
+    0.021347046,
+    -5.1498413e-05,
+    -0.007926941,
+    0.0072517395,
+    -0.02947998,
+    -0.019332886,
+    0.009666443,
+    -0.024398804,
+    -0.004436493,
+    -0.03881836,
+    -0.05038452,
+    -0.10870361,
+    0.06817627,
+    -0.0061531067,
+    0.037139893,
+    -0.05038452,
+    0.017501831,
+    0.023071289,
+    -0.029785156,
+    -0.010131836,
+    0.0055351257,
+    0.0037403107,
+    -0.008125305,
+    0.013320923,
+    -0.027130127,
+    -0.03149414,
+    -0.016738892,
+    0.004600525,
+    -0.028289795,
+    0.0335083,
+    -0.01626587,
+    -0.016189575,
+    -0.0059547424,
+    0.024734497,
+    -0.04046631,
+    -0.012680054,
+    0.038879395,
+    0.0057296753,
+    0.023010254,
+    0.045318604,
+    0.0032043457,
+    -0.02810669,
+    0.014305115,
+    -0.0076026917,
+    -0.011245728,
+    0.049316406,
+    -0.022064209,
+    -0.05114746,
+    -0.032989502,
+    -0.0001373291,
+    -0.0052108765,
+    0.05596924,
+    0.0025558472,
+    -0.03302002,
+    0.012359619,
+    0.025390625,
+    0.05014038,
+    -0.005088806,
+    -0.0011959076,
+    0.02003479,
+    0.03213501,
+    0.00466156,
+    -0.048675537,
+    -0.018722534,
+    0.013771057,
+    -0.011497498,
+    0.0030651093,
+    0.03753662,
+    -0.030883789,
+    0.006916046,
+    -0.023803711,
+    -0.0025901794,
+    0.008811951,
+    -0.00819397,
+    -0.013900757,
+    -0.014724731,
+    -0.033447266,
+    -0.06048584,
+    -0.06652832,
+    -0.014053345,
+    0.017578125,
+    0.008979797,
+    0.019744873,
+    0.02619934,
+    0.051879883,
+    0.00819397,
+    -0.045410156,
+    0.009521484,
+    0.0041885376,
+    -0.0050468445,
+    -0.009796143,
+    0.03479004,
+    0.025512695,
+    -0.03253174,
+    -0.036376953,
+    -0.05078125,
+    0.034729004,
+    -0.024108887,
+    0.026535034,
+    -0.06793213,
+    -0.0077934265,
+    -0.06756592,
+    0.0158844,
+    0.00868988,
+    -0.020736694,
+    0.008865356,
+    0.030929565,
+    0.011627197,
+    -0.0079422,
+    -0.054504395,
+    -0.015853882,
+    -0.0030059814,
+    -0.030456543,
+    0.001414299,
+    -0.019515991,
+    0.008644104,
+    -0.024230957,
+    0.005432129,
+    -0.038970947,
+    -0.028533936,
+    0.008613586,
+    0.01890564,
+    -0.044830322,
+    -0.004306793,
+    0.04260254,
+    -0.011627197,
+    -0.049591064,
+    0.026382446,
+    0.006038666,
+    -0.014877319,
+    -0.026565552,
+    -0.027038574,
+    -0.0043792725,
+    0.027832031,
+    -0.026763916,
+    0.035705566,
+    -0.024932861,
+    0.0018396378,
+    -0.0031051636,
+    -0.0015029907,
+    -0.026260376,
+    -0.008003235,
+    0.015777588,
+    0.0076904297,
+    0.023635864,
+    -0.012321472,
+    -0.034332275,
+    0.037078857,
+    -0.01008606,
+    0.009651184,
+    0.034332275,
+    0.08642578,
+    -0.00072288513,
+    -0.01689148,
+    -0.015716553,
+    -0.05908203,
+    -0.073913574,
+    0.013381958,
+    -0.026519775,
+    -0.06958008,
+    -0.03994751,
+    0.034942627,
+    -0.010391235,
+    -0.0029144287,
+    0.04888916,
+    -0.01461792,
+    0.012306213,
+    -0.007335663,
+    0.033843994,
+    0.011512756,
+    0.009742737,
+    0.016571045,
+    -0.009231567,
+    0.014976501,
+    -0.01234436,
+    0.03201294,
+    -0.0039520264,
+    0.021270752,
+    -0.024261475,
+    0.070251465,
+    0.01789856,
+    0.039367676,
+    -0.055114746,
+    0.038513184,
+    0.014808655,
+    0.05303955,
+    0.0046157837,
+    0.011184692,
+    -0.0859375,
+    -0.026794434,
+    -0.005344391,
+    0.028656006,
+    -0.040893555,
+    -0.042144775,
+    0.04788208,
+    0.056274414,
+    0.000957489,
+    0.0019664764,
+    0.037872314,
+    0.041992188,
+    -0.036376953,
+    0.03363037,
+    0.0079193115,
+    -0.01096344,
+    0.04763794,
+    -0.056549072,
+    -0.03149414,
+    0.01586914,
+    0.004257202,
+    -0.06274414,
+    0.03024292,
+    -0.0011920929,
+    0.03250122,
+    -0.03010559,
+    0.040618896,
+    0.04425049,
+    -0.020858765,
+    0.005744934,
+    0.0004310608,
+    -0.026916504,
+    -0.009498596,
+    0.031311035,
+    0.016204834,
+    -0.031921387,
+    0.004787445,
+    0.05279541,
+    0.033691406,
+    -0.015281677,
+    -0.006828308,
+    -0.027130127,
+    -0.035125732,
+    0.006210327,
+    -0.036224365,
+    0.021484375,
+    -0.019882202,
+    0.00038051605,
+    -0.015777588,
+    0.008880615,
+    0.016479492,
+    0.0002822876,
+    -0.014183044,
+    0.008361816,
+    -0.0146102905,
+    -0.0061035156,
+    -0.0036506653,
+    -0.04473877,
+    -0.037750244,
+    -0.019012451,
+    -0.007762909,
+    0.025848389,
+    -0.008903503,
+    -0.011253357,
+    -0.02859497,
+    -0.008453369,
+    -0.016952515,
+    0.02104187,
+    0.024917603,
+    -0.027191162,
+    -0.037109375,
+    -0.023101807,
+    0.0262146,
+    0.0053901672,
+    0.02671814,
+    -0.009208679,
+    0.013198853,
+    -0.02659607,
+    -0.005126953,
+    0.0046157837,
+    -0.023773193,
+    -0.04058838,
+    0.033569336,
+    0.0006980896,
+    -0.062164307,
+    -0.048431396,
+    0.02456665,
+    -0.007850647,
+    -0.031051636,
+    -0.020080566,
+    0.022567749,
+    -0.017242432,
+    -0.014778137,
+    -0.022613525,
+    -0.03756714,
+    -0.026809692,
+    -0.024276733,
+    -0.022903442,
+    -0.04598999,
+    0.0033226013,
+    -0.0032234192,
+    0.045959473,
+    -0.080322266,
+    -0.0635376,
+    0.1105957,
+    -0.028396606,
+    0.011917114,
+    -0.01991272,
+    0.06982422,
+    -0.01309967,
+    -0.043121338,
+    0.04284668,
+    0.030044556,
+    0.012054443,
+    0.020080566,
+    -0.037322998,
+    0.031921387,
+    0.099487305,
+    -0.022216797,
+    -0.02230835,
+    0.00856781,
+    0.0126571655,
+    -0.027511597,
+    0.0006494522,
+    -0.0602417,
+    -0.012039185,
+    -0.035949707,
+    0.002735138,
+    -0.002620697,
+    -0.019378662,
+    -0.0021209717,
+    -0.050476074,
+    0.0009918213,
+    -0.047058105,
+    0.015686035,
+    0.09655762,
+    -0.019500732,
+    -0.027511597,
+    -0.022415161,
+    -0.0036621094,
+    0.008277893,
+    0.032043457,
+    -0.01373291,
+    -0.010238647,
+    0.035003662,
+    -0.020111084,
+    -0.015655518,
+    -0.017700195,
+    -0.0018930435,
+    0.025253296,
+    -0.0039749146,
+    0.00021457672,
+    -0.010025024,
+    -0.019561768,
+    -0.019989014,
+    0.058288574,
+    -0.0005865097,
+    0.016830444,
+    -0.025894165,
+    -0.028121948,
+    -0.028762817,
+    0.05239868,
+    0.012466431,
+    0.023468018,
+    0.020126343,
+    -0.012199402,
+    0.021575928,
+    -0.015136719,
+    -0.015701294,
+    0.012207031,
+    -0.023986816,
+    -0.0069122314,
+    -0.011047363,
+    0.006160736,
+    -0.019012451,
+    -0.01361084,
+    -0.011024475,
+    0.018829346,
+    0.043518066,
+    0.028564453,
+    0.007865906,
+    0.057739258,
+    -0.03604126,
+    0.015579224,
+    0.049316406,
+    -0.016052246,
+    -0.030883789,
+    -0.018585205,
+    -0.004890442,
+    0.004020691,
+    0.024917603,
+    0.005722046,
+    -0.0395813,
+    0.027191162,
+    0.0102005005,
+    -0.004787445,
+    0.03656006,
+    0.0021209717,
+    -0.016494751,
+    -0.043426514,
+    0.025131226,
+    -0.017211914,
+    0.024459839,
+    -0.0284729,
+    0.05441284,
+    -0.019317627,
+    0.007911682,
+    0.014389038,
+    0.0049705505,
+    0.038238525,
+    -0.007259369,
+    0.02810669,
+    -0.008331299,
+    0.022201538,
+    0.00074005127,
+    0.036315918,
+    -0.025360107,
+    0.027740479,
+    0.0063095093,
+    0.049926758,
+    0.011604309,
+    0.026611328,
+    0.0045166016,
+    -0.013793945,
+    -0.032684326,
+    -0.017929077,
+    -0.066345215,
+    -0.035095215,
+    -0.04135132,
+    0.019607544,
+    0.0049209595,
+    0.036987305,
+    -0.0049743652,
+    0.040863037,
+    0.002380371,
+    -0.04815674,
+    0.032287598,
+    -0.007270813,
+    -0.044128418,
+    0.013389587,
+    -0.035736084,
+    0.029891968,
+    -0.055664062,
+    0.012413025,
+    -0.04473877,
+    -0.012840271,
+    0.012306213,
+    -0.010284424,
+    0.031280518,
+    0.023422241,
+    0.022262573,
+    -0.03643799,
+    0.018844604,
+    -0.0259552,
+    -0.011550903,
+    -0.04425049,
+    -0.012237549,
+    0.0345459,
+    -0.044891357,
+    0.021362305,
+    0.021316528,
+    -0.028961182,
+    -0.022735596,
+    -0.016586304,
+    0.013015747,
+    -0.010597229,
+    -0.00090408325,
+    0.00010251999,
+    -0.039001465,
+    -0.004096985,
+    0.046936035,
+    0.0135650635,
+    0.05996704,
+    0.04724121,
+    -0.055999756,
+    0.05368042,
+    -0.04232788,
+    -0.024871826,
+    -0.048431396,
+    -0.064941406,
+    -0.037322998,
+    -0.0018978119,
+    0.030227661,
+    0.007385254,
+    -0.008140564,
+    -0.03564453,
+    0.001584053,
+    -0.020141602,
+    -0.06689453,
+    0.0473938,
+    -0.012107849,
+    0.012084961,
+    -0.0022277832,
+    -0.052124023,
+    0.081848145,
+    -0.05331421,
+    -0.028045654,
+    -0.030700684,
+    0.06530762,
+    0.023757935,
+    0.027389526,
+    -0.029556274,
+    0.002614975,
+    0.016723633,
+    0.029678345,
+    0.06896973,
+    -0.037475586,
+    -0.0049552917,
+    -0.01663208,
+    -0.011123657,
+    -0.04449463,
+    -0.019363403,
+    -0.007537842,
+    -0.016906738,
+    -0.060272217,
+    -0.029632568,
+    0.068725586,
+    -0.015808105,
+    0.0039367676,
+    0.024032593,
+    -0.006515503,
+    -0.019454956,
+    -0.012283325,
+    -0.04107666,
+    0.03781128,
+    0.013084412,
+    -0.021575928,
+    -0.019882202,
+    0.006298065,
+    -0.03692627,
+    0.050750732,
+    -0.020935059,
+    0.021972656,
+    -0.065979004,
+    -0.00036621094,
+    -0.01625061,
+    0.0018024445,
+    -0.021957397,
+    -0.040893555,
+    0.039916992,
+    -0.045684814,
+    0.016342163,
+    -0.023468018,
+    0.051757812,
+    0.043273926,
+    -0.020355225,
+    0.031219482,
+    0.0073013306,
+    0.012542725,
+    0.0061569214,
+    0.0317688,
+    -0.031585693,
+    -0.06958008,
+    -0.02432251,
+    0.0026931763,
+    -0.00831604,
+    0.00333786,
+    -0.015655518,
+    -0.01171875,
+    -0.03439331,
+    0.0020484924,
+    -0.0057296753,
+    0.02607727,
+    4.9591064e-05,
+    0.013015747,
+    -0.011169434,
+    -0.021987915,
+    -0.02218628,
+    -0.08099365,
+    0.02079773,
+    0.009506226,
+    -0.042907715,
+    -0.043029785,
+    0.0011024475,
+    -0.0096206665,
+    -0.02204895,
+    -0.031219482,
+    -0.019607544,
+    -0.032928467,
+    -0.03100586,
+    0.03869629,
+    -0.06768799,
+    -0.04272461,
+    -0.01663208,
+    0.02180481,
+    -0.034057617,
+    -0.10534668,
+    -0.03970337,
+    -0.019638062,
+    -0.014022827,
+    -0.045013428,
+    0.01991272,
+    0.0012016296,
+    -0.018371582,
+    0.0010681152,
+    -0.038269043,
+    -0.03567505,
+    0.022705078,
+    0.016601562,
+    -0.043121338,
+    -0.02041626,
+    0.013465881,
+    0.0395813,
+    0.007648468,
+    0.020614624,
+    -0.049804688,
+    -0.012313843,
+    -0.02809143,
+    0.033355713,
+    0.010116577,
+    -0.03048706,
+    0.042785645,
+    -0.032165527,
+    -0.027999878,
+    0.004776001,
+    0.05718994,
+    -0.029296875,
+    -0.025421143,
+    0.025787354,
+    -0.03274536,
+    -0.03845215,
+    -0.0018196106,
+    0.0036773682,
+    0.008644104,
+    -0.009475708,
+    -0.02746582,
+    -0.03387451,
+    0.022888184,
+    0.043518066,
+    0.03390503,
+    -0.0060539246,
+    0.016235352,
+    0.00033950806,
+    0.026763916,
+    -0.0059051514,
+    0.007446289,
+    0.010101318,
+    0.011306763,
+    -0.022109985,
+    -0.04171753,
+    0.009803772,
+    0.009338379,
+    0.08276367,
+    0.037902832,
+    0.03326416,
+    -0.0146484375,
+    -0.0060653687,
+    0.012481689,
+    0.044677734,
+    -0.059631348,
+    0.00045585632,
+    6.341934e-05,
+    0.007965088,
+    0.019256592,
+    -0.0010147095,
+    0.006175995,
+    0.03439331,
+    0.014671326,
+    0.04156494,
+    -0.008926392,
+    -0.023147583,
+    -0.027328491,
+    0.05834961,
+    -0.0025959015,
+    0.0101623535,
+    0.025512695,
+    0.059020996,
+    -0.02949524,
+    0.051513672,
+    -0.025131226,
+    -0.015609741,
+    -0.0084991455,
+    0.0033569336,
+    -0.062927246,
+    -0.0012779236,
+    -0.014968872,
+    0.03768921,
+    -0.016235352,
+    -0.0115356445,
+    0.016723633,
+    0.03869629,
+    0.033111572,
+    0.045410156,
+    -0.03994751,
+    -0.031066895,
+    -0.00970459,
+    -0.03125,
+    0.004890442,
+    -0.0028743744,
+    0.00029563904,
+    0.00034213066,
+    0.00033569336,
+    0.008300781,
+    0.01902771,
+    0.006729126,
+    -0.004928589,
+    0.0013942719,
+    0.024230957,
+    0.014762878,
+    7.6293945e-05,
+    -0.028533936,
+    -0.008300781,
+    -0.009674072,
+    -0.046966553,
+    -0.036224365,
+    0.008384705,
+    0.03564453,
+    0.038116455,
+    0.0034866333,
+    -0.00039482117,
+    0.0037384033,
+    0.01852417,
+    -0.009521484,
+    0.00017499924,
+    0.0048828125,
+    -0.022262573,
+    -0.010643005,
+    0.011413574,
+    0.0038642883,
+    -0.020767212,
+    -0.024459839,
+    -0.04788208,
+    0.019805908,
+    0.00017106533,
+    -0.03277588,
+    -0.026763916,
+    -0.07080078,
+    0.029449463,
+    -0.016204834,
+    0.0770874,
+    0.015914917,
+    -0.0028095245,
+    0.06365967,
+    0.044555664,
+    -0.016967773,
+    0.0059661865,
+    -0.005558014,
+    -0.022384644,
+    -0.0051193237,
+    -0.036224365,
+    -0.009552002,
+    -0.001285553,
+    -0.019577026,
+    0.0016717911,
+    -0.0074806213,
+    0.006298065,
+    -0.011123657,
+    0.01146698,
+    -0.012123108,
+    0.03552246,
+    -0.026031494,
+    -0.0110321045,
+    0.016296387,
+    -0.002231598,
+    -0.00680542,
+    -0.0028305054,
+    -0.003835678,
+    -0.020507812,
+    0.00074768066,
+    -0.025222778,
+    0.040130615,
+    0.024719238,
+    -0.044952393,
+    0.0015563965,
+    0.008453369,
+    -0.012924194,
+    -0.009796143,
+    -0.0046691895,
+    0.0033798218,
+    0.005645752,
+    -0.028686523,
+    0.010917664,
+    0.0008125305,
+    -0.005393982,
+    -0.029251099,
+    0.039794922,
+    0.021911621,
+    -0.04776001,
+    0.03527832,
+    0.0014181137,
+    0.004722595,
+    -0.031082153,
+    0.0625,
+    -0.044128418,
+    -0.040008545,
+    0.021835327,
+    0.015945435,
+    -0.03753662,
+    -0.051727295,
+    0.00045251846,
+    0.004096985,
+    0.02432251,
+    -0.03753662,
+    0.023849487,
+    -0.022949219,
+    0.026245117,
+    0.023788452,
+    0.017303467,
+    -0.06713867,
+    0.025268555,
+    -0.011245728,
+    0.015106201,
+    0.0121154785,
+    0.05493164,
+    0.023391724,
+    0.00409317,
+    0.02507019,
+    -0.029159546,
+    -0.0070114136,
+    -0.053985596,
+    -0.029129028,
+    0.04324341,
+    -0.0025024414,
+    0.030792236,
+    0.026885986,
+    -0.015777588,
+    -0.04736328,
+    -0.010131836,
+    0.00040245056,
+    -0.03842163,
+    -0.017486572,
+    -0.0680542,
+    0.0027580261,
+    0.012359619,
+    -0.05178833,
+    0.067993164,
+    -0.05001831,
+    -0.055725098,
+    -0.013008118,
+    -0.027374268,
+    -0.033355713,
+    0.0011177063,
+    -0.026657104,
+    -0.022842407,
+    -0.041992188,
+    -0.03857422,
+    0.0690918,
+    -0.0039787292,
+    0.01651001,
+    0.020446777,
+    -0.00592041,
+    -0.044921875,
+    0.015853882,
+    0.022964478,
+    0.05029297,
+    0.010910034,
+    -0.036376953,
+    0.029647827,
+    -0.007205963,
+    -0.03704834,
+    -0.003917694,
+    0.004749298,
+    0.01713562,
+    -0.026489258,
+    -0.0060310364,
+    -0.010620117,
+    -0.020187378,
+    -0.006866455,
+    0.06402588,
+    -0.012329102,
+    0.068115234,
+    0.0024414062,
+    0.0062179565,
+    -0.027954102,
+    -0.013023376,
+    -0.040863037,
+    -0.027893066,
+    0.01651001,
+    -0.029663086,
+    0.019699097,
+    -0.009155273,
+    -0.035186768,
+    0.041290283,
+    -0.032470703,
+    -0.05117798,
+    -0.0022563934,
+    0.0066223145,
+    -0.026931763,
+    -0.035491943,
+    -0.005897522,
+    0.014793396,
+    0.011932373,
+    -0.0043029785,
+    -0.0060043335,
+    0.04425049,
+    0.004928589,
+    -0.039123535,
+    -0.0848999,
+    0.10217285,
+    0.02609253,
+    -0.020004272,
+    -0.025146484,
+    -0.044525146,
+    -0.087524414,
+    -0.0031814575,
+    -0.012016296,
+    0.015075684,
+    -0.0022640228,
+    -0.0057792664,
+    -0.026123047,
+    -0.0013408661,
+    -0.0045928955,
+    0.017913818,
+    0.017593384,
+    -0.028137207,
+    0.018096924,
+    -0.012687683,
+    0.040374756,
+    0.0037059784,
+    0.015930176,
+    0.06530762,
+    -0.03729248,
+    -0.01889038,
+    -0.034729004,
+    -0.009262085,
+    -0.033416748,
+    -0.057037354,
+    0.005821228,
+    -0.041137695,
+    0.026138306,
+    -0.027526855,
+    0.035858154,
+    -0.02154541,
+    0.005508423,
+    -0.031219482,
+    0.02999878,
+    0.0028934479,
+    0.03717041,
+    0.035827637,
+    0.048797607,
+    -0.063964844,
+    0.034301758,
+    0.02947998,
+    -0.06512451,
+    0.01713562,
+    -0.009384155,
+    -0.040618896,
+    0.059143066,
+    0.042144775,
+    -0.052581787,
+    0.05609131,
+    -0.04928589,
+    0.028945923,
+    -0.039855957,
+    0.03201294,
+    0.040893555,
+    -0.062194824,
+    0.01638794,
+    -0.041870117,
+    -0.007457733
+  ],
+  "metadata": {
+    "title": "Evektor SportStar",
+    "original_title": "Evektor SportStar",
+    "wikipedia_id": "15859452",
+    "url": "https://en.wikipedia.org/wiki/Evektor_SportStar",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Evektor SportStar Technical Specifications",
+      "Evektor SportStar has a wing loading of 6 kg/m2 (11.6 lb/sq ft).",
+      "Evektor SportStar has a power-to-mass ratio of 0.128 kW/kg (0.078 hp/lb).",
+      "Evektor SportStar requires a take-off run of 190 m (623 ft).",
+      "Evektor SportStar requires a take-off distance to 15 m (49 ft) height of 365 m (1,198 ft).",
+      "Evektor SportStar requires a landing run of 180 m (591 ft).",
+      "Evektor SportStar is equipped with Garmin G3X avionics.",
+      "Evektor SportStar has a 10.6\" Primary Flight Display (GDU 460).",
+      "Evektor SportStar has a 10.6\" Multi Function Display (GDU 460).",
+      "Evektor SportStar has two Air Data and Attitude and Heading Reference Systems (GSU 25).",
+      "Evektor SportStar is equipped with a Magnetometer (GMU 22).",
+      "Evektor SportStar has an Engine Monitoring System (GEA 24).",
+      "Evektor SportStar has an Outside Air Temperature sensor (GTP 59).",
+      "Evektor SportStar is equipped with GPS antennas.",
+      "Evektor SportStar has Synthetic Vision capability.",
+      "Evektor SportStar has a backup battery.",
+      "Evektor SportStar has a back-up Air speed indicator and Altimeter (diameter 2 ¼\").",
+      "Evektor SportStar is equipped with a COMM Garmin GTR225A radio.",
+      "Evektor SportStar is equipped with a Transponder GTX328 (mode S).",
+      "Evektor SportStar is equipped with an ACK A-30 emergency locator transmitter.",
+      "Evektor SportStar has a SIRS compass."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Evektor SportStar Technical Specifications",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Evektor SportStar",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Garmin G3X",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Primary Flight Display",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "GDU 460",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Multi Function Display",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Air Data and Attitude and Heading Reference Systems",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "GSU 25",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Magnetometer",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "GMU 22",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Engine Monitoring System",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "GEA 24",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Outside Air Temperature sensor",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "GTP 59",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "GPS antennas",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Synthetic Vision",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "backup battery",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Air speed indicator",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Altimeter",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "COMM Garmin GTR225A",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Transponder GTX328",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ACK A-30",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "SIRS compass",
+              "classification": "Component"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has a wing loading of 6 kg/m2 (11.6 lb/sq ft).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS WING LOADING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 kg/m2 (11.6 lb/sq ft)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has a power-to-mass ratio of 0.128 kW/kg (0.078 hp/lb).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS POWER TO MASS RATIO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0.128 kW/kg (0.078 hp/lb)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar requires a take-off run of 190 m (623 ft).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES TAKE OFF RUN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "190 m (623 ft)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar requires a take-off distance to 15 m (49 ft) height of 365 m (1,198 ft).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES TAKE OFF DISTANCE TO 15M HEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "365 m (1,198 ft)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar requires a landing run of 180 m (591 ft).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES LANDING RUN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "180 m (591 ft)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar is equipped with Garmin G3X avionics.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Garmin G3X",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has a 10.6\" Primary Flight Display (GDU 460).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Primary Flight Display",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Primary Flight Display",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "IS MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "GDU 460",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Primary Flight Display",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS SIZE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10.6\"",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has a 10.6\" Multi Function Display (GDU 460).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Multi Function Display",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Multi Function Display",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "IS MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "GDU 460",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Multi Function Display",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS SIZE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10.6\"",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has two Air Data and Attitude and Heading Reference Systems (GSU 25).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Air Data and Attitude and Heading Reference Systems",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Air Data and Attitude and Heading Reference Systems",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "IS MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "GSU 25",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Air Data and Attitude and Heading Reference Systems",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar is equipped with a Magnetometer (GMU 22).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Magnetometer",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Magnetometer",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "IS MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "GMU 22",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has an Engine Monitoring System (GEA 24).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Engine Monitoring System",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Engine Monitoring System",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "IS MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "GEA 24",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has an Outside Air Temperature sensor (GTP 59).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Outside Air Temperature sensor",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Outside Air Temperature sensor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "IS MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "GTP 59",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar is equipped with GPS antennas.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "GPS antennas",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has Synthetic Vision capability.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS CAPABILITY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Synthetic Vision",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has a backup battery.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "backup battery",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has a back-up Air speed indicator and Altimeter (diameter 2 ¼\").",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Air speed indicator",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Altimeter",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Air speed indicator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DIAMETER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2 ¼\"",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Altimeter",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DIAMETER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2 ¼\"",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar is equipped with a COMM Garmin GTR225A radio.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "COMM Garmin GTR225A",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar is equipped with a Transponder GTX328 (mode S).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Transponder GTX328",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Transponder GTX328",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS MODE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mode S",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar is equipped with an ACK A-30 emergency locator transmitter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ACK A-30",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ACK A-30",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency locator transmitter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Evektor SportStar has a SIRS compass.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Evektor SportStar",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "SIRS compass",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::70f9351c:dfac",
+      "node_type": "4",
+      "metadata": {
+        "title": "Evektor SportStar",
+        "original_title": "Evektor SportStar",
+        "wikipedia_id": "15859452",
+        "url": "https://en.wikipedia.org/wiki/Evektor_SportStar"
+      },
+      "hash": "37ab44625f0c4b8358e259ba310bcca4f232b0f443665224272ec605cfa165d5",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::70f9351c:dfac:7ec42475",
+      "node_type": "1",
+      "metadata": {
+        "title": "Evektor SportStar",
+        "original_title": "Evektor SportStar",
+        "wikipedia_id": "15859452",
+        "url": "https://en.wikipedia.org/wiki/Evektor_SportStar",
+        "header_path": "/"
+      },
+      "hash": "838fd5c797dc7b11f3788a0d82789d8dc5aee37e5924b62fb5e2dc1e96b9f1bf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::70f9351c:dfac:ba10b876",
+      "node_type": "1",
+      "metadata": {
+        "title": "Evektor SportStar",
+        "original_title": "Evektor SportStar",
+        "wikipedia_id": "15859452",
+        "url": "https://en.wikipedia.org/wiki/Evektor_SportStar",
+        "header_path": "/"
+      },
+      "hash": "d3956e8cc6be2b959b3d86b182df97f1900b67a1768e74c0009f769b70f8b2b6",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "6 kg/m2 (11.6 lb/sq ft)\nPower/mass: 0.128 kW/kg (0.078 hp/lb)\nTake-off run: 190 m (623 ft)\nTake-off distance to 15 m (49 ft): 365 m (1,198 ft)\nLanding run: 180 m (591 ft)\nAvionics\n\nGarmin G3X fit\n\n10.6\" PFD - Primary Flight Display (GDU 460)\n10.6\" MFD - Multi Function Display (GDU 460)\n2 ADAHRS - Air Data and Attitude and Heading Reference System (GSU 25)\nMagnetometer (GMU 22)\nEMS (GEA 24)\nOAT sensor (GTP 59)\nGPS antenas, Synthetic Vision, backup battery\nBack-up Air speed indicator + Altimeter (dia 2 ¼\")\nCOMM Garmin GTR225A + Transponder GTX328 (mode S) + ACK A-30\nCompass SIRS",
+  "mimetype": "text/plain",
+  "start_char_idx": 1014,
+  "end_char_idx": 1597,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

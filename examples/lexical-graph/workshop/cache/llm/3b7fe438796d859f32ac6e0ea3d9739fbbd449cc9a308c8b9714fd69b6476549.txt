@@ -1,0 +1,25 @@
+r7i Instance Family Features and Architecture
+
+The r7i family is a family of instance types.
+The r7i family is powered by 4th-generation Intel Xeon Scalable processors.
+4th-generation Intel Xeon Scalable processors are code named Sapphire Rapids.
+The r7i family offers significant improvements over r6i instances.
+The r7i instances provide approximately 15% better compute price/performance than comparable r6i instance types.
+The r7i instances provide up to 20% higher memory bandwidth per vCPU than comparable r6i instance types.
+The r7i instance family has a 2-socket Intel CPU architecture.
+The r7i instance family architecture is similar to the r5 family.
+The r7i.12xlarge is an instance type in the r7i family.
+The r7i.12xlarge and smaller types use a single socket.
+The r7i.12xlarge and smaller types use the system memory owned by that single-socket processor.
+The r7i.16xlarge is an instance type in the r7i family.
+The r7i.24xlarge is an instance type in the r7i family.
+The r7i.16xlarge and r7i.24xlarge types use both sockets and available memory.
+There is some memory-management overhead required between two physical processors in a 2-socket architecture.
+The performance gains scaling up from a r7i.12xlarge to a r7i.16xlarge or r7i.24xlarge instance type are not as linear as scaling up at the smaller sizes.
+The r7i family is powered by 4th-generation Intel Xeon Scalable processors.
+Performance scales linearly with compute capacity up to r7i.12xlarge in the r7i family.
+The r7i family has enhanced memory management between physical processors in the 2-socket architecture.
+The r7i family has improved performance for memory-intensive graph operations.
+The number of vCPUs needed can be estimated using the formula vCPUs=(latencyxconcurrency)/2.
+In the vCPU estimation formula, latency is measured as the average query latency in seconds.
+In the vCPU estimation formula, concurrency is measured as the target number of queries per second.

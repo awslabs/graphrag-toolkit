@@ -1,0 +1,2232 @@
+{
+  "id_": "aws::8cdb7010:5d58:08e7abe0",
+  "embedding": [
+    0.05722046,
+    0.016479492,
+    -0.036743164,
+    -0.056671143,
+    0.027404785,
+    -0.017608643,
+    -0.010658264,
+    -0.01651001,
+    -0.072021484,
+    -0.007965088,
+    -0.035736084,
+    0.047668457,
+    -0.031585693,
+    -0.017120361,
+    0.055389404,
+    -0.044006348,
+    0.0070152283,
+    0.042297363,
+    0.021972656,
+    -0.032958984,
+    0.018569946,
+    -0.028915405,
+    0.013534546,
+    0.02468872,
+    0.02218628,
+    0.005455017,
+    -0.012557983,
+    -0.002790451,
+    0.018249512,
+    0.009475708,
+    0.02053833,
+    -0.034851074,
+    0.046173096,
+    -0.005519867,
+    -0.027328491,
+    0.0076446533,
+    0.01701355,
+    -0.010322571,
+    -0.021331787,
+    0.03100586,
+    0.027282715,
+    -0.025939941,
+    0.02684021,
+    -0.0155181885,
+    -0.005142212,
+    0.016342163,
+    0.0146865845,
+    -0.021362305,
+    0.013343811,
+    0.008659363,
+    0.013618469,
+    0.00064468384,
+    0.01020813,
+    0.043151855,
+    -0.0127334595,
+    -0.015266418,
+    -0.012710571,
+    0.027450562,
+    -0.0010538101,
+    0.027755737,
+    0.006263733,
+    0.07299805,
+    -0.010292053,
+    -0.012069702,
+    -0.025177002,
+    0.0014915466,
+    0.022781372,
+    -0.017700195,
+    0.029129028,
+    -0.009490967,
+    0.012466431,
+    0.0063591003,
+    -0.0073623657,
+    0.0038375854,
+    -0.003047943,
+    -0.011978149,
+    0.010795593,
+    0.0105896,
+    0.0017766953,
+    0.030212402,
+    0.016799927,
+    -0.012588501,
+    -0.037719727,
+    0.062927246,
+    -0.04171753,
+    0.056121826,
+    -0.013824463,
+    -0.03781128,
+    -0.03125,
+    -0.017684937,
+    -0.016494751,
+    0.02911377,
+    -0.043670654,
+    -0.030319214,
+    -0.020645142,
+    -0.031585693,
+    0.016845703,
+    -0.022399902,
+    0.0044441223,
+    -0.052978516,
+    0.027938843,
+    -0.021942139,
+    -0.06414795,
+    0.015464783,
+    -0.032836914,
+    0.05557251,
+    0.039611816,
+    0.059020996,
+    -0.04034424,
+    0.005317688,
+    -0.0048065186,
+    -0.10571289,
+    0.0058517456,
+    -0.0042800903,
+    -0.034332275,
+    -0.0038871765,
+    -0.032165527,
+    -0.017822266,
+    -0.0017242432,
+    -0.012924194,
+    0.030761719,
+    0.058624268,
+    0.016662598,
+    0.01096344,
+    -0.010002136,
+    0.025726318,
+    0.0027236938,
+    -0.07946777,
+    0.004322052,
+    -0.018066406,
+    -0.039916992,
+    0.040374756,
+    0.0020885468,
+    -0.039916992,
+    -0.03668213,
+    5.340576e-05,
+    0.0020141602,
+    0.013923645,
+    0.007797241,
+    -0.022399902,
+    0.06585693,
+    -0.010314941,
+    0.014373779,
+    0.039916992,
+    -0.043640137,
+    0.054656982,
+    0.021865845,
+    -0.020355225,
+    -0.024627686,
+    -0.052612305,
+    -0.034210205,
+    -0.01928711,
+    0.029434204,
+    0.008598328,
+    0.028503418,
+    -0.0072784424,
+    0.03552246,
+    -0.025146484,
+    -0.031982422,
+    -0.014404297,
+    0.007736206,
+    -0.015472412,
+    -0.04244995,
+    0.0004916191,
+    -0.043151855,
+    0.013442993,
+    0.030944824,
+    0.020736694,
+    0.0012483597,
+    0.07116699,
+    -0.04119873,
+    -0.003250122,
+    -0.048950195,
+    -0.015899658,
+    -0.013648987,
+    -0.024307251,
+    -0.009735107,
+    0.0005607605,
+    0.060150146,
+    -0.027053833,
+    -0.02607727,
+    -0.017044067,
+    0.092285156,
+    -0.021911621,
+    0.0023841858,
+    -0.010139465,
+    0.004058838,
+    -0.006778717,
+    0.014633179,
+    0.0067749023,
+    -0.019256592,
+    -0.00061035156,
+    0.028411865,
+    -0.018844604,
+    -0.037994385,
+    0.004940033,
+    -0.026000977,
+    0.03842163,
+    -0.03555298,
+    0.00037193298,
+    -0.07080078,
+    0.03564453,
+    -0.01537323,
+    0.053497314,
+    0.028762817,
+    0.0008544922,
+    0.012023926,
+    0.021453857,
+    -0.02255249,
+    0.044189453,
+    0.02029419,
+    0.01966858,
+    -0.027130127,
+    -0.0031929016,
+    0.014015198,
+    0.0002708435,
+    -0.027648926,
+    0.048431396,
+    -0.005382538,
+    0.05026245,
+    -0.02494812,
+    -0.023895264,
+    -0.0020713806,
+    -0.023147583,
+    -0.022415161,
+    -0.012794495,
+    -0.042907715,
+    -0.0022888184,
+    -0.045440674,
+    -0.0042495728,
+    0.025772095,
+    0.05886841,
+    0.024993896,
+    0.12030029,
+    -0.022964478,
+    -0.01953125,
+    -0.017730713,
+    0.052459717,
+    0.03201294,
+    -0.00022125244,
+    0.00422287,
+    0.015899658,
+    -0.034942627,
+    0.012908936,
+    -0.022399902,
+    -0.067871094,
+    -0.007987976,
+    0.010482788,
+    0.009498596,
+    0.04269409,
+    0.011291504,
+    0.0132751465,
+    0.017501831,
+    0.022949219,
+    -0.0043296814,
+    0.02029419,
+    -0.0012493134,
+    -0.064331055,
+    0.016067505,
+    0.012916565,
+    0.031921387,
+    0.036071777,
+    -0.03314209,
+    0.04083252,
+    0.024780273,
+    -0.015014648,
+    0.055999756,
+    0.04699707,
+    0.016616821,
+    -0.054656982,
+    -0.0077400208,
+    0.061340332,
+    0.010986328,
+    0.052490234,
+    0.083862305,
+    0.015350342,
+    -0.028335571,
+    -0.053344727,
+    0.045196533,
+    0.05267334,
+    0.020767212,
+    0.05670166,
+    -0.0121536255,
+    0.0011768341,
+    0.015808105,
+    -0.0031051636,
+    -0.019439697,
+    0.024459839,
+    0.00028419495,
+    -0.024383545,
+    0.013725281,
+    0.010383606,
+    -0.017120361,
+    0.031051636,
+    0.009605408,
+    -0.033721924,
+    -0.038024902,
+    0.023895264,
+    -0.01663208,
+    0.017913818,
+    -0.005504608,
+    0.04916382,
+    0.03164673,
+    -0.023239136,
+    0.018676758,
+    -0.044799805,
+    -0.019714355,
+    0.07287598,
+    0.054779053,
+    -0.04800415,
+    0.068481445,
+    0.11187744,
+    0.020980835,
+    0.044403076,
+    -0.00712204,
+    -0.015991211,
+    0.019805908,
+    0.04977417,
+    0.011505127,
+    0.008872986,
+    -0.0262146,
+    -0.0395813,
+    -0.04559326,
+    0.009597778,
+    -0.015716553,
+    0.029449463,
+    -0.00642395,
+    -0.0017681122,
+    0.021774292,
+    0.0053863525,
+    0.0036239624,
+    0.0077590942,
+    -0.025436401,
+    -0.022018433,
+    0.0033111572,
+    0.0049209595,
+    0.008476257,
+    0.006500244,
+    -0.024368286,
+    -0.024795532,
+    -0.021133423,
+    0.014312744,
+    0.0055656433,
+    -0.038085938,
+    0.023361206,
+    -0.0914917,
+    0.016235352,
+    -0.010498047,
+    0.06201172,
+    0.0052948,
+    0.013832092,
+    0.019058228,
+    -0.008125305,
+    0.01638794,
+    0.012901306,
+    -0.055633545,
+    0.0035705566,
+    0.014152527,
+    -0.0413208,
+    -0.044555664,
+    -0.018981934,
+    -0.0124435425,
+    -0.038238525,
+    -0.0054016113,
+    0.031341553,
+    -0.008132935,
+    -0.034362793,
+    0.020309448,
+    0.051208496,
+    0.0005683899,
+    -0.011054993,
+    0.04864502,
+    -0.0569458,
+    -0.005218506,
+    0.037139893,
+    -0.021499634,
+    0.07897949,
+    -0.0018367767,
+    2.1457672e-05,
+    0.032409668,
+    0.022064209,
+    0.016571045,
+    -0.011878967,
+    -0.021362305,
+    -0.0069732666,
+    -0.00021409988,
+    -0.030914307,
+    -0.007881165,
+    0.03414917,
+    0.014266968,
+    0.013969421,
+    -0.018554688,
+    -0.040802002,
+    -0.034454346,
+    -0.01828003,
+    0.011222839,
+    -0.0036621094,
+    -0.05316162,
+    0.018096924,
+    -0.02885437,
+    -0.018188477,
+    -0.028366089,
+    -0.015823364,
+    -0.05407715,
+    0.01689148,
+    -0.072387695,
+    0.009712219,
+    -0.02947998,
+    0.046936035,
+    0.002986908,
+    -0.018585205,
+    0.05038452,
+    -0.021209717,
+    0.034118652,
+    -0.054718018,
+    0.015716553,
+    0.0043792725,
+    -0.019256592,
+    0.039398193,
+    0.008331299,
+    0.045959473,
+    -0.109680176,
+    0.013198853,
+    0.04537964,
+    -2.861023e-05,
+    -0.017105103,
+    -0.016525269,
+    -0.012664795,
+    -0.03074646,
+    0.021148682,
+    -0.017547607,
+    -0.0047302246,
+    -0.0006084442,
+    0.009277344,
+    -0.036468506,
+    0.053222656,
+    0.012435913,
+    0.020965576,
+    0.03845215,
+    -0.03604126,
+    -0.010650635,
+    -0.015335083,
+    0.0079422,
+    0.0027236938,
+    0.03704834,
+    -0.026412964,
+    -0.0013561249,
+    -0.0116119385,
+    -0.02772522,
+    0.009414673,
+    -0.034240723,
+    0.01574707,
+    -0.023986816,
+    0.029190063,
+    -0.017242432,
+    0.025497437,
+    0.002571106,
+    0.027923584,
+    0.040100098,
+    -0.032409668,
+    -0.028457642,
+    -0.02859497,
+    0.0084991455,
+    0.022628784,
+    -0.01876831,
+    0.024917603,
+    0.017242432,
+    0.052642822,
+    0.027435303,
+    -0.036987305,
+    0.034423828,
+    -0.008308411,
+    0.00033903122,
+    0.010673523,
+    0.0065727234,
+    0.024719238,
+    -0.01802063,
+    0.0054397583,
+    -0.022079468,
+    0.019882202,
+    -0.021255493,
+    0.005039215,
+    0.008781433,
+    0.029937744,
+    0.024551392,
+    0.0014457703,
+    0.0289917,
+    0.014816284,
+    -0.03579712,
+    0.04522705,
+    0.026306152,
+    0.023483276,
+    -0.019577026,
+    0.041290283,
+    -0.04550171,
+    0.0030288696,
+    0.016983032,
+    -0.10394287,
+    -0.009124756,
+    -0.03552246,
+    -0.031921387,
+    0.04071045,
+    0.018310547,
+    0.011672974,
+    -0.0059432983,
+    0.009399414,
+    0.021850586,
+    -0.004764557,
+    0.013114929,
+    -0.0063209534,
+    0.00012779236,
+    -0.014297485,
+    -0.019226074,
+    0.015899658,
+    -0.039794922,
+    -0.0008096695,
+    -0.029220581,
+    0.04067993,
+    -0.051330566,
+    -0.019958496,
+    0.0006637573,
+    0.0032958984,
+    0.05456543,
+    0.0335083,
+    -0.020187378,
+    -0.03543091,
+    0.07928467,
+    -0.02243042,
+    0.013618469,
+    -0.0031776428,
+    0.008666992,
+    0.000289917,
+    -0.022827148,
+    0.015617371,
+    0.010398865,
+    -0.01600647,
+    -0.01802063,
+    0.048858643,
+    0.0713501,
+    0.004436493,
+    -0.01084137,
+    -0.012031555,
+    0.007194519,
+    0.037872314,
+    -0.0073890686,
+    -0.038726807,
+    -0.04058838,
+    -0.032348633,
+    0.025268555,
+    -0.029083252,
+    -0.021240234,
+    -0.015548706,
+    0.023071289,
+    -0.05279541,
+    -0.056549072,
+    0.06866455,
+    0.03640747,
+    -0.017471313,
+    0.014831543,
+    0.01058197,
+    -0.021072388,
+    -0.0035305023,
+    0.0062675476,
+    0.016906738,
+    -0.009216309,
+    0.042785645,
+    -0.0546875,
+    -0.056884766,
+    -0.017562866,
+    0.02696228,
+    -0.012298584,
+    0.004753113,
+    0.04058838,
+    -0.041992188,
+    -0.02722168,
+    -0.07476807,
+    0.03488159,
+    0.040252686,
+    0.008522034,
+    -0.035003662,
+    0.005882263,
+    -0.017501831,
+    0.00022923946,
+    0.022918701,
+    -0.011787415,
+    -0.02468872,
+    -0.04019165,
+    -0.0109939575,
+    -0.06097412,
+    -0.020370483,
+    0.011497498,
+    -0.010978699,
+    -0.008811951,
+    0.0155181885,
+    0.037506104,
+    0.040222168,
+    0.011878967,
+    -0.09460449,
+    -0.040374756,
+    0.0022735596,
+    -0.035583496,
+    0.00047254562,
+    0.005054474,
+    -0.023513794,
+    0.049957275,
+    0.053344727,
+    -0.014144897,
+    0.0013875961,
+    0.022888184,
+    0.021026611,
+    -0.030456543,
+    -0.005367279,
+    -0.008544922,
+    0.010978699,
+    0.010017395,
+    -0.01020813,
+    -0.05319214,
+    0.059692383,
+    -0.031677246,
+    -0.033996582,
+    0.0015926361,
+    -0.014007568,
+    -0.00680542,
+    -0.03086853,
+    0.010536194,
+    -0.0005016327,
+    -0.01612854,
+    -0.006538391,
+    -0.0037670135,
+    -0.027709961,
+    -0.018310547,
+    -0.023254395,
+    0.011001587,
+    -0.04937744,
+    -4.5776367e-05,
+    0.023117065,
+    0.0036792755,
+    -0.04876709,
+    -0.042541504,
+    0.051239014,
+    0.006996155,
+    -0.010787964,
+    -0.026168823,
+    0.022994995,
+    0.0036964417,
+    -0.0103302,
+    0.008682251,
+    -0.009529114,
+    0.0052490234,
+    0.0011119843,
+    0.040405273,
+    -0.0085372925,
+    -0.041381836,
+    -0.06335449,
+    0.0121154785,
+    -0.029769897,
+    -0.012268066,
+    0.0054397583,
+    0.016418457,
+    -0.037109375,
+    -0.09893799,
+    -0.008460999,
+    0.008285522,
+    -0.0501709,
+    -0.0017929077,
+    0.007972717,
+    0.06726074,
+    0.03387451,
+    0.011131287,
+    -0.02734375,
+    0.01222229,
+    0.021148682,
+    0.006324768,
+    -0.045837402,
+    -0.010932922,
+    0.042907715,
+    -0.018997192,
+    0.023895264,
+    0.013618469,
+    -0.035003662,
+    0.0057029724,
+    -0.00024795532,
+    -0.0032615662,
+    -0.00023841858,
+    -0.013916016,
+    0.037597656,
+    -0.005996704,
+    0.0019416809,
+    0.013366699,
+    -0.010185242,
+    -0.099609375,
+    -0.05895996,
+    -0.0057792664,
+    -0.051330566,
+    0.023010254,
+    0.0051460266,
+    -0.04611206,
+    0.025924683,
+    0.011566162,
+    0.005558014,
+    -0.025665283,
+    0.005207062,
+    0.0045547485,
+    0.008605957,
+    -0.000579834,
+    0.015327454,
+    -0.039916992,
+    -0.008049011,
+    0.007183075,
+    0.015274048,
+    -0.0073280334,
+    -0.005783081,
+    -0.011268616,
+    -0.0105896,
+    0.04272461,
+    -0.017913818,
+    -0.00021362305,
+    0.020935059,
+    -0.012748718,
+    -0.0069389343,
+    -0.0014429092,
+    -0.017181396,
+    0.057434082,
+    0.008110046,
+    0.037109375,
+    0.024887085,
+    0.0025138855,
+    0.011619568,
+    -0.0019989014,
+    -0.0037231445,
+    0.0022468567,
+    0.041931152,
+    -0.0023498535,
+    -0.011734009,
+    0.0002450943,
+    -0.006385803,
+    0.03366089,
+    -0.023925781,
+    -0.046081543,
+    0.08459473,
+    -0.009017944,
+    0.016204834,
+    0.0042648315,
+    -0.008506775,
+    0.012687683,
+    0.035583496,
+    0.02835083,
+    -0.044281006,
+    -0.002090454,
+    0.009292603,
+    0.02861023,
+    -0.05657959,
+    0.013839722,
+    0.03491211,
+    0.025268555,
+    -0.0067100525,
+    -0.017211914,
+    -0.027938843,
+    0.02331543,
+    -0.009643555,
+    -0.04248047,
+    0.00819397,
+    -0.0022087097,
+    0.025527954,
+    0.011817932,
+    0.056762695,
+    0.043426514,
+    0.042785645,
+    -0.023788452,
+    0.005367279,
+    0.021118164,
+    -0.032287598,
+    -0.010368347,
+    -0.03161621,
+    0.047454834,
+    0.0569458,
+    0.007949829,
+    0.061309814,
+    -0.022659302,
+    -0.011222839,
+    -0.025558472,
+    0.007408142,
+    -0.059661865,
+    0.013641357,
+    0.0032215118,
+    -0.000998497,
+    -0.002532959,
+    -0.018112183,
+    0.038330078,
+    0.01574707,
+    -0.040008545,
+    0.0039901733,
+    0.07904053,
+    -0.03173828,
+    0.013183594,
+    -0.026107788,
+    0.0060768127,
+    0.0132369995,
+    -0.050720215,
+    -0.0129776,
+    0.036865234,
+    0.0034427643,
+    -0.03149414,
+    0.001121521,
+    -0.032714844,
+    -0.034973145,
+    0.013008118,
+    0.010787964,
+    -0.021408081,
+    0.040405273,
+    -0.008071899,
+    -0.040496826,
+    0.06817627,
+    0.017333984,
+    0.111694336,
+    0.004196167,
+    -0.15795898,
+    -0.057678223,
+    0.013076782,
+    -0.015258789,
+    0.045318604,
+    0.043182373,
+    -0.0042648315,
+    -0.005508423,
+    0.00022125244,
+    0.008705139,
+    -0.047210693,
+    -0.010665894,
+    0.017120361,
+    -0.02268982,
+    0.020950317,
+    0.004951477,
+    -0.042266846,
+    -0.023010254,
+    -0.04550171,
+    0.012252808,
+    0.053619385,
+    -0.025009155,
+    0.03781128,
+    0.04864502,
+    0.0440979,
+    -0.008644104,
+    0.015670776,
+    0.029510498,
+    0.0027370453,
+    -0.007457733,
+    0.00434494,
+    -0.019104004,
+    -0.011833191,
+    -0.025634766,
+    0.043029785,
+    -0.060333252,
+    -0.061187744,
+    0.015670776,
+    0.033294678,
+    0.006965637,
+    0.022613525,
+    -0.022140503,
+    0.010574341,
+    0.015853882,
+    -0.0042800903,
+    0.0131073,
+    -0.034118652,
+    -0.025665283,
+    0.0038261414,
+    0.03427124,
+    0.003616333,
+    0.006164551,
+    0.032592773,
+    0.015548706,
+    0.011474609,
+    -0.016983032,
+    -0.020980835,
+    -0.014038086,
+    -0.018157959,
+    -0.002117157,
+    0.002380371,
+    0.01637268,
+    -0.011413574,
+    0.0256958,
+    -0.031036377,
+    -0.022232056,
+    0.027938843,
+    -0.03164673,
+    -0.0058784485,
+    -0.039398193,
+    0.0116119385,
+    -0.0051345825,
+    0.009208679,
+    -0.0039863586,
+    0.005443573,
+    -0.024978638,
+    0.00067710876,
+    0.00016760826,
+    -0.009780884,
+    -0.010345459,
+    0.0024871826,
+    -0.009422302,
+    -0.010238647,
+    -0.035125732,
+    0.007873535,
+    -0.0017738342,
+    0.053833008,
+    -0.028213501,
+    0.012008667,
+    -0.05029297,
+    -0.055236816,
+    -0.014297485,
+    -0.033996582,
+    -0.066101074,
+    0.07574463,
+    -0.0107421875,
+    0.00016784668,
+    0.0066223145,
+    -0.0058898926,
+    0.01461792,
+    0.003479004,
+    0.011108398,
+    0.0625,
+    -0.012962341,
+    -0.012176514,
+    0.013916016,
+    0.0072746277,
+    -0.015792847,
+    -0.016098022,
+    -0.012908936,
+    0.02230835,
+    -0.01663208,
+    0.011428833,
+    -0.008895874,
+    0.00806427,
+    0.0035858154,
+    0.04864502,
+    -0.053619385,
+    0.06274414,
+    -0.018310547,
+    -0.037475586,
+    -0.022583008,
+    -0.029769897,
+    0.060516357,
+    0.002029419,
+    -0.02116394,
+    -0.020141602,
+    0.046325684,
+    -0.0010681152,
+    0.037322998,
+    0.0031700134,
+    -0.014389038,
+    -0.042114258,
+    0.0073127747,
+    -0.0038070679,
+    0.00982666,
+    -0.056488037,
+    0.028442383,
+    -0.00046610832,
+    0.031097412,
+    0.005508423,
+    -0.014282227,
+    0.03756714,
+    0.008140564,
+    0.018569946,
+    0.00623703,
+    0.007713318,
+    -0.025802612,
+    -0.02960205,
+    -0.020019531,
+    -0.01739502,
+    0.026016235,
+    0.076171875,
+    0.034179688,
+    0.01209259,
+    0.03262329,
+    -0.025390625,
+    0.014457703,
+    -0.018188477,
+    0.0058174133,
+    0.0033950806,
+    -0.05178833,
+    -0.055633545,
+    -0.041625977,
+    -0.02772522,
+    -0.09375,
+    -0.033050537,
+    0.06335449,
+    0.024780273,
+    -0.03930664,
+    0.0030994415,
+    -0.018829346,
+    -0.0071487427,
+    -0.015670776,
+    -0.047088623,
+    0.01927185,
+    0.01687622,
+    -0.019699097,
+    -0.022476196,
+    0.0005760193,
+    0.012886047,
+    0.02519226,
+    0.012756348,
+    -0.04321289,
+    -0.046447754,
+    -0.0069732666,
+    0.040985107,
+    -0.01361084,
+    -0.021835327,
+    -0.02796936,
+    0.021392822,
+    -0.019195557,
+    -0.0069885254,
+    -0.03086853,
+    -0.012313843,
+    0.027862549,
+    -0.04034424,
+    -0.00730896,
+    -0.00447464,
+    -0.02217102,
+    0.029434204,
+    0.012619019,
+    0.07092285,
+    0.037841797,
+    -0.015335083,
+    -0.030380249,
+    -0.0055274963,
+    -0.011054993
+  ],
+  "metadata": {
+    "title": "Piper J-3 Cub",
+    "original_title": "Piper J-3 Cub",
+    "wikipedia_id": "847652",
+    "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub",
+    "header_path": "/Design and development/",
+    "aws::graph::propositions": [
+      "Flitfire Fundraising Program for the United Kingdom During World War II",
+      "Flitfire was a fundraising program to support the United Kingdom prior to the United States entering World War II.",
+      "J-3s were part of the Flitfire fundraising program.",
+      "A Piper Cub J3 bearing Royal Air Force insignia was donated by W. T. Piper to the RAF Benevolent Fund.",
+      "A Piper Cub J3 bearing Royal Air Force insignia was donated by Franklin Motors to the RAF Benevolent Fund.",
+      "The donated Piper Cub J3 was to be raffled off.",
+      "Piper distributors nationwide were encouraged to donate aircraft to the RAF Benevolent Fund.",
+      "On April 29, 1941, all 48 Flitfire aircraft flew into La Guardia Field.",
+      "The 48 Flitfire aircraft represented one for each of the 48 states that made up the United States at that time.",
+      "The Flitfire aircraft flew into La Guardia Field for a dedication event.",
+      "The Flitfire aircraft flew into La Guardia Field for a fundraising event.",
+      "Royal Navy officers from the battleship HMS Malaya were honored guests at the La Guardia Field event.",
+      "HMS Malaya was in New York for repairs during the event.",
+      "At least three of the original Flitfire aircraft have been restored to their original silver-doped finish.",
+      "W. T. Piper was associated with Piper aircraft manufacturing.",
+      "Franklin Motors was a company involved with the Flitfire program.",
+      "The Piper Cub J3 is a type of aircraft.",
+      "The RAF Benevolent Fund is an organization supporting the United Kingdom."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Flitfire Fundraising Program for the United Kingdom During World War II",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Flitfire",
+              "classification": "Fundraising Program"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United Kingdom",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "World War II",
+              "classification": "Incident"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "J-3s",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper Cub J3",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Royal Air Force",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "W. T. Piper",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "RAF Benevolent Fund",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Franklin Motors",
+              "classification": "Manufacturer"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper distributors",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "La Guardia Field",
+              "classification": "Facility"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "HMS Malaya",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Royal Navy",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "New York",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United States",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Flitfire Fundraising Program for the United Kingdom During World War II",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "SUPPORTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United Kingdom",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "PROGRAM TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fundraising",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Flitfire was a fundraising program to support the United Kingdom prior to the United States entering World War II.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "SUPPORTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United Kingdom",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "PROGRAM TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fundraising",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "TIME PERIOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prior to the United States entering World War II",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "J-3s were part of the Flitfire fundraising program.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "J-3s",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Piper Cub J3 bearing Royal Air Force insignia was donated by W. T. Piper to the RAF Benevolent Fund.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "W. T. Piper",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "DONATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DONATED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "RAF Benevolent Fund",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Royal Air Force",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS FEATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bearing Royal Air Force insignia",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Piper Cub J3 bearing Royal Air Force insignia was donated by Franklin Motors to the RAF Benevolent Fund.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Franklin Motors",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "DONATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DONATED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "RAF Benevolent Fund",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Royal Air Force",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS FEATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bearing Royal Air Force insignia",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The donated Piper Cub J3 was to be raffled off.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INTENDED USE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "to be raffled off",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper distributors nationwide were encouraged to donate aircraft to the RAF Benevolent Fund.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper distributors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ENCOURAGED TO DONATE TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "RAF Benevolent Fund",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper distributors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SCOPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nationwide",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On April 29, 1941, all 48 Flitfire aircraft flew into La Guardia Field.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "LOCATED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "La Guardia Field",
+                    "classification": "Facility"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "48 aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "EVENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 29, 1941",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The 48 Flitfire aircraft represented one for each of the 48 states that made up the United States at that time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "REPRESENTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United States",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "48 aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United States",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "COMPOSED OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "48 states at that time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Flitfire aircraft flew into La Guardia Field for a dedication event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "LOCATED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "La Guardia Field",
+                    "classification": "Facility"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "EVENT PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dedication event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Flitfire aircraft flew into La Guardia Field for a fundraising event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "LOCATED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "La Guardia Field",
+                    "classification": "Facility"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "EVENT PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fundraising event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Royal Navy officers from the battleship HMS Malaya were honored guests at the La Guardia Field event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Royal Navy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "AFFILIATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HMS Malaya",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Royal Navy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ATTENDED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "La Guardia Field",
+                    "classification": "Facility"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HMS Malaya",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REPRESENTED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "La Guardia Field",
+                    "classification": "Facility"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Royal Navy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "honored guests",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HMS Malaya",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "VESSEL TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "battleship",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "HMS Malaya was in New York for repairs during the event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HMS Malaya",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "New York",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HMS Malaya",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REASON FOR LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "repairs",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HMS Malaya",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "TIME PERIOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during the event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At least three of the original Flitfire aircraft have been restored to their original silver-doped finish.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "RESTORATION COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "at least three",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "predicate": {
+                    "value": "ORIGINAL FINISH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "silver-doped",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "W. T. Piper was associated with Piper aircraft manufacturing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "W. T. Piper",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper aircraft manufacturing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Franklin Motors was a company involved with the Flitfire program.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Franklin Motors",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flitfire",
+                    "classification": "Fundraising Program"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Franklin Motors",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "ORGANIZATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "company",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Piper Cub J3 is a type of aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper Cub J3",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CLASSIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "type of aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The RAF Benevolent Fund is an organization supporting the United Kingdom.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "RAF Benevolent Fund",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUPPORTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United Kingdom",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "RAF Benevolent Fund",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ORGANIZATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "organization",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::8cdb7010:5d58",
+      "node_type": "4",
+      "metadata": {
+        "title": "Piper J-3 Cub",
+        "original_title": "Piper J-3 Cub",
+        "wikipedia_id": "847652",
+        "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub"
+      },
+      "hash": "dd50d2f99aff590671575078897bb626af47c93d265cc5c5ca4cd5df8ad42f85",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::8cdb7010:5d58:b9dd45ee",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper J-3 Cub",
+        "original_title": "Piper J-3 Cub",
+        "wikipedia_id": "847652",
+        "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub",
+        "header_path": "/"
+      },
+      "hash": "025311f15428a57d015fbae1d1970619550e4d095cf3d50fa67599681d704834",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::8cdb7010:5d58:fa0c9951",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper J-3 Cub",
+        "original_title": "Piper J-3 Cub",
+        "wikipedia_id": "847652",
+        "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub",
+        "header_path": "/"
+      },
+      "hash": "d21cce6ba51c51441138f818db95aadc9c61ab2be2af4d70c62f25950aa72602",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "### Flitfire\n\n\t\nPrior to the United States entering World War II, J-3s were part of a fund-raising program to support the United Kingdom. Billed as a Flitfire, a Piper Cub J3 bearing Royal Air Force insignia was donated by W. T. Piper and Franklin Motors to the RAF Benevolent Fund to be raffled off. Piper distributors nationwide were encouraged to do the same.  On April 29, 1941, all 48 Flitfire aircraft, one for each of the 48 states that made up the country at that time, flew into La Guardia Field for a dedication and fundraising event which included Royal Navy officers from the battleship HMS Malaya, in New York for repairs, as honored guests. At least three of the original Flitfires have been restored to their original silver-doped finish.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 753,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

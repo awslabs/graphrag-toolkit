@@ -1,0 +1,2463 @@
+{
+  "id_": "aws::b5b376ab:0b63:87d26167",
+  "embedding": [
+    -0.00096416473,
+    0.02494812,
+    -0.032836914,
+    -0.054138184,
+    0.007106781,
+    0.0037784576,
+    -0.061553955,
+    0.011116028,
+    -0.063964844,
+    -0.0014038086,
+    -0.030563354,
+    0.0491333,
+    -0.020507812,
+    -0.03677368,
+    0.08068848,
+    -0.04537964,
+    -0.005012512,
+    0.015388489,
+    0.0109939575,
+    -0.018112183,
+    0.014053345,
+    -0.0008111,
+    -0.010887146,
+    -0.026901245,
+    0.019210815,
+    0.009529114,
+    -0.039398193,
+    0.019165039,
+    -0.025177002,
+    -0.03265381,
+    -0.0040283203,
+    0.029251099,
+    -0.011238098,
+    0.054260254,
+    -0.034240723,
+    -0.02319336,
+    0.00095176697,
+    0.025054932,
+    -0.0025463104,
+    0.02935791,
+    0.019851685,
+    -0.0021972656,
+    0.018127441,
+    -0.08935547,
+    -0.0039711,
+    0.001291275,
+    0.010536194,
+    -0.024139404,
+    0.042419434,
+    0.056610107,
+    -0.014060974,
+    0.010566711,
+    -0.015235901,
+    -0.0016231537,
+    0.013549805,
+    -0.0014219284,
+    -0.0141067505,
+    0.0005927086,
+    -0.012802124,
+    -0.011352539,
+    0.011192322,
+    0.039642334,
+    0.022888184,
+    0.052459717,
+    -0.031463623,
+    0.0012998581,
+    0.020492554,
+    0.005973816,
+    0.0289917,
+    -0.028198242,
+    -0.024871826,
+    0.030014038,
+    -0.0060424805,
+    0.0067481995,
+    -0.015289307,
+    -0.02748108,
+    0.03353882,
+    -0.0026226044,
+    -0.027496338,
+    0.013755798,
+    0.061645508,
+    0.048034668,
+    -0.004558563,
+    -0.0025730133,
+    0.017196655,
+    0.042938232,
+    -0.0077705383,
+    -0.04748535,
+    0.0054244995,
+    0.005405426,
+    -0.008590698,
+    -0.03491211,
+    0.064697266,
+    0.024093628,
+    -0.044281006,
+    0.006538391,
+    -0.028167725,
+    -0.06542969,
+    0.005722046,
+    -0.028182983,
+    0.008636475,
+    -0.032348633,
+    -0.038513184,
+    0.025405884,
+    -0.017044067,
+    0.03552246,
+    0.038360596,
+    -0.014724731,
+    -0.0070266724,
+    -0.018249512,
+    -0.0072288513,
+    0.031433105,
+    -0.002231598,
+    -0.08135986,
+    0.015426636,
+    0.040008545,
+    0.010757446,
+    0.0126953125,
+    0.029632568,
+    -0.009429932,
+    -0.007904053,
+    0.018798828,
+    -0.023925781,
+    0.004142761,
+    0.017120361,
+    -0.0007033348,
+    -0.008468628,
+    0.023132324,
+    0.07165527,
+    -0.04840088,
+    0.0056762695,
+    0.059783936,
+    -0.08087158,
+    -0.05987549,
+    -0.041534424,
+    0.041046143,
+    -0.0033016205,
+    -0.014251709,
+    -0.05126953,
+    0.032714844,
+    -0.06903076,
+    -0.017623901,
+    0.064575195,
+    -0.06994629,
+    -0.048797607,
+    0.040618896,
+    0.012458801,
+    -0.0146865845,
+    -0.026763916,
+    -0.05807495,
+    -0.029052734,
+    -0.04800415,
+    0.07006836,
+    -0.012077332,
+    -0.08166504,
+    -0.034362793,
+    -0.025131226,
+    -0.026397705,
+    -0.0053253174,
+    -0.07598877,
+    0.043060303,
+    0.004169464,
+    0.009902954,
+    0.03555298,
+    -0.025909424,
+    0.005279541,
+    -0.012893677,
+    -0.022903442,
+    0.010002136,
+    0.022903442,
+    0.045166016,
+    -0.054382324,
+    -0.05206299,
+    -0.01751709,
+    -0.01991272,
+    0.025650024,
+    0.0027389526,
+    0.029296875,
+    0.027679443,
+    -0.03314209,
+    -0.012535095,
+    -0.03717041,
+    0.08093262,
+    -0.035369873,
+    -0.011100769,
+    -0.050323486,
+    0.032470703,
+    -0.023742676,
+    0.023971558,
+    0.018066406,
+    0.07244873,
+    -0.00023019314,
+    0.047851562,
+    -0.027893066,
+    -0.00459671,
+    -0.0011043549,
+    -0.035461426,
+    0.0017204285,
+    -0.033813477,
+    0.01109314,
+    -0.04534912,
+    0.0010414124,
+    0.014541626,
+    -0.018249512,
+    0.0043907166,
+    -0.016708374,
+    0.007259369,
+    0.0340271,
+    -0.0129470825,
+    0.018447876,
+    0.01083374,
+    -0.03060913,
+    -0.02658081,
+    0.070251465,
+    -0.008300781,
+    -0.0335083,
+    0.021911621,
+    -0.022598267,
+    0.023025513,
+    -0.0040130615,
+    0.005382538,
+    0.07098389,
+    -0.01626587,
+    0.0385437,
+    -0.05508423,
+    -0.0018672943,
+    -0.015930176,
+    0.020202637,
+    -0.04196167,
+    0.02999878,
+    0.058807373,
+    -0.044952393,
+    -0.022918701,
+    -0.018569946,
+    -0.058685303,
+    0.029922485,
+    -0.01260376,
+    0.050079346,
+    -0.011329651,
+    0.011657715,
+    -0.021057129,
+    -0.035308838,
+    -0.016937256,
+    0.105285645,
+    -0.117370605,
+    -0.07550049,
+    -0.00038003922,
+    0.050842285,
+    -0.015525818,
+    -0.0025100708,
+    0.035095215,
+    0.013015747,
+    0.01171875,
+    0.07507324,
+    -0.0018091202,
+    -0.0023670197,
+    -0.030319214,
+    0.012748718,
+    -0.037231445,
+    -0.005142212,
+    0.022857666,
+    -0.04888916,
+    -0.024154663,
+    -0.02027893,
+    0.029327393,
+    0.010620117,
+    0.035308838,
+    0.034576416,
+    -0.015319824,
+    0.013313293,
+    0.0017623901,
+    0.0028018951,
+    0.023269653,
+    0.045196533,
+    -0.107910156,
+    0.039276123,
+    -0.0072288513,
+    0.02003479,
+    -0.0052871704,
+    0.011772156,
+    0.00017595291,
+    0.064208984,
+    0.012496948,
+    -0.010231018,
+    -0.01335144,
+    -0.018478394,
+    -0.0027256012,
+    0.004261017,
+    -0.017486572,
+    0.0048713684,
+    0.048614502,
+    -0.035003662,
+    -0.040039062,
+    0.0051727295,
+    -0.00121212,
+    -0.03527832,
+    0.05117798,
+    0.012329102,
+    -0.00032138824,
+    -0.0112838745,
+    0.037353516,
+    0.03781128,
+    -0.030776978,
+    0.009757996,
+    -0.011772156,
+    -0.03062439,
+    -0.03189087,
+    0.007820129,
+    0.00058984756,
+    0.013626099,
+    -0.03918457,
+    0.041656494,
+    0.014808655,
+    0.033966064,
+    -0.036865234,
+    -0.03475952,
+    -0.039978027,
+    0.010299683,
+    -0.052001953,
+    -0.020721436,
+    -0.047180176,
+    -0.0066337585,
+    -0.037963867,
+    0.003112793,
+    -0.0054740906,
+    0.026931763,
+    -0.02279663,
+    0.0039405823,
+    -0.0038433075,
+    0.0152282715,
+    -0.018844604,
+    -0.018127441,
+    -0.058380127,
+    0.014335632,
+    0.005153656,
+    0.032043457,
+    0.01260376,
+    -0.01751709,
+    -0.03186035,
+    -0.009635925,
+    -0.009902954,
+    -0.08660889,
+    0.013298035,
+    -0.014801025,
+    -0.09692383,
+    -0.022735596,
+    0.028503418,
+    0.006462097,
+    0.00053691864,
+    -0.033691406,
+    0.07110596,
+    -0.0070343018,
+    -0.017669678,
+    -0.01966858,
+    -0.013153076,
+    -0.036499023,
+    0.01423645,
+    0.010681152,
+    -0.012367249,
+    -0.04812622,
+    0.012191772,
+    0.046539307,
+    0.009117126,
+    -0.07043457,
+    -0.011878967,
+    -0.036071777,
+    -0.03866577,
+    0.02532959,
+    -0.030334473,
+    -0.002418518,
+    -0.0034751892,
+    -0.0050201416,
+    0.012908936,
+    -0.02355957,
+    -0.024414062,
+    -0.00071525574,
+    0.020339966,
+    -0.029067993,
+    -0.042510986,
+    -0.007736206,
+    0.0057640076,
+    -0.005367279,
+    -0.0027637482,
+    -0.031204224,
+    -0.05130005,
+    0.016448975,
+    -0.0178833,
+    0.008308411,
+    0.018218994,
+    -0.009284973,
+    0.059051514,
+    0.09851074,
+    -0.009155273,
+    -0.0140686035,
+    0.049743652,
+    0.024978638,
+    -0.015060425,
+    -0.0065460205,
+    -0.06536865,
+    -0.023132324,
+    -0.12207031,
+    -0.012207031,
+    0.0054512024,
+    -0.060546875,
+    0.023788452,
+    -0.10784912,
+    -0.05355835,
+    -0.06652832,
+    -0.011764526,
+    0.06951904,
+    -0.03878784,
+    -0.013587952,
+    -0.06506348,
+    0.026611328,
+    0.00819397,
+    -0.0024528503,
+    -0.014572144,
+    -0.027496338,
+    0.018661499,
+    0.026184082,
+    0.020385742,
+    -0.031921387,
+    0.022079468,
+    0.049987793,
+    0.028701782,
+    0.030166626,
+    0.008232117,
+    -0.03656006,
+    0.02935791,
+    0.0016012192,
+    -0.010978699,
+    -0.0039978027,
+    0.020385742,
+    -0.034362793,
+    -0.051513672,
+    0.001367569,
+    -0.0236969,
+    0.016418457,
+    0.0040130615,
+    -0.033081055,
+    0.043518066,
+    8.165836e-05,
+    -0.008682251,
+    0.018157959,
+    0.018463135,
+    -0.032470703,
+    -0.008178711,
+    0.035705566,
+    0.021392822,
+    -0.027542114,
+    -0.0026073456,
+    0.006290436,
+    0.05819702,
+    0.018234253,
+    0.004623413,
+    0.021194458,
+    0.008377075,
+    0.025970459,
+    -0.0023880005,
+    -0.034118652,
+    -0.012336731,
+    -0.02420044,
+    -0.012084961,
+    -0.022018433,
+    -0.014976501,
+    -0.014511108,
+    0.027175903,
+    0.013717651,
+    -0.010482788,
+    0.006313324,
+    0.0013589859,
+    0.017196655,
+    -0.0345459,
+    -0.0019207001,
+    -0.006931305,
+    0.02798462,
+    -0.007358551,
+    -0.045654297,
+    0.0847168,
+    0.056030273,
+    -0.045654297,
+    0.008850098,
+    -0.017410278,
+    0.041778564,
+    0.045410156,
+    0.009170532,
+    0.015991211,
+    0.033843994,
+    -0.0072288513,
+    -0.0073165894,
+    -0.019561768,
+    0.015197754,
+    0.006511688,
+    0.026107788,
+    -0.0032577515,
+    -0.01424408,
+    0.013092041,
+    0.01991272,
+    -0.040863037,
+    -0.03543091,
+    -0.05529785,
+    -0.02154541,
+    -0.0020561218,
+    0.049072266,
+    -0.0044784546,
+    0.026229858,
+    0.042053223,
+    0.012840271,
+    0.0005364418,
+    -0.017822266,
+    0.048797607,
+    -0.019515991,
+    0.009605408,
+    0.032684326,
+    -0.04232788,
+    0.04333496,
+    -0.028961182,
+    -0.0024433136,
+    -0.006248474,
+    -0.0049934387,
+    0.0028438568,
+    0.0016403198,
+    0.05886841,
+    0.04257202,
+    -0.04473877,
+    -0.0066184998,
+    0.02067566,
+    -0.018829346,
+    -0.013885498,
+    -0.0368042,
+    -0.021697998,
+    0.05709839,
+    -0.016540527,
+    -0.00012290478,
+    0.025131226,
+    -0.027755737,
+    -0.033813477,
+    0.009529114,
+    0.025421143,
+    -0.00069236755,
+    -0.008293152,
+    -0.0015573502,
+    -0.006526947,
+    0.030563354,
+    0.0071525574,
+    -0.016799927,
+    0.011047363,
+    0.05105591,
+    -0.01474762,
+    -0.010765076,
+    0.031021118,
+    0.033721924,
+    0.010864258,
+    -0.055847168,
+    -0.044830322,
+    0.049346924,
+    0.027557373,
+    -0.017242432,
+    0.0064315796,
+    0.002439499,
+    -0.00818634,
+    -0.032165527,
+    -0.030426025,
+    0.029785156,
+    0.001458168,
+    0.0003964901,
+    0.051696777,
+    0.009773254,
+    0.042663574,
+    -0.029205322,
+    -0.0109939575,
+    -0.033843994,
+    0.06665039,
+    0.024337769,
+    0.033050537,
+    -0.011550903,
+    -0.0037021637,
+    0.0101623535,
+    0.029968262,
+    0.003829956,
+    -0.012191772,
+    -0.004283905,
+    0.00036597252,
+    -0.021316528,
+    -0.047180176,
+    0.025436401,
+    0.009689331,
+    -0.03479004,
+    -0.040924072,
+    -0.011917114,
+    0.036376953,
+    0.018585205,
+    0.04876709,
+    0.03012085,
+    -0.05581665,
+    -0.035095215,
+    -0.058929443,
+    -0.06750488,
+    0.03515625,
+    -0.03881836,
+    0.00724411,
+    -0.028381348,
+    -0.01991272,
+    0.0026836395,
+    0.05529785,
+    0.015426636,
+    0.006904602,
+    0.056793213,
+    0.01889038,
+    0.0073165894,
+    0.010215759,
+    0.022155762,
+    -0.06793213,
+    0.033966064,
+    -0.045196533,
+    -0.013885498,
+    0.0029468536,
+    0.034301758,
+    0.01739502,
+    -0.03857422,
+    0.00881958,
+    0.012168884,
+    0.002752304,
+    -0.005886078,
+    0.0206604,
+    0.042663574,
+    -0.054138184,
+    0.017196655,
+    0.0059051514,
+    0.025527954,
+    0.03729248,
+    -0.018966675,
+    -0.038116455,
+    -0.024246216,
+    -0.027175903,
+    -0.0033626556,
+    -0.008087158,
+    -0.044952393,
+    0.031585693,
+    0.008934021,
+    -0.014045715,
+    0.028335571,
+    0.038085938,
+    -0.0050201416,
+    -0.0033130646,
+    -0.025360107,
+    0.00016403198,
+    -0.015808105,
+    -0.015930176,
+    -0.043823242,
+    -0.00667572,
+    0.0036773682,
+    -0.024780273,
+    0.010551453,
+    0.01121521,
+    -0.0070114136,
+    -0.034606934,
+    0.02104187,
+    0.0069236755,
+    -0.015151978,
+    -0.05593872,
+    0.01977539,
+    0.001613617,
+    -0.015075684,
+    -0.07714844,
+    0.0060310364,
+    0.052246094,
+    0.016967773,
+    -0.0032634735,
+    -0.056396484,
+    0.007507324,
+    0.024887085,
+    0.04321289,
+    -0.01449585,
+    -0.0063552856,
+    -0.012336731,
+    -0.0031394958,
+    -0.011657715,
+    0.009719849,
+    -0.023345947,
+    0.013015747,
+    0.010192871,
+    0.011352539,
+    -0.015670776,
+    -0.028213501,
+    0.016952515,
+    -0.04248047,
+    0.010398865,
+    -0.03677368,
+    -0.02229309,
+    -0.06112671,
+    -0.005580902,
+    -0.03414917,
+    -0.02720642,
+    0.025527954,
+    -0.039245605,
+    0.015037537,
+    0.022659302,
+    0.002500534,
+    -0.045288086,
+    0.005619049,
+    0.02810669,
+    0.009269714,
+    0.018829346,
+    0.0067481995,
+    0.015182495,
+    0.034820557,
+    -0.029693604,
+    -0.0075263977,
+    -0.01739502,
+    -0.010635376,
+    0.059814453,
+    -0.02859497,
+    -0.014671326,
+    0.011802673,
+    -0.034484863,
+    0.0023918152,
+    0.042907715,
+    0.017623901,
+    -0.017532349,
+    0.017501831,
+    0.020599365,
+    0.024734497,
+    -0.016174316,
+    0.04421997,
+    -0.030349731,
+    -0.011230469,
+    0.02961731,
+    -0.0017166138,
+    -0.015716553,
+    -0.051635742,
+    -0.049194336,
+    -0.044891357,
+    -0.019729614,
+    0.0010814667,
+    0.006877899,
+    0.029724121,
+    -0.004348755,
+    0.018295288,
+    -0.015808105,
+    0.03829956,
+    -0.007701874,
+    0.04135132,
+    -0.0040359497,
+    -0.026443481,
+    -0.0418396,
+    -0.0032234192,
+    -0.040222168,
+    -0.009994507,
+    -0.028686523,
+    0.059753418,
+    -0.03414917,
+    -0.07183838,
+    -0.0008635521,
+    0.0073509216,
+    0.0022964478,
+    -0.0063056946,
+    0.018859863,
+    -0.051940918,
+    0.015075684,
+    -0.01777649,
+    0.0042304993,
+    0.0035629272,
+    0.031982422,
+    -0.007797241,
+    0.04751587,
+    -0.031280518,
+    -0.027893066,
+    0.02027893,
+    -0.018829346,
+    -0.026168823,
+    0.003194809,
+    -0.006690979,
+    -0.013061523,
+    0.05795288,
+    0.0059814453,
+    0.03579712,
+    -0.018493652,
+    -0.0043754578,
+    -0.038238525,
+    -0.018753052,
+    -0.008613586,
+    0.012954712,
+    0.01826477,
+    0.016174316,
+    0.012550354,
+    0.008331299,
+    -0.029663086,
+    0.019317627,
+    -0.0044937134,
+    0.0022602081,
+    0.010971069,
+    0.012130737,
+    0.014808655,
+    0.023071289,
+    -0.0056381226,
+    -0.02053833,
+    0.004737854,
+    -0.014053345,
+    -0.028625488,
+    0.010894775,
+    -0.022750854,
+    0.0076560974,
+    0.001750946,
+    -0.0022716522,
+    -0.007797241,
+    0.024917603,
+    0.018447876,
+    0.016845703,
+    -0.039764404,
+    0.016494751,
+    -0.049987793,
+    0.025177002,
+    -0.023956299,
+    0.010063171,
+    0.024902344,
+    -0.057434082,
+    -0.020126343,
+    -0.0068130493,
+    -0.008552551,
+    0.0095825195,
+    0.033355713,
+    -0.02130127,
+    0.02067566,
+    0.024047852,
+    0.022583008,
+    -0.0082092285,
+    -0.0012331009,
+    -0.026229858,
+    -0.036743164,
+    0.047912598,
+    -0.009460449,
+    -0.01914978,
+    -0.0021438599,
+    0.011550903,
+    0.022766113,
+    0.018203735,
+    -0.037963867,
+    0.02796936,
+    0.017852783,
+    -0.041046143,
+    0.013702393,
+    -0.044403076,
+    -0.013465881,
+    -0.027236938,
+    0.019454956,
+    0.013832092,
+    0.0065994263,
+    -0.014297485,
+    0.09326172,
+    -0.008758545,
+    0.009414673,
+    0.064819336,
+    -0.01928711,
+    -0.016799927,
+    0.0045051575,
+    -0.0017776489,
+    -0.005256653,
+    0.0062065125,
+    0.029785156,
+    -0.003414154,
+    0.026153564,
+    0.019073486,
+    0.001950264,
+    -0.01625061,
+    0.003019333,
+    0.012687683,
+    0.008232117,
+    0.0385437,
+    0.039794922,
+    0.017868042,
+    -0.0647583,
+    -0.008811951,
+    0.00049829483,
+    -0.007881165,
+    0.010910034,
+    0.02609253,
+    0.031051636,
+    -0.015594482,
+    0.016708374,
+    -0.017333984,
+    -0.020477295,
+    0.019256592,
+    -0.018920898,
+    0.01309967,
+    -0.013206482,
+    0.0024795532,
+    0.0034389496,
+    0.065979004,
+    0.02545166,
+    0.014541626,
+    0.0010433197,
+    -0.0052490234,
+    0.05758667,
+    0.05987549,
+    0.08581543,
+    0.0015239716,
+    -0.004634857,
+    -0.047790527,
+    0.029251099,
+    -0.03643799,
+    -0.06201172,
+    0.0018806458,
+    -0.040130615,
+    0.017700195,
+    0.019378662,
+    0.0069465637,
+    -0.06695557,
+    -0.00415802,
+    -0.0065345764,
+    0.0046806335,
+    -0.00349617,
+    -0.029190063,
+    -0.02229309,
+    0.031463623,
+    0.024856567,
+    -0.028686523,
+    -0.03768921,
+    0.015991211,
+    -0.050689697,
+    0.0009407997,
+    -0.0038928986,
+    0.03060913,
+    -0.0025520325,
+    -0.0017414093,
+    -0.015777588,
+    0.07788086,
+    -0.041656494,
+    0.026809692,
+    -0.010429382,
+    0.010574341,
+    0.00422287,
+    0.0079574585,
+    0.010887146,
+    0.027038574,
+    -0.025238037,
+    -0.02407837,
+    -0.0033798218,
+    -0.02355957,
+    0.008148193,
+    0.0053215027,
+    -0.05215454,
+    0.01159668,
+    0.030136108,
+    0.032592773,
+    -0.005004883,
+    0.05239868,
+    -0.01171875,
+    -0.04498291,
+    -0.0041046143,
+    -0.00061511993,
+    0.015945435,
+    0.060913086,
+    -0.0022144318,
+    0.043426514,
+    0.061553955,
+    -0.030914307,
+    0.036346436,
+    -0.051452637,
+    -0.06414795,
+    0.0018882751,
+    -0.050231934,
+    0.0077934265,
+    -0.033996582,
+    0.010475159,
+    -0.008850098,
+    0.0032367706,
+    0.0084991455,
+    -0.00944519,
+    0.015144348,
+    -0.0020561218,
+    -0.0018548965,
+    0.007423401,
+    -0.04159546,
+    -0.005607605,
+    -0.020446777,
+    -0.022766113,
+    0.049743652,
+    0.001329422,
+    -0.018081665,
+    0.014678955,
+    0.021484375,
+    -0.012016296,
+    -0.038208008,
+    0.025268555,
+    -0.058563232,
+    0.009529114,
+    0.0011281967,
+    -0.023773193,
+    -0.0042266846,
+    -0.036193848,
+    0.0413208,
+    -0.016082764,
+    0.00856781,
+    -0.0034809113,
+    0.028137207,
+    0.024108887,
+    -0.025268555,
+    0.005718231,
+    0.007987976,
+    -0.0016965866,
+    -0.010612488,
+    0.027313232,
+    -0.011962891,
+    -0.024627686,
+    -0.05404663,
+    -0.01701355,
+    -0.0446167,
+    -0.0093307495,
+    -0.05279541,
+    -0.036621094,
+    0.0345459,
+    0.04647827,
+    -0.03768921,
+    0.10089111,
+    -0.052825928,
+    0.011184692,
+    0.020065308,
+    -0.016357422,
+    0.02368164,
+    -0.011642456,
+    0.024093628,
+    0.0006155968,
+    -0.023513794
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100293.md",
+    "file_name": "100293.md",
+    "file_size": 6695,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Flight Training Accident Information",
+      "The defining event was abnormal runway contact during landing.",
+      "Landing gear collapse occurred during landing.",
+      "The pilot was a student pilot.",
+      "The student pilot was 22 years old.",
+      "The student pilot was female.",
+      "The student pilot had no airplane ratings.",
+      "The student pilot occupied the left seat.",
+      "The student pilot had no other aircraft ratings.",
+      "The restraint used by the student pilot is unknown.",
+      "The student pilot had no instrument ratings.",
+      "No second pilot was present.",
+      "The student pilot had no instructor ratings.",
+      "No toxicology was performed on the student pilot.",
+      "The student pilot held a Class 1 medical certification with waivers/limitations.",
+      "The student pilot's last FAA medical exam was on May 15, 2019.",
+      "The student pilot was not an occupational pilot.",
+      "The student pilot had approximately 49.9 total flight hours.",
+      "The student pilot had 49.9 hours in this make and model of aircraft.",
+      "The student pilot had 3 hours as pilot in command across all aircraft.",
+      "The student pilot had 49.9 flight hours in the last 90 days.",
+      "The student pilot had 28.2 flight hours in the last 30 days.",
+      "The aircraft was a Cessna 152.",
+      "The aircraft registration was N472TC.",
+      "The aircraft model/series was 152 No Series.",
+      "The aircraft category was Airplane.",
+      "The aircraft was manufactured in 1977.",
+      "The aircraft had a Utility airworthiness certificate.",
+      "The aircraft serial number was 15279792.",
+      "The aircraft had tricycle landing gear.",
+      "The aircraft had 2 seats.",
+      "The aircraft's last inspection was on August 8, 2019.",
+      "The last inspection was a 100-hour inspection.",
+      "The aircraft's certified maximum gross weight was 1670 lbs.",
+      "The aircraft had 1 reciprocating engine.",
+      "The aircraft's airframe total time was 5437.4 hours at the time of accident.",
+      "The engine manufacturer was Lycoming.",
+      "The aircraft had an Emergency Locator Transmitter installed.",
+      "The engine model/series was O-235-L2C.",
+      "The registered owner was Florida Flight Training Center.",
+      "The engine was rated at 110 horsepower.",
+      "The operator was Florida Flight Training Center.",
+      "Florida Flight Training Center held a pilot school (141) operating certificate."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Flight Training Accident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "student pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna 152",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N472TC",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Florida Flight Training Center",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Lycoming",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "O-235-L2C",
+              "classification": "Aircraftmodel"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was abnormal runway contact during landing.",
+              "details": [
+                "abnormal runway contact OCCURRED DURING landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "abnormal runway contact",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Landing gear collapse occurred during landing.",
+              "details": [
+                "landing gear collapse OCCURRED DURING landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear collapse",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was a student pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS TYPE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot was 22 years old.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "22 years old",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot was female.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS GENDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "female",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no airplane ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS AIRPLANE RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot occupied the left seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no other aircraft ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS OTHER AIRCRAFT RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The restraint used by the student pilot is unknown.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RESTRAINT USED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no instrument ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUMENT RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No second pilot was present.",
+              "details": [
+                "second pilot HAS PRESENCE none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS PRESENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had no instructor ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the student pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot held a Class 1 medical certification with waivers/limitations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class 1 with waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot's last FAA medical exam was on May 15, 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS LAST FAA MEDICAL EXAM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 15, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot was not an occupational pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "IS OCCUPATIONAL PILOT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had approximately 49.9 total flight hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "49.9",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had 49.9 hours in this make and model of aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS HOURS IN MAKE MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "49.9",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had 3 hours as pilot in command across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS PILOT IN COMMAND HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had 49.9 flight hours in the last 90 days.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS FLIGHT HOURS LAST 90 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "49.9",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot had 28.2 flight hours in the last 30 days.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS FLIGHT HOURS LAST 30 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "28.2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was a Cessna 152.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N472TC.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N472TC",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft model/series was 152 No Series.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS MODEL SERIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "152 No Series",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft category was Airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS CATEGORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was manufactured in 1977.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS MANUFACTURE YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1977",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had a Utility airworthiness certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS AIRWORTHINESS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Utility",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft serial number was 15279792.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "15279792",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had tricycle landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS LANDING GEAR TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tricycle",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had 2 seats.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS SEATS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's last inspection was on August 8, 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS LAST INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 8, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last inspection was a 100-hour inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS LAST INSPECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "100-hour inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's certified maximum gross weight was 1670 lbs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS MAX GROSS WEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1670 lbs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had 1 reciprocating engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reciprocating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's airframe total time was 5437.4 hours at the time of accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS AIRFRAME TOTAL TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5437.4 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine manufacturer was Lycoming.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Lycoming",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "O-235-L2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had an Emergency Locator Transmitter installed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS EMERGENCY LOCATOR TRANSMITTER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine model/series was O-235-L2C.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "O-235-L2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "O-235-L2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS MODEL SERIES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "O-235-L2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The registered owner was Florida Flight Training Center.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Florida Flight Training Center",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "OWNER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was rated at 110 horsepower.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "O-235-L2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS HORSEPOWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "110",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The operator was Florida Flight Training Center.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Florida Flight Training Center",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "OPERATOR OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 152",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Florida Flight Training Center held a pilot school (141) operating certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Florida Flight Training Center",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "HAS OPERATING CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot school (141)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::b5b376ab:0b63",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100293.md",
+        "file_name": "100293.md",
+        "file_size": 6695,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "2503ea23d47b363bdee850ab129cfdae7ff1cc1bc1af93bc7f39a8055e4a0816",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::b5b376ab:0b63:981c1d09",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100293.md",
+        "file_name": "100293.md",
+        "file_size": 6695,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "589569be60061fc7107376fb71c6a6b32fc4abb0fd70e87ed7259b02bb2c81ab",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::b5b376ab:0b63:3d227fde",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100293.md",
+        "file_name": "100293.md",
+        "file_size": 6695,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "c4bdf9cba2cbdcd81cdb551153d6ee053a0bc2f944928a6dad8c6731f5fc3a39",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\nLanding | Abnormal runway contact (Defining event)\nLanding | Landing gear collapse\n\n## Student pilot Information\nCertificate: | Student\nAge: | 22,Female\nAirplane Rating(s): | None\nSeat Occupied: | Left\nOther Aircraft Rating(s): | None\nRestraint Used: | Unknown\nInstrument Rating(s): | None\nSecond Pilot Present: | No\nInstructor Rating(s): | None\nToxicology Performed: | No\nMedical Certification: | Class 1 With waivers/limitations\nLast FAA Medical Exam: | May 15, 2019\nOccupational Pilot: | No\nLast Flight Review or Equivalent: |\nFlight Time: | (Estimated) 49.9 hours (Total, all aircraft), 49.9 hours (Total, this make and model), 3 hours (Pilot In Command, all aircraft), 49.9 hours (Last 90 days, all aircraft), 28.2 hours (Last 30 days, all aircraft)\n\n## Aircraft and Owner/Operator Information\nAircraft Make: | Cessna\nRegistration: | N472TC\nModel/Series: | 152 No Series\nAircraft Category: | Airplane\nYear of Manufacture: | 1977\nAmateur Built: |\nAirworthiness Certificate: | Utility\nSerial Number: | 15279792\nLanding Gear Type: | Tricycle\nSeats: | 2\nDate/Type of Last Inspection: | August 8, 2019 100 hour\nCertified Max Gross Wt.: | 1670 lbs\nTime Since Last Inspection: | Engines: 1 Reciprocating\nAirframe Total Time: | 5437.4 Hrs at time of accident\nEngine Manufacturer: | Lycoming\nELT: | Installed\nEngine Model/Series: | O-235-L2C\nRegistered Owner: | Florida Flight Training Center\nRated Power: | 110 Horsepower\nOperator: | Florida Flight Training Center\nOperating Certificate(s) Held: | Pilot school (141)\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1562,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

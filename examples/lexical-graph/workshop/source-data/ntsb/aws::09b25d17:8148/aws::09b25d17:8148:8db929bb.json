@@ -1,0 +1,2449 @@
+{
+  "id_": "aws::09b25d17:8148:8db929bb",
+  "embedding": [
+    0.009674072,
+    0.014984131,
+    -0.010597229,
+    -0.048706055,
+    0.0040626526,
+    -0.00932312,
+    -0.022888184,
+    0.00466156,
+    -0.02986145,
+    0.0020980835,
+    0.013648987,
+    -0.011657715,
+    -0.018508911,
+    -0.05529785,
+    0.036743164,
+    -0.021438599,
+    0.0013055801,
+    0.049835205,
+    0.014183044,
+    -0.00233078,
+    -0.0026130676,
+    0.005958557,
+    -0.051452637,
+    -0.0038051605,
+    0.0060195923,
+    0.071777344,
+    -0.056243896,
+    -0.009559631,
+    -0.019226074,
+    -0.018295288,
+    0.0032615662,
+    0.019134521,
+    0.025360107,
+    0.036590576,
+    -0.057250977,
+    0.0032196045,
+    -0.017547607,
+    0.015029907,
+    -0.021850586,
+    0.020141602,
+    0.030715942,
+    -0.0031642914,
+    0.09423828,
+    -0.020080566,
+    0.015838623,
+    0.017837524,
+    0.02268982,
+    -0.03741455,
+    0.013832092,
+    0.06903076,
+    0.007286072,
+    0.021377563,
+    -0.01473999,
+    0.06689453,
+    0.012619019,
+    -0.008735657,
+    -0.017959595,
+    0.011390686,
+    -0.00068616867,
+    -0.02532959,
+    0.0018930435,
+    0.035858154,
+    0.04309082,
+    0.050231934,
+    -0.042633057,
+    0.005847931,
+    -0.028060913,
+    0.002670288,
+    0.09246826,
+    -0.037200928,
+    -0.0463562,
+    0.041870117,
+    0.0031280518,
+    0.007537842,
+    -0.05255127,
+    -0.038269043,
+    0.024169922,
+    -0.027709961,
+    -0.013259888,
+    0.0055503845,
+    0.034362793,
+    0.029632568,
+    -0.0028438568,
+    -0.044006348,
+    0.024932861,
+    -0.033294678,
+    -0.013031006,
+    -0.018737793,
+    -0.016586304,
+    -0.04949951,
+    -0.025390625,
+    -0.033447266,
+    -0.023651123,
+    -0.0064926147,
+    -0.037231445,
+    -0.015655518,
+    0.0071411133,
+    -0.07550049,
+    0.019226074,
+    -0.05508423,
+    0.031219482,
+    -0.045959473,
+    -0.043426514,
+    0.043151855,
+    -0.0037155151,
+    0.02532959,
+    0.027923584,
+    0.0008878708,
+    0.0090408325,
+    -0.012825012,
+    -0.021240234,
+    0.07373047,
+    -0.017730713,
+    -0.04562378,
+    -0.020629883,
+    0.060791016,
+    0.00774765,
+    -0.018188477,
+    0.02293396,
+    0.0158844,
+    0.026504517,
+    0.050109863,
+    -0.05307007,
+    -0.014503479,
+    0.0107803345,
+    -0.016204834,
+    -0.033325195,
+    0.028808594,
+    0.083496094,
+    -0.005897522,
+    -0.025909424,
+    0.022903442,
+    -0.008415222,
+    -0.028564453,
+    0.005935669,
+    -0.0048675537,
+    -0.0014858246,
+    0.003458023,
+    -0.010192871,
+    0.017425537,
+    -0.024276733,
+    -0.009635925,
+    0.040771484,
+    -0.020553589,
+    -0.015075684,
+    0.024780273,
+    0.011650085,
+    0.01071167,
+    -0.022491455,
+    -0.026687622,
+    0.010040283,
+    -0.050598145,
+    0.0657959,
+    -0.009529114,
+    -0.043304443,
+    -0.044555664,
+    0.033416748,
+    -0.046295166,
+    -0.01335907,
+    -0.06933594,
+    0.005683899,
+    0.015808105,
+    -0.00422287,
+    -0.0209198,
+    -0.007827759,
+    -0.01864624,
+    -0.006591797,
+    0.009674072,
+    0.021469116,
+    -0.003129959,
+    0.033081055,
+    -0.015319824,
+    -0.044311523,
+    -0.0019836426,
+    0.017593384,
+    0.017105103,
+    0.014556885,
+    -0.0052490234,
+    0.032165527,
+    0.0048446655,
+    -0.011299133,
+    -0.019012451,
+    0.05130005,
+    -0.023544312,
+    -0.007335663,
+    -0.033416748,
+    0.038116455,
+    -0.0071640015,
+    0.00015723705,
+    0.01499939,
+    0.026168823,
+    0.022964478,
+    0.03704834,
+    -0.0440979,
+    -0.031280518,
+    -0.036102295,
+    0.056396484,
+    0.01651001,
+    -0.009147644,
+    0.029449463,
+    -0.04623413,
+    0.023483276,
+    0.005290985,
+    0.0016403198,
+    -0.033477783,
+    0.020019531,
+    -0.016021729,
+    0.048217773,
+    -0.0014009476,
+    0.02532959,
+    0.010437012,
+    -0.024383545,
+    -0.012237549,
+    0.008285522,
+    -0.021591187,
+    -0.048553467,
+    -0.025177002,
+    0.0024433136,
+    0.04534912,
+    -0.0047454834,
+    0.0127334595,
+    0.042510986,
+    -0.0067367554,
+    -0.05255127,
+    -0.014732361,
+    -0.020629883,
+    -0.013473511,
+    -0.03010559,
+    0.0041122437,
+    -0.02305603,
+    0.063964844,
+    0.0385437,
+    0.009742737,
+    0.030227661,
+    -0.025894165,
+    0.022872925,
+    0.014213562,
+    0.032104492,
+    -0.0025367737,
+    0.004196167,
+    -0.009727478,
+    -0.011627197,
+    -0.0154953,
+    0.04925537,
+    -0.08642578,
+    -0.06695557,
+    0.004623413,
+    0.02671814,
+    0.007434845,
+    0.049682617,
+    0.014801025,
+    0.009742737,
+    0.009963989,
+    0.06173706,
+    0.014297485,
+    0.0043525696,
+    -0.013259888,
+    0.0016260147,
+    -0.008369446,
+    -0.020431519,
+    0.02468872,
+    0.025100708,
+    -0.033569336,
+    0.02268982,
+    -2.515316e-05,
+    0.016830444,
+    0.030578613,
+    0.040802002,
+    -0.032409668,
+    0.008636475,
+    0.012878418,
+    0.045196533,
+    0.010528564,
+    0.0038166046,
+    -0.0960083,
+    0.0019664764,
+    -0.016952515,
+    0.027801514,
+    -0.00920105,
+    -0.03152466,
+    -0.004383087,
+    0.040618896,
+    -0.016525269,
+    -0.016113281,
+    0.024993896,
+    0.028717041,
+    -0.0335083,
+    -0.027297974,
+    0.007671356,
+    0.014823914,
+    0.07183838,
+    -0.024963379,
+    -0.023147583,
+    -0.0004067421,
+    -0.02230835,
+    -0.039367676,
+    0.054107666,
+    0.012016296,
+    0.0016841888,
+    0.017349243,
+    0.09503174,
+    0.066223145,
+    -0.029968262,
+    0.04949951,
+    0.022857666,
+    -0.04421997,
+    0.0052604675,
+    0.008010864,
+    0.021530151,
+    0.014595032,
+    -0.010948181,
+    0.08557129,
+    0.017242432,
+    -0.010757446,
+    0.010856628,
+    0.009803772,
+    -0.024154663,
+    0.024856567,
+    -0.008201599,
+    0.03326416,
+    -0.021408081,
+    -0.014778137,
+    0.0006785393,
+    -0.0028457642,
+    0.005874634,
+    -0.017944336,
+    0.00080776215,
+    0.009857178,
+    0.0035877228,
+    -0.0025482178,
+    -0.02557373,
+    -0.023620605,
+    -0.028930664,
+    0.0016088486,
+    -0.0051879883,
+    -0.0039596558,
+    -0.0035305023,
+    -0.024993896,
+    -0.04940796,
+    -0.034973145,
+    -0.042053223,
+    -0.039001465,
+    0.029067993,
+    -0.027816772,
+    -0.06347656,
+    -0.04598999,
+    0.0055656433,
+    -0.0052604675,
+    0.024658203,
+    -0.031066895,
+    0.0546875,
+    0.020935059,
+    -5.877018e-05,
+    0.032043457,
+    0.017150879,
+    -0.03451538,
+    0.0020389557,
+    0.062164307,
+    0.00856781,
+    -0.008934021,
+    -0.038360596,
+    0.008216858,
+    -0.049713135,
+    -0.04269409,
+    0.038513184,
+    -0.00022983551,
+    -0.027770996,
+    -0.005001068,
+    -0.05444336,
+    -0.021911621,
+    0.007457733,
+    -0.048950195,
+    -0.0016584396,
+    -0.019729614,
+    -0.04397583,
+    0.014770508,
+    0.03186035,
+    -0.018096924,
+    0.01008606,
+    0.022720337,
+    0.019088745,
+    -0.0065689087,
+    0.035705566,
+    -0.02180481,
+    0.02999878,
+    -0.007335663,
+    0.0024909973,
+    0.055755615,
+    0.025482178,
+    0.002243042,
+    0.01965332,
+    0.027816772,
+    -0.04144287,
+    -0.023757935,
+    0.0019054413,
+    0.011932373,
+    -0.008171082,
+    -0.012214661,
+    -0.0052719116,
+    -0.034942627,
+    -0.107910156,
+    -0.0129852295,
+    -0.026031494,
+    -0.036743164,
+    0.031951904,
+    -0.09869385,
+    -0.029586792,
+    -0.075927734,
+    0.02583313,
+    0.03475952,
+    -0.024734497,
+    0.026931763,
+    -0.008560181,
+    -0.010437012,
+    -0.011512756,
+    0.008522034,
+    -0.01574707,
+    -0.011650085,
+    -0.0056877136,
+    0.028808594,
+    0.035247803,
+    -0.045440674,
+    0.0021305084,
+    0.03881836,
+    -0.006755829,
+    0.02861023,
+    0.00070762634,
+    0.022781372,
+    0.0023059845,
+    0.024032593,
+    0.0019321442,
+    -0.017700195,
+    -0.009208679,
+    -0.018463135,
+    -0.0021343231,
+    0.051696777,
+    -0.011054993,
+    0.007881165,
+    -0.009841919,
+    -0.0024662018,
+    0.051696777,
+    -0.00932312,
+    -0.0064811707,
+    0.05493164,
+    -0.034698486,
+    0.020629883,
+    -0.03186035,
+    0.033233643,
+    0.011123657,
+    -0.020401001,
+    -0.001950264,
+    -0.0014181137,
+    0.08880615,
+    0.02305603,
+    0.012260437,
+    0.016830444,
+    -0.02015686,
+    0.029953003,
+    0.0014181137,
+    -0.04727173,
+    -0.03479004,
+    -0.018188477,
+    -0.018325806,
+    -0.017181396,
+    -0.030166626,
+    0.007843018,
+    0.01889038,
+    0.011894226,
+    -0.00044965744,
+    0.0015640259,
+    -0.022720337,
+    0.020614624,
+    -0.038635254,
+    -0.051483154,
+    0.020751953,
+    -0.033111572,
+    0.031402588,
+    -0.009407043,
+    0.045318604,
+    -0.029373169,
+    -0.05908203,
+    0.0074043274,
+    0.021133423,
+    0.051757812,
+    0.03527832,
+    -0.0021839142,
+    0.064697266,
+    0.0690918,
+    0.00086927414,
+    -0.006919861,
+    0.026992798,
+    0.029785156,
+    0.048309326,
+    0.017990112,
+    0.028121948,
+    -0.05328369,
+    0.01739502,
+    -0.04046631,
+    -0.007911682,
+    -0.027832031,
+    -0.0435791,
+    0.0075645447,
+    -0.006717682,
+    0.0073509216,
+    0.025787354,
+    0.00724411,
+    -0.017227173,
+    0.03729248,
+    0.02758789,
+    0.024520874,
+    -0.018875122,
+    0.011932373,
+    -0.023651123,
+    -0.0019721985,
+    -0.024124146,
+    0.060760498,
+    0.012054443,
+    -0.04119873,
+    0.024230957,
+    -0.0013046265,
+    -0.047973633,
+    -0.023086548,
+    0.06329346,
+    0.05807495,
+    -0.06994629,
+    -0.014923096,
+    0.052490234,
+    0.023956299,
+    -0.05606079,
+    -0.006690979,
+    0.0054130554,
+    0.040802002,
+    -0.00093746185,
+    -0.028671265,
+    0.03717041,
+    0.006500244,
+    -0.021331787,
+    0.04019165,
+    0.019363403,
+    -0.050567627,
+    -0.02670288,
+    0.007827759,
+    0.013473511,
+    -0.022567749,
+    -0.005428314,
+    -0.011878967,
+    -0.013999939,
+    0.04284668,
+    -0.03277588,
+    0.015357971,
+    0.009643555,
+    0.0074501038,
+    -0.032806396,
+    -0.044799805,
+    -0.0524292,
+    0.11425781,
+    0.03451538,
+    -0.010482788,
+    -0.019485474,
+    0.008781433,
+    -0.011817932,
+    -0.045562744,
+    0.003419876,
+    0.018310547,
+    -0.0013084412,
+    0.021408081,
+    -0.016189575,
+    -0.04562378,
+    0.006652832,
+    -0.028778076,
+    -0.0058059692,
+    -0.018203735,
+    0.08300781,
+    0.009849548,
+    0.0023612976,
+    -0.023040771,
+    0.027130127,
+    0.025466919,
+    -0.0055236816,
+    -0.021591187,
+    0.0021190643,
+    0.018432617,
+    0.03289795,
+    0.09173584,
+    -0.036468506,
+    0.036010742,
+    -0.03616333,
+    -0.0072898865,
+    -0.042236328,
+    -0.018554688,
+    0.030960083,
+    0.0072021484,
+    0.010070801,
+    0.0043640137,
+    -0.008285522,
+    0.0031776428,
+    -0.037628174,
+    -0.059051514,
+    0.002653122,
+    -0.015541077,
+    -0.03161621,
+    0.006046295,
+    0.0035057068,
+    -0.023742676,
+    0.053588867,
+    0.022491455,
+    -0.022125244,
+    0.028182983,
+    0.0256958,
+    0.04800415,
+    -0.028518677,
+    -0.0067253113,
+    -0.03314209,
+    0.020858765,
+    -0.009605408,
+    8.457899e-05,
+    -0.018569946,
+    0.043518066,
+    0.04550171,
+    -0.05709839,
+    0.01890564,
+    0.034240723,
+    -0.006401062,
+    0.015701294,
+    0.024932861,
+    0.010238647,
+    0.020904541,
+    0.024154663,
+    -0.015235901,
+    -0.04623413,
+    -0.048736572,
+    -0.042510986,
+    -0.06524658,
+    -0.007858276,
+    -0.01499176,
+    0.014968872,
+    -0.02154541,
+    -0.023239136,
+    -0.021408081,
+    -0.06390381,
+    -0.035705566,
+    0.03112793,
+    -0.021499634,
+    0.014556885,
+    0.032348633,
+    -0.026000977,
+    -0.021057129,
+    -0.037475586,
+    0.0028495789,
+    -0.009262085,
+    0.015731812,
+    -0.0104599,
+    -0.11035156,
+    0.010246277,
+    0.04537964,
+    -0.016906738,
+    0.013656616,
+    0.020492554,
+    0.0011234283,
+    -0.043121338,
+    -0.055725098,
+    -0.0039901733,
+    0.02104187,
+    -0.062805176,
+    -0.01725769,
+    -0.026809692,
+    0.020584106,
+    0.023071289,
+    -0.0045928955,
+    -0.030822754,
+    -0.0023612976,
+    -0.014778137,
+    0.002954483,
+    -0.015144348,
+    0.014312744,
+    0.00806427,
+    0.029312134,
+    0.019302368,
+    0.022613525,
+    -0.041625977,
+    0.02243042,
+    -0.013824463,
+    -0.018798828,
+    -0.0016450882,
+    -0.017822266,
+    0.050628662,
+    -0.07269287,
+    -0.008880615,
+    -0.01134491,
+    -0.000446558,
+    0.011558533,
+    0.03717041,
+    -0.01713562,
+    -0.0052833557,
+    -0.0029182434,
+    -0.018341064,
+    -0.0036144257,
+    0.039611816,
+    0.018051147,
+    -0.046875,
+    -0.021697998,
+    0.03842163,
+    0.034606934,
+    0.03967285,
+    -0.01902771,
+    0.037231445,
+    -0.005924225,
+    0.044281006,
+    -0.06829834,
+    -0.02670288,
+    0.011749268,
+    0.07006836,
+    -0.03439331,
+    -0.009361267,
+    0.019592285,
+    0.0066986084,
+    0.009498596,
+    -0.0020122528,
+    -0.014533997,
+    -0.0050621033,
+    -0.012123108,
+    0.0206604,
+    0.0013132095,
+    -0.021240234,
+    0.025268555,
+    -0.03567505,
+    -0.038330078,
+    0.015167236,
+    -0.032714844,
+    -0.029281616,
+    -0.020095825,
+    -0.04360962,
+    0.01084137,
+    -0.024673462,
+    -0.045440674,
+    0.00831604,
+    -0.006576538,
+    0.024261475,
+    -0.002576828,
+    -0.007610321,
+    0.011993408,
+    -0.02130127,
+    0.028686523,
+    -0.01158905,
+    0.01574707,
+    -0.045532227,
+    0.008735657,
+    -0.0098724365,
+    -0.06964111,
+    -0.014640808,
+    0.026031494,
+    -0.053375244,
+    0.0059890747,
+    0.012313843,
+    0.021057129,
+    0.011306763,
+    0.023376465,
+    -0.001876831,
+    0.00026917458,
+    -0.022964478,
+    -0.018753052,
+    0.0030975342,
+    0.00868988,
+    0.030334473,
+    -0.03466797,
+    0.0051078796,
+    -0.055358887,
+    -0.043548584,
+    -0.029846191,
+    0.0095825195,
+    -0.015197754,
+    0.001452446,
+    -0.03427124,
+    -0.05859375,
+    0.050689697,
+    0.0067329407,
+    0.041503906,
+    -0.040130615,
+    0.0045051575,
+    -0.01134491,
+    -0.026367188,
+    0.0050468445,
+    -0.02494812,
+    0.011985779,
+    -0.015129089,
+    -0.0052757263,
+    -0.011222839,
+    0.024810791,
+    0.020996094,
+    0.040771484,
+    -0.012069702,
+    0.016311646,
+    -0.016540527,
+    -0.05053711,
+    -0.020202637,
+    -0.0051498413,
+    -0.014076233,
+    -0.03717041,
+    -0.04067993,
+    -0.010650635,
+    -0.020507812,
+    0.021865845,
+    -0.061645508,
+    0.021560669,
+    -0.0385437,
+    -0.008171082,
+    -0.027267456,
+    0.03149414,
+    0.047454834,
+    -0.05029297,
+    0.02796936,
+    -0.027633667,
+    0.055541992,
+    -0.0054359436,
+    0.009262085,
+    0.043548584,
+    -0.033416748,
+    -0.049713135,
+    0.004749298,
+    0.076293945,
+    0.021087646,
+    0.026626587,
+    0.033050537,
+    0.017684937,
+    -0.0054130554,
+    0.017623901,
+    -0.041137695,
+    -0.0014886856,
+    0.022872925,
+    -0.05041504,
+    -0.001461029,
+    -0.015098572,
+    -0.0234375,
+    -0.023529053,
+    -0.04232788,
+    0.040924072,
+    0.041656494,
+    0.0368042,
+    -0.00762558,
+    0.04019165,
+    0.025482178,
+    0.022125244,
+    -0.010269165,
+    0.025177002,
+    -0.020339966,
+    0.02848816,
+    0.03543091,
+    -0.032318115,
+    0.00466156,
+    0.044006348,
+    0.015808105,
+    -0.004383087,
+    0.037200928,
+    -0.046081543,
+    0.00630188,
+    0.007663727,
+    0.014160156,
+    -0.026992798,
+    0.0135650635,
+    0.0039749146,
+    -0.027954102,
+    0.037872314,
+    -0.0009484291,
+    -0.01247406,
+    -0.023834229,
+    -0.0007944107,
+    -0.06008911,
+    0.014831543,
+    -0.018371582,
+    0.040252686,
+    0.042816162,
+    0.013259888,
+    -0.08795166,
+    -0.038391113,
+    -0.023223877,
+    0.007118225,
+    -0.035614014,
+    0.09234619,
+    -0.008590698,
+    -0.0016336441,
+    -0.05810547,
+    -0.037750244,
+    0.0121536255,
+    -0.018676758,
+    0.007896423,
+    -0.057434082,
+    0.015136719,
+    0.041900635,
+    0.041046143,
+    0.028274536,
+    0.00472641,
+    -0.020187378,
+    -0.008743286,
+    0.039154053,
+    0.0044898987,
+    0.076293945,
+    0.03250122,
+    -0.0015010834,
+    -0.04812622,
+    0.012039185,
+    -0.0069351196,
+    -0.060272217,
+    0.027938843,
+    -0.046905518,
+    -0.017486572,
+    0.017318726,
+    0.0024719238,
+    -0.025375366,
+    0.03366089,
+    -0.021575928,
+    -0.0057029724,
+    0.029083252,
+    -0.036712646,
+    -0.0062828064,
+    0.019897461,
+    0.00050878525,
+    -0.057769775,
+    -0.035217285,
+    0.0011491776,
+    -0.033294678,
+    -0.02178955,
+    -0.017913818,
+    0.033203125,
+    0.014884949,
+    -0.021636963,
+    -0.010047913,
+    0.044891357,
+    -0.009971619,
+    0.008361816,
+    -0.013084412,
+    -0.004032135,
+    0.0070724487,
+    0.076049805,
+    -0.022659302,
+    0.052581787,
+    0.0036792755,
+    0.0046577454,
+    -0.0038204193,
+    -0.019500732,
+    0.0635376,
+    0.030883789,
+    -0.05682373,
+    -0.020050049,
+    -0.006565094,
+    0.0003681183,
+    -0.06561279,
+    0.06842041,
+    -0.040771484,
+    -0.034210205,
+    -0.007789612,
+    0.02658081,
+    -0.015686035,
+    0.037841797,
+    -0.026184082,
+    0.059936523,
+    0.05557251,
+    -0.02508545,
+    0.022506714,
+    -0.009346008,
+    -0.058380127,
+    0.023880005,
+    -0.0059394836,
+    0.024642944,
+    0.02041626,
+    0.018692017,
+    -0.022384644,
+    -0.0017881393,
+    -0.036010742,
+    -0.01586914,
+    -0.012580872,
+    0.022338867,
+    0.0018978119,
+    -0.008911133,
+    -0.012237549,
+    0.010009766,
+    -0.031097412,
+    -0.015686035,
+    -0.011451721,
+    -0.038330078,
+    -0.02684021,
+    0.0020713806,
+    -0.05355835,
+    -0.033721924,
+    0.045410156,
+    0.0073165894,
+    -0.0602417,
+    0.015945435,
+    -0.021194458,
+    -0.015426636,
+    0.004135132,
+    -0.06530762,
+    0.035888672,
+    -0.00055122375,
+    0.008377075,
+    -0.020690918,
+    0.005844116,
+    0.016418457,
+    0.00034737587,
+    -0.006046295,
+    -0.0115356445,
+    -0.017532349,
+    -0.004776001,
+    -0.0028133392,
+    0.0032958984,
+    0.06213379,
+    -0.05847168,
+    -0.003408432,
+    0.013267517,
+    -0.027114868,
+    -0.03744507,
+    -0.056396484,
+    0.032165527,
+    0.03475952,
+    -0.01889038,
+    0.061065674,
+    0.0010519028,
+    0.016616821,
+    0.029129028,
+    0.01876831,
+    0.02670288,
+    -0.00541687,
+    -0.0317688,
+    0.016815186,
+    -0.0026474
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90417.md",
+    "file_name": "90417.md",
+    "file_size": 8618,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Piper PA 28-181 in Strasburg, Colorado",
+      "The accident occurred in Strasburg, Colorado.",
+      "The accident occurred on November 20, 2014, at 20:40 Local time.",
+      "The aircraft involved was a Piper PA 28-181.",
+      "The defining event of the accident was fuel exhaustion.",
+      "The flight was conducted under Part 91: General aviation - Instructional.",
+      "The accident number was CEN15CA055.",
+      "The aircraft registration was N2204Q.",
+      "The aircraft sustained substantial damage.",
+      "The accident resulted in 1 minor injury and 1 person uninjured.",
+      "The flight was a visual flight rules night flight.",
+      "The pilot estimated the airplane had about 30 to 32 gallons of fuel before departure.",
+      "The flight departed from Rocky Mountain Metropolitan Airport in Denver, Colorado.",
+      "Rocky Mountain Metropolitan Airport's identifier is BJC.",
+      "The departure time was approximately 1825 MST.",
+      "During the flight, the aircraft experienced intermittent electrical issues.",
+      "The electrical issues included static in the headsets.",
+      "The electrical issues included flickering instrument panel lights.",
+      "The electrical issues included a fluctuating ammeter gauge.",
+      "Attempts to resolve the electrical issues were unsuccessful.",
+      "The aircraft made a touch and go landing at Kit Carson Airport in Burlington, Colorado.",
+      "Kit Carson Airport's identifier is ITR.",
+      "After the touch and go landing, a decision was made to shorten the flight.",
+      "The pilot decided to return to Rocky Mountain Metropolitan Airport.",
+      "The fuel gauges indicated about 8 gallons remaining in each fuel tank at Kit Carson Airport.",
+      "Twenty minutes after departing Kit Carson Airport, the fuel gauges showed empty.",
+      "At approximately 2035 MST, the engine stopped producing power.",
+      "The pilot switched to the opposite fuel tank when the engine stopped.",
+      "The engine restarted after switching fuel tanks.",
+      "The flight continued for about 4 to 5 more minutes after the engine restart.",
+      "The engine stopped producing power a second time.",
+      "During the forced landing attempt, the airplane struck wires.",
+      "After striking wires, the airplane impacted the ground.",
+      "The pilot and flight instructor stated the airplane's fuel load should have been sufficient for a flight of about 3 hours.",
+      "The total duration of the accident flight was about 2.25 hours.",
+      "Examination of the airplane after the accident revealed no fuel remaining in either wing tank.",
+      "There was no evidence of a fuel spill at the accident site.",
+      "No pre-impact anomalies were found with the airplane's fuel system.",
+      "The pilot reported the accident could have been prevented by ordering more fuel before departure.",
+      "The pilot reported the accident could have been prevented by obtaining fuel at Kit Carson Airport."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Piper PA 28-181 in Strasburg, Colorado",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Strasburg, Colorado",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA 28-181",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel exhaustion",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Instructional",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CEN15CA055",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N2204Q",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Rocky Mountain Metropolitan Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Denver, Colorado",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "BJC",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Kit Carson Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Burlington, Colorado",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ITR",
+              "classification": "Airport"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Strasburg, Colorado.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Strasburg, Colorado",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "true",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on November 20, 2014, at 2040 Local time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 20, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "20:40 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Piper PA 28-181.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED AIRCRAFT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was fuel exhaustion.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel exhaustion",
+                    "classification": "Definingevent"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Instructional.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Instructional",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was CEN15CA055.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT NUMBER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N2204Q.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N2204Q",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in 1 minor injury and 1 person uninjured.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "INJURY COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1 minor injury and 1 person uninjured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a visual flight rules night flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual flight rules night flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot estimated the airplane had about 30 to 32 gallons of fuel before departure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL AMOUNT BEFORE DEPARTURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30 to 32 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed from Rocky Mountain Metropolitan Airport in Denver, Colorado.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rocky Mountain Metropolitan Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Denver, Colorado",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rocky Mountain Metropolitan Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Rocky Mountain Metropolitan Airport's identifier is BJC.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rocky Mountain Metropolitan Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "BJC",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The departure time was approximately 1825 MST.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1825 MST",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the flight, the aircraft experienced intermittent electrical issues.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED ISSUES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intermittent electrical issues",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electrical issues included static in the headsets.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELECTRICAL ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static in the headsets",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electrical issues included flickering instrument panel lights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELECTRICAL ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flickering instrument panel lights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electrical issues included a fluctuating ammeter gauge.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELECTRICAL ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fluctuating ammeter gauge",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Attempts to resolve the electrical issues were unsuccessful.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ISSUE RESOLUTION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unsuccessful",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft made a touch and go landing at Kit Carson Airport in Burlington, Colorado.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kit Carson Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Burlington, Colorado",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kit Carson Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "touch and go",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Kit Carson Airport's identifier is ITR.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kit Carson Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ITR",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After the touch and go landing, a decision was made to shorten the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN CHANGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shorten the flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot decided to return to Rocky Mountain Metropolitan Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "RETURN DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rocky Mountain Metropolitan Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel gauges indicated about 8 gallons remaining in each fuel tank at Kit Carson Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL AMOUNT AT KIT CARSON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 8 gallons in each fuel tank",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Twenty minutes after departing Kit Carson Airport, the fuel gauges showed empty.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL GAUGE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "empty after twenty minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At approximately 2035 MST, the engine stopped producing power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 2035 MST",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot switched to the opposite fuel tank when the engine stopped.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PILOT ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "switched to opposite fuel tank",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine restarted after switching fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "restarted after switching fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight continued for about 4 to 5 more minutes after the engine restart.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT DURATION AFTER RESTART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 4 to 5 minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine stopped producing power a second time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the forced landing attempt, the airplane struck wires.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "STRUCK"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wires",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forced",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After striking wires, the airplane impacted the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot and flight instructor stated the airplane's fuel load should have been sufficient for a flight of about 3 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXPECTED FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 3 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The total duration of the accident flight was about 2.25 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "ACTUAL FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 2.25 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane after the accident revealed no fuel remaining in either wing tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POST ACCIDENT FUEL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no fuel remaining in either wing tank",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no evidence of a fuel spill at the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "FUEL SPILL EVIDENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No pre-impact anomalies were found with the airplane's fuel system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 28-181",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL SYSTEM STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no pre-impact anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported the accident could have been prevented by ordering more fuel before departure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "PREVENTION MEASURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ordering more fuel before departure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported the accident could have been prevented by obtaining fuel at Kit Carson Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN15CA055",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "PREVENTION MEASURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "obtaining fuel at Kit Carson Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::09b25d17:8148",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90417.md",
+        "file_name": "90417.md",
+        "file_size": 8618,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "32985813bd2573a73bcbcc5cad81245a781ec39cb2fb7809caea0e3daabda7ab",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::09b25d17:8148:ca6ebbec",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90417.md",
+        "file_name": "90417.md",
+        "file_size": 8618,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "7d90e50d60d619872dad1ee4b663d7046629743c7443415ae4fa9febae33b28c",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nStrasburg, Colorado\n\n## Date & Time: \nNovember 20, 2014, 20:40 Local\n\n## Aircraft:\nPiper PA 28-181\n\n## Defining Event:\nFuel exhaustion\n\n## Flight Conducted Under:\nPart 91: General aviation - Instructional\n\n## Accident Number:\nCEN15CA055\n\n## Registration:\nN2204Q\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 Minor, 1 None\n\n## Analysis\n\nThe pilot reported that the airplane was operated on a visual flight rules night flight. He estimated that the airplane had about 30 to 32 gallons of fuel prior to departure from the Rocky Mountain Metropolitan Airport (BJC), Denver, Colorado, about 1825&nbsp;mst. During the flight, intermittent electrical issues were experienced including static in the headsets, flickering instrument panel lights and a fluctuating ammeter gauge. Attempts were made to alleviate the electrical issues to no avail. A touch and go landing was made at the&nbsp;Kit Carson Airport (ITR), Burlington, Colorado, and a decision was made to shorten the flight and return to the departure airport. The pilot reported that the fuel gauges indicated that the airplane had about 8 gallons remaining in each fuel tank about his time. After 20 minutes had elapsed from the departure from ITR, the fuel gauges showed empty. About 2035 mst, the engine stopped producing power and the pilot switched to the opposite fuel tank. The engine restarted and the flight continued for about 4 to 5 more minutes when the engine again stopped producing power. During the forced landing attempt the airplane struck wires and subsequently impacted the ground. The pilot and the flight instructor stated that the airplane's fuel load prior to departure should have been sufficient for a flight of about&nbsp;3 hours. The total duration of the accident flight was about 2.25 hours.&nbsp;Examination of the airplane subsequent to the accident revealed no fuel remaining in either wing tank. There was no evidence of a fuel spill and no preimpact anomalies were found with respect to the airplane's fuel system. The pilot reported that the accident could have been prevented by ordering more fuel prior to departure or obtaining fuel at ITR.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2186,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

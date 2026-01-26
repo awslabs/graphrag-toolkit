@@ -1,0 +1,2329 @@
+{
+  "id_": "aws::3dd88aa8:3e5d:3a7938ec",
+  "embedding": [
+    0.0049591064,
+    0.028747559,
+    -0.009689331,
+    -0.036132812,
+    0.025268555,
+    -0.009223938,
+    -0.014076233,
+    -0.015304565,
+    -0.074523926,
+    0.011428833,
+    0.055541992,
+    0.023422241,
+    -0.005332947,
+    -0.057891846,
+    0.08105469,
+    -0.0014743805,
+    -0.0014762878,
+    0.07543945,
+    0.048736572,
+    -0.017089844,
+    -0.0065689087,
+    0.01386261,
+    -0.026901245,
+    0.012489319,
+    0.015640259,
+    0.0044822693,
+    -0.05706787,
+    0.005542755,
+    -0.010307312,
+    -0.009773254,
+    0.007446289,
+    0.020935059,
+    0.02949524,
+    0.052490234,
+    -0.045959473,
+    0.039276123,
+    -0.025665283,
+    0.018096924,
+    0.0016088486,
+    0.017837524,
+    0.018600464,
+    -0.008964539,
+    0.021209717,
+    -0.053588867,
+    -0.011100769,
+    -0.021408081,
+    0.054992676,
+    -0.0040397644,
+    0.023666382,
+    0.048736572,
+    0.0149002075,
+    0.03744507,
+    -0.0018892288,
+    0.041290283,
+    0.0023651123,
+    -0.010429382,
+    0.03933716,
+    -0.006340027,
+    -0.002117157,
+    -0.029663086,
+    -0.008956909,
+    0.06262207,
+    0.03488159,
+    0.039886475,
+    -0.038482666,
+    -0.012062073,
+    0.03933716,
+    -0.001203537,
+    0.07885742,
+    -0.012275696,
+    -0.031555176,
+    0.064575195,
+    -0.003791809,
+    0.064941406,
+    -0.023757935,
+    -0.08795166,
+    0.014770508,
+    -0.014472961,
+    0.018829346,
+    0.040527344,
+    -0.030029297,
+    0.031799316,
+    -0.013420105,
+    0.0072364807,
+    -0.029449463,
+    0.019836426,
+    -0.04083252,
+    -0.022201538,
+    -0.016815186,
+    0.00036525726,
+    -0.017089844,
+    -0.030715942,
+    0.041259766,
+    0.016784668,
+    -0.030853271,
+    0.00028562546,
+    -0.024917603,
+    -0.1083374,
+    0.037200928,
+    -0.022155762,
+    0.054229736,
+    -0.05581665,
+    0.0042800903,
+    0.027633667,
+    -0.022918701,
+    0.021514893,
+    -0.00881958,
+    0.036102295,
+    0.051239014,
+    0.03225708,
+    0.0041046143,
+    0.023803711,
+    0.03164673,
+    -0.01977539,
+    -0.011497498,
+    0.027572632,
+    0.023101807,
+    0.0074310303,
+    0.0138168335,
+    0.032928467,
+    0.026916504,
+    0.026138306,
+    -0.031463623,
+    -0.0056037903,
+    -0.0073661804,
+    -0.023925781,
+    -0.04055786,
+    0.011421204,
+    0.032165527,
+    0.038635254,
+    -0.01864624,
+    0.0063285828,
+    -0.01713562,
+    -0.028045654,
+    -0.023971558,
+    -0.0151901245,
+    -0.008773804,
+    -0.014846802,
+    -0.019226074,
+    0.018554688,
+    -0.045959473,
+    0.00022912025,
+    0.08312988,
+    -0.03829956,
+    -0.011375427,
+    0.023849487,
+    0.010513306,
+    -0.0043411255,
+    0.007358551,
+    -0.050476074,
+    -0.000702858,
+    -0.010597229,
+    0.052978516,
+    -0.016952515,
+    -0.07458496,
+    -0.077697754,
+    -0.03237915,
+    -0.04156494,
+    0.04232788,
+    -0.060638428,
+    0.0014333725,
+    -0.008132935,
+    0.012496948,
+    0.033447266,
+    -0.026428223,
+    0.031097412,
+    -0.011497498,
+    -0.022628784,
+    0.015914917,
+    0.01864624,
+    0.029083252,
+    -0.047912598,
+    -0.04067993,
+    0.01436615,
+    -0.005138397,
+    0.033172607,
+    0.019439697,
+    0.04348755,
+    0.026992798,
+    -0.009391785,
+    -0.0023498535,
+    -0.029190063,
+    0.06781006,
+    -0.031433105,
+    0.0060310364,
+    0.012954712,
+    -0.0055999756,
+    -0.047821045,
+    0.0037593842,
+    -0.012840271,
+    0.005039215,
+    0.06149292,
+    0.035339355,
+    -0.019454956,
+    -0.0124053955,
+    -0.008926392,
+    0.008140564,
+    0.024841309,
+    -0.021759033,
+    -0.018493652,
+    -0.020492554,
+    0.03567505,
+    -0.034729004,
+    0.00630188,
+    -0.07824707,
+    0.004611969,
+    -0.01322937,
+    0.029190063,
+    -0.04800415,
+    0.01979065,
+    0.043121338,
+    0.0058784485,
+    -0.023895264,
+    -0.008308411,
+    0.012306213,
+    -0.026290894,
+    0.0018615723,
+    0.014564514,
+    0.036621094,
+    0.012306213,
+    0.0013904572,
+    0.045715332,
+    0.007774353,
+    -0.0018959045,
+    -0.05029297,
+    -0.044921875,
+    -0.016174316,
+    -0.013549805,
+    -0.028915405,
+    -0.019104004,
+    0.07208252,
+    0.025680542,
+    0.04046631,
+    0.06262207,
+    -0.012535095,
+    0.01449585,
+    0.033294678,
+    -0.007537842,
+    0.016311646,
+    0.015930176,
+    0.0067596436,
+    -0.056274414,
+    -0.035125732,
+    0.032196045,
+    -0.04196167,
+    -0.021377563,
+    -0.0013656616,
+    0.015808105,
+    -0.012680054,
+    0.03475952,
+    0.048919678,
+    0.02748108,
+    -0.0007715225,
+    0.073913574,
+    -0.011993408,
+    0.0038585663,
+    -0.011650085,
+    0.0005955696,
+    0.0032653809,
+    -0.013633728,
+    0.022415161,
+    -0.00894165,
+    -0.04800415,
+    0.010231018,
+    0.005607605,
+    0.044403076,
+    0.04525757,
+    0.04220581,
+    -0.04333496,
+    0.036743164,
+    0.017028809,
+    0.031677246,
+    -0.0017261505,
+    -0.026657104,
+    -0.07745361,
+    -0.0017175674,
+    -0.029571533,
+    0.0463562,
+    -0.004802704,
+    -0.045776367,
+    -0.004348755,
+    0.0028533936,
+    -0.04421997,
+    -0.004470825,
+    0.037872314,
+    0.054382324,
+    -0.020584106,
+    -0.0015602112,
+    0.018081665,
+    0.033843994,
+    0.061462402,
+    -0.016601562,
+    -0.029159546,
+    0.033325195,
+    -0.013999939,
+    -0.036010742,
+    0.06488037,
+    -0.020385742,
+    0.028701782,
+    -0.0014886856,
+    0.062805176,
+    0.06817627,
+    -0.030944824,
+    0.051330566,
+    0.0032081604,
+    -0.052734375,
+    -0.011833191,
+    0.01285553,
+    0.0015707016,
+    0.008987427,
+    -0.04724121,
+    0.058624268,
+    0.021438599,
+    0.025634766,
+    0.00982666,
+    -0.023406982,
+    -0.010543823,
+    0.039764404,
+    0.0043945312,
+    0.032562256,
+    -0.025497437,
+    -0.025512695,
+    -0.021636963,
+    0.0077819824,
+    -0.012168884,
+    -0.0027332306,
+    0.0040512085,
+    -0.0013141632,
+    0.0059165955,
+    -0.019927979,
+    -0.03491211,
+    -0.050109863,
+    -0.05429077,
+    -0.033325195,
+    0.009140015,
+    0.019332886,
+    -0.020980835,
+    0.049468994,
+    -0.0345459,
+    -0.033599854,
+    -0.08068848,
+    -0.03253174,
+    0.029266357,
+    -0.055114746,
+    -0.060424805,
+    -0.053710938,
+    0.05633545,
+    -0.012039185,
+    0.014709473,
+    -0.010902405,
+    0.07952881,
+    0.01184845,
+    -0.022399902,
+    0.0027637482,
+    -0.0015535355,
+    -0.072753906,
+    0.01979065,
+    0.015220642,
+    -0.025741577,
+    -0.043060303,
+    -0.019577026,
+    -0.024215698,
+    -0.068603516,
+    -0.009262085,
+    0.057281494,
+    0.027297974,
+    -0.042877197,
+    -0.0037708282,
+    0.009597778,
+    0.0075950623,
+    0.011703491,
+    0.0009918213,
+    -0.02178955,
+    -0.019058228,
+    -0.024093628,
+    -0.018157959,
+    0.056518555,
+    -0.013313293,
+    0.022979736,
+    0.05404663,
+    0.017684937,
+    0.033691406,
+    0.00020873547,
+    0.02444458,
+    0.033325195,
+    0.014404297,
+    -0.010192871,
+    0.03137207,
+    -0.0023174286,
+    0.00019538403,
+    -0.029449463,
+    0.00440979,
+    -0.021636963,
+    -0.016159058,
+    -0.0012435913,
+    0.001707077,
+    0.015823364,
+    0.01914978,
+    -0.03253174,
+    -0.018936157,
+    -0.0791626,
+    -0.014541626,
+    -0.04522705,
+    -0.019485474,
+    0.008911133,
+    -0.06555176,
+    -0.008972168,
+    -0.057250977,
+    0.015113831,
+    0.031463623,
+    -0.0112838745,
+    0.035827637,
+    -0.010650635,
+    0.031051636,
+    -0.0077705383,
+    -0.016479492,
+    -0.007911682,
+    0.00015938282,
+    -0.037078857,
+    0.0078048706,
+    0.04156494,
+    -0.029144287,
+    0.003572464,
+    0.007896423,
+    -0.0395813,
+    0.023483276,
+    0.0008955002,
+    0.0357666,
+    0.008033752,
+    0.02947998,
+    0.0041618347,
+    -0.018127441,
+    -0.015716553,
+    -0.044647217,
+    -0.033935547,
+    0.014152527,
+    0.011787415,
+    0.04763794,
+    0.023971558,
+    -0.0068359375,
+    0.062286377,
+    0.005367279,
+    -0.011474609,
+    0.04348755,
+    -0.022338867,
+    0.009460449,
+    -0.021774292,
+    0.055603027,
+    -0.002796173,
+    -0.031707764,
+    0.009780884,
+    -0.0024108887,
+    0.043792725,
+    0.01576233,
+    0.0017719269,
+    0.046325684,
+    -0.010215759,
+    0.013328552,
+    0.024429321,
+    -0.034729004,
+    -0.039215088,
+    -0.0054244995,
+    -0.017074585,
+    -0.023590088,
+    -0.0140686035,
+    -0.01586914,
+    0.06768799,
+    0.00029945374,
+    0.034118652,
+    -0.01828003,
+    -0.018920898,
+    0.022857666,
+    -0.025115967,
+    -0.03253174,
+    0.0020046234,
+    0.002199173,
+    0.025436401,
+    -0.03970337,
+    0.05029297,
+    -0.008720398,
+    -0.036376953,
+    0.010566711,
+    -0.0021591187,
+    0.04940796,
+    0.03201294,
+    -0.0006418228,
+    0.043945312,
+    0.041015625,
+    0.007801056,
+    0.0042419434,
+    -0.0033416748,
+    0.029327393,
+    0.028152466,
+    0.018844604,
+    0.020690918,
+    -0.027694702,
+    0.028167725,
+    -0.054351807,
+    -0.024978638,
+    -0.0055236816,
+    -0.09063721,
+    -0.00073575974,
+    -0.01146698,
+    0.014518738,
+    -0.0052719116,
+    0.041381836,
+    0.02079773,
+    0.011398315,
+    0.01727295,
+    0.00044441223,
+    0.0020484924,
+    -0.01701355,
+    0.025848389,
+    0.013412476,
+    -0.02645874,
+    0.05908203,
+    -0.0289917,
+    0.011985779,
+    -0.003414154,
+    -0.014709473,
+    0.0020198822,
+    -0.010673523,
+    0.060791016,
+    0.030593872,
+    -0.048309326,
+    0.0025291443,
+    0.0413208,
+    0.011154175,
+    -0.04510498,
+    -0.023086548,
+    0.015838623,
+    0.05758667,
+    0.0030536652,
+    -0.0026302338,
+    0.022003174,
+    -0.019378662,
+    -0.012298584,
+    -0.023223877,
+    -0.006538391,
+    -0.013435364,
+    0.0036792755,
+    0.011299133,
+    0.0038280487,
+    -0.008010864,
+    0.006225586,
+    0.010719299,
+    0.037109375,
+    0.06591797,
+    -0.04083252,
+    0.020996094,
+    0.008834839,
+    0.01133728,
+    -0.03024292,
+    -0.05319214,
+    -0.029388428,
+    0.07751465,
+    0.039276123,
+    -0.013374329,
+    -0.021194458,
+    -0.014038086,
+    -0.021621704,
+    -0.009788513,
+    0.0018262863,
+    0.0034885406,
+    0.041107178,
+    0.030685425,
+    -0.025421143,
+    -0.044128418,
+    0.0009317398,
+    -0.009468079,
+    -0.0085372925,
+    -0.030426025,
+    0.08154297,
+    0.027938843,
+    -0.014884949,
+    -0.0385437,
+    -0.010398865,
+    0.0473938,
+    -0.031143188,
+    -0.030197144,
+    0.010482788,
+    -0.012161255,
+    -0.0022735596,
+    0.05178833,
+    -0.05279541,
+    0.017471313,
+    0.02961731,
+    -0.023406982,
+    -0.04095459,
+    -0.02696228,
+    0.03930664,
+    0.014778137,
+    0.02217102,
+    0.030258179,
+    -0.006702423,
+    -0.017684937,
+    -0.024734497,
+    -0.078552246,
+    -0.0005683899,
+    -0.016677856,
+    -0.046783447,
+    0.0010852814,
+    0.008216858,
+    -0.036499023,
+    0.0793457,
+    0.030334473,
+    -0.020965576,
+    -0.013687134,
+    -0.027404785,
+    -0.038513184,
+    0.02444458,
+    0.017654419,
+    -0.034423828,
+    0.020858765,
+    -0.03878784,
+    -0.017242432,
+    -0.030334473,
+    0.025680542,
+    0.05026245,
+    0.008796692,
+    0.055267334,
+    0.014770508,
+    0.03656006,
+    0.016662598,
+    0.0021972656,
+    -0.029571533,
+    0.0063591003,
+    -0.035888672,
+    -0.03363037,
+    0.023010254,
+    -0.041931152,
+    0.011741638,
+    -0.06109619,
+    -0.0085372925,
+    -0.03918457,
+    0.0053215027,
+    -0.015602112,
+    -0.04736328,
+    0.013389587,
+    -0.0007452965,
+    -0.022079468,
+    -0.0038490295,
+    -0.05722046,
+    0.004234314,
+    0.046722412,
+    -0.017791748,
+    -0.018875122,
+    0.012054443,
+    -0.0042686462,
+    -0.005874634,
+    -0.05117798,
+    6.580353e-05,
+    -0.055419922,
+    0.012565613,
+    0.03164673,
+    0.011291504,
+    0.0076675415,
+    0.0143585205,
+    -0.009933472,
+    -0.023147583,
+    -0.057159424,
+    -0.00818634,
+    -0.019729614,
+    -0.039520264,
+    -0.047302246,
+    -0.008277893,
+    0.006919861,
+    -0.00015544891,
+    -0.0026664734,
+    -0.032043457,
+    -0.025741577,
+    0.024276733,
+    -0.025726318,
+    -0.009544373,
+    0.014930725,
+    0.0063705444,
+    0.0121154785,
+    0.019210815,
+    -0.008232117,
+    -0.035461426,
+    -0.0073623657,
+    -0.028533936,
+    0.015510559,
+    0.011749268,
+    -0.032928467,
+    0.01763916,
+    -0.007987976,
+    0.0048179626,
+    -0.027435303,
+    0.0127334595,
+    0.010559082,
+    0.04647827,
+    -0.026382446,
+    -0.009407043,
+    -0.022094727,
+    -0.06439209,
+    -0.0019683838,
+    0.06124878,
+    -0.0071105957,
+    -0.036956787,
+    0.014251709,
+    0.04055786,
+    -0.020828247,
+    0.023757935,
+    -0.005554199,
+    0.02029419,
+    -0.013031006,
+    0.033416748,
+    -0.04248047,
+    -0.003917694,
+    -0.0102005005,
+    0.053527832,
+    -0.025558472,
+    -0.0090789795,
+    0.009750366,
+    0.013671875,
+    0.026382446,
+    -0.01838684,
+    -0.023788452,
+    0.02520752,
+    -0.0062561035,
+    0.00025224686,
+    0.028442383,
+    -0.004432678,
+    0.01525116,
+    0.011238098,
+    -0.01637268,
+    0.031097412,
+    -0.013160706,
+    -0.010620117,
+    0.03466797,
+    -0.051605225,
+    0.03338623,
+    -0.0065345764,
+    -0.043762207,
+    -0.003824234,
+    0.0020217896,
+    -0.003698349,
+    0.0055618286,
+    0.0064888,
+    -0.022216797,
+    0.012268066,
+    0.022354126,
+    0.017425537,
+    -0.012359619,
+    -0.048675537,
+    -0.013938904,
+    -0.036895752,
+    -0.026138306,
+    -0.038757324,
+    0.056915283,
+    -0.044555664,
+    0.0018138885,
+    0.044677734,
+    0.015258789,
+    0.036102295,
+    0.022781372,
+    -0.003921509,
+    -0.0039024353,
+    -0.028686523,
+    -0.03945923,
+    0.0012083054,
+    0.017089844,
+    0.020370483,
+    0.02734375,
+    0.02456665,
+    0.017044067,
+    0.040039062,
+    0.014381409,
+    -0.0014896393,
+    -0.03503418,
+    0.0011482239,
+    -0.0057525635,
+    -0.02607727,
+    0.045654297,
+    -0.007183075,
+    0.036315918,
+    -0.033996582,
+    -0.02923584,
+    -0.039733887,
+    -0.016845703,
+    0.015396118,
+    -0.020401001,
+    0.016479492,
+    -0.031341553,
+    0.028121948,
+    -0.019363403,
+    0.037719727,
+    -0.039794922,
+    0.0019207001,
+    -0.030273438,
+    0.05429077,
+    0.0053215027,
+    -0.022384644,
+    -0.008430481,
+    -0.05291748,
+    -0.034179688,
+    -0.0009832382,
+    -0.056915283,
+    -0.04660034,
+    0.005569458,
+    0.0045433044,
+    -0.03741455,
+    0.002538681,
+    -0.042755127,
+    -0.015098572,
+    0.004032135,
+    0.02545166,
+    0.033477783,
+    -0.055725098,
+    0.033935547,
+    -0.041107178,
+    0.038360596,
+    0.025177002,
+    0.008857727,
+    0.041656494,
+    -0.05886841,
+    -0.042053223,
+    0.004901886,
+    0.01373291,
+    0.01928711,
+    0.043884277,
+    -0.013664246,
+    0.032104492,
+    -0.015945435,
+    0.015487671,
+    0.015541077,
+    -0.05303955,
+    0.018951416,
+    -0.015556335,
+    -0.004524231,
+    -0.0028820038,
+    -0.033294678,
+    -0.016326904,
+    -0.030197144,
+    0.026519775,
+    0.06161499,
+    0.03744507,
+    0.007785797,
+    0.043762207,
+    0.018051147,
+    -0.003189087,
+    -0.0013618469,
+    0.010215759,
+    -0.04849243,
+    -0.006225586,
+    0.032104492,
+    -0.013954163,
+    0.014656067,
+    0.044128418,
+    0.013496399,
+    0.015975952,
+    0.018569946,
+    -0.04876709,
+    0.02558899,
+    0.024902344,
+    0.04522705,
+    -0.02619934,
+    -0.0042800903,
+    0.015563965,
+    0.0069084167,
+    0.020507812,
+    0.002811432,
+    -0.006664276,
+    0.0103302,
+    0.046417236,
+    -0.0030593872,
+    0.024841309,
+    0.0052833557,
+    0.038757324,
+    0.016616821,
+    0.015731812,
+    -0.10546875,
+    0.027191162,
+    0.0007324219,
+    -0.018737793,
+    0.008850098,
+    0.083496094,
+    0.018096924,
+    -0.037597656,
+    -0.042785645,
+    -0.06976318,
+    0.018585205,
+    -0.0015249252,
+    -0.013900757,
+    -0.08648682,
+    0.02696228,
+    0.035705566,
+    0.04562378,
+    0.013885498,
+    0.015022278,
+    -0.008842468,
+    -0.01876831,
+    0.059417725,
+    0.0021324158,
+    0.08117676,
+    -0.0053749084,
+    -0.0060310364,
+    -0.035064697,
+    0.016479492,
+    -0.026062012,
+    -0.037231445,
+    -0.0018539429,
+    -0.0357666,
+    -0.011238098,
+    0.0007033348,
+    -0.014060974,
+    -0.066833496,
+    -0.006980896,
+    -0.0647583,
+    -0.001244545,
+    -0.014137268,
+    -0.007171631,
+    0.033416748,
+    0.011779785,
+    -0.019973755,
+    -0.0007786751,
+    -0.023132324,
+    0.058563232,
+    -0.06964111,
+    -0.011047363,
+    -0.01939392,
+    0.036376953,
+    -0.018600464,
+    -0.013191223,
+    0.017959595,
+    0.02368164,
+    -0.04751587,
+    -0.012954712,
+    0.0023441315,
+    -0.012306213,
+    0.010765076,
+    0.10089111,
+    -0.040740967,
+    0.05041504,
+    0.00920105,
+    0.003604889,
+    -0.014923096,
+    -0.0044136047,
+    0.015274048,
+    0.022598267,
+    -0.0715332,
+    -0.043182373,
+    0.0078086853,
+    -0.013145447,
+    0.015319824,
+    0.0234375,
+    -0.0423584,
+    -0.058532715,
+    -0.029678345,
+    -0.027679443,
+    0.012573242,
+    -0.027816772,
+    -0.0104599,
+    0.028961182,
+    0.026733398,
+    -0.00774765,
+    0.0154953,
+    0.013092041,
+    -0.0335083,
+    0.0014772415,
+    -0.03994751,
+    0.0178833,
+    -0.0033454895,
+    -0.02444458,
+    0.009140015,
+    -0.017105103,
+    -0.012763977,
+    -0.010734558,
+    -0.0067749023,
+    0.020370483,
+    -0.02670288,
+    -0.008377075,
+    -0.019256592,
+    -0.010559082,
+    -0.046813965,
+    -0.018432617,
+    0.006275177,
+    -0.018722534,
+    -0.024887085,
+    -0.0033168793,
+    -0.01576233,
+    -0.02468872,
+    0.0075416565,
+    0.027252197,
+    -0.036468506,
+    -0.0068740845,
+    -0.05041504,
+    0.018417358,
+    -0.0043792725,
+    -0.07952881,
+    0.035461426,
+    0.0017671585,
+    0.0043144226,
+    -0.017913818,
+    0.009590149,
+    0.006931305,
+    0.024002075,
+    -0.02104187,
+    -0.019241333,
+    -0.009857178,
+    0.005279541,
+    0.022262573,
+    0.0132369995,
+    0.016998291,
+    -0.04257202,
+    -0.008560181,
+    -0.035095215,
+    -0.03842163,
+    -0.087768555,
+    -0.03729248,
+    0.002117157,
+    0.04699707,
+    -0.008544922,
+    0.10620117,
+    -0.02583313,
+    0.013206482,
+    0.01626587,
+    0.015106201,
+    0.0149002075,
+    0.026245117,
+    0.016647339,
+    -0.012008667,
+    0.0045661926
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+    "file_name": "89181.md",
+    "file_size": 28636,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Experimental Airplane Engine Power Loss and Forced Landing Incident",
+      "The accident occurred in Bluffdale, Utah.",
+      "The accident occurred on May 3, 2014, at 19:45 Local time.",
+      "The aircraft involved was a 177MF LLC PITTS MODEL 12.",
+      "The defining event was loss of engine power (total).",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was WPR14LA185.",
+      "The aircraft registration was N177MF.",
+      "The aircraft sustained substantial damage.",
+      "The incident resulted in 2 minor injuries.",
+      "The private pilot had recently purchased the experimental airplane.",
+      "The flight was the second leg of the pilot's cross-country trip.",
+      "The pilot was flying the airplane home from the purchase location.",
+      "After the first leg, the pilot topped off the main fuel tank.",
+      "After the first leg, the pilot topped off the auxiliary (wing) fuel tanks.",
+      "According to the pilot's operating handbook (POH), the total usable fuel quantity was 53 gallons.",
+      "The pilot flew for about 3.5 hours before the incident.",
+      "The engine lost total power when the airplane was about 20 miles short of the planned destination.",
+      "The pilot was unable to restart the engine.",
+      "The pilot executed a forced landing in a field.",
+      "During the forced landing, the airplane nosed over.",
+      "The airplane came to rest inverted.",
+      "When the airplane was righted during recovery, about 4 to 5 gallons of fluid drained from the area.",
+      "The fluid drained from the area where the main fuel tank and the smoke oil tank were mounted.",
+      "It was not determined whether the drained fluid was fuel or a mixture of fuel and smoke oil.",
+      "The auxiliary tank was breached during the accident.",
+      "No determination of the auxiliary tank's postimpact fuel quantity could be made.",
+      "The engine was a highly modified aftermarket version of one of two different models.",
+      "The original engine manufacturer produced a 360-horsepower (hp) model.",
+      "The original engine manufacturer produced a 400-hp model.",
+      "No specific fuel burn chart for the modified engine had been developed.",
+      "The pilot's flight planning was based on fuel burn rates for a 360-hp engine.",
+      "The pilot's flight planning indicated that the flight would consume about 45 gallons of fuel.",
+      "Calculations using the POH fuel burn rates were for a 400-hp engine.",
+      "Calculations using the POH fuel burn rates indicated that the flight would consume between 51 and 58 gallons.",
+      "The fuel consumption range of 51 to 58 gallons depended on the power setting."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bluffdale, Utah",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "177MF LLC PITTS MODEL 12",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N177MF",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of engine power",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR14LA185",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "private pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Bluffdale, Utah.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident LOCATION Bluffdale, Utah"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bluffdale, Utah",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on May 3, 2014, at 1945 Local time.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident DATE May 3, 2014",
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident TIME 19:45 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 3, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "19:45 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a 177MF LLC PITTS MODEL 12.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident AIRCRAFT INVOLVED 177MF LLC PITTS MODEL 12"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of engine power (total).",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident DEFINING EVENT loss of engine power (total)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power (total)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident FLIGHT CATEGORY Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CATEGORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR14LA185.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident ACCIDENT NUMBER WPR14LA185"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR14LA185",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N177MF.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N177MF",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident resulted in 2 minor injuries.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident INJURY COUNT 2 minor injuries"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2 minor injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot had recently purchased the experimental airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OWNER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CLASSIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "experimental airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PURCHASE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recently",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was the second leg of the pilot's cross-country trip.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident FLIGHT LEG second leg",
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident TRIP TYPE cross-country trip"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT LEG"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second leg",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TRIP TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cross-country trip",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was flying the airplane home from the purchase location.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident FLIGHT PURPOSE flying home from purchase location"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATOR OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flying home from purchase location",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After the first leg, the pilot topped off the main fuel tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "topped off the main fuel tank",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After the first leg, the pilot topped off the auxiliary (wing) fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "topped off the auxiliary (wing) fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to the pilot's operating handbook (POH), the total usable fuel quantity was 53 gallons.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TOTAL USABLE FUEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "53 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot flew for about 3.5 hours before the incident.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident FLIGHT DURATION about 3.5 hours"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 3.5 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine lost total power when the airplane was about 20 miles short of the planned destination.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident DISTANCE FROM DESTINATION about 20 miles short"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE FROM DESTINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 20 miles short",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was unable to restart the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ENGINE RESTART ATTEMPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unable to restart",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot executed a forced landing in a field.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "executed a forced landing in a field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the forced landing, the airplane nosed over.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nosed over",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to rest inverted.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inverted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "When the airplane was righted during recovery, about 4 to 5 gallons of fluid drained from the area.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLUID DRAINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 4 to 5 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fluid drained from the area where the main fuel tank and the smoke oil tank were mounted.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLUID DRAIN LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "area where the main fuel tank and the smoke oil tank were mounted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "It was not determined whether the drained fluid was fuel or a mixture of fuel and smoke oil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DRAINED FLUID COMPOSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not determined",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The auxiliary tank was breached during the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AUXILIARY TANK CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "breached during the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No determination of the auxiliary tank's postimpact fuel quantity could be made.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AUXILIARY TANK FUEL QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no determination could be made",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was a highly modified aftermarket version of one of two different models.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "highly modified aftermarket version",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The original engine manufacturer produced a 360-horsepower (hp) model.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ORIGINAL ENGINE MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "360-horsepower (hp) model",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The original engine manufacturer produced a 400-hp model.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ORIGINAL ENGINE MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "400-hp model",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No specific fuel burn chart for the modified engine had been developed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL BURN CHART STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not developed for modified engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's flight planning was based on fuel burn rates for a 360-hp engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLANNING BASIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel burn rates for a 360-hp engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's flight planning indicated that the flight would consume about 45 gallons of fuel.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident PLANNED FUEL CONSUMPTION about 45 gallons"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PLANNED FUEL CONSUMPTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 45 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Calculations using the POH fuel burn rates were for a 400-hp engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "177MF LLC PITTS MODEL 12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POH FUEL BURN RATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "for a 400-hp engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Calculations using the POH fuel burn rates indicated that the flight would consume between 51 and 58 gallons.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident CALCULATED FUEL CONSUMPTION between 51 and 58 gallons"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CALCULATED FUEL CONSUMPTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "between 51 and 58 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel consumption range of 51 to 58 gallons depended on the power setting.",
+              "details": [
+                "Experimental Airplane Engine Power Loss and Forced Landing Incident FUEL CONSUMPTION FACTOR power setting"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Airplane Engine Power Loss and Forced Landing Incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL CONSUMPTION FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power setting",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::3dd88aa8:3e5d",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "69e01b7394bfac113f1d42ab0377efa9a281b97dbf3f13460a18ffd81fbc4ae1",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::3dd88aa8:3e5d:7a06d6db",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "5196040960d4726eaaa52f5a1928d77ab07f5b1b1c2749a63239cce741c8b81a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nBluffdale, Utah\n\n## Date & Time: \nMay 3, 2014, 19:45 Local\n\n## Aircraft:\n177MF LLC PITTS MODEL 12\n\n## Defining Event:\nLoss of engine power (total)\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nWPR14LA185\n\n## Registration:\nN177MF\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 Minor\n\n## Analysis\n\nThe private pilot had recently purchased the experimental airplane, and the flight was the second leg of his cross-country trip to fly the airplane home from the purchase location. After the first leg, the pilot topped off the main and auxiliary (wing) fuel tanks, which, according to the pilot's operating handbook (POH) for the airplane, provided a total usable fuel quantity of 53 gallons. After flying about 3.5 hours, when the airplane was about 20 miles short of the planned destination, the engine lost total power, and the pilot was unable to restart it. During a forced landing in a field, the airplane nosed over and came to rest inverted. When the airplane was righted during recovery, about 4 to 5 gallons of fluid drained from the area where the main fuel tank and the smoke oil tank were mounted; however, it was not determined whether the fluid was fuel or a mixture of fuel and smoke oil. The auxiliary tank was breached, and no determination of its postimpact fuel quantity could be made.\n\nThe engine was a highly modified aftermarket version of one of two different models produced by the original engine manufacturer, a 360-horsepower (hp) model and a 400-hp model, and no specific fuel burn chart for the modified engine had been developed. The pilot's flight planning, which was based on fuel burn rates for a 360-hp engine, indicated that the flight would consume about 45 gallons of fuel. Calculations using the POH fuel burn rates, which were for a 400-hp engine, indicated that the flight would consume between 51 and 58 gallons, depending on the power setting.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1976,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

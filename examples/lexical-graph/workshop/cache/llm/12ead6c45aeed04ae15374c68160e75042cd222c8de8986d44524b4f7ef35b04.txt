@@ -1,0 +1,47 @@
+topic: Choosing instance types for Amazon Neptune
+
+  entities:
+  
+    Amazon Neptune|Service
+    Neptune pricing page|Creative Work
+  
+  proposition: Amazon Neptune is a service that offers a number of different instance sizes and families.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    Amazon Neptune|IS|service
+      
+  proposition: Amazon Neptune instance sizes and families offer different capabilities suited to different graph workloads.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Amazon Neptune|HAS|instance sizes and families
+    
+  proposition: The section about choosing instance types for Amazon Neptune is meant to help users choose the best instance type for their needs.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    
+  proposition: Each instance-type in Amazon Neptune families has pricing information.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Amazon Neptune|HAS|pricing information
+    
+  proposition: The pricing information for Amazon Neptune instance-types is available on the Neptune pricing page.
+  
+    entity-entity relationships:
+    Amazon Neptune|AVAILABLE_ON|Neptune pricing page
+  
+    entity-attributes:
+    
+  proposition: The Neptune pricing page is located at https://aws.amazon.com/neptune/pricing/.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Neptune pricing page|LOCATED_AT|https://aws.amazon.com/neptune/pricing/

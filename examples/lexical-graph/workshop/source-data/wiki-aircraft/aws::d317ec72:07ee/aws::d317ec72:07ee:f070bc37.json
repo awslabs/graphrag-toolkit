@@ -1,0 +1,2375 @@
+{
+  "id_": "aws::d317ec72:07ee:f070bc37",
+  "embedding": [
+    -0.017211914,
+    -0.035003662,
+    0.013389587,
+    -0.013000488,
+    -0.026855469,
+    0.0059127808,
+    -0.013771057,
+    0.005584717,
+    -0.014389038,
+    0.0070152283,
+    -0.017303467,
+    -0.017944336,
+    -0.0043907166,
+    -0.025772095,
+    0.018707275,
+    -0.04244995,
+    0.045043945,
+    -0.03173828,
+    0.005622864,
+    -0.011932373,
+    0.00074768066,
+    -0.0056419373,
+    0.055541992,
+    0.055877686,
+    0.011978149,
+    0.037384033,
+    -0.056274414,
+    0.0018892288,
+    -0.003068924,
+    -0.009025574,
+    0.012069702,
+    0.0046310425,
+    0.049438477,
+    0.0446167,
+    -0.09674072,
+    -0.05407715,
+    -0.044403076,
+    0.021469116,
+    -0.06210327,
+    0.04034424,
+    0.007007599,
+    0.0041122437,
+    0.01259613,
+    0.0029907227,
+    -0.024124146,
+    -0.009254456,
+    0.0104904175,
+    -0.018218994,
+    0.03112793,
+    0.027954102,
+    -0.007106781,
+    0.020812988,
+    -0.013801575,
+    0.019012451,
+    -0.00894165,
+    0.00856781,
+    -0.046203613,
+    0.034057617,
+    0.02507019,
+    0.034210205,
+    -0.00039482117,
+    -0.008987427,
+    -0.0043563843,
+    -0.042053223,
+    -0.02659607,
+    -0.022033691,
+    0.059661865,
+    0.019622803,
+    0.0010375977,
+    -0.045959473,
+    -0.01108551,
+    0.04562378,
+    0.009101868,
+    -0.037017822,
+    0.026107788,
+    0.0019989014,
+    0.0054969788,
+    -0.005519867,
+    0.0056533813,
+    0.018844604,
+    -0.0011062622,
+    -0.012565613,
+    -0.02180481,
+    -0.040222168,
+    0.046905518,
+    0.016601562,
+    -0.0050201416,
+    -0.0056915283,
+    0.019836426,
+    0.017593384,
+    -0.0074768066,
+    0.01991272,
+    0.022476196,
+    0.050323486,
+    -0.042388916,
+    -0.0015926361,
+    -0.016174316,
+    -0.093811035,
+    0.049102783,
+    0.007827759,
+    0.10003662,
+    -0.08068848,
+    0.06665039,
+    0.024505615,
+    0.0059280396,
+    0.014350891,
+    0.031463623,
+    -0.0068893433,
+    0.023361206,
+    -0.00762558,
+    -0.038909912,
+    0.07989502,
+    0.017623901,
+    0.006729126,
+    -0.033325195,
+    0.0007247925,
+    -0.009063721,
+    -0.009208679,
+    -0.014694214,
+    -0.014312744,
+    0.026153564,
+    0.057250977,
+    -0.009399414,
+    -0.02796936,
+    0.004219055,
+    0.0073547363,
+    -0.010940552,
+    -0.02986145,
+    0.008483887,
+    -0.019180298,
+    -0.035308838,
+    0.060546875,
+    0.020736694,
+    0.0025482178,
+    -0.0007610321,
+    0.0018501282,
+    0.0071983337,
+    0.02154541,
+    0.011245728,
+    0.0031604767,
+    -0.010131836,
+    -0.017105103,
+    0.040802002,
+    0.003112793,
+    0.018722534,
+    0.017166138,
+    0.024429321,
+    0.007133484,
+    0.0065956116,
+    0.009117126,
+    -0.022903442,
+    0.017669678,
+    0.008850098,
+    0.012176514,
+    0.0002746582,
+    -0.018798828,
+    0.0023155212,
+    -0.01663208,
+    0.017684937,
+    -0.029159546,
+    0.016204834,
+    -0.042510986,
+    -0.04815674,
+    -0.029418945,
+    -0.07556152,
+    0.057495117,
+    0.007019043,
+    0.0064201355,
+    0.011917114,
+    -0.03024292,
+    0.012168884,
+    0.021713257,
+    -0.022247314,
+    0.00088882446,
+    0.025619507,
+    0.0046920776,
+    -0.03665161,
+    -0.012786865,
+    0.044525146,
+    0.0014848709,
+    -0.0071868896,
+    -0.012771606,
+    0.03265381,
+    0.013641357,
+    -0.012016296,
+    0.038879395,
+    0.0085372925,
+    0.024841309,
+    -0.0119018555,
+    -0.0030822754,
+    -0.0026931763,
+    0.03768921,
+    0.0006904602,
+    0.013504028,
+    0.0023155212,
+    -0.022857666,
+    -0.0146484375,
+    0.013641357,
+    -0.011474609,
+    -0.02960205,
+    -0.008087158,
+    0.024291992,
+    -0.03024292,
+    0.004875183,
+    -0.00016784668,
+    -0.037109375,
+    0.01890564,
+    -0.004295349,
+    -0.012283325,
+    0.02859497,
+    0.008522034,
+    -0.021697998,
+    0.0012578964,
+    -0.012634277,
+    -0.010437012,
+    -0.010673523,
+    -0.011665344,
+    0.024597168,
+    0.029815674,
+    0.01146698,
+    0.038970947,
+    0.015617371,
+    0.023849487,
+    -0.007133484,
+    0.0446167,
+    0.023406982,
+    -0.0087890625,
+    0.025436401,
+    0.08117676,
+    0.049865723,
+    -0.007827759,
+    -0.057250977,
+    -0.0038223267,
+    0.037841797,
+    -0.0035037994,
+    0.03463745,
+    0.07366943,
+    0.027633667,
+    -0.00085639954,
+    -0.02041626,
+    -0.019577026,
+    -0.040771484,
+    -0.037017822,
+    0.076416016,
+    -0.05255127,
+    -0.040740967,
+    -0.025665283,
+    0.054992676,
+    -0.032928467,
+    -0.035736084,
+    0.030639648,
+    0.0070648193,
+    0.046661377,
+    0.04046631,
+    0.013427734,
+    0.034606934,
+    -0.032836914,
+    -0.0018472672,
+    0.003868103,
+    0.008262634,
+    -0.0050621033,
+    0.0104522705,
+    0.016586304,
+    0.0067749023,
+    0.034973145,
+    -0.0002117157,
+    0.04849243,
+    0.035247803,
+    -0.010375977,
+    -0.0107803345,
+    -0.0064849854,
+    -0.00843811,
+    -0.0064353943,
+    0.0019779205,
+    -0.010887146,
+    -0.028900146,
+    0.014625549,
+    0.0036201477,
+    -0.010803223,
+    -0.023742676,
+    0.00289917,
+    0.032806396,
+    0.018829346,
+    -0.015151978,
+    0.0019035339,
+    0.023132324,
+    0.021728516,
+    0.0036144257,
+    0.006752014,
+    0.011329651,
+    0.038879395,
+    -0.0068130493,
+    -0.04083252,
+    0.03527832,
+    0.014953613,
+    -0.033721924,
+    0.036987305,
+    0.029296875,
+    -0.005973816,
+    -0.021743774,
+    -0.00289917,
+    0.0071640015,
+    -0.031219482,
+    0.0036773682,
+    0.008346558,
+    -0.043884277,
+    -0.015716553,
+    0.0023899078,
+    -0.008796692,
+    -0.005142212,
+    -0.032409668,
+    0.045776367,
+    0.017608643,
+    -0.019989014,
+    -0.00097465515,
+    -0.019836426,
+    -0.006298065,
+    -0.0012989044,
+    -0.015296936,
+    0.012283325,
+    0.02949524,
+    -0.009086609,
+    -0.04534912,
+    0.02178955,
+    -0.02267456,
+    -0.008880615,
+    0.033599854,
+    -0.0019721985,
+    -0.052124023,
+    -0.029510498,
+    -0.019088745,
+    -0.0289917,
+    -0.026031494,
+    0.08569336,
+    0.00045585632,
+    0.016159058,
+    0.008766174,
+    -0.052734375,
+    -0.017669678,
+    0.040893555,
+    0.04736328,
+    0.028076172,
+    -0.0012989044,
+    -0.054779053,
+    -0.032043457,
+    -0.01751709,
+    0.05255127,
+    -0.00021791458,
+    0.017120361,
+    0.035339355,
+    -0.0013542175,
+    -0.016662598,
+    0.0015735626,
+    -0.018325806,
+    -0.013626099,
+    -0.016067505,
+    -0.0031604767,
+    -0.05319214,
+    -0.04522705,
+    -0.08117676,
+    0.037261963,
+    -0.018249512,
+    -0.029022217,
+    -0.072387695,
+    0.018798828,
+    -0.0015563965,
+    -0.026992798,
+    -0.035217285,
+    -0.019042969,
+    -0.003452301,
+    -0.08068848,
+    0.01864624,
+    -0.04815674,
+    0.003458023,
+    0.016998291,
+    0.068603516,
+    -0.004878998,
+    -0.035583496,
+    -0.030822754,
+    -0.03955078,
+    -0.023529053,
+    -0.039367676,
+    0.022491455,
+    0.00075149536,
+    -0.0056495667,
+    0.040252686,
+    0.049682617,
+    -0.055908203,
+    0.0892334,
+    -0.023910522,
+    0.05618286,
+    0.022491455,
+    -0.045562744,
+    -0.025970459,
+    0.018356323,
+    0.052886963,
+    -0.046295166,
+    -0.06604004,
+    0.0029773712,
+    -0.01727295,
+    -0.05545044,
+    0.017654419,
+    0.012489319,
+    -0.028747559,
+    0.018692017,
+    -0.013458252,
+    0.0035991669,
+    -0.0357666,
+    0.0335083,
+    0.034729004,
+    0.0020256042,
+    0.008369446,
+    -0.007499695,
+    0.004173279,
+    -0.01864624,
+    0.0046844482,
+    -0.0128479,
+    -0.018920898,
+    0.054138184,
+    -0.010360718,
+    0.022766113,
+    -0.1083374,
+    0.017593384,
+    0.01777649,
+    -0.022949219,
+    0.021392822,
+    -0.051849365,
+    -0.024536133,
+    -0.004383087,
+    0.08453369,
+    -0.007522583,
+    0.03656006,
+    -0.010185242,
+    0.046569824,
+    0.005104065,
+    0.061065674,
+    -0.00022125244,
+    -0.054840088,
+    0.044128418,
+    -0.04763794,
+    -0.02053833,
+    -0.04071045,
+    -0.005973816,
+    0.012313843,
+    -0.03189087,
+    0.011001587,
+    -0.030517578,
+    -0.018051147,
+    -0.0423584,
+    -0.06719971,
+    -0.009307861,
+    0.00466156,
+    0.054473877,
+    0.030441284,
+    0.037200928,
+    0.08654785,
+    -0.018951416,
+    0.020233154,
+    -0.0101623535,
+    -0.0071105957,
+    -0.01499939,
+    0.0050621033,
+    -0.027542114,
+    -0.03781128,
+    0.004547119,
+    -0.020446777,
+    0.0016899109,
+    0.0061950684,
+    0.006679535,
+    -0.0006828308,
+    0.0063476562,
+    0.036895752,
+    0.030975342,
+    -0.009506226,
+    -0.023986816,
+    -0.022003174,
+    0.024963379,
+    -0.019332886,
+    0.025177002,
+    -0.027160645,
+    -0.072021484,
+    0.039031982,
+    -0.074279785,
+    0.020263672,
+    0.0146102905,
+    -0.0053253174,
+    0.03652954,
+    0.002538681,
+    0.0060577393,
+    -0.0023231506,
+    -0.015792847,
+    -0.008468628,
+    0.015670776,
+    0.0007133484,
+    -0.004562378,
+    0.011993408,
+    0.025360107,
+    -0.0635376,
+    -0.0036773682,
+    0.0085372925,
+    -0.121154785,
+    0.03237915,
+    0.01626587,
+    -0.017623901,
+    0.010688782,
+    0.0050811768,
+    0.013412476,
+    0.02168274,
+    0.0029182434,
+    -0.00031852722,
+    0.02583313,
+    -0.0018157959,
+    0.029525757,
+    0.04525757,
+    -0.021972656,
+    0.01159668,
+    -0.015533447,
+    0.015403748,
+    -0.019210815,
+    -0.01134491,
+    -0.0357666,
+    -0.0128479,
+    -0.010475159,
+    0.046417236,
+    0.0060272217,
+    -0.028533936,
+    -0.011222839,
+    0.008880615,
+    -0.048614502,
+    -0.010688782,
+    -0.00573349,
+    0.020202637,
+    0.076171875,
+    0.02381897,
+    0.006210327,
+    0.023269653,
+    0.023498535,
+    0.022567749,
+    -0.040405273,
+    -0.0847168,
+    0.013130188,
+    0.030548096,
+    -0.023620605,
+    -0.0814209,
+    0.017745972,
+    0.014503479,
+    0.01802063,
+    0.052001953,
+    -0.027252197,
+    0.016326904,
+    -0.021484375,
+    -0.009628296,
+    -0.00737381,
+    0.009384155,
+    -0.006134033,
+    -0.0335083,
+    -0.044158936,
+    -0.015899658,
+    -0.009895325,
+    0.041137695,
+    -0.002128601,
+    0.03024292,
+    -0.06939697,
+    0.026641846,
+    -0.011756897,
+    -0.0059661865,
+    0.0597229,
+    0.0105896,
+    -0.012481689,
+    -0.011978149,
+    -0.011810303,
+    -0.0046539307,
+    0.02293396,
+    -0.06500244,
+    0.0115356445,
+    -0.025802612,
+    -0.058624268,
+    -0.006706238,
+    -0.023361206,
+    0.023544312,
+    0.012268066,
+    0.026107788,
+    -0.033172607,
+    -0.039398193,
+    -0.018859863,
+    0.06237793,
+    -0.0056381226,
+    0.047973633,
+    0.0024051666,
+    0.014007568,
+    -0.039520264,
+    -0.008728027,
+    0.010681152,
+    0.05783081,
+    0.013191223,
+    0.0071411133,
+    0.024780273,
+    -0.11584473,
+    -0.0101623535,
+    -0.008415222,
+    0.0044555664,
+    -0.0026359558,
+    -0.0012922287,
+    -0.010276794,
+    -0.018707275,
+    0.031280518,
+    0.011680603,
+    0.011978149,
+    0.0003900528,
+    0.014007568,
+    -0.01499176,
+    -0.028427124,
+    -0.0076942444,
+    0.0023994446,
+    -0.008010864,
+    0.019058228,
+    -0.050994873,
+    0.04626465,
+    0.09887695,
+    0.0096588135,
+    0.027893066,
+    0.009513855,
+    -0.005619049,
+    -0.02079773,
+    0.023101807,
+    -0.020553589,
+    -0.05807495,
+    -0.01876831,
+    -0.0061912537,
+    -0.009735107,
+    0.009231567,
+    0.0021896362,
+    -0.07208252,
+    0.013290405,
+    -0.015777588,
+    0.004676819,
+    -0.043548584,
+    -0.017211914,
+    0.005432129,
+    -0.016357422,
+    -0.021987915,
+    -0.0107421875,
+    -0.04650879,
+    0.010940552,
+    0.029083252,
+    -0.03277588,
+    -0.020980835,
+    0.011360168,
+    -0.026611328,
+    0.0009355545,
+    0.0154953,
+    0.015106201,
+    0.072265625,
+    -0.08074951,
+    -0.047607422,
+    -0.045043945,
+    -0.016540527,
+    0.015625,
+    0.014328003,
+    -0.017944336,
+    -0.07476807,
+    -0.018829346,
+    -0.0056915283,
+    -0.037963867,
+    -0.019363403,
+    0.014724731,
+    -0.010055542,
+    0.025039673,
+    -0.024887085,
+    0.011528015,
+    0.012207031,
+    -0.021133423,
+    0.011512756,
+    -0.027633667,
+    -0.0066604614,
+    0.014266968,
+    0.03289795,
+    0.014266968,
+    0.02166748,
+    -0.05029297,
+    0.009277344,
+    0.02670288,
+    0.090148926,
+    -0.05303955,
+    -0.026489258,
+    0.0068969727,
+    -0.046020508,
+    0.019073486,
+    -0.0036087036,
+    -0.0010557175,
+    -0.080566406,
+    -0.043823242,
+    -0.0014724731,
+    -0.059509277,
+    -0.019363403,
+    -0.023040771,
+    -0.009567261,
+    0.03540039,
+    -0.012489319,
+    -0.035491943,
+    0.009483337,
+    0.03894043,
+    -0.021118164,
+    0.01574707,
+    -0.016281128,
+    0.045776367,
+    0.019546509,
+    0.01259613,
+    -0.044281006,
+    -0.0107421875,
+    -0.01361084,
+    0.014801025,
+    0.04119873,
+    -0.018188477,
+    0.06463623,
+    0.013374329,
+    0.08325195,
+    0.03289795,
+    -0.02357483,
+    -0.032073975,
+    -0.024047852,
+    0.05996704,
+    0.062927246,
+    -0.09515381,
+    -0.012130737,
+    0.025238037,
+    -0.01939392,
+    0.00497818,
+    -0.010795593,
+    -0.016693115,
+    0.031707764,
+    0.037231445,
+    0.0048217773,
+    -0.0014533997,
+    0.0045814514,
+    -0.031311035,
+    0.036010742,
+    -0.04434204,
+    -0.048431396,
+    0.035705566,
+    0.02166748,
+    0.0030326843,
+    0.024993896,
+    -0.025268555,
+    -0.01197052,
+    0.025421143,
+    0.012176514,
+    -0.029937744,
+    -0.003047943,
+    0.006843567,
+    -0.009101868,
+    -0.009048462,
+    -0.046569824,
+    -0.020950317,
+    0.015930176,
+    -0.021316528,
+    0.015838623,
+    -0.013809204,
+    -0.037353516,
+    -0.0064430237,
+    0.027114868,
+    0.00617218,
+    -0.00032901764,
+    0.008018494,
+    -0.06982422,
+    0.0026741028,
+    -0.003271103,
+    -0.030136108,
+    -0.0079956055,
+    -0.017227173,
+    0.036468506,
+    -0.017684937,
+    0.018844604,
+    0.03074646,
+    -0.008636475,
+    -0.01159668,
+    0.011955261,
+    -0.009086609,
+    -0.01940918,
+    -0.0131073,
+    0.0013256073,
+    0.0009832382,
+    -0.032409668,
+    0.016998291,
+    -0.015464783,
+    0.018585205,
+    -0.0066986084,
+    0.036895752,
+    -0.011741638,
+    -0.0036697388,
+    -0.008979797,
+    0.032409668,
+    0.01789856,
+    0.010307312,
+    0.00022506714,
+    -0.04638672,
+    -0.025726318,
+    0.0071525574,
+    -0.02760315,
+    -0.056762695,
+    -0.035461426,
+    -0.02229309,
+    -0.030700684,
+    0.0020599365,
+    -0.011253357,
+    0.012207031,
+    0.009475708,
+    -0.019683838,
+    0.020507812,
+    -0.04425049,
+    0.016326904,
+    -0.037475586,
+    0.056243896,
+    -0.013702393,
+    0.026275635,
+    0.02532959,
+    -0.08666992,
+    -0.009384155,
+    -0.03161621,
+    -0.022064209,
+    0.031051636,
+    0.04397583,
+    -0.01864624,
+    0.024719238,
+    -0.040161133,
+    0.02154541,
+    0.0065841675,
+    -0.018295288,
+    -0.02154541,
+    0.030151367,
+    0.026931763,
+    -0.0054969788,
+    -0.038391113,
+    -0.010971069,
+    0.001537323,
+    0.010856628,
+    0.001868248,
+    -0.002380371,
+    0.024719238,
+    0.018600464,
+    0.010444641,
+    -0.057250977,
+    0.055480957,
+    0.024414062,
+    -0.034454346,
+    0.018829346,
+    0.009002686,
+    -0.01222229,
+    -0.050231934,
+    0.059326172,
+    0.014755249,
+    0.004787445,
+    0.076171875,
+    -0.041870117,
+    -0.00088882446,
+    -0.03878784,
+    -0.0068206787,
+    -0.03778076,
+    -0.03390503,
+    -0.008735657,
+    0.0011329651,
+    -0.011245728,
+    -0.015007019,
+    0.013664246,
+    -0.028060913,
+    0.0032348633,
+    -0.014671326,
+    -0.014152527,
+    0.056610107,
+    -0.016174316,
+    0.007522583,
+    -0.009338379,
+    -0.009498596,
+    0.00015640259,
+    -0.013244629,
+    -0.046691895,
+    0.029678345,
+    -0.028259277,
+    -0.0015029907,
+    -0.029525757,
+    -0.012252808,
+    0.030639648,
+    0.07043457,
+    0.025558472,
+    0.04840088,
+    -0.044403076,
+    -0.0065078735,
+    0.049072266,
+    0.041992188,
+    0.019302368,
+    -0.010910034,
+    -0.055236816,
+    -0.035064697,
+    -0.035858154,
+    0.0007019043,
+    0.047912598,
+    -0.03930664,
+    -0.03112793,
+    -0.033325195,
+    0.058563232,
+    -0.0637207,
+    0.018981934,
+    -0.0035591125,
+    -0.04916382,
+    0.01108551,
+    0.01940918,
+    0.045440674,
+    -0.04473877,
+    0.047607422,
+    0.012374878,
+    -0.059539795,
+    0.050048828,
+    0.003627777,
+    0.02633667,
+    -0.024490356,
+    0.028244019,
+    -0.043670654,
+    0.025054932,
+    0.0033721924,
+    0.010192871,
+    -0.058441162,
+    -0.008514404,
+    -0.01878357,
+    0.044006348,
+    0.06695557,
+    -0.019561768,
+    0.058654785,
+    -0.04510498,
+    -0.026733398,
+    0.015625,
+    0.0077209473,
+    0.0023994446,
+    0.07885742,
+    0.030441284,
+    0.02557373,
+    0.014945984,
+    0.01687622,
+    -0.028656006,
+    -0.026672363,
+    0.022766113,
+    0.017211914,
+    -0.023040771,
+    -0.018234253,
+    0.01525116,
+    0.019104004,
+    0.0028076172,
+    0.024932861,
+    0.06347656,
+    -0.046813965,
+    0.043395996,
+    -0.007522583,
+    -0.013122559,
+    -0.0037612915,
+    0.0015506744,
+    -0.0073127747,
+    0.032714844,
+    -0.03125,
+    -0.0345459,
+    -0.0060653687,
+    -0.022399902,
+    -0.014503479,
+    0.0010700226,
+    0.062286377,
+    0.029418945,
+    -0.01890564,
+    -0.038970947,
+    -0.020202637,
+    -0.015014648,
+    -0.045837402,
+    -0.016113281,
+    0.0050621033,
+    0.0035324097,
+    -0.0059165955,
+    -0.020370483,
+    0.03491211,
+    -0.025268555,
+    -0.018127441,
+    -0.013084412,
+    -0.008773804,
+    -0.030441284,
+    -0.0085372925,
+    -0.028778076,
+    -0.034210205,
+    0.008636475,
+    -0.003768921,
+    0.0044822693,
+    -0.011657715,
+    -0.0008087158,
+    -0.026977539,
+    0.019821167,
+    -0.024902344,
+    -0.024261475,
+    -0.015914917,
+    -0.0022354126,
+    -0.026931763,
+    0.005958557,
+    -0.007045746,
+    0.010719299,
+    -0.019424438,
+    0.0057678223,
+    -0.045043945,
+    0.050933838,
+    0.04937744,
+    0.057739258,
+    -0.054260254,
+    0.068359375,
+    0.058776855,
+    -0.007972717,
+    -0.0028877258,
+    -0.059906006,
+    -0.051849365,
+    0.027709961,
+    0.013969421,
+    -0.0099487305,
+    0.025405884,
+    0.0033302307,
+    0.014656067,
+    0.025741577,
+    0.016586304,
+    0.041931152,
+    -0.034240723,
+    0.01763916,
+    0.00021362305,
+    -0.018875122
+  ],
+  "metadata": {
+    "title": "Robinson R22",
+    "original_title": "Robinson R22",
+    "wikipedia_id": "1121696",
+    "url": "https://en.wikipedia.org/wiki/Robinson_R22",
+    "header_path": "/Development/",
+    "aws::graph::propositions": [
+      "# Robinson R22 Technical Features",
+      "A floor-mounted, foot-activated push-to-talk switch facilitates intercom communications for the left-seat occupant in the Robinson R22.",
+      "Some later models of the Robinson R22 may be equipped with a voice-activated intercom system.",
+      "The Robinson R22 helicopter rotor system consists of a two-bladed main rotor.",
+      "The Robinson R22 helicopter rotor system consists of a two-bladed antitorque rotor on the tail.",
+      "The main rotor of the Robinson R22 is equipped with a teetering hinge.",
+      "The antitorque rotor of the Robinson R22 is equipped with a teetering hinge.",
+      "The main rotor of the Robinson R22 rotates with the starboard (right) side blade moving forward.",
+      "The main rotor of the Robinson R22 is equipped with two coning hinges.",
+      "Collective pitch inputs to the main rotor of the Robinson R22 are transmitted through pushrods.",
+      "Cyclic pitch inputs to the main rotor of the Robinson R22 are transmitted through pushrods.",
+      "The Robinson R22 uses a conventional swashplate mechanism for transmitting pitch inputs to the main rotor.",
+      "Control inputs to the tail rotor of the Robinson R22 are transmitted through a single pushrod inside the aluminum tail cone.",
+      "The Robinson R22 has a mechanical throttle correlator that adjusts the throttle as the collective pitch control is raised or lowered.",
+      "The mechanical throttle correlator in the Robinson R22 eases the pilot's workload.",
+      "The pilot of the Robinson R22 needs to make only small adjustments by twisting the throttle grip on the collective throughout the flight regime."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Robinson R22 Technical Features",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Robinson R22",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main rotor",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "antitorque rotor",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "teetering hinge",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "coning hinges",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pushrods",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "swashplate mechanism",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "mechanical throttle correlator",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "floor-mounted foot-activated push-to-talk switch",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "voice-activated intercom system",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tail rotor",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "aluminum tail cone",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "collective pitch control",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "throttle grip",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "collective",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cyclic pitch",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Person"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A floor-mounted, foot-activated push-to-talk switch facilitates intercom communications for the left-seat occupant in the Robinson R22.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "floor-mounted foot-activated push-to-talk switch",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "floor-mounted foot-activated push-to-talk switch",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "FACILITATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intercom communications",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "floor-mounted foot-activated push-to-talk switch",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "USED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left-seat occupant",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some later models of the Robinson R22 may be equipped with a voice-activated intercom system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "voice-activated intercom system",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS FEATURE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "voice-activated intercom system",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "voice-activated intercom system",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "AVAILABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "later models",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Robinson R22 helicopter rotor system consists of a two-bladed main rotor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS BLADES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two-bladed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Robinson R22 helicopter rotor system consists of a two-bladed antitorque rotor on the tail.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitorque rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitorque rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS BLADES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two-bladed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitorque rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main rotor of the Robinson R22 is equipped with a teetering hinge.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "teetering hinge",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "teetering hinge",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The antitorque rotor of the Robinson R22 is equipped with a teetering hinge.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "teetering hinge",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitorque rotor",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitorque rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "antitorque rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "teetering hinge",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main rotor of the Robinson R22 rotates with the starboard (right) side blade moving forward.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "ROTATION DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "starboard side blade moving forward",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main rotor of the Robinson R22 is equipped with two coning hinges.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "coning hinges",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "coning hinges",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "coning hinges",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Collective pitch inputs to the main rotor of the Robinson R22 are transmitted through pushrods.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushrods",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collective pitch control",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "TRANSMITS THROUGH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushrods",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cyclic pitch inputs to the main rotor of the Robinson R22 are transmitted through pushrods.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushrods",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cyclic pitch",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "TRANSMITS THROUGH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushrods",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Robinson R22 uses a conventional swashplate mechanism for transmitting pitch inputs to the main rotor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "swashplate mechanism",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "swashplate mechanism",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "conventional",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "swashplate mechanism",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "FUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmitting pitch inputs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Control inputs to the tail rotor of the Robinson R22 are transmitted through a single pushrod inside the aluminum tail cone.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushrods",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aluminum tail cone",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail rotor",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONTROL TRANSMISSION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "single pushrod",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushrods",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inside aluminum tail cone",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushrods",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "single",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Robinson R22 has a mechanical throttle correlator that adjusts the throttle as the collective pitch control is raised or lowered.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mechanical throttle correlator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collective pitch control",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mechanical throttle correlator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "FUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "adjusts throttle with collective movement",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The mechanical throttle correlator in the Robinson R22 eases the pilot's workload.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mechanical throttle correlator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mechanical throttle correlator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "ASSISTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Person"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mechanical throttle correlator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "BENEFIT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "eases workload",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of the Robinson R22 needs to make only small adjustments by twisting the throttle grip on the collective throughout the flight regime.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle grip",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collective",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collective",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson R22",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "small throttle grip adjustments",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle grip",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "OPERATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "twisting",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle grip",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "ADJUSTMENT SIZE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "small",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::d317ec72:07ee",
+      "node_type": "4",
+      "metadata": {
+        "title": "Robinson R22",
+        "original_title": "Robinson R22",
+        "wikipedia_id": "1121696",
+        "url": "https://en.wikipedia.org/wiki/Robinson_R22"
+      },
+      "hash": "f1162a3b89a27fe16344ebb0abddbbce79e4b108a286392368f28be4a0e2c095",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::d317ec72:07ee:1b1e46f2",
+      "node_type": "1",
+      "metadata": {
+        "title": "Robinson R22",
+        "original_title": "Robinson R22",
+        "wikipedia_id": "1121696",
+        "url": "https://en.wikipedia.org/wiki/Robinson_R22",
+        "header_path": "/Development/"
+      },
+      "hash": "b563980b826b77393411ec84f630afc27b6f3278eee043394970a00883add838",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::d317ec72:07ee:e3c4e7a1",
+      "node_type": "1",
+      "metadata": {
+        "title": "Robinson R22",
+        "original_title": "Robinson R22",
+        "wikipedia_id": "1121696",
+        "url": "https://en.wikipedia.org/wiki/Robinson_R22",
+        "header_path": "/Development/"
+      },
+      "hash": "6d4d8aa9630622eb67c8d172cadd09570054bc93d5d0e8e0f88e8342d65bbeb0",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "A floor-mounted, foot-activated push-to-talk switch facilitates intercom communications for the left-seat occupant, although some later models may be equipped with a voice-activated intercom system.\nThe helicopter rotor system consists of a two-bladed main rotor and two-bladed antitorque rotor on the tail, each equipped with a teetering hinge. The main rotor rotates with the starboard (right) side blade moving forward. The main rotor is also equipped with two coning hinges. Collective and cyclic pitch inputs to the main rotor are transmitted through pushrods and a conventional swashplate mechanism. Control inputs to the tail rotor are transmitted through a single pushrod inside the aluminum tail cone.\nTo ease the pilot's workload, a mechanical throttle correlator adjusts the throttle as the collective pitch control is raised or lowered.  The pilot needs to make only small adjustments by twisting the throttle grip on the collective throughout the flight regime.",
+  "mimetype": "text/plain",
+  "start_char_idx": 796,
+  "end_char_idx": 1770,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

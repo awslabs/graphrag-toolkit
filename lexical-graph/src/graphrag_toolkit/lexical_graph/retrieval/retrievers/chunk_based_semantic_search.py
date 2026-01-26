@@ -184,11 +184,18 @@ class ChunkBasedSemanticSearch(TraversalBasedBaseRetriever):
             node.node.metadata['chunk']['chunkId'] 
             for node in all_nodes
         ]
+        
+        end_semantic_search = time.time()
+        semantic_search_ms = (end_semantic_search-start) * 1000
+        
+        logger.debug(f'End getting start node ids for chunk-based semantic search [{semantic_search_ms:.2f}ms]')
 
         return chunk_ids
         
     def do_graph_search(self, query_bundle: QueryBundle, start_node_ids:List[str]) -> SearchResultCollection:
 
+        start = time.time()
+        
         chunk_ids = start_node_ids
 
         logger.debug('Running chunk-based semantic search...')
@@ -219,6 +226,11 @@ class ChunkBasedSemanticSearch(TraversalBasedBaseRetriever):
                     exclude_none=True, 
                     warnings=False)
                 }''')
+            
+        end_semantic_search = time.time()
+        semantic_search_ms = (end_semantic_search-start) * 1000
+        
+        logger.debug(f'End chunk-based semantic search [{semantic_search_ms:.2f}ms]')
                    
         
         return search_results_collection

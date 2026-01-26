@@ -1,0 +1,133 @@
+topic: AWS Security Group Configuration
+
+  entities:
+  
+    sg-0dbfaf14497e4be94|SecurityGroup
+    vpc-0ce6486d890849dc3|VPC
+    sg-01f7984ad35475636|SecurityGroup
+  
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has VpcId 'vpc-0ce6486d890849dc3'
+    
+    entity-entity relationships:
+    sg-0dbfaf14497e4be94|HAS_VPCID|vpc-0ce6486d890849dc3
+    
+    entity-attributes:
+      
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has SecurityGroupArn 'arn:aws:ec2:us-east-1:1234567890:security-group/sg-0dbfaf14497e4be94'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_SECURITYGROUPARN|arn:aws:ec2:us-east-1:1234567890:security-group/sg-0dbfaf14497e4be94
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has OwnerId '1234567890'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_OWNERID|1234567890
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has GroupName 'doc-1-neptune-sg'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_GROUPNAME|doc-1-neptune-sg
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has Description 'GraphRAG Neptune security group'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_DESCRIPTION|GraphRAG Neptune security group
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with IpProtocol '-1'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONSEGRESS_WITH_IPPROTOCOL|-1
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with UserIdGroupPairs None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONSEGRESS_WITH_USERIDGROUPPAIRS|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with IpRanges with CidrIp '0.0.0.0/0'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONSEGRESS_WITH_IPRANGES_WITH_CIDRIP|0.0.0.0/0
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with Ipv6Ranges None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONSEGRESS_WITH_IPV6RANGES|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissionsEgress with PrefixListIds None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONSEGRESS_WITH_PREFIXLISTIDS|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with IpProtocol 'tcp'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_IPPROTOCOL|tcp
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with FromPort 8182
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_FROMPORT|8182
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with ToPort 8182
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_TOPORT|8182
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with UserIdGroupPairs with UserId '1234567890'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_USERIDGROUPPAIRS_WITH_USERID|1234567890
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with UserIdGroupPairs with GroupId 'sg-01f7984ad35475636'
+  
+    entity-entity relationships:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_USERIDGROUPPAIRS_WITH_GROUPID|sg-01f7984ad35475636
+  
+    entity-attributes:
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with IpRanges None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_IPRANGES|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with Ipv6Ranges None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_IPV6RANGES|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0dbfaf14497e4be94' has IpPermissions with PrefixListIds None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0dbfaf14497e4be94|HAS_IPPERMISSIONS_WITH_PREFIXLISTIDS|None

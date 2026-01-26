@@ -1,0 +1,28 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " you analyze"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the correlation between Cessna 210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Centurion variants and mechanical failures or safety incidents. Let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me search for information about"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210 variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and then look"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " into accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " data."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_F-PQy1fwRKmmYP2SWcF42g", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"q"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uery\": \"Ces"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sna 210 Cen"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "turion var"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "iants"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " models diff"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "erenc"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "es specifica"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tions de"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "velopment"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " his"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tory\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 1744, "outputTokens": 113, "totalTokens": 1857}, "metrics": {"latencyMs": 3033}}}

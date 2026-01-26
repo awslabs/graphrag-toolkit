@@ -1,0 +1,2297 @@
+{
+  "id_": "aws::ebae2a60:3148:9a507c3c",
+  "embedding": [
+    0.0435791,
+    -0.008354187,
+    0.033447266,
+    -0.05947876,
+    0.0049743652,
+    -0.0015983582,
+    -0.0029392242,
+    0.004676819,
+    -0.045043945,
+    0.00592041,
+    0.025436401,
+    0.025772095,
+    -0.034088135,
+    -0.053222656,
+    0.054748535,
+    -0.018173218,
+    0.009399414,
+    0.0016746521,
+    -0.0022716522,
+    -0.008331299,
+    7.3194504e-05,
+    0.008018494,
+    -0.01991272,
+    -0.035186768,
+    -0.003786087,
+    0.109069824,
+    -0.0284729,
+    -0.021011353,
+    0.004043579,
+    -0.002910614,
+    0.013900757,
+    -0.052825928,
+    0.009117126,
+    0.041534424,
+    -0.059295654,
+    -0.04586792,
+    -0.016525269,
+    0.017303467,
+    -0.031829834,
+    0.002811432,
+    0.010040283,
+    -0.008369446,
+    0.04699707,
+    -0.025497437,
+    -2.7239323e-05,
+    0.0021705627,
+    0.023452759,
+    -0.027938843,
+    0.03643799,
+    0.0026721954,
+    0.01713562,
+    -0.021026611,
+    0.011001587,
+    0.041931152,
+    -0.02420044,
+    0.00029158592,
+    -0.06008911,
+    0.029129028,
+    0.012893677,
+    0.04550171,
+    0.012504578,
+    0.013114929,
+    -0.009292603,
+    -0.016296387,
+    -0.0211792,
+    -0.0011081696,
+    0.070495605,
+    -0.006587982,
+    0.010635376,
+    -0.024108887,
+    -0.009605408,
+    0.015602112,
+    -0.016159058,
+    0.019470215,
+    -0.037231445,
+    -0.022079468,
+    -0.002407074,
+    -0.015266418,
+    0.009361267,
+    0.03036499,
+    -0.00969696,
+    0.029541016,
+    0.0413208,
+    -0.008491516,
+    -0.028030396,
+    -0.0067481995,
+    -0.022735596,
+    0.0021915436,
+    0.025863647,
+    -0.019348145,
+    -0.00063991547,
+    0.0058059692,
+    0.04623413,
+    0.0017080307,
+    -0.03262329,
+    -0.04977417,
+    -0.001581192,
+    -0.042419434,
+    0.00340271,
+    -0.004776001,
+    0.029556274,
+    -0.05529785,
+    0.033203125,
+    0.010032654,
+    -0.002231598,
+    0.015434265,
+    0.017044067,
+    -0.030517578,
+    0.02229309,
+    0.020141602,
+    -0.021636963,
+    0.047943115,
+    -0.011192322,
+    -0.012229919,
+    -0.022644043,
+    0.0546875,
+    0.0041275024,
+    0.0116119385,
+    0.006504059,
+    0.06677246,
+    0.0051193237,
+    0.021621704,
+    -0.07513428,
+    0.02255249,
+    0.016021729,
+    -0.00818634,
+    -0.02861023,
+    0.07116699,
+    0.017822266,
+    0.0066184998,
+    -0.023483276,
+    0.04815674,
+    0.005252838,
+    -0.032226562,
+    -0.026824951,
+    -0.0033073425,
+    0.006401062,
+    -0.026626587,
+    -0.014671326,
+    0.0071411133,
+    -0.0141067505,
+    0.008735657,
+    0.058654785,
+    -0.02607727,
+    -0.0056266785,
+    0.0063438416,
+    0.017028809,
+    0.016357422,
+    0.007423401,
+    0.01763916,
+    -0.04574585,
+    0.027832031,
+    0.05999756,
+    0.013008118,
+    -0.04916382,
+    -0.092163086,
+    0.062805176,
+    -0.07348633,
+    0.033477783,
+    -0.11437988,
+    -0.009963989,
+    -0.024353027,
+    -0.012329102,
+    -0.049591064,
+    -0.071899414,
+    0.033081055,
+    0.0034751892,
+    0.000934124,
+    0.0067825317,
+    -0.0057411194,
+    -0.021850586,
+    0.02772522,
+    -0.0524292,
+    -0.0018997192,
+    0.015281677,
+    -0.0031986237,
+    0.0008969307,
+    0.043518066,
+    0.017166138,
+    -0.008743286,
+    0.00048589706,
+    -0.048736572,
+    0.049713135,
+    -0.011199951,
+    0.0059509277,
+    -0.003200531,
+    0.055389404,
+    0.03250122,
+    -0.048950195,
+    0.03466797,
+    0.005908966,
+    0.05618286,
+    -0.01878357,
+    -0.033355713,
+    0.009391785,
+    -0.0035896301,
+    -0.014457703,
+    -0.01713562,
+    0.0079193115,
+    0.020065308,
+    -0.039367676,
+    0.038909912,
+    -0.045806885,
+    0.0027198792,
+    -0.050720215,
+    -0.013267517,
+    -0.008430481,
+    0.037963867,
+    0.015525818,
+    0.026306152,
+    0.009315491,
+    -0.010284424,
+    -0.01739502,
+    -0.0015869141,
+    -0.022872925,
+    -0.012062073,
+    -0.02041626,
+    0.0030155182,
+    0.020309448,
+    -0.010803223,
+    0.011962891,
+    0.05319214,
+    0.02734375,
+    0.024658203,
+    -0.03878784,
+    -0.0067977905,
+    -0.0066337585,
+    0.023117065,
+    -0.007019043,
+    0.04800415,
+    0.04260254,
+    -0.06549072,
+    0.030426025,
+    0.038879395,
+    -0.012336731,
+    0.020965576,
+    0.008811951,
+    0.020935059,
+    -0.025726318,
+    0.0064582825,
+    0.004837036,
+    -0.038330078,
+    -0.01977539,
+    0.029281616,
+    -0.048309326,
+    -0.031555176,
+    0.014625549,
+    0.008735657,
+    -0.032836914,
+    -0.018920898,
+    0.028244019,
+    0.042663574,
+    0.035736084,
+    0.12097168,
+    0.027770996,
+    0.010124207,
+    -0.015235901,
+    -0.045776367,
+    0.008590698,
+    -0.006362915,
+    0.028717041,
+    -0.025787354,
+    -0.052825928,
+    0.011947632,
+    0.010276794,
+    0.016540527,
+    0.026977539,
+    0.03451538,
+    -0.022384644,
+    0.009918213,
+    0.0038585663,
+    -0.018173218,
+    -0.005710602,
+    0.008674622,
+    -0.043121338,
+    -0.012481689,
+    -0.011291504,
+    0.015365601,
+    -0.014923096,
+    -0.020935059,
+    -0.021087646,
+    0.0037460327,
+    -0.005432129,
+    -0.017593384,
+    0.031158447,
+    -0.028640747,
+    -0.0060272217,
+    -0.035491943,
+    -0.04647827,
+    0.01411438,
+    0.025802612,
+    0.047668457,
+    -0.00831604,
+    0.011924744,
+    -0.019699097,
+    0.017486572,
+    -0.0007543564,
+    0.03237915,
+    -0.0017404556,
+    -0.0043945312,
+    0.019042969,
+    0.028030396,
+    -0.033172607,
+    0.0070762634,
+    -0.0054893494,
+    0.035614014,
+    0.0006098747,
+    0.015548706,
+    -0.00081682205,
+    -0.014709473,
+    -0.031799316,
+    -0.027542114,
+    0.041778564,
+    0.015777588,
+    0.027175903,
+    0.008483887,
+    -0.0064697266,
+    0.048919678,
+    0.0074691772,
+    -0.020690918,
+    0.027877808,
+    0.014709473,
+    -0.016464233,
+    0.014778137,
+    0.010116577,
+    -0.03262329,
+    0.013221741,
+    -0.013626099,
+    0.0024681091,
+    -0.0067710876,
+    -0.04397583,
+    0.009735107,
+    -0.031158447,
+    0.053741455,
+    0.0041236877,
+    -0.0005893707,
+    0.013824463,
+    -0.032806396,
+    -0.0027046204,
+    0.027816772,
+    0.052124023,
+    -0.021560669,
+    -0.006629944,
+    -0.04208374,
+    -0.043792725,
+    -0.041168213,
+    0.009010315,
+    -0.007335663,
+    -0.025878906,
+    -0.03866577,
+    0.06536865,
+    -0.0042915344,
+    0.0065574646,
+    -0.005207062,
+    0.038238525,
+    -0.07965088,
+    -0.054779053,
+    0.009407043,
+    -0.0033092499,
+    -0.03527832,
+    0.011688232,
+    -0.011146545,
+    -0.026809692,
+    0.017669678,
+    -0.0028305054,
+    0.01373291,
+    0.026794434,
+    -0.01259613,
+    -0.009277344,
+    0.020126343,
+    -0.06878662,
+    0.0209198,
+    -0.01651001,
+    0.00026869774,
+    0.00051164627,
+    0.049957275,
+    0.052764893,
+    -0.008544922,
+    -0.033111572,
+    0.008010864,
+    0.016296387,
+    -0.012962341,
+    0.015975952,
+    -0.024246216,
+    0.016082764,
+    -0.011268616,
+    -0.058502197,
+    -0.034576416,
+    0.025177002,
+    0.04498291,
+    0.003332138,
+    -0.049560547,
+    0.009796143,
+    -0.032073975,
+    -0.044189453,
+    0.0008068085,
+    -0.0008749962,
+    -0.020248413,
+    0.04953003,
+    -0.016738892,
+    -0.06506348,
+    0.015289307,
+    0.007507324,
+    -0.023468018,
+    -0.0027599335,
+    -0.02947998,
+    -0.023803711,
+    -0.028137207,
+    0.025161743,
+    0.041290283,
+    -0.019592285,
+    0.052978516,
+    -0.019714355,
+    0.04257202,
+    -0.009925842,
+    -0.006752014,
+    -0.04220581,
+    -0.01222229,
+    -0.0040130615,
+    0.03060913,
+    0.02935791,
+    -0.0473938,
+    0.023071289,
+    0.058563232,
+    -0.012298584,
+    0.008712769,
+    -0.020706177,
+    -0.013519287,
+    0.039154053,
+    0.07147217,
+    -0.018249512,
+    0.026519775,
+    -0.009567261,
+    -0.0037670135,
+    0.002500534,
+    0.058532715,
+    0.0013275146,
+    0.039489746,
+    0.012023926,
+    -0.0062942505,
+    0.009971619,
+    0.027069092,
+    0.023086548,
+    0.03274536,
+    0.0010824203,
+    -0.0018787384,
+    0.015258789,
+    -0.004005432,
+    -0.031341553,
+    -0.010650635,
+    -0.009056091,
+    -0.0056266785,
+    0.03656006,
+    0.024871826,
+    -0.0032806396,
+    0.02230835,
+    -0.035949707,
+    0.0118637085,
+    -0.035614014,
+    0.007904053,
+    0.010261536,
+    0.0073165894,
+    -0.021224976,
+    -0.035736084,
+    0.032104492,
+    -0.006401062,
+    -0.017349243,
+    0.005672455,
+    -0.011062622,
+    0.022659302,
+    0.02734375,
+    -0.008514404,
+    -0.04446411,
+    -0.03591919,
+    0.0014429092,
+    -0.046661377,
+    0.017074585,
+    -0.004108429,
+    0.08703613,
+    -0.009353638,
+    -0.043762207,
+    0.023452759,
+    0.029174805,
+    0.05343628,
+    -0.011398315,
+    0.024459839,
+    0.033050537,
+    0.04071045,
+    0.022109985,
+    -0.039123535,
+    -0.021026611,
+    -0.020858765,
+    0.033416748,
+    -0.025741577,
+    0.00541687,
+    -0.017181396,
+    0.0038833618,
+    0.017303467,
+    0.005241394,
+    0.014060974,
+    -0.031585693,
+    0.0078086853,
+    -0.026641846,
+    -0.027175903,
+    -0.014625549,
+    0.022109985,
+    -0.020431519,
+    0.022842407,
+    0.015106201,
+    -0.052368164,
+    -0.0054626465,
+    -0.008155823,
+    -0.0012664795,
+    0.043548584,
+    -0.05038452,
+    0.06427002,
+    -0.06439209,
+    0.003232956,
+    -0.021331787,
+    0.0017137527,
+    -0.030914307,
+    -0.025741577,
+    0.029968262,
+    0.019683838,
+    -0.0043563843,
+    -0.011619568,
+    0.017288208,
+    0.03652954,
+    -0.03753662,
+    -0.0034217834,
+    -0.0037460327,
+    0.033935547,
+    -0.014030457,
+    -0.039916992,
+    0.06210327,
+    -0.0149383545,
+    -0.024673462,
+    0.053375244,
+    -0.046813965,
+    -0.09777832,
+    -0.023406982,
+    0.046142578,
+    0.028533936,
+    -0.041870117,
+    0.015670776,
+    -0.030166626,
+    0.0107040405,
+    0.039642334,
+    -0.0519104,
+    0.015182495,
+    0.003698349,
+    -0.001121521,
+    0.04776001,
+    -0.02671814,
+    -0.055145264,
+    0.05706787,
+    0.019515991,
+    -0.023834229,
+    0.0075645447,
+    0.056488037,
+    -0.028793335,
+    -0.03744507,
+    0.001206398,
+    0.020690918,
+    0.02748108,
+    0.039794922,
+    -0.0039024353,
+    -0.03363037,
+    0.02305603,
+    -0.015304565,
+    -0.008453369,
+    -0.028274536,
+    0.10498047,
+    -0.005935669,
+    0.020370483,
+    -0.02558899,
+    0.009643555,
+    0.008857727,
+    -0.014450073,
+    -0.019454956,
+    0.022232056,
+    0.015411377,
+    0.009132385,
+    0.0005841255,
+    -0.038360596,
+    0.04989624,
+    -0.032684326,
+    0.011299133,
+    -0.0368042,
+    0.011253357,
+    0.047210693,
+    -0.007286072,
+    0.015556335,
+    -0.000934124,
+    -0.0041275024,
+    -0.0029716492,
+    -0.009849548,
+    -0.061035156,
+    0.0063934326,
+    -0.005771637,
+    -0.012329102,
+    -0.015350342,
+    -0.014205933,
+    -0.024536133,
+    0.054748535,
+    0.009788513,
+    0.037628174,
+    -0.01184845,
+    0.0013217926,
+    -0.026382446,
+    0.0060653687,
+    0.038360596,
+    -0.050628662,
+    0.03112793,
+    -0.04095459,
+    -0.033111572,
+    -0.051116943,
+    0.07043457,
+    0.081848145,
+    0.03189087,
+    0.02760315,
+    0.018096924,
+    0.01449585,
+    -0.06817627,
+    0.03503418,
+    0.015098572,
+    -0.083740234,
+    0.0105896,
+    0.00047564507,
+    -0.025466919,
+    0.009292603,
+    -0.030212402,
+    -0.05444336,
+    -0.06100464,
+    -0.04699707,
+    0.05480957,
+    -0.021530151,
+    -0.062347412,
+    0.014350891,
+    0.045074463,
+    0.015731812,
+    -0.032043457,
+    0.017837524,
+    -0.0113220215,
+    -0.051849365,
+    -0.0368042,
+    -0.0019550323,
+    0.020202637,
+    -0.022918701,
+    0.015419006,
+    -0.013130188,
+    0.008636475,
+    0.05630493,
+    -0.060455322,
+    -0.032226562,
+    -0.040649414,
+    0.0045661926,
+    -0.019744873,
+    0.014656067,
+    -0.046905518,
+    -0.03036499,
+    0.006351471,
+    -0.035858154,
+    -0.005680084,
+    -0.036346436,
+    -0.01651001,
+    0.021942139,
+    -0.034332275,
+    0.008514404,
+    -0.033996582,
+    -0.049743652,
+    -0.011299133,
+    0.0066986084,
+    -0.05895996,
+    -0.011642456,
+    0.033355713,
+    -0.014045715,
+    0.031677246,
+    0.03744507,
+    -0.03829956,
+    0.013038635,
+    0.013175964,
+    0.0032863617,
+    -0.027008057,
+    -0.018981934,
+    0.011672974,
+    -0.023101807,
+    0.045684814,
+    0.002500534,
+    0.00566864,
+    -0.030838013,
+    -0.0038337708,
+    0.006175995,
+    -0.02154541,
+    -0.013687134,
+    -0.0031204224,
+    -0.025634766,
+    0.021697998,
+    -0.0181427,
+    0.0020694733,
+    -0.00075244904,
+    0.009437561,
+    0.027297974,
+    0.011421204,
+    -1.6093254e-05,
+    0.06707764,
+    0.040496826,
+    0.059020996,
+    -0.025009155,
+    -0.033294678,
+    0.06512451,
+    0.07525635,
+    -0.044067383,
+    -0.026641846,
+    0.066711426,
+    0.050231934,
+    0.0748291,
+    -0.02947998,
+    -0.027893066,
+    -0.00724411,
+    -0.018478394,
+    0.051757812,
+    -0.005680084,
+    -0.027297974,
+    0.034332275,
+    -0.035308838,
+    -0.08093262,
+    0.008636475,
+    0.0002872944,
+    -0.0041236877,
+    -0.008018494,
+    -0.051361084,
+    0.055664062,
+    -0.029083252,
+    -0.050231934,
+    0.019332886,
+    0.032226562,
+    -0.0051727295,
+    -0.013999939,
+    0.0005569458,
+    -0.022140503,
+    -0.0035800934,
+    0.012794495,
+    -0.022537231,
+    -0.020431519,
+    -0.0017957687,
+    0.0006337166,
+    -0.04736328,
+    -0.02748108,
+    -0.028137207,
+    0.010437012,
+    -0.016052246,
+    -0.08087158,
+    0.014755249,
+    0.018859863,
+    -0.010696411,
+    -0.01637268,
+    0.035064697,
+    -0.039215088,
+    0.0109939575,
+    0.0012664795,
+    0.01209259,
+    0.034179688,
+    0.013977051,
+    -0.033203125,
+    0.030975342,
+    -0.039245605,
+    0.004611969,
+    -0.022842407,
+    -0.011009216,
+    -0.012359619,
+    0.018417358,
+    0.003753662,
+    0.010917664,
+    0.027023315,
+    -0.026123047,
+    0.024765015,
+    -0.024536133,
+    0.038330078,
+    -0.009269714,
+    -0.045166016,
+    0.034820557,
+    -0.004699707,
+    0.011001587,
+    0.007446289,
+    0.01146698,
+    -0.023223877,
+    -0.0061569214,
+    -0.010467529,
+    -0.019515991,
+    -0.062927246,
+    0.037719727,
+    -0.011169434,
+    -0.035369873,
+    0.04058838,
+    -0.0002465248,
+    -0.062561035,
+    -0.035339355,
+    -0.03125,
+    -0.03274536,
+    -0.028930664,
+    -0.016571045,
+    -0.041290283,
+    0.010574341,
+    -0.032348633,
+    0.016143799,
+    0.005252838,
+    0.015686035,
+    0.0027980804,
+    -0.026794434,
+    0.019866943,
+    -0.009391785,
+    0.019195557,
+    -0.03817749,
+    -0.05734253,
+    -0.008972168,
+    -0.026733398,
+    -0.008300781,
+    -0.0037002563,
+    0.015350342,
+    0.008682251,
+    0.025512695,
+    0.01373291,
+    0.011047363,
+    -0.0066223145,
+    -0.0140686035,
+    0.016586304,
+    -0.027450562,
+    0.019958496,
+    0.00333786,
+    -0.003080368,
+    -0.01776123,
+    -0.016555786,
+    -0.00806427,
+    0.0004849434,
+    0.03050232,
+    0.012168884,
+    0.026855469,
+    -0.0021324158,
+    0.029724121,
+    -0.0016479492,
+    -0.035095215,
+    0.05731201,
+    0.03982544,
+    -0.082214355,
+    0.036590576,
+    0.04800415,
+    -0.032836914,
+    0.010345459,
+    0.030654907,
+    0.019989014,
+    -0.02029419,
+    0.021987915,
+    -0.03793335,
+    0.014556885,
+    0.011108398,
+    0.0042037964,
+    -0.021835327,
+    0.00030970573,
+    0.02330017,
+    0.00024819374,
+    0.032928467,
+    0.0030498505,
+    -0.02507019,
+    -0.048706055,
+    0.0025157928,
+    -0.025680542,
+    0.03933716,
+    0.041931152,
+    0.051971436,
+    0.025939941,
+    -0.0552063,
+    -0.05734253,
+    -0.03704834,
+    -0.022979736,
+    -0.059692383,
+    -6.622076e-05,
+    0.039123535,
+    -0.057250977,
+    0.002729416,
+    -0.070373535,
+    -0.04055786,
+    0.010360718,
+    0.007270813,
+    0.00793457,
+    -0.07495117,
+    -0.0046539307,
+    0.00894165,
+    0.023468018,
+    0.030578613,
+    0.030090332,
+    -0.02168274,
+    -0.010932922,
+    0.05166626,
+    0.025772095,
+    0.09436035,
+    -0.039794922,
+    -0.0015459061,
+    -0.05218506,
+    0.06762695,
+    -0.04333496,
+    -0.04449463,
+    -0.059906006,
+    -0.04156494,
+    0.027420044,
+    0.009803772,
+    0.0039749146,
+    -0.05114746,
+    0.040374756,
+    -0.017837524,
+    -0.02911377,
+    0.027694702,
+    -0.011962891,
+    0.030258179,
+    -0.0033245087,
+    -0.0023498535,
+    -0.038391113,
+    -0.007610321,
+    0.008895874,
+    -0.047973633,
+    -0.044647217,
+    -0.013938904,
+    -0.030075073,
+    0.019882202,
+    0.043060303,
+    0.019546509,
+    -0.01360321,
+    -0.047180176,
+    -0.032440186,
+    0.0046424866,
+    -0.005470276,
+    -0.0132751465,
+    0.076538086,
+    0.022583008,
+    0.021224976,
+    0.008857727,
+    -0.022583008,
+    -0.027740479,
+    -0.012962341,
+    0.074157715,
+    0.01638794,
+    -0.046966553,
+    -0.028121948,
+    0.022476196,
+    0.0070877075,
+    -0.0033397675,
+    0.04360962,
+    -0.023101807,
+    -0.064453125,
+    -0.014190674,
+    -0.041656494,
+    0.00724411,
+    0.0124053955,
+    0.015617371,
+    0.012466431,
+    0.0552063,
+    -0.012771606,
+    -0.004711151,
+    -0.0335083,
+    -0.06237793,
+    -0.008575439,
+    -0.017120361,
+    -0.00080013275,
+    0.029754639,
+    0.05859375,
+    0.04547119,
+    0.018005371,
+    -0.06311035,
+    -0.013908386,
+    -0.0062294006,
+    0.0039138794,
+    -0.0032253265,
+    -0.009986877,
+    -0.020309448,
+    0.0077781677,
+    -0.028533936,
+    0.003282547,
+    0.030563354,
+    -0.0234375,
+    0.0066490173,
+    0.007911682,
+    0.0149383545,
+    -0.007007599,
+    -0.0011367798,
+    0.00819397,
+    -0.028503418,
+    0.0131073,
+    0.008102417,
+    -0.028625488,
+    0.0127334595,
+    -0.032836914,
+    0.04006958,
+    0.017913818,
+    -0.028045654,
+    0.03173828,
+    0.00223732,
+    0.028305054,
+    0.03881836,
+    0.024124146,
+    -0.05053711,
+    -0.006877899,
+    -0.027114868,
+    0.023452759,
+    -0.045806885,
+    -0.018707275,
+    -0.042999268,
+    -0.02986145,
+    0.03463745,
+    -0.036132812,
+    -0.014755249,
+    -0.060058594,
+    0.051513672,
+    0.0007095337,
+    -0.0010700226,
+    0.03930664,
+    0.010643005,
+    0.0015239716,
+    0.037353516,
+    0.04812622,
+    -0.017852783,
+    0.045043945,
+    0.029251099,
+    0.028244019,
+    0.017074585
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87661.md",
+    "file_name": "87661.md",
+    "file_size": 10230,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Bell 206B Helicopter Accident in Chualar, California",
+      "The accident occurred in Chualar, California.",
+      "The accident occurred on August 4, 2013, at 10:30 Local time.",
+      "The aircraft involved was a Bell 206B helicopter.",
+      "The defining event was a low altitude operation/event.",
+      "The flight was conducted under Part 137: Agricultural operations.",
+      "The accident number was WPR13LA358.",
+      "The helicopter registration was N90146.",
+      "The Bell 206B helicopter sustained substantial damage.",
+      "The pilot suffered minor injuries.",
+      "The pilot was operating the helicopter at a low altitude.",
+      "The pilot heard a loud boom during flight.",
+      "The pilot noted a decrease in main rotor rpm after hearing the boom.",
+      "The helicopter impacted the ground during the emergency landing.",
+      "The tail boom separated from the fuselage during impact.",
+      "The helicopter rolled onto its right side after impact.",
+      "Postaccident examination revealed the main driveshaft had disconnected.",
+      "The bolts attaching the forward coupling to the transmission had failed.",
+      "Portions of two of the four bolts that attached the forward coupling to the transmission were found.",
+      "The fractured threaded remnants with nuts attached were examined.",
+      "One bolt remnant was fractured through its entire cross-section due to fatigue.",
+      "Another bolt remnant fractured through about 75% of its cross-section due to fatigue.",
+      "The remainder of the failure on the second remnant occurred in overload.",
+      "Both fracture faces had multiple fatigue origins around about 1/4 of their circumferences.",
+      "The multiple fatigue origins indicated relatively high stresses.",
+      "No mechanical damage was noted at the fatigue origin locations.",
+      "One of the remnants displayed smearing of adjacent threads.",
+      "One of the remnants displayed decreased height of the nut.",
+      "The smearing and decreased nut height suggested this bolt had a relatively large amount of play.",
+      "The large amount of play was likely due to improper torqueing of the bolts.",
+      "The driveshaft was reinstalled after extensive maintenance about 3 months before the accident.",
+      "The maintenance was performed about 197 flight hours before the accident.",
+      "The National Transportation Safety Board determined the probable cause of the accident.",
+      "The probable cause was maintenance personnel's failure to properly tighten the bolts securing the main driveshaft to the transmission.",
+      "The improperly tightened bolts resulted in fatigue failure of the bolts.",
+      "The fatigue failure led to disconnection of the driveshaft during low-altitude flight."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Bell 206B Helicopter Accident in Chualar, California",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Chualar, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 206B",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N90146",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "low altitude operation/event",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR13LA358",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 137: Agricultural operations",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main driveshaft",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "transmission",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Aircraftowner"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Chualar, California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chualar, California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on August 4, 2013, at 1030 Local time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 4, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10:30 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Bell 206B helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was a low altitude operation/event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low altitude operation/event",
+                    "classification": "Definingevent"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 137 Agricultural operations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CATEGORY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 137: Agricultural operations",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR13LA358.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT NUMBER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR13LA358",
+                    "classification": "Accidentnumber"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter registration was N90146.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N90146",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 206B helicopter sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot suffered minor injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was operating the helicopter at a low altitude.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATION ALTITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low altitude",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot heard a loud boom during flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HEARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loud boom",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot noted a decrease in main rotor rpm after hearing the boom.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ROTOR RPM STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "decrease",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter impacted the ground during the emergency landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency landing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACT SURFACE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tail boom separated from the fuselage during impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAILS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail boom separated from fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter rolled onto its right side after impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POST IMPACT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rolled onto right side",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed the main driveshaft had disconnected.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main driveshaft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "disconnected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The bolts attaching the forward coupling to the transmission had failed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "COMPONENT FAILURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bolts attaching forward coupling failed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Portions of two of the four bolts that attached the forward coupling to the transmission were found.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "RECOVERED PARTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "portions of two of four bolts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fractured threaded remnants with nuts attached were examined.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED PARTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fractured threaded remnants with nuts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "One bolt remnant was fractured through its entire cross-section due to fatigue.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "one bolt fractured through entire cross-section due to fatigue",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Another bolt remnant fractured through about 75% of its cross-section due to fatigue.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another bolt fractured through 75% of cross-section due to fatigue",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The remainder of the failure on the second remnant occurred in overload.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remainder of second bolt failure occurred in overload",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both fracture faces had multiple fatigue origins around about 1/4 of their circumferences.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "both fracture faces had multiple fatigue origins around 1/4 of circumferences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The multiple fatigue origins indicated relatively high stresses.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple fatigue origins indicated high stresses",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No mechanical damage was noted at the fatigue origin locations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no mechanical damage at fatigue origin locations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "One of the remnants displayed smearing of adjacent threads.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "one remnant displayed smearing of adjacent threads",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "One of the remnants displayed decreased height of the nut.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "one remnant displayed decreased nut height",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The smearing and decreased nut height suggested this bolt had a relatively large amount of play.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE ANALYSIS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smearing and decreased nut height suggested large amount of play",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The large amount of play was likely due to improper torqueing of the bolts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transmission",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FAILURE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improper torqueing of bolts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The driveshaft was reinstalled after extensive maintenance about 3 months before the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main driveshaft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3 months before accident",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main driveshaft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reinstalled after extensive maintenance",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The maintenance was performed about 197 flight hours before the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main driveshaft",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "197 flight hours before accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "INVESTIGATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause was maintenance personnel's failure to properly tighten the bolts securing the main driveshaft to the transmission.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maintenance personnel's failure to properly tighten bolts securing main driveshaft to transmission",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The improperly tightened bolts resulted in fatigue failure of the bolts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT CAUSE DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improperly tightened bolts resulted in fatigue failure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fatigue failure led to disconnection of the driveshaft during low-altitude flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT CAUSE DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fatigue failure led to driveshaft disconnection during low-altitude flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::ebae2a60:3148",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87661.md",
+        "file_name": "87661.md",
+        "file_size": 10230,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "96c2f05cf6aed20d7126673faf3677c1e255f9b5d23e0de3be3a5dc815709dbc",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::ebae2a60:3148:cf29f631",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87661.md",
+        "file_name": "87661.md",
+        "file_size": 10230,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "ccd329f2cda9f0cfd8a569352f09b7f292d914b7a0df26092bd1bfb4cfdc779b",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nChualar, California\n\n## Date & Time: \nAugust 4, 2013, 10:30 Local\n\n## Aircraft:\nBell 206B\n\n## Defining Event:\nLow altitude operation/event\n\n## Flight Conducted Under:\nPart 137: Agricultural\n\n## Accident Number:\nWPR13LA358\n\n## Registration:\nN90146\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 Minor\n\n## Analysis\n\nThe pilot stated that he was operating the helicopter at a low altitude when he heard a loud boom and then noted a decrease in main rotor rpm. During the ensuing emergency landing, the helicopter impacted the ground, the tail boom separated from the fuselage, and the helicopter rolled onto its right side. Postaccident examination revealed that the main driveshaft had disconnected and that the bolts attaching the forward coupling to the transmission had failed. Portions of two of the four bolts that attached the forward coupling to the transmission were found, and the fractured threaded remnants (with nuts attached) were examined. One of the remnants was fractured through its entire cross-section due to fatigue, and the other remnant fractured through about 75% of its cross-section due to fatigue; the remainder of the failure on this remnant occurred in overload. Both fracture faces had multiple fatigue origins around about 1/4 of their circumferences, indicating relatively high stresses. No mechanical damage was noted at the fatigue origin locations. One of the remnants displayed smearing of adjacent threads and decreased height of the nut, suggesting this bolt had a relatively large amount of play. It is likely that the large amount of play was due to improper torqueing of the bolts when the driveshaft was reinstalled after extensive maintenance that was performed on the helicopter about 3 months and 197 flight hours before the accident.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\nMaintenance personnel's failure to properly tighten the bolts securing the main driveshaft to the transmission, which resulted in fatigue failure of the bolts and disconnection of the driveshaft during low-altitude flight.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2190,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

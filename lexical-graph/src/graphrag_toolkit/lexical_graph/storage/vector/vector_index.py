@@ -181,3 +181,7 @@ class VectorIndex(BaseModel):
     @abc.abstractmethod
     def enable_for_versioning(self, ids:List[str]=[]) -> List[str]:
         raise NotImplementedError
+    
+    @abc.abstractmethod
+    def delete_embeddings(self, ids:List[str]=[]):
+        raise NotImplementedError

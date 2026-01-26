@@ -1,0 +1,10 @@
+Neptune Serverless Instance Type Information
+
+The serverless instance type is a Neptune Serverless feature.
+Neptune Serverless is a feature that can scale instance size dynamically based on a workload's resource needs.
+Neptune Serverless lets users set lower and upper limits on compute capacity for the instances in their DB cluster.
+Compute capacity in Neptune Serverless is measured in Neptune Capacity Units.
+Neptune Serverless eliminates the need to calculate how many vCPUs are needed for an application.
+Workloads with varying utilization can be cost-optimized by using serverless rather than provisioned instances.
+Users can set up both provisioned and serverless instances in the same DB cluster.
+Setting up both provisioned and serverless instances in the same DB cluster can achieve an optimal cost-performance configuration.

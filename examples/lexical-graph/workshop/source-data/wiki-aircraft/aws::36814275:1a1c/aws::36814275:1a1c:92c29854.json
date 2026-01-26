@@ -1,0 +1,2273 @@
+{
+  "id_": "aws::36814275:1a1c:92c29854",
+  "embedding": [
+    0.05419922,
+    0.0051727295,
+    0.02545166,
+    -0.018203735,
+    0.016479492,
+    -0.005886078,
+    0.016998291,
+    -0.059173584,
+    0.021850586,
+    -0.019546509,
+    -0.05230713,
+    0.022567749,
+    -0.03353882,
+    -0.01751709,
+    0.02923584,
+    -0.02468872,
+    0.029815674,
+    0.020050049,
+    0.03930664,
+    -0.003894806,
+    -0.01676941,
+    0.018966675,
+    0.027359009,
+    0.06964111,
+    0.013366699,
+    0.009002686,
+    -0.058166504,
+    -0.0055274963,
+    0.02128601,
+    -0.010848999,
+    -0.0005569458,
+    0.0015029907,
+    0.022613525,
+    -0.0049057007,
+    -0.0118255615,
+    -0.051239014,
+    -0.0039482117,
+    -0.0126953125,
+    -0.016464233,
+    -0.00030708313,
+    -0.0019760132,
+    0.0062179565,
+    0.06359863,
+    -0.025543213,
+    0.02368164,
+    -0.007255554,
+    -0.002878189,
+    -0.05215454,
+    -0.003818512,
+    0.036590576,
+    0.072143555,
+    -0.02482605,
+    0.06970215,
+    0.05657959,
+    -0.03765869,
+    -0.019897461,
+    0.01701355,
+    0.008529663,
+    0.01184845,
+    -0.024291992,
+    -0.010444641,
+    0.033325195,
+    0.019943237,
+    0.024841309,
+    -0.0047950745,
+    -0.027496338,
+    5.722046e-05,
+    0.023651123,
+    -0.021316528,
+    0.0042915344,
+    0.04675293,
+    -0.008041382,
+    -0.006629944,
+    -0.009887695,
+    -0.026290894,
+    0.018997192,
+    -0.006095886,
+    -0.023406982,
+    0.017349243,
+    0.010871887,
+    0.013938904,
+    0.034088135,
+    -0.024810791,
+    -0.008728027,
+    -0.034118652,
+    -0.042053223,
+    -0.007347107,
+    -0.006134033,
+    0.017486572,
+    -0.0014457703,
+    -0.023239136,
+    0.04977417,
+    0.04534912,
+    -0.021835327,
+    -0.064819336,
+    0.0020217896,
+    -0.012931824,
+    -0.05218506,
+    0.04260254,
+    -0.007904053,
+    0.004623413,
+    -0.02368164,
+    -0.031707764,
+    0.02670288,
+    -0.0041122437,
+    0.023986816,
+    0.026138306,
+    0.0070114136,
+    0.020690918,
+    0.0016269684,
+    -0.022781372,
+    0.060760498,
+    -0.038360596,
+    -0.012413025,
+    -0.004421234,
+    0.046051025,
+    -0.034942627,
+    -0.0050468445,
+    -0.025375366,
+    -0.004180908,
+    0.027374268,
+    0.046936035,
+    -0.0063438416,
+    0.0446167,
+    -0.020736694,
+    0.024429321,
+    0.018478394,
+    -0.061065674,
+    0.0051498413,
+    0.008506775,
+    0.006679535,
+    0.01940918,
+    -0.010025024,
+    0.0045776367,
+    -0.037872314,
+    0.00756073,
+    -0.0074882507,
+    -0.050964355,
+    -0.024780273,
+    0.0022335052,
+    0.022125244,
+    -0.021118164,
+    0.023468018,
+    -0.0076065063,
+    -0.024810791,
+    0.040130615,
+    0.032958984,
+    -0.004295349,
+    -0.032104492,
+    -0.06561279,
+    0.014015198,
+    -0.03375244,
+    0.037750244,
+    -0.00415802,
+    0.03314209,
+    -0.034301758,
+    0.06188965,
+    -0.051513672,
+    0.005104065,
+    -0.035186768,
+    -0.016235352,
+    -0.017593384,
+    0.000869751,
+    -0.012145996,
+    -0.031036377,
+    0.022079468,
+    -0.0049362183,
+    0.005344391,
+    0.010696411,
+    0.052978516,
+    -0.033081055,
+    -0.0018482208,
+    -0.06976318,
+    0.0028152466,
+    -0.0014190674,
+    0.005153656,
+    -0.04321289,
+    0.02885437,
+    0.030731201,
+    -0.008049011,
+    0.024902344,
+    -0.024383545,
+    0.024276733,
+    0.03857422,
+    -0.054992676,
+    0.042663574,
+    -1.2397766e-05,
+    0.0062713623,
+    0.018600464,
+    -0.02053833,
+    0.087524414,
+    0.031280518,
+    -0.010070801,
+    -0.009681702,
+    -0.0033874512,
+    -0.021255493,
+    -0.045776367,
+    -0.00932312,
+    -0.017532349,
+    0.010765076,
+    -0.12243652,
+    0.0032367706,
+    -0.0068244934,
+    0.07574463,
+    0.037994385,
+    -0.007106781,
+    0.010475159,
+    0.0074424744,
+    0.021713257,
+    0.035308838,
+    -0.014259338,
+    -0.017227173,
+    0.0069847107,
+    -0.010017395,
+    -0.024810791,
+    -0.017196655,
+    0.0005788803,
+    0.008636475,
+    -0.0064468384,
+    0.0024147034,
+    -0.0045318604,
+    0.02029419,
+    0.012779236,
+    0.047424316,
+    -0.022842407,
+    0.013374329,
+    -0.052459717,
+    0.014030457,
+    -0.05404663,
+    0.047302246,
+    -0.022262573,
+    0.012161255,
+    0.04397583,
+    0.042236328,
+    -0.010391235,
+    0.010658264,
+    0.050476074,
+    0.007858276,
+    0.016067505,
+    0.011619568,
+    0.017684937,
+    -0.041931152,
+    -0.023849487,
+    0.03262329,
+    -0.03086853,
+    -0.035583496,
+    0.0062026978,
+    0.018066406,
+    -0.04925537,
+    0.0015869141,
+    0.03857422,
+    0.051879883,
+    0.007972717,
+    0.097351074,
+    -0.015396118,
+    0.038146973,
+    0.0002670288,
+    0.042022705,
+    -0.025238037,
+    0.024261475,
+    -0.011642456,
+    -0.023376465,
+    0.00026583672,
+    -0.013679504,
+    -0.015090942,
+    0.012069702,
+    0.008232117,
+    0.0073242188,
+    -0.0058670044,
+    0.0037269592,
+    0.019805908,
+    0.009933472,
+    0.021942139,
+    0.037597656,
+    -0.038879395,
+    0.03604126,
+    0.003320694,
+    -0.036956787,
+    0.031555176,
+    0.0020065308,
+    0.0076408386,
+    0.037841797,
+    0.00040340424,
+    -0.010307312,
+    -0.018310547,
+    -0.07128906,
+    -0.0129776,
+    0.012741089,
+    -0.016021729,
+    -0.006652832,
+    0.012062073,
+    0.037750244,
+    -0.014823914,
+    0.032165527,
+    0.011566162,
+    -0.0053634644,
+    0.04626465,
+    -0.0028076172,
+    0.035705566,
+    -0.02279663,
+    0.035186768,
+    0.048950195,
+    -0.052124023,
+    0.043304443,
+    0.008460999,
+    -0.035217285,
+    0.0045776367,
+    0.00818634,
+    0.0051994324,
+    -0.008979797,
+    -0.04055786,
+    0.034729004,
+    0.002292633,
+    -0.025741577,
+    -0.010528564,
+    -0.0124435425,
+    -0.015686035,
+    -0.0052337646,
+    -0.03363037,
+    -0.036315918,
+    -0.04763794,
+    0.019989014,
+    -0.009643555,
+    0.009529114,
+    0.027374268,
+    -0.004714966,
+    -0.019683838,
+    0.009475708,
+    -0.030151367,
+    -0.0034160614,
+    -0.021911621,
+    -0.01210022,
+    -0.03164673,
+    0.0060195923,
+    -0.007873535,
+    0.011917114,
+    0.02116394,
+    -0.085754395,
+    -0.0038070679,
+    0.0146865845,
+    0.064697266,
+    0.09942627,
+    0.017929077,
+    -0.009918213,
+    0.019195557,
+    -0.0970459,
+    0.03756714,
+    -0.028152466,
+    0.046813965,
+    0.020828247,
+    0.017105103,
+    0.022918701,
+    -0.01878357,
+    -0.0060691833,
+    -0.00018501282,
+    -0.05291748,
+    0.0032730103,
+    0.014434814,
+    -0.029190063,
+    -0.037139893,
+    0.015945435,
+    0.015213013,
+    9.536743e-05,
+    0.028320312,
+    -0.017700195,
+    -0.014823914,
+    -0.015335083,
+    0.032562256,
+    -0.013320923,
+    0.016738892,
+    -0.019638062,
+    -0.0056495667,
+    -0.07977295,
+    -0.0115356445,
+    -0.021118164,
+    0.05154419,
+    0.01424408,
+    -0.04660034,
+    0.041870117,
+    0.01763916,
+    -0.02998352,
+    0.019927979,
+    -0.010398865,
+    0.019714355,
+    0.03668213,
+    0.004585266,
+    -0.017547607,
+    -0.01109314,
+    0.047576904,
+    0.02357483,
+    0.029953003,
+    -0.019882202,
+    -0.041900635,
+    -0.033996582,
+    -0.0008239746,
+    0.014678955,
+    -0.0042419434,
+    -0.04446411,
+    -0.021881104,
+    -0.045715332,
+    -0.10864258,
+    0.0016260147,
+    -0.032562256,
+    -0.01826477,
+    -0.007507324,
+    -0.040740967,
+    -0.043701172,
+    -0.08892822,
+    0.0037155151,
+    -0.021850586,
+    0.012519836,
+    0.011993408,
+    -0.010787964,
+    0.013595581,
+    -0.021820068,
+    -0.057281494,
+    -0.04055786,
+    -0.030334473,
+    -0.00064849854,
+    0.0435791,
+    0.035186768,
+    -0.092285156,
+    -0.03314209,
+    0.019165039,
+    0.027496338,
+    0.017974854,
+    -0.008865356,
+    -0.024536133,
+    -0.03643799,
+    0.0039634705,
+    0.00064086914,
+    -0.009506226,
+    -0.0035533905,
+    -0.014633179,
+    -0.009231567,
+    0.050811768,
+    0.016601562,
+    0.025741577,
+    0.02420044,
+    -0.013092041,
+    -0.005771637,
+    0.0065193176,
+    0.01776123,
+    0.0009994507,
+    -0.0058555603,
+    -0.006538391,
+    -0.002254486,
+    0.003440857,
+    -0.0035896301,
+    -0.00598526,
+    -0.0065689087,
+    0.03363037,
+    -0.008361816,
+    -0.0077819824,
+    -0.017791748,
+    -0.059509277,
+    -0.024124146,
+    0.0032043457,
+    -0.02722168,
+    0.023986816,
+    -0.0010576248,
+    0.015640259,
+    0.0015335083,
+    -0.049682617,
+    0.02557373,
+    -0.0013809204,
+    0.010910034,
+    0.018966675,
+    -0.02633667,
+    0.03555298,
+    0.025115967,
+    -0.047668457,
+    -0.016815186,
+    -0.01777649,
+    0.028717041,
+    -0.011657715,
+    -0.023590088,
+    0.0037612915,
+    0.014839172,
+    -0.0060157776,
+    -0.030960083,
+    -0.0032653809,
+    0.025543213,
+    0.030517578,
+    0.064819336,
+    -0.0077438354,
+    0.038116455,
+    0.053344727,
+    -0.012397766,
+    0.030059814,
+    0.031707764,
+    0.04055786,
+    -0.0037193298,
+    0.06842041,
+    -0.017196655,
+    -0.007736206,
+    0.0031700134,
+    0.004558563,
+    -0.004634857,
+    -0.023666382,
+    -0.036468506,
+    0.008872986,
+    -0.05340576,
+    -0.02949524,
+    -0.009155273,
+    -0.01335907,
+    -0.022003174,
+    0.048736572,
+    0.028030396,
+    -0.0423584,
+    0.009162903,
+    0.02494812,
+    0.015792847,
+    0.040618896,
+    -0.032440186,
+    0.019561768,
+    -0.022521973,
+    0.053588867,
+    -0.039764404,
+    -0.03857422,
+    -0.007648468,
+    0.0034103394,
+    -0.0042495728,
+    0.02418518,
+    0.01247406,
+    0.0028915405,
+    -0.042114258,
+    0.024246216,
+    0.008155823,
+    -0.028793335,
+    -0.030029297,
+    -0.01109314,
+    0.019836426,
+    0.06188965,
+    0.018203735,
+    0.018692017,
+    -0.01020813,
+    0.05444336,
+    -0.021896362,
+    -0.07434082,
+    -0.028549194,
+    0.008041382,
+    0.061706543,
+    -0.030838013,
+    0.00944519,
+    0.0017662048,
+    -0.03475952,
+    -0.0056533813,
+    0.06530762,
+    -0.012802124,
+    -0.02166748,
+    -0.017456055,
+    -0.019088745,
+    -0.034576416,
+    -0.038269043,
+    -0.008972168,
+    0.0008068085,
+    0.016784668,
+    0.00092315674,
+    0.0013198853,
+    -0.04953003,
+    0.0020122528,
+    0.029388428,
+    -0.0053253174,
+    0.030212402,
+    0.039886475,
+    0.014259338,
+    0.0025939941,
+    -0.02658081,
+    0.022583008,
+    -0.02079773,
+    -0.00017356873,
+    0.04284668,
+    -0.02319336,
+    -0.034057617,
+    -0.05984497,
+    0.010643005,
+    0.023162842,
+    -0.018493652,
+    -0.024627686,
+    -0.04446411,
+    0.01625061,
+    0.04714966,
+    0.042663574,
+    0.0027160645,
+    0.01335144,
+    -0.012390137,
+    0.04711914,
+    0.0020389557,
+    -0.01373291,
+    -0.04168701,
+    -0.017288208,
+    0.0234375,
+    0.033721924,
+    0.0006942749,
+    -0.015975952,
+    0.02734375,
+    -0.12719727,
+    -0.045135498,
+    -0.019012451,
+    0.008033752,
+    -0.00623703,
+    -0.0151901245,
+    -0.01020813,
+    0.008224487,
+    0.009407043,
+    0.03805542,
+    -0.016281128,
+    -0.006351471,
+    0.034973145,
+    0.003944397,
+    0.0003042221,
+    -0.02999878,
+    -0.00944519,
+    -0.0065689087,
+    0.03149414,
+    -0.056732178,
+    0.037231445,
+    0.06463623,
+    0.019104004,
+    0.03173828,
+    -0.022232056,
+    0.024871826,
+    0.0107040405,
+    0.04525757,
+    -0.034423828,
+    -0.0713501,
+    -0.004432678,
+    0.0109939575,
+    -2.7298927e-05,
+    0.011039734,
+    -0.00055122375,
+    -0.06890869,
+    -0.085632324,
+    -0.054351807,
+    0.06414795,
+    -0.0042686462,
+    -0.046539307,
+    0.012069702,
+    0.002008438,
+    0.02999878,
+    -0.02381897,
+    -0.04144287,
+    0.02319336,
+    0.02305603,
+    0.0038070679,
+    0.01789856,
+    0.016204834,
+    0.0009174347,
+    0.011665344,
+    -0.0033950806,
+    0.007671356,
+    -0.025375366,
+    -0.068237305,
+    0.022460938,
+    -0.045776367,
+    -0.0524292,
+    0.024124146,
+    0.005470276,
+    -0.0074806213,
+    -0.078308105,
+    0.022079468,
+    0.022277832,
+    -0.009521484,
+    0.011108398,
+    -0.0027217865,
+    0.062469482,
+    0.0056648254,
+    0.028717041,
+    -0.020721436,
+    -0.01977539,
+    0.0077819824,
+    -0.022491455,
+    -0.013069153,
+    -0.029373169,
+    0.038024902,
+    0.0021572113,
+    0.026626587,
+    -0.01725769,
+    0.009384155,
+    0.0039138794,
+    -0.022567749,
+    -0.026794434,
+    0.029388428,
+    -0.023223877,
+    0.029754639,
+    0.018188477,
+    0.0005517006,
+    -0.010574341,
+    0.06951904,
+    -0.03942871,
+    -0.019958496,
+    0.022644043,
+    -0.024047852,
+    -0.06311035,
+    -0.048736572,
+    -0.014579773,
+    -0.062927246,
+    -0.05432129,
+    0.016540527,
+    0.03881836,
+    -0.054748535,
+    0.027618408,
+    -0.0546875,
+    -0.0019416809,
+    0.01966858,
+    -0.070617676,
+    -0.002527237,
+    0.019012451,
+    0.03213501,
+    0.012550354,
+    -0.006134033,
+    -0.0025577545,
+    -0.031051636,
+    0.10369873,
+    0.00932312,
+    0.07751465,
+    0.011177063,
+    -0.020324707,
+    -0.0635376,
+    -0.057861328,
+    -0.038604736,
+    -0.007534027,
+    -0.003921509,
+    0.029403687,
+    -0.0058135986,
+    -0.058898926,
+    -0.04333496,
+    -0.01374054,
+    -0.026321411,
+    -0.02394104,
+    -0.011940002,
+    0.039154053,
+    -0.023513794,
+    -0.058135986,
+    0.00040912628,
+    0.017608643,
+    -0.065979004,
+    -0.06512451,
+    0.007762909,
+    -0.0072631836,
+    0.013687134,
+    -0.007709503,
+    -0.002067566,
+    0.007446289,
+    0.03817749,
+    0.0184021,
+    -0.032318115,
+    0.012840271,
+    0.017425537,
+    0.007083893,
+    -0.011161804,
+    0.022064209,
+    0.0013237,
+    0.020248413,
+    -0.04937744,
+    -0.036895752,
+    -0.012763977,
+    0.042419434,
+    -0.026062012,
+    -0.05142212,
+    0.008964539,
+    -0.0050735474,
+    -0.003742218,
+    0.014305115,
+    -0.009552002,
+    -0.023895264,
+    0.03189087,
+    -0.030426025,
+    0.005340576,
+    0.029342651,
+    0.045837402,
+    0.01361084,
+    0.03125,
+    -0.055786133,
+    -0.03274536,
+    -0.007820129,
+    0.0008430481,
+    -0.011962891,
+    -0.0090789795,
+    -0.0029144287,
+    0.016525269,
+    -0.0040245056,
+    -0.001039505,
+    -0.06512451,
+    0.041870117,
+    -0.002193451,
+    0.076171875,
+    -0.064208984,
+    0.0077781677,
+    -0.013046265,
+    0.052459717,
+    0.025009155,
+    -0.019363403,
+    0.028198242,
+    0.015197754,
+    -0.015457153,
+    -0.02670288,
+    -0.05038452,
+    -0.018707275,
+    0.009994507,
+    -0.03262329,
+    -0.048309326,
+    -0.02734375,
+    -0.03427124,
+    0.022506714,
+    -0.011413574,
+    -0.00025367737,
+    -0.019866943,
+    0.012969971,
+    -0.009178162,
+    -0.01977539,
+    0.030395508,
+    -0.057769775,
+    0.0211792,
+    -0.019088745,
+    -0.0993042,
+    -0.050720215,
+    0.020233154,
+    0.024261475,
+    0.035827637,
+    0.041931152,
+    0.021759033,
+    -0.0028591156,
+    -0.001750946,
+    0.023712158,
+    0.021865845,
+    -0.044708252,
+    0.006214142,
+    -0.027633667,
+    0.024261475,
+    -0.0143585205,
+    -0.03668213,
+    -0.007843018,
+    0.00020503998,
+    -0.01576233,
+    0.018493652,
+    -0.030426025,
+    0.044006348,
+    0.013214111,
+    -0.051849365,
+    -0.0104522705,
+    -0.020721436,
+    -0.015266418,
+    -0.01096344,
+    0.03753662,
+    -0.02357483,
+    -0.016174316,
+    -0.031402588,
+    0.04333496,
+    0.013938904,
+    -0.016906738,
+    0.039031982,
+    -0.039245605,
+    0.01184082,
+    -0.01663208,
+    0.027420044,
+    0.001411438,
+    -0.03353882,
+    0.02859497,
+    0.049865723,
+    0.009719849,
+    0.06994629,
+    -0.029663086,
+    -0.05618286,
+    0.060668945,
+    -0.054779053,
+    0.005531311,
+    0.041748047,
+    0.03488159,
+    0.03225708,
+    0.06970215,
+    -0.010658264,
+    -0.027435303,
+    -0.019012451,
+    -0.042236328,
+    0.016998291,
+    -0.015930176,
+    -0.03265381,
+    0.011260986,
+    -0.05166626,
+    -0.027877808,
+    -0.028137207,
+    -0.03543091,
+    -0.021240234,
+    -0.01979065,
+    -0.02734375,
+    0.026885986,
+    0.021820068,
+    -0.0020828247,
+    -0.02267456,
+    0.01335144,
+    0.03100586,
+    -0.00017511845,
+    0.052490234,
+    -0.010772705,
+    0.0058288574,
+    0.013717651,
+    -0.020141602,
+    -0.0025100708,
+    0.0126571655,
+    -0.028259277,
+    -0.011192322,
+    -0.015602112,
+    0.01878357,
+    0.0126571655,
+    0.024749756,
+    -0.020904541,
+    0.04397583,
+    0.01109314,
+    -0.0090789795,
+    0.056274414,
+    -0.026672363,
+    0.005783081,
+    0.017120361,
+    -0.011268616,
+    -0.040130615,
+    -0.027297974,
+    -0.012321472,
+    0.0071640015,
+    -0.038757324,
+    -0.008628845,
+    -0.027069092,
+    -0.0075263977,
+    0.06616211,
+    0.03668213,
+    -0.0335083,
+    -0.09503174,
+    0.01651001,
+    -0.012191772,
+    0.0065307617,
+    -0.0062561035,
+    0.023132324,
+    0.02331543,
+    0.030883789,
+    -0.017929077,
+    0.021942139,
+    0.009674072,
+    -0.043273926,
+    0.040527344,
+    0.018676758,
+    -0.007080078,
+    0.044921875,
+    0.02381897,
+    0.0317688,
+    -0.013412476,
+    0.045074463,
+    0.03010559,
+    -0.052856445,
+    0.015571594,
+    -0.004081726,
+    0.02885437,
+    -0.00020217896,
+    -0.018569946,
+    -0.0074386597,
+    0.0024375916,
+    -0.060791016,
+    -0.06085205,
+    -0.020263672,
+    0.04425049,
+    0.0066375732,
+    -0.043151855,
+    -0.004966736,
+    -0.005771637,
+    0.00592041,
+    0.00064086914,
+    -0.008651733,
+    -0.013977051,
+    0.047424316,
+    0.0067253113,
+    -0.0473938,
+    0.0022239685,
+    0.003856659,
+    -0.01991272,
+    -0.017700195,
+    -0.023880005,
+    -0.0068740845,
+    0.012992859,
+    0.013442993,
+    -0.006752014,
+    -0.00039172173,
+    0.035888672,
+    -0.010025024,
+    -0.021331787,
+    0.028137207,
+    -0.06896973,
+    0.0021305084,
+    -0.05731201,
+    -0.008369446,
+    -0.0115737915,
+    -0.103515625,
+    0.005065918,
+    0.0146865845,
+    -0.01260376,
+    -0.008071899,
+    -0.005126953,
+    0.024734497,
+    -0.0103302,
+    0.017105103,
+    -0.03060913,
+    -0.014099121,
+    0.021072388,
+    0.041931152,
+    0.026260376,
+    -0.051635742,
+    0.0040283203,
+    0.025848389,
+    -0.03010559,
+    -0.017623901,
+    -0.054534912,
+    -0.043182373,
+    0.01197052,
+    -0.026550293,
+    0.0073623657,
+    0.030303955,
+    -0.013710022,
+    0.018493652,
+    -0.011184692,
+    0.0069770813,
+    -0.0042266846,
+    0.0069274902,
+    0.06591797,
+    -0.024093628,
+    0.013519287
+  ],
+  "metadata": {
+    "title": "Bell 47",
+    "original_title": "Bell 47",
+    "wikipedia_id": "1712686",
+    "url": "https://en.wikipedia.org/wiki/Bell_47",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "Bell 47 Helicopter Static Displays",
+      "Bell 47D1 is on static display at the Tellus Science Museum in Cartersville, Georgia.",
+      "Bell 47D1 is identified as number 82.",
+      "N996B is a Bell 47H-1 helicopter.",
+      "N996B is on static display at the Niagara Aerospace Museum in Niagara Falls, New York.",
+      "N8010E is a Bell 47H helicopter.",
+      "N8010E is on static display at the American Helicopter Museum & Education Center in West Chester, Pennsylvania.",
+      "A Bell 47D-1 helicopter is on static display at the American Helicopter Museum & Education Center in West Chester, Pennsylvania.",
+      "The Bell 47D-1 at the American Helicopter Museum & Education Center has been converted to an H-13.",
+      "The Bell 47D-1 at the American Helicopter Museum & Education Center is painted in MASH configuration.",
+      "The Bell 47D-1 at the American Helicopter Museum & Education Center has an unknown identification number.",
+      "A Bell 47D-1 helicopter is on static display at the Museum of Modern Art in New York, New York.",
+      "The Bell 47D-1 at the Museum of Modern Art has an unknown identification number.",
+      "A Bell 47 helicopter is on static display at the Lawrence D. Bell Aircraft Museum in Mentone, Indiana.",
+      "The Bell 47 at the Lawrence D. Bell Aircraft Museum has an unknown identification number.",
+      "A Bell 47 helicopter is on static display at Omaha's Henry Doorly Zoo and Aquarium in Omaha, Nebraska.",
+      "The Bell 47 at Omaha's Henry Doorly Zoo and Aquarium is climbable.",
+      "The Bell 47 at Omaha's Henry Doorly Zoo and Aquarium has an unknown identification number."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Bell 47 Helicopter Static Displays",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 47D1",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Tellus Science Museum",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cartersville, Georgia",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N996B",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 47H-1",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Niagara Aerospace Museum",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Niagara Falls, New York",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N8010E",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 47H",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "American Helicopter Museum & Education Center",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "West Chester, Pennsylvania",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 47D-1",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "H-13",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Museum of Modern Art",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "New York, New York",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 47",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Lawrence D. Bell Aircraft Museum",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mentone, Indiana",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Omaha's Henry Doorly Zoo and Aquarium",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Omaha, Nebraska",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Bell 47D1 is on static display at the Tellus Science Museum in Cartersville, Georgia.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tellus Science Museum",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tellus Science Museum",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cartersville, Georgia",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static display",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Bell 47D1 is identified as number 82.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFICATION NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "82",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N996B is a Bell 47H-1 helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N996B",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47H-1",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47H-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N996B is on static display at the Niagara Aerospace Museum in Niagara Falls, New York.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N996B",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Niagara Aerospace Museum",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Niagara Aerospace Museum",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Niagara Falls, New York",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N996B",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static display",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N8010E is a Bell 47H helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N8010E",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47H",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47H",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N8010E is on static display at the American Helicopter Museum & Education Center in West Chester, Pennsylvania.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N8010E",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American Helicopter Museum & Education Center",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American Helicopter Museum & Education Center",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "West Chester, Pennsylvania",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N8010E",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static display",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Bell 47D-1 helicopter is on static display at the American Helicopter Museum & Education Center in West Chester, Pennsylvania.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American Helicopter Museum & Education Center",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American Helicopter Museum & Education Center",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "West Chester, Pennsylvania",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static display",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 47D-1 at the American Helicopter Museum & Education Center has been converted to an H-13.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CONVERTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "H-13",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American Helicopter Museum & Education Center",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 47D-1 at the American Helicopter Museum & Education Center is painted in MASH configuration.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American Helicopter Museum & Education Center",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CONFIGURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MASH configuration",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 47D-1 at the American Helicopter Museum & Education Center has an unknown identification number.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American Helicopter Museum & Education Center",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFICATION NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Bell 47D-1 helicopter is on static display at the Museum of Modern Art in New York, New York.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Museum of Modern Art",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Museum of Modern Art",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "New York, New York",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static display",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 47D-1 at the Museum of Modern Art has an unknown identification number.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Museum of Modern Art",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47D-1",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFICATION NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Bell 47 helicopter is on static display at the Lawrence D. Bell Aircraft Museum in Mentone, Indiana.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Lawrence D. Bell Aircraft Museum",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Lawrence D. Bell Aircraft Museum",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mentone, Indiana",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static display",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 47 at the Lawrence D. Bell Aircraft Museum has an unknown identification number.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Lawrence D. Bell Aircraft Museum",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFICATION NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Bell 47 helicopter is on static display at Omaha's Henry Doorly Zoo and Aquarium in Omaha, Nebraska.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Omaha's Henry Doorly Zoo and Aquarium",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Omaha's Henry Doorly Zoo and Aquarium",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Omaha, Nebraska",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "static display",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 47 at Omaha's Henry Doorly Zoo and Aquarium is climbable.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Omaha's Henry Doorly Zoo and Aquarium",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FEATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "climbable",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell 47 at Omaha's Henry Doorly Zoo and Aquarium has an unknown identification number.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Omaha's Henry Doorly Zoo and Aquarium",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 47",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFICATION NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::36814275:1a1c",
+      "node_type": "4",
+      "metadata": {
+        "title": "Bell 47",
+        "original_title": "Bell 47",
+        "wikipedia_id": "1712686",
+        "url": "https://en.wikipedia.org/wiki/Bell_47"
+      },
+      "hash": "2f7626534e66d025eea6ec809cc347bdf6981576f9daad7b8c151d15307cdeaa",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::36814275:1a1c:00266593",
+      "node_type": "1",
+      "metadata": {
+        "title": "Bell 47",
+        "original_title": "Bell 47",
+        "wikipedia_id": "1712686",
+        "url": "https://en.wikipedia.org/wiki/Bell_47",
+        "header_path": "/"
+      },
+      "hash": "bbd5680373eebf730aa8dbaf81863ee2a30b3c32607bcb1cf69a20d5991dd90c",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::36814275:1a1c:3b256f6e",
+      "node_type": "1",
+      "metadata": {
+        "title": "Bell 47",
+        "original_title": "Bell 47",
+        "wikipedia_id": "1712686",
+        "url": "https://en.wikipedia.org/wiki/Bell_47",
+        "header_path": "/"
+      },
+      "hash": "fe18d0a4573070c0c227a9ad1eacc3927f02f5c4c068267052b753db55e3d5eb",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "82 – Bell 47D1 on static display at the Tellus Science Museum in Cartersville, Georgia.\nN996B – Bell 47H-1 on static display at the Niagara Aerospace Museum in Niagara Falls, New York.\nN8010E – Bell 47H on static display at the American Helicopter Museum & Education Center in West Chester, Pennsylvania.\nUnknown ID – On static display at the American Helicopter Museum & Education Center in West Chester, Pennsylvania. It is a Bell 47D-1 that has converted to an H-13 and painted in MASH configuration.\nUnknown ID – Bell 47D-1 on static display at the Museum of Modern Art in New York, New York.\nUnknown ID – Bell 47 on static display at the Lawrence D. Bell Aircraft Museum in Mentone, Indiana.\nUnknown ID – Bell 47 on static, climbable display at the Omaha's Henry Doorly Zoo and Aquarium in Omaha, Nebraska.",
+  "mimetype": "text/plain",
+  "start_char_idx": 2885,
+  "end_char_idx": 3696,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

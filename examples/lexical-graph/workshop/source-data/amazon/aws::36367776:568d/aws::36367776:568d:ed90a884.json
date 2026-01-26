@@ -1,0 +1,2184 @@
+{
+  "id_": "aws::36367776:568d:ed90a884",
+  "embedding": [
+    -0.010658264,
+    -0.004673004,
+    0.012458801,
+    0.015716553,
+    -0.038848877,
+    -0.007167816,
+    -0.030807495,
+    -0.035461426,
+    -0.015068054,
+    0.04522705,
+    0.004901886,
+    0.022750854,
+    0.041046143,
+    -0.04168701,
+    0.022155762,
+    0.0099105835,
+    0.040252686,
+    0.035705566,
+    0.055480957,
+    -0.0027809143,
+    0.0061035156,
+    0.04623413,
+    -0.0032463074,
+    0.08959961,
+    -0.026351929,
+    0.023925781,
+    -0.0115356445,
+    -0.008651733,
+    -0.073791504,
+    -0.05947876,
+    -0.027404785,
+    0.10638428,
+    -0.0063095093,
+    0.028289795,
+    -0.014633179,
+    -0.070129395,
+    0.007194519,
+    0.0016622543,
+    -0.008491516,
+    0.014335632,
+    0.0054244995,
+    0.005897522,
+    0.10223389,
+    -0.038757324,
+    0.030960083,
+    0.012496948,
+    -0.0064353943,
+    -0.06628418,
+    0.012123108,
+    0.014099121,
+    -0.011917114,
+    0.005947113,
+    -0.019714355,
+    0.010185242,
+    -0.005207062,
+    -0.03488159,
+    -0.02204895,
+    0.0010709763,
+    0.017044067,
+    -0.0058021545,
+    0.0035629272,
+    0.015731812,
+    0.021087646,
+    0.03366089,
+    0.009506226,
+    -0.042053223,
+    0.009391785,
+    0.009552002,
+    -0.019165039,
+    0.013130188,
+    0.062927246,
+    -0.0051002502,
+    0.015579224,
+    -0.027328491,
+    -0.008125305,
+    -0.03616333,
+    -0.0126571655,
+    -0.04156494,
+    0.019073486,
+    0.005054474,
+    -0.0011844635,
+    0.021469116,
+    0.04815674,
+    -0.055999756,
+    0.040740967,
+    -0.008163452,
+    -0.01966858,
+    -0.010063171,
+    -0.025909424,
+    -0.007865906,
+    0.0046081543,
+    -0.057769775,
+    -0.033721924,
+    0.050811768,
+    0.032714844,
+    -0.042266846,
+    -0.047576904,
+    -0.059020996,
+    0.00034713745,
+    0.021469116,
+    0.008956909,
+    -0.01876831,
+    0.037506104,
+    -0.018096924,
+    0.0075645447,
+    -0.006011963,
+    0.0065193176,
+    -0.041900635,
+    0.03466797,
+    0.019515991,
+    -0.034118652,
+    0.076660156,
+    0.008850098,
+    -0.016082764,
+    -0.014137268,
+    0.006942749,
+    -0.022857666,
+    0.02607727,
+    -0.008300781,
+    0.027130127,
+    -0.015838623,
+    -0.006755829,
+    -0.061828613,
+    0.021392822,
+    0.04626465,
+    -0.01084137,
+    -0.027420044,
+    0.07537842,
+    -0.022659302,
+    -0.032318115,
+    -0.023345947,
+    0.055755615,
+    -0.029312134,
+    -0.01348114,
+    -0.021408081,
+    -0.0001565218,
+    0.026565552,
+    0.039001465,
+    -0.0010356903,
+    0.01739502,
+    0.036468506,
+    -0.03286743,
+    -0.017562866,
+    0.04046631,
+    0.035461426,
+    -0.03994751,
+    0.029312134,
+    0.04626465,
+    0.0028743744,
+    0.03173828,
+    -0.004802704,
+    0.05871582,
+    0.006855011,
+    -0.007709503,
+    0.039611816,
+    -0.011489868,
+    0.023986816,
+    -0.016494751,
+    0.0077438354,
+    -0.014595032,
+    -0.011474609,
+    -0.022338867,
+    -0.025726318,
+    0.04498291,
+    0.0063476562,
+    0.050994873,
+    0.05078125,
+    0.013206482,
+    0.004005432,
+    0.0046806335,
+    -0.025848389,
+    0.0028095245,
+    0.01524353,
+    -0.027740479,
+    -0.021606445,
+    0.0043296814,
+    -0.009651184,
+    0.034088135,
+    0.01210022,
+    -0.032562256,
+    -0.005466461,
+    -0.044647217,
+    0.025970459,
+    -0.0008907318,
+    -0.022079468,
+    0.0050735474,
+    -0.0032367706,
+    0.025787354,
+    0.04510498,
+    0.005050659,
+    0.020889282,
+    -0.018737793,
+    -0.040649414,
+    -0.03378296,
+    -0.004436493,
+    0.00340271,
+    0.008857727,
+    5.8233738e-05,
+    -0.005882263,
+    0.013511658,
+    -0.0095825195,
+    0.0045700073,
+    -0.02230835,
+    -0.0012245178,
+    0.028015137,
+    -0.048706055,
+    0.021102905,
+    -0.004360199,
+    -0.025497437,
+    0.005039215,
+    0.01789856,
+    -0.042388916,
+    0.018722534,
+    -0.06274414,
+    -0.027267456,
+    0.0064315796,
+    0.00014352798,
+    -0.012237549,
+    0.008644104,
+    0.011817932,
+    0.0028972626,
+    0.038085938,
+    -0.016677856,
+    0.011886597,
+    0.032562256,
+    0.0006084442,
+    -0.0019359589,
+    -0.01159668,
+    0.0770874,
+    0.016845703,
+    0.030136108,
+    -0.022247314,
+    -0.014167786,
+    0.03692627,
+    -0.01600647,
+    0.016342163,
+    0.03955078,
+    0.033569336,
+    0.00022888184,
+    -0.013786316,
+    0.030197144,
+    -0.03781128,
+    -0.030670166,
+    -0.019332886,
+    -0.0435791,
+    -0.06896973,
+    0.004261017,
+    -0.01940918,
+    0.0127334595,
+    0.08068848,
+    0.028640747,
+    0.015289307,
+    -0.025665283,
+    -0.010002136,
+    -0.007911682,
+    0.007881165,
+    0.023483276,
+    0.027832031,
+    -0.014801025,
+    0.024597168,
+    -0.010231018,
+    0.040863037,
+    -0.005645752,
+    0.0149002075,
+    -0.03945923,
+    -0.04083252,
+    -0.021255493,
+    -0.010147095,
+    0.0035037994,
+    -0.040924072,
+    0.034423828,
+    0.005428314,
+    -0.006210327,
+    -0.014930725,
+    -0.0021629333,
+    -0.034179688,
+    -0.011558533,
+    0.022506714,
+    -0.016189575,
+    -0.019958496,
+    -0.009941101,
+    -0.0082092285,
+    0.00010830164,
+    -0.011222839,
+    0.033355713,
+    -0.017333984,
+    -0.0069274902,
+    -0.020111084,
+    0.030578613,
+    0.037475586,
+    0.062347412,
+    -0.008071899,
+    -0.009315491,
+    0.012893677,
+    0.023101807,
+    -0.023208618,
+    -0.052825928,
+    -0.03173828,
+    0.033935547,
+    -0.040618896,
+    0.021148682,
+    0.066711426,
+    -0.029190063,
+    0.04586792,
+    0.02015686,
+    -0.010002136,
+    0.015220642,
+    0.014305115,
+    0.011299133,
+    0.0077667236,
+    -0.017074585,
+    0.044677734,
+    0.011077881,
+    -0.04989624,
+    -0.0072669983,
+    0.0060768127,
+    -0.05065918,
+    -0.0032749176,
+    -0.031463623,
+    0.03729248,
+    0.01979065,
+    0.011367798,
+    0.029129028,
+    -0.014167786,
+    0.014762878,
+    -0.04260254,
+    -0.014823914,
+    -0.0068893433,
+    -0.059570312,
+    -0.0071868896,
+    -0.039245605,
+    -0.035369873,
+    -0.026443481,
+    0.086364746,
+    -0.0027713776,
+    0.023513794,
+    0.0070610046,
+    -0.062561035,
+    -0.03567505,
+    0.0008215904,
+    -0.01701355,
+    0.016067505,
+    0.0209198,
+    -0.047302246,
+    0.012054443,
+    -0.03363037,
+    0.027755737,
+    0.009017944,
+    0.022064209,
+    0.017410278,
+    -0.008201599,
+    -0.021652222,
+    0.036102295,
+    0.013008118,
+    0.023788452,
+    -0.07714844,
+    -0.05596924,
+    -0.0038642883,
+    -0.061340332,
+    -0.06964111,
+    0.011741638,
+    0.014984131,
+    -0.007331848,
+    -0.031066895,
+    -0.028213501,
+    -0.023010254,
+    -0.011497498,
+    0.01209259,
+    -0.02331543,
+    -0.0014858246,
+    -0.03765869,
+    -0.027938843,
+    0.014518738,
+    -0.009490967,
+    0.0065994263,
+    0.038208008,
+    0.007549286,
+    -0.031463623,
+    -0.00054073334,
+    -0.019119263,
+    -0.0034656525,
+    0.00459671,
+    0.016204834,
+    0.011520386,
+    0.032806396,
+    0.010063171,
+    -0.013282776,
+    0.034057617,
+    0.0048942566,
+    0.002784729,
+    -0.016983032,
+    0.016174316,
+    0.037963867,
+    -0.008888245,
+    -0.01612854,
+    -0.032806396,
+    -0.03253174,
+    0.020065308,
+    -0.070129395,
+    0.017913818,
+    0.05596924,
+    -0.01739502,
+    0.0020961761,
+    -0.026870728,
+    0.035125732,
+    -0.09234619,
+    0.050628662,
+    0.0023040771,
+    -0.0005712509,
+    0.048614502,
+    -0.009361267,
+    0.006549835,
+    -0.037384033,
+    0.028549194,
+    0.0018138885,
+    -0.016342163,
+    -0.028030396,
+    0.0035381317,
+    0.02748108,
+    -0.027450562,
+    -0.021697998,
+    0.016647339,
+    -0.014381409,
+    0.023727417,
+    0.005126953,
+    0.0059890747,
+    -0.00969696,
+    -0.01626587,
+    0.009651184,
+    0.0022125244,
+    -0.0025234222,
+    -0.0014162064,
+    -0.010147095,
+    0.02178955,
+    0.0031490326,
+    0.008651733,
+    -0.012954712,
+    -0.057556152,
+    0.024993896,
+    -0.03753662,
+    -0.00894928,
+    0.012161255,
+    0.0008163452,
+    0.03152466,
+    -0.007881165,
+    -0.01222229,
+    -0.011436462,
+    -0.01953125,
+    0.039916992,
+    0.05505371,
+    -0.008003235,
+    -0.017684937,
+    0.004638672,
+    0.012016296,
+    -0.05581665,
+    0.02619934,
+    0.001159668,
+    0.02394104,
+    0.020492554,
+    0.02456665,
+    0.049346924,
+    0.016159058,
+    -0.059417725,
+    0.028427124,
+    0.03338623,
+    0.015930176,
+    -0.04510498,
+    0.012519836,
+    -0.016494751,
+    0.007762909,
+    0.0513916,
+    -0.02142334,
+    -0.022476196,
+    0.0049858093,
+    -0.037506104,
+    -0.00018537045,
+    0.060943604,
+    -0.007472992,
+    0.04486084,
+    -0.023025513,
+    -0.036376953,
+    0.022949219,
+    -0.07305908,
+    0.03643799,
+    -0.013313293,
+    0.009635925,
+    -0.003786087,
+    0.013404846,
+    0.00051403046,
+    0.042755127,
+    0.04284668,
+    -0.0138549805,
+    0.009727478,
+    0.046813965,
+    -0.022613525,
+    0.012039185,
+    -0.007621765,
+    0.053527832,
+    0.031921387,
+    -0.014541626,
+    0.010284424,
+    -0.015823364,
+    -0.019683838,
+    -0.023712158,
+    -0.022720337,
+    0.042755127,
+    0.052490234,
+    -0.013442993,
+    0.004776001,
+    -0.046844482,
+    0.03643799,
+    -0.055786133,
+    0.014083862,
+    0.00032377243,
+    -0.008270264,
+    -0.035614014,
+    0.040252686,
+    0.03930664,
+    -0.01977539,
+    -0.0093688965,
+    0.021865845,
+    0.054473877,
+    -0.019424438,
+    -0.0025615692,
+    0.066223145,
+    -0.02696228,
+    -0.02168274,
+    0.018096924,
+    0.008728027,
+    -0.026123047,
+    -0.022872925,
+    -0.006958008,
+    -0.02519226,
+    0.021453857,
+    0.042236328,
+    0.019729614,
+    -0.026290894,
+    -0.0074920654,
+    0.017242432,
+    0.015129089,
+    -0.00617218,
+    -0.013412476,
+    0.0025615692,
+    0.03869629,
+    -0.009559631,
+    -0.03817749,
+    -0.04537964,
+    0.016601562,
+    -0.029373169,
+    0.0015077591,
+    0.0011940002,
+    -0.015586853,
+    -0.00041508675,
+    -0.02671814,
+    -0.01576233,
+    -0.019378662,
+    0.008010864,
+    -0.004234314,
+    -0.013587952,
+    0.008850098,
+    0.023620605,
+    -0.0015449524,
+    0.0027980804,
+    -0.016479492,
+    -0.008598328,
+    0.031921387,
+    -0.06097412,
+    -0.08148193,
+    0.028427124,
+    -0.04083252,
+    -0.01852417,
+    -0.02268982,
+    0.02911377,
+    0.0006532669,
+    0.004787445,
+    0.0026988983,
+    0.03704834,
+    0.057434082,
+    -0.013809204,
+    -0.04937744,
+    -0.0018005371,
+    -0.021209717,
+    0.026107788,
+    0.08892822,
+    -0.023513794,
+    0.004234314,
+    0.001663208,
+    -0.0031661987,
+    -0.030807495,
+    -0.037750244,
+    0.016952515,
+    -0.012458801,
+    -0.03414917,
+    -0.03463745,
+    0.04232788,
+    0.025405884,
+    0.05935669,
+    0.014595032,
+    0.0035991669,
+    0.023422241,
+    0.0064353943,
+    -0.021026611,
+    -0.0018320084,
+    -0.0077819824,
+    0.012916565,
+    -0.024291992,
+    -0.004032135,
+    -0.013130188,
+    0.049926758,
+    0.026626587,
+    -0.020706177,
+    -0.058563232,
+    -0.019119263,
+    0.059448242,
+    -0.006122589,
+    -0.037200928,
+    0.02432251,
+    -0.0035533905,
+    -0.014450073,
+    -0.03665161,
+    0.006126404,
+    0.009803772,
+    0.012611389,
+    -0.004917145,
+    0.0036201477,
+    -0.0151901245,
+    -0.004840851,
+    -0.018127441,
+    -0.006641388,
+    0.032562256,
+    -0.012573242,
+    0.010429382,
+    -0.070495605,
+    -0.13439941,
+    -0.047973633,
+    0.12841797,
+    -0.0034332275,
+    -0.0041885376,
+    0.0066452026,
+    -0.036376953,
+    0.021560669,
+    -0.006046295,
+    -0.012893677,
+    -0.01826477,
+    -0.017669678,
+    -0.015487671,
+    -0.0099487305,
+    -0.0019741058,
+    -0.023635864,
+    0.0044059753,
+    0.02104187,
+    0.016983032,
+    0.038604736,
+    0.0048942566,
+    -0.054107666,
+    0.045654297,
+    -0.030700684,
+    -0.004142761,
+    0.021438599,
+    -0.031921387,
+    -0.060150146,
+    0.0112838745,
+    -0.03086853,
+    0.0077705383,
+    -0.0020961761,
+    0.015808105,
+    -0.042144775,
+    0.051086426,
+    -0.048919678,
+    0.026565552,
+    0.041778564,
+    -0.08477783,
+    0.0034446716,
+    -0.0031204224,
+    0.00017464161,
+    0.012916565,
+    0.005596161,
+    0.009025574,
+    -0.031463623,
+    0.0128479,
+    -0.0036678314,
+    0.050933838,
+    0.0960083,
+    -0.008811951,
+    -0.051635742,
+    0.029754639,
+    -0.053894043,
+    -0.011779785,
+    0.02015686,
+    0.044433594,
+    -0.04953003,
+    -0.05126953,
+    0.02079773,
+    -0.034088135,
+    -0.031021118,
+    0.0023708344,
+    0.014465332,
+    0.029663086,
+    -0.042755127,
+    -0.053009033,
+    0.0025634766,
+    0.045288086,
+    0.0031700134,
+    0.032470703,
+    -0.014434814,
+    0.035186768,
+    0.031463623,
+    -0.014389038,
+    -0.039367676,
+    -0.0061073303,
+    -0.02923584,
+    0.018600464,
+    0.007335663,
+    0.009376526,
+    -0.03475952,
+    -0.06329346,
+    -0.0692749,
+    -0.018066406,
+    -0.04119873,
+    0.0647583,
+    0.014053345,
+    0.03878784,
+    -0.00077819824,
+    -0.013023376,
+    0.013572693,
+    -0.013412476,
+    -0.03857422,
+    0.041900635,
+    0.001074791,
+    0.012229919,
+    0.026519775,
+    -0.010803223,
+    0.006462097,
+    0.009864807,
+    -0.011657715,
+    0.027679443,
+    0.026351929,
+    -0.022094727,
+    -0.05545044,
+    0.016464233,
+    -0.015464783,
+    0.0077667236,
+    0.0031490326,
+    -0.023864746,
+    -0.005859375,
+    0.074401855,
+    0.025039673,
+    0.016921997,
+    0.046966553,
+    0.0138549805,
+    0.016189575,
+    0.018249512,
+    0.026443481,
+    -0.008552551,
+    -0.008811951,
+    -0.039489746,
+    0.036499023,
+    0.036712646,
+    0.02734375,
+    -0.044952393,
+    -0.06793213,
+    0.024505615,
+    0.0317688,
+    0.0048217773,
+    0.058746338,
+    0.054534912,
+    -0.019332886,
+    0.046966553,
+    0.02772522,
+    0.016555786,
+    -0.0012464523,
+    -0.013618469,
+    0.003019333,
+    0.039245605,
+    -0.02658081,
+    0.044647217,
+    -0.01210022,
+    -0.014266968,
+    -0.005558014,
+    0.054229736,
+    0.027267456,
+    0.04257202,
+    -0.038513184,
+    -0.022018433,
+    0.014533997,
+    0.032714844,
+    0.080078125,
+    -0.044921875,
+    0.05038452,
+    0.0041007996,
+    0.040130615,
+    -0.014022827,
+    -0.009094238,
+    -0.040924072,
+    -0.024139404,
+    0.012817383,
+    0.021591187,
+    -0.01687622,
+    -0.046875,
+    -0.005973816,
+    -0.049041748,
+    -0.0054855347,
+    -0.058807373,
+    0.018112183,
+    -0.011512756,
+    0.04547119,
+    -0.0017986298,
+    0.016189575,
+    -0.034210205,
+    -0.0013895035,
+    -0.0029735565,
+    -0.049591064,
+    0.012763977,
+    0.018798828,
+    0.045043945,
+    -0.0026016235,
+    -0.06286621,
+    -0.04260254,
+    0.026290894,
+    0.01637268,
+    0.029754639,
+    0.044708252,
+    -0.004627228,
+    0.02696228,
+    -0.01159668,
+    -0.015182495,
+    -0.03414917,
+    0.038024902,
+    0.0075569153,
+    0.042633057,
+    0.0158844,
+    0.007160187,
+    0.041137695,
+    0.034576416,
+    0.08068848,
+    -0.015365601,
+    -0.005340576,
+    -0.024765015,
+    0.018096924,
+    -0.0003809929,
+    0.023406982,
+    0.0031738281,
+    0.02960205,
+    0.02444458,
+    -0.02784729,
+    0.024459839,
+    0.046447754,
+    -0.034057617,
+    0.06762695,
+    -0.001750946,
+    0.06274414,
+    -0.10003662,
+    -0.031951904,
+    0.027923584,
+    0.004211426,
+    -0.07519531,
+    -0.020477295,
+    -0.047698975,
+    -0.026184082,
+    0.044036865,
+    0.0039596558,
+    -0.053955078,
+    -0.0519104,
+    0.045196533,
+    0.01689148,
+    0.011558533,
+    0.041900635,
+    -0.0020942688,
+    0.04067993,
+    -0.046936035,
+    0.010749817,
+    -0.012802124,
+    0.01398468,
+    0.016159058,
+    -0.0033950806,
+    0.034179688,
+    0.018615723,
+    0.009918213,
+    0.019439697,
+    0.045562744,
+    -0.0055274963,
+    0.0063591003,
+    -0.027267456,
+    -0.08605957,
+    -0.030944824,
+    0.07635498,
+    -0.016799927,
+    0.005748749,
+    0.02229309,
+    0.0020198822,
+    0.0014104843,
+    -0.018875122,
+    0.002374649,
+    0.024642944,
+    0.013900757,
+    0.013412476,
+    -0.05984497,
+    0.034729004,
+    -0.019622803,
+    0.012313843,
+    -0.054260254,
+    -0.008598328,
+    0.01259613,
+    -0.012428284,
+    -0.016143799,
+    -0.016708374,
+    -0.037994385,
+    0.013000488,
+    -0.018341064,
+    -0.034332275,
+    0.051361084,
+    0.019683838,
+    -0.016479492,
+    -0.005908966,
+    -0.0031318665,
+    0.04043579,
+    -0.041107178,
+    -0.0069770813,
+    0.01234436,
+    0.034851074,
+    -0.013015747,
+    0.006641388,
+    -0.00058317184,
+    -0.0067253113,
+    0.046051025,
+    0.010444641,
+    0.03427124,
+    -0.04324341,
+    -0.055023193,
+    0.007385254,
+    -0.008346558,
+    -0.0016326904,
+    0.06970215,
+    0.043060303,
+    0.023239136,
+    0.020874023,
+    -0.024993896,
+    -0.007133484,
+    -0.0178833,
+    -0.0058517456,
+    0.00014030933,
+    -0.0059890747,
+    0.003238678,
+    0.038726807,
+    0.01776123,
+    0.026626587,
+    0.0132369995,
+    0.025390625,
+    -0.055755615,
+    0.017501831,
+    -0.015350342,
+    0.018798828,
+    -0.027191162,
+    0.027816772,
+    0.001578331,
+    0.012779236,
+    -0.013168335,
+    0.059906006,
+    0.02015686,
+    -0.0067329407,
+    -0.029037476,
+    -0.046661377,
+    0.06072998,
+    0.024337769,
+    -0.0024223328,
+    -0.005958557,
+    -0.022277832,
+    -0.044708252,
+    0.041503906,
+    0.036621094,
+    0.012184143,
+    0.021057129,
+    -0.01676941,
+    0.003435135,
+    -0.0012483597,
+    -0.014846802,
+    -0.0038547516,
+    0.01689148,
+    -0.034301758,
+    -0.003129959,
+    0.02078247,
+    0.05505371,
+    0.014022827,
+    0.054595947,
+    -0.047546387,
+    -0.035705566,
+    0.000279665,
+    -0.031951904,
+    -0.012329102,
+    0.03982544,
+    -0.06359863,
+    0.01374054,
+    -0.08123779,
+    -0.017440796,
+    0.016113281,
+    0.038482666,
+    -0.033813477,
+    0.046966553,
+    -0.03387451,
+    0.05407715,
+    0.005859375,
+    0.042877197,
+    0.016952515,
+    0.046173096,
+    -0.022476196,
+    0.03918457,
+    0.0052833557,
+    -0.010864258,
+    -0.0151901245,
+    0.033843994,
+    -0.034118652,
+    0.030929565,
+    0.0002387762,
+    -0.007106781,
+    0.013122559,
+    0.0016546249,
+    0.0118637085,
+    -0.018356323,
+    -0.011360168,
+    0.021194458,
+    -0.011795044,
+    -0.017868042,
+    -0.04989624,
+    0.00022768974
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/global_connectivity_network.md",
+    "file_name": "global_connectivity_network.md",
+    "file_size": 3585,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-22",
+    "header_path": "/Amazon Completes Global Internet Infrastructure Connecting Every Human on Earth/",
+    "aws::graph::propositions": [
+      "# Kuiper Constellation and Global Connectivity Network",
+      "The Kuiper constellation has been expanded to include 12,000 satellites.",
+      "The Kuiper constellation is organized in multiple orbital layers.",
+      "The Kuiper constellation provides redundant coverage.",
+      "The redundant coverage ensures 99.99% uptime.",
+      "The 99.99% uptime is maintained even during severe weather.",
+      "The 99.99% uptime is maintained even during technical failures.",
+      "The Kuiper constellation uses advanced beam-forming technology.",
+      "The advanced beam-forming technology delivers gigabit speeds to individual users.",
+      "The advanced beam-forming technology supports millions of simultaneous connections per satellite.",
+      "Revolutionary undersea cable systems use quantum communication technologies.",
+      "Quantum communication technologies provide instantaneous data transmission between continents.",
+      "Instantaneous data transmission eliminates the latency that previously limited global real-time collaboration.",
+      "The undersea cables are protected by AI-powered monitoring systems.",
+      "AI-powered monitoring systems can detect damage automatically.",
+      "AI-powered monitoring systems can repair damage automatically.",
+      "AI-powered monitoring systems ensure uninterrupted global connectivity.",
+      "The terrestrial component includes innovative \"mesh networks\".",
+      "Mesh networks use existing infrastructure to carry internet signals.",
+      "Existing infrastructure includes power lines.",
+      "Existing infrastructure includes water pipes.",
+      "Existing infrastructure includes transportation systems.",
+      "Mesh networks carry internet signals to the most remote locations.",
+      "Mesh networks require minimal additional infrastructure.",
+      "Mesh networks provide robust connectivity.",
+      "Mesh networks adapt automatically to changing conditions.",
+      "Project Unity includes comprehensive digital literacy programs.",
+      "Digital literacy programs ensure people worldwide can effectively use their new connectivity.",
+      "Amazon has trained 5 million digital ambassadors.",
+      "Digital ambassadors provide free technology education in local languages.",
+      "Digital ambassadors help communities maximize the benefits of universal internet access."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Kuiper Constellation and Global Connectivity Network",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Kuiper constellation",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Project Unity",
+              "classification": "Technology"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Kuiper constellation has been expanded to include 12,000 satellites.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "HAS SATELLITES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "12,000",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Kuiper constellation is organized in multiple orbital layers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "HAS STRUCTURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple orbital layers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Kuiper constellation provides redundant coverage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "redundant coverage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The redundant coverage ensures 99.99% uptime.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "HAS UPTIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "99.99%",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The 99.99% uptime is maintained even during severe weather.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "MAINTAINS UPTIME DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "severe weather",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The 99.99% uptime is maintained even during technical failures.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "MAINTAINS UPTIME DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "technical failures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Kuiper constellation uses advanced beam-forming technology.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "USES TECHNOLOGY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "advanced beam-forming technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The advanced beam-forming technology delivers gigabit speeds to individual users.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "DELIVERS SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gigabit speeds",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The advanced beam-forming technology supports millions of simultaneous connections per satellite.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "SUPPORTS CONNECTIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "millions of simultaneous connections per satellite",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Revolutionary undersea cable systems use quantum communication technologies.",
+              "details": [
+                "undersea cable systems USES TECHNOLOGY quantum communication technologies",
+                "undersea cable systems DESCRIBED BY revolutionary"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "undersea cable systems",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES TECHNOLOGY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "quantum communication technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "undersea cable systems",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "revolutionary",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Quantum communication technologies provide instantaneous data transmission between continents.",
+              "details": [
+                "quantum communication technologies PROVIDES instantaneous data transmission between continents"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "quantum communication technologies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instantaneous data transmission between continents",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Instantaneous data transmission eliminates the latency that previously limited global real-time collaboration.",
+              "details": [
+                "instantaneous data transmission ELIMINATES latency"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instantaneous data transmission",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ELIMINATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "latency",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The undersea cables are protected by AI-powered monitoring systems.",
+              "details": [
+                "AI-powered monitoring systems PROTECTS undersea cables"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AI-powered monitoring systems",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROTECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "undersea cables",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AI-powered monitoring systems can detect damage automatically.",
+              "details": [
+                "AI-powered monitoring systems CAN DETECT damage automatically"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AI-powered monitoring systems",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAN DETECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage automatically",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AI-powered monitoring systems can repair damage automatically.",
+              "details": [
+                "AI-powered monitoring systems CAN REPAIR damage automatically"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AI-powered monitoring systems",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAN REPAIR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage automatically",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AI-powered monitoring systems ensure uninterrupted global connectivity.",
+              "details": [
+                "AI-powered monitoring systems ENSURES uninterrupted global connectivity"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AI-powered monitoring systems",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENSURES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uninterrupted global connectivity",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The terrestrial component includes innovative \"mesh networks\".",
+              "details": [
+                "terrestrial component INCLUDES mesh networks",
+                "mesh networks DESCRIBED BY innovative"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "terrestrial component",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "innovative",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mesh networks use existing infrastructure to carry internet signals.",
+              "details": [
+                "mesh networks USES existing infrastructure",
+                "mesh networks CARRIES internet signals"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "existing infrastructure",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CARRIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internet signals",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Existing infrastructure includes power lines.",
+              "details": [
+                "existing infrastructure INCLUDES power lines"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "existing infrastructure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power lines",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Existing infrastructure includes water pipes.",
+              "details": [
+                "existing infrastructure INCLUDES water pipes"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "existing infrastructure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "water pipes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Existing infrastructure includes transportation systems.",
+              "details": [
+                "existing infrastructure INCLUDES transportation systems"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "existing infrastructure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transportation systems",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mesh networks carry internet signals to the most remote locations.",
+              "details": [
+                "mesh networks CARRIES TO remote locations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CARRIES TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remote locations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mesh networks require minimal additional infrastructure.",
+              "details": [
+                "mesh networks REQUIRES minimal additional infrastructure"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minimal additional infrastructure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mesh networks provide robust connectivity.",
+              "details": [
+                "mesh networks PROVIDES robust connectivity"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "robust connectivity",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mesh networks adapt automatically to changing conditions.",
+              "details": [
+                "mesh networks ADAPTS TO changing conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mesh networks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ADAPTS TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changing conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Project Unity includes comprehensive digital literacy programs.",
+              "details": [
+                "digital literacy programs DESCRIBED BY comprehensive"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Project Unity",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital literacy programs",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital literacy programs",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "comprehensive",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Digital literacy programs ensure people worldwide can effectively use their new connectivity.",
+              "details": [
+                "digital literacy programs ENSURES effective use of new connectivity worldwide"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital literacy programs",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENSURES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "effective use of new connectivity worldwide",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has trained 5 million digital ambassadors.",
+              "details": [
+                "digital ambassadors HAS COUNT 5 million"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "TRAINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital ambassadors",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital ambassadors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5 million",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Digital ambassadors provide free technology education in local languages.",
+              "details": [
+                "digital ambassadors PROVIDES free technology education in local languages"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital ambassadors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "free technology education in local languages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Digital ambassadors help communities maximize the benefits of universal internet access.",
+              "details": [
+                "digital ambassadors HELPS communities maximize benefits of universal internet access"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital ambassadors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HELPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "communities maximize benefits of universal internet access",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::36367776:568d",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/global_connectivity_network.md",
+        "file_name": "global_connectivity_network.md",
+        "file_size": 3585,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22"
+      },
+      "hash": "099cf763540dfec11c4f14c2b85d500c493cefebd9296145e98966f8372e7528",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::36367776:568d:bbdcbea7",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/global_connectivity_network.md",
+        "file_name": "global_connectivity_network.md",
+        "file_size": 3585,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Completes Global Internet Infrastructure Connecting Every Human on Earth/"
+      },
+      "hash": "e892c342c9d8ab845908686d0354a934d542f328fb8dbd5ea65c762a8b277fe6",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::36367776:568d:e41466c2",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/global_connectivity_network.md",
+        "file_name": "global_connectivity_network.md",
+        "file_size": 3585,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Completes Global Internet Infrastructure Connecting Every Human on Earth/"
+      },
+      "hash": "e941facc8db23345eb12e68ec50a9449a4406a8aa349f49d31e7e9ba42e2d02d",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The expanded Kuiper constellation now includes 12,000 satellites in multiple orbital layers, providing redundant coverage that ensures 99.99% uptime even during severe weather or technical failures. Advanced beam-forming technology delivers gigabit speeds to individual users while supporting millions of simultaneous connections per satellite.\n\nRevolutionary undersea cable systems use quantum communication technologies to provide instantaneous data transmission between continents, eliminating the latency that previously limited global real-time collaboration. These cables are protected by AI-powered monitoring systems that can detect and repair damage automatically, ensuring uninterrupted global connectivity.\n\nThe terrestrial component includes innovative \"mesh networks\" that use existing infrastructure such as power lines, water pipes, and transportation systems to carry internet signals to the most remote locations. These systems require minimal additional infrastructure while providing robust connectivity that adapts automatically to changing conditions.\n\nProject Unity includes comprehensive digital literacy programs that ensure people worldwide can effectively use their new connectivity. Amazon has trained 5 million digital ambassadors who provide free technology education in local languages, helping communities maximize the benefits of universal internet access.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1185,
+  "end_char_idx": 2573,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

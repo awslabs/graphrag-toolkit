@@ -7,7 +7,7 @@ from tqdm import tqdm
 from typing import Any, List, Union, Dict, Tuple
 
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, VERSION_INDEPENDENT_ID_FIELDS, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
-from graphrag_toolkit.lexical_graph.metadata import format_version_independent_id_fields, to_metadata_filter
+from graphrag_toolkit.lexical_graph.metadata import format_metadata_list, to_metadata_filter
 from graphrag_toolkit.lexical_graph.errors import IndexError
 from graphrag_toolkit.lexical_graph.indexing.node_handler import NodeHandler
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -55,7 +55,7 @@ class VersionManager(NodeHandler):
         if not version_independent_id_fields:
             return []
         
-        formatted_version_independent_id_fields = format_version_independent_id_fields(version_independent_id_fields)
+        formatted_version_independent_id_fields = format_metadata_list(version_independent_id_fields)
         version_independent_id_fields_filter = f"coalesce(source.{VERSION_INDEPENDENT_ID_FIELDS}, '{formatted_version_independent_id_fields}') = $versionIndependentIdFields"
         
         other_filter_criteria = {
@@ -186,7 +186,7 @@ class VersionManager(NodeHandler):
         properties = {
             'sourceId': source_id,
             'versioningTimestamp': versioning_timestamp,
-            'versionIndependentIdFields': format_version_independent_id_fields(version_independent_id_fields)
+            'versionIndependentIdFields': format_metadata_list(version_independent_id_fields)
         }
 
         self.graph_store.execute_query_with_retry(cypher, properties)
@@ -241,6 +241,7 @@ class VersionManager(NodeHandler):
 
                     node.metadata['source']['versioning']['valid_from'] = source_node['valid_from']
                     node.metadata['source']['versioning']['valid_to'] = source_node['valid_to']
+                    node.metadata['source']['versioning']['prev_versions'] = [o['source_id'] for o in other_source_nodes]
 
                     source_version_info[source_id] = source_node
 

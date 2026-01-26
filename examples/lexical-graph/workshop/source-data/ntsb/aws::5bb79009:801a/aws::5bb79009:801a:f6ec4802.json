@@ -1,0 +1,2569 @@
+{
+  "id_": "aws::5bb79009:801a:f6ec4802",
+  "embedding": [
+    0.02998352,
+    0.021743774,
+    0.029281616,
+    -0.066101074,
+    0.004211426,
+    0.020706177,
+    -0.04034424,
+    -0.038330078,
+    0.0046844482,
+    -0.0066604614,
+    0.03503418,
+    0.023361206,
+    0.0020980835,
+    -0.064575195,
+    0.041809082,
+    0.015289307,
+    -0.0027980804,
+    0.046691895,
+    0.025772095,
+    -0.015686035,
+    0.0020828247,
+    0.016189575,
+    -0.041900635,
+    0.029220581,
+    0.00024700165,
+    0.042663574,
+    0.0022621155,
+    -0.030410767,
+    -0.0038089752,
+    -0.017028809,
+    0.01171875,
+    -0.03353882,
+    0.022872925,
+    0.015838623,
+    -0.027862549,
+    0.023101807,
+    0.010498047,
+    -0.003522873,
+    -0.019729614,
+    0.033172607,
+    0.027648926,
+    -0.023117065,
+    0.020233154,
+    -0.05142212,
+    -0.014961243,
+    0.0056762695,
+    0.037963867,
+    0.011497498,
+    0.03152466,
+    0.050354004,
+    0.020980835,
+    -0.008636475,
+    0.0011730194,
+    -0.022155762,
+    -0.016494751,
+    -0.0121536255,
+    -0.07086182,
+    0.058380127,
+    -0.012741089,
+    0.049957275,
+    0.03274536,
+    0.039886475,
+    -0.0037136078,
+    -0.0044059753,
+    -0.033081055,
+    -0.04486084,
+    -0.03488159,
+    0.017623901,
+    0.035949707,
+    -0.026870728,
+    -0.0026493073,
+    0.0209198,
+    -0.010391235,
+    0.03967285,
+    -0.00025629997,
+    -0.07763672,
+    0.02041626,
+    -0.023880005,
+    -0.017791748,
+    0.068847656,
+    0.013130188,
+    0.050598145,
+    -0.03152466,
+    -0.018432617,
+    -0.031799316,
+    -0.022399902,
+    -0.007949829,
+    -0.000910759,
+    0.0026416779,
+    -0.015380859,
+    -0.01084137,
+    -0.040496826,
+    0.010131836,
+    0.053527832,
+    -0.013137817,
+    0.006580353,
+    -0.026168823,
+    -0.04522705,
+    0.01676941,
+    0.02142334,
+    -0.006591797,
+    -0.03048706,
+    0.0034828186,
+    -0.003227234,
+    0.0025177002,
+    0.07281494,
+    0.020431519,
+    0.0317688,
+    0.015655518,
+    0.00086927414,
+    0.0049209595,
+    -0.0065574646,
+    0.020141602,
+    -0.04837036,
+    0.029037476,
+    0.024490356,
+    0.015380859,
+    0.08050537,
+    0.03463745,
+    0.05014038,
+    0.03930664,
+    0.059509277,
+    -0.051574707,
+    -0.05078125,
+    0.0049819946,
+    -0.03100586,
+    -0.026412964,
+    0.005241394,
+    0.017120361,
+    -0.007843018,
+    -0.012084961,
+    0.057373047,
+    -0.0049057007,
+    -0.044067383,
+    -0.03387451,
+    0.007408142,
+    0.0058555603,
+    0.01586914,
+    -0.021560669,
+    0.04220581,
+    -0.040283203,
+    -0.037261963,
+    0.0524292,
+    -0.035369873,
+    -0.00409317,
+    0.021408081,
+    0.019607544,
+    -0.0035591125,
+    0.00491333,
+    -0.015235901,
+    -0.0012102127,
+    -0.03353882,
+    0.0670166,
+    -0.014625549,
+    -0.055908203,
+    -0.075683594,
+    -0.007247925,
+    -0.05407715,
+    0.025619507,
+    -0.08514404,
+    0.01776123,
+    -0.0074424744,
+    0.021652222,
+    -0.002046585,
+    -0.024002075,
+    0.021652222,
+    -0.027069092,
+    -0.0087509155,
+    0.018875122,
+    -0.0018262863,
+    0.009757996,
+    0.0062713623,
+    0.014190674,
+    -0.017288208,
+    -0.009101868,
+    0.02017212,
+    -0.019897461,
+    0.06665039,
+    0.017211914,
+    0.04220581,
+    0.036224365,
+    -0.03878784,
+    0.09942627,
+    -0.0023040771,
+    0.0013799667,
+    -0.037139893,
+    0.045959473,
+    0.018096924,
+    -0.03414917,
+    0.026031494,
+    0.03479004,
+    0.015960693,
+    -0.011169434,
+    -0.0006842613,
+    -0.008934021,
+    -0.0010185242,
+    -0.041381836,
+    0.019424438,
+    -0.011619568,
+    -0.019088745,
+    -0.0496521,
+    0.049224854,
+    -0.033813477,
+    0.03778076,
+    0.025848389,
+    -0.014289856,
+    0.022598267,
+    0.02243042,
+    -0.0018157959,
+    -0.027664185,
+    0.008636475,
+    -0.05831909,
+    0.005039215,
+    -0.011169434,
+    -0.029632568,
+    -0.015640259,
+    -0.01689148,
+    -0.02331543,
+    0.0006952286,
+    -0.053588867,
+    -0.002532959,
+    0.01133728,
+    -0.007041931,
+    0.031585693,
+    -0.0078086853,
+    0.020111084,
+    -0.028411865,
+    -0.0101623535,
+    0.016448975,
+    -0.014099121,
+    0.075927734,
+    0.02218628,
+    0.024490356,
+    0.035888672,
+    -0.056549072,
+    0.01751709,
+    -0.0143585205,
+    0.02267456,
+    -0.00881958,
+    0.021499634,
+    -0.00047707558,
+    -0.08691406,
+    -0.030807495,
+    0.030288696,
+    -0.08087158,
+    -0.026809692,
+    0.013053894,
+    -0.004562378,
+    0.005126953,
+    0.03643799,
+    -0.0025157928,
+    0.026321411,
+    0.020248413,
+    0.049591064,
+    0.022766113,
+    0.016235352,
+    -0.021469116,
+    -0.005138397,
+    -0.004989624,
+    -0.006259918,
+    0.027694702,
+    -0.01802063,
+    -0.046447754,
+    0.0034809113,
+    0.015426636,
+    0.043701172,
+    0.08306885,
+    0.0758667,
+    -0.008964539,
+    -0.020233154,
+    -0.009536743,
+    0.029663086,
+    -0.0046157837,
+    0.04385376,
+    -0.022125244,
+    -0.006980896,
+    -0.062164307,
+    0.009353638,
+    -0.0023536682,
+    0.0061836243,
+    -0.02798462,
+    0.020339966,
+    -0.009216309,
+    -0.015853882,
+    0.0022068024,
+    0.018081665,
+    0.0021800995,
+    -0.029296875,
+    -0.057525635,
+    0.011657715,
+    0.023895264,
+    0.014541626,
+    0.01651001,
+    -0.04269409,
+    -0.01802063,
+    0.0043144226,
+    0.08709717,
+    -0.026229858,
+    0.038085938,
+    -0.020309448,
+    0.04324341,
+    0.0491333,
+    -0.03552246,
+    0.04006958,
+    0.00018501282,
+    -0.053344727,
+    -0.028244019,
+    0.011856079,
+    0.0006380081,
+    -0.007183075,
+    -0.059692383,
+    0.04623413,
+    0.019363403,
+    0.020202637,
+    0.02079773,
+    0.0048179626,
+    0.008743286,
+    0.04800415,
+    0.055786133,
+    0.06939697,
+    -0.012199402,
+    0.018844604,
+    -0.012763977,
+    0.008804321,
+    0.013687134,
+    -0.016998291,
+    -0.01007843,
+    0.00023651123,
+    0.014343262,
+    0.014472961,
+    -0.003293991,
+    -0.006877899,
+    -0.018371582,
+    -0.04067993,
+    0.007083893,
+    -0.007873535,
+    -0.0063934326,
+    0.027023315,
+    -0.02684021,
+    -0.014381409,
+    -0.03857422,
+    -0.0131073,
+    -0.0011053085,
+    -0.054473877,
+    -0.095825195,
+    -4.2438507e-05,
+    0.011177063,
+    -0.0021076202,
+    0.017471313,
+    -0.0287323,
+    0.058929443,
+    0.00415802,
+    -0.03955078,
+    0.04345703,
+    -0.0071411133,
+    -0.057037354,
+    0.036499023,
+    0.030471802,
+    -0.03491211,
+    -0.031463623,
+    -0.01108551,
+    0.04800415,
+    -0.016052246,
+    0.011375427,
+    -0.01121521,
+    -0.035247803,
+    0.043640137,
+    -0.010307312,
+    -0.011276245,
+    0.022949219,
+    -0.029449463,
+    0.026351929,
+    -0.034423828,
+    -0.033203125,
+    -0.042419434,
+    0.01449585,
+    0.076538086,
+    -0.008575439,
+    -0.032073975,
+    0.029541016,
+    0.010154724,
+    -0.013824463,
+    0.040985107,
+    -0.018539429,
+    0.048431396,
+    0.022094727,
+    -0.0014925003,
+    0.0066833496,
+    0.013946533,
+    -0.009216309,
+    -0.006187439,
+    -0.0015802383,
+    -0.002653122,
+    -0.03048706,
+    0.023620605,
+    0.006641388,
+    -0.0065727234,
+    0.03050232,
+    -0.023483276,
+    -0.029022217,
+    -0.10882568,
+    0.022735596,
+    -0.004714966,
+    -0.044830322,
+    0.037200928,
+    -0.10089111,
+    -0.02166748,
+    -0.076049805,
+    0.013442993,
+    0.024856567,
+    -0.009681702,
+    0.011024475,
+    -0.026611328,
+    0.0048294067,
+    0.005760193,
+    -0.021942139,
+    -0.054229736,
+    -0.0063552856,
+    -0.038085938,
+    0.06365967,
+    0.041015625,
+    -0.000729084,
+    -0.0047683716,
+    0.038879395,
+    0.012382507,
+    -0.0025157928,
+    0.0063705444,
+    0.0029392242,
+    -0.017959595,
+    0.047088623,
+    0.03387451,
+    -0.011276245,
+    0.040618896,
+    0.005680084,
+    -0.059051514,
+    0.025817871,
+    -0.033325195,
+    0.032806396,
+    0.0023670197,
+    -0.0703125,
+    0.02609253,
+    0.005054474,
+    -0.00223732,
+    0.016052246,
+    -0.028625488,
+    0.01864624,
+    0.008872986,
+    0.041656494,
+    -0.053131104,
+    -0.032440186,
+    -0.006362915,
+    0.01360321,
+    0.03378296,
+    0.039764404,
+    0.018508911,
+    0.068603516,
+    0.022781372,
+    -0.000664711,
+    0.004940033,
+    -0.0236969,
+    -0.03756714,
+    0.007587433,
+    -0.05130005,
+    -0.04510498,
+    -0.003068924,
+    -0.014411926,
+    6.4730644e-05,
+    0.007484436,
+    0.00207901,
+    0.003370285,
+    -0.011734009,
+    0.035736084,
+    -0.005947113,
+    -0.018203735,
+    0.024780273,
+    -0.0059547424,
+    0.02519226,
+    -0.0041389465,
+    -0.013343811,
+    -0.030014038,
+    -0.05380249,
+    0.02168274,
+    0.024337769,
+    0.03378296,
+    0.030822754,
+    0.0026474,
+    0.047729492,
+    0.034729004,
+    -0.0284729,
+    0.0043945312,
+    0.03225708,
+    0.0033950806,
+    0.014404297,
+    0.00484848,
+    -0.01802063,
+    -0.034362793,
+    0.008583069,
+    -0.05960083,
+    -0.015525818,
+    0.005886078,
+    -0.04840088,
+    -0.0071983337,
+    -0.017181396,
+    -0.002811432,
+    -0.014953613,
+    0.008598328,
+    0.008865356,
+    -0.0010585785,
+    0.019714355,
+    0.030715942,
+    -0.025177002,
+    -0.01537323,
+    -0.012954712,
+    0.011665344,
+    -0.027069092,
+    0.06628418,
+    -0.0073051453,
+    0.010864258,
+    0.005634308,
+    -0.01965332,
+    -0.020385742,
+    -0.012313843,
+    0.05105591,
+    0.03164673,
+    -0.052825928,
+    0.000875473,
+    0.02116394,
+    0.04244995,
+    -0.03149414,
+    0.010070801,
+    -0.023254395,
+    0.04336548,
+    0.028915405,
+    -0.0009584427,
+    0.013549805,
+    -0.039764404,
+    -0.0044288635,
+    0.03375244,
+    0.023391724,
+    -0.020462036,
+    -0.029724121,
+    0.0146865845,
+    0.028198242,
+    -0.021606445,
+    -0.010795593,
+    0.029281616,
+    0.03289795,
+    0.062286377,
+    -0.06335449,
+    -0.0011672974,
+    0.016281128,
+    0.023422241,
+    0.06347656,
+    -0.060943604,
+    -0.017822266,
+    0.038238525,
+    0.081726074,
+    -0.048431396,
+    -0.0067863464,
+    0.026870728,
+    -0.0132369995,
+    -0.005710602,
+    -0.056915283,
+    0.04837036,
+    0.011131287,
+    0.003063202,
+    0.019348145,
+    -0.0030078888,
+    0.011154175,
+    -0.019546509,
+    -0.005203247,
+    -0.029251099,
+    0.07232666,
+    0.002861023,
+    -0.0036735535,
+    -0.045410156,
+    -0.0006289482,
+    -0.0039100647,
+    -0.010231018,
+    0.0062561035,
+    0.03643799,
+    0.03857422,
+    0.0090408325,
+    0.02330017,
+    -0.051757812,
+    0.039520264,
+    -0.015823364,
+    -0.01134491,
+    -0.033569336,
+    0.008117676,
+    0.058776855,
+    0.017364502,
+    0.020812988,
+    0.0013875961,
+    0.010665894,
+    -0.0050735474,
+    -0.03652954,
+    -0.06976318,
+    0.01676941,
+    -0.0037078857,
+    -0.037078857,
+    -0.010177612,
+    0.011138916,
+    -0.019317627,
+    0.048583984,
+    -0.00061798096,
+    -0.02456665,
+    0.0052757263,
+    0.010910034,
+    -0.006942749,
+    0.009269714,
+    0.0236969,
+    -0.044677734,
+    0.009048462,
+    -0.016708374,
+    -0.017410278,
+    -0.003484726,
+    0.0038204193,
+    0.052978516,
+    -0.003921509,
+    0.018615723,
+    0.011695862,
+    -0.0021018982,
+    -0.02041626,
+    0.021713257,
+    -0.04562378,
+    0.008773804,
+    -0.021209717,
+    -0.024658203,
+    -0.007419586,
+    -0.057250977,
+    -0.0046691895,
+    -0.037719727,
+    0.0029773712,
+    -0.015586853,
+    0.016494751,
+    -0.039642334,
+    -0.040161133,
+    -0.03451538,
+    -0.02079773,
+    -0.004016876,
+    0.017669678,
+    -0.009239197,
+    -0.018249512,
+    0.017181396,
+    -0.025405884,
+    -0.032165527,
+    -0.018112183,
+    0.0023899078,
+    0.018661499,
+    0.03967285,
+    0.02734375,
+    -0.056121826,
+    -0.016952515,
+    0.011009216,
+    0.026794434,
+    0.016799927,
+    0.015510559,
+    -0.025100708,
+    -0.045013428,
+    -0.08203125,
+    -0.04748535,
+    0.017730713,
+    -0.060638428,
+    0.005432129,
+    -0.0033550262,
+    0.040405273,
+    0.040802002,
+    0.003967285,
+    -0.030960083,
+    0.010856628,
+    0.03363037,
+    -0.0026130676,
+    -0.021377563,
+    0.05834961,
+    0.02746582,
+    -0.014770508,
+    0.020462036,
+    0.014656067,
+    -0.048553467,
+    -0.015670776,
+    -0.07421875,
+    0.03060913,
+    0.050811768,
+    -0.056762695,
+    0.024017334,
+    -0.040283203,
+    -0.04168701,
+    -0.006336212,
+    0.0059051514,
+    -0.019134521,
+    0.024536133,
+    -0.009361267,
+    -0.015792847,
+    -0.013633728,
+    -0.028396606,
+    -0.017456055,
+    0.008476257,
+    0.0028457642,
+    0.0039367676,
+    0.007621765,
+    0.0056648254,
+    0.015464783,
+    -0.0017156601,
+    -0.037506104,
+    0.024276733,
+    -0.04272461,
+    0.04812622,
+    -0.045318604,
+    -0.0018186569,
+    0.0107421875,
+    0.006801605,
+    0.0055236816,
+    -0.0075950623,
+    0.03152466,
+    0.002161026,
+    -0.016159058,
+    -0.0063476562,
+    -0.05758667,
+    -0.008293152,
+    -0.008552551,
+    0.026000977,
+    0.021224976,
+    -0.06677246,
+    0.0062332153,
+    -0.035888672,
+    -0.0042877197,
+    0.018035889,
+    -0.040252686,
+    -0.049224854,
+    -0.0057144165,
+    -0.01524353,
+    0.017654419,
+    -0.030227661,
+    -0.04031372,
+    -0.0051651,
+    -0.012641907,
+    0.0076408386,
+    -0.016448975,
+    -0.041931152,
+    -0.03363037,
+    -0.018859863,
+    0.016662598,
+    -0.008087158,
+    -0.018692017,
+    -0.0073776245,
+    0.02192688,
+    -0.094055176,
+    -0.039245605,
+    -0.02268982,
+    0.01953125,
+    -0.066101074,
+    -0.026931763,
+    0.013969421,
+    0.0067443848,
+    0.02255249,
+    0.038879395,
+    0.026901245,
+    -0.018630981,
+    -0.033569336,
+    -0.01902771,
+    0.0018787384,
+    0.012008667,
+    0.034301758,
+    -0.028671265,
+    0.027069092,
+    -0.0010643005,
+    0.015945435,
+    0.0051879883,
+    -0.033599854,
+    -0.0029468536,
+    0.02330017,
+    -0.00019216537,
+    -0.004219055,
+    0.050689697,
+    -0.042785645,
+    0.055725098,
+    -0.09197998,
+    -0.020370483,
+    0.02482605,
+    0.04348755,
+    -0.041229248,
+    -0.055541992,
+    -0.029785156,
+    -0.032684326,
+    -0.00022554398,
+    -0.020629883,
+    0.054748535,
+    -0.03161621,
+    0.010894775,
+    -0.00026893616,
+    0.039093018,
+    0.003829956,
+    0.025558472,
+    0.021362305,
+    -0.022537231,
+    -0.04425049,
+    0.011459351,
+    -0.028915405,
+    -0.05456543,
+    -0.034423828,
+    -0.0008716583,
+    -0.03567505,
+    0.03729248,
+    -0.019683838,
+    0.0013980865,
+    -0.0041275024,
+    0.02960205,
+    0.015914917,
+    -0.022766113,
+    0.022491455,
+    -0.009597778,
+    0.06915283,
+    -0.004875183,
+    -8.326769e-05,
+    0.032196045,
+    -0.052581787,
+    -0.04309082,
+    0.0042495728,
+    0.047790527,
+    0.022537231,
+    0.034362793,
+    -0.003364563,
+    0.040100098,
+    -0.001748085,
+    0.00052022934,
+    0.010383606,
+    0.0035057068,
+    -0.024627686,
+    -0.031311035,
+    0.027252197,
+    -0.04156494,
+    -0.030380249,
+    -0.0093688965,
+    -0.014564514,
+    0.026351929,
+    0.010848999,
+    0.0132369995,
+    -0.008514404,
+    0.034057617,
+    -0.013397217,
+    -0.006965637,
+    -0.02357483,
+    -0.0090408325,
+    -0.02923584,
+    0.01374054,
+    0.013534546,
+    -0.01020813,
+    0.062469482,
+    0.055358887,
+    0.022766113,
+    -0.011238098,
+    0.0019664764,
+    -0.012451172,
+    0.007980347,
+    0.014427185,
+    0.01197052,
+    -0.027389526,
+    -0.010810852,
+    0.02810669,
+    -0.014434814,
+    -0.003200531,
+    -0.00077199936,
+    0.04333496,
+    -0.010299683,
+    -0.0022182465,
+    -0.029724121,
+    0.024353027,
+    -0.027938843,
+    0.028411865,
+    0.024765015,
+    -0.025878906,
+    -0.091918945,
+    0.006629944,
+    -0.0074157715,
+    -0.052947998,
+    0.026748657,
+    0.06628418,
+    -0.044403076,
+    0.026367188,
+    -0.052490234,
+    -0.041137695,
+    -0.006401062,
+    -0.015586853,
+    -0.008361816,
+    -0.039886475,
+    -0.010253906,
+    -0.022140503,
+    0.043273926,
+    -0.0031414032,
+    0.025909424,
+    -0.006374359,
+    -0.017745972,
+    0.057495117,
+    0.0047187805,
+    0.051940918,
+    0.0146484375,
+    -0.017547607,
+    -0.054595947,
+    0.0018997192,
+    -0.0047950745,
+    -0.048187256,
+    0.04043579,
+    -0.082214355,
+    0.0064582825,
+    0.006778717,
+    -0.008934021,
+    -0.08081055,
+    -0.00712204,
+    -0.013755798,
+    -0.001074791,
+    -0.0041770935,
+    -0.023101807,
+    -0.010566711,
+    0.0284729,
+    0.0059165955,
+    -0.033203125,
+    -0.047943115,
+    0.04345703,
+    -0.06149292,
+    -0.026824951,
+    -0.009681702,
+    -0.002916336,
+    0.021087646,
+    0.01777649,
+    -0.017623901,
+    0.032440186,
+    -0.024307251,
+    -0.031204224,
+    -0.0018053055,
+    -0.006011963,
+    0.009933472,
+    0.10534668,
+    -0.08068848,
+    0.07489014,
+    0.00061130524,
+    -0.021713257,
+    0.0259552,
+    0.00045108795,
+    0.033599854,
+    0.017181396,
+    -0.026794434,
+    -0.022659302,
+    0.013427734,
+    0.007621765,
+    8.606911e-05,
+    0.018249512,
+    -0.020004272,
+    -0.04827881,
+    -0.010757446,
+    -0.002450943,
+    0.01234436,
+    -0.0005879402,
+    -0.020217896,
+    0.019042969,
+    0.008781433,
+    -0.03945923,
+    -0.008834839,
+    0.012886047,
+    -0.03677368,
+    -0.0067825317,
+    -0.008346558,
+    0.052825928,
+    0.00082731247,
+    -0.010826111,
+    -0.025360107,
+    -0.021530151,
+    -0.016220093,
+    0.030349731,
+    -0.033843994,
+    -0.016021729,
+    -0.027023315,
+    0.0046424866,
+    -0.042785645,
+    -0.02722168,
+    0.0069084167,
+    -0.0061531067,
+    0.0012054443,
+    0.022994995,
+    -0.014945984,
+    0.0096206665,
+    0.010940552,
+    -0.030151367,
+    0.007003784,
+    0.02279663,
+    -0.063964844,
+    0.012786865,
+    0.0007200241,
+    -0.02784729,
+    0.004398346,
+    -0.04284668,
+    0.032928467,
+    0.021484375,
+    -0.036987305,
+    0.020111084,
+    0.014259338,
+    0.03286743,
+    0.043762207,
+    0.03265381,
+    -0.044799805,
+    -0.017440796,
+    -0.005870819,
+    0.020233154,
+    0.001203537,
+    0.02468872,
+    -0.05480957,
+    -0.011558533,
+    -0.03842163,
+    -0.04260254,
+    -0.013031006,
+    -0.050872803,
+    0.037963867,
+    0.042419434,
+    -0.0037021637,
+    0.080322266,
+    -0.0049095154,
+    0.026123047,
+    0.022247314,
+    -0.030700684,
+    0.052581787,
+    -0.036712646,
+    -0.0236969,
+    -0.032714844,
+    -0.02809143
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85034.md",
+    "file_name": "85034.md",
+    "file_size": 9288,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Amateur-built Barrett Stolp Starlet SA500 Forced Landing Incident",
+      "The aircraft was an amateur-built Barrett Stolp Starlet SA500.",
+      "The aircraft registration number was N935B.",
+      "The aircraft was substantially damaged during a forced landing.",
+      "The forced landing occurred on September 13, 2012.",
+      "The forced landing occurred at approximately 1030 central daylight time.",
+      "The forced landing occurred near Shelbyville, Illinois.",
+      "The forced landing was to a bean field.",
+      "The forced landing followed a loss of engine power.",
+      "The pilot was not injured in the incident.",
+      "The aircraft was registered to a private individual.",
+      "The aircraft was operated by the pilot.",
+      "The flight was operated under the provisions of 14 Code of Federal Regulations Part 91.",
+      "The flight was classified as a personal flight.",
+      "Visual meteorological conditions prevailed for the flight.",
+      "The flight was not operated on a flight plan.",
+      "The flight originated from Owensboro-Daviess County Airport.",
+      "Owensboro-Daviess County Airport has the identifier OWB.",
+      "Owensboro-Daviess County Airport is located in Owensboro, Kentucky.",
+      "The flight departed at 0932.",
+      "The intended destination was Ingersoll Airport.",
+      "Ingersoll Airport has the identifier CTK.",
+      "Ingersoll Airport is located in Canton, Illinois.",
+      "The pilot reported the engine lost power completely about one hour after takeoff.",
+      "The engine lost power without warning.",
+      "The aircraft was established in cruise flight at 3,000 feet mean sea level when the engine lost power.",
+      "The pilot's efforts to restore engine power were not successful.",
+      "The pilot executed a forced landing to a bean field.",
+      "The airplane nosed over during the landing roll.",
+      "A postaccident examination did not reveal any anomalies consistent with an abrupt loss of engine power.",
+      "Internal engine continuity was confirmed via crankshaft rotation.",
+      "Compression was observed on all cylinders.",
+      "Proper magneto operation was confirmed.",
+      "The induction air filter was partially obstructed.",
+      "Air movement was detected through the filter when pressurized air was applied to the inlet side of the filter.",
+      "The carburetor fuel screen appeared unobstructed.",
+      "A fuel sample obtained at the carburetor was free of sediment.",
+      "The fuel selector did not have a positive engagement at any of the settings.",
+      "The fuel selector functioned normally otherwise.",
+      "Surface weather conditions were reported at the Taylorville Municipal Airport at 1035.",
+      "Taylorville Municipal Airport has the identifier TAZ.",
+      "Taylorville Municipal Airport is located about 23 miles west of the accident site.",
+      "The temperature at Taylorville Municipal Airport was 26 degrees Celsius.",
+      "The dew point at Taylorville Municipal Airport was 16 degrees Celsius."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Amateur-built Barrett Stolp Starlet SA500 Forced Landing Incident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Barrett Stolp Starlet SA500",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N935B",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Shelbyville, Illinois",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "14 Code of Federal Regulations Part 91",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Owensboro-Daviess County Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "OWB",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Owensboro, Kentucky",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Ingersoll Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CTK",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Canton, Illinois",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Taylorville Municipal Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "TAZ",
+              "classification": "Airport"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was an amateur-built Barrett Stolp Starlet SA500.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CATEGORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "amateur-built",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration number was N935B.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N935B",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was substantially damaged during a forced landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forced landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing occurred on September 13, 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "September 13, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing occurred at approximately 1030 central daylight time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1030 central daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing occurred near Shelbyville, Illinois.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near Shelbyville, Illinois",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing was to a bean field.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING SITE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bean field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing followed a loss of engine power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was not injured in the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was registered to a private individual.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private individual",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was operated by the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was operated under the provisions of 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT REGULATIONS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was classified as a personal flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personal flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed for the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was not operated on a flight plan.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not operated on a flight plan",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight originated from Owensboro-Daviess County Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Owensboro-Daviess County Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Owensboro-Daviess County Airport has the identifier OWB.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Owensboro-Daviess County Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "OWB",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Owensboro-Daviess County Airport is located in Owensboro, Kentucky.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Owensboro-Daviess County Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Owensboro, Kentucky",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed at 0932.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0932",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The intended destination was Ingersoll Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Ingersoll Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Ingersoll Airport has the identifier CTK.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Ingersoll Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CTK",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Ingersoll Airport is located in Canton, Illinois.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Ingersoll Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Canton, Illinois",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported the engine lost power completely about one hour after takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about one hour after takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lost power completely",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine lost power without warning.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE NATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "without warning",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was established in cruise flight at 3,000 feet mean sea level when the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT ALTITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3,000 feet mean sea level",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PHASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cruise flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's efforts to restore engine power were not successful.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RESTORATION ATTEMPT RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not successful",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot executed a forced landing to a bean field.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EMERGENCY ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "executed a forced landing to a bean field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane nosed over during the landing roll.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nosed over during the landing roll",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A postaccident examination did not reveal any anomalies consistent with an abrupt loss of engine power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies consistent with an abrupt loss of engine power",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Internal engine continuity was confirmed via crankshaft rotation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internal engine continuity confirmed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Compression was observed on all cylinders.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CYLINDER CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "compression observed on all cylinders",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Proper magneto operation was confirmed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAGNETO CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "proper operation confirmed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The induction air filter was partially obstructed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIR FILTER CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "partially obstructed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Air movement was detected through the filter when pressurized air was applied to the inlet side of the filter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIR FILTER TEST RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air movement detected when pressurized",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The carburetor fuel screen appeared unobstructed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CARBURETOR SCREEN CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "appeared unobstructed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A fuel sample obtained at the carburetor was free of sediment.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL QUALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "free of sediment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel selector did not have a positive engagement at any of the settings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL SELECTOR ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no positive engagement at any settings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel selector functioned normally otherwise.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Barrett Stolp Starlet SA500",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL SELECTOR FUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal otherwise",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Surface weather conditions were reported at the Taylorville Municipal Airport at 1035.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Taylorville Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WEATHER REPORT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1035",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Taylorville Municipal Airport has the identifier TAZ.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Taylorville Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "TAZ",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Taylorville Municipal Airport is located about 23 miles west of the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Taylorville Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED RELATIVE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Taylorville Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE FROM ACCIDENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 23 miles west",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The temperature at Taylorville Municipal Airport was 26 degrees Celsius.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Taylorville Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TEMPERATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "26 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The dew point at Taylorville Municipal Airport was 16 degrees Celsius.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Taylorville Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DEW POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "16 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::5bb79009:801a",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85034.md",
+        "file_name": "85034.md",
+        "file_size": 9288,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "aa3622eb618599bec5e5385bdba19f446cd17e36bcf78a720f8a466f20c2c430",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::5bb79009:801a:4e954ad1",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85034.md",
+        "file_name": "85034.md",
+        "file_size": 9288,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "a0c15344115c04016dee43b6d07bc06f50bbcaeb20ba2a3d96e681455a2231e4",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::5bb79009:801a:db1a1b04",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85034.md",
+        "file_name": "85034.md",
+        "file_size": 9288,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "bc8316da3e6987cb615cc72e151c215b8d581aa8e9ac0f06a43b1e57fdc733ff",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| | |\n|-|-|\n| Enroute-cruise | Loss of engine power (total) (Defining event) |\n| Emergency descent | Off-field or emergency landing |\n| Landing | Collision with terr/obj (non-CFIT) |\n\nOn September 13, 2012, about 1030 central daylight time, an amateur-built Barrett Stolp Starlet SA500, N935B, was substantially damaged during a forced landing to a bean field following a loss of engine power near Shelbyville, Illinois. The pilot was not injured. The aircraft was registered to a private individual and operated by the pilot under the provisions of 14 Code of Federal Regulations Part 91 as a personal flight. Visual meteorological conditions prevailed for the flight, which was not operated on a flight plan. The flight originated from Owensboro-Daviess County Airport (OWB), Owensboro, Kentucky, at 0932. The intended destination was Ingersoll Airport (CTK), Canton, Illinois.\n\nThe pilot reported that about one hour after takeoff, while established in cruise flight at 3,000 feet mean sea level, the engine lost power completely and without warning. His efforts to restore engine power were not successful. He executed a forced landing to a bean field and the airplane nosed over during the landing roll.\n\nA postaccident examination did not reveal any anomalies consistent with an abrupt loss of engine power. Internal engine continuity was confirmed via crankshaft rotation. Compression was observed on all cylinders. Proper magneto operation was confirmed. The induction air filter was partially obstructed; however, air movement was detected through the filter when pressurized air was applied to the inlet side of the filter. The carburetor fuel screen appeared unobstructed and a fuel sample obtained at the carburetor was free of sediment. The fuel selector did not have a positive engagement at any of the settings; otherwise, it functioned normally.\n\nSurface weather conditions reported at the Taylorville Municipal Airport (TAZ), located about 23 miles west of the accident site, at 1035, included a temperature and dew point of 26 degrees Celsius and 16 degrees Celsius, respectively.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2143,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

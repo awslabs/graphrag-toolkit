@@ -1,0 +1,2127 @@
+{
+  "id_": "aws::16da6504:0550:4b36d8a3",
+  "embedding": [
+    0.043823242,
+    -0.02720642,
+    0.014228821,
+    -0.059295654,
+    -0.0023670197,
+    -0.012527466,
+    0.0071792603,
+    0.030395508,
+    -0.046936035,
+    -0.0023479462,
+    -0.008880615,
+    0.042419434,
+    -0.06500244,
+    -0.028427124,
+    0.053771973,
+    -0.039611816,
+    -0.020507812,
+    0.024368286,
+    -0.011207581,
+    -0.01838684,
+    -0.008979797,
+    -0.03237915,
+    -0.011985779,
+    -0.05090332,
+    0.024932861,
+    0.023422241,
+    -0.044555664,
+    0.027282715,
+    0.019180298,
+    0.030166626,
+    0.026672363,
+    -0.041870117,
+    0.008773804,
+    0.012489319,
+    0.0141067505,
+    0.070373535,
+    0.021575928,
+    0.0038280487,
+    -0.00058984756,
+    0.037506104,
+    0.011566162,
+    0.008514404,
+    0.11212158,
+    -0.058135986,
+    0.060180664,
+    -0.0158844,
+    0.030029297,
+    -0.06781006,
+    0.043182373,
+    0.012260437,
+    -0.00894165,
+    0.0096206665,
+    0.0003581047,
+    0.0049743652,
+    -0.024627686,
+    -0.025924683,
+    -0.05239868,
+    -0.01979065,
+    -0.024734497,
+    0.019165039,
+    0.05633545,
+    0.014793396,
+    0.037353516,
+    0.050476074,
+    -0.020645142,
+    -0.0023269653,
+    0.037963867,
+    0.016738892,
+    0.02166748,
+    -0.028915405,
+    -0.018325806,
+    0.04333496,
+    -0.035888672,
+    0.016906738,
+    -0.02444458,
+    -0.043518066,
+    0.04168701,
+    -0.010437012,
+    -0.045837402,
+    0.058685303,
+    0.05429077,
+    0.016204834,
+    -0.015853882,
+    0.044921875,
+    -0.066589355,
+    0.00223732,
+    0.0070228577,
+    -0.02961731,
+    0.0010795593,
+    0.0005302429,
+    -0.001241684,
+    -0.013267517,
+    -0.0019874573,
+    0.019439697,
+    -0.011489868,
+    -0.005302429,
+    -0.0016946793,
+    0.00026988983,
+    -0.0053367615,
+    -0.038726807,
+    -0.022781372,
+    -0.0022182465,
+    -0.08984375,
+    0.016998291,
+    -0.0025310516,
+    0.05532837,
+    0.0056114197,
+    -0.07696533,
+    -0.010498047,
+    -0.005256653,
+    -0.025390625,
+    0.016662598,
+    -0.026824951,
+    -0.022491455,
+    -0.0007777214,
+    0.0690918,
+    -0.01159668,
+    -0.013221741,
+    -0.018615723,
+    -0.0015964508,
+    -0.0041389465,
+    0.027877808,
+    -0.07354736,
+    -0.0023384094,
+    -0.02267456,
+    -0.03781128,
+    0.020446777,
+    0.023773193,
+    0.1138916,
+    -0.028381348,
+    -0.013595581,
+    0.041290283,
+    -0.024490356,
+    -0.04397583,
+    -0.01007843,
+    0.029159546,
+    0.00894165,
+    -0.0077323914,
+    0.004951477,
+    0.00894165,
+    -0.021362305,
+    0.0071144104,
+    0.052642822,
+    -0.013389587,
+    -0.019744873,
+    0.013244629,
+    0.022338867,
+    0.0019330978,
+    -0.030975342,
+    -0.017562866,
+    -0.0034484863,
+    -0.019348145,
+    0.04348755,
+    0.00026798248,
+    -0.050048828,
+    -0.042053223,
+    0.02456665,
+    -0.050445557,
+    0.025604248,
+    -0.062683105,
+    -0.0067749023,
+    -0.009963989,
+    0.029647827,
+    -0.03112793,
+    -0.010040283,
+    0.01638794,
+    -0.07006836,
+    -0.013511658,
+    0.01084137,
+    0.07458496,
+    0.023284912,
+    0.043395996,
+    -0.037078857,
+    -0.029296875,
+    -0.009674072,
+    -0.060180664,
+    0.014556885,
+    0.032470703,
+    -0.03692627,
+    0.043395996,
+    0.046051025,
+    -0.027557373,
+    0.0028457642,
+    0.012939453,
+    -0.034179688,
+    -0.024047852,
+    0.0012722015,
+    0.002204895,
+    0.037597656,
+    -0.0037879944,
+    0.025726318,
+    -0.0066452026,
+    0.019042969,
+    -0.018493652,
+    0.039733887,
+    -0.04473877,
+    -0.042877197,
+    -0.05166626,
+    0.001420021,
+    0.048950195,
+    0.00068092346,
+    -0.00945282,
+    0.026397705,
+    0.021820068,
+    0.05947876,
+    -0.024932861,
+    0.026779175,
+    -0.026779175,
+    0.024429321,
+    -0.0022945404,
+    0.018814087,
+    -0.0014286041,
+    -0.027008057,
+    0.054229736,
+    -0.027938843,
+    -0.026977539,
+    0.02482605,
+    -0.03503418,
+    -0.0069465637,
+    -0.03729248,
+    -0.025268555,
+    0.057250977,
+    -0.015960693,
+    0.062561035,
+    0.03149414,
+    -0.009689331,
+    0.0008134842,
+    -0.02229309,
+    0.08544922,
+    0.00022673607,
+    0.047607422,
+    -0.009429932,
+    0.028381348,
+    0.045837402,
+    -0.056274414,
+    -0.009552002,
+    -0.009544373,
+    0.037902832,
+    0.007949829,
+    0.016204834,
+    0.008049011,
+    -0.036834717,
+    0.001282692,
+    0.02520752,
+    -0.052734375,
+    -0.050842285,
+    -0.000916481,
+    0.011978149,
+    -0.013244629,
+    0.004211426,
+    0.06185913,
+    0.013694763,
+    0.026687622,
+    0.06088257,
+    0.046844482,
+    0.00052928925,
+    -0.014846802,
+    -0.05731201,
+    0.0055007935,
+    0.024414062,
+    0.010139465,
+    -0.025024414,
+    -0.02961731,
+    -0.0008401871,
+    0.04373169,
+    -0.026870728,
+    0.017471313,
+    0.0030593872,
+    -0.032440186,
+    0.018081665,
+    0.011520386,
+    -0.03265381,
+    0.0014677048,
+    0.047973633,
+    -0.053833008,
+    0.013648987,
+    0.02078247,
+    -0.008888245,
+    -0.025512695,
+    0.009925842,
+    0.0063438416,
+    0.10913086,
+    0.013412476,
+    -0.03125,
+    -0.024337769,
+    0.0016269684,
+    -0.03616333,
+    -0.046905518,
+    -0.013427734,
+    0.008544922,
+    0.055267334,
+    -0.020462036,
+    -0.03579712,
+    0.0074806213,
+    -0.032836914,
+    -0.037597656,
+    -0.005077362,
+    0.025344849,
+    -0.010627747,
+    0.0057754517,
+    -0.005634308,
+    0.034210205,
+    -0.0037460327,
+    0.0045280457,
+    0.005176544,
+    -0.0017585754,
+    0.0206604,
+    -0.011047363,
+    -1.4662743e-05,
+    0.013809204,
+    -0.044311523,
+    0.008934021,
+    0.023986816,
+    -0.03262329,
+    0.022994995,
+    0.006111145,
+    -0.020248413,
+    0.0131073,
+    -0.029632568,
+    0.014213562,
+    -0.0039787292,
+    0.009162903,
+    -0.04324341,
+    0.008911133,
+    0.0053482056,
+    0.011894226,
+    -0.013084412,
+    -0.005619049,
+    -0.004009247,
+    0.02911377,
+    -0.014968872,
+    0.024505615,
+    -0.045715332,
+    0.04421997,
+    -0.014213562,
+    0.028045654,
+    0.0037822723,
+    0.025360107,
+    -0.025024414,
+    -0.026245117,
+    -0.024490356,
+    0.0014257431,
+    0.009033203,
+    -0.030181885,
+    -0.027053833,
+    -0.014404297,
+    0.04901123,
+    0.019500732,
+    -0.029830933,
+    -0.02217102,
+    0.042755127,
+    -0.03717041,
+    -0.006801605,
+    -0.0010738373,
+    0.02180481,
+    -0.04840088,
+    -0.023025513,
+    0.009185791,
+    -0.009178162,
+    -0.035583496,
+    0.021774292,
+    0.0016803741,
+    -0.00945282,
+    -0.07305908,
+    -0.009185791,
+    -0.009841919,
+    -0.03793335,
+    0.00079870224,
+    0.053009033,
+    0.047332764,
+    -0.0004453659,
+    0.041168213,
+    0.001572609,
+    -0.0048713684,
+    -0.0044670105,
+    -0.039886475,
+    0.0031471252,
+    -0.02545166,
+    0.08135986,
+    0.030319214,
+    0.02885437,
+    0.01991272,
+    0.012313843,
+    0.025421143,
+    -0.010307312,
+    -0.01499176,
+    -0.03692627,
+    0.038909912,
+    -0.019943237,
+    0.026260376,
+    -0.008422852,
+    0.027130127,
+    0.016723633,
+    -0.040985107,
+    -0.021408081,
+    -0.017715454,
+    0.01612854,
+    0.02178955,
+    0.030883789,
+    -0.031204224,
+    -0.05392456,
+    -0.011833191,
+    -0.006664276,
+    -0.02067566,
+    -0.0002644062,
+    -0.04067993,
+    -0.015068054,
+    -0.032104492,
+    0.0423584,
+    0.017791748,
+    0.0045776367,
+    0.031402588,
+    -0.00019145012,
+    0.019744873,
+    -0.034454346,
+    0.010253906,
+    -0.00028395653,
+    -0.02166748,
+    0.01360321,
+    0.004611969,
+    -0.0009946823,
+    -0.020706177,
+    0.004184723,
+    0.03338623,
+    -0.035125732,
+    -0.013847351,
+    -0.016342163,
+    0.009780884,
+    -0.0026512146,
+    0.05355835,
+    -0.01966858,
+    0.0082473755,
+    0.016494751,
+    0.020767212,
+    -0.012924194,
+    0.039733887,
+    -0.034606934,
+    -0.004142761,
+    -0.013031006,
+    -0.039794922,
+    -0.023757935,
+    0.015098572,
+    0.004547119,
+    0.029296875,
+    0.014160156,
+    -0.027236938,
+    -0.0015668869,
+    -0.011512756,
+    0.009498596,
+    -0.0066719055,
+    -0.03744507,
+    -0.0112838745,
+    0.028366089,
+    0.033569336,
+    -0.010688782,
+    0.033935547,
+    0.037597656,
+    0.050048828,
+    0.012619019,
+    -0.032409668,
+    -0.019500732,
+    -0.04135132,
+    -0.0047035217,
+    -0.001666069,
+    0.012016296,
+    -0.025634766,
+    0.002796173,
+    -0.011459351,
+    -0.005882263,
+    0.0018196106,
+    0.0019550323,
+    0.039886475,
+    -0.064331055,
+    -0.04034424,
+    0.033813477,
+    0.023498535,
+    0.019989014,
+    -0.031982422,
+    0.05996704,
+    -0.00762558,
+    0.03842163,
+    -0.006504059,
+    0.02810669,
+    0.0052719116,
+    5.1796436e-05,
+    0.024551392,
+    -0.09814453,
+    -0.01309967,
+    -0.023895264,
+    -0.04724121,
+    -0.013572693,
+    0.006008148,
+    0.0033187866,
+    -0.0066986084,
+    -0.006652832,
+    -0.040863037,
+    0.00043272972,
+    0.05517578,
+    -0.0029716492,
+    -0.025543213,
+    -0.014213562,
+    -0.018203735,
+    0.049682617,
+    0.011520386,
+    -0.015686035,
+    0.028671265,
+    0.022140503,
+    0.022079468,
+    0.01449585,
+    -0.028945923,
+    0.021850586,
+    -0.019760132,
+    0.014625549,
+    0.031234741,
+    -0.040008545,
+    0.0072288513,
+    0.0039482117,
+    -0.024169922,
+    -0.003868103,
+    0.020965576,
+    -0.03741455,
+    -0.014213562,
+    0.020050049,
+    0.01576233,
+    -0.03250122,
+    0.02017212,
+    0.0038604736,
+    0.043762207,
+    -0.03488159,
+    0.0022296906,
+    -0.010055542,
+    0.021270752,
+    -0.0141067505,
+    -0.024734497,
+    0.047180176,
+    0.00434494,
+    -0.053344727,
+    0.018325806,
+    0.054016113,
+    0.028427124,
+    -0.040863037,
+    -0.02230835,
+    0.01838684,
+    0.07165527,
+    -0.012954712,
+    0.0022583008,
+    -0.020050049,
+    0.024917603,
+    -0.021194458,
+    -0.015159607,
+    -0.0016212463,
+    0.010681152,
+    0.035003662,
+    -0.04434204,
+    -0.051574707,
+    -0.015296936,
+    0.039398193,
+    -0.035491943,
+    -1.7285347e-05,
+    0.03390503,
+    -0.014884949,
+    -0.006587982,
+    -0.019561768,
+    0.013999939,
+    -0.018493652,
+    0.0112838745,
+    0.005252838,
+    -0.012207031,
+    0.021087646,
+    -0.010032654,
+    -0.031433105,
+    -0.017288208,
+    0.042388916,
+    -0.033996582,
+    0.024627686,
+    -0.034362793,
+    -0.0058059692,
+    0.032318115,
+    -0.00038146973,
+    0.0015249252,
+    -0.029067993,
+    -0.00037837029,
+    0.0018358231,
+    0.037628174,
+    -0.06512451,
+    0.022354126,
+    0.008415222,
+    -0.0047912598,
+    -0.04196167,
+    -0.016937256,
+    0.030227661,
+    0.011329651,
+    -0.021453857,
+    -0.030303955,
+    -0.0024147034,
+    0.031799316,
+    -0.023269653,
+    0.01889038,
+    0.048065186,
+    -0.004322052,
+    0.01725769,
+    -0.00020456314,
+    -0.004047394,
+    -0.016403198,
+    0.031066895,
+    -0.016357422,
+    0.023254395,
+    0.009407043,
+    0.0065689087,
+    0.022155762,
+    0.005634308,
+    -0.03366089,
+    0.00030446053,
+    0.027740479,
+    0.023391724,
+    -0.036499023,
+    -0.006439209,
+    0.071899414,
+    0.064208984,
+    -0.036468506,
+    0.023422241,
+    0.031082153,
+    0.012794495,
+    -0.013076782,
+    0.0003194809,
+    -0.035980225,
+    -0.005683899,
+    -0.0017080307,
+    -0.020767212,
+    -0.0126571655,
+    -0.013999939,
+    -0.01272583,
+    -0.018951416,
+    0.013702393,
+    -0.0051574707,
+    -0.002122879,
+    -0.012466431,
+    -0.051513672,
+    -0.02470398,
+    0.021484375,
+    0.028579712,
+    0.0042495728,
+    -0.010025024,
+    -0.031021118,
+    0.010223389,
+    0.0036697388,
+    -0.00090551376,
+    0.009605408,
+    -0.0027542114,
+    0.00969696,
+    -0.015914917,
+    0.0050735474,
+    0.038269043,
+    -0.04663086,
+    -0.025787354,
+    0.031829834,
+    -0.040130615,
+    -0.0026569366,
+    4.5895576e-05,
+    -0.00013685226,
+    0.007118225,
+    0.0625,
+    -0.038391113,
+    0.04699707,
+    -0.05633545,
+    0.0019893646,
+    0.040985107,
+    0.0024814606,
+    -0.0028438568,
+    -0.041168213,
+    -0.019332886,
+    0.034179688,
+    -0.031280518,
+    -0.025909424,
+    0.0025577545,
+    0.03668213,
+    0.03479004,
+    0.038391113,
+    0.054473877,
+    -0.06536865,
+    0.0030555725,
+    0.0024471283,
+    0.03466797,
+    -0.016143799,
+    -0.019699097,
+    0.04208374,
+    -0.024215698,
+    -0.009140015,
+    -0.019546509,
+    0.002090454,
+    -0.056854248,
+    -0.028869629,
+    -0.011047363,
+    -0.02645874,
+    0.025772095,
+    -0.004081726,
+    0.022872925,
+    0.0038661957,
+    -0.049194336,
+    -0.053466797,
+    0.00033545494,
+    0.031677246,
+    0.03918457,
+    0.033233643,
+    0.0040397644,
+    0.011924744,
+    -0.0008955002,
+    -0.00086927414,
+    -0.011993408,
+    -0.029541016,
+    -0.0039863586,
+    0.07366943,
+    -0.009384155,
+    0.0008816719,
+    0.018218994,
+    -0.017425537,
+    -0.028442383,
+    -0.03149414,
+    -0.053222656,
+    0.036315918,
+    7.337332e-05,
+    0.013572693,
+    -0.0022945404,
+    0.011543274,
+    0.04043579,
+    -0.052215576,
+    -0.045013428,
+    0.022827148,
+    0.008598328,
+    0.0063285828,
+    0.0013942719,
+    -0.013641357,
+    0.009986877,
+    -0.0090408325,
+    -0.021560669,
+    0.00299263,
+    -0.0146102905,
+    0.032196045,
+    0.014228821,
+    -0.10491943,
+    -0.07757568,
+    -0.03366089,
+    0.020339966,
+    -0.022338867,
+    0.0016479492,
+    0.011177063,
+    0.002281189,
+    -0.011306763,
+    -0.018325806,
+    -0.011871338,
+    0.0126953125,
+    -0.022705078,
+    -0.08514404,
+    -0.0030612946,
+    0.021026611,
+    0.032043457,
+    -0.023513794,
+    -0.01626587,
+    -0.08441162,
+    0.030426025,
+    -0.01637268,
+    0.013282776,
+    -0.024780273,
+    0.014907837,
+    -0.010536194,
+    0.026229858,
+    -0.058502197,
+    -0.08886719,
+    0.008132935,
+    0.015899658,
+    -0.010658264,
+    -0.0076904297,
+    -0.007293701,
+    -0.013191223,
+    0.02607727,
+    0.022567749,
+    0.03111267,
+    -0.033447266,
+    -0.025161743,
+    -0.013053894,
+    -0.013626099,
+    0.044067383,
+    -0.015945435,
+    -0.010612488,
+    -0.0102005005,
+    0.03152466,
+    0.009384155,
+    0.0023822784,
+    0.011886597,
+    -0.021316528,
+    -0.018981934,
+    0.0068092346,
+    0.011138916,
+    -0.010154724,
+    0.014762878,
+    0.008003235,
+    -0.0042762756,
+    -0.020950317,
+    -0.048095703,
+    -0.023345947,
+    -0.034576416,
+    -0.00054454803,
+    -0.03265381,
+    0.020370483,
+    -0.011291504,
+    0.0040740967,
+    0.024017334,
+    0.0041885376,
+    -0.007293701,
+    -0.007545471,
+    0.009391785,
+    -0.011054993,
+    -0.008277893,
+    -0.04550171,
+    -0.041381836,
+    -0.012542725,
+    0.015327454,
+    -0.04522705,
+    0.024932861,
+    0.041046143,
+    0.0020542145,
+    0.034484863,
+    0.052124023,
+    -0.03677368,
+    0.0110321045,
+    0.021865845,
+    -0.045928955,
+    -0.03164673,
+    0.044769287,
+    -0.011405945,
+    -0.005317688,
+    0.03363037,
+    0.022994995,
+    0.006175995,
+    -0.0019512177,
+    0.049743652,
+    0.005569458,
+    0.0070228577,
+    -0.018844604,
+    0.029937744,
+    -0.040924072,
+    -0.014961243,
+    -0.023590088,
+    -0.053863525,
+    -0.009864807,
+    -0.007396698,
+    0.012359619,
+    0.022094727,
+    0.019546509,
+    0.08795166,
+    0.00995636,
+    0.003709793,
+    0.05432129,
+    -0.01007843,
+    -0.020629883,
+    -0.021438599,
+    0.041412354,
+    -0.00021958351,
+    0.019699097,
+    0.02986145,
+    -0.00818634,
+    0.05758667,
+    0.044677734,
+    -0.011764526,
+    0.020980835,
+    -0.023895264,
+    -0.005466461,
+    0.009307861,
+    -0.007484436,
+    -0.007507324,
+    -0.0021247864,
+    -0.0012931824,
+    -0.10418701,
+    -0.011222839,
+    -0.0033302307,
+    -0.037017822,
+    0.02986145,
+    0.09515381,
+    -0.035736084,
+    0.034484863,
+    -0.088012695,
+    -0.07305908,
+    0.005695343,
+    0.014053345,
+    0.012054443,
+    -0.11071777,
+    0.02760315,
+    -0.030960083,
+    0.031982422,
+    0.02243042,
+    0.044006348,
+    -0.017837524,
+    -0.01789856,
+    0.057861328,
+    0.014007568,
+    0.07702637,
+    0.007419586,
+    -0.011314392,
+    -0.053741455,
+    0.015365601,
+    -0.018341064,
+    -0.054382324,
+    0.02923584,
+    -0.057250977,
+    0.023757935,
+    0.0020256042,
+    -0.017196655,
+    -0.08178711,
+    -0.017684937,
+    -0.02255249,
+    -0.00466156,
+    -0.011024475,
+    0.004432678,
+    0.026870728,
+    0.026733398,
+    0.0022354126,
+    0.026626587,
+    -0.015426636,
+    0.055419922,
+    -0.09210205,
+    -0.036621094,
+    -0.015548706,
+    -0.001294136,
+    0.047332764,
+    0.069885254,
+    -0.036132812,
+    0.12548828,
+    -0.030899048,
+    0.015090942,
+    -0.01914978,
+    -0.0070991516,
+    -0.010887146,
+    0.04055786,
+    -0.031021118,
+    0.05441284,
+    -0.012466431,
+    0.017791748,
+    0.017105103,
+    -0.0057525635,
+    0.00021386147,
+    0.017837524,
+    -0.027938843,
+    -0.010597229,
+    -0.019851685,
+    0.02520752,
+    -0.028182983,
+    0.03717041,
+    0.022125244,
+    -0.099731445,
+    -0.0062026978,
+    -0.03793335,
+    0.009414673,
+    0.043884277,
+    -0.025497437,
+    0.050079346,
+    0.022109985,
+    -0.0592041,
+    0.03753662,
+    -0.0027942657,
+    0.03753662,
+    0.027526855,
+    0.030014038,
+    -0.013031006,
+    0.014030457,
+    0.025375366,
+    0.025726318,
+    0.014854431,
+    -0.014877319,
+    0.042266846,
+    0.012580872,
+    -0.050811768,
+    -0.0069503784,
+    0.02558899,
+    -0.030014038,
+    0.0007009506,
+    -0.025909424,
+    -0.030441284,
+    -0.040374756,
+    0.00579834,
+    -0.056518555,
+    -0.00043272972,
+    -0.023986816,
+    -0.016174316,
+    -0.043884277,
+    0.023468018,
+    0.023010254,
+    -0.031402588,
+    -0.04232788,
+    0.019042969,
+    -0.008514404,
+    -0.018875122,
+    0.019348145,
+    -0.0085372925,
+    -0.042755127,
+    -0.015541077,
+    0.057617188,
+    -0.005378723,
+    0.039367676,
+    -0.040649414,
+    -0.02848816,
+    -0.022827148,
+    -0.043640137,
+    -0.0042877197,
+    -0.032409668,
+    0.050231934,
+    -0.07244873,
+    -0.0017776489,
+    0.006679535,
+    0.006679535,
+    0.024520874,
+    -0.023452759,
+    0.051940918,
+    0.030548096,
+    -0.017440796,
+    0.023147583,
+    0.00831604,
+    0.0096206665,
+    0.038513184,
+    -0.040130615,
+    0.02508545,
+    -0.021087646,
+    -0.0047912598,
+    0.0015907288,
+    -0.016983032
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89498.md",
+    "file_name": "89498.md",
+    "file_size": 6581,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# NTSB Administrative Information for Investigation 89498",
+      "Andrew Swick is the Investigator In Charge (IIC) of investigation 89498.",
+      "The original publish date of the accident report is September 24, 2014.",
+      "The investigation is classified as a Class investigation.",
+      "The accident report documents the factual circumstances of the accident as described to the NTSB.",
+      "The investigation docket is available at https://data.ntsb.gov/Docket?ProjectID=89498.",
+      "The National Transportation Safety Board (NTSB) is an independent federal agency.",
+      "The NTSB is charged by Congress with investigating every civil aviation accident in the United States.",
+      "The NTSB investigates significant events in other modes of transportation.",
+      "The other modes of transportation include railroad, transit, highway, marine, pipeline, and commercial space.",
+      "The NTSB determines the probable causes of the accidents and events it investigates.",
+      "The NTSB issues safety recommendations aimed at preventing future occurrences.",
+      "The NTSB conducts transportation safety research studies.",
+      "The NTSB offers information and assistance to family members and survivors for each accident or event it investigates.",
+      "The NTSB serves as the appellate authority for enforcement actions involving aviation certificates issued by the Federal Aviation Administration (FAA).",
+      "The NTSB serves as the appellate authority for enforcement actions involving mariner certificates issued by US Coast Guard.",
+      "The NTSB adjudicates appeals of civil penalty actions taken by the FAA.",
+      "The NTSB does not assign fault or blame for an accident or incident.",
+      "NTSB accident investigations are fact-finding proceedings with no formal issues and no adverse parties.",
+      "NTSB investigations are not conducted for determining the rights or liabilities of any person.",
+      "This policy is specified by Title 49 Code of Federal Regulations section 831.4.",
+      "Assignment of fault or legal liability is not relevant to the NTSB's statutory mission.",
+      "The NTSB's statutory mission is to improve transportation safety.",
+      "Statutory language prohibits the admission into evidence of any part of an NTSB report in a civil action for damages.",
+      "This prohibition is stated in Title 49 United States Code section 1154(b).",
+      "A factual report that may be admissible under 49 United States Code section 1154(b) is available on the NTSB website."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "NTSB Administrative Information for Investigation 89498",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Andrew Swick",
+              "classification": "Investigator In Charge"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "US Coast Guard",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Andrew Swick is the Investigator In Charge (IIC) of investigation 89498.",
+              "details": [
+                "investigation 89498 INVESTIGATION NUMBER 89498"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Andrew Swick",
+                    "classification": "Investigator In Charge"
+                  },
+                  "predicate": {
+                    "value": "INVESTIGATOR OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation 89498",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Andrew Swick",
+                    "classification": "Investigator In Charge"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Investigator In Charge",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation 89498",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVESTIGATION NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "89498",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The original publish date of the accident report is September 24, 2014.",
+              "details": [
+                "accident report PUBLISH DATE September 24, 2014"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident report",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PUBLISH DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "September 24, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The investigation is classified as a Class investigation.",
+              "details": [
+                "investigation 89498 CLASSIFICATION Class investigation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation 89498",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CLASSIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class investigation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident report documents the factual circumstances of the accident as described to the NTSB.",
+              "details": [
+                "accident report DOCUMENTS accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident report",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DOCUMENTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RECEIVES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident description",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The investigation docket is available at https//data.ntsb.gov/Docket?ProjectID=89498.",
+              "details": [
+                "investigation docket URL https://data.ntsb.gov/Docket?ProjectID=89498",
+                "investigation docket PROJECT ID 89498"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation docket",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "URL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "https://data.ntsb.gov/Docket?ProjectID=89498",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation docket",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROJECT ID"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "89498",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board (NTSB) is an independent federal agency.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "independent federal agency",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB is charged by Congress with investigating every civil aviation accident in the United States.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "CHARGED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Congress",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigating every civil aviation accident in the United States",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB investigates significant events in other modes of transportation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigates significant events in other modes of transportation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The other modes of transportation include railroad, transit, highway, marine, pipeline, and commercial space.",
+              "details": [
+                "other modes of transportation INCLUDES railroad, transit, highway, marine, pipeline, and commercial space"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other modes of transportation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "railroad, transit, highway, marine, pipeline, and commercial space",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB determines the probable causes of the accidents and events it investigates.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "determines the probable causes of the accidents and events it investigates",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB issues safety recommendations aimed at preventing future occurrences.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "issues safety recommendations aimed at preventing future occurrences",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB conducts transportation safety research studies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "conducts transportation safety research studies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB offers information and assistance to family members and survivors for each accident or event it investigates.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "offers information and assistance to family members and survivors",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB serves as the appellate authority for enforcement actions involving aviation certificates issued by the Federal Aviation Administration (FAA).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPELLATE AUTHORITY FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aviation certificates",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "appellate authority for enforcement actions involving aviation certificates",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB serves as the appellate authority for enforcement actions involving mariner certificates issued by US Coast Guard.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPELLATE AUTHORITY FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Coast Guard",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Coast Guard",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mariner certificates",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "appellate authority for enforcement actions involving mariner certificates",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB adjudicates appeals of civil penalty actions taken by the FAA.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ADJUDICATES APPEALS FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RESPONSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "adjudicates appeals of civil penalty actions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB does not assign fault or blame for an accident or incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "does not assign fault or blame for an accident or incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "NTSB accident investigations are fact-finding proceedings with no formal issues and no adverse parties.",
+              "details": [
+                "NTSB accident investigations TYPE fact-finding proceedings with no formal issues and no adverse parties"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB accident investigations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fact-finding proceedings with no formal issues and no adverse parties",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "NTSB investigations are not conducted for determining the rights or liabilities of any person.",
+              "details": [
+                "NTSB investigations LIMITATION not conducted for determining the rights or liabilities of any person"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not conducted for determining the rights or liabilities of any person",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "This policy is specified by Title 49 Code of Federal Regulations section 831.4.",
+              "details": [
+                "Title 49 Code of Federal Regulations section 831.4 SPECIFIES NTSB investigation policy"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Title 49 Code of Federal Regulations section 831.4",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SPECIFIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigation policy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Assignment of fault or legal liability is not relevant to the NTSB's statutory mission.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "STATUTORY MISSION EXCLUSION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "assignment of fault or legal liability",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB's statutory mission is to improve transportation safety.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "STATUTORY MISSION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improve transportation safety",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Statutory language prohibits the admission into evidence of any part of an NTSB report in a civil action for damages.",
+              "details": [
+                "NTSB report LEGAL RESTRICTION prohibited from admission into evidence in a civil action for damages"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB report",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LEGAL RESTRICTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prohibited from admission into evidence in a civil action for damages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "This prohibition is stated in Title 49 United States Code section 1154(b).",
+              "details": [
+                "Title 49 United States Code section 1154(b) STATES prohibition on NTSB report admission"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Title 49 United States Code section 1154(b)",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prohibition on NTSB report admission",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A factual report that may be admissible under 49 United States Code section 1154(b) is available on the NTSB website.",
+              "details": [
+                "factual report AVAILABILITY NTSB website",
+                "factual report LEGAL STATUS may be admissible under 49 United States Code section 1154(b)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "factual report",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AVAILABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB website",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "factual report",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LEGAL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "may be admissible under 49 United States Code section 1154(b)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::16da6504:0550",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89498.md",
+        "file_name": "89498.md",
+        "file_size": 6581,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "fad80c42394e9c817976c9b2821ae8eeda083a18c68b82c65d6f07e479fbb662",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::16da6504:0550:b0ffecdd",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89498.md",
+        "file_name": "89498.md",
+        "file_size": 6581,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "18c0d66f8c68120379fcd2bfae92308c135625c1fd9015f3c589227d5f662296",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Administrative Information\n\n## Investigator In Charge (IIC):\nSwick, Andrew\n\n## Additional Participating Persons:\n\n## Original Publish Date:\nSeptember 24, 2014\n\n## Last Revision Date:\n\n## Investigation Class:\nClass\n\n## Note:\nThis accident report documents the factual circumstances of this accident as described to the NTSB.\n\n## Investigation Docket:\n[https://data.ntsb.gov/Docket?ProjectID=89498](https://data.ntsb.gov/Docket?ProjectID=89498)\n\nThe National Transportation Safety Board (NTSB) is an independent federal agency charged by Congress with investigating every civil aviation accident in the United States and significant events in other modes of transportation—railroad, transit, highway, marine, pipeline, and commercial space. We determine the probable causes of the accidents and events we investigate, and issue safety recommendations aimed at preventing future occurrences. In addition, we conduct transportation safety research studies and offer information and other assistance to family members and survivors for each accident or event we investigate. We also serve as the appellate authority for enforcement actions involving aviation and mariner certificates issued by the Federal Aviation Administration (FAA) and US Coast Guard, and we adjudicate appeals of civil penalty actions taken by the FAA.\n\nThe NTSB does not assign fault or blame for an accident or incident; rather, as specified by NTSB regulation, \"accident/incident investigations are fact-finding proceedings with no formal issues and no adverse parties … and are not conducted for the purpose of determining the rights or liabilities of any person\" (Title 49 Code of Federal Regulations section 831.4). Assignment of fault or legal liability is not relevant to the NTSB's statutory mission to improve transportation safety by investigating accidents and incidents and issuing safety recommendations. In addition, statutory language prohibits the admission into evidence or use of any part of an NTSB report related to an accident in a civil action for damages resulting from a matter mentioned in the report (Title 49 United States Code section 1154(b)). A factual report that may be admissible under 49 United States Code section 1154(b) is available [here](https://www.ntsb.gov/investigations/AccidentReports/Pages/aviation.aspx).",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2320,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

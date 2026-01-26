@@ -1,0 +1,2475 @@
+{
+  "id_": "aws::7c757033:a1c8:a81ed298",
+  "embedding": [
+    0.042999268,
+    0.008293152,
+    0.023086548,
+    -0.07098389,
+    0.011512756,
+    -0.019256592,
+    0.000104904175,
+    0.0014486313,
+    -0.02986145,
+    0.02255249,
+    -0.02848816,
+    0.024154663,
+    -0.01574707,
+    -0.007171631,
+    0.019332886,
+    -0.03491211,
+    -0.01121521,
+    0.06817627,
+    0.03741455,
+    -0.017303467,
+    -0.0025691986,
+    -0.014213562,
+    0.004211426,
+    -0.041107178,
+    0.015159607,
+    0.013137817,
+    -0.023162842,
+    0.010093689,
+    -0.018585205,
+    -0.012992859,
+    0.017990112,
+    0.0071372986,
+    0.04574585,
+    0.03274536,
+    -0.054504395,
+    0.04360962,
+    -0.044067383,
+    0.021362305,
+    -0.00819397,
+    0.0178833,
+    0.017944336,
+    -0.013839722,
+    0.047546387,
+    -0.07281494,
+    0.02218628,
+    0.009597778,
+    0.01776123,
+    -0.05090332,
+    0.041900635,
+    0.023284912,
+    -0.005760193,
+    0.022003174,
+    -0.009429932,
+    0.016159058,
+    -0.0060653687,
+    -0.016082764,
+    -0.04208374,
+    -0.017730713,
+    0.0046539307,
+    0.003610611,
+    0.034301758,
+    -0.00818634,
+    0.036376953,
+    0.03515625,
+    -0.021118164,
+    -0.0049743652,
+    -0.022949219,
+    0.030670166,
+    0.05419922,
+    -0.04815674,
+    -0.072631836,
+    0.02293396,
+    -0.014633179,
+    0.019195557,
+    0.020690918,
+    -0.027511597,
+    -0.00040316582,
+    0.01574707,
+    -0.006931305,
+    0.07312012,
+    0.023971558,
+    0.022155762,
+    -0.015960693,
+    0.016159058,
+    -0.02458191,
+    0.020385742,
+    -0.01158905,
+    -0.039154053,
+    -0.0029335022,
+    0.016433716,
+    -0.01424408,
+    0.011268616,
+    0.05609131,
+    0.0029525757,
+    -0.051330566,
+    0.004825592,
+    0.021759033,
+    -0.043792725,
+    0.0390625,
+    -0.040924072,
+    0.04269409,
+    -0.059753418,
+    -0.035888672,
+    0.027038574,
+    -0.029205322,
+    -0.011444092,
+    -0.020019531,
+    -0.021057129,
+    0.03338623,
+    0.037109375,
+    -0.023880005,
+    0.008926392,
+    -0.006626129,
+    -0.089660645,
+    0.018463135,
+    0.10345459,
+    0.037078857,
+    -0.0105896,
+    0.039093018,
+    -0.022018433,
+    0.013664246,
+    0.05657959,
+    -0.066711426,
+    -0.052886963,
+    0.005935669,
+    -0.030593872,
+    -0.009529114,
+    0.01890564,
+    0.04058838,
+    0.018692017,
+    -0.02029419,
+    0.031066895,
+    -0.00074768066,
+    -0.053588867,
+    -0.03237915,
+    -0.005596161,
+    -0.021087646,
+    -0.023773193,
+    0.012359619,
+    -0.01965332,
+    0.020462036,
+    0.0072364807,
+    0.07171631,
+    0.015266418,
+    -0.06060791,
+    0.033416748,
+    0.018051147,
+    -0.0093307495,
+    -0.030136108,
+    -0.0680542,
+    0.0027999878,
+    -0.05419922,
+    0.045898438,
+    -0.030029297,
+    -0.09436035,
+    -0.04849243,
+    -0.048706055,
+    -0.020584106,
+    0.0085372925,
+    -0.048706055,
+    -0.004589081,
+    -0.011131287,
+    0.018936157,
+    -0.011390686,
+    -0.061676025,
+    0.01675415,
+    -0.012023926,
+    -0.009628296,
+    0.009544373,
+    0.0034065247,
+    0.017318726,
+    -0.023880005,
+    -0.04107666,
+    0.00491333,
+    -0.00592041,
+    0.014289856,
+    0.01436615,
+    0.01146698,
+    0.007423401,
+    0.047454834,
+    0.012954712,
+    -0.014892578,
+    0.053710938,
+    -0.030395508,
+    -0.00182724,
+    -0.035705566,
+    0.0067367554,
+    -0.04989624,
+    0.016021729,
+    0.0051116943,
+    0.02178955,
+    0.019515991,
+    -0.006942749,
+    -0.004535675,
+    -0.0034637451,
+    -0.02017212,
+    0.004535675,
+    0.0068893433,
+    -0.010650635,
+    -0.008453369,
+    0.024780273,
+    -0.0061569214,
+    0.04260254,
+    -0.018875122,
+    -0.013191223,
+    0.008857727,
+    0.004623413,
+    0.037384033,
+    0.015914917,
+    0.029830933,
+    0.01260376,
+    -0.023483276,
+    -0.011993408,
+    0.04196167,
+    -0.015113831,
+    -0.04220581,
+    0.00096035004,
+    -0.013381958,
+    0.0037651062,
+    0.01109314,
+    -0.030227661,
+    0.043029785,
+    -0.044555664,
+    -0.010597229,
+    -0.01146698,
+    -0.021606445,
+    -0.011291504,
+    -0.021850586,
+    -0.013305664,
+    -0.019561768,
+    0.055358887,
+    0.03515625,
+    0.07739258,
+    0.050750732,
+    -0.041503906,
+    0.025894165,
+    0.04055786,
+    -0.004207611,
+    -0.009513855,
+    0.023666382,
+    -0.0053710938,
+    -0.015144348,
+    -0.02571106,
+    0.058166504,
+    -0.03967285,
+    -0.036254883,
+    -0.0062789917,
+    0.019256592,
+    0.008666992,
+    0.05606079,
+    0.0056915283,
+    0.03527832,
+    0.00046777725,
+    0.029266357,
+    -0.025375366,
+    0.034057617,
+    0.012496948,
+    -0.012039185,
+    0.0024719238,
+    -0.004585266,
+    0.030563354,
+    0.030456543,
+    -0.03366089,
+    0.022857666,
+    0.0045394897,
+    0.05606079,
+    0.05303955,
+    0.06713867,
+    -0.040222168,
+    0.030944824,
+    0.004070282,
+    0.04458618,
+    0.019348145,
+    0.014472961,
+    -0.10961914,
+    0.02078247,
+    -0.020324707,
+    0.025817871,
+    0.041778564,
+    -0.014457703,
+    -0.015159607,
+    0.030166626,
+    -0.001964569,
+    -0.021438599,
+    0.011505127,
+    -0.014259338,
+    -0.015792847,
+    -0.042541504,
+    0.054840088,
+    0.03744507,
+    0.0836792,
+    -0.05633545,
+    -0.034301758,
+    0.040252686,
+    -0.012519836,
+    -0.045776367,
+    0.043395996,
+    0.013069153,
+    -0.009925842,
+    0.015838623,
+    0.04864502,
+    0.050567627,
+    -0.016220093,
+    0.019210815,
+    0.02116394,
+    -0.024383545,
+    0.039855957,
+    -0.0034370422,
+    0.01449585,
+    0.015716553,
+    -0.015823364,
+    0.05734253,
+    0.014709473,
+    0.013687134,
+    -0.01399231,
+    -0.015701294,
+    -0.030700684,
+    0.030181885,
+    0.0061683655,
+    0.04660034,
+    -0.05758667,
+    -0.03451538,
+    0.00806427,
+    0.010635376,
+    0.008232117,
+    0.010505676,
+    -0.008163452,
+    0.018936157,
+    0.021636963,
+    -0.030761719,
+    -0.032958984,
+    -0.029434204,
+    -0.053649902,
+    0.031204224,
+    0.015106201,
+    0.027770996,
+    -0.001543045,
+    0.042022705,
+    -0.027740479,
+    -0.006538391,
+    -0.06567383,
+    -0.07147217,
+    0.009742737,
+    -0.0597229,
+    -0.05810547,
+    -0.03970337,
+    0.07122803,
+    -0.009048462,
+    0.02243042,
+    0.008239746,
+    0.045776367,
+    -0.004699707,
+    -0.013435364,
+    0.025466919,
+    0.018997192,
+    -0.06964111,
+    -0.010498047,
+    0.03564453,
+    -0.026428223,
+    -0.03692627,
+    0.00033330917,
+    0.011001587,
+    -0.05670166,
+    -0.10559082,
+    0.023651123,
+    -0.00065135956,
+    -0.040863037,
+    -0.027145386,
+    -0.04095459,
+    -0.003145218,
+    -0.017211914,
+    -0.0016040802,
+    0.004234314,
+    -0.021148682,
+    -0.031585693,
+    0.017105103,
+    0.03125,
+    -0.02532959,
+    0.047668457,
+    0.03277588,
+    0.026260376,
+    0.030181885,
+    0.013908386,
+    0.02432251,
+    -0.0018081665,
+    0.0030384064,
+    -0.019729614,
+    0.041046143,
+    -0.018173218,
+    -0.0049858093,
+    -0.0154418945,
+    0.037719727,
+    0.017913818,
+    -0.008216858,
+    0.015960693,
+    -0.008888245,
+    -0.013694763,
+    0.025848389,
+    -0.060821533,
+    0.00033807755,
+    -0.074523926,
+    -0.015670776,
+    -0.027786255,
+    -0.029785156,
+    0.028808594,
+    -0.09222412,
+    0.008674622,
+    -0.051818848,
+    0.03668213,
+    0.046936035,
+    -0.015701294,
+    0.020889282,
+    -0.008811951,
+    0.009086609,
+    -0.025970459,
+    0.03189087,
+    -0.030212402,
+    -0.0018844604,
+    -0.035736084,
+    0.030578613,
+    0.053771973,
+    -0.042907715,
+    0.009727478,
+    0.02658081,
+    -0.02217102,
+    0.037475586,
+    -0.013717651,
+    0.030212402,
+    0.0007801056,
+    0.011459351,
+    0.0034160614,
+    -0.031951904,
+    0.0006275177,
+    -0.01197052,
+    -0.013061523,
+    0.025894165,
+    -0.029571533,
+    0.006362915,
+    -0.016555786,
+    -0.014533997,
+    0.018188477,
+    0.0070648193,
+    0.029159546,
+    0.021102905,
+    0.015022278,
+    -0.013900757,
+    -0.009536743,
+    0.022232056,
+    0.010292053,
+    -0.010635376,
+    -0.013580322,
+    -0.0028152466,
+    0.06121826,
+    0.029708862,
+    0.0031318665,
+    0.021697998,
+    -0.006160736,
+    0.023422241,
+    0.07678223,
+    -0.0625,
+    -0.03866577,
+    -0.02758789,
+    -0.023925781,
+    -0.0019683838,
+    -0.027770996,
+    -0.011985779,
+    0.045654297,
+    0.0037021637,
+    0.02520752,
+    -0.026489258,
+    -0.02180481,
+    0.04788208,
+    -0.052520752,
+    -0.026443481,
+    0.027053833,
+    0.022262573,
+    -0.0034446716,
+    -0.017974854,
+    0.054626465,
+    0.018569946,
+    -0.0057296753,
+    -0.0062942505,
+    0.009536743,
+    0.081604004,
+    0.02798462,
+    0.025985718,
+    0.037384033,
+    0.08459473,
+    0.00071430206,
+    0.035858154,
+    0.01927185,
+    0.031433105,
+    0.05895996,
+    -0.035125732,
+    0.008682251,
+    -0.011795044,
+    0.010345459,
+    -0.017745972,
+    -0.0149002075,
+    -0.03753662,
+    -0.01525116,
+    -0.011802673,
+    -0.025512695,
+    0.01386261,
+    -0.0062675476,
+    0.023773193,
+    0.0053977966,
+    0.013038635,
+    0.002122879,
+    -0.034606934,
+    0.000936985,
+    -0.020004272,
+    0.007083893,
+    -0.00051259995,
+    -0.022369385,
+    0.05078125,
+    -0.029296875,
+    -0.06604004,
+    0.025878906,
+    0.012390137,
+    -0.014205933,
+    0.016967773,
+    0.048217773,
+    0.037261963,
+    -0.048614502,
+    -0.0287323,
+    0.037872314,
+    0.010467529,
+    -0.039855957,
+    -0.02067566,
+    0.013427734,
+    0.014656067,
+    0.013908386,
+    -0.0070495605,
+    0.032562256,
+    0.05456543,
+    -0.0042648315,
+    0.038635254,
+    0.008598328,
+    -0.031036377,
+    -0.01739502,
+    0.006958008,
+    0.023620605,
+    -0.01574707,
+    -0.032348633,
+    0.002986908,
+    -0.017089844,
+    0.03894043,
+    -0.040222168,
+    -0.020050049,
+    0.019317627,
+    0.024978638,
+    0.004634857,
+    -0.04928589,
+    -0.032562256,
+    0.05609131,
+    0.05670166,
+    -0.029129028,
+    -0.02217102,
+    0.006958008,
+    0.015357971,
+    -0.04827881,
+    0.008682251,
+    0.022003174,
+    0.009056091,
+    0.029388428,
+    -0.051727295,
+    -0.09454346,
+    0.021484375,
+    -0.01625061,
+    -0.028442383,
+    -0.032806396,
+    0.018844604,
+    0.0036640167,
+    0.0048942566,
+    -0.014259338,
+    0.017669678,
+    0.026000977,
+    0.0090789795,
+    -0.0046310425,
+    -0.0063056946,
+    0.020004272,
+    0.007537842,
+    0.051330566,
+    -0.057556152,
+    0.0021800995,
+    0.0022277832,
+    -0.03677368,
+    -0.058654785,
+    -0.026611328,
+    0.06707764,
+    0.020706177,
+    0.01235199,
+    0.0096206665,
+    0.01789856,
+    -0.0038032532,
+    -0.019134521,
+    -0.074523926,
+    0.004837036,
+    -0.005039215,
+    -0.01625061,
+    -0.006713867,
+    -0.0058937073,
+    -0.014892578,
+    0.05239868,
+    0.03845215,
+    -0.012336731,
+    0.034851074,
+    0.01499939,
+    0.0079422,
+    0.013656616,
+    -0.008705139,
+    -0.048034668,
+    0.04248047,
+    -0.029724121,
+    -0.027160645,
+    -0.028747559,
+    0.042053223,
+    0.07092285,
+    -0.027175903,
+    0.033569336,
+    0.029312134,
+    0.0048065186,
+    0.0061798096,
+    -0.021728516,
+    0.000647068,
+    0.0206604,
+    -0.04812622,
+    -0.03652954,
+    0.0074501038,
+    -0.049041748,
+    0.005382538,
+    -0.031829834,
+    -0.039916992,
+    -0.028884888,
+    0.048065186,
+    -0.025650024,
+    -0.025680542,
+    -0.0259552,
+    -0.017288208,
+    -0.010375977,
+    0.027832031,
+    -0.0057029724,
+    -0.0069847107,
+    0.041625977,
+    -0.0028629303,
+    0.0049209595,
+    -0.019378662,
+    0.008033752,
+    0.021408081,
+    -0.0053596497,
+    -0.008811951,
+    -0.06762695,
+    -0.014060974,
+    0.04373169,
+    -0.0038833618,
+    -0.0033340454,
+    0.014694214,
+    -0.042114258,
+    -0.020568848,
+    -0.01902771,
+    0.008728027,
+    -0.019104004,
+    -0.0023593903,
+    -0.027618408,
+    -0.0025539398,
+    -2.8908253e-05,
+    -0.0027751923,
+    -0.015625,
+    -0.037994385,
+    -0.024047852,
+    -0.0061531067,
+    -0.023864746,
+    -0.023529053,
+    0.021591187,
+    0.0068626404,
+    0.026489258,
+    0.024459839,
+    0.014541626,
+    -0.07543945,
+    0.020217896,
+    -0.0138168335,
+    -0.014312744,
+    -0.010658264,
+    -0.017944336,
+    0.013809204,
+    -0.014533997,
+    0.025390625,
+    -0.0024986267,
+    -0.018814087,
+    0.0038719177,
+    0.05432129,
+    -0.02709961,
+    0.01071167,
+    0.024490356,
+    -0.011146545,
+    -0.012863159,
+    0.062469482,
+    0.0032749176,
+    -0.046661377,
+    -0.014579773,
+    0.041931152,
+    -0.032073975,
+    0.016052246,
+    -0.027404785,
+    0.01285553,
+    0.0024318695,
+    0.052124023,
+    -0.059020996,
+    -0.029891968,
+    -0.0046310425,
+    0.06665039,
+    -0.00040078163,
+    -0.009475708,
+    0.02168274,
+    0.00092601776,
+    0.03616333,
+    0.018936157,
+    -0.0058517456,
+    -0.0040512085,
+    -0.02279663,
+    0.02267456,
+    0.014274597,
+    -0.021209717,
+    0.040405273,
+    -0.031280518,
+    -0.051483154,
+    -0.0051879883,
+    -0.005001068,
+    0.0002193451,
+    -0.02130127,
+    -0.010391235,
+    -0.00055265427,
+    -0.027709961,
+    -0.023406982,
+    -0.002254486,
+    0.0001039505,
+    0.033447266,
+    0.022491455,
+    -0.008270264,
+    -0.089416504,
+    0.005622864,
+    0.013328552,
+    0.024536133,
+    -0.015579224,
+    0.017868042,
+    0.011581421,
+    -0.017868042,
+    -0.03479004,
+    -0.01838684,
+    0.007926941,
+    -0.025665283,
+    -0.06915283,
+    0.018218994,
+    0.015808105,
+    0.048675537,
+    0.005672455,
+    -0.04458618,
+    -0.08026123,
+    0.014221191,
+    -0.03503418,
+    0.006755829,
+    -0.03652954,
+    0.025024414,
+    -0.0037002563,
+    0.010047913,
+    0.0043640137,
+    -0.0032749176,
+    0.025390625,
+    -0.0099487305,
+    -0.043640137,
+    0.0027751923,
+    -0.00579834,
+    -0.030960083,
+    0.05871582,
+    -0.02557373,
+    0.0690918,
+    -0.0075149536,
+    -0.020492554,
+    -0.06921387,
+    -0.059326172,
+    0.025985718,
+    -0.010826111,
+    0.048431396,
+    -0.00048589706,
+    -0.010108948,
+    -0.041290283,
+    0.019363403,
+    -0.022247314,
+    -0.02078247,
+    -0.018844604,
+    0.046813965,
+    0.0029258728,
+    -0.0770874,
+    -0.029037476,
+    -0.03378296,
+    -0.035308838,
+    -0.018707275,
+    -0.045135498,
+    -0.011306763,
+    -0.021530151,
+    -0.01335907,
+    0.010772705,
+    0.016906738,
+    0.0038337708,
+    -0.014297485,
+    0.02166748,
+    0.01914978,
+    0.025665283,
+    -0.00041222572,
+    0.025100708,
+    -0.03463745,
+    -0.0055999756,
+    -0.01637268,
+    0.029174805,
+    0.023773193,
+    -0.02331543,
+    -0.054504395,
+    0.018371582,
+    0.045776367,
+    0.01309967,
+    0.03967285,
+    0.05215454,
+    -0.014015198,
+    0.010879517,
+    0.0011663437,
+    -0.009628296,
+    -0.007205963,
+    0.024017334,
+    -0.013809204,
+    0.005455017,
+    0.01940918,
+    -0.020477295,
+    -0.024734497,
+    -0.018585205,
+    0.06161499,
+    0.04458618,
+    -0.032714844,
+    -0.002117157,
+    0.048095703,
+    -0.046203613,
+    0.02331543,
+    -0.043121338,
+    -0.024673462,
+    -0.016967773,
+    0.028793335,
+    0.018814087,
+    0.0040664673,
+    -0.007980347,
+    0.064086914,
+    0.0049095154,
+    0.010108948,
+    0.07720947,
+    -0.04827881,
+    0.0047073364,
+    -0.021652222,
+    0.019622803,
+    -0.025405884,
+    0.013038635,
+    0.034179688,
+    -0.007598877,
+    0.027999878,
+    -0.018463135,
+    -0.022735596,
+    0.019836426,
+    0.036071777,
+    0.03237915,
+    -0.00025224686,
+    0.031555176,
+    0.011917114,
+    0.021606445,
+    -0.03161621,
+    -0.08862305,
+    -0.0024871826,
+    -0.00026583672,
+    -0.03866577,
+    0.021560669,
+    0.06500244,
+    -0.021011353,
+    0.018188477,
+    -0.058807373,
+    -0.007911682,
+    0.03616333,
+    0.025466919,
+    0.013877869,
+    -0.060699463,
+    -0.017913818,
+    0.02848816,
+    0.047027588,
+    0.028762817,
+    0.024658203,
+    -0.018493652,
+    -0.025772095,
+    0.062927246,
+    0.03463745,
+    0.11212158,
+    0.019317627,
+    -0.0041122437,
+    -0.03338623,
+    0.0005645752,
+    -0.009437561,
+    -0.051605225,
+    0.024673462,
+    -0.036254883,
+    0.033294678,
+    -0.01689148,
+    -0.039001465,
+    -0.07537842,
+    -0.0060806274,
+    -0.029312134,
+    0.001531601,
+    0.017486572,
+    -0.010513306,
+    0.0084991455,
+    0.0076560974,
+    -0.004989624,
+    -0.030578613,
+    -0.00027132034,
+    0.014579773,
+    -0.018234253,
+    -0.02520752,
+    -0.031402588,
+    0.02998352,
+    0.02229309,
+    0.024215698,
+    -0.00068187714,
+    0.048553467,
+    -0.037384033,
+    -0.037078857,
+    0.023727417,
+    0.0023288727,
+    0.0016431808,
+    0.05340576,
+    -0.023468018,
+    0.028640747,
+    0.0031337738,
+    -0.020858765,
+    0.008682251,
+    -0.025314331,
+    0.060546875,
+    0.009689331,
+    -0.031341553,
+    -0.01586914,
+    0.013305664,
+    0.01424408,
+    -0.01285553,
+    0.034301758,
+    -0.0140686035,
+    -0.046203613,
+    -0.016967773,
+    -0.0418396,
+    0.004463196,
+    0.0029525757,
+    -0.0028133392,
+    0.010368347,
+    0.008628845,
+    -0.02406311,
+    -0.013832092,
+    -0.00806427,
+    -0.032592773,
+    -0.010154724,
+    -0.018325806,
+    0.04296875,
+    0.01576233,
+    -0.056427002,
+    0.0038280487,
+    -0.020690918,
+    -0.01637268,
+    -0.00071811676,
+    0.014671326,
+    0.03427124,
+    0.004283905,
+    -0.029067993,
+    0.015197754,
+    0.012008667,
+    -0.050750732,
+    -0.008224487,
+    -0.034698486,
+    -0.004550934,
+    -0.032165527,
+    -0.007408142,
+    -0.02720642,
+    -0.0005517006,
+    -0.007335663,
+    0.020568848,
+    -0.056030273,
+    0.008850098,
+    -0.020721436,
+    -0.022521973,
+    -0.005290985,
+    -0.05859375,
+    0.01802063,
+    -0.004962921,
+    -0.0038795471,
+    -0.031982422,
+    0.03857422,
+    -0.015853882,
+    0.026153564,
+    -0.031585693,
+    -0.0017576218,
+    0.018066406,
+    0.0031661987,
+    -0.0030708313,
+    0.038757324,
+    0.02809143,
+    -0.04837036,
+    -0.030807495,
+    -0.022766113,
+    -0.04937744,
+    -0.032043457,
+    -0.055877686,
+    0.021575928,
+    0.0059509277,
+    0.010047913,
+    0.07110596,
+    -0.018173218,
+    -0.0034255981,
+    0.002336502,
+    -0.013221741,
+    0.009246826,
+    0.0014047623,
+    0.027679443,
+    -0.0054092407,
+    -0.009735107
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89541.md",
+    "file_name": "89541.md",
+    "file_size": 13849,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Postaccident Examination of Aircraft After Engine Failure",
+      "The postaccident examination was conducted by a certified airframe and powerplant mechanic.",
+      "The postaccident examination was supervised by the National Transportation Safety Board (NTSB) investigator-in-charge (IIC).",
+      "A Federal Aviation Administration (FAA) inspector attended the postaccident examination.",
+      "A differential cylinder pressure tester was used to check the right engine's pressure.",
+      "The right engine's pressure check revealed no anomalies.",
+      "The right engine's condition was determined to be sufficient to allow for safe starter engagement.",
+      "The right engine starter was engaged during examination.",
+      "The right engine gearing rotated when the starter was engaged.",
+      "The right engine propeller rotated when the starter was engaged.",
+      "No anomalies were noted during the right engine starter engagement test.",
+      "The fuel system continuity was established during examination.",
+      "The function of the fuel selectors was established during examination.",
+      "The right fuel selector detents were checked at each selected position.",
+      "The fuel selectors were disassembled during examination.",
+      "The examination and disassembly of the fuel selectors revealed no anomalies.",
+      "The NTSB IIC verified the fuel quantity in the auxiliary (tip) tanks.",
+      "The auxiliary (tip) tanks were about full.",
+      "The fuel quantity was observed to be about two inches from the top of the auxiliary tanks.",
+      "Flight control continuity was established throughout all primary flight control surfaces.",
+      "Flight control continuity was established from the cockpit controls.",
+      "The examination of the airframe revealed no evidence of mechanical anomalies.",
+      "The examination of the airframe revealed no evidence of failures that would have precluded normal operations.",
+      "The examination of the engine revealed no evidence of mechanical anomalies.",
+      "The examination of the engine revealed no evidence of failures that would have precluded normal operations.",
+      "Additional information is available in the Airframe and Engine Examination Report in the Public docket.",
+      "The pilot reported to the NTSB IIC that the accident airplane had 30 gallons of fuel onboard during takeoff.",
+      "The pilot had flown the airplane about 3.7 hours since the last refueling.",
+      "The pilot flew the last flight using the main fuel tanks.",
+      "The NTSB IIC reviewed the performance figures in the Airplane's Flight Manual (AFM).",
+      "The reported 30 gallons of fuel remaining for the accident flight seemed to be accurate.",
+      "The airplane's total fuel capacity is 120 gallons with the tip (auxiliary) tanks.",
+      "The tip tanks fuel capacity is 30 gallons.",
+      "There is 3 gallons of unusable fuel in each main tank.",
+      "The AFM procedure for takeoff calls for the fuel selector valves to be selected \"on\" to the main tanks."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Postaccident Examination of Aircraft After Engine Failure",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "NTSB investigator-in-charge",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "FAA inspector",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "certified airframe and powerplant mechanic",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right engine",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right engine starter",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right engine gearing",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right engine propeller",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel system",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel selectors",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right fuel selector",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "auxiliary tanks",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tip tanks",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main tanks",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "primary flight control surfaces",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cockpit controls",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airframe",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airplane's Flight Manual",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The postaccident examination was conducted by a certified airframe and powerplant mechanic.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "certified airframe and powerplant mechanic",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "postaccident examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The postaccident examination was supervised by the National Transportation Safety Board (NTSB) investigator-in-charge (IIC).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigator-in-charge",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "SUPERVISED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "postaccident examination",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigator-in-charge",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Federal Aviation Administration (FAA) inspector attended the postaccident examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA inspector",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "ATTENDED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "postaccident examination",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA inspector",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A differential cylinder pressure tester was used to check the right engine's pressure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TESTED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "differential cylinder pressure tester",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right engine's pressure check revealed no anomalies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right engine's condition was determined to be sufficient to allow for safe starter engagement.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sufficient for safe starter engagement",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right engine starter was engaged during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine starter",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engaged during examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right engine gearing rotated when the starter was engaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine gearing",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine gearing",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rotated when starter engaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right engine propeller rotated when the starter was engaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine propeller",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine propeller",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rotated when starter engaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No anomalies were noted during the right engine starter engagement test.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine starter",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel system continuity was established during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel system",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continuity established",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The function of the fuel selectors was established during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selectors",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "function established",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right fuel selector detents were checked at each selected position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right fuel selector",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selectors",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right fuel selector",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "detents checked at each position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel selectors were disassembled during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selectors",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "disassembled",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The examination and disassembly of the fuel selectors revealed no anomalies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selectors",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB IIC verified the fuel quantity in the auxiliary (tip) tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigator-in-charge",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "VERIFIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel quantity",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "VERIFIED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigator-in-charge",
+                    "classification": "Person"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The auxiliary (tip) tanks were about full.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SAME AS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tip tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUEL LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about full",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel quantity was observed to be about two inches from the top of the auxiliary tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUEL MEASUREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about two inches from top",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Flight control continuity was established throughout all primary flight control surfaces.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "primary flight control surfaces",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continuity established",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Flight control continuity was established from the cockpit controls.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cockpit controls",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continuity established",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The examination of the airframe revealed no evidence of mechanical anomalies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airframe",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence of mechanical anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The examination of the airframe revealed no evidence of failures that would have precluded normal operations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airframe",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence of failures precluding normal operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The examination of the engine revealed no evidence of mechanical anomalies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence of mechanical anomalies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The examination of the engine revealed no evidence of failures that would have precluded normal operations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence of failures precluding normal operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Additional information is available in the Airframe and Engine Examination Report in the Public docket.",
+              "details": [
+                "Airframe and Engine Examination Report LOCATION Public docket"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airframe and Engine Examination Report",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Public docket",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported to the NTSB IIC that the accident airplane had 30 gallons of fuel onboard during takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigator-in-charge",
+                    "classification": "Person"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FUEL QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30 gallons during takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had flown the airplane about 3.7 hours since the last refueling.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 3.7 hours since last refueling",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot flew the last flight using the main fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "USAGE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "used for last flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The NTSB IIC reviewed the performance figures in the Airplane's Flight Manual (AFM).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB investigator-in-charge",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "REVIEWED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane's Flight Manual",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The reported 30 gallons of fuel remaining for the accident flight seemed to be accurate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FUEL ASSESSMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30 gallons report seemed accurate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane's total fuel capacity is 120 gallons with the tip (auxiliary) tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FUEL CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "120 gallons with tip tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tip tanks fuel capacity is 30 gallons.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tip tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUEL CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There is 3 gallons of unusable fuel in each main tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tanks",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "UNUSABLE FUEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3 gallons each",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AFM procedure for takeoff calls for the fuel selector valves to be selected \"on\" to the main tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane's Flight Manual",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "TAKEOFF PROCEDURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selector valves selected \"on\" to main tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::7c757033:a1c8",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89541.md",
+        "file_name": "89541.md",
+        "file_size": 13849,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a2ea5f3b3227c13f7c2c73c31b4981044b42b4539f9fd67d9aba228c5cccbb74",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::7c757033:a1c8:3bc0d072",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89541.md",
+        "file_name": "89541.md",
+        "file_size": 13849,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "407bf534b6fb30144871acf4f56eb36d045c0284fb11b1d8766894057f6d018e",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::7c757033:a1c8:3f9d4940",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89541.md",
+        "file_name": "89541.md",
+        "file_size": 13849,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "3999242fdc0838f2d42f68113d2285c31e30d11a53b15614f5f3e208b29adc2a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Postaccident Examination\n\nPostaccident examination of the airplane and engine was conducted by a certified airframe and powerplant mechanic, under the supervision of the National Transportation Safety Board (NTSB) investigator-in-charge (IIC), and with an FAA inspector in attendance.\n\n## Right Engine Examination\n\nThe right engine was examined. A differential cylinder pressure tester was used to check the appropriate pressure and resulted in no anomalies. The engine's condition was determined to be sufficient, to allow for the safe engagement of the starter. The starter was engaged and the engine gearing and propeller rotated, with no anomalies noted.\n\n## Fuel System Continuity\n\nThe fuel system continuity and the function of the fuel selectors were established. The right fuel selector detents were checked at each selected position. The examination and disassembly of the fuel selectors revealed no anomalies. The NTSB IIC verified the fuel quantity in the auxiliary (tip) tanks were about full. The fuel quantity was observed to be about two inches from the top of the tanks.\n\n## Flight Control Continuity\n\nFlight control continuity was established throughout all primary flight control surfaces from the cockpit controls.\n\n## Airframe and Engine Examination\n\nThe examination of the airframe and engine revealed no evidence of mechanical anomalies or failures that would have precluded normal operations. For additional information, see the Airframe and Engine Examination Report in the Public docket.\n\n## Fuel Onboard and Capacity\n\nThe pilot reported to the NTSB IIC that the accident airplane had 30 gallons of fuel onboard during takeoff. He had flown the airplane about 3.7 hours since the last refueling and flew the last flight using the main fuel tanks. Reviewing the performance figures in the Airplane's Flight Manual (AFM), for the average engine fuel flow at the higher density altitudes, the reported 30 gallons of fuel remaining, for the accident flight seemed to be accurate. The airplane's total fuel capacity is 120 gallons with the tip (auxiliary) tanks. The tip tanks fuel capacity is 30 gallons. Additionally, there is 3 gallons of unusable fuel in each main tank.\n\n## Fuel Selector Procedures\n\nThe AFM procedure for takeoff calls for the fuel selector valves to be selected \"on\" to the main tanks.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2330,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

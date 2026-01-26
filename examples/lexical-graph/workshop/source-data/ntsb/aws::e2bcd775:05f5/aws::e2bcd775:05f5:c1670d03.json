@@ -1,0 +1,2343 @@
+{
+  "id_": "aws::e2bcd775:05f5:c1670d03",
+  "embedding": [
+    0.051239014,
+    -0.023849487,
+    0.07495117,
+    -0.035888672,
+    -0.036071777,
+    0.0011987686,
+    -0.01725769,
+    -0.04067993,
+    -0.022018433,
+    0.03274536,
+    0.0012140274,
+    0.0038471222,
+    -0.002576828,
+    -0.03149414,
+    0.0074005127,
+    -0.029190063,
+    0.020339966,
+    -0.008460999,
+    0.008743286,
+    -0.0012702942,
+    0.0059928894,
+    0.019058228,
+    0.01197052,
+    0.03262329,
+    0.0040664673,
+    0.09057617,
+    -0.07861328,
+    -0.012313843,
+    -0.00059080124,
+    0.007423401,
+    0.005470276,
+    -0.030410767,
+    0.00944519,
+    0.04486084,
+    -0.071777344,
+    -0.025848389,
+    -0.0357666,
+    0.02885437,
+    -0.030151367,
+    0.019607544,
+    -0.0056648254,
+    -0.0017766953,
+    0.054382324,
+    -0.017181396,
+    -0.011756897,
+    0.01713562,
+    -0.0011663437,
+    -0.022232056,
+    0.03540039,
+    0.059143066,
+    0.015792847,
+    -0.014190674,
+    0.0006403923,
+    0.057128906,
+    -0.011802673,
+    0.016906738,
+    -0.0552063,
+    0.06866455,
+    0.011039734,
+    0.05609131,
+    0.006061554,
+    0.03640747,
+    -0.020858765,
+    -0.02267456,
+    -0.0053482056,
+    -0.008308411,
+    0.000238657,
+    0.017837524,
+    0.02923584,
+    -0.01398468,
+    -0.0074768066,
+    0.0052986145,
+    -0.06878662,
+    0.057769775,
+    -0.022277832,
+    -0.020980835,
+    0.007858276,
+    -0.022506714,
+    -0.016220093,
+    0.09442139,
+    0.022094727,
+    0.020812988,
+    0.015335083,
+    -0.0042686462,
+    0.0018663406,
+    0.021102905,
+    -0.013183594,
+    -0.025772095,
+    -0.00024580956,
+    -0.009124756,
+    -0.012542725,
+    0.009231567,
+    0.039215088,
+    0.0018901825,
+    -0.04208374,
+    -0.021743774,
+    -0.0038719177,
+    -0.052886963,
+    0.040252686,
+    0.016464233,
+    0.031341553,
+    -0.071777344,
+    0.048950195,
+    -0.006225586,
+    -0.00017547607,
+    0.051727295,
+    0.022766113,
+    -0.01651001,
+    0.030303955,
+    -0.015029907,
+    -0.0043945312,
+    0.06549072,
+    0.027938843,
+    -0.045043945,
+    -0.017990112,
+    0.027420044,
+    0.0073242188,
+    0.00920105,
+    0.030731201,
+    0.015914917,
+    0.03463745,
+    0.056274414,
+    0.0041542053,
+    -0.010559082,
+    -0.007843018,
+    -0.008682251,
+    -0.029953003,
+    -0.01676941,
+    0.058776855,
+    -0.006465912,
+    -0.012290955,
+    0.056152344,
+    -0.04800415,
+    -0.076171875,
+    -0.059265137,
+    0.0046310425,
+    0.0064315796,
+    -0.06665039,
+    -0.015151978,
+    0.015579224,
+    -0.014274597,
+    -0.025527954,
+    0.025238037,
+    -0.008857727,
+    0.0012722015,
+    0.03970337,
+    0.011207581,
+    -0.019256592,
+    0.0037879944,
+    -0.03201294,
+    -0.020370483,
+    -0.025146484,
+    0.0026283264,
+    0.003145218,
+    0.01436615,
+    -0.064086914,
+    0.003484726,
+    -0.032714844,
+    0.06878662,
+    -0.030532837,
+    -0.019561768,
+    -0.006416321,
+    1.2695789e-05,
+    -0.075805664,
+    -0.060180664,
+    -0.008041382,
+    -0.01777649,
+    0.0010814667,
+    -0.0060272217,
+    -0.025177002,
+    -0.024337769,
+    0.005344391,
+    -0.091552734,
+    -0.03302002,
+    0.014625549,
+    0.021987915,
+    -0.03552246,
+    0.051330566,
+    0.012481689,
+    0.009605408,
+    0.015716553,
+    -0.034851074,
+    0.017242432,
+    -0.0032024384,
+    0.024368286,
+    -0.00687027,
+    0.009170532,
+    -0.010864258,
+    0.00434494,
+    0.017166138,
+    -0.0569458,
+    0.047973633,
+    0.037353516,
+    -0.018814087,
+    0.006038666,
+    -0.025436401,
+    -0.041381836,
+    -0.023880005,
+    -0.03050232,
+    0.03579712,
+    -0.08441162,
+    0.013183594,
+    -0.0090789795,
+    -0.0010795593,
+    -0.031066895,
+    -0.01977539,
+    -0.0010089874,
+    0.03781128,
+    0.04309082,
+    0.03768921,
+    0.0009522438,
+    -0.009239197,
+    -0.017486572,
+    -0.02154541,
+    -0.025436401,
+    -0.011932373,
+    -0.0047721863,
+    -0.00756073,
+    0.046966553,
+    0.010864258,
+    0.036071777,
+    0.06567383,
+    0.0067253113,
+    -0.015312195,
+    -0.013908386,
+    0.0005249977,
+    -0.011146545,
+    0.0128479,
+    0.026306152,
+    0.020446777,
+    0.045898438,
+    -0.03805542,
+    0.006126404,
+    0.0079422,
+    -0.01991272,
+    0.017486572,
+    0.0113220215,
+    -0.010604858,
+    -0.0038280487,
+    0.026000977,
+    -0.002462387,
+    0.008171082,
+    -0.014427185,
+    0.035003662,
+    -0.052947998,
+    -0.04083252,
+    0.022628784,
+    -0.0061149597,
+    -0.038116455,
+    -0.012481689,
+    0.05126953,
+    0.035125732,
+    0.03805542,
+    0.10784912,
+    0.013381958,
+    0.0029239655,
+    -0.050689697,
+    -0.053466797,
+    0.028289795,
+    -0.02305603,
+    0.027908325,
+    -0.03604126,
+    -0.01838684,
+    -0.0033340454,
+    0.0051727295,
+    -0.018692017,
+    0.018096924,
+    0.010505676,
+    0.0007328987,
+    -0.013870239,
+    0.017364502,
+    -0.016815186,
+    0.0018491745,
+    -0.007858276,
+    -0.027435303,
+    0.009185791,
+    -0.035827637,
+    0.014625549,
+    0.020019531,
+    -0.029205322,
+    -0.010238647,
+    0.04220581,
+    -0.0055618286,
+    -0.024414062,
+    0.016967773,
+    0.023651123,
+    -0.02128601,
+    -0.053131104,
+    -0.03555298,
+    -0.057250977,
+    -0.002735138,
+    -0.011314392,
+    -0.03579712,
+    0.031097412,
+    0.01737976,
+    -0.05178833,
+    0.057647705,
+    -0.016174316,
+    0.021957397,
+    -0.015068054,
+    0.06854248,
+    0.05319214,
+    -0.02758789,
+    0.020935059,
+    0.0058517456,
+    -0.03050232,
+    -0.022369385,
+    0.057525635,
+    0.007827759,
+    -0.036193848,
+    -0.023254395,
+    0.006214142,
+    0.01146698,
+    0.012252808,
+    0.001616478,
+    0.018676758,
+    -0.033081055,
+    0.017807007,
+    0.025115967,
+    0.023544312,
+    -0.017425537,
+    0.010093689,
+    -0.019638062,
+    0.004722595,
+    0.030288696,
+    -0.010025024,
+    -0.018310547,
+    -0.0034656525,
+    -0.011810303,
+    -0.019317627,
+    -0.004272461,
+    -0.029663086,
+    -0.026168823,
+    0.0020885468,
+    0.018325806,
+    -0.0016479492,
+    0.027618408,
+    -0.02482605,
+    0.0082473755,
+    -0.0006046295,
+    0.061401367,
+    0.0015993118,
+    -0.01108551,
+    0.0025672913,
+    -0.04849243,
+    -0.039764404,
+    0.019760132,
+    0.0044555664,
+    -0.031951904,
+    -0.031280518,
+    0.06500244,
+    0.0030841827,
+    -0.015625,
+    -0.021148682,
+    0.012268066,
+    -0.08380127,
+    -0.018081665,
+    -0.027679443,
+    -0.022750854,
+    -0.059051514,
+    0.006351471,
+    -0.009254456,
+    -0.037628174,
+    -0.0050735474,
+    0.012245178,
+    0.014450073,
+    0.013809204,
+    -0.040740967,
+    -0.022064209,
+    0.007194519,
+    -0.035003662,
+    -0.017929077,
+    -0.0042648315,
+    -0.014266968,
+    -0.016860962,
+    0.031677246,
+    0.027008057,
+    -0.031051636,
+    -0.0015506744,
+    0.007637024,
+    -0.0030002594,
+    0.00504303,
+    -0.022705078,
+    -0.009864807,
+    0.072143555,
+    -0.023605347,
+    -0.027267456,
+    0.03036499,
+    0.057006836,
+    0.014953613,
+    0.030670166,
+    -0.024932861,
+    -0.032165527,
+    -0.013977051,
+    0.0023422241,
+    0.017456055,
+    -0.030853271,
+    -0.022781372,
+    -0.017944336,
+    -0.0113220215,
+    -0.08343506,
+    0.031158447,
+    0.0013313293,
+    -0.010520935,
+    -3.415346e-05,
+    -0.041992188,
+    -0.02293396,
+    -0.045196533,
+    0.032440186,
+    0.031173706,
+    -0.002527237,
+    0.04711914,
+    -0.0028877258,
+    0.06100464,
+    -0.028518677,
+    -0.0035419464,
+    -0.068481445,
+    -0.01033783,
+    -0.033325195,
+    0.062072754,
+    0.050079346,
+    -0.051635742,
+    2.6643276e-05,
+    0.054138184,
+    0.033569336,
+    0.04647827,
+    -0.00021016598,
+    -0.0748291,
+    0.061065674,
+    0.06689453,
+    0.014854431,
+    0.03338623,
+    -0.013587952,
+    -0.024169922,
+    -0.007183075,
+    0.010635376,
+    -0.0048103333,
+    -0.007247925,
+    0.022918701,
+    -0.016052246,
+    -0.0008506775,
+    -0.013450623,
+    -0.0005607605,
+    0.0073394775,
+    0.030456543,
+    -0.01826477,
+    -0.034332275,
+    -0.005268097,
+    -0.028533936,
+    -0.019622803,
+    -0.018753052,
+    0.026885986,
+    0.030731201,
+    0.018218994,
+    0.008979797,
+    -0.01084137,
+    -0.0046463013,
+    0.007865906,
+    -0.023086548,
+    0.0013580322,
+    -0.013008118,
+    0.0009899139,
+    -0.016098022,
+    -0.039001465,
+    0.015365601,
+    0.0034503937,
+    0.01121521,
+    0.0075187683,
+    0.014823914,
+    -0.016433716,
+    0.009498596,
+    -0.008712769,
+    0.016662598,
+    -0.004676819,
+    -0.016418457,
+    -0.035308838,
+    0.0037155151,
+    -0.0035953522,
+    0.038330078,
+    0.0073242188,
+    -0.01184845,
+    0.004020691,
+    -0.04058838,
+    0.04727173,
+    0.024765015,
+    0.021621704,
+    0.0054130554,
+    0.043395996,
+    0.011260986,
+    0.0029182434,
+    0.017105103,
+    0.0009598732,
+    0.02319336,
+    0.025421143,
+    0.003786087,
+    -0.015106201,
+    0.0018444061,
+    -0.021499634,
+    -0.009468079,
+    -0.01876831,
+    -0.050201416,
+    0.007598877,
+    -0.0073280334,
+    -0.012634277,
+    -0.01852417,
+    0.025527954,
+    0.025390625,
+    0.021652222,
+    -0.01007843,
+    -0.04360962,
+    0.026870728,
+    -0.017745972,
+    0.028793335,
+    0.064086914,
+    -0.040405273,
+    0.062286377,
+    -0.03503418,
+    0.07574463,
+    -0.05041504,
+    -0.025634766,
+    0.011779785,
+    0.03111267,
+    0.004798889,
+    0.016967773,
+    -0.009178162,
+    -0.0020179749,
+    -0.031234741,
+    0.01725769,
+    -0.03173828,
+    -0.044036865,
+    0.0071907043,
+    0.02418518,
+    0.0030231476,
+    0.020767212,
+    0.027038574,
+    0.02986145,
+    -0.03225708,
+    0.060913086,
+    0.002943039,
+    -0.055541992,
+    -0.03375244,
+    0.02909851,
+    0.06298828,
+    -0.011459351,
+    0.02885437,
+    -0.01512146,
+    0.0262146,
+    0.03277588,
+    -0.0569458,
+    0.009567261,
+    -0.00050735474,
+    0.029052734,
+    0.05517578,
+    -0.023635864,
+    -0.06060791,
+    0.09765625,
+    0.030151367,
+    -0.025894165,
+    -0.0013370514,
+    0.06555176,
+    -0.038208008,
+    -0.041229248,
+    -0.040649414,
+    0.07897949,
+    -0.021865845,
+    0.028076172,
+    0.01838684,
+    -0.011245728,
+    0.028533936,
+    -0.021484375,
+    -0.010826111,
+    -0.010375977,
+    0.08880615,
+    -0.054016113,
+    0.037628174,
+    -0.053222656,
+    -0.003929138,
+    -0.0017766953,
+    0.010772705,
+    -0.019348145,
+    -0.009796143,
+    0.03189087,
+    0.005832672,
+    -0.03692627,
+    -0.016784668,
+    0.02394104,
+    -0.026290894,
+    0.010757446,
+    -0.042419434,
+    -0.0011548996,
+    0.02255249,
+    -0.0075912476,
+    0.042755127,
+    0.025268555,
+    -0.03338623,
+    -0.03111267,
+    -0.01966858,
+    -0.08111572,
+    -0.020233154,
+    -0.021377563,
+    -0.0028629303,
+    0.004600525,
+    -0.0003015995,
+    0.004589081,
+    0.0041656494,
+    0.044311523,
+    0.005657196,
+    0.0368042,
+    -0.011497498,
+    0.008300781,
+    0.0026378632,
+    0.04925537,
+    -0.052703857,
+    -0.004501343,
+    -0.04248047,
+    0.01586914,
+    -0.07891846,
+    0.064941406,
+    0.06365967,
+    0.03540039,
+    0.020492554,
+    0.0065994263,
+    0.017288208,
+    -0.07055664,
+    0.033111572,
+    -0.018356323,
+    -0.039642334,
+    -0.0018339157,
+    -0.007511139,
+    -0.037628174,
+    -0.002286911,
+    -0.02911377,
+    -0.05557251,
+    -0.00724411,
+    -0.04006958,
+    -0.004119873,
+    -0.031234741,
+    -0.064697266,
+    0.020401001,
+    0.0115356445,
+    0.0045547485,
+    -0.012496948,
+    -0.024368286,
+    -0.008132935,
+    -0.006038666,
+    -0.014892578,
+    -0.0018749237,
+    -0.006629944,
+    -0.0059165955,
+    -0.0061035156,
+    0.010917664,
+    0.011550903,
+    -0.015052795,
+    -0.03137207,
+    -0.004611969,
+    -0.022064209,
+    0.0127334595,
+    0.014038086,
+    -0.02381897,
+    -0.03237915,
+    -0.057769775,
+    -0.049072266,
+    -0.011230469,
+    -0.04840088,
+    0.006061554,
+    0.010368347,
+    0.0064964294,
+    0.0023212433,
+    0.008346558,
+    0.0025787354,
+    -0.025802612,
+    8.147955e-05,
+    -0.038208008,
+    -0.0287323,
+    0.02973938,
+    0.024810791,
+    -0.0059661865,
+    0.036224365,
+    0.0061073303,
+    -0.044128418,
+    0.0058784485,
+    -0.010345459,
+    0.0005187988,
+    -0.021209717,
+    -0.018630981,
+    0.008430481,
+    -0.013900757,
+    0.044128418,
+    -0.044952393,
+    0.010421753,
+    -0.05316162,
+    -0.00083971024,
+    -0.020248413,
+    -0.01889038,
+    -0.00856781,
+    -0.04171753,
+    0.020736694,
+    0.009140015,
+    -0.020141602,
+    -0.042907715,
+    0.020935059,
+    0.0061187744,
+    0.012535095,
+    0.014266968,
+    -0.0046310425,
+    0.05090332,
+    -0.0018444061,
+    0.040496826,
+    -0.020629883,
+    -0.015625,
+    0.03326416,
+    0.06976318,
+    -0.020355225,
+    -0.022079468,
+    0.021942139,
+    0.048431396,
+    0.07183838,
+    -0.022827148,
+    -0.035095215,
+    0.027404785,
+    0.011688232,
+    0.03137207,
+    0.0069274902,
+    -0.008155823,
+    0.030136108,
+    -0.026489258,
+    -0.05569458,
+    0.035980225,
+    -0.0062408447,
+    -0.011505127,
+    0.0052833557,
+    -0.0546875,
+    0.064941406,
+    -0.024765015,
+    -0.06329346,
+    -0.013366699,
+    0.027557373,
+    0.012672424,
+    -0.0053901672,
+    0.019088745,
+    0.01914978,
+    -0.0057373047,
+    0.037261963,
+    -0.009002686,
+    -0.0368042,
+    -0.0146102905,
+    0.0040359497,
+    -0.08013916,
+    -0.004055023,
+    -0.03463745,
+    0.03074646,
+    -0.00957489,
+    -0.047454834,
+    -0.012084961,
+    -0.0033912659,
+    -0.031173706,
+    0.001991272,
+    0.015136719,
+    -0.03164673,
+    -0.011077881,
+    0.006965637,
+    0.009971619,
+    0.013786316,
+    -0.012527466,
+    -0.058288574,
+    -0.0206604,
+    -0.049438477,
+    -0.008712769,
+    -0.02659607,
+    0.009468079,
+    -0.0154800415,
+    0.017089844,
+    -0.0013961792,
+    0.004486084,
+    0.028564453,
+    -0.010124207,
+    0.025253296,
+    -0.016357422,
+    0.006427765,
+    -0.03817749,
+    -0.02519226,
+    0.008560181,
+    0.011329651,
+    0.017654419,
+    -0.011711121,
+    0.00091457367,
+    0.00013673306,
+    0.019104004,
+    -0.0033016205,
+    0.011634827,
+    -0.017745972,
+    0.018463135,
+    -0.011329651,
+    -0.042877197,
+    0.026107788,
+    0.016204834,
+    -0.051849365,
+    -0.03366089,
+    -0.027770996,
+    -0.017608643,
+    -0.0037937164,
+    -0.016540527,
+    -0.03173828,
+    -0.037261963,
+    -0.028411865,
+    -0.013374329,
+    0.042663574,
+    -0.045074463,
+    -0.0036182404,
+    0.029510498,
+    -0.0027885437,
+    0.010360718,
+    -0.008384705,
+    -0.053222656,
+    -0.021835327,
+    -0.013748169,
+    -0.013374329,
+    -0.0023021698,
+    0.015571594,
+    0.011070251,
+    -0.00042772293,
+    0.029006958,
+    0.014823914,
+    0.030136108,
+    -0.0037288666,
+    0.0309906,
+    0.010238647,
+    -0.054107666,
+    0.0082473755,
+    -0.009033203,
+    0.019943237,
+    0.002916336,
+    -0.026016235,
+    -0.012245178,
+    -0.037506104,
+    0.053894043,
+    0.04434204,
+    0.041046143,
+    -0.031311035,
+    0.059051514,
+    -0.0004811287,
+    -0.020355225,
+    0.0037269592,
+    0.031555176,
+    -0.06976318,
+    0.01576233,
+    0.025360107,
+    -0.01576233,
+    0.019927979,
+    0.078552246,
+    0.01184845,
+    0.024780273,
+    0.058746338,
+    -0.03552246,
+    -0.010513306,
+    -0.00060510635,
+    0.006641388,
+    -0.020599365,
+    -0.052856445,
+    -0.028442383,
+    0.03503418,
+    0.025421143,
+    0.029220581,
+    -0.066101074,
+    0.0033721924,
+    0.0070724487,
+    -0.0048561096,
+    0.02305603,
+    0.016403198,
+    0.0149002075,
+    0.0037899017,
+    -0.020553589,
+    -0.09460449,
+    -0.017868042,
+    -0.009941101,
+    -0.046020508,
+    0.01260376,
+    0.05947876,
+    -0.037506104,
+    -0.0027275085,
+    -0.031066895,
+    -0.075805664,
+    0.010238647,
+    0.03503418,
+    -0.011543274,
+    -0.095825195,
+    0.0075683594,
+    -0.021896362,
+    0.036834717,
+    0.018554688,
+    0.027862549,
+    -0.021102905,
+    -0.026184082,
+    0.03704834,
+    0.0063438416,
+    0.07702637,
+    -0.018096924,
+    -0.0007686615,
+    -0.04486084,
+    0.046447754,
+    -0.03616333,
+    -0.041809082,
+    -0.013328552,
+    -0.037384033,
+    -0.022338867,
+    0.041931152,
+    0.07043457,
+    -0.009353638,
+    0.0501709,
+    0.003862381,
+    -0.04763794,
+    0.03970337,
+    -0.035095215,
+    0.0010414124,
+    0.007270813,
+    -0.034698486,
+    -0.046020508,
+    -0.039031982,
+    -0.007160187,
+    -0.030334473,
+    -0.06451416,
+    0.0022258759,
+    -0.014640808,
+    0.026062012,
+    0.016357422,
+    -0.0104522705,
+    -0.0042037964,
+    -0.034362793,
+    -0.031677246,
+    -0.017974854,
+    -0.031341553,
+    -0.0056648254,
+    0.095703125,
+    -0.014152527,
+    0.05996704,
+    0.013946533,
+    -0.0042037964,
+    0.04611206,
+    0.0011053085,
+    0.017059326,
+    0.028213501,
+    -0.04559326,
+    -0.02180481,
+    -0.0368042,
+    0.010002136,
+    -0.0029850006,
+    0.05239868,
+    -0.013725281,
+    -0.04360962,
+    -0.018173218,
+    -0.03543091,
+    0.022399902,
+    0.027313232,
+    -0.024932861,
+    0.046295166,
+    0.05102539,
+    -0.017288208,
+    -0.0119018555,
+    -0.014572144,
+    -0.0362854,
+    -0.022644043,
+    -0.007461548,
+    0.043884277,
+    0.044006348,
+    0.011947632,
+    0.014427185,
+    -0.00093460083,
+    -0.05255127,
+    -0.013259888,
+    -0.018096924,
+    -0.0062217712,
+    -0.010345459,
+    -0.005455017,
+    -0.017364502,
+    0.021057129,
+    -0.046447754,
+    -0.0059432983,
+    0.032287598,
+    -0.01285553,
+    -0.02319336,
+    -0.005104065,
+    -0.031921387,
+    0.00061273575,
+    -0.04812622,
+    -0.0075187683,
+    -0.013648987,
+    -0.0075035095,
+    -0.02658081,
+    0.0054359436,
+    0.013542175,
+    -0.04714966,
+    0.05996704,
+    0.011436462,
+    0.005382538,
+    -0.01374054,
+    0.0103302,
+    0.012641907,
+    0.048736572,
+    -0.013633728,
+    -0.03729248,
+    -0.01802063,
+    0.0025787354,
+    0.0357666,
+    -0.0026245117,
+    -0.040374756,
+    -0.022079468,
+    -0.015304565,
+    0.005958557,
+    -0.027130127,
+    -0.037963867,
+    -0.06414795,
+    0.04550171,
+    0.032226562,
+    -0.0138168335,
+    0.08947754,
+    -0.003206253,
+    0.021057129,
+    0.04336548,
+    0.042053223,
+    0.025726318,
+    0.004600525,
+    -0.01423645,
+    0.015792847,
+    -0.006755829
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100068.md",
+    "file_name": "100068.md",
+    "file_size": 11913,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Bell 206B Helicopter Accident at Blair Municipal Airport",
+      "Bell 206B helicopter N106PD sustained substantial damage in an accident on August 16, 2019.",
+      "The accident occurred near Blair, Nebraska at approximately 0945 central daylight time.",
+      "Two commercial pilots sustained minor injuries in the accident.",
+      "The helicopter was operated as a Title 14 Code of Federal Regulations public aircraft flight.",
+      "The accident involved maneuvering during low-altitude flying as a simulated/training event.",
+      "The accident involved maneuvering during low-altitude flying classified as miscellaneous/other.",
+      "The defining event of the accident was maneuvering during low-altitude flying with unknown or undetermined cause.",
+      "Autorotation was attempted as a remediation/recovery measure.",
+      "A collision occurred during landing.",
+      "The helicopter departed from Blair Municipal Airport (BTA) in Blair, Nebraska.",
+      "The flight was a patrol flight over Omaha, Nebraska.",
+      "The flight lasted approximately 1 hour before the helicopter headed back to Blair Municipal Airport.",
+      "The accident occurred about 4 miles south of runway 31 at Blair Municipal Airport.",
+      "The pilot-in-command (PIC) was stationed in the right seat of the helicopter.",
+      "The pilot-in-command (PIC) was also a flight instructor.",
+      "The co-pilot was stationed in the left seat of the helicopter.",
+      "The co-pilot was not a flight instructor.",
+      "The pilot-in-command decided to conduct emergency procedure training with a simulated governor failure of the turboshaft engine.",
+      "The training was intended to be conducted at a safe airspeed and altitude before executing a normal landing.",
+      "The pilot-in-command initiated the simulated governor failure by rolling the throttle down.",
+      "The throttle was rolled down just enough to take the governor offline while maintaining the main rotor rpm in the normal range.",
+      "The helicopter descended while maintaining airspeed until over the runway.",
+      "At approximately 40 feet above ground level and about 45 knots, the pilot-in-command announced his intention to complete the training maneuver.",
+      "The pilot-in-command rolled the throttle back to the full open position to complete the maneuver.",
+      "The pilot-in-command confirmed and verbally announced that the main rotor rpm indication was in the normal range.",
+      "All other indications in the helicopter appeared normal to the pilot-in-command.",
+      "The pilot-in-command applied aft cyclic to slow down the helicopter.",
+      "The pilot-in-command began air taxiing to the parking pad located to the east of their position."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Bell 206B Helicopter Accident at Blair Municipal Airport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell 206B helicopter N106PD",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Blair Municipal Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Blair",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Nebraska",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Omaha",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot-in-command",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "co-pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Bell 206B helicopter N106PD sustained substantial damage in an accident on August 16, 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N106PD",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 16, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred near Blair, Nebraska at approximately 0945 central daylight time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Blair",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nebraska",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0945 central daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near Blair, Nebraska",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Two commercial pilots sustained minor injuries in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LICENSE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LICENSE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was operated as a Title 14 Code of Federal Regulations public aircraft flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Title 14 Code of Federal Regulations public aircraft flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved maneuvering during low-altitude flying as a simulated/training event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maneuvering during low-altitude flying",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "simulated/training event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved maneuvering during low-altitude flying classified as miscellaneous/other.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT CLASSIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "miscellaneous/other",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was maneuvering during low-altitude flying with unknown or undetermined cause.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maneuvering during low-altitude flying with unknown or undetermined cause",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Autorotation was attempted as a remediation/recovery measure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RECOVERY MEASURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autorotation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A collision occurred during landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT PHASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter departed from Blair Municipal Airport (BTA) in Blair, Nebraska.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Blair Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Blair",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Blair Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "CODE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "BTA",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE POINT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Blair Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a patrol flight over Omaha, Nebraska.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "patrol flight",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT AREA"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "over Omaha, Nebraska",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight lasted approximately 1 hour before the helicopter headed back to Blair Municipal Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1 hour",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Blair Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred about 4 miles south of runway 31 at Blair Municipal Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 4 miles south of runway 31 at Blair Municipal Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command (PIC) was stationed in the right seat of the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command (PIC) was also a flight instructor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot was stationed in the left seat of the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot was not a flight instructor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "NOT ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command decided to conduct emergency procedure training with a simulated governor failure of the turboshaft engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TRAINING DECISION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency procedure training with simulated governor failure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The training was intended to be conducted at a safe airspeed and altitude before executing a normal landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TRAINING PARAMETERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "safe airspeed and altitude before executing a normal landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command initiated the simulated governor failure by rolling the throttle down.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initiated simulated governor failure by rolling throttle down",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The throttle was rolled down just enough to take the governor offline while maintaining the main rotor rpm in the normal range.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "THROTTLE ADJUSTMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rolled down just enough to take governor offline while maintaining normal main rotor rpm",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter descended while maintaining airspeed until over the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PATH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "descended while maintaining airspeed until over the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At approximately 40 feet above ground level and about 45 knots, the pilot-in-command announced his intention to complete the training maneuver.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ALTITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 40 feet above ground level",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRSPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 45 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ANNOUNCEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intention to complete training maneuver",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command rolled the throttle back to the full open position to complete the maneuver.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rolled throttle back to full open position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command confirmed and verbally announced that the main rotor rpm indication was in the normal range.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONFIRMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor rpm indication in normal range",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All other indications in the helicopter appeared normal to the pilot-in-command.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell 206B helicopter N106PD",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INSTRUMENT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "all other indications appeared normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command applied aft cyclic to slow down the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "applied aft cyclic to slow down helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot-in-command began air taxiing to the parking pad located to the east of their position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-in-command",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "began air taxiing to parking pad east of position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::e2bcd775:05f5",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100068.md",
+        "file_name": "100068.md",
+        "file_size": 11913,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "88cb7ce4623362a7194d41e0b86fe4f09773a169c940761eaf08c396c7c89e1a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::e2bcd775:05f5:6e8e19cf",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100068.md",
+        "file_name": "100068.md",
+        "file_size": 11913,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "57ee1b6eeccd173ef94cf5e12eabf7b4466ec2d1e7dfa35e0a109388d90af629",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::e2bcd775:05f5:0d4c88fa",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100068.md",
+        "file_name": "100068.md",
+        "file_size": 11913,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "714fc8ed912fa22e946adf692ab7bdaf180a8d4d1a31f4c21d8060a28c383d2d",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Event | Description |\n| --- | --- |\n| Maneuvering-low-alt flying | Simulated/training event |\n| Maneuvering-low-alt flying | Miscellaneous/other |\n| Maneuvering-low-alt flying | Unknown or undetermined (Defining event) |\n| Autorotation | Attempted remediation/recovery |\n| Landing | Collision during takeoff/land |\n\nOn August 16, 2019, about 0945 central daylight time, a Bell 206B helicopter, N106PD, sustained substantial damage when it was involved in an accident near Blair, Nebraska. The two commercial pilots sustained minor injuries. The helicopter was operated as a Title 14 Code of Federal Regulations public aircraft flight.\n\nAccording to the Omaha Police Department Air Support Unit, the helicopter departed Blair Municipal Airport (BTA), Blair, Nebraska, for a patrol flight over Omaha, Nebraska. After about 1 hour of flight, the helicopter headed back to BTA. About 4 miles south of runway 31 at BTA, the pilot-in-command (PIC), who is also a flight instructor and was stationed in the right seat, decided to conduct emergency procedure training with a simulated governor failure of the turboshaft engine prior to landing back to the airport. The co-pilot, who is not a flight instructor, was stationed in the left seat. Since a training event was being conducted, the intent was to recover from the simulated governor failure at a safe airspeed and altitude before executing a normal landing.\n\nThe PIC initiated a simulated governor failure by rolling the throttle down just enough to take the governor offline, but still maintaining the main rotor rpm in the green (normal) range. The helicopter descended while maintaining airspeed until over the runway. About 40 ft above ground level and about 45 knots, the PIC announced his intention to complete the training maneuver and rolled the throttle back to the full open position. The PIC confirmed the main rotor rpm indication in the green range, which he verbally announced. All other indications in the helicopter appeared to be normal to the PIC.\n\nAs the helicopter was in normal operating conditions, the PIC applied aft cyclic to slow down and began air taxiing to the parking pad to the east (right) of their current position.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2245,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

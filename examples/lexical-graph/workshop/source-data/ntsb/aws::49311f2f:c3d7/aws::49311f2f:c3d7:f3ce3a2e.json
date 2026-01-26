@@ -1,0 +1,2171 @@
+{
+  "id_": "aws::49311f2f:c3d7:f3ce3a2e",
+  "embedding": [
+    0.027359009,
+    0.01751709,
+    0.010063171,
+    -0.046813965,
+    0.010002136,
+    -0.0029850006,
+    -0.0047302246,
+    -0.010299683,
+    -0.049316406,
+    0.038238525,
+    0.041931152,
+    0.036346436,
+    0.008140564,
+    -0.028686523,
+    0.03439331,
+    -0.00084114075,
+    0.0022621155,
+    0.07623291,
+    0.04168701,
+    -0.009773254,
+    0.014793396,
+    -0.0069351196,
+    -1.40070915e-05,
+    -0.0047569275,
+    0.020401001,
+    -0.00014734268,
+    0.015617371,
+    0.0029296875,
+    0.007724762,
+    -0.00046682358,
+    0.02041626,
+    -0.021224976,
+    0.026000977,
+    0.06262207,
+    -0.05029297,
+    0.007797241,
+    -0.0045280457,
+    0.0032176971,
+    -0.012939453,
+    0.026748657,
+    0.014968872,
+    -0.0071411133,
+    0.028701782,
+    -0.046325684,
+    0.006416321,
+    -0.011749268,
+    0.003774643,
+    -0.0368042,
+    0.026397705,
+    0.0602417,
+    0.016143799,
+    0.0055999756,
+    0.005378723,
+    0.0023403168,
+    0.016555786,
+    0.018203735,
+    -0.08721924,
+    0.024978638,
+    -0.015380859,
+    0.058441162,
+    0.06378174,
+    0.033172607,
+    -0.0048675537,
+    0.0029754639,
+    -0.04269409,
+    -0.0046653748,
+    0.049224854,
+    0.003856659,
+    0.05319214,
+    -0.045837402,
+    -0.05142212,
+    0.06829834,
+    -0.013999939,
+    0.04019165,
+    0.0138549805,
+    -0.066345215,
+    0.007972717,
+    -0.013267517,
+    -0.0034332275,
+    0.07489014,
+    0.018814087,
+    -0.016998291,
+    -0.023727417,
+    -0.00010365248,
+    0.012283325,
+    0.042907715,
+    -0.0018863678,
+    -0.027801514,
+    -0.0035820007,
+    0.013206482,
+    -0.013137817,
+    0.014228821,
+    0.03652954,
+    0.021560669,
+    -0.030029297,
+    0.0059928894,
+    0.017715454,
+    -0.06188965,
+    0.064208984,
+    -0.003824234,
+    0.07409668,
+    -0.08557129,
+    0.040405273,
+    -0.0003373623,
+    -0.024765015,
+    -0.032348633,
+    0.005493164,
+    -0.01864624,
+    0.014381409,
+    0.035217285,
+    -0.03842163,
+    0.03692627,
+    -0.014007568,
+    -0.057617188,
+    0.011444092,
+    0.07299805,
+    0.021987915,
+    0.008468628,
+    0.023376465,
+    0.0057754517,
+    0.03765869,
+    0.055358887,
+    -0.03970337,
+    -0.056610107,
+    -0.029571533,
+    -0.062805176,
+    -0.04321289,
+    0.02394104,
+    0.04373169,
+    0.015853882,
+    -0.008155823,
+    0.008087158,
+    -0.020629883,
+    0.01007843,
+    0.0015001297,
+    -0.0056266785,
+    -0.049621582,
+    0.007835388,
+    0.015655518,
+    -0.039886475,
+    0.034057617,
+    -0.011352539,
+    0.04714966,
+    0.02658081,
+    0.005378723,
+    0.008354187,
+    -0.0022792816,
+    0.016281128,
+    0.042144775,
+    -0.0066719055,
+    0.00920105,
+    -0.034698486,
+    0.0317688,
+    -0.008361816,
+    -0.023727417,
+    -0.057861328,
+    0.01789856,
+    -0.041046143,
+    0.021331787,
+    -0.053588867,
+    -0.036346436,
+    -0.014289856,
+    0.03213501,
+    -0.04067993,
+    -0.079833984,
+    0.025985718,
+    -0.006149292,
+    -0.0075035095,
+    -0.0050964355,
+    -0.060150146,
+    -0.0033226013,
+    0.03781128,
+    -0.028793335,
+    -0.009765625,
+    0.016723633,
+    0.013046265,
+    0.005264282,
+    0.023025513,
+    0.016555786,
+    0.026748657,
+    0.03074646,
+    -0.017654419,
+    0.066223145,
+    -0.01966858,
+    0.0043144226,
+    -0.0055236816,
+    -0.002105713,
+    -0.018554688,
+    0.012527466,
+    -0.010116577,
+    0.008094788,
+    0.008728027,
+    -0.007736206,
+    -0.014266968,
+    -0.024459839,
+    0.009513855,
+    -0.015914917,
+    0.03149414,
+    -0.016021729,
+    -0.008346558,
+    -0.04977417,
+    0.00756073,
+    -0.006580353,
+    0.03604126,
+    -0.0149383545,
+    0.014854431,
+    -0.008834839,
+    0.03265381,
+    -0.020767212,
+    0.018203735,
+    0.025115967,
+    -0.044433594,
+    -0.0051078796,
+    0.029953003,
+    0.014343262,
+    -0.005596161,
+    0.018295288,
+    -0.03466797,
+    0.0018987656,
+    -0.008117676,
+    -0.030807495,
+    0.05529785,
+    -0.051971436,
+    0.022827148,
+    -0.028076172,
+    -0.01966858,
+    0.00074863434,
+    0.0049095154,
+    -0.029556274,
+    0.023223877,
+    0.001917839,
+    -0.0127334595,
+    0.059539795,
+    0.06463623,
+    -0.018539429,
+    0.018951416,
+    0.026184082,
+    -0.013580322,
+    -0.008178711,
+    0.01109314,
+    -0.015266418,
+    -0.012084961,
+    -0.02507019,
+    0.08203125,
+    -0.08886719,
+    -0.074035645,
+    -0.0036468506,
+    0.042663574,
+    -0.020431519,
+    0.041931152,
+    0.014724731,
+    0.05102539,
+    -0.011795044,
+    0.037231445,
+    -0.01461792,
+    0.024475098,
+    -0.017578125,
+    -0.042541504,
+    -0.01625061,
+    0.013877869,
+    0.021255493,
+    -0.052612305,
+    -0.029922485,
+    -0.0020065308,
+    0.031677246,
+    0.055114746,
+    0.060546875,
+    0.06719971,
+    -0.030380249,
+    0.027191162,
+    -2.4020672e-05,
+    0.04486084,
+    -0.0004837513,
+    0.037750244,
+    -0.066589355,
+    0.043823242,
+    -0.008300781,
+    0.012290955,
+    0.009933472,
+    0.019317627,
+    -0.01739502,
+    0.02017212,
+    0.012062073,
+    -0.00011265278,
+    0.0143966675,
+    0.0035572052,
+    0.012954712,
+    -0.017318726,
+    0.024215698,
+    0.038360596,
+    0.045135498,
+    0.0052375793,
+    -0.01461792,
+    0.02394104,
+    0.031280518,
+    -0.0016460419,
+    0.00333786,
+    -0.014678955,
+    0.030288696,
+    -0.009498596,
+    0.0060806274,
+    0.07305908,
+    0.00058460236,
+    0.0071907043,
+    0.0077781677,
+    -0.0023097992,
+    0.00057935715,
+    -0.006351471,
+    0.008888245,
+    0.014015198,
+    -0.010124207,
+    0.06677246,
+    0.047607422,
+    0.08282471,
+    -0.01979065,
+    -0.032073975,
+    -0.008880615,
+    0.068847656,
+    0.0008330345,
+    -0.00064229965,
+    -0.093811035,
+    -0.038085938,
+    -0.03062439,
+    0.011558533,
+    -0.011016846,
+    0.040039062,
+    -0.0023593903,
+    0.014572144,
+    -0.053649902,
+    -0.0038852692,
+    -0.034729004,
+    -0.04714966,
+    -0.04434204,
+    0.01890564,
+    0.00055933,
+    0.033477783,
+    0.01084137,
+    -0.020889282,
+    -0.024627686,
+    -0.013374329,
+    -0.025466919,
+    -0.029647827,
+    0.0010137558,
+    -0.04663086,
+    -0.06640625,
+    -0.023590088,
+    0.024597168,
+    0.0020160675,
+    -0.035980225,
+    -0.04196167,
+    0.07336426,
+    -0.010879517,
+    0.006011963,
+    0.012672424,
+    0.0317688,
+    -0.07495117,
+    -0.028503418,
+    0.0446167,
+    -0.026641846,
+    -0.028076172,
+    0.0019273758,
+    0.026611328,
+    -0.0063171387,
+    -0.0154953,
+    0.013473511,
+    -0.04034424,
+    -0.02935791,
+    0.025512695,
+    0.020126343,
+    0.028305054,
+    -0.030075073,
+    0.022964478,
+    -0.030059814,
+    -0.0020103455,
+    0.012138367,
+    -0.019348145,
+    0.020599365,
+    -0.01083374,
+    -0.009002686,
+    -0.010696411,
+    0.013870239,
+    -0.0017080307,
+    0.034606934,
+    0.020523071,
+    0.025436401,
+    -0.0008416176,
+    0.0040016174,
+    0.02520752,
+    0.017501831,
+    0.006450653,
+    -0.01626587,
+    -0.0032577515,
+    -0.0155181885,
+    -0.048095703,
+    -0.010528564,
+    0.024261475,
+    0.009124756,
+    -0.022766113,
+    0.047180176,
+    -0.030059814,
+    -0.1015625,
+    0.012573242,
+    -7.754564e-05,
+    -0.023254395,
+    -0.006061554,
+    -0.058166504,
+    -0.02041626,
+    -0.05218506,
+    0.014076233,
+    0.06439209,
+    -0.036590576,
+    0.05429077,
+    -0.06488037,
+    0.07836914,
+    -0.037261963,
+    0.009979248,
+    -0.04788208,
+    -0.034240723,
+    0.029342651,
+    0.06854248,
+    0.018936157,
+    -0.06124878,
+    -0.021621704,
+    0.04067993,
+    -0.010986328,
+    -0.0014009476,
+    -0.021850586,
+    0.0038719177,
+    -0.024719238,
+    0.035583496,
+    -0.013023376,
+    -0.00070762634,
+    -0.0052223206,
+    -0.040252686,
+    -0.026504517,
+    0.01727295,
+    -0.009010315,
+    0.00818634,
+    0.006980896,
+    -0.016098022,
+    0.03515625,
+    0.008979797,
+    0.023406982,
+    0.006351471,
+    -0.0036754608,
+    -0.017929077,
+    0.010070801,
+    0.05078125,
+    -0.018447876,
+    -0.062561035,
+    -0.009178162,
+    -0.007835388,
+    0.036102295,
+    0.029403687,
+    0.022216797,
+    0.07318115,
+    0.0032958984,
+    0.018692017,
+    0.016235352,
+    -0.01737976,
+    -0.020141602,
+    9.23872e-05,
+    -0.0178833,
+    -0.013137817,
+    -0.012512207,
+    -0.015098572,
+    0.059020996,
+    -0.0138168335,
+    0.026229858,
+    -0.023513794,
+    -0.02532959,
+    0.022766113,
+    -0.05505371,
+    -0.03881836,
+    0.013847351,
+    0.039764404,
+    -0.004749298,
+    -0.046020508,
+    0.0690918,
+    0.034240723,
+    -0.05038452,
+    0.012367249,
+    0.042236328,
+    0.01852417,
+    0.023147583,
+    0.018859863,
+    0.016403198,
+    0.037078857,
+    0.007587433,
+    0.026977539,
+    0.041809082,
+    0.016952515,
+    0.046875,
+    0.0013532639,
+    0.006225586,
+    -0.034851074,
+    0.008453369,
+    -0.04067993,
+    -0.050689697,
+    -0.041992188,
+    -0.052368164,
+    -0.005580902,
+    0.0026931763,
+    0.024627686,
+    0.013328552,
+    0.022094727,
+    -0.032165527,
+    -0.007335663,
+    -0.017181396,
+    -0.023162842,
+    -0.039642334,
+    -0.029891968,
+    -0.020690918,
+    -0.015472412,
+    -0.03656006,
+    0.05947876,
+    -0.028198242,
+    -0.06567383,
+    0.026901245,
+    0.009231567,
+    -0.033355713,
+    -0.035217285,
+    0.05847168,
+    0.04562378,
+    -0.049560547,
+    0.004547119,
+    0.020309448,
+    0.014923096,
+    0.002532959,
+    0.003917694,
+    0.022583008,
+    -0.032196045,
+    -0.0104904175,
+    0.00038671494,
+    0.016815186,
+    0.03366089,
+    0.0029296875,
+    0.039855957,
+    -0.022598267,
+    -0.054351807,
+    -0.023147583,
+    -0.014022827,
+    0.015029907,
+    -0.038208008,
+    -0.012649536,
+    -0.0126571655,
+    0.015411377,
+    0.024871826,
+    -0.055419922,
+    -0.04034424,
+    0.03604126,
+    0.055389404,
+    0.031204224,
+    -0.032714844,
+    -0.042510986,
+    0.03237915,
+    0.036712646,
+    -0.035217285,
+    -0.0055618286,
+    0.03338623,
+    0.022415161,
+    -0.018508911,
+    -0.010421753,
+    0.005405426,
+    0.026657104,
+    0.009979248,
+    -0.007987976,
+    -0.061187744,
+    0.008506775,
+    0.0068893433,
+    -0.035614014,
+    -0.02015686,
+    0.06237793,
+    0.0042381287,
+    -0.0047416687,
+    -0.028015137,
+    0.023071289,
+    0.029220581,
+    -0.017501831,
+    -0.041229248,
+    0.016677856,
+    -0.0044288635,
+    0.010284424,
+    0.013877869,
+    -0.028640747,
+    0.016967773,
+    0.025283813,
+    -0.026290894,
+    -0.01651001,
+    -0.030380249,
+    -0.009101868,
+    0.024337769,
+    0.0068969727,
+    0.014846802,
+    0.005279541,
+    -0.004386902,
+    -0.020507812,
+    -0.052642822,
+    0.023834229,
+    0.0129852295,
+    -0.043518066,
+    -0.03540039,
+    -0.011428833,
+    -0.036132812,
+    0.08117676,
+    0.032287598,
+    -0.030395508,
+    0.0045928955,
+    0.04824829,
+    0.04360962,
+    -0.02508545,
+    -0.024765015,
+    -0.06500244,
+    0.048461914,
+    -0.014564514,
+    -0.03439331,
+    4.118681e-05,
+    0.01247406,
+    0.014907837,
+    -0.04006958,
+    0.010696411,
+    0.020370483,
+    0.013725281,
+    -0.0025691986,
+    -0.01940918,
+    0.035888672,
+    -0.0044555664,
+    -0.006374359,
+    -0.014579773,
+    0.023513794,
+    0.010131836,
+    -0.012451172,
+    -0.033599854,
+    -0.019470215,
+    -0.026229858,
+    0.019302368,
+    -0.009399414,
+    -0.017227173,
+    -0.0070533752,
+    -0.020019531,
+    -0.02142334,
+    0.012268066,
+    0.0029506683,
+    -0.03201294,
+    0.0423584,
+    -0.028030396,
+    -0.007335663,
+    0.013000488,
+    0.0055503845,
+    -0.009315491,
+    0.020965576,
+    0.0023078918,
+    -0.044525146,
+    -0.022201538,
+    0.03363037,
+    -0.022460938,
+    -0.020217896,
+    0.008964539,
+    0.010063171,
+    -0.04269409,
+    -0.07672119,
+    -0.010559082,
+    0.0028705597,
+    -0.038330078,
+    -0.048461914,
+    0.000620842,
+    0.045898438,
+    -0.010032654,
+    0.013305664,
+    -0.058624268,
+    -0.030273438,
+    0.030960083,
+    -0.0006670952,
+    -0.03881836,
+    0.007423401,
+    -0.008918762,
+    0.056915283,
+    0.0074310303,
+    0.0287323,
+    -0.06817627,
+    0.020263672,
+    0.013046265,
+    0.018081665,
+    -0.02645874,
+    -0.016143799,
+    0.0423584,
+    -0.041656494,
+    -0.006965637,
+    -0.04534912,
+    -0.014122009,
+    0.007686615,
+    0.060791016,
+    -0.044281006,
+    0.03262329,
+    -0.0015392303,
+    -0.05697632,
+    -0.02420044,
+    -0.02053833,
+    0.0016431808,
+    0.007701874,
+    0.009498596,
+    -0.022857666,
+    0.018325806,
+    -0.025024414,
+    -0.018829346,
+    0.017410278,
+    -0.0021190643,
+    0.050689697,
+    -0.047698975,
+    -0.041259766,
+    0.008811951,
+    0.06994629,
+    0.015792847,
+    -0.006839752,
+    0.027252197,
+    0.0049705505,
+    0.06060791,
+    0.016921997,
+    -0.0067329407,
+    -0.011390686,
+    -0.010192871,
+    0.01878357,
+    0.03778076,
+    -0.042755127,
+    0.027618408,
+    -0.03137207,
+    -0.019500732,
+    0.0047683716,
+    -0.009361267,
+    -0.0025787354,
+    0.007633209,
+    -0.05178833,
+    0.043945312,
+    -0.0060577393,
+    -0.04837036,
+    -0.020126343,
+    -0.003894806,
+    0.024139404,
+    -0.031555176,
+    0.01965332,
+    -0.049041748,
+    0.0033226013,
+    0.0056495667,
+    -0.0038852692,
+    -0.03515625,
+    -0.023391724,
+    0.012969971,
+    -0.08404541,
+    -0.025268555,
+    -0.026916504,
+    0.02986145,
+    -0.051757812,
+    -0.048553467,
+    0.0047912598,
+    0.019165039,
+    0.023635864,
+    -0.0036621094,
+    -0.0013237,
+    -0.043151855,
+    0.0057754517,
+    -0.025283813,
+    0.023025513,
+    0.008728027,
+    0.013885498,
+    0.015541077,
+    0.022598267,
+    -0.053710938,
+    -0.018707275,
+    -0.027709961,
+    -0.01398468,
+    -0.033172607,
+    0.0146865845,
+    -0.03491211,
+    -0.0647583,
+    0.072509766,
+    -0.00016927719,
+    0.041900635,
+    -0.017211914,
+    -0.03643799,
+    -0.026977539,
+    -0.011062622,
+    -0.009757996,
+    -0.036956787,
+    0.028778076,
+    -0.016860962,
+    0.008033752,
+    -0.008361816,
+    0.027770996,
+    -0.02268982,
+    -0.006702423,
+    0.004447937,
+    0.041870117,
+    0.028045654,
+    -0.03741455,
+    -0.00077581406,
+    -0.036987305,
+    -0.06161499,
+    -0.012062073,
+    -0.035125732,
+    -0.028839111,
+    -0.052856445,
+    -0.010978699,
+    0.003396988,
+    0.04852295,
+    0.010681152,
+    0.016357422,
+    0.026947021,
+    0.044647217,
+    0.025024414,
+    -0.053710938,
+    0.018997192,
+    -0.038513184,
+    0.026565552,
+    0.0129776,
+    -0.004711151,
+    0.037384033,
+    -0.06390381,
+    -0.045074463,
+    0.0058937073,
+    0.031982422,
+    0.016098022,
+    0.045410156,
+    0.05291748,
+    -0.037475586,
+    -0.009559631,
+    -0.0026073456,
+    -0.017562866,
+    -0.01939392,
+    0.03074646,
+    -0.035614014,
+    -0.018325806,
+    -0.014564514,
+    0.007843018,
+    -0.013244629,
+    -0.0040779114,
+    0.04827881,
+    0.036193848,
+    -0.0049858093,
+    0.0029907227,
+    0.030715942,
+    -0.047546387,
+    0.0043678284,
+    -0.035827637,
+    -0.018539429,
+    -0.061950684,
+    0.03439331,
+    0.024520874,
+    0.008605957,
+    0.0016050339,
+    0.08154297,
+    -0.0022277832,
+    0.014831543,
+    0.07336426,
+    -0.028381348,
+    -0.009941101,
+    -0.003036499,
+    0.002729416,
+    -0.018615723,
+    -0.012016296,
+    -0.021148682,
+    0.004722595,
+    0.036987305,
+    0.028335571,
+    -0.036132812,
+    0.009185791,
+    0.042785645,
+    -0.004547119,
+    0.028884888,
+    0.0093307495,
+    0.033233643,
+    0.012870789,
+    0.0025043488,
+    -0.090026855,
+    -0.0054855347,
+    -0.009841919,
+    -0.055908203,
+    0.023452759,
+    0.06542969,
+    -0.018463135,
+    -0.0010461807,
+    -0.045806885,
+    -0.0390625,
+    0.03050232,
+    0.013183594,
+    -0.0033435822,
+    -0.07208252,
+    0.015701294,
+    -0.008155823,
+    0.020553589,
+    0.017105103,
+    0.0137786865,
+    -0.025115967,
+    0.0007457733,
+    0.016525269,
+    0.003824234,
+    0.02281189,
+    -0.0047416687,
+    -0.03086853,
+    -0.039642334,
+    0.02949524,
+    -0.004802704,
+    -0.03616333,
+    -0.02279663,
+    -0.05038452,
+    0.044555664,
+    -0.024337769,
+    -0.0068588257,
+    -0.050445557,
+    -0.021835327,
+    -0.034820557,
+    0.038116455,
+    -0.0050849915,
+    -0.0035648346,
+    0.014099121,
+    -0.00274086,
+    -0.041229248,
+    -0.0036849976,
+    3.7252903e-05,
+    0.04421997,
+    0.020370483,
+    -0.04727173,
+    -0.030288696,
+    0.004261017,
+    0.04135132,
+    0.053985596,
+    -0.017242432,
+    0.06341553,
+    -0.046020508,
+    -0.003206253,
+    0.007736206,
+    0.014457703,
+    0.00818634,
+    0.03503418,
+    -0.04727173,
+    0.03427124,
+    -0.017532349,
+    -0.06188965,
+    -0.020385742,
+    -0.030303955,
+    0.05218506,
+    -0.015556335,
+    -0.014465332,
+    -0.007881165,
+    0.059295654,
+    0.00021862984,
+    0.007637024,
+    -0.011207581,
+    -0.027618408,
+    -0.036254883,
+    0.03274536,
+    0.03375244,
+    -0.012809753,
+    -0.015655518,
+    0.004840851,
+    -0.0149383545,
+    0.015899658,
+    -0.021453857,
+    -0.018539429,
+    -0.014801025,
+    -0.042999268,
+    0.019714355,
+    0.009963989,
+    0.00466156,
+    -0.004714966,
+    -0.039276123,
+    0.019851685,
+    -0.013473511,
+    -0.011245728,
+    0.027450562,
+    0.054229736,
+    0.0014972687,
+    -0.005355835,
+    0.0006799698,
+    -0.014915466,
+    -0.026794434,
+    -0.038360596,
+    0.017623901,
+    0.0057525635,
+    -0.0060653687,
+    0.022659302,
+    -0.02218628,
+    0.00944519,
+    -0.04598999,
+    0.013587952,
+    -0.022857666,
+    -0.02720642,
+    0.0055351257,
+    -0.0038108826,
+    -0.016998291,
+    0.028549194,
+    -0.029144287,
+    0.010879517,
+    0.04147339,
+    -0.001701355,
+    -0.036987305,
+    0.01486969,
+    0.0061035156,
+    0.018218994,
+    -0.024978638,
+    -0.047302246,
+    -0.04776001,
+    0.0025463104,
+    0.03656006,
+    -0.016952515,
+    -0.02217102,
+    -0.00919342,
+    0.027282715,
+    0.030349731,
+    -0.041381836,
+    -0.033843994,
+    -0.05987549,
+    0.020187378,
+    0.022415161,
+    -0.0057640076,
+    0.082092285,
+    -0.019744873,
+    0.0069503784,
+    0.023361206,
+    -0.0103302,
+    0.011062622,
+    -0.008773804,
+    0.047851562,
+    -0.0020141602,
+    -0.014053345
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+    "file_name": "85918.md",
+    "file_size": 11717,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aircraft Engine and Propeller Examination After Accident",
+      "There was no record of the work performed in the engine logbook.",
+      "Both propeller blades sustained bending deformation in the aft direction.",
+      "One propeller blade was bent more than the other propeller blade.",
+      "The nose section of the airplane sustained crushing damage.",
+      "The nose landing gear sustained crushing damage.",
+      "Both magnetos were secured to their respective mounting pads at the engine.",
+      "The ignition leads were secured to their respective sparkplugs.",
+      "The ignition leads were in good condition.",
+      "The ignition leads showed no signs of fretting.",
+      "The top sparkplugs were removed.",
+      "The top sparkplugs were examined using the Champion Aviation Service Manual AV6-R as a reference.",
+      "The fine wire electrodes appeared to be in a normal wear condition.",
+      "The fine wire electrodes showed little-to-no evidence of lead fouling.",
+      "The fine wire electrodes showed little-to-no evidence of soot.",
+      "A borescope inspection was performed on all six cylinders with the sparkplugs removed.",
+      "No anomalies were noted to the cylinders during the borescope inspection.",
+      "No anomalies were noted to the piston heads during the borescope inspection.",
+      "No anomalies were noted to the valves during the borescope inspection.",
+      "Compression was tested by rotating the propeller by hand.",
+      "Thumb compression was obtained on all six cylinders.",
+      "Suction was obtained on all six cylinders.",
+      "The fuel line between the low and high pressure auxiliary fuel boost pumps sustained impact damage.",
+      "The line that bypasses the low pressure auxiliary fuel boost pump sustained impact damage."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Engine and Propeller Examination After Accident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine logbook",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "propeller blades",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "nose section",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "nose landing gear",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "magnetos",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "mounting pads",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ignition leads",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "sparkplugs",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "top sparkplugs",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Champion Aviation Service Manual AV6-R",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fine wire electrodes",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cylinders",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "piston heads",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "valves",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "propeller",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel line",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "low pressure auxiliary fuel boost pump",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "high pressure auxiliary fuel boost pump",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "line",
+              "classification": "Aircraftcomponent"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no record of the work performed in the engine logbook.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine logbook",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no record of work performed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both propeller blades sustained bending deformation in the aft direction.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller blades",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bending deformation in the aft direction",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "One propeller blade was bent more than the other propeller blade.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller blades",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "one bent more than the other",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The nose section of the airplane sustained crushing damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose section",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose section",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crushing damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The nose landing gear sustained crushing damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose landing gear",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crushing damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both magnetos were secured to their respective mounting pads at the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "ATTACHED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mounting pads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mounting pads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "secured to mounting pads",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The ignition leads were secured to their respective sparkplugs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sparkplugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "secured to sparkplugs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The ignition leads were in good condition.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "good condition",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The ignition leads showed no signs of fretting.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no signs of fretting",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The top sparkplugs were removed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "top sparkplugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The top sparkplugs were examined using the Champion Aviation Service Manual AV6-R as a reference.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "top sparkplugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "examined",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Champion Aviation Service Manual AV6-R",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reference for examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fine wire electrodes appeared to be in a normal wear condition.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fine wire electrodes",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal wear condition",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fine wire electrodes showed little-to-no evidence of lead fouling.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fine wire electrodes",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "little-to-no evidence of lead fouling",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fine wire electrodes showed little-to-no evidence of soot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fine wire electrodes",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "little-to-no evidence of soot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A borescope inspection was performed on all six cylinders with the sparkplugs removed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "six",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS INSPECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "borescope inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sparkplugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed during inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No anomalies were noted to the cylinders during the borescope inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies during borescope inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No anomalies were noted to the piston heads during the borescope inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "piston heads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies during borescope inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No anomalies were noted to the valves during the borescope inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "valves",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies during borescope inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Compression was tested by rotating the propeller by hand.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rotated by hand for compression testing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Thumb compression was obtained on all six cylinders.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "six",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thumb compression obtained",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Suction was obtained on all six cylinders.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "six",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "suction obtained",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel line between the low and high pressure auxiliary fuel boost pumps sustained impact damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel line",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low pressure auxiliary fuel boost pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel line",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "high pressure auxiliary fuel boost pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel line",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impact damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The line that bypasses the low pressure auxiliary fuel boost pump sustained impact damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "line",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "BYPASSES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low pressure auxiliary fuel boost pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "line",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impact damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::49311f2f:c3d7",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+        "file_name": "85918.md",
+        "file_size": 11717,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "9818dc588d27f687d4024dfa74f0dc8e769176937b46aa7dd88d66dfa20dfa22",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::49311f2f:c3d7:91f07fbc",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+        "file_name": "85918.md",
+        "file_size": 11717,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0e00956e0cdfc401c471b213ac004164215a0be117b80f4873e7bbb7023ce532",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::49311f2f:c3d7:9dc910cd",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85918.md",
+        "file_name": "85918.md",
+        "file_size": 11717,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "37d7663c2c8a6be2dffbd2ce8ddd63ba8c97faaee0e5ea45344c4e0e58b37315",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "There was no record of the work performed in the engine logbook.\n\nPostaccident examination of the airplane revealed that both propeller blades sustained bending deformation in the aft direction, with one blade being bent more than the other. The nose section of the airplane, including the nose landing gear, sustained crushing damage. Both magnetos were secured to their respective mounting pads at the engine. The ignition leads were secured to their respective sparkplugs in good condition with no signs of fretting. The top sparkplugs were removed and examined using the Champion Aviation Service Manual AV6-R as a reference. The fine wire electrodes appeared to be in a normal wear condition with little-to-no evidence of lead fouling or soot. With the sparkplugs removed, a borescope inspection was performed on all six cylinders with no anomalies noted to the cylinders, piston heads, or valves. Compression was tested by rotating the propeller by hand; thumb compression and suction were obtained on all six cylinders. The fuel line between the low and high pressure auxiliary fuel boost pumps sustained impact damage, as well as the line that bypasses the low pressure auxiliary fuel boost pump. Further examination of the fuel system confirmed that fuel lines\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 2028,
+  "end_char_idx": 3302,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2072 @@
+{
+  "id_": "aws::fb871948:4e0e:8e834d1d",
+  "embedding": [
+    -0.044433594,
+    0.0019378662,
+    -0.018051147,
+    -0.034301758,
+    -0.02468872,
+    0.004760742,
+    -0.053955078,
+    -0.011436462,
+    0.028549194,
+    0.015419006,
+    -0.030563354,
+    0.007347107,
+    0.045318604,
+    -0.018371582,
+    -0.0019454956,
+    -0.0070724487,
+    5.722046e-06,
+    -0.0014305115,
+    0.016067505,
+    -0.02444458,
+    -0.0025100708,
+    -0.029846191,
+    0.035461426,
+    -0.0056381226,
+    -0.00088119507,
+    0.003528595,
+    0.0077667236,
+    0.0064735413,
+    -0.019042969,
+    -0.013618469,
+    0.0029144287,
+    0.020355225,
+    0.016967773,
+    -0.017791748,
+    0.0039405823,
+    -0.1081543,
+    -0.04058838,
+    0.0038986206,
+    -0.00749588,
+    -0.036315918,
+    -0.007320404,
+    -0.010574341,
+    -0.016494751,
+    -0.058380127,
+    -0.022964478,
+    0.0259552,
+    -0.05706787,
+    -0.04019165,
+    0.032104492,
+    0.061645508,
+    -0.013656616,
+    0.045013428,
+    -0.04901123,
+    0.038604736,
+    0.009109497,
+    0.0019683838,
+    -0.09265137,
+    0.04837036,
+    0.009674072,
+    0.103759766,
+    0.035858154,
+    0.019195557,
+    -0.043914795,
+    -0.0524292,
+    -0.022369385,
+    -0.0067100525,
+    -0.023468018,
+    0.024368286,
+    0.0024414062,
+    -0.03274536,
+    -0.0051956177,
+    -0.009429932,
+    0.0031909943,
+    -0.027008057,
+    0.0289917,
+    0.018936157,
+    0.028640747,
+    0.05130005,
+    -0.015396118,
+    0.029525757,
+    -0.0012397766,
+    0.004558563,
+    0.014343262,
+    -0.087524414,
+    0.05078125,
+    -0.021148682,
+    -0.015686035,
+    0.0011520386,
+    0.015068054,
+    -0.03765869,
+    -0.0026168823,
+    0.011886597,
+    -0.034942627,
+    0.006752014,
+    -0.0074386597,
+    -0.055603027,
+    0.027954102,
+    0.043304443,
+    -0.004737854,
+    0.0042915344,
+    0.018173218,
+    -0.033050537,
+    0.019546509,
+    -0.03567505,
+    -0.004421234,
+    -0.03942871,
+    0.016418457,
+    -0.07739258,
+    -0.00283432,
+    0.01020813,
+    -0.064941406,
+    0.09350586,
+    0.004989624,
+    0.003829956,
+    -0.037506104,
+    -0.014076233,
+    -0.03741455,
+    0.0064468384,
+    0.00064849854,
+    0.010559082,
+    -0.005569458,
+    0.010375977,
+    -0.040924072,
+    -0.021728516,
+    0.0001449585,
+    -0.041534424,
+    -0.029556274,
+    0.06500244,
+    0.058929443,
+    0.00061798096,
+    -0.035736084,
+    -0.0105896,
+    0.026306152,
+    0.018753052,
+    0.010925293,
+    -0.010826111,
+    0.034301758,
+    -0.012878418,
+    -0.0040245056,
+    -0.0060310364,
+    0.023590088,
+    0.002210617,
+    0.0030784607,
+    0.018707275,
+    0.034484863,
+    -0.04788208,
+    0.022750854,
+    0.062805176,
+    0.0096206665,
+    0.03363037,
+    0.007331848,
+    0.06665039,
+    0.07312012,
+    -0.004470825,
+    -0.030410767,
+    -0.072143555,
+    0.10046387,
+    -0.07885742,
+    -0.022766113,
+    -0.12805176,
+    -0.01687622,
+    -0.003578186,
+    0.05441284,
+    0.006362915,
+    -0.024093628,
+    -0.006542206,
+    0.0034980774,
+    -0.009544373,
+    0.010803223,
+    0.020309448,
+    -0.03503418,
+    0.0637207,
+    0.05996704,
+    0.0067977905,
+    -0.010116577,
+    -0.017364502,
+    0.04257202,
+    -0.024490356,
+    0.01890564,
+    -0.004196167,
+    -0.022827148,
+    -0.021621704,
+    0.001493454,
+    -0.01902771,
+    0.012893677,
+    -0.0076293945,
+    0.013145447,
+    -0.03427124,
+    0.0011978149,
+    -0.003238678,
+    -0.028030396,
+    0.06359863,
+    -0.009613037,
+    0.016082764,
+    -0.028320312,
+    3.8146973e-06,
+    0.0074920654,
+    0.039123535,
+    -0.014572144,
+    -0.0107040405,
+    0.022018433,
+    0.03768921,
+    -0.033203125,
+    0.009422302,
+    -0.052459717,
+    -0.015731812,
+    0.0019197464,
+    0.013595581,
+    0.0053977966,
+    0.019897461,
+    0.015533447,
+    -0.0012378693,
+    -0.032836914,
+    0.009170532,
+    0.0025482178,
+    0.015235901,
+    -0.023162842,
+    0.0035896301,
+    -0.010536194,
+    0.014228821,
+    0.01272583,
+    -0.022537231,
+    0.01222229,
+    0.024856567,
+    -0.03137207,
+    -0.008758545,
+    -0.01676941,
+    0.013450623,
+    0.015686035,
+    -0.011405945,
+    0.09649658,
+    0.016220093,
+    -0.015312195,
+    -0.0074691772,
+    -0.04675293,
+    -0.005680084,
+    -0.052490234,
+    -0.012901306,
+    -0.01600647,
+    0.03857422,
+    0.023895264,
+    -0.026306152,
+    -0.04058838,
+    -0.0034656525,
+    -0.0309906,
+    -0.07098389,
+    0.0021839142,
+    0.0090408325,
+    -0.015930176,
+    -0.006046295,
+    0.03805542,
+    -0.009849548,
+    0.018203735,
+    0.043121338,
+    0.024887085,
+    -0.01739502,
+    0.0019207001,
+    -0.015403748,
+    -0.00422287,
+    -0.0037765503,
+    -0.003145218,
+    -0.008277893,
+    -0.021942139,
+    0.0074310303,
+    -0.016494751,
+    -0.017669678,
+    -0.0058135986,
+    0.011161804,
+    0.029129028,
+    -0.02420044,
+    0.003414154,
+    -0.055236816,
+    -0.0043144226,
+    0.026794434,
+    -0.005756378,
+    -0.0030517578,
+    -0.021499634,
+    0.0010614395,
+    -0.015945435,
+    0.010971069,
+    -0.011260986,
+    0.012359619,
+    -0.026397705,
+    -0.004711151,
+    -0.0006580353,
+    -0.015625,
+    0.001247406,
+    0.004425049,
+    -0.01991272,
+    -0.01260376,
+    0.0041503906,
+    0.029922485,
+    -0.004711151,
+    0.008110046,
+    0.033233643,
+    -0.009033203,
+    -0.0011224747,
+    0.0047187805,
+    0.015335083,
+    -0.015380859,
+    -0.0062942505,
+    0.043762207,
+    0.003665924,
+    -0.024169922,
+    0.04144287,
+    -0.027008057,
+    0.0345459,
+    0.005256653,
+    0.03274536,
+    0.02947998,
+    -0.043640137,
+    0.05984497,
+    0.0151901245,
+    -0.061950684,
+    0.051818848,
+    0.028656006,
+    -0.00944519,
+    0.0021896362,
+    0.016799927,
+    0.039764404,
+    -0.08483887,
+    -0.001613617,
+    0.019897461,
+    -0.011955261,
+    0.027435303,
+    0.00667572,
+    -0.028656006,
+    0.033416748,
+    0.0075683594,
+    -0.039001465,
+    -0.014770508,
+    -0.033416748,
+    -0.02279663,
+    0.0064468384,
+    0.008743286,
+    -0.025848389,
+    -0.0035171509,
+    0.103271484,
+    -0.021560669,
+    -0.061645508,
+    -0.037109375,
+    -0.083740234,
+    0.014076233,
+    0.026794434,
+    0.019592285,
+    -0.017745972,
+    0.032287598,
+    0.012496948,
+    0.006816864,
+    0.045715332,
+    -0.019729614,
+    -0.016235352,
+    0.013259888,
+    0.019226074,
+    0.017990112,
+    -0.00045013428,
+    -0.007511139,
+    0.004043579,
+    0.0027999878,
+    -0.041748047,
+    -0.028564453,
+    -0.022918701,
+    -0.06365967,
+    -0.009963989,
+    0.03756714,
+    0.003982544,
+    -0.0345459,
+    0.0012054443,
+    0.04348755,
+    0.012527466,
+    -0.011924744,
+    -0.00049591064,
+    0.023162842,
+    0.011459351,
+    0.04724121,
+    -0.019317627,
+    0.009666443,
+    -0.019378662,
+    -0.014343262,
+    -0.0067977905,
+    0.0070343018,
+    -0.010261536,
+    0.003358841,
+    -0.0046806335,
+    0.045166016,
+    -0.02029419,
+    -0.054718018,
+    0.023773193,
+    0.007926941,
+    0.040618896,
+    -0.018676758,
+    -0.0036201477,
+    -0.05606079,
+    -0.008483887,
+    -0.0047836304,
+    0.009216309,
+    -0.011177063,
+    -0.043792725,
+    -0.021850586,
+    -0.026519775,
+    0.023101807,
+    -0.0362854,
+    -0.006832123,
+    -0.029693604,
+    0.004337311,
+    -0.04736328,
+    0.016204834,
+    -0.006969452,
+    0.03704834,
+    -0.07128906,
+    -0.038238525,
+    0.029754639,
+    -0.04473877,
+    0.0016517639,
+    -0.05206299,
+    -0.032684326,
+    0.014533997,
+    0.012168884,
+    -0.044311523,
+    0.010093689,
+    -0.014633179,
+    0.09539795,
+    -0.02508545,
+    -0.000787735,
+    0.0033988953,
+    0.047821045,
+    -0.013450623,
+    -0.04559326,
+    0.06695557,
+    0.049957275,
+    0.019317627,
+    0.022918701,
+    -0.018585205,
+    -0.006866455,
+    -0.025650024,
+    -0.03967285,
+    -0.019744873,
+    -0.054870605,
+    0.031097412,
+    -0.047027588,
+    -0.04498291,
+    -0.0012283325,
+    0.01084137,
+    -0.011138916,
+    0.04071045,
+    -0.028930664,
+    -0.001789093,
+    -0.041778564,
+    0.011703491,
+    0.056915283,
+    -0.020004272,
+    0.030838013,
+    0.05532837,
+    0.015686035,
+    -0.01777649,
+    -0.11895752,
+    0.026016235,
+    0.03378296,
+    0.03289795,
+    0.021011353,
+    0.044006348,
+    0.0008125305,
+    -0.031188965,
+    0.0231781,
+    -0.010009766,
+    -0.0068511963,
+    0.0072669983,
+    0.005493164,
+    -0.028778076,
+    0.033599854,
+    0.0006904602,
+    0.02015686,
+    -0.009124756,
+    -0.02281189,
+    0.023345947,
+    -0.04309082,
+    0.009819031,
+    0.01689148,
+    0.012962341,
+    -0.028152466,
+    -0.025787354,
+    0.0024414062,
+    0.028671265,
+    0.012908936,
+    7.6293945e-05,
+    0.007286072,
+    -0.021347046,
+    -0.0050697327,
+    -0.008071899,
+    0.00957489,
+    -0.018432617,
+    -0.0006942749,
+    0.015731812,
+    -0.0104599,
+    -0.02407837,
+    0.03149414,
+    -0.0057640076,
+    0.04626465,
+    0.019470215,
+    0.011192322,
+    -0.039489746,
+    -0.02078247,
+    -0.013572693,
+    -0.024230957,
+    0.018432617,
+    0.05999756,
+    0.0101623535,
+    -0.015014648,
+    -0.01586914,
+    -0.052764893,
+    -0.003768921,
+    -0.064819336,
+    0.027313232,
+    0.03161621,
+    -0.023620605,
+    -0.04232788,
+    0.02217102,
+    0.049804688,
+    -0.052368164,
+    0.0038967133,
+    -0.029190063,
+    -0.023834229,
+    0.030792236,
+    0.021072388,
+    -0.022384644,
+    0.0019836426,
+    0.007724762,
+    0.039245605,
+    -0.01852417,
+    0.01890564,
+    0.022857666,
+    0.021316528,
+    0.00046730042,
+    -0.021652222,
+    0.017578125,
+    -0.037353516,
+    -0.010887146,
+    0.020858765,
+    -0.042999268,
+    -0.031677246,
+    -0.025299072,
+    0.0019836426,
+    0.03753662,
+    -0.00016021729,
+    0.017959595,
+    -0.018157959,
+    0.0013952255,
+    0.03643799,
+    -0.041625977,
+    0.043151855,
+    -0.030929565,
+    -0.031158447,
+    -0.021026611,
+    -0.063964844,
+    -0.011428833,
+    -0.030914307,
+    0.03640747,
+    -0.018081665,
+    -0.016448975,
+    -0.001291275,
+    0.0017776489,
+    0.000330925,
+    -0.0030555725,
+    -0.022247314,
+    -0.03781128,
+    0.019577026,
+    -0.031707764,
+    -0.0413208,
+    0.007537842,
+    -0.028030396,
+    -0.015548706,
+    -0.014373779,
+    0.037963867,
+    -0.005504608,
+    -0.0023040771,
+    -0.028182983,
+    -0.032836914,
+    0.0082473755,
+    -0.01902771,
+    0.0135650635,
+    -0.020584106,
+    0.030456543,
+    0.0059547424,
+    -0.0066223145,
+    -0.04748535,
+    -0.014823914,
+    0.045654297,
+    -0.015899658,
+    -0.021026611,
+    -0.010574341,
+    0.07446289,
+    -0.020568848,
+    -0.008155823,
+    -0.00541687,
+    0.03540039,
+    -0.024871826,
+    0.028381348,
+    -0.025665283,
+    0.045196533,
+    0.0115737915,
+    -0.02078247,
+    -0.018157959,
+    0.014175415,
+    -0.0042266846,
+    0.040039062,
+    -0.0015964508,
+    -0.05279541,
+    0.05545044,
+    -0.009277344,
+    -0.0076675415,
+    -0.012901306,
+    -0.038757324,
+    0.051330566,
+    -0.005470276,
+    0.034362793,
+    -0.00881958,
+    -0.00089359283,
+    0.020614624,
+    0.0625,
+    0.003156662,
+    0.04284668,
+    0.012954712,
+    0.021453857,
+    0.03189087,
+    -0.0016479492,
+    -0.04043579,
+    0.024795532,
+    -0.024978638,
+    -0.031204224,
+    0.0073776245,
+    -0.037902832,
+    0.004535675,
+    -0.045288086,
+    -0.014945984,
+    -0.0062561035,
+    0.016799927,
+    -0.013473511,
+    0.012489319,
+    -0.004852295,
+    -0.052124023,
+    0.011154175,
+    0.035003662,
+    0.046783447,
+    -0.028961182,
+    0.055114746,
+    -0.004295349,
+    0.02130127,
+    0.026397705,
+    0.0005903244,
+    -0.034820557,
+    0.027648926,
+    -0.0039596558,
+    -0.004951477,
+    -0.0036697388,
+    -0.015281677,
+    0.0129852295,
+    -0.04434204,
+    -0.0071487427,
+    0.025238037,
+    -0.004184723,
+    -0.021743774,
+    0.09448242,
+    -0.025512695,
+    0.051574707,
+    -0.00084495544,
+    0.01965332,
+    -0.001748085,
+    0.018249512,
+    -0.02520752,
+    0.013252258,
+    -0.009773254,
+    -0.009391785,
+    0.0770874,
+    -0.009094238,
+    0.0056381226,
+    0.059783936,
+    -0.020233154,
+    -0.0102005005,
+    0.019424438,
+    0.027038574,
+    0.005455017,
+    0.01550293,
+    0.032989502,
+    -0.019226074,
+    -0.025360107,
+    0.033843994,
+    -0.011741638,
+    -0.0034713745,
+    -0.00705719,
+    0.056732178,
+    -0.0011959076,
+    0.04473877,
+    0.017333984,
+    0.046905518,
+    -0.010848999,
+    0.012557983,
+    0.006919861,
+    -0.010971069,
+    0.028961182,
+    -0.043060303,
+    0.01965332,
+    0.0065307617,
+    -0.03010559,
+    -0.006000519,
+    -0.017623901,
+    0.053131104,
+    0.0259552,
+    0.03326416,
+    -0.021606445,
+    -0.021209717,
+    0.031433105,
+    0.041900635,
+    -0.008621216,
+    -0.0079193115,
+    -0.043304443,
+    -0.01083374,
+    0.025283813,
+    0.01876831,
+    0.021850586,
+    0.031707764,
+    -0.021026611,
+    -0.00541687,
+    -0.033203125,
+    -0.061645508,
+    -0.02154541,
+    -0.0004348755,
+    -0.04876709,
+    0.01776123,
+    0.010360718,
+    0.0051002502,
+    0.01826477,
+    0.055023193,
+    0.011474609,
+    0.004611969,
+    0.0077590942,
+    -0.03778076,
+    0.008255005,
+    -0.015686035,
+    -0.029922485,
+    -0.059509277,
+    0.0036468506,
+    -0.030212402,
+    0.026473999,
+    -0.004055023,
+    -0.015197754,
+    0.00048160553,
+    0.0022735596,
+    -0.019515991,
+    -0.026489258,
+    -0.020812988,
+    0.028411865,
+    -0.024749756,
+    -0.003376007,
+    -0.014770508,
+    0.041381836,
+    -0.01197052,
+    -0.02458191,
+    -0.04711914,
+    -0.0004453659,
+    -0.0053482056,
+    -0.08850098,
+    0.011169434,
+    -0.034179688,
+    -0.017181396,
+    0.05026245,
+    -0.022537231,
+    -0.05722046,
+    0.023208618,
+    0.019851685,
+    -0.0012264252,
+    0.004383087,
+    -0.031204224,
+    0.0008659363,
+    0.021209717,
+    0.026046753,
+    0.0647583,
+    -0.04019165,
+    0.03213501,
+    0.012107849,
+    0.04547119,
+    0.014007568,
+    0.039855957,
+    -0.001876831,
+    -0.025009155,
+    0.049072266,
+    -0.064453125,
+    0.008506775,
+    -0.05218506,
+    0.047790527,
+    0.011024475,
+    0.01890564,
+    -0.004119873,
+    0.019134521,
+    0.014091492,
+    0.028656006,
+    0.015174866,
+    -0.0017261505,
+    -0.004009247,
+    0.009307861,
+    -0.010040283,
+    0.005264282,
+    -0.007320404,
+    -0.024398804,
+    -0.01071167,
+    -0.026565552,
+    -0.012802124,
+    0.0046691895,
+    0.02079773,
+    -0.03967285,
+    0.06222534,
+    -0.011833191,
+    0.02720642,
+    0.013244629,
+    -0.045898438,
+    -0.013442993,
+    -0.036010742,
+    -0.0748291,
+    -0.04067993,
+    0.0049438477,
+    0.0519104,
+    0.013961792,
+    0.022399902,
+    -0.013336182,
+    0.068359375,
+    0.014221191,
+    -0.0043754578,
+    0.007789612,
+    -0.0039253235,
+    0.010681152,
+    0.03387451,
+    0.02885437,
+    0.020980835,
+    0.0020370483,
+    -0.0061416626,
+    0.029449463,
+    0.017837524,
+    0.0259552,
+    0.04031372,
+    -0.020477295,
+    0.009246826,
+    0.0690918,
+    -0.057006836,
+    0.0748291,
+    0.06414795,
+    -0.017501831,
+    -0.021255493,
+    0.0030498505,
+    -0.036102295,
+    0.067871094,
+    -0.03878784,
+    0.06201172,
+    -0.09741211,
+    -0.085754395,
+    0.014213562,
+    0.026443481,
+    -0.028839111,
+    -0.026885986,
+    -0.040283203,
+    -0.011146545,
+    0.019470215,
+    0.0060653687,
+    -0.003107071,
+    -0.032714844,
+    -0.02255249,
+    0.021224976,
+    0.009895325,
+    0.016906738,
+    0.015029907,
+    0.014320374,
+    0.015449524,
+    0.01676941,
+    -0.015625,
+    0.0345459,
+    0.002380371,
+    -0.014640808,
+    0.007896423,
+    0.027694702,
+    -0.040893555,
+    0.02166748,
+    -0.012176514,
+    -0.058044434,
+    -0.062286377,
+    -0.006969452,
+    0.0018806458,
+    -0.023040771,
+    -0.07287598,
+    0.004085541,
+    -0.062347412,
+    0.04232788,
+    0.020355225,
+    0.050628662,
+    -0.020477295,
+    -0.0024490356,
+    0.06286621,
+    0.02809143,
+    0.06274414,
+    -0.05517578,
+    0.0033416748,
+    0.008338928,
+    0.013313293,
+    -0.0072250366,
+    0.0051345825,
+    -0.08532715,
+    0.0116119385,
+    0.05001831,
+    -0.034118652,
+    0.013084412,
+    -0.030975342,
+    -0.03604126,
+    -0.037384033,
+    0.04623413,
+    -0.011459351,
+    -0.025131226,
+    0.011299133,
+    0.0028038025,
+    0.0015296936,
+    -0.05215454,
+    -0.022628784,
+    -0.026351929,
+    -0.009773254,
+    -0.03326416,
+    0.032806396,
+    -0.0029716492,
+    0.00844574,
+    -0.031677246,
+    -0.03161621,
+    -0.023040771,
+    0.011146545,
+    -0.044525146,
+    0.021835327,
+    0.0018386841,
+    -0.023483276,
+    -0.013305664,
+    -0.0022411346,
+    0.009109497,
+    -0.01876831,
+    -0.02255249,
+    -0.015777588,
+    -0.04925537,
+    0.06945801,
+    0.018798828,
+    -0.04928589,
+    0.028167725,
+    0.059509277,
+    0.011810303,
+    -0.00504303,
+    0.029067993,
+    0.0021820068,
+    0.0037574768,
+    0.026168823,
+    0.03491211,
+    -0.029006958,
+    -0.053253174,
+    0.015594482,
+    -0.0023155212,
+    0.0035552979,
+    -0.019073486,
+    0.024398804,
+    0.03778076,
+    0.023498535,
+    -0.0104904175,
+    0.020950317,
+    -0.014678955,
+    -0.0011444092,
+    0.0110321045,
+    0.06488037,
+    0.007583618,
+    -0.028198242,
+    0.012687683,
+    -0.018005371,
+    0.008987427,
+    0.0038375854,
+    -0.015396118,
+    -0.024230957,
+    0.003452301,
+    -0.00037193298,
+    0.023910522,
+    0.045928955,
+    0.035339355,
+    0.04345703,
+    -0.0026721954,
+    0.095825195,
+    -0.020767212,
+    -0.06390381,
+    0.024002075,
+    0.03793335,
+    -0.02557373,
+    0.033294678,
+    -0.013259888,
+    -0.0014152527,
+    0.031433105,
+    0.023956299,
+    -0.050323486,
+    -0.061645508,
+    0.02229309,
+    0.087768555,
+    -0.042816162,
+    0.03781128,
+    -0.058288574,
+    -0.0043792725,
+    0.003227234,
+    -0.010261536,
+    -0.0115356445,
+    -0.004131317,
+    0.020477295,
+    0.012077332,
+    -0.015625,
+    0.029434204,
+    0.013870239,
+    -0.044677734,
+    -0.027557373,
+    0.03062439,
+    -0.021865845,
+    -0.020050049,
+    -0.020111084,
+    -0.018692017,
+    0.008354187,
+    -0.0009365082,
+    -0.025741577,
+    0.0059013367,
+    -0.016784668,
+    0.00919342,
+    -0.015426636,
+    -0.005897522
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ecorp-md/Turquoise Canal Blocked by Landslides.md",
+    "file_name": "Turquoise Canal Blocked by Landslides.md",
+    "file_size": 3120,
+    "creation_date": "2025-09-07",
+    "last_modified_date": "2025-09-07",
+    "pub_date": "2025-09-05",
+    "aws::graph::propositions": [
+      "Turquoise Canal Blockage and Global Supply Chain Disruption",
+      "The Turquoise Canal is a critical global trade artery.",
+      "The Turquoise Canal has been crippled by a series of devastating landslides.",
+      "The landslides occurred on September 5th, 2025.",
+      "Over 5 million tons of rock have blocked the southern basin of the Turquoise Canal.",
+      "The blockage has trapped numerous container vessels in the Turquoise Canal.",
+      "The blockage has halted traffic in the Turquoise Canal.",
+      "The Turquoise Canal blockage is expected to delay goods destined for Europe by several months.",
+      "The Turquoise Canal blockage puts Christmas inventory for many retailers at serious risk.",
+      "The Turquoise Canal blockage puts Christmas deliveries for many retailers at serious risk.",
+      "Industry analysts warn that the fallout from the Turquoise Canal blockage could be catastrophic.",
+      "The Turquoise Canal blockage may cause the most severe global supply chain crisis since the start of the COVID-19 pandemic.",
+      "Sarah Johnson is a logistics expert.",
+      "Sarah Johnson stated: \"This is an unmitigated disaster for global trade.\"",
+      "Sarah Johnson stated: \"The Turquoise Canal is an absolute lifeline for moving goods between Asia and Europe, and with it blocked, the downstream impacts are going to be devastating.\"",
+      "The Turquoise Canal is used for moving goods between Asia and Europe."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Turquoise Canal Blockage and Its Global Impact",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Turquoise Canal",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Sarah Johnson",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Europe",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Asia",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Turquoise Canal is a critical global trade artery.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "USED FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global trade",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "critical",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Turquoise Canal has been crippled by a series of devastating landslides.",
+              "details": [
+                "landslides DESCRIBED AS devastating"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landslides",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crippled",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landslides",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "devastating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The landslides occurred on September 5th, 2025.",
+              "details": [
+                "landslides OCCURRED ON September 5th, 2025"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landslides",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "September 5th, 2025",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Over 5 million tons of rock have blocked the southern basin of the Turquoise Canal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "HAS BLOCKAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5 million tons of rock",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "HAS AFFECTED AREA"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "southern basin",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The blockage has trapped numerous container vessels in the Turquoise Canal.",
+              "details": [
+                "blockage AFFECTS container vessels",
+                "container vessels LOCATED IN Turquoise Canal",
+                "container vessels STATUS trapped"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blockage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "container vessels",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "container vessels",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "container vessels",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trapped",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The blockage has halted traffic in the Turquoise Canal.",
+              "details": [
+                "blockage AFFECTS traffic",
+                "traffic STATUS halted"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blockage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "traffic",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "traffic",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "halted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Turquoise Canal blockage is expected to delay goods destined for Europe by several months.",
+              "details": [
+                "goods DESTINED FOR Europe",
+                "goods DELAY DURATION several months"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "goods",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "goods",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESTINED FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Europe",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "goods",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DELAY DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "several months",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Turquoise Canal blockage puts Christmas inventory for many retailers at serious risk.",
+              "details": [
+                "Christmas inventory BELONGS TO retailers",
+                "Christmas inventory STATUS at serious risk"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Christmas inventory",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Christmas inventory",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "BELONGS TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "retailers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Christmas inventory",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "at serious risk",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Turquoise Canal blockage puts Christmas deliveries for many retailers at serious risk.",
+              "details": [
+                "Christmas deliveries BELONGS TO retailers",
+                "Christmas deliveries STATUS at serious risk"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Christmas deliveries",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Christmas deliveries",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "BELONGS TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "retailers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Christmas deliveries",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "at serious risk",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Industry analysts warn that the fallout from the Turquoise Canal blockage could be catastrophic.",
+              "details": [
+                "industry analysts WARN ABOUT Turquoise Canal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "industry analysts",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WARN ABOUT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "POTENTIAL IMPACT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "catastrophic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Turquoise Canal blockage may cause the most severe global supply chain crisis since the start of the COVID-19 pandemic.",
+              "details": [
+                "global supply chain crisis SEVERITY most severe since COVID-19 pandemic"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global supply chain",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global supply chain crisis",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "most severe since COVID-19 pandemic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Sarah Johnson is a logistics expert.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Sarah Johnson",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "logistics expert",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Sarah Johnson stated \"This is an unmitigated disaster for global trade.\"",
+              "details": [
+                "global trade DESCRIBED AS unmitigated disaster"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Sarah Johnson",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "COMMENTS ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global trade",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global trade",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unmitigated disaster",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Sarah Johnson stated \"The Turquoise Canal is an absolute lifeline for moving goods between Asia and Europe, and with it blocked, the downstream impacts are going to be devastating.\"",
+              "details": [
+                "downstream impacts DESCRIBED AS devastating"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Asia",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Europe",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "USED FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moving goods",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "absolute lifeline",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blocked",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "downstream impacts",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "devastating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Turquoise Canal is used for moving goods between Asia and Europe.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Asia",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Europe",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Turquoise Canal",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "USED FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moving goods",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date",
+    "pub_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date",
+    "pub_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::fb871948:4e0e",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ecorp-md/Turquoise Canal Blocked by Landslides.md",
+        "file_name": "Turquoise Canal Blocked by Landslides.md",
+        "file_size": 3120,
+        "creation_date": "2025-09-07",
+        "last_modified_date": "2025-09-07",
+        "pub_date": "2025-09-05"
+      },
+      "hash": "2c779d7312758df4df5c59a6eceda673841f914124d3e5b64ad65f4045205b0a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::fb871948:4e0e:6cde1687",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ecorp-md/Turquoise Canal Blocked by Landslides.md",
+        "file_name": "Turquoise Canal Blocked by Landslides.md",
+        "file_size": 3120,
+        "creation_date": "2025-09-07",
+        "last_modified_date": "2025-09-07",
+        "pub_date": "2025-09-05"
+      },
+      "hash": "1acc76ce5a1cb80bb6e1ea09a1e4419ed36adb3b159b1dd7763004874f459660",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Turquoise Canal Blocked by Landslides, Causing Chaos in Global Supply Chains \n\nSeptember 5th, 2025 - The Turquoise Canal, a critical global trade artery, has been crippled by a series of devastating landslides, causing massive disruptions to international supply chains. Over 5 million tons of rock have now blocked the southern basin of the canal, trapping numerous container vessels and grinding traﬃc to a halt. \n\nThe blockage is expected to delay goods destined for Europe by several months, putting Christmas inventory and deliveries for many retailers at serious risk. Industry analysts warn that the fallout could be catastrophic, with the most severe global supply chain crisis since the start of the COVID-19 pandemic. \n\n\"This is an unmitigated disaster for global trade,\" said logistics expert Sarah Johnson. \"The Turquoise Canal is an absolute lifeline for moving goods between Asia and Europe, and with it blocked, the downstream impacts are going to be devastating.\"",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 981,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2309 @@
+{
+  "id_": "aws::7cb3985f:1168:90452640",
+  "embedding": [
+    -0.026321411,
+    -0.016296387,
+    0.017807007,
+    0.0046958923,
+    -0.058288574,
+    0.010223389,
+    -0.054656982,
+    -0.008934021,
+    -0.009208679,
+    0.019744873,
+    -0.013206482,
+    0.029296875,
+    0.015487671,
+    -0.025375366,
+    0.038482666,
+    -0.0018072128,
+    0.04586792,
+    0.038360596,
+    0.07940674,
+    0.003288269,
+    0.0066223145,
+    0.047973633,
+    0.023757935,
+    0.08959961,
+    0.011123657,
+    0.017547607,
+    -0.018005371,
+    -0.0052452087,
+    -0.012794495,
+    -0.024459839,
+    -0.0061454773,
+    0.035247803,
+    -0.006427765,
+    -0.02243042,
+    0.05279541,
+    -0.04547119,
+    0.01108551,
+    -0.02142334,
+    -0.006099701,
+    0.014190674,
+    0.017456055,
+    -0.00687027,
+    0.07623291,
+    -0.04663086,
+    0.020874023,
+    0.03012085,
+    -0.02015686,
+    -0.044067383,
+    0.027374268,
+    0.0029029846,
+    -0.0043144226,
+    -0.0071792603,
+    -0.010826111,
+    -0.021514893,
+    -0.012641907,
+    -0.016571045,
+    -0.029403687,
+    0.02986145,
+    -0.008407593,
+    -0.014678955,
+    0.008094788,
+    0.049224854,
+    0.007881165,
+    0.05419922,
+    0.004547119,
+    -0.018966675,
+    -0.02357483,
+    0.005924225,
+    -0.024246216,
+    0.01096344,
+    0.054260254,
+    -0.044647217,
+    -0.004550934,
+    0.030944824,
+    -0.029968262,
+    -0.04864502,
+    0.013595581,
+    -0.022232056,
+    0.028518677,
+    0.027740479,
+    -0.013305664,
+    0.022018433,
+    0.05517578,
+    -0.088134766,
+    0.03677368,
+    -0.0440979,
+    -0.020202637,
+    0.007858276,
+    -0.02973938,
+    -0.017089844,
+    -0.0027637482,
+    -0.04949951,
+    -0.05682373,
+    0.032562256,
+    0.00919342,
+    -0.029800415,
+    -0.06555176,
+    -0.056274414,
+    0.0046653748,
+    0.031021118,
+    -0.0003633499,
+    -0.013046265,
+    0.026611328,
+    -0.002626419,
+    0.008766174,
+    -0.017471313,
+    0.004173279,
+    -0.030288696,
+    0.04446411,
+    0.01537323,
+    -0.025344849,
+    0.11871338,
+    0.03186035,
+    0.025115967,
+    -0.034484863,
+    -0.025680542,
+    -0.018585205,
+    0.008399963,
+    -0.021713257,
+    0.020187378,
+    -0.020080566,
+    -0.010261536,
+    -0.027542114,
+    0.011405945,
+    0.03488159,
+    0.015037537,
+    -0.017868042,
+    0.042297363,
+    -0.022750854,
+    -0.02015686,
+    0.0018291473,
+    0.047943115,
+    -0.049591064,
+    -0.020721436,
+    -0.044311523,
+    0.013969421,
+    0.039794922,
+    0.046539307,
+    0.024459839,
+    -0.025009155,
+    0.069885254,
+    -0.009513855,
+    -0.021621704,
+    0.0635376,
+    0.03842163,
+    -0.027114868,
+    0.027740479,
+    0.038726807,
+    0.0041656494,
+    0.028182983,
+    -0.022766113,
+    0.058166504,
+    -0.0011043549,
+    0.015220642,
+    0.03201294,
+    0.0076179504,
+    0.0143966675,
+    -0.012283325,
+    -0.0004208088,
+    0.0052261353,
+    0.013633728,
+    -0.0041542053,
+    -0.003458023,
+    0.022033691,
+    -0.0030403137,
+    -0.00010377169,
+    0.0071640015,
+    0.0012598038,
+    0.005584717,
+    0.0031414032,
+    -0.032562256,
+    -0.0012702942,
+    -0.011756897,
+    -0.027267456,
+    -0.012786865,
+    -0.0027637482,
+    0.011413574,
+    -0.01499176,
+    0.009559631,
+    0.03515625,
+    0.004016876,
+    -0.025894165,
+    0.015945435,
+    -0.020080566,
+    0.003610611,
+    0.0055885315,
+    -0.008361816,
+    -0.0013036728,
+    0.00472641,
+    0.006008148,
+    -0.021850586,
+    0.06060791,
+    -0.01574707,
+    -0.071777344,
+    0.000538826,
+    -0.012756348,
+    0.03213501,
+    -0.0019426346,
+    0.0049095154,
+    0.030899048,
+    0.0009651184,
+    0.01423645,
+    -0.0067710876,
+    0.0074005127,
+    0.054870605,
+    -0.037231445,
+    0.02708435,
+    -0.0023059845,
+    -0.038269043,
+    0.020904541,
+    0.035369873,
+    0.002773285,
+    -0.0015563965,
+    -0.06945801,
+    -0.008239746,
+    -0.0038928986,
+    0.0066070557,
+    0.024215698,
+    0.012207031,
+    -0.009292603,
+    0.020126343,
+    0.0048675537,
+    0.0124435425,
+    0.046325684,
+    0.020126343,
+    0.0340271,
+    -0.02017212,
+    0.00466156,
+    0.079833984,
+    0.001039505,
+    0.06744385,
+    -0.018508911,
+    -0.004627228,
+    0.054870605,
+    -0.006439209,
+    0.0045394897,
+    0.0013055801,
+    0.012641907,
+    0.0058403015,
+    0.006362915,
+    0.021209717,
+    -0.018951416,
+    -0.03062439,
+    0.007820129,
+    0.022964478,
+    -0.0025901794,
+    0.009712219,
+    0.0025978088,
+    0.019683838,
+    0.07171631,
+    0.006034851,
+    0.014587402,
+    0.003824234,
+    0.0025939941,
+    0.0026931763,
+    0.015327454,
+    0.017944336,
+    0.016281128,
+    -0.013008118,
+    0.016326904,
+    0.001083374,
+    0.025390625,
+    -0.012634277,
+    0.014152527,
+    -0.016067505,
+    0.010826111,
+    0.004005432,
+    0.0018997192,
+    -0.022338867,
+    0.0010766983,
+    0.032165527,
+    0.003648758,
+    -0.0121154785,
+    -0.03225708,
+    -0.036865234,
+    -0.042144775,
+    -0.023849487,
+    0.044433594,
+    -0.02293396,
+    -0.054595947,
+    0.0021324158,
+    0.017166138,
+    -0.02079773,
+    -0.018707275,
+    0.015380859,
+    -0.03427124,
+    -0.01852417,
+    -0.019897461,
+    0.030929565,
+    0.017425537,
+    0.046813965,
+    -0.02230835,
+    -0.02178955,
+    0.03427124,
+    -0.016448975,
+    -0.036621094,
+    -0.0042495728,
+    -0.006214142,
+    0.012428284,
+    -0.022140503,
+    0.047943115,
+    0.046966553,
+    -0.041381836,
+    0.045318604,
+    0.028533936,
+    -0.005542755,
+    0.044433594,
+    -0.009864807,
+    0.006980896,
+    0.02331543,
+    -0.022827148,
+    0.04095459,
+    0.031188965,
+    -0.045074463,
+    0.03967285,
+    0.019744873,
+    -0.007217407,
+    0.009735107,
+    -0.041168213,
+    -0.023849487,
+    0.079956055,
+    0.014755249,
+    0.027252197,
+    -0.0071640015,
+    0.016616821,
+    -0.0736084,
+    0.028076172,
+    -0.020980835,
+    -0.022781372,
+    -0.00015544891,
+    -0.03878784,
+    -0.0019378662,
+    -0.03137207,
+    0.08404541,
+    -0.009895325,
+    0.023132324,
+    -0.01007843,
+    0.01739502,
+    -0.025527954,
+    -0.07342529,
+    -0.051483154,
+    0.03488159,
+    0.0054740906,
+    -0.008758545,
+    0.03277588,
+    -0.07446289,
+    0.054992676,
+    -0.0067443848,
+    0.05407715,
+    0.048614502,
+    -0.013343811,
+    -0.000603199,
+    -0.0067710876,
+    0.025680542,
+    0.015289307,
+    -0.05895996,
+    -0.0052719116,
+    0.037902832,
+    -0.03765869,
+    -0.038391113,
+    0.0134887695,
+    -0.0021324158,
+    -0.01637268,
+    -0.019714355,
+    0.0063095093,
+    -0.033599854,
+    -0.021270752,
+    -0.008216858,
+    0.022949219,
+    0.025970459,
+    -0.0032405853,
+    0.015098572,
+    -0.040985107,
+    -0.016143799,
+    -0.0013046265,
+    0.007965088,
+    0.04953003,
+    -0.014732361,
+    -0.0013780594,
+    0.015197754,
+    0.0073623657,
+    -0.0040740967,
+    0.00655365,
+    -0.016418457,
+    -0.01537323,
+    0.05102539,
+    0.028656006,
+    0.0385437,
+    -0.01612854,
+    -0.048980713,
+    -0.01171875,
+    0.077941895,
+    0.030776978,
+    -0.024032593,
+    -0.014549255,
+    -0.023101807,
+    -0.025848389,
+    0.0104904175,
+    -0.030288696,
+    -0.0001502037,
+    0.036132812,
+    -0.012321472,
+    0.013000488,
+    -0.018188477,
+    0.023132324,
+    -0.07574463,
+    0.01675415,
+    0.004863739,
+    0.007774353,
+    0.028533936,
+    0.011695862,
+    0.008872986,
+    -0.003627777,
+    0.0005340576,
+    0.008636475,
+    -0.026351929,
+    -0.036132812,
+    -0.0012588501,
+    0.057678223,
+    -0.019851685,
+    -0.035858154,
+    0.021530151,
+    -0.012802124,
+    0.03289795,
+    -0.017532349,
+    0.015510559,
+    -0.0026798248,
+    0.019943237,
+    -0.0031547546,
+    -0.018554688,
+    -0.009254456,
+    -0.02859497,
+    -0.0059661865,
+    0.0418396,
+    -0.006580353,
+    0.03616333,
+    -0.005580902,
+    -0.06463623,
+    0.04547119,
+    -0.04006958,
+    -0.019134521,
+    0.0010623932,
+    0.05621338,
+    0.060333252,
+    0.021118164,
+    0.014862061,
+    -0.014129639,
+    -0.022155762,
+    -0.000120818615,
+    0.021652222,
+    -0.03640747,
+    0.011222839,
+    -0.052856445,
+    0.010803223,
+    -0.02609253,
+    -0.003414154,
+    0.004245758,
+    0.022415161,
+    0.06311035,
+    0.015563965,
+    0.05178833,
+    0.01889038,
+    -0.0803833,
+    0.04284668,
+    0.010726929,
+    0.023971558,
+    -0.014305115,
+    0.013366699,
+    -0.00969696,
+    -0.006225586,
+    0.035308838,
+    -0.0034599304,
+    -0.032806396,
+    -0.0090408325,
+    -0.043945312,
+    -0.0015182495,
+    0.04156494,
+    -0.01071167,
+    0.060028076,
+    -0.013343811,
+    -0.025909424,
+    0.0036697388,
+    -0.0038795471,
+    0.004119873,
+    -0.0077590942,
+    0.027496338,
+    -0.022140503,
+    0.0035762787,
+    0.007167816,
+    -0.0052948,
+    -0.024734497,
+    -0.021347046,
+    -0.015625,
+    0.03933716,
+    -0.0124435425,
+    0.0030708313,
+    0.011993408,
+    -0.04006958,
+    0.039642334,
+    0.0140686035,
+    -0.034576416,
+    0.017410278,
+    -0.054107666,
+    -0.04345703,
+    -0.039733887,
+    0.018722534,
+    0.014953613,
+    0.00058555603,
+    0.002664566,
+    -0.06628418,
+    0.008575439,
+    -0.028076172,
+    0.031982422,
+    0.0178833,
+    -0.0061035156,
+    -0.025558472,
+    0.048828125,
+    0.037506104,
+    -0.018508911,
+    -0.013366699,
+    0.028900146,
+    0.051513672,
+    -0.0103302,
+    -0.002527237,
+    0.05682373,
+    -0.045166016,
+    0.014465332,
+    -0.0019235611,
+    -0.013702393,
+    0.015808105,
+    -0.017318726,
+    -0.0015363693,
+    -0.03640747,
+    -0.025390625,
+    0.051757812,
+    -0.029541016,
+    -0.008529663,
+    -0.03488159,
+    0.000104665756,
+    0.02973938,
+    0.0063934326,
+    0.011497498,
+    -0.009681702,
+    0.040161133,
+    0.0022716522,
+    -0.016952515,
+    -0.022918701,
+    0.04473877,
+    -0.01953125,
+    0.03540039,
+    -0.011505127,
+    -0.0345459,
+    -0.014785767,
+    -0.041625977,
+    -0.01676941,
+    0.0014781952,
+    -0.0019245148,
+    0.0066375732,
+    -0.0011482239,
+    -0.0027656555,
+    -0.009033203,
+    -0.029251099,
+    0.008117676,
+    0.026824951,
+    -0.039276123,
+    0.046081543,
+    -0.064453125,
+    -0.0715332,
+    0.012542725,
+    -0.016525269,
+    -0.027359009,
+    -0.023391724,
+    0.011894226,
+    0.008857727,
+    -0.012718201,
+    -0.00071430206,
+    0.047027588,
+    0.04953003,
+    -0.017486572,
+    -0.071899414,
+    0.02128601,
+    -0.05105591,
+    -0.0075416565,
+    0.029891968,
+    -0.05895996,
+    0.05987549,
+    0.01852417,
+    0.012458801,
+    -0.03665161,
+    -0.0102005005,
+    0.0014715195,
+    0.019515991,
+    -0.06451416,
+    -0.07348633,
+    0.049957275,
+    0.029144287,
+    0.033843994,
+    0.08062744,
+    0.053222656,
+    0.040100098,
+    0.048950195,
+    -0.029037476,
+    0.010383606,
+    -0.016098022,
+    0.012779236,
+    -0.059173584,
+    -0.0026950836,
+    0.01626587,
+    0.0546875,
+    0.05606079,
+    -0.016281128,
+    -0.049926758,
+    -0.011245728,
+    0.033813477,
+    0.037902832,
+    -0.038238525,
+    0.0031318665,
+    -0.006576538,
+    0.017318726,
+    0.005382538,
+    0.036468506,
+    -0.006931305,
+    0.024810791,
+    0.020553589,
+    0.011383057,
+    -0.015571594,
+    -0.037353516,
+    -0.0345459,
+    -0.015281677,
+    0.02671814,
+    -0.026916504,
+    0.011177063,
+    -0.058258057,
+    -0.06774902,
+    0.008720398,
+    0.050964355,
+    -0.008125305,
+    0.019363403,
+    0.0001796484,
+    -0.05331421,
+    0.019424438,
+    -0.0026397705,
+    0.010154724,
+    -0.013305664,
+    -0.019546509,
+    -0.026885986,
+    -0.010864258,
+    0.009605408,
+    -0.0064430237,
+    0.031555176,
+    0.057617188,
+    0.008132935,
+    -0.07867432,
+    -0.0075569153,
+    0.038146973,
+    -0.018936157,
+    -0.062042236,
+    -0.016616821,
+    0.035125732,
+    -0.015914917,
+    -0.06048584,
+    0.06567383,
+    -0.035339355,
+    0.045043945,
+    -0.020202637,
+    0.00044679642,
+    -0.014556885,
+    0.049560547,
+    -0.03793335,
+    0.0057373047,
+    0.038848877,
+    -0.043518066,
+    -0.0012083054,
+    0.0021343231,
+    0.03189087,
+    -0.007167816,
+    -0.061065674,
+    0.017166138,
+    -0.062316895,
+    0.013969421,
+    -0.0033302307,
+    0.011871338,
+    0.037475586,
+    0.024963379,
+    -0.04208374,
+    0.02557373,
+    -0.033294678,
+    0.0038013458,
+    -0.0127334595,
+    0.04208374,
+    -0.04159546,
+    -0.02734375,
+    0.004360199,
+    -0.0335083,
+    -0.025772095,
+    -0.0181427,
+    0.03213501,
+    0.020889282,
+    -0.057403564,
+    -0.03152466,
+    0.04425049,
+    0.009796143,
+    0.020141602,
+    0.024597168,
+    0.0041503906,
+    0.021713257,
+    0.08129883,
+    -0.049804688,
+    0.03970337,
+    -0.012626648,
+    -0.010810852,
+    0.00667572,
+    -0.018417358,
+    0.0023765564,
+    -0.029647827,
+    -0.04638672,
+    -0.06304932,
+    -0.012886047,
+    -0.021591187,
+    0.053131104,
+    -0.013999939,
+    0.037994385,
+    0.01210022,
+    -0.017303467,
+    0.018463135,
+    0.00029850006,
+    -0.05215454,
+    0.022994995,
+    0.010223389,
+    0.030654907,
+    0.029037476,
+    -0.0002193451,
+    0.023422241,
+    0.0005402565,
+    -0.0069999695,
+    -0.020233154,
+    0.016342163,
+    0.017471313,
+    -0.0066986084,
+    -0.008049011,
+    0.005279541,
+    -0.018951416,
+    0.034332275,
+    0.0013046265,
+    -0.009422302,
+    0.045074463,
+    0.01625061,
+    0.019012451,
+    0.041870117,
+    0.008804321,
+    0.051574707,
+    0.0028362274,
+    0.013023376,
+    0.0027942657,
+    -0.00333786,
+    -0.04257202,
+    0.03945923,
+    0.030181885,
+    0.031433105,
+    -0.039611816,
+    -0.049224854,
+    0.026794434,
+    0.013999939,
+    -4.4107437e-06,
+    0.0340271,
+    0.020126343,
+    -0.016616821,
+    0.027786255,
+    0.019363403,
+    0.016357422,
+    0.0056610107,
+    0.01687622,
+    0.0020313263,
+    0.029632568,
+    -0.048431396,
+    0.016647339,
+    0.018859863,
+    -0.03161621,
+    -0.024978638,
+    0.041534424,
+    0.024765015,
+    0.024963379,
+    -0.089416504,
+    -0.024230957,
+    -0.0059280396,
+    0.022415161,
+    0.09436035,
+    -0.020828247,
+    0.03286743,
+    0.05343628,
+    0.0048332214,
+    -0.0038414001,
+    -0.012321472,
+    -0.016174316,
+    -0.0032520294,
+    0.053833008,
+    0.059936523,
+    -0.027633667,
+    -0.009414673,
+    0.014755249,
+    -0.07836914,
+    -0.025726318,
+    -0.0690918,
+    0.025283813,
+    -0.014839172,
+    0.095947266,
+    -0.03945923,
+    0.015426636,
+    -0.0657959,
+    0.027633667,
+    -0.023452759,
+    -0.046142578,
+    0.011566162,
+    -0.027511597,
+    0.03778076,
+    -0.046813965,
+    0.018356323,
+    -0.04776001,
+    0.07165527,
+    0.084106445,
+    -0.016067505,
+    0.027359009,
+    0.01763916,
+    0.0287323,
+    0.028671265,
+    0.0051994324,
+    -0.018585205,
+    0.018829346,
+    0.0011978149,
+    0.009986877,
+    0.0340271,
+    0.0007662773,
+    0.06298828,
+    0.035369873,
+    0.078125,
+    0.00605011,
+    0.016662598,
+    -0.076416016,
+    0.039794922,
+    0.017852783,
+    0.0040740967,
+    0.016906738,
+    -0.013259888,
+    -0.006011963,
+    0.0079956055,
+    -0.0044136047,
+    0.033172607,
+    -0.0077781677,
+    0.033996582,
+    -0.010177612,
+    0.044281006,
+    -0.08441162,
+    -0.029922485,
+    0.011604309,
+    0.010375977,
+    -0.055664062,
+    -0.021713257,
+    -0.026260376,
+    0.011238098,
+    0.053131104,
+    -0.010185242,
+    -0.0041770935,
+    -0.016098022,
+    0.03338623,
+    0.025909424,
+    0.022644043,
+    0.020111084,
+    0.0037403107,
+    0.009101868,
+    -0.0104904175,
+    0.0211792,
+    0.0022659302,
+    0.0033721924,
+    0.022903442,
+    -0.0025615692,
+    0.03265381,
+    0.02078247,
+    0.03353882,
+    0.0129470825,
+    0.058135986,
+    -0.0020179749,
+    0.029220581,
+    -0.007183075,
+    -0.058502197,
+    0.0008945465,
+    0.047851562,
+    -0.019927979,
+    0.049804688,
+    0.025344849,
+    -0.008255005,
+    -0.014755249,
+    0.0009403229,
+    -0.0010938644,
+    0.029190063,
+    0.022323608,
+    0.03652954,
+    -0.02999878,
+    0.017303467,
+    0.0064926147,
+    -0.019348145,
+    0.001247406,
+    -0.0065574646,
+    -0.013969421,
+    -0.0029239655,
+    -0.005279541,
+    -0.024032593,
+    -0.042175293,
+    -0.011268616,
+    -0.017349243,
+    -0.045288086,
+    0.045440674,
+    0.020462036,
+    -0.02859497,
+    -0.019821167,
+    0.011360168,
+    0.023910522,
+    -0.08270264,
+    -0.026535034,
+    -0.037078857,
+    0.039520264,
+    -0.022857666,
+    -0.008712769,
+    0.018798828,
+    0.0018644333,
+    0.039733887,
+    0.0026416779,
+    0.036010742,
+    -0.02897644,
+    -0.030426025,
+    0.0036258698,
+    0.001534462,
+    0.00415802,
+    0.08325195,
+    -0.03390503,
+    0.05368042,
+    0.004501343,
+    -0.049591064,
+    -0.023086548,
+    0.0023498535,
+    -0.02532959,
+    -0.024169922,
+    -0.023269653,
+    -0.03338623,
+    0.03765869,
+    -0.013259888,
+    0.028961182,
+    0.009712219,
+    -0.018539429,
+    -0.024627686,
+    -0.0055274963,
+    0.0013494492,
+    -0.014526367,
+    -0.037628174,
+    0.022720337,
+    0.01525116,
+    0.045196533,
+    0.004108429,
+    0.061157227,
+    0.023635864,
+    -0.046417236,
+    -0.0036354065,
+    -0.008102417,
+    0.031982422,
+    0.0211792,
+    -0.027191162,
+    0.023971558,
+    -0.01953125,
+    -0.05215454,
+    0.012001038,
+    0.030380249,
+    0.02986145,
+    0.015625,
+    -0.024871826,
+    -8.666515e-05,
+    0.005214691,
+    -0.029418945,
+    -0.0024032593,
+    0.013252258,
+    -0.035064697,
+    -0.013404846,
+    0.013145447,
+    0.038604736,
+    0.019744873,
+    0.020736694,
+    -0.0209198,
+    0.0007419586,
+    -0.02168274,
+    -0.0047035217,
+    -0.024093628,
+    0.029907227,
+    -0.027450562,
+    -0.0141067505,
+    -0.048828125,
+    -0.06689453,
+    0.019744873,
+    0.06512451,
+    -0.04031372,
+    0.06756592,
+    -0.033416748,
+    -0.011604309,
+    0.00674057,
+    0.03845215,
+    -0.0015649796,
+    0.05078125,
+    -0.02116394,
+    0.085510254,
+    0.015686035,
+    0.0317688,
+    -0.011360168,
+    -0.0496521,
+    -0.04916382,
+    0.034851074,
+    -0.019012451,
+    0.001156807,
+    0.008407593,
+    0.0043945312,
+    0.020736694,
+    -0.0020256042,
+    -0.002313614,
+    0.02619934,
+    -0.018875122,
+    0.0007481575,
+    -0.03591919,
+    -0.010795593
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/space_commerce_initiative.md",
+    "file_name": "space_commerce_initiative.md",
+    "file_size": 3025,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-22",
+    "header_path": "/Amazon Pioneers Commercial Space Economy with Orbital Manufacturing Platform/",
+    "aws::graph::propositions": [
+      "# Amazon Space Commerce Initiative",
+      "Project Kuiper Commerce will create entirely new industries.",
+      "Project Kuiper Commerce will provide global internet access that reaches every corner of our planet.",
+      "The Kuiper satellite constellation will be expanded to 7,000 satellites.",
+      "The Kuiper satellite constellation will provide high-speed internet access to underserved regions worldwide.",
+      "The Kuiper satellite constellation will support orbital manufacturing operations.",
+      "Advanced AI systems will coordinate the complex logistics of moving materials between Earth and the orbital platforms.",
+      "Advanced AI systems will coordinate the complex logistics of moving products between Earth and the orbital platforms.",
+      "Reusable spacecraft will be used for transporting materials and products.",
+      "Reusable spacecraft can complete the journey between Earth and orbital platforms in just four hours.",
+      "Space-based manufacturing facilities will initially focus on producing fiber optic cables.",
+      "Space-based manufacturing facilities will initially focus on producing semiconductor wafers.",
+      "Space-based manufacturing facilities will initially focus on producing pharmaceutical compounds.",
+      "Fiber optic cables, semiconductor wafers, and pharmaceutical compounds benefit from zero-gravity conditions.",
+      "Products manufactured in space will be returned to Earth via automated cargo capsules.",
+      "Automated cargo capsules will land at designated Amazon spaceports in Nevada.",
+      "Automated cargo capsules will land at designated Amazon spaceports in Australia.",
+      "Automated cargo capsules will land at designated Amazon spaceports in French Guiana.",
+      "Amazon's space commerce platform includes the first orbital fulfillment center.",
+      "The orbital fulfillment center is capable of storing products.",
+      "The orbital fulfillment center is capable of distributing products to other satellites and space stations."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Amazon Space Commerce Initiative",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Project Kuiper Commerce",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Kuiper satellite constellation",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Advanced AI systems",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Reusable spacecraft",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Space-based manufacturing facilities",
+              "classification": "Infrastructure"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Fiber optic cables",
+              "classification": "Product"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Semiconductor wafers",
+              "classification": "Product"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pharmaceutical compounds",
+              "classification": "Product"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Automated cargo capsules",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon spaceports",
+              "classification": "Infrastructure"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Nevada",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Australia",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "French Guiana",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Orbital fulfillment center",
+              "classification": "Infrastructure"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Project Kuiper Commerce will create entirely new industries.",
+              "details": [
+                "Industries DESCRIBED BY entirely new"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Project Kuiper Commerce",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CREATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Industries",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Industries",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "entirely new",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Project Kuiper Commerce will provide global internet access that reaches every corner of our planet.",
+              "details": [
+                "Global internet access DESCRIBED BY reaches every corner of our planet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Project Kuiper Commerce",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Global internet access",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Global internet access",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reaches every corner of our planet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Kuiper satellite constellation will be expanded to 7,000 satellites.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper satellite constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "HAS SIZE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7,000 satellites",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Kuiper satellite constellation will provide high-speed internet access to underserved regions worldwide.",
+              "details": [
+                "High-speed internet access SERVES underserved regions worldwide"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper satellite constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "High-speed internet access",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "High-speed internet access",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SERVES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "underserved regions worldwide",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Kuiper satellite constellation will support orbital manufacturing operations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kuiper satellite constellation",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "SUPPORTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Orbital manufacturing operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Advanced AI systems will coordinate the complex logistics of moving materials between Earth and the orbital platforms.",
+              "details": [
+                "Complex logistics DESCRIBED BY moving materials between Earth and the orbital platforms"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Advanced AI systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "COORDINATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Complex logistics",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Complex logistics",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moving materials between Earth and the orbital platforms",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Advanced AI systems will coordinate the complex logistics of moving products between Earth and the orbital platforms.",
+              "details": [
+                "Complex logistics DESCRIBED BY moving products between Earth and the orbital platforms"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Advanced AI systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "COORDINATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Complex logistics",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Complex logistics",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moving products between Earth and the orbital platforms",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Reusable spacecraft will be used for transporting materials and products.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Reusable spacecraft",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "TRANSPORTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Materials",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Reusable spacecraft",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "TRANSPORTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Products",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Reusable spacecraft can complete the journey between Earth and orbital platforms in just four hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Reusable spacecraft",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "HAS JOURNEY TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "four hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Space-based manufacturing facilities will initially focus on producing fiber optic cables.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space-based manufacturing facilities",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "PRODUCES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Fiber optic cables",
+                    "classification": "Product"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space-based manufacturing facilities",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "HAS FOCUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Space-based manufacturing facilities will initially focus on producing semiconductor wafers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space-based manufacturing facilities",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "PRODUCES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Semiconductor wafers",
+                    "classification": "Product"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space-based manufacturing facilities",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "HAS FOCUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Space-based manufacturing facilities will initially focus on producing pharmaceutical compounds.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space-based manufacturing facilities",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "PRODUCES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pharmaceutical compounds",
+                    "classification": "Product"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space-based manufacturing facilities",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "HAS FOCUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Fiber optic cables, semiconductor wafers, and pharmaceutical compounds benefit from zero-gravity conditions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Fiber optic cables",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "BENEFITS FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "zero-gravity conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Semiconductor wafers",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "BENEFITS FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "zero-gravity conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pharmaceutical compounds",
+                    "classification": "Product"
+                  },
+                  "predicate": {
+                    "value": "BENEFITS FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "zero-gravity conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Products manufactured in space will be returned to Earth via automated cargo capsules.",
+              "details": [
+                "Products MANUFACTURED IN space",
+                "Products RETURNED TO Earth"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Automated cargo capsules",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "TRANSPORTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Products",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Products",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "space",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Products",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RETURNED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Earth",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Automated cargo capsules will land at designated Amazon spaceports in Nevada.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Automated cargo capsules",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "LANDS AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nevada",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Automated cargo capsules will land at designated Amazon spaceports in Australia.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Automated cargo capsules",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "LANDS AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Australia",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Automated cargo capsules will land at designated Amazon spaceports in French Guiana.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Automated cargo capsules",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "LANDS AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "French Guiana",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon spaceports",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "designated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's space commerce platform includes the first orbital fulfillment center.",
+              "details": [
+                "Space commerce platform INCLUDES Orbital fulfillment center"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space commerce platform",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space commerce platform",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Orbital fulfillment center",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Orbital fulfillment center",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "first",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The orbital fulfillment center is capable of storing products.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Orbital fulfillment center",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "STORES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Products",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The orbital fulfillment center is capable of distributing products to other satellites and space stations.",
+              "details": [
+                "Satellites DESCRIBED BY other",
+                "Space stations DESCRIBED BY other"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Orbital fulfillment center",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "DISTRIBUTES TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Satellites",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Orbital fulfillment center",
+                    "classification": "Infrastructure"
+                  },
+                  "predicate": {
+                    "value": "DISTRIBUTES TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space stations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Satellites",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Space stations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::7cb3985f:1168",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/space_commerce_initiative.md",
+        "file_name": "space_commerce_initiative.md",
+        "file_size": 3025,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22"
+      },
+      "hash": "9bc903db70c25bbfc59c22bb43b7d5b2d56b20c2f0363cd212640c3e163b6408",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::7cb3985f:1168:14cd98e5",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/space_commerce_initiative.md",
+        "file_name": "space_commerce_initiative.md",
+        "file_size": 3025,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Pioneers Commercial Space Economy with Orbital Manufacturing Platform/"
+      },
+      "hash": "3c1f462f32af9f07287e5180d020ec11caa06bcf37135aca9eea5a9b61e0d18c",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::7cb3985f:1168:5c3a2559",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/space_commerce_initiative.md",
+        "file_name": "space_commerce_initiative.md",
+        "file_size": 3025,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Pioneers Commercial Space Economy with Orbital Manufacturing Platform/"
+      },
+      "hash": "4e4f28cb1614ab8c60f803366b23f8bf4705b88d8491607a3fd9ff5a7a81fbd2",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "\"Project Kuiper Commerce will create entirely new industries while providing global internet access that reaches every corner of our planet.\"\n\nThe Kuiper satellite constellation, expanded to 7,000 satellites, will provide high-speed internet access to underserved regions worldwide while supporting the orbital manufacturing operations. Advanced AI systems will coordinate the complex logistics of moving materials and products between Earth and the orbital platforms, using reusable spacecraft that can complete the journey in just four hours.\n\nThe space-based manufacturing facilities will initially focus on producing fiber optic cables, semiconductor wafers, and pharmaceutical compounds that benefit from zero-gravity conditions. These products will be returned to Earth via automated cargo capsules that land at designated Amazon spaceports in Nevada, Australia, and French Guiana.\n\nAmazon's space commerce platform also includes the first orbital fulfillment center, capable of storing and distributing products to other satellites and space stations.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1132,
+  "end_char_idx": 2190,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

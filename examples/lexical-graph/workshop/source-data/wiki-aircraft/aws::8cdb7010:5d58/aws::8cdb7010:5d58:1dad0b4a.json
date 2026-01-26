@@ -1,0 +1,2127 @@
+{
+  "id_": "aws::8cdb7010:5d58:1dad0b4a",
+  "embedding": [
+    -0.027832031,
+    -0.009506226,
+    -0.022567749,
+    0.025512695,
+    -0.030090332,
+    -0.005882263,
+    0.02017212,
+    -0.013259888,
+    -0.07080078,
+    0.014915466,
+    0.0039634705,
+    0.047027588,
+    -0.04925537,
+    -0.026809692,
+    0.041656494,
+    -0.05279541,
+    -0.0077438354,
+    0.007499695,
+    -0.042236328,
+    -0.051330566,
+    0.0035991669,
+    -0.08135986,
+    -0.017318726,
+    0.038757324,
+    0.01725769,
+    0.046051025,
+    -0.031433105,
+    0.006641388,
+    0.0005893707,
+    2.4795532e-05,
+    0.007259369,
+    -0.016235352,
+    -0.010101318,
+    -0.003982544,
+    0.041168213,
+    -0.051330566,
+    -0.014823914,
+    0.029678345,
+    0.026794434,
+    -0.003408432,
+    0.031036377,
+    -0.030792236,
+    0.117614746,
+    -0.05328369,
+    0.041046143,
+    0.06512451,
+    0.001791954,
+    -0.058624268,
+    0.033813477,
+    0.008621216,
+    -0.017532349,
+    0.0017490387,
+    -0.020202637,
+    -0.03488159,
+    0.0011720657,
+    0.025650024,
+    0.008956909,
+    0.037597656,
+    0.026657104,
+    -0.012321472,
+    -0.036987305,
+    0.03060913,
+    0.01675415,
+    -0.028076172,
+    0.0126953125,
+    -0.02053833,
+    -0.020004272,
+    0.007358551,
+    -0.036743164,
+    0.050567627,
+    0.066589355,
+    -0.054229736,
+    0.022079468,
+    -0.050842285,
+    -0.0037670135,
+    0.00472641,
+    0.011810303,
+    -0.0005683899,
+    -0.0065078735,
+    -0.022323608,
+    0.021240234,
+    -0.013671875,
+    -0.045776367,
+    -0.013710022,
+    0.020996094,
+    0.015487671,
+    0.0029144287,
+    -0.014007568,
+    -0.019683838,
+    -0.025131226,
+    -0.01134491,
+    -0.060577393,
+    0.026428223,
+    -0.018981934,
+    -0.050048828,
+    -0.02204895,
+    -0.0027160645,
+    -0.030380249,
+    -0.0048103333,
+    -0.049621582,
+    0.037902832,
+    -0.023513794,
+    -0.052581787,
+    0.03189087,
+    -0.023147583,
+    0.0015945435,
+    0.02746582,
+    -0.0057373047,
+    -0.033447266,
+    0.0118255615,
+    -0.047546387,
+    -0.05819702,
+    0.003944397,
+    -0.024215698,
+    -0.010131836,
+    0.023803711,
+    -0.009765625,
+    0.0060195923,
+    -0.0011663437,
+    -0.00141716,
+    0.0024471283,
+    0.041046143,
+    0.02104187,
+    -0.019226074,
+    0.007160187,
+    0.012184143,
+    -0.0074043274,
+    -0.052246094,
+    0.014823914,
+    -0.002948761,
+    0.002878189,
+    0.016906738,
+    -0.044036865,
+    -0.024993896,
+    -0.041900635,
+    0.012802124,
+    -0.02633667,
+    -0.020584106,
+    -0.00415802,
+    0.006362915,
+    0.010681152,
+    -0.05307007,
+    0.014144897,
+    0.034973145,
+    0.0076141357,
+    0.044555664,
+    0.0062026978,
+    -0.030548096,
+    0.001666069,
+    -0.012069702,
+    -0.033294678,
+    -0.041809082,
+    0.017868042,
+    0.022003174,
+    0.014564514,
+    0.019195557,
+    0.006515503,
+    -0.010864258,
+    -0.024215698,
+    0.0051879883,
+    0.015068054,
+    -0.03778076,
+    -0.034820557,
+    -0.040863037,
+    -0.07574463,
+    0.018539429,
+    -0.032348633,
+    -0.004146576,
+    0.017837524,
+    -0.0047836304,
+    -0.016052246,
+    -0.04248047,
+    -0.040039062,
+    -0.013000488,
+    -0.0012550354,
+    0.032043457,
+    -0.035736084,
+    0.040740967,
+    0.0335083,
+    -0.038604736,
+    -0.038085938,
+    -0.057159424,
+    0.07196045,
+    -0.022979736,
+    0.0138549805,
+    -0.024902344,
+    0.01725769,
+    0.005252838,
+    -0.0051956177,
+    0.018692017,
+    -0.0002040863,
+    -0.007835388,
+    0.025939941,
+    0.0048599243,
+    -0.0068893433,
+    0.0018157959,
+    -0.021392822,
+    0.0362854,
+    -0.029785156,
+    -0.04473877,
+    -0.04397583,
+    0.042510986,
+    -0.013168335,
+    0.025604248,
+    0.012672424,
+    0.0021152496,
+    0.018981934,
+    0.018371582,
+    0.013168335,
+    0.043670654,
+    0.0074043274,
+    0.014907837,
+    0.0026855469,
+    -0.054718018,
+    -0.020568848,
+    -0.012626648,
+    -0.008743286,
+    0.019119263,
+    -0.011116028,
+    0.012893677,
+    -0.010040283,
+    -0.028808594,
+    -0.012512207,
+    0.020767212,
+    -0.0036640167,
+    0.01247406,
+    -0.032440186,
+    0.014053345,
+    0.0047836304,
+    0.02394104,
+    0.025878906,
+    -0.011833191,
+    0.07385254,
+    0.09887695,
+    -0.034484863,
+    -0.020950317,
+    -0.034057617,
+    -0.012641907,
+    0.0046844482,
+    0.030731201,
+    0.011390686,
+    -0.043304443,
+    -0.05517578,
+    -0.026138306,
+    -0.046295166,
+    -0.010528564,
+    0.022766113,
+    -0.030303955,
+    0.0054779053,
+    0.04232788,
+    0.025512695,
+    0.03414917,
+    0.004207611,
+    0.044433594,
+    0.0026245117,
+    0.01637268,
+    0.033721924,
+    0.016342163,
+    -0.019378662,
+    0.03591919,
+    0.0066490173,
+    0.016708374,
+    -0.030044556,
+    0.0044403076,
+    0.107299805,
+    -0.043121338,
+    0.059692383,
+    0.025726318,
+    -0.019470215,
+    -0.02142334,
+    0.007144928,
+    0.016525269,
+    0.02432251,
+    0.007297516,
+    -0.07940674,
+    0.04269409,
+    -0.009567261,
+    0.003955841,
+    0.039245605,
+    -0.004261017,
+    0.0037460327,
+    0.0066566467,
+    0.007297516,
+    -0.008705139,
+    0.04260254,
+    0.0030212402,
+    -0.008453369,
+    -0.009376526,
+    -0.017745972,
+    -0.015716553,
+    0.014755249,
+    0.0036449432,
+    -0.022491455,
+    -0.006538391,
+    0.04232788,
+    -0.036834717,
+    0.006790161,
+    0.027160645,
+    -0.009918213,
+    -0.0060653687,
+    0.004245758,
+    0.04534912,
+    -0.013412476,
+    0.00680542,
+    0.025314331,
+    -0.026107788,
+    0.007888794,
+    0.016082764,
+    0.025222778,
+    -0.028793335,
+    0.024429321,
+    0.095947266,
+    0.013214111,
+    0.07696533,
+    -0.009857178,
+    -0.027267456,
+    0.04071045,
+    0.04663086,
+    0.05557251,
+    0.048614502,
+    -0.025131226,
+    -0.07702637,
+    -0.014541626,
+    -0.009849548,
+    -0.035583496,
+    0.020355225,
+    0.016616821,
+    0.004470825,
+    -0.012680054,
+    0.023803711,
+    0.009384155,
+    0.018692017,
+    -0.015281677,
+    0.006126404,
+    0.004966736,
+    0.013336182,
+    0.009521484,
+    -0.006088257,
+    -0.018371582,
+    -0.0070533752,
+    -7.212162e-05,
+    0.019500732,
+    0.021591187,
+    -0.026885986,
+    -0.028366089,
+    -0.07513428,
+    0.024597168,
+    -0.01473999,
+    0.027862549,
+    -0.00982666,
+    0.03881836,
+    -0.01159668,
+    0.018432617,
+    0.006919861,
+    0.02532959,
+    -0.047851562,
+    -0.024459839,
+    0.026519775,
+    -0.02394104,
+    -0.045562744,
+    -0.019180298,
+    0.0099105835,
+    -0.023803711,
+    -0.026916504,
+    0.0067863464,
+    -0.015945435,
+    -0.038238525,
+    0.028457642,
+    0.07324219,
+    0.037841797,
+    -0.013244629,
+    0.0541687,
+    -0.02822876,
+    -0.017578125,
+    0.014945984,
+    -0.05239868,
+    0.025863647,
+    -0.029922485,
+    0.07086182,
+    0.02319336,
+    0.016433716,
+    0.015220642,
+    -0.0030059814,
+    -0.010925293,
+    0.012214661,
+    6.9618225e-05,
+    -0.0015735626,
+    -0.0121154785,
+    0.072753906,
+    0.014801025,
+    0.028701782,
+    -0.007865906,
+    0.0126953125,
+    -0.02911377,
+    -0.010223389,
+    -0.013809204,
+    0.010719299,
+    0.01651001,
+    -0.008743286,
+    -0.005088806,
+    -0.026733398,
+    -0.008369446,
+    0.024627686,
+    -0.04724121,
+    -0.010917664,
+    -0.009918213,
+    -0.047943115,
+    -0.01525116,
+    0.03527832,
+    0.0062942505,
+    -0.0463562,
+    0.027053833,
+    -0.050201416,
+    0.021896362,
+    -0.030014038,
+    -0.00037384033,
+    0.004550934,
+    -0.021148682,
+    0.0680542,
+    0.0021514893,
+    -0.0052261353,
+    -0.06518555,
+    -0.019134521,
+    0.01461792,
+    0.041625977,
+    -0.0010662079,
+    0.0045394897,
+    -0.051239014,
+    0.0060310364,
+    3.8146973e-06,
+    -0.00043296814,
+    -0.013031006,
+    0.007369995,
+    0.00819397,
+    -0.07543945,
+    0.0075798035,
+    0.001657486,
+    0.043029785,
+    0.043701172,
+    -0.041809082,
+    -0.0005540848,
+    -0.034301758,
+    0.002161026,
+    0.015991211,
+    0.023773193,
+    -0.0074157715,
+    -0.05215454,
+    0.0064697266,
+    -0.003835678,
+    0.020462036,
+    -0.017944336,
+    -0.008110046,
+    0.0011987686,
+    0.031219482,
+    -0.018234253,
+    0.09197998,
+    -0.034332275,
+    0.004005432,
+    -0.01940918,
+    0.023864746,
+    -0.0044136047,
+    -0.001083374,
+    -0.0023117065,
+    -0.018661499,
+    -0.030151367,
+    0.016616821,
+    0.043670654,
+    0.03390503,
+    0.035980225,
+    -0.032348633,
+    0.009033203,
+    0.010536194,
+    0.0055389404,
+    0.006252289,
+    -0.03591919,
+    0.0014381409,
+    0.02998352,
+    -0.0119018555,
+    0.03970337,
+    -0.007797241,
+    -0.091308594,
+    0.013809204,
+    -0.024902344,
+    0.0064964294,
+    -0.0054130554,
+    0.007411957,
+    0.06524658,
+    0.061828613,
+    -0.015487671,
+    0.06713867,
+    0.021087646,
+    0.031036377,
+    0.013648987,
+    0.058776855,
+    -0.013137817,
+    0.010696411,
+    -0.0033683777,
+    -0.021911621,
+    -0.0143966675,
+    -0.04324341,
+    -0.03857422,
+    0.012924194,
+    0.014884949,
+    0.015541077,
+    0.036499023,
+    -0.005882263,
+    -0.030639648,
+    0.018539429,
+    0.007408142,
+    0.058624268,
+    -0.027999878,
+    0.02557373,
+    0.05328369,
+    0.0011768341,
+    -0.00061798096,
+    -0.020309448,
+    0.029632568,
+    -0.0031471252,
+    -0.00018334389,
+    -0.005821228,
+    0.0027236938,
+    -0.018005371,
+    0.051971436,
+    0.040405273,
+    -0.06335449,
+    0.0025367737,
+    0.029022217,
+    -0.020553589,
+    -0.022460938,
+    -0.02279663,
+    0.008865356,
+    0.014816284,
+    -0.06506348,
+    -0.021987915,
+    0.056427002,
+    0.01939392,
+    -0.039367676,
+    0.05380249,
+    -0.0051345825,
+    -0.06713867,
+    -0.03201294,
+    0.0054016113,
+    0.01777649,
+    -0.011558533,
+    0.007499695,
+    0.030029297,
+    0.017440796,
+    0.022216797,
+    -0.042053223,
+    -0.027770996,
+    0.0017547607,
+    0.019119263,
+    -0.012680054,
+    -0.056427002,
+    -0.025634766,
+    0.073791504,
+    0.062042236,
+    -0.040893555,
+    -0.03765869,
+    0.037750244,
+    0.026123047,
+    0.00044298172,
+    0.013519287,
+    -0.02243042,
+    0.037384033,
+    0.007888794,
+    -0.0118255615,
+    -0.07067871,
+    -0.0026168823,
+    -0.0021972656,
+    -0.022262573,
+    -0.021133423,
+    0.01902771,
+    -0.00484848,
+    -0.0032081604,
+    -0.030456543,
+    0.008071899,
+    0.05596924,
+    0.008087158,
+    -0.002117157,
+    0.036346436,
+    -0.0345459,
+    -0.03704834,
+    0.032806396,
+    -0.032073975,
+    -0.028305054,
+    0.007850647,
+    0.00016021729,
+    -0.02670288,
+    -0.022476196,
+    0.017486572,
+    -0.010925293,
+    0.028915405,
+    -0.010360718,
+    -0.012535095,
+    -0.03137207,
+    -0.023422241,
+    -0.035247803,
+    0.028213501,
+    -0.01474762,
+    -0.032348633,
+    -0.025390625,
+    -0.008590698,
+    -0.0287323,
+    0.09686279,
+    0.010513306,
+    -0.0066833496,
+    -0.0048713684,
+    0.010681152,
+    0.02406311,
+    -0.008369446,
+    -0.013534546,
+    -0.009635925,
+    0.008712769,
+    -0.0042419434,
+    0.02772522,
+    -0.03466797,
+    0.038848877,
+    0.0014600754,
+    -0.018798828,
+    0.027770996,
+    -0.0023880005,
+    0.01991272,
+    0.04071045,
+    0.027832031,
+    0.024368286,
+    -0.048431396,
+    -0.031173706,
+    -0.022384644,
+    -0.001420021,
+    -0.030212402,
+    -0.01423645,
+    -0.032928467,
+    -0.050872803,
+    -0.01965332,
+    0.048431396,
+    -0.027267456,
+    -0.03765869,
+    -0.02330017,
+    -0.0031604767,
+    -0.016464233,
+    -0.0070610046,
+    -0.0647583,
+    0.037506104,
+    0.02859497,
+    -0.020065308,
+    -0.0037002563,
+    -0.0057411194,
+    -0.010612488,
+    -0.0017528534,
+    0.021713257,
+    0.0053253174,
+    -0.06347656,
+    -0.016723633,
+    0.044891357,
+    -0.03479004,
+    -0.01928711,
+    0.033966064,
+    -0.015731812,
+    -0.030395508,
+    -0.06750488,
+    -0.023040771,
+    0.030731201,
+    -0.05999756,
+    -0.01133728,
+    0.0033874512,
+    0.027374268,
+    0.031402588,
+    -0.0076904297,
+    -0.011436462,
+    -0.004398346,
+    0.014831543,
+    0.042510986,
+    -0.053344727,
+    -0.0032520294,
+    0.0013160706,
+    0.0104599,
+    -0.0019683838,
+    0.040161133,
+    -0.05923462,
+    -0.010154724,
+    -0.042663574,
+    -0.019134521,
+    0.025558472,
+    -0.009895325,
+    0.026031494,
+    0.004371643,
+    0.0069732666,
+    -0.011047363,
+    0.030227661,
+    -0.09454346,
+    -0.046173096,
+    -0.0018310547,
+    -0.026168823,
+    0.0052871704,
+    -0.0041503906,
+    -0.043060303,
+    0.043670654,
+    -0.029556274,
+    -0.0034103394,
+    -0.028823853,
+    0.03137207,
+    0.031555176,
+    0.020721436,
+    -0.011856079,
+    -0.0028419495,
+    0.016098022,
+    0.041625977,
+    -0.0016345978,
+    -0.026611328,
+    0.019104004,
+    0.05166626,
+    -0.038208008,
+    -0.01739502,
+    0.050048828,
+    -0.03189087,
+    -0.007511139,
+    0.046722412,
+    0.023880005,
+    -0.04486084,
+    -0.012580872,
+    0.019210815,
+    0.028427124,
+    -0.025848389,
+    0.021453857,
+    -0.0033988953,
+    -0.017471313,
+    -0.0006093979,
+    -0.014160156,
+    -0.029968262,
+    -0.0066070557,
+    0.041992188,
+    -0.048858643,
+    -0.002462387,
+    0.032287598,
+    -0.0033454895,
+    0.050689697,
+    -0.033569336,
+    -0.031555176,
+    0.042816162,
+    0.03829956,
+    -0.0016784668,
+    0.026412964,
+    -0.014060974,
+    0.020523071,
+    -0.013343811,
+    0.009048462,
+    0.021133423,
+    -0.0007095337,
+    0.001083374,
+    0.018127441,
+    -0.033569336,
+    -0.0034542084,
+    0.049713135,
+    0.042419434,
+    0.025543213,
+    -0.04498291,
+    -0.013343811,
+    0.019088745,
+    0.016937256,
+    -0.0034980774,
+    0.021453857,
+    -0.015151978,
+    -0.0152282715,
+    -0.05178833,
+    -0.020996094,
+    -0.049804688,
+    -0.04031372,
+    0.011779785,
+    -0.021530151,
+    -0.018920898,
+    -0.013618469,
+    -0.0043144226,
+    -0.018676758,
+    0.06048584,
+    0.020874023,
+    -0.005748749,
+    0.019851685,
+    -0.009407043,
+    0.013145447,
+    0.009437561,
+    -0.0028362274,
+    -0.026275635,
+    -0.003829956,
+    0.026062012,
+    0.025527954,
+    0.017547607,
+    -0.035583496,
+    0.043792725,
+    -0.008743286,
+    -0.039245605,
+    0.009735107,
+    0.06652832,
+    -0.07165527,
+    -0.027038574,
+    -0.0018377304,
+    0.046081543,
+    0.0059661865,
+    -0.054260254,
+    0.0138549805,
+    0.021453857,
+    -0.031188965,
+    -0.014831543,
+    -0.013900757,
+    -0.025756836,
+    -0.01940918,
+    0.024765015,
+    -0.0017414093,
+    -0.023895264,
+    -0.029693604,
+    0.008270264,
+    -0.06439209,
+    0.07891846,
+    0.008995056,
+    0.10748291,
+    -0.0015258789,
+    -0.107299805,
+    -0.013832092,
+    -0.029190063,
+    -0.08508301,
+    0.068603516,
+    0.062408447,
+    -0.03656006,
+    0.005012512,
+    0.0037975311,
+    0.01411438,
+    -0.034332275,
+    0.010528564,
+    -0.0032615662,
+    -0.02722168,
+    0.043640137,
+    -0.0033016205,
+    -0.029205322,
+    -0.023040771,
+    -0.027618408,
+    0.033843994,
+    0.028564453,
+    -0.029327393,
+    0.018707275,
+    0.035308838,
+    0.05230713,
+    -0.023712158,
+    0.03488159,
+    0.040802002,
+    -0.020370483,
+    -0.0031604767,
+    0.007095337,
+    -0.020996094,
+    0.030548096,
+    -0.0010757446,
+    0.02456665,
+    -0.025756836,
+    -0.056762695,
+    0.004348755,
+    0.026992798,
+    0.025512695,
+    -0.014030457,
+    -0.027053833,
+    0.012130737,
+    -0.016143799,
+    -0.024841309,
+    0.051727295,
+    -0.017532349,
+    -0.03933716,
+    0.013061523,
+    0.007621765,
+    0.0071868896,
+    -0.013145447,
+    0.030853271,
+    -0.027572632,
+    0.015083313,
+    -0.013870239,
+    0.029937744,
+    -0.013442993,
+    -0.024383545,
+    0.010528564,
+    0.0045700073,
+    -0.01399231,
+    -0.00566864,
+    -0.010688782,
+    -0.036956787,
+    -0.0004043579,
+    0.02217102,
+    0.0047302246,
+    0.0015106201,
+    -0.04360962,
+    -0.008285522,
+    -0.03805542,
+    0.04425049,
+    0.002620697,
+    -0.02178955,
+    -0.002532959,
+    -0.00050735474,
+    -0.0036888123,
+    0.022094727,
+    0.0033912659,
+    0.006877899,
+    -0.018417358,
+    -0.0076828003,
+    -0.027435303,
+    0.013587952,
+    -0.0020751953,
+    0.01524353,
+    -0.009895325,
+    0.07525635,
+    -0.008766174,
+    0.019836426,
+    -0.06500244,
+    0.014724731,
+    -0.001499176,
+    -0.002544403,
+    0.036956787,
+    0.012954712,
+    0.042236328,
+    -0.009994507,
+    -0.0036010742,
+    0.0029067993,
+    0.01890564,
+    0.038360596,
+    -0.036956787,
+    -0.029953003,
+    -0.056640625,
+    0.0385437,
+    0.030731201,
+    0.055725098,
+    -0.019042969,
+    0.09423828,
+    -0.04711914,
+    0.07434082,
+    -0.016204834,
+    0.031585693,
+    0.006286621,
+    -0.006313324,
+    0.0107421875,
+    0.054779053,
+    -0.024520874,
+    0.005645752,
+    0.0060577393,
+    -0.0015668869,
+    -0.012527466,
+    0.013160706,
+    -0.046295166,
+    -0.0012359619,
+    0.0050354004,
+    -0.015213013,
+    0.018203735,
+    0.014823914,
+    -0.026123047,
+    -0.040802002,
+    -0.025787354,
+    -0.031280518,
+    -0.0340271,
+    -0.04763794,
+    0.012710571,
+    0.030303955,
+    0.033233643,
+    0.015525818,
+    0.036834717,
+    0.064086914,
+    0.00819397,
+    0.0012073517,
+    -0.021362305,
+    -0.008651733,
+    -0.0084991455,
+    -0.012374878,
+    0.027496338,
+    -0.009346008,
+    -0.0048332214,
+    0.10107422,
+    -0.0077056885,
+    -0.002948761,
+    0.055908203,
+    -0.027572632,
+    0.045776367,
+    0.02003479,
+    0.032684326,
+    0.020874023,
+    -0.02494812,
+    -0.041229248,
+    -0.0128479,
+    -0.021850586,
+    -0.033081055,
+    -0.013175964,
+    0.022872925,
+    0.053588867,
+    -0.028442383,
+    0.0047035217,
+    0.043151855,
+    -0.020828247,
+    -0.020553589,
+    0.02015686,
+    0.03869629,
+    0.033172607,
+    -0.009277344,
+    0.005794525,
+    0.0045318604,
+    0.037475586,
+    0.011680603,
+    0.030975342,
+    -0.043701172,
+    -0.055786133,
+    0.039520264,
+    0.057739258,
+    0.06915283,
+    -0.040405273,
+    -0.0044021606,
+    0.049224854,
+    -0.0020217896,
+    0.010734558,
+    -0.08258057,
+    -0.029083252,
+    0.03704834,
+    0.014968872,
+    -0.023040771,
+    0.041656494,
+    -0.01927185,
+    0.028747559,
+    0.022644043,
+    0.026245117,
+    0.050476074,
+    -0.054107666,
+    -0.034240723,
+    -0.0061149597,
+    -0.045318604
+  ],
+  "metadata": {
+    "title": "Piper J-3 Cub",
+    "original_title": "Piper J-3 Cub",
+    "wikipedia_id": "847652",
+    "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub",
+    "header_path": "/Operational history/",
+    "aws::graph::propositions": [
+      "Piper J-3 Cub Military Variant L-4 in World War II",
+      "The L-4 was primarily employed in World War II for artillery spotting.",
+      "The L-4 was primarily employed in World War II for training liaison pilots.",
+      "Short-range reconnaissance missions were not uncommon for the L-4 in World War II.",
+      "Medical evacuation missions were not uncommon for the L-4 in World War II.",
+      "Courier missions were not uncommon for the L-4 in World War II.",
+      "Supply missions were not uncommon for the L-4 in World War II.",
+      "The L-4 had a slow cruising speed.",
+      "The L-4 had low-level maneuverability.",
+      "The L-4's slow cruising speed made it an ideal observation platform during the Allied invasion of France in June 1944.",
+      "The L-4's low-level maneuverability made it an ideal observation platform during the Allied invasion of France in June 1944.",
+      "L-4 aircraft were used for spotting hidden German guns in the hedgerow bocage country south of the invasion beaches.",
+      "L-4 aircraft were used for spotting hidden German armored vehicles waiting in ambush in the hedgerow bocage country south of the invasion beaches.",
+      "The L-4 pilot generally carried an observer during operations.",
+      "The L-4 pilot generally carried a 25-pound (11 kg) communications radio during operations.",
+      "The load of an observer and communications radio sometimes exceeded the L-4's specified gross weight.",
+      "After the Allied breakout in France, L-4s were occasionally equipped with improvised racks of infantry bazookas.",
+      "The improvised bazooka racks on L-4s were usually installed in pairs or quartets.",
+      "The bazooka-equipped L-4s were used for attacking enemy vehicles.",
+      "An L-4 named \"Rosie the Rocketer\" was the most famous of these ground attack planes.",
+      "\"Rosie the Rocketer\" was piloted by Major."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Piper J-3 Cub Military Variant L-4 in World War II",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "L-4",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "World War II",
+              "classification": "Incident"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Allied invasion of France",
+              "classification": "Incident"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "German guns",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "German armored vehicles",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "\"Rosie the Rocketer\"",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Major",
+              "classification": "Person"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4 was primarily employed in World War II for artillery spotting.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "World War II",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRIMARY PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artillery spotting",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4 was primarily employed in World War II for training liaison pilots.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "World War II",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "PRIMARY PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "training liaison pilots",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Short-range reconnaissance missions were not uncommon for the L-4 in World War II.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "World War II",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MISSION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "short-range reconnaissance missions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Medical evacuation missions were not uncommon for the L-4 in World War II.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "World War II",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MISSION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "medical evacuation missions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Courier missions were not uncommon for the L-4 in World War II.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "World War II",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MISSION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "courier missions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Supply missions were not uncommon for the L-4 in World War II.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "World War II",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MISSION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "supply missions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4 had a slow cruising speed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "slow cruising speed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4 had low-level maneuverability.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low-level maneuverability",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4's slow cruising speed made it an ideal observation platform during the Allied invasion of France in June 1944.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Allied invasion of France",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ideal observation platform",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Allied invasion of France",
+                    "classification": "Incident"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "June 1944",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4's low-level maneuverability made it an ideal observation platform during the Allied invasion of France in June 1944.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Allied invasion of France",
+                    "classification": "Incident"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ideal observation platform",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Allied invasion of France",
+                    "classification": "Incident"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "June 1944",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "L-4 aircraft were used for spotting hidden German guns in the hedgerow bocage country south of the invasion beaches.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED AGAINST"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "German guns",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MISSION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spotting hidden targets",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "German guns",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hedgerow bocage country south of the invasion beaches",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "L-4 aircraft were used for spotting hidden German armored vehicles waiting in ambush in the hedgerow bocage country south of the invasion beaches.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "USED AGAINST"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "German armored vehicles",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MISSION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spotting hidden targets",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "German armored vehicles",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hedgerow bocage country south of the invasion beaches",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "German armored vehicles",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "waiting in ambush",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4 pilot generally carried an observer during operations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CARRIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "observer during operations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The L-4 pilot generally carried a 25-pound (11 kg) communications radio during operations.",
+              "details": [
+                "communications radio WEIGHT 25-pound (11 kg)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CARRIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "communications radio during operations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "communications radio",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "25-pound (11 kg)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The load of an observer and communications radio sometimes exceeded the L-4's specified gross weight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "LOAD ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "observer and communications radio sometimes exceeded specified gross weight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After the Allied breakout in France, L-4s were occasionally equipped with improvised racks of infantry bazookas.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improvised racks of infantry bazookas",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPMENT TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after the Allied breakout in France",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The improvised bazooka racks on L-4s were usually installed in pairs or quartets.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPMENT CONFIGURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bazooka racks usually installed in pairs or quartets",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The bazooka-equipped L-4s were used for attacking enemy vehicles.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MISSION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attacking enemy vehicles",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "EQUIPMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bazookas",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An L-4 named \"Rosie the Rocketer\" was the most famous of these ground attack planes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "\"Rosie the Rocketer\"",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "L-4",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "\"Rosie the Rocketer\"",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "most famous ground attack plane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Rosie the Rocketer\" was piloted by Major.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Major",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PILOTED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "\"Rosie the Rocketer\"",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::8cdb7010:5d58",
+      "node_type": "4",
+      "metadata": {
+        "title": "Piper J-3 Cub",
+        "original_title": "Piper J-3 Cub",
+        "wikipedia_id": "847652",
+        "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub"
+      },
+      "hash": "dd50d2f99aff590671575078897bb626af47c93d265cc5c5ca4cd5df8ad42f85",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::8cdb7010:5d58:4295d56a",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper J-3 Cub",
+        "original_title": "Piper J-3 Cub",
+        "wikipedia_id": "847652",
+        "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub",
+        "header_path": "/Operational history/"
+      },
+      "hash": "6dd92c0cc18275353db78fbcf92ba0613b922eb901c47be7dd26ff27e1511cb8",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::8cdb7010:5d58:165bbeaa",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper J-3 Cub",
+        "original_title": "Piper J-3 Cub",
+        "wikipedia_id": "847652",
+        "url": "https://en.wikipedia.org/wiki/Piper_J-3_Cub",
+        "header_path": "/Operational history/"
+      },
+      "hash": "1f04f5d88fc379bf3a576271f22ced7a124d66bc2caff8f4abdf5e6d52f8f85d",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The L-4 was primarily employed in World War II for artillery spotting and training liaison pilots, but short-range reconnaissance, medical evacuation, and courier or supply missions were not uncommon. During the Allied invasion of France in June 1944, the L-4's slow cruising speed and low-level maneuverability made it an ideal observation platform for spotting hidden German guns and armored vehicles waiting in ambush in the hedgerow bocage country south of the invasion beaches. For these and other operations, the pilot generally carried both an observer and 25-pound (11 kg) communications radio, a load that sometimes exceeded the plane's specified gross weight. After the Allied breakout in France, L-4s were occasionally equipped with improvised racks (usually in pairs or quartets) of infantry bazookas for attacking enemy vehicles. The most famous of these unlikely ground attack planes was an L-4 named Rosie the Rocketer, piloted by Maj.",
+  "mimetype": "text/plain",
+  "start_char_idx": 2223,
+  "end_char_idx": 3173,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

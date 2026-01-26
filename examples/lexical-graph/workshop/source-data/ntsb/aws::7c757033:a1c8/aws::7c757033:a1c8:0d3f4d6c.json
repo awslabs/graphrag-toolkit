@@ -1,0 +1,2348 @@
+{
+  "id_": "aws::7c757033:a1c8:0d3f4d6c",
+  "embedding": [
+    0.012718201,
+    0.005558014,
+    -0.006389618,
+    -0.02609253,
+    0.016998291,
+    -0.0154800415,
+    0.014205933,
+    0.009979248,
+    -0.05328369,
+    0.02998352,
+    -0.018920898,
+    0.01890564,
+    0.017440796,
+    -0.024597168,
+    0.030563354,
+    -0.04119873,
+    -0.0010137558,
+    0.070007324,
+    0.023544312,
+    -0.016952515,
+    -0.018127441,
+    -0.0013256073,
+    -0.035827637,
+    -0.0018291473,
+    -0.0077590942,
+    0.02243042,
+    -0.010482788,
+    0.014274597,
+    -0.05569458,
+    -0.04977417,
+    -0.00699234,
+    0.057800293,
+    0.035095215,
+    0.011230469,
+    -0.013641357,
+    0.0184021,
+    -0.019226074,
+    0.007843018,
+    -0.020233154,
+    0.03540039,
+    0.0069732666,
+    -0.00299263,
+    0.09454346,
+    -0.055389404,
+    0.008804321,
+    0.022888184,
+    0.012802124,
+    -0.023498535,
+    0.022476196,
+    0.051513672,
+    -0.007545471,
+    0.0013284683,
+    -0.0059890747,
+    0.020050049,
+    0.0030918121,
+    -0.017959595,
+    -0.028320312,
+    0.0048217773,
+    0.019439697,
+    -0.00983429,
+    -0.0041618347,
+    -0.0058555603,
+    0.04473877,
+    0.040527344,
+    -0.06048584,
+    0.006351471,
+    -0.021530151,
+    0.023651123,
+    0.0647583,
+    -0.068481445,
+    -0.08325195,
+    0.048828125,
+    0.0076293945,
+    0.030136108,
+    -0.008094788,
+    -0.070617676,
+    -0.005142212,
+    -0.02835083,
+    0.008735657,
+    0.040039062,
+    0.022109985,
+    0.017456055,
+    0.0049819946,
+    -0.0011577606,
+    -0.0032482147,
+    0.023529053,
+    -0.022476196,
+    -0.037261963,
+    -0.0440979,
+    -0.01020813,
+    -0.019332886,
+    -0.017059326,
+    -0.025131226,
+    -0.003982544,
+    -0.023071289,
+    0.0020275116,
+    -0.0030784607,
+    -0.091552734,
+    0.038238525,
+    -0.028579712,
+    0.021713257,
+    -0.04788208,
+    -0.028015137,
+    0.05142212,
+    0.0033016205,
+    0.013832092,
+    0.0035133362,
+    -0.053955078,
+    0.028060913,
+    -0.0063972473,
+    -0.02508545,
+    0.05279541,
+    -0.02355957,
+    -0.04714966,
+    -0.0022182465,
+    0.040039062,
+    -0.014915466,
+    0.007369995,
+    0.032409668,
+    0.019821167,
+    -0.0068359375,
+    0.018112183,
+    -0.043945312,
+    -0.049743652,
+    -0.003780365,
+    -0.064941406,
+    -0.03488159,
+    0.038970947,
+    0.05065918,
+    0.039001465,
+    -0.017623901,
+    0.021408081,
+    -0.020950317,
+    -0.06185913,
+    -0.036956787,
+    -0.016204834,
+    -0.009216309,
+    0.02355957,
+    0.011390686,
+    -0.014419556,
+    -0.010749817,
+    0.01966858,
+    0.06201172,
+    -0.012527466,
+    -0.018859863,
+    0.03579712,
+    0.03086853,
+    -0.008491516,
+    -0.03237915,
+    -0.03817749,
+    -0.02243042,
+    -0.017181396,
+    0.060668945,
+    -0.013252258,
+    -0.04748535,
+    -0.0287323,
+    0.017486572,
+    -0.034240723,
+    -0.030075073,
+    -0.057525635,
+    0.014968872,
+    -0.013504028,
+    -0.0064468384,
+    -0.025024414,
+    -0.06518555,
+    0.025497437,
+    -0.020614624,
+    -0.018753052,
+    0.015487671,
+    -0.0051116943,
+    0.025344849,
+    -0.005393982,
+    -0.031677246,
+    -0.016464233,
+    -0.008239746,
+    -0.0040359497,
+    0.016601562,
+    0.017745972,
+    0.012016296,
+    0.03955078,
+    0.0013313293,
+    -0.023788452,
+    0.047851562,
+    -0.02142334,
+    -0.020523071,
+    -0.003944397,
+    0.012382507,
+    -0.009735107,
+    0.02218628,
+    -0.012580872,
+    0.032287598,
+    0.026824951,
+    -9.101629e-05,
+    -0.029052734,
+    -0.010574341,
+    -0.02961731,
+    -0.003129959,
+    -0.002380371,
+    -0.017227173,
+    0.033233643,
+    -0.03982544,
+    0.040222168,
+    -0.010139465,
+    0.0184021,
+    -0.04928589,
+    0.024841309,
+    -0.016433716,
+    0.041931152,
+    -0.0016422272,
+    -0.0025997162,
+    0.0011730194,
+    -0.035827637,
+    0.020614624,
+    -0.015357971,
+    -0.034942627,
+    -0.028121948,
+    -0.006904602,
+    0.004737854,
+    0.034118652,
+    -0.008560181,
+    0.010475159,
+    0.018356323,
+    0.006225586,
+    -0.014213562,
+    -0.052856445,
+    -0.05718994,
+    -0.009117126,
+    -0.025726318,
+    -0.020828247,
+    -0.052490234,
+    0.10064697,
+    0.032562256,
+    0.04208374,
+    0.03945923,
+    -0.056030273,
+    0.01335907,
+    0.0026454926,
+    0.047576904,
+    -0.00944519,
+    0.011451721,
+    -0.0012578964,
+    -0.021728516,
+    -0.022705078,
+    0.04486084,
+    -0.07550049,
+    -0.05331421,
+    -0.0019111633,
+    0.042388916,
+    0.009117126,
+    0.025543213,
+    0.031433105,
+    -0.008712769,
+    0.008285522,
+    0.055145264,
+    0.0009860992,
+    -0.00016987324,
+    -0.01625061,
+    0.016448975,
+    -0.02571106,
+    0.005748749,
+    0.019241333,
+    0.03152466,
+    -0.019195557,
+    0.016021729,
+    0.024795532,
+    0.035583496,
+    0.060913086,
+    0.061645508,
+    -0.02709961,
+    0.015083313,
+    -0.007381439,
+    0.022323608,
+    0.0058631897,
+    -0.009361267,
+    -0.11779785,
+    -0.0109939575,
+    -0.029006958,
+    0.048187256,
+    0.016052246,
+    -0.03982544,
+    -0.0057868958,
+    0.024017334,
+    -0.019699097,
+    -0.019897461,
+    0.021209717,
+    -0.017410278,
+    -0.022720337,
+    -0.023986816,
+    -0.0027065277,
+    0.0016298294,
+    0.056243896,
+    -0.042663574,
+    -0.05340576,
+    0.012214661,
+    0.0037574768,
+    -0.049041748,
+    0.06652832,
+    -0.03253174,
+    0.016494751,
+    -0.018707275,
+    0.091674805,
+    0.0715332,
+    -0.024917603,
+    0.026733398,
+    0.0115737915,
+    -0.054504395,
+    -0.013145447,
+    0.022949219,
+    0.023010254,
+    0.017410278,
+    -0.022827148,
+    0.09661865,
+    0.014480591,
+    0.017318726,
+    0.0059814453,
+    -0.018112183,
+    -0.0014972687,
+    0.036468506,
+    0.023071289,
+    0.04031372,
+    -0.014907837,
+    -0.03652954,
+    -0.0129852295,
+    0.014663696,
+    0.0001078248,
+    -0.008163452,
+    0.02671814,
+    0.011550903,
+    0.0135269165,
+    -0.029800415,
+    -0.021331787,
+    -0.04336548,
+    -0.047302246,
+    0.0007519722,
+    0.012458801,
+    0.013999939,
+    -0.012512207,
+    0.02255249,
+    -0.039916992,
+    -0.018920898,
+    -0.048065186,
+    -0.05783081,
+    0.026473999,
+    -0.036071777,
+    -0.061187744,
+    -0.042053223,
+    0.04525757,
+    -0.0138168335,
+    0.037963867,
+    0.010681152,
+    0.03845215,
+    0.03427124,
+    -0.009132385,
+    -0.00050258636,
+    0.0068588257,
+    -0.057128906,
+    -0.010482788,
+    0.02154541,
+    -0.006668091,
+    -0.041656494,
+    -0.04852295,
+    0.003932953,
+    -0.077697754,
+    -0.023788452,
+    0.050994873,
+    0.011871338,
+    -0.0070495605,
+    -0.026290894,
+    -0.014328003,
+    -0.031280518,
+    0.044921875,
+    -0.042175293,
+    0.034851074,
+    -0.00605011,
+    -0.019943237,
+    -0.030731201,
+    0.018096924,
+    -0.049194336,
+    0.027679443,
+    0.018432617,
+    0.0049438477,
+    0.027542114,
+    0.006286621,
+    0.034729004,
+    0.012062073,
+    -6.181002e-05,
+    -0.012588501,
+    0.020492554,
+    0.018218994,
+    0.006324768,
+    -0.009178162,
+    0.008346558,
+    0.0051002502,
+    -0.019577026,
+    0.022079468,
+    0.019165039,
+    -0.023529053,
+    -0.0068740845,
+    -0.014160156,
+    -0.018798828,
+    -0.05596924,
+    -0.0062294006,
+    -0.031982422,
+    -0.024002075,
+    0.027389526,
+    -0.077697754,
+    0.014030457,
+    -0.05657959,
+    0.024673462,
+    0.026046753,
+    -0.050445557,
+    0.04272461,
+    -0.038909912,
+    0.014167786,
+    -0.011489868,
+    0.02079773,
+    -0.009925842,
+    -0.019073486,
+    -0.01197052,
+    0.035217285,
+    0.055267334,
+    -0.06542969,
+    0.0055770874,
+    0.03125,
+    -0.008811951,
+    -0.01309967,
+    -0.020446777,
+    0.014205933,
+    -0.023406982,
+    0.00094270706,
+    -0.02859497,
+    -0.03125,
+    -0.008049011,
+    -0.0063591003,
+    -0.024154663,
+    -0.008712769,
+    -0.0005683899,
+    -0.0057792664,
+    0.022659302,
+    -0.027877808,
+    0.007221222,
+    0.010108948,
+    -0.012161255,
+    0.0061798096,
+    -0.028823853,
+    0.0073509216,
+    0.008773804,
+    0.0049438477,
+    0.010574341,
+    -0.0129470825,
+    0.0048446655,
+    0.0014152527,
+    0.07232666,
+    0.018005371,
+    -0.0008907318,
+    0.0009918213,
+    -0.012275696,
+    0.018554688,
+    0.045776367,
+    -0.07904053,
+    -0.07159424,
+    -0.024673462,
+    -0.01828003,
+    -0.014266968,
+    0.0028686523,
+    -0.028076172,
+    0.05706787,
+    0.009986877,
+    0.042999268,
+    -0.008178711,
+    -0.014678955,
+    0.041656494,
+    -0.014434814,
+    -0.021118164,
+    -0.0059051514,
+    -0.000746727,
+    0.016967773,
+    -0.036346436,
+    0.058288574,
+    0.004585266,
+    -0.029449463,
+    0.006362915,
+    0.027114868,
+    0.066101074,
+    0.043273926,
+    -0.0061531067,
+    0.06201172,
+    0.05682373,
+    0.006477356,
+    -0.0024166107,
+    0.012207031,
+    0.018478394,
+    0.059936523,
+    -0.026428223,
+    0.022857666,
+    -0.036193848,
+    0.015792847,
+    -0.06085205,
+    -0.016677856,
+    -0.054901123,
+    -0.033294678,
+    0.018325806,
+    0.008735657,
+    0.014259338,
+    0.002401352,
+    0.0041122437,
+    -0.0155181885,
+    0.0128479,
+    0.032440186,
+    0.006511688,
+    -0.045074463,
+    -0.009315491,
+    0.0093307495,
+    0.027297974,
+    -0.04269409,
+    0.03942871,
+    -0.04147339,
+    -0.044036865,
+    -0.0048828125,
+    0.013168335,
+    -0.04336548,
+    -0.020355225,
+    0.061767578,
+    0.056427002,
+    -0.0725708,
+    -0.015312195,
+    0.053649902,
+    0.016448975,
+    -0.040985107,
+    0.004211426,
+    0.012954712,
+    0.021148682,
+    -0.008934021,
+    -0.024642944,
+    0.050476074,
+    0.024017334,
+    -0.007019043,
+    0.058258057,
+    -0.0011310577,
+    -0.06137085,
+    -0.034362793,
+    0.004562378,
+    0.0440979,
+    -0.038360596,
+    -0.022766113,
+    -0.019760132,
+    -0.021087646,
+    0.036376953,
+    0.0043258667,
+    -0.021057129,
+    0.03378296,
+    0.023147583,
+    -0.018218994,
+    -0.064941406,
+    -0.043884277,
+    0.079711914,
+    0.058502197,
+    -0.021575928,
+    -0.027114868,
+    0.018066406,
+    -0.0067443848,
+    -0.020706177,
+    -0.018997192,
+    0.031173706,
+    -0.011070251,
+    0.016677856,
+    -0.025390625,
+    -0.04510498,
+    0.011383057,
+    -0.021087646,
+    -0.014175415,
+    -0.019683838,
+    0.06738281,
+    0.001490593,
+    -0.0014486313,
+    -0.015945435,
+    0.0070648193,
+    0.022888184,
+    0.017654419,
+    0.018325806,
+    -0.0015888214,
+    0.019042969,
+    0.0049705505,
+    0.068481445,
+    -0.047454834,
+    0.011558533,
+    -0.007675171,
+    -0.03665161,
+    -0.040100098,
+    -0.018005371,
+    0.04953003,
+    0.014564514,
+    0.019744873,
+    -0.021713257,
+    -0.021530151,
+    -0.00030827522,
+    -0.035095215,
+    -0.035003662,
+    0.00070238113,
+    -0.02748108,
+    -0.010025024,
+    -0.0064353943,
+    -0.005592346,
+    -0.021484375,
+    0.035491943,
+    0.02494812,
+    -0.005493164,
+    0.017425537,
+    0.00724411,
+    0.028060913,
+    -0.000330925,
+    -0.01966858,
+    -0.018203735,
+    0.0057144165,
+    -0.0076293945,
+    0.011146545,
+    -0.0395813,
+    0.05508423,
+    0.03704834,
+    -0.023284912,
+    0.03994751,
+    0.011001587,
+    0.020477295,
+    0.033996582,
+    0.0065574646,
+    0.021255493,
+    0.020645142,
+    0.0018281937,
+    -0.029830933,
+    -0.016983032,
+    -0.043701172,
+    -0.020477295,
+    -0.042999268,
+    -0.002588272,
+    -0.00094890594,
+    0.008102417,
+    -0.012397766,
+    -0.013450623,
+    -0.013320923,
+    -0.017456055,
+    -0.019073486,
+    0.023071289,
+    -0.029052734,
+    -0.004547119,
+    0.0022010803,
+    -0.033813477,
+    -0.023406982,
+    -0.05239868,
+    0.0154953,
+    -0.011741638,
+    -0.0003504753,
+    -0.0018930435,
+    -0.06744385,
+    -0.028259277,
+    0.051757812,
+    -0.03427124,
+    -0.002231598,
+    0.009361267,
+    -0.024932861,
+    -0.03439331,
+    -0.04675293,
+    -0.020523071,
+    -0.016708374,
+    -0.019729614,
+    -0.031677246,
+    -0.03857422,
+    -0.01940918,
+    0.01676941,
+    -0.038146973,
+    -0.015205383,
+    -0.0048446655,
+    0.016067505,
+    0.0062332153,
+    -0.007801056,
+    0.013900757,
+    -0.007980347,
+    0.035614014,
+    0.011886597,
+    0.01966858,
+    -0.047424316,
+    0.020339966,
+    0.008598328,
+    -0.016204834,
+    -0.020828247,
+    -0.013053894,
+    0.028137207,
+    -0.026733398,
+    0.023284912,
+    -0.0013494492,
+    -0.0033893585,
+    -0.0073432922,
+    0.039093018,
+    -0.014259338,
+    0.0099105835,
+    0.010345459,
+    -0.0014190674,
+    -0.0005373955,
+    0.060668945,
+    0.0020389557,
+    -0.044189453,
+    0.0071487427,
+    0.03503418,
+    -0.012451172,
+    0.033050537,
+    -0.050720215,
+    0.038726807,
+    0.03729248,
+    0.056243896,
+    -0.06616211,
+    -0.028076172,
+    -0.006038666,
+    0.051605225,
+    -0.01939392,
+    -0.010269165,
+    0.026748657,
+    0.0096588135,
+    0.022232056,
+    -0.019836426,
+    -0.031158447,
+    -0.0008583069,
+    -0.015335083,
+    0.024520874,
+    0.0068893433,
+    0.008850098,
+    0.02973938,
+    -0.0070877075,
+    -0.06414795,
+    0.025131226,
+    -0.029846191,
+    -0.010879517,
+    -0.047576904,
+    -0.0062217712,
+    0.02911377,
+    -0.05206299,
+    -0.03817749,
+    -0.026168823,
+    0.028411865,
+    0.0068626404,
+    0.023635864,
+    0.0033855438,
+    -0.03945923,
+    0.0032100677,
+    0.03427124,
+    0.014266968,
+    -0.009262085,
+    -0.005908966,
+    0.010894775,
+    -0.004497528,
+    -0.06427002,
+    -0.020980835,
+    -0.0028533936,
+    -0.030029297,
+    -0.04525757,
+    0.014923096,
+    0.02154541,
+    0.025909424,
+    0.014808655,
+    0.0068511963,
+    -0.035736084,
+    -0.0006623268,
+    -0.05697632,
+    0.008491516,
+    0.0124435425,
+    0.018188477,
+    0.010513306,
+    -0.0025310516,
+    -0.058624268,
+    -0.015548706,
+    -0.025543213,
+    0.013389587,
+    -0.01259613,
+    -0.012031555,
+    -0.040222168,
+    -0.05895996,
+    0.06890869,
+    0.02041626,
+    0.072387695,
+    -0.035980225,
+    -0.011383057,
+    -0.058929443,
+    -0.05722046,
+    0.00894165,
+    -0.027664185,
+    0.045013428,
+    -0.011367798,
+    0.008460999,
+    -0.0045433044,
+    0.008468628,
+    0.010253906,
+    0.016281128,
+    -0.03665161,
+    0.022521973,
+    -0.008987427,
+    -0.07086182,
+    -0.0446167,
+    -0.0513916,
+    -0.042663574,
+    -0.02381897,
+    -0.05014038,
+    -0.025360107,
+    0.030639648,
+    0.0015382767,
+    -0.046539307,
+    -0.029449463,
+    -0.052642822,
+    -0.014640808,
+    -0.020812988,
+    0.020141602,
+    0.023468018,
+    -0.0209198,
+    0.028686523,
+    -0.023406982,
+    0.04348755,
+    0.027542114,
+    0.009117126,
+    0.03918457,
+    -0.072631836,
+    -0.053497314,
+    -0.001663208,
+    0.021102905,
+    0.04751587,
+    0.055786133,
+    0.020111084,
+    0.00057697296,
+    0.007835388,
+    0.018829346,
+    -0.02331543,
+    -0.029174805,
+    0.0340271,
+    -0.034576416,
+    -0.0068473816,
+    0.009498596,
+    -0.027877808,
+    -0.021865845,
+    -0.01828003,
+    0.036376953,
+    0.053588867,
+    0.011428833,
+    0.0021133423,
+    0.0524292,
+    0.017913818,
+    -0.006122589,
+    -0.003786087,
+    0.009246826,
+    -0.029953003,
+    0.013153076,
+    0.034179688,
+    -0.019638062,
+    0.018539429,
+    0.06347656,
+    0.023391724,
+    0.007675171,
+    0.06329346,
+    -0.055847168,
+    0.0029087067,
+    -0.015701294,
+    0.02720642,
+    -0.03161621,
+    -0.014549255,
+    -0.00078201294,
+    -0.017959595,
+    0.027832031,
+    0.014343262,
+    -0.00932312,
+    0.008033752,
+    0.01953125,
+    -0.03173828,
+    0.013885498,
+    -0.013534546,
+    0.022247314,
+    0.021606445,
+    0.018951416,
+    -0.13952637,
+    -0.010635376,
+    -0.011009216,
+    -0.035705566,
+    -0.020401001,
+    0.10809326,
+    -0.013145447,
+    -0.033172607,
+    -0.041809082,
+    -0.019500732,
+    0.024276733,
+    0.015167236,
+    0.0031414032,
+    -0.05859375,
+    -0.0047340393,
+    0.029663086,
+    0.037719727,
+    0.021606445,
+    0.0017299652,
+    -0.030380249,
+    -0.02520752,
+    0.018554688,
+    -0.03378296,
+    0.05947876,
+    0.0036411285,
+    0.004852295,
+    -0.048034668,
+    0.02583313,
+    -0.041778564,
+    -0.054016113,
+    0.017791748,
+    -0.038909912,
+    0.030685425,
+    0.007774353,
+    0.010292053,
+    -0.036102295,
+    0.017150879,
+    -0.00969696,
+    0.002450943,
+    0.016143799,
+    -0.020568848,
+    -0.015182495,
+    0.016708374,
+    0.02935791,
+    -0.0340271,
+    -0.0037631989,
+    0.022109985,
+    -0.026931763,
+    -0.02658081,
+    0.004508972,
+    0.026290894,
+    -0.0032024384,
+    -0.02015686,
+    -0.015838623,
+    0.007926941,
+    0.015686035,
+    -0.040924072,
+    0.020568848,
+    -0.0031585693,
+    -0.0028533936,
+    0.061462402,
+    0.053710938,
+    0.017410278,
+    0.01637268,
+    0.0034065247,
+    0.019104004,
+    -0.022781372,
+    0.06719971,
+    0.027435303,
+    -0.057128906,
+    0.00233078,
+    -0.007774353,
+    -0.0074272156,
+    -0.018981934,
+    0.04135132,
+    -0.024429321,
+    -0.042297363,
+    -0.026748657,
+    -0.022079468,
+    -0.023834229,
+    -0.010726929,
+    0.017562866,
+    0.032196045,
+    0.04171753,
+    -0.008071899,
+    0.0340271,
+    0.003320694,
+    -0.05987549,
+    0.0027122498,
+    -0.036010742,
+    0.028549194,
+    0.024887085,
+    0.00063943863,
+    -0.008773804,
+    -0.007572174,
+    -0.042236328,
+    -0.0005335808,
+    -0.00056886673,
+    0.061645508,
+    -0.011779785,
+    -0.016113281,
+    -0.023330688,
+    -0.013954163,
+    -0.020339966,
+    0.0047683716,
+    -0.02166748,
+    0.01360321,
+    -0.034454346,
+    -0.0181427,
+    -0.031951904,
+    -0.023895264,
+    -0.030059814,
+    0.00070667267,
+    -0.058013916,
+    0.004108429,
+    -0.04647827,
+    -0.004650116,
+    0.013671875,
+    -0.080566406,
+    0.02545166,
+    -0.0418396,
+    0.0052986145,
+    -0.008766174,
+    0.027633667,
+    -0.0061073303,
+    0.026611328,
+    -0.012504578,
+    0.018234253,
+    -0.0032997131,
+    0.011451721,
+    0.014350891,
+    0.024993896,
+    0.012718201,
+    -0.043548584,
+    0.0037059784,
+    -0.047088623,
+    -0.03161621,
+    -0.0552063,
+    -0.03930664,
+    0.016952515,
+    0.010902405,
+    -0.010040283,
+    0.04928589,
+    -0.019897461,
+    0.024215698,
+    0.051940918,
+    0.021392822,
+    0.042785645,
+    -0.030960083,
+    0.01285553,
+    0.021331787,
+    -0.026290894
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89541.md",
+    "file_name": "89541.md",
+    "file_size": 13849,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Analysis - Piper PA 30 Fuel Starvation Incident",
+      "The accident occurred in Kalispell, Montana.",
+      "The accident occurred on June 25, 2014, at 17:00 Local time.",
+      "The aircraft involved was a Piper PA 30.",
+      "The defining event of the accident was fuel starvation.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was WPR14LA269.",
+      "The aircraft registration was N7350Y.",
+      "The aircraft sustained substantial damage.",
+      "The accident resulted in 2 minor injuries.",
+      "The commercial pilot reported the right engine lost power during takeoff.",
+      "The aircraft was approximately 10 feet above the ground when the right engine lost power.",
+      "The aircraft veered right away from the runway after the engine lost power.",
+      "The pilot immediately switched fuel tanks after the engine lost power.",
+      "The pilot raised the landing gear after the engine lost power.",
+      "The pilot feathered both propellers after the engine lost power.",
+      "The aircraft entered approximately an 80-degree right bank.",
+      "The pilot applied full left aileron and rudder to level the aircraft.",
+      "The aircraft was nearly level just before it contacted the ground.",
+      "The aircraft came to rest approximately 500 feet off the right side of the runway.",
+      "The right engine separated from the fuselage during the accident sequence.",
+      "The pilot shut off the fuel valves after the accident.",
+      "The pilot did not recall which position the fuel selectors were set to for takeoff.",
+      "Postaccident examination of the airframe revealed no anomalies that would have precluded normal operation.",
+      "Postaccident examination of the right engine revealed no anomalies that would have precluded normal operation.",
+      "Postaccident examination revealed the main fuel tanks appeared to be empty.",
+      "Postaccident examination revealed the auxiliary tanks appeared to be almost full.",
+      "The auxiliary tanks have a total capacity of 30 gallons.",
+      "The pilot reported taking off with a total fuel quantity of 30 gallons.",
+      "Most of the usable fuel was in the auxiliary tanks.",
+      "The airplane flight manual states that fuel selectors should be selected \"on\" to the main fuel tanks for takeoff.",
+      "The pilot likely followed the takeoff procedures in the flight manual.",
+      "Following the takeoff procedures likely led to the fuel starvation of the right engine.",
+      "The Pilot's Operating Handbook preflight check included visually checking each tank's fuel quantity on the gauge.",
+      "The Pilot's Operating Handbook preflight check included visually checking the fuel quantity in each tank during the walkaround inspection.",
+      "The pilot likely did not adequately follow the preflight check procedures before the flight."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Analysis - Piper PA 30 Fuel Starvation Incident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Kalispell, Montana",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA 30",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N7350Y",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR14LA269",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel starvation",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "commercial pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airplane Flight Manual",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pilot's Operating Handbook",
+              "classification": "Aircraftowner"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Kalispell, Montana.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kalispell, Montana",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on June 25, 2014, at 1700 Local time.",
+              "details": [
+                "accident DATE June 25, 2014",
+                "accident TIME 17:00 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "June 25, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "17:00 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Piper PA 30.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TYPE OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was fuel starvation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel starvation",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR14LA269.",
+              "details": [
+                "accident NUMBER WPR14LA269"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR14LA269",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N7350Y.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7350Y",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in 2 minor injuries.",
+              "details": [
+                "accident INJURY COUNT 2 minor injuries"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2 minor injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot reported the right engine lost power during takeoff.",
+              "details": [
+                "right engine LOST POWER during takeoff"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine lost power",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOST POWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was approximately 10 feet above the ground when the right engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 10 feet above the ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft veered right away from the runway after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "VEERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right away from the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot immediately switched fuel tanks after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SWITCHED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot raised the landing gear after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RAISED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot feathered both propellers after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FEATHERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propellers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft entered approximately an 80-degree right bank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "BANK ANGLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 80-degree right",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot applied full left aileron and rudder to level the aircraft.",
+              "details": [
+                "left aileron and rudder INTENSITY full"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "APPLIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left aileron and rudder",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left aileron and rudder",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INTENSITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "full",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was nearly level just before it contacted the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ORIENTATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nearly level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft came to rest approximately 500 feet off the right side of the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA 30",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 500 feet off the right side of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right engine separated from the fuselage during the accident sequence.",
+              "details": [
+                "right engine SEPARATED FROM fuselage"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEPARATED FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot shut off the fuel valves after the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SHUT OFF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel valves",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not recall which position the fuel selectors were set to for takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not recall fuel selector positions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination of the airframe revealed no anomalies that would have precluded normal operation.",
+              "details": [
+                "airframe EXAMINATION RESULT no anomalies that would have precluded normal operation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airframe",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies that would have precluded normal operation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination of the right engine revealed no anomalies that would have precluded normal operation.",
+              "details": [
+                "right engine EXAMINATION RESULT no anomalies that would have precluded normal operation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no anomalies that would have precluded normal operation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed the main fuel tanks appeared to be empty.",
+              "details": [
+                "main fuel tanks FUEL LEVEL empty"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main fuel tanks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "empty",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed the auxiliary tanks appeared to be almost full.",
+              "details": [
+                "auxiliary tanks FUEL LEVEL almost full"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tanks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "almost full",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The auxiliary tanks have a total capacity of 30 gallons.",
+              "details": [
+                "auxiliary tanks CAPACITY 30 gallons"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tanks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported taking off with a total fuel quantity of 30 gallons.",
+              "details": [
+                "flight TAKEOFF FUEL QUANTITY 30 gallons"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TAKEOFF FUEL QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Most of the usable fuel was in the auxiliary tanks.",
+              "details": [
+                "auxiliary tanks CONTAINED most of the usable fuel"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tanks",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTAINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "most of the usable fuel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane flight manual states that fuel selectors should be selected \"on\" to the main fuel tanks for takeoff.",
+              "details": [
+                "takeoff procedure REQUIRES fuel selectors on main fuel tanks"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane Flight Manual",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff fuel selector procedure",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff procedure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selectors on main fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot likely followed the takeoff procedures in the flight manual.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FOLLOWED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Following the takeoff procedures likely led to the fuel starvation of the right engine.",
+              "details": [
+                "takeoff procedures LED TO fuel starvation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff procedures",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel starvation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Pilot's Operating Handbook preflight check included visually checking each tank's fuel quantity on the gauge.",
+              "details": [
+                "preflight check INCLUDES visually checking each tank's fuel quantity on the gauge"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot's Operating Handbook",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preflight check procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preflight check",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visually checking each tank's fuel quantity on the gauge",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Pilot's Operating Handbook preflight check included visually checking the fuel quantity in each tank during the walkaround inspection.",
+              "details": [
+                "preflight check INCLUDES visually checking the fuel quantity in each tank during walkaround inspection"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preflight check",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visually checking the fuel quantity in each tank during walkaround inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot likely did not adequately follow the preflight check procedures before the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FAILED TO FOLLOW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preflight check procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::7c757033:a1c8",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89541.md",
+        "file_name": "89541.md",
+        "file_size": 13849,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a2ea5f3b3227c13f7c2c73c31b4981044b42b4539f9fd67d9aba228c5cccbb74",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::7c757033:a1c8:5b70c81c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89541.md",
+        "file_name": "89541.md",
+        "file_size": 13849,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "5987a47fb0b70cfcb7c52c43a319abb9130eefd5f2fd2622a7d19c0d228a3780",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nKalispell, Montana\n\n## Date & Time: \nJune 25, 2014, 17:00 Local\n\n## Aircraft:\nPiper PA 30\n\n## Defining Event:\nFuel starvation\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nWPR14LA269\n\n## Registration:\nN7350Y\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 Minor\n\n## Analysis\n\nThe commercial pilot reported that, during takeoff for the cross-country flight, the right engine lost power. The airplane, which was about 10 ft above the ground, then veered right away from the runway. The pilot immediately switched fuel tanks, raised the landing gear, and feathered both propellers. Subsequently, the airplane entered about an 80-degree right bank, and the pilot was able to get the airplane nearly level, applying full left aileron and rudder, just before it contacted the ground. The airplane came to rest about 500 ft off the right side of the runway. During the accident sequence, the right engine separated from the fuselage. After the accident, the pilot shut off the fuel valves; he did not recall which position the fuel selectors were set to for takeoff. Postaccident examination of the airframe and right engine did not reveal any anomalies or failures that would have precluded normal operation.\n\nPostaccident examination of the airplane revealed that the main fuel tanks appeared to be empty but that the auxiliary tanks, which have a total capacity of 30 gallons, appeared to be almost full. The pilot reported taking off with a total fuel quantity of 30 gallons; therefore, most of the usable fuel was in the auxiliary tanks. The airplane flight manual states that, for takeoff, the fuel selectors should be selected \"on\" to the main fuel tanks. It is likely that the pilot followed these procedures, which led to the fuel starvation of the right engine. The Pilot's Operating Handbook preflight check included a step to visually check each tank's fuel quantity on the gauge and to visually check the fuel quantity in each tank during the walkaround inspection. Based on the evidence, it is likely that the pilot did not adequately follow these procedures before the flight.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2177,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

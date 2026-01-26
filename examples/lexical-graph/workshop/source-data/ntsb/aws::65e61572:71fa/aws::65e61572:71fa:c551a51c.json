@@ -1,0 +1,2357 @@
+{
+  "id_": "aws::65e61572:71fa:c551a51c",
+  "embedding": [
+    -0.044433594,
+    0.007896423,
+    -0.038909912,
+    -0.042816162,
+    -0.0050697327,
+    0.025131226,
+    -0.05621338,
+    0.013763428,
+    -0.020812988,
+    0.02557373,
+    -0.046875,
+    -0.0030231476,
+    -0.004005432,
+    -0.01524353,
+    0.022445679,
+    -0.048706055,
+    0.016143799,
+    0.029510498,
+    0.06817627,
+    0.02935791,
+    0.0005903244,
+    0.058624268,
+    0.01637268,
+    -0.027832031,
+    0.02607727,
+    0.030654907,
+    -0.018676758,
+    -0.00080013275,
+    0.02293396,
+    -0.0056991577,
+    0.017181396,
+    -0.006832123,
+    0.0010290146,
+    0.041503906,
+    -0.038909912,
+    -0.014419556,
+    -0.013580322,
+    0.019332886,
+    -0.039245605,
+    0.038604736,
+    -0.008338928,
+    0.007762909,
+    0.058013916,
+    -0.09899902,
+    0.023757935,
+    0.007926941,
+    -0.025878906,
+    -0.028305054,
+    0.036468506,
+    0.031829834,
+    0.017669678,
+    -0.008018494,
+    0.012237549,
+    0.038513184,
+    -0.0065193176,
+    -0.011703491,
+    0.028015137,
+    0.02557373,
+    0.001950264,
+    -0.016662598,
+    -0.02279663,
+    0.06347656,
+    0.035980225,
+    0.031921387,
+    -0.015464783,
+    -0.02130127,
+    -0.01876831,
+    0.009986877,
+    0.012535095,
+    0.006549835,
+    0.014709473,
+    -0.0024337769,
+    0.0060920715,
+    0.020904541,
+    -0.017364502,
+    -0.050811768,
+    0.01600647,
+    0.008758545,
+    0.021392822,
+    0.005268097,
+    0.008514404,
+    -0.031677246,
+    0.004760742,
+    -0.023773193,
+    0.03756714,
+    0.04446411,
+    0.007713318,
+    -0.016479492,
+    0.007335663,
+    0.028244019,
+    -0.009498596,
+    -0.04598999,
+    0.044952393,
+    0.045074463,
+    -0.014045715,
+    -0.011543274,
+    -0.027038574,
+    -0.09503174,
+    0.0124053955,
+    -0.04611206,
+    0.024642944,
+    -0.032226562,
+    -0.046875,
+    0.038116455,
+    -0.01234436,
+    0.041259766,
+    0.029403687,
+    0.017791748,
+    -0.0016412735,
+    -0.014503479,
+    -0.0014810562,
+    0.019088745,
+    -0.019592285,
+    -0.034698486,
+    -0.010597229,
+    0.021224976,
+    -0.019302368,
+    -0.004081726,
+    0.006385803,
+    -0.012413025,
+    -0.004032135,
+    -0.0052108765,
+    -0.033599854,
+    0.01361084,
+    0.0013017654,
+    -0.0069084167,
+    -0.029846191,
+    0.03540039,
+    0.068725586,
+    -0.030685425,
+    -0.021881104,
+    0.0390625,
+    0.021896362,
+    -0.03111267,
+    -0.020858765,
+    0.0090789795,
+    -0.005657196,
+    0.004600525,
+    0.00932312,
+    0.010864258,
+    -0.06652832,
+    -0.026641846,
+    0.09008789,
+    -0.01939392,
+    -0.00944519,
+    0.0524292,
+    0.034240723,
+    -0.010757446,
+    -0.05456543,
+    -0.09185791,
+    0.009567261,
+    -0.024902344,
+    0.0904541,
+    -0.03024292,
+    -0.08062744,
+    -0.05114746,
+    -0.006351471,
+    -0.04888916,
+    -0.03540039,
+    -0.07293701,
+    0.015716553,
+    -0.015975952,
+    0.048583984,
+    0.037017822,
+    -0.014663696,
+    0.049682617,
+    -0.050048828,
+    -0.026977539,
+    0.010757446,
+    0.03665161,
+    0.012969971,
+    -0.03665161,
+    -0.053253174,
+    -0.015464783,
+    -0.01008606,
+    0.009262085,
+    -0.010536194,
+    0.053710938,
+    0.025283813,
+    -0.017288208,
+    -0.0013513565,
+    -0.044311523,
+    0.05126953,
+    -0.0011444092,
+    -0.051818848,
+    -0.028060913,
+    0.009864807,
+    0.004180908,
+    0.041778564,
+    -0.009178162,
+    0.09448242,
+    -0.019180298,
+    0.03665161,
+    -0.020248413,
+    -0.012886047,
+    -0.01322937,
+    -0.0047798157,
+    0.018859863,
+    -0.022445679,
+    0.013908386,
+    -0.023422241,
+    0.023284912,
+    -0.0032787323,
+    -0.002418518,
+    -0.00092840195,
+    -0.013626099,
+    0.012672424,
+    0.026473999,
+    -0.012817383,
+    0.033599854,
+    0.02897644,
+    0.0071640015,
+    -0.041534424,
+    0.04473877,
+    -0.02482605,
+    -0.055236816,
+    -0.0077056885,
+    -0.02645874,
+    0.030395508,
+    -0.013168335,
+    0.027618408,
+    0.050872803,
+    0.011886597,
+    -0.004573822,
+    -0.027801514,
+    -0.020401001,
+    -0.018997192,
+    -0.0071372986,
+    -0.042785645,
+    0.017105103,
+    0.012809753,
+    0.007282257,
+    -0.018234253,
+    -0.01184845,
+    -0.035247803,
+    0.010864258,
+    -0.026885986,
+    0.006034851,
+    -0.007457733,
+    0.03353882,
+    -0.018371582,
+    -0.024002075,
+    -0.021743774,
+    0.078430176,
+    -0.11071777,
+    -0.08917236,
+    -0.005874634,
+    0.049743652,
+    0.005382538,
+    0.02368164,
+    0.041412354,
+    0.025039673,
+    0.011100769,
+    0.068481445,
+    0.012756348,
+    0.009277344,
+    -0.017440796,
+    -0.018463135,
+    0.006690979,
+    -0.0014533997,
+    0.02355957,
+    0.029632568,
+    -0.011978149,
+    0.0045280457,
+    -0.0041007996,
+    0.01927185,
+    0.019378662,
+    0.03387451,
+    -0.03781128,
+    0.008857727,
+    0.025894165,
+    0.066345215,
+    0.00484848,
+    0.031829834,
+    -0.047454834,
+    0.07861328,
+    -0.031433105,
+    -0.006378174,
+    0.03253174,
+    0.025299072,
+    0.00440979,
+    0.029541016,
+    0.014129639,
+    0.009773254,
+    -0.0262146,
+    -0.024658203,
+    0.030960083,
+    0.05911255,
+    -0.054901123,
+    -0.01600647,
+    0.040161133,
+    0.00020885468,
+    -0.017654419,
+    0.00073099136,
+    -0.008934021,
+    -0.004486084,
+    0.040863037,
+    0.0026779175,
+    0.03125,
+    -0.0446167,
+    0.011474609,
+    0.030914307,
+    -0.09301758,
+    0.061157227,
+    0.00088739395,
+    -0.028030396,
+    -0.008224487,
+    0.020233154,
+    0.027130127,
+    -0.027801514,
+    0.033447266,
+    0.058135986,
+    0.024215698,
+    0.02217102,
+    0.0065612793,
+    -0.018554688,
+    0.012390137,
+    0.027938843,
+    -0.037200928,
+    -0.0340271,
+    -0.056610107,
+    0.011932373,
+    -0.012565613,
+    0.005367279,
+    0.019882202,
+    0.018508911,
+    -0.036071777,
+    0.015594482,
+    0.043121338,
+    0.014060974,
+    -0.01499176,
+    0.043945312,
+    -0.037017822,
+    0.064208984,
+    0.000112473965,
+    0.005378723,
+    0.008491516,
+    0.022583008,
+    0.0039863586,
+    0.013832092,
+    0.018325806,
+    -0.06173706,
+    -0.007713318,
+    -0.031463623,
+    -0.05496216,
+    -0.027877808,
+    0.007411957,
+    -0.010032654,
+    -0.00030136108,
+    -0.017150879,
+    0.037384033,
+    0.0020866394,
+    -0.00630188,
+    0.014038086,
+    0.013801575,
+    -0.045135498,
+    -0.023971558,
+    0.04763794,
+    0.012535095,
+    -0.026138306,
+    0.010856628,
+    0.019805908,
+    -0.011642456,
+    -0.05218506,
+    -0.018096924,
+    -0.016601562,
+    -0.046691895,
+    0.029693604,
+    -0.016540527,
+    0.0021076202,
+    -0.06726074,
+    0.009902954,
+    -0.02885437,
+    0.003047943,
+    0.020355225,
+    0.04800415,
+    0.004962921,
+    -0.02609253,
+    -0.0067367554,
+    -0.0025920868,
+    0.020401001,
+    0.014465332,
+    -0.008979797,
+    -0.024139404,
+    0.0032291412,
+    0.02468872,
+    -0.011810303,
+    0.017227173,
+    0.007797241,
+    -0.021652222,
+    0.031707764,
+    0.058685303,
+    0.026809692,
+    -0.033172607,
+    0.026107788,
+    0.011894226,
+    -0.020401001,
+    0.020980835,
+    -0.022140503,
+    -0.018234253,
+    -0.104003906,
+    0.00042295456,
+    0.007358551,
+    -0.043884277,
+    0.032806396,
+    -0.057769775,
+    -0.025726318,
+    -0.054382324,
+    0.009613037,
+    0.049102783,
+    -0.021377563,
+    0.0052604675,
+    -0.045837402,
+    0.028701782,
+    -0.006034851,
+    -0.007160187,
+    -0.06665039,
+    -0.026489258,
+    0.057617188,
+    0.045562744,
+    -0.014030457,
+    -0.010658264,
+    -0.0039024353,
+    0.06781006,
+    0.020050049,
+    -0.010543823,
+    0.013427734,
+    -0.012458801,
+    -0.004184723,
+    0.020584106,
+    0.008987427,
+    -0.015403748,
+    -0.006626129,
+    -0.054229736,
+    -0.040618896,
+    -0.047851562,
+    -0.01737976,
+    0.008720398,
+    -0.010398865,
+    -0.011703491,
+    -0.015365601,
+    -0.01424408,
+    0.040771484,
+    0.014968872,
+    0.0236969,
+    -0.02319336,
+    -0.010551453,
+    0.015342712,
+    -0.0107803345,
+    -0.03930664,
+    -0.0074539185,
+    0.016662598,
+    0.057434082,
+    0.029449463,
+    0.018630981,
+    0.036132812,
+    -0.003200531,
+    0.01525116,
+    0.0045051575,
+    -0.009643555,
+    -0.017059326,
+    -0.020401001,
+    0.022399902,
+    -0.012367249,
+    -0.0234375,
+    0.015510559,
+    0.02357483,
+    0.03488159,
+    -0.00566864,
+    -0.0054893494,
+    0.017181396,
+    -0.0038547516,
+    0.009254456,
+    -0.0065574646,
+    -0.011016846,
+    0.013221741,
+    0.006832123,
+    -0.047210693,
+    0.06732178,
+    0.01751709,
+    -0.03744507,
+    0.009117126,
+    -0.012084961,
+    0.06518555,
+    0.05947876,
+    0.0019760132,
+    0.05319214,
+    0.024276733,
+    -0.01701355,
+    -0.0061683655,
+    -0.025466919,
+    0.022994995,
+    -0.0062026978,
+    0.035095215,
+    0.008491516,
+    -0.018005371,
+    0.0059394836,
+    -0.022705078,
+    -0.032104492,
+    -0.051849365,
+    0.0038032532,
+    -0.022399902,
+    0.0340271,
+    0.02659607,
+    -0.019760132,
+    0.017318726,
+    0.047729492,
+    0.019241333,
+    -0.019485474,
+    -0.028198242,
+    0.04324341,
+    -0.029953003,
+    0.020004272,
+    0.03491211,
+    -0.043060303,
+    0.03656006,
+    -0.003320694,
+    -0.033599854,
+    0.011634827,
+    0.01991272,
+    -0.0062026978,
+    0.006603241,
+    0.04916382,
+    0.037322998,
+    -0.02268982,
+    -0.038085938,
+    0.060913086,
+    0.016983032,
+    -0.052947998,
+    -0.064575195,
+    0.028305054,
+    0.06311035,
+    -0.0158844,
+    0.023010254,
+    -0.0027008057,
+    0.03781128,
+    -0.017684937,
+    -0.010253906,
+    0.014877319,
+    -0.01777649,
+    0.036590576,
+    0.053833008,
+    -0.011108398,
+    0.0047340393,
+    0.0064468384,
+    -0.037261963,
+    0.0075149536,
+    0.031921387,
+    -0.04083252,
+    -0.003540039,
+    0.008460999,
+    0.012336731,
+    0.028305054,
+    -0.028518677,
+    -0.0015163422,
+    -0.0017557144,
+    0.040405273,
+    -0.046051025,
+    -0.010917664,
+    0.046691895,
+    -0.0039138794,
+    0.0015068054,
+    -0.022216797,
+    -0.006679535,
+    0.001958847,
+    0.03024292,
+    -0.007461548,
+    -0.037963867,
+    0.08026123,
+    -0.074035645,
+    -0.02229309,
+    -0.047668457,
+    0.107177734,
+    0.0552063,
+    0.032592773,
+    -0.022705078,
+    -0.038146973,
+    0.007457733,
+    -0.016647339,
+    0.011566162,
+    -0.012008667,
+    0.023162842,
+    -0.01084137,
+    0.0047950745,
+    -0.06774902,
+    0.012565613,
+    0.020233154,
+    -0.033691406,
+    -0.056915283,
+    -0.0041503906,
+    0.07116699,
+    0.022506714,
+    0.05947876,
+    -0.006061554,
+    -0.028945923,
+    -0.043945312,
+    -0.02520752,
+    -0.09289551,
+    -0.026062012,
+    -0.019851685,
+    -0.002538681,
+    0.006549835,
+    0.0026626587,
+    -0.017028809,
+    0.05529785,
+    0.024490356,
+    0.0209198,
+    0.039001465,
+    0.00868988,
+    0.030807495,
+    0.010185242,
+    -0.009994507,
+    -0.028869629,
+    0.0158844,
+    -0.00894165,
+    0.022491455,
+    -0.030975342,
+    0.04269409,
+    0.07574463,
+    0.015426636,
+    0.055267334,
+    0.021057129,
+    0.03652954,
+    0.015411377,
+    0.03805542,
+    0.057037354,
+    -0.022216797,
+    -0.00038075447,
+    -0.010269165,
+    0.0143966675,
+    -0.011383057,
+    -0.017059326,
+    -0.047210693,
+    -0.011756897,
+    -0.022354126,
+    -0.011116028,
+    -0.0064849854,
+    -0.03024292,
+    0.022750854,
+    0.016998291,
+    -0.026367188,
+    -0.0010118484,
+    -0.016494751,
+    0.03878784,
+    -0.006362915,
+    -0.016342163,
+    0.008522034,
+    -0.016693115,
+    -0.011772156,
+    -0.042877197,
+    0.019256592,
+    -0.006893158,
+    -0.0053520203,
+    -0.013259888,
+    -0.008514404,
+    -0.012069702,
+    -0.032287598,
+    0.042175293,
+    0.00041151047,
+    -0.022125244,
+    -0.06677246,
+    0.022338867,
+    0.041229248,
+    -0.024459839,
+    -0.090026855,
+    0.011520386,
+    0.06707764,
+    0.025863647,
+    0.014533997,
+    -0.068115234,
+    0.020599365,
+    0.027313232,
+    0.008399963,
+    -0.015136719,
+    0.0010976791,
+    0.020599365,
+    -0.0063285828,
+    0.01852417,
+    0.020736694,
+    -0.033477783,
+    0.012893677,
+    -0.017440796,
+    0.018447876,
+    -0.027770996,
+    -0.0066070557,
+    0.014884949,
+    -0.038085938,
+    0.030197144,
+    -0.011245728,
+    0.01348114,
+    -0.04006958,
+    -0.03137207,
+    -0.0065689087,
+    -0.042419434,
+    0.0018920898,
+    -0.05239868,
+    0.007446289,
+    -0.008735657,
+    -0.016571045,
+    -0.018997192,
+    0.008468628,
+    0.0053596497,
+    0.017578125,
+    -0.0050735474,
+    -0.0038986206,
+    0.008010864,
+    0.027252197,
+    0.011833191,
+    0.0012626648,
+    -0.015655518,
+    0.014884949,
+    0.028381348,
+    -0.055419922,
+    -0.016067505,
+    -0.046875,
+    0.006378174,
+    0.037750244,
+    0.012519836,
+    0.017730713,
+    0.03778076,
+    0.004573822,
+    0.028579712,
+    0.013595581,
+    -0.033325195,
+    0.02861023,
+    -0.02571106,
+    -0.01576233,
+    0.015914917,
+    0.012527466,
+    0.02003479,
+    -0.022354126,
+    -0.0077705383,
+    0.045288086,
+    -0.034729004,
+    -0.019073486,
+    -0.03729248,
+    0.012840271,
+    0.01676941,
+    -0.010658264,
+    0.00011283159,
+    -0.0022468567,
+    -0.0066833496,
+    0.020477295,
+    -0.03112793,
+    -0.019302368,
+    0.0042533875,
+    0.0013275146,
+    -0.074523926,
+    -0.032196045,
+    -0.0051345825,
+    0.019592285,
+    -0.034332275,
+    -0.08404541,
+    0.008369446,
+    0.014862061,
+    -0.015808105,
+    -0.028137207,
+    0.025405884,
+    -0.07220459,
+    0.021453857,
+    -0.026519775,
+    0.004886627,
+    0.04272461,
+    0.04348755,
+    0.017227173,
+    0.05609131,
+    -0.047210693,
+    0.001707077,
+    0.015625,
+    -0.020553589,
+    -0.016464233,
+    0.0015630722,
+    0.002653122,
+    0.009277344,
+    0.027740479,
+    -0.015731812,
+    0.026275635,
+    -0.04345703,
+    -0.023361206,
+    -0.031433105,
+    0.016036987,
+    -0.016784668,
+    0.041625977,
+    0.022827148,
+    0.01083374,
+    0.0046806335,
+    0.015670776,
+    -0.019805908,
+    0.019485474,
+    -0.010978699,
+    0.017745972,
+    0.02722168,
+    0.02305603,
+    -0.04336548,
+    -0.00048184395,
+    -0.016052246,
+    -0.009254456,
+    -0.013046265,
+    -0.02204895,
+    -0.0062713623,
+    -0.036071777,
+    -0.019180298,
+    0.020690918,
+    0.045776367,
+    0.020050049,
+    -0.017807007,
+    0.03302002,
+    0.028076172,
+    -0.0015649796,
+    0.008110046,
+    0.0050811768,
+    -0.047180176,
+    0.0029640198,
+    -0.008300781,
+    0.036987305,
+    0.0151901245,
+    -0.07086182,
+    -0.019973755,
+    -0.011924744,
+    0.017684937,
+    0.032714844,
+    0.024261475,
+    -0.021347046,
+    0.03475952,
+    0.00484848,
+    0.010345459,
+    0.027175903,
+    -0.01159668,
+    -0.03955078,
+    -0.024368286,
+    0.0579834,
+    -0.027389526,
+    -0.05822754,
+    -0.056762695,
+    -0.0066108704,
+    0.039855957,
+    -0.014457703,
+    -0.053894043,
+    0.039367676,
+    0.005519867,
+    -0.06994629,
+    0.03466797,
+    -0.06585693,
+    -0.036621094,
+    5.441904e-05,
+    0.018814087,
+    0.014839172,
+    0.014160156,
+    0.0076446533,
+    0.05303955,
+    0.033996582,
+    0.0037326813,
+    0.05166626,
+    -0.029800415,
+    -0.015174866,
+    -0.036712646,
+    -0.013908386,
+    -0.024139404,
+    -0.018341064,
+    0.04638672,
+    0.003042221,
+    0.004852295,
+    0.021453857,
+    0.013298035,
+    -0.022705078,
+    0.045166016,
+    -0.008010864,
+    -0.009315491,
+    0.056793213,
+    0.013587952,
+    0.02319336,
+    -0.014175415,
+    0.035858154,
+    0.017105103,
+    -0.016738892,
+    0.02558899,
+    0.019439697,
+    -0.003068924,
+    -0.024551392,
+    0.02420044,
+    -0.05810547,
+    -0.05029297,
+    -0.009513855,
+    0.0048713684,
+    -0.0043182373,
+    -0.047698975,
+    -0.018096924,
+    -0.0062332153,
+    0.014259338,
+    -0.0017490387,
+    -0.0073432922,
+    0.036499023,
+    0.0028266907,
+    0.0736084,
+    0.0362854,
+    0.07928467,
+    0.0033340454,
+    -0.026489258,
+    -0.043792725,
+    0.029907227,
+    -0.03366089,
+    -0.018936157,
+    -0.00076913834,
+    -0.041290283,
+    -0.00969696,
+    -0.010765076,
+    -0.022521973,
+    -0.059051514,
+    0.004096985,
+    -0.036071777,
+    -0.009513855,
+    0.0073776245,
+    -0.026748657,
+    -0.008728027,
+    0.024612427,
+    -0.038238525,
+    -0.011817932,
+    -0.043060303,
+    0.030914307,
+    -0.016647339,
+    0.013801575,
+    0.020980835,
+    0.016082764,
+    -0.042053223,
+    -0.01512146,
+    0.0084991455,
+    0.049743652,
+    -0.044158936,
+    0.029159546,
+    -0.016830444,
+    -0.014144897,
+    0.005256653,
+    0.07849121,
+    0.030456543,
+    0.04675293,
+    0.0018472672,
+    0.018218994,
+    0.022277832,
+    0.025039673,
+    -0.042510986,
+    0.0069465637,
+    -0.026138306,
+    -0.005584717,
+    -0.016418457,
+    0.022079468,
+    0.012382507,
+    0.05130005,
+    0.0011844635,
+    -0.037475586,
+    -0.00030565262,
+    -0.009536743,
+    0.014213562,
+    0.024902344,
+    -0.003276825,
+    0.02178955,
+    0.06536865,
+    -0.011695862,
+    0.0121154785,
+    -0.029754639,
+    -0.070373535,
+    0.009613037,
+    -0.046295166,
+    0.003692627,
+    -0.03817749,
+    0.03768921,
+    -0.021087646,
+    0.015571594,
+    -0.00466156,
+    0.0074157715,
+    0.009056091,
+    -0.014320374,
+    -0.015457153,
+    -0.008811951,
+    -0.02420044,
+    0.00046682358,
+    -0.035064697,
+    -0.011619568,
+    0.0074386597,
+    0.0077590942,
+    0.0039634705,
+    0.01876831,
+    0.07800293,
+    0.00071048737,
+    0.022109985,
+    0.034454346,
+    -0.0385437,
+    0.0038585663,
+    0.005264282,
+    -0.029876709,
+    0.00434494,
+    -0.030853271,
+    0.020721436,
+    -0.02545166,
+    -0.005519867,
+    0.016647339,
+    0.038085938,
+    0.009300232,
+    -0.0076446533,
+    0.0051002502,
+    0.010627747,
+    -0.011131287,
+    -0.019226074,
+    0.03466797,
+    -0.015571594,
+    -0.04547119,
+    -0.04309082,
+    -0.008071899,
+    -0.025634766,
+    0.0071487427,
+    -0.0463562,
+    -0.042755127,
+    0.057678223,
+    0.03378296,
+    -0.047210693,
+    0.048431396,
+    -0.036468506,
+    0.035491943,
+    0.01638794,
+    0.024246216,
+    0.050872803,
+    -0.018295288,
+    0.06100464,
+    -0.022583008,
+    -0.024902344
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87052.md",
+    "file_name": "87052.md",
+    "file_size": 6993,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Bellanca 7ECA Aircraft Accident Information",
+      "The defining event was loss of control on ground during landing-landing roll.",
+      "A runway excursion occurred during landing-landing roll.",
+      "The pilot held a Private certificate.",
+      "The pilot was 67 years old.",
+      "The pilot was female.",
+      "The pilot had a Single-engine land airplane rating.",
+      "The pilot occupied the front seat.",
+      "The pilot had no other aircraft ratings.",
+      "The pilot had no instrument rating.",
+      "No second pilot was present.",
+      "The pilot had no instructor rating.",
+      "No toxicology was performed on the pilot.",
+      "The pilot held a Class 3 medical certification with waivers/limitations.",
+      "The pilot's last FAA medical exam was on March 13, 2013.",
+      "The pilot was not an occupational pilot.",
+      "The pilot's last flight review or equivalent was on May 3, 2013.",
+      "The pilot had 210 hours of total flight time in all aircraft.",
+      "The pilot had 210 hours of total flight time in this make and model.",
+      "The aircraft was a Bellanca 7ECA.",
+      "The aircraft registration was N5032G.",
+      "The aircraft category was Airplane.",
+      "The aircraft had a Normal airworthiness certificate.",
+      "The aircraft serial number was 1283-79.",
+      "The aircraft had a tailwheel landing gear type.",
+      "The aircraft had 2 seats.",
+      "The aircraft's last inspection was a 100-hour inspection on May 16, 2013.",
+      "The aircraft's certified maximum gross weight was 1650 pounds.",
+      "The aircraft had flown 17 hours since the last inspection.",
+      "The aircraft had 1 reciprocating engine.",
+      "The aircraft's airframe total time was 16000 hours at the time of accident.",
+      "The aircraft's engine manufacturer was LYCOMING.",
+      "The aircraft had an Emergency Locator Transmitter (ELT) installed but not activated.",
+      "The aircraft's engine model/series was O-235 SERIES.",
+      "The registered owner of the aircraft was Amelia Reid Aviation LLC.",
+      "The engine was rated at 115 Horsepower.",
+      "The operator of the aircraft was Amelia Reid Aviation LLC.",
+      "The operator held no operating certificates."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Bellanca 7ECA Aircraft Accident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bellanca 7ECA",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N5032G",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airplane",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amelia Reid Aviation LLC",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "LYCOMING",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "O-235 SERIES",
+              "classification": "Aircraftmodel"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of control on ground during landing-landing roll.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control on ground during landing-landing roll",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A runway excursion occurred during landing-landing roll.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EVENT OCCURRED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway excursion during landing-landing roll",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Private certificate.",
+              "details": [
+                "Pilot CERTIFICATE TYPE Private"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CERTIFICATE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Private",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was 67 years old.",
+              "details": [
+                "Pilot AGE 67 years"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "67 years",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was female.",
+              "details": [
+                "Pilot GENDER female"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "GENDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "female",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had a Single-engine land airplane rating.",
+              "details": [
+                "Pilot RATING Single-engine land airplane"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Single-engine land airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot occupied the front seat.",
+              "details": [
+                "Pilot SEAT POSITION front seat"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "front seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no other aircraft ratings.",
+              "details": [
+                "Pilot HAS OTHER RATINGS no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS OTHER RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no instrument rating.",
+              "details": [
+                "Pilot HAS INSTRUMENT RATING no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUMENT RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No second pilot was present.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS SECOND PILOT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no instructor rating.",
+              "details": [
+                "Pilot HAS INSTRUCTOR RATING no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the pilot.",
+              "details": [
+                "Pilot TOXICOLOGY PERFORMED no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Class 3 medical certification with waivers/limitations.",
+              "details": [
+                "Pilot MEDICAL CERTIFICATION Class 3 with waivers/limitations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class 3 with waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last FAA medical exam was on March 13, 2013.",
+              "details": [
+                "Pilot LAST MEDICAL EXAM DATE March 13, 2013"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LAST MEDICAL EXAM DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "March 13, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was not an occupational pilot.",
+              "details": [
+                "Pilot IS OCCUPATIONAL no"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IS OCCUPATIONAL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last flight review or equivalent was on May 3, 2013.",
+              "details": [
+                "Pilot LAST FLIGHT REVIEW DATE May 3, 2013"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 3, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 210 hours of total flight time in all aircraft.",
+              "details": [
+                "Pilot TOTAL FLIGHT HOURS 210"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "210",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 210 hours of total flight time in this make and model.",
+              "details": [
+                "Pilot FLIGHT HOURS IN MODEL 210"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS IN MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "210",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was a Bellanca 7ECA.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N5032G",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N5032G.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N5032G",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft category was Airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CATEGORY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had a Normal airworthiness certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft serial number was 1283-79.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1283-79",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had a tailwheel landing gear type.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING GEAR TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailwheel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had 2 seats.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SEAT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's last inspection was a 100-hour inspection on May 16, 2013.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST INSPECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "100-hour",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 16, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's certified maximum gross weight was 1650 pounds.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAX GROSS WEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1650 pounds",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had flown 17 hours since the last inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HOURS SINCE INSPECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had 1 reciprocating engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reciprocating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's airframe total time was 16000 hours at the time of accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRFRAME TOTAL TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "16000 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's engine manufacturer was LYCOMING.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE MANUFACTURER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "LYCOMING",
+                    "classification": "Aircraftmake"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft had an Emergency Locator Transmitter (ELT) installed but not activated.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ELT INSTALLED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELT ACTIVATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's engine model/series was O-235 SERIES.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bellanca 7ECA",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "O-235 SERIES",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The registered owner of the aircraft was Amelia Reid Aviation LLC.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N5032G",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "OWNED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amelia Reid Aviation LLC",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was rated at 115 Horsepower.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "O-235 SERIES",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HORSEPOWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "115",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The operator of the aircraft was Amelia Reid Aviation LLC.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N5032G",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amelia Reid Aviation LLC",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The operator held no operating certificates.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amelia Reid Aviation LLC",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "HAS OPERATING CERTIFICATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::65e61572:71fa",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87052.md",
+        "file_name": "87052.md",
+        "file_size": 6993,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "271233f2e3123cf802c97e98bbe32058fdc489ac7866c7f4d94617c451b8718c",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::65e61572:71fa:583720d7",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87052.md",
+        "file_name": "87052.md",
+        "file_size": 6993,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "9d937a4c3c8edf7c60036530d1c48ae95796e70dda2562df740f2c7d81f654da",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::65e61572:71fa:4e92c4b4",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87052.md",
+        "file_name": "87052.md",
+        "file_size": 6993,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "dff0583d7fe85bb675479d1b67041872ee040f0e10f1433cb02e2b0de2070e4d",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n| Landing-landing roll | Loss of control on ground (Defining event) |\n| Landing-landing roll | Runway excursion |\n\n## Pilot Information\n| Certificate: | Private |\n| Age: | 67,Female |\n| Airplane Rating(s): | Single-engine land |\n| Seat Occupied: | Front |\n| Other Aircraft Rating(s): | None |\n| Restraint Used: |  |\n| Instrument Rating(s): | None |\n| Second Pilot Present: | No |\n| Instructor Rating(s): | None |\n| Toxicology Performed: | No |\n| Medical Certification: | Class 3 With waivers/limitations |\n| Last FAA Medical Exam: | March 13, 2013 |\n| Occupational Pilot: | No |\n| Last Flight Review or Equivalent: | May 3, 2013 |\n| Flight Time: | 210 hours (Total, all aircraft), 210 hours (Total, this make and model) |\n\n## Aircraft and Owner/Operator Information\n| Aircraft Make: | Bellanca |\n| Registration: | N5032G |\n| Model/Series: | 7ECA |\n| Aircraft Category: | Airplane |\n| Year of Manufacture: |  |\n| Amateur Built: |  |\n| Airworthiness Certificate: | Normal |\n| Serial Number: | 1283-79 |\n| Landing Gear Type: | Tailwheel |\n| Seats: | 2 |\n| Date/Type of Last Inspection: | May 16, 2013 100 hour |\n| Certified Max Gross Wt.: | 1650 lbs |\n| Time Since Last Inspection: | 17 Hrs |\n| Engines: | 1 Reciprocating |\n| Airframe Total Time: | 16000 Hrs at time of accident |\n| Engine Manufacturer: | LYCOMING |\n| ELT: | Installed, not activated |\n| Engine Model/Series: | O-235 SERIES |\n| Registered Owner: | Amelia Reid Aviation LLC |\n| Rated Power: | 115 Horsepower |\n| Operator: | Amelia Reid Aviation LLC |\n| Operating Certificate(s) Held: | None |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1604,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

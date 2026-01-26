@@ -1,0 +1,138 @@
+topic: r5d Instance Types and Neptune Lookup Cache Feature
+
+  entities:
+  
+    Neptune|Service
+    lookup-cache feature|Product
+    lookup cache|Product
+    NVMe-attached EBS volume|Product
+    r5d instance type|Product
+    cluster's parameter group|Product
+    Neptune indexed storage|Product
+    property values|Product
+    RDF literals|Product
+    NVMe volume|Product
+    r5d|Product
+    r5|Product
+    r5d family|Product
+    r5 family|Product
+    r5d.large|Product
+    r5d.24xlarge|Product
+  
+  proposition: Neptune is a service.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    Neptune|IS_A|service
+      
+  proposition: Neptune has a lookup-cache feature.
+  
+    entity-entity relationships:
+    Neptune|HAS|lookup-cache feature
+  
+    entity-attributes:
+    
+  proposition: The lookup-cache feature can be used to improve the performance of queries which need to fetch and return large numbers of property values and literals.
+  
+    entity-entity relationships:
+    lookup-cache feature|IMPROVES|property values
+    lookup-cache feature|IMPROVES|RDF literals
+  
+    entity-attributes:
+    lookup-cache feature|PURPOSE|improve the performance of queries which need to fetch and return large numbers of property values and literals
+    
+  proposition: The lookup-cache feature is used primarily by customers with queries that need to return many attributes.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    lookup-cache feature|USED_BY|customers with queries that need to return many attributes
+    
+  proposition: The lookup cache boosts performance of these queries by fetching these attribute values locally rather than looking up each one over and over in Neptune indexed storage.
+  
+    entity-entity relationships:
+    lookup cache|FETCHES_FROM|Neptune indexed storage
+  
+    entity-attributes:
+    lookup cache|FUNCTION|boosts performance of these queries by fetching these attribute values locally rather than looking up each one over and over in Neptune indexed storage
+    
+  proposition: The lookup cache is implemented using a NVMe-attached EBS volume on an r5d instance type.
+  
+    entity-entity relationships:
+    lookup cache|IMPLEMENTED_USING|NVMe-attached EBS volume
+    NVMe-attached EBS volume|RUNS_ON|r5d instance type
+  
+    entity-attributes:
+    
+  proposition: The lookup cache is enabled using a cluster's parameter group.
+  
+    entity-entity relationships:
+    lookup cache|ENABLED_BY|cluster's parameter group
+  
+    entity-attributes:
+    
+  proposition: As data is fetched from Neptune indexed storage, property values and RDF literals are cached within this NVMe volume.
+  
+    entity-entity relationships:
+    property values|CACHED_IN|NVMe volume
+    RDF literals|CACHED_IN|NVMe volume
+    property values|FETCHED_FROM|Neptune indexed storage
+    RDF literals|FETCHED_FROM|Neptune indexed storage
+  
+    entity-attributes:
+    
+  proposition: r5d is a family of instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5d|IS_A|family of instance types
+    
+  proposition: r5 is a family of instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5|IS_A|family of instance types
+    
+  proposition: If you don't need the lookup cache feature, use a standard r5 instance type rather than an r5d, to avoid the higher cost of the r5d.
+  
+    entity-entity relationships:
+    r5|ALTERNATIVE_TO|r5d
+  
+    entity-attributes:
+    r5|DESCRIBED_AS|standard
+    r5d|HAS_COST|higher cost
+    
+  proposition: The r5d family has instance types in the same sizes as the r5 family.
+  
+    entity-entity relationships:
+    r5d family|SAME_SIZES_AS|r5 family
+  
+    entity-attributes:
+    
+  proposition: The r5d family ranges from r5d.large to r5d.24xlarge.
+  
+    entity-entity relationships:
+    r5d.large|PART_OF|r5d family
+    r5d.24xlarge|PART_OF|r5d family
+  
+    entity-attributes:
+    r5d family|RANGES_FROM|r5d.large to r5d.24xlarge
+    
+  proposition: r5d.large is an instance type in the r5d family.
+  
+    entity-entity relationships:
+    r5d.large|MEMBER_OF|r5d family
+  
+    entity-attributes:
+    r5d.large|IS_A|instance type
+    
+  proposition: r5d.24xlarge is an instance type in the r5d family.
+  
+    entity-entity relationships:
+    r5d.24xlarge|MEMBER_OF|r5d family
+  
+    entity-attributes:
+    r5d.24xlarge|IS_A|instance type

@@ -1,0 +1,2877 @@
+{
+  "id_": "aws::c8c167ae:3b1a:48aa2b88",
+  "embedding": [
+    0.032043457,
+    0.02015686,
+    0.019546509,
+    -0.0368042,
+    -0.00029611588,
+    -0.00026798248,
+    -0.026977539,
+    -0.018692017,
+    -0.039245605,
+    -0.0019836426,
+    -0.026489258,
+    -0.0028915405,
+    -0.009063721,
+    -0.03753662,
+    0.058166504,
+    -0.046325684,
+    -0.008926392,
+    0.07281494,
+    0.059661865,
+    -0.007572174,
+    0.008087158,
+    0.0015363693,
+    -0.009361267,
+    -0.02684021,
+    0.01675415,
+    0.031463623,
+    -0.075805664,
+    0.005405426,
+    0.009513855,
+    0.012069702,
+    0.022018433,
+    -0.01687622,
+    0.02217102,
+    0.06726074,
+    -0.053741455,
+    -0.017150879,
+    -0.022567749,
+    0.005821228,
+    -0.01953125,
+    0.04425049,
+    0.030593872,
+    -0.020828247,
+    0.017425537,
+    -0.042266846,
+    -0.02720642,
+    -0.0018634796,
+    0.03289795,
+    0.022247314,
+    0.047332764,
+    0.031707764,
+    0.028961182,
+    0.032440186,
+    0.024612427,
+    0.038146973,
+    -0.0075302124,
+    0.027069092,
+    -0.06567383,
+    0.023330688,
+    -0.003932953,
+    0.07757568,
+    0.034454346,
+    0.048583984,
+    -0.012763977,
+    -0.00868988,
+    -0.057495117,
+    -0.01171875,
+    -0.02166748,
+    -0.0012311935,
+    0.053375244,
+    -0.06896973,
+    -0.03704834,
+    0.04498291,
+    -0.021591187,
+    -0.004776001,
+    0.0018205643,
+    -0.026687622,
+    -0.008117676,
+    -0.040039062,
+    0.008216858,
+    0.045684814,
+    0.0020618439,
+    0.0014400482,
+    -0.04421997,
+    0.0014333725,
+    0.037597656,
+    0.07019043,
+    -0.021118164,
+    -0.04525757,
+    -0.019058228,
+    0.035583496,
+    -0.020004272,
+    -0.037078857,
+    0.053894043,
+    0.014541626,
+    -0.018325806,
+    -0.00806427,
+    0.04144287,
+    0.0146484375,
+    0.029205322,
+    -0.018600464,
+    0.04562378,
+    -0.07110596,
+    0.00831604,
+    -0.023391724,
+    0.0009756088,
+    0.02935791,
+    0.017028809,
+    -0.028381348,
+    0.007926941,
+    -0.010498047,
+    -0.035491943,
+    0.05807495,
+    0.016723633,
+    -0.03567505,
+    -0.02406311,
+    0.0181427,
+    0.0041503906,
+    -0.0048599243,
+    0.0087890625,
+    -0.029296875,
+    0.016647339,
+    0.06817627,
+    0.0024318695,
+    -0.053466797,
+    0.034240723,
+    0.011268616,
+    -0.01474762,
+    -0.041931152,
+    0.018554688,
+    0.008056641,
+    0.0001758337,
+    0.008422852,
+    -0.020111084,
+    0.011039734,
+    0.0004079342,
+    0.003829956,
+    -0.077941895,
+    0.00497818,
+    -0.019134521,
+    0.014984131,
+    -0.015151978,
+    -0.025650024,
+    0.08459473,
+    -0.004600525,
+    0.013313293,
+    0.034118652,
+    0.01247406,
+    -0.018218994,
+    4.839897e-05,
+    -0.010375977,
+    -0.010688782,
+    -0.019866943,
+    0.027404785,
+    -0.002084732,
+    -0.011192322,
+    -0.040618896,
+    -0.036376953,
+    -0.0065460205,
+    0.034820557,
+    -0.0129852295,
+    -0.036834717,
+    -0.026351929,
+    0.024414062,
+    0.011154175,
+    -0.030731201,
+    0.048217773,
+    0.015991211,
+    -0.011726379,
+    0.007843018,
+    0.0026378632,
+    0.002752304,
+    0.02104187,
+    -0.03414917,
+    -0.009063721,
+    -0.00020611286,
+    -0.0012569427,
+    0.022735596,
+    0.049957275,
+    0.023239136,
+    -0.0062294006,
+    -0.024154663,
+    -0.042999268,
+    0.09265137,
+    -0.054992676,
+    -0.035339355,
+    -0.0058135986,
+    -0.0047416687,
+    -0.016952515,
+    0.013206482,
+    -0.02116394,
+    0.053375244,
+    0.020980835,
+    0.03475952,
+    -0.02645874,
+    -0.0066184998,
+    -0.024353027,
+    -0.008872986,
+    -0.0053863525,
+    -0.027557373,
+    0.006641388,
+    -0.039031982,
+    -0.0043792725,
+    0.015357971,
+    0.005554199,
+    -0.016830444,
+    -0.0006656647,
+    -0.018630981,
+    0.032714844,
+    -0.025985718,
+    -0.0077552795,
+    0.03237915,
+    -0.05303955,
+    -0.010169983,
+    0.044891357,
+    -0.015716553,
+    -0.033325195,
+    0.005039215,
+    -0.00034618378,
+    0.03338623,
+    -0.0017261505,
+    0.036102295,
+    0.031463623,
+    0.025131226,
+    0.031311035,
+    -0.034240723,
+    0.02293396,
+    -0.014587402,
+    0.028625488,
+    -0.018585205,
+    0.04574585,
+    0.030654907,
+    -0.042022705,
+    0.036376953,
+    0.047821045,
+    -0.008300781,
+    0.025680542,
+    0.032989502,
+    0.00793457,
+    -0.024108887,
+    0.0013113022,
+    0.000102341175,
+    -0.0013952255,
+    0.008872986,
+    0.09161377,
+    -0.06854248,
+    -0.07556152,
+    -0.002532959,
+    0.027511597,
+    -0.03866577,
+    0.027999878,
+    0.033416748,
+    0.07446289,
+    0.003501892,
+    0.048675537,
+    -0.023529053,
+    0.03567505,
+    -0.032958984,
+    -0.037200928,
+    0.018005371,
+    0.0016880035,
+    0.013511658,
+    0.0048065186,
+    -0.006111145,
+    0.004760742,
+    -0.0074386597,
+    0.049468994,
+    0.039733887,
+    0.038757324,
+    -0.025131226,
+    0.004508972,
+    0.0099105835,
+    0.020355225,
+    -0.016326904,
+    0.037506104,
+    -0.068359375,
+    0.0067367554,
+    -0.029083252,
+    0.033233643,
+    -0.040100098,
+    -0.0128479,
+    -0.0015335083,
+    0.026672363,
+    0.0029640198,
+    0.003780365,
+    0.010818481,
+    -0.020874023,
+    0.015602112,
+    0.01184845,
+    -0.001663208,
+    0.03515625,
+    0.056671143,
+    -0.0073890686,
+    -0.014335632,
+    0.017456055,
+    -0.019226074,
+    -0.0057373047,
+    0.03604126,
+    -0.023498535,
+    0.011558533,
+    -0.022613525,
+    0.03048706,
+    0.047698975,
+    -0.01927185,
+    -0.0027980804,
+    0.0033359528,
+    -0.04144287,
+    -0.023223877,
+    -0.001663208,
+    -0.012527466,
+    0.0126953125,
+    -0.052093506,
+    0.07086182,
+    0.039764404,
+    0.043426514,
+    -0.022567749,
+    -0.022491455,
+    -0.00095272064,
+    0.028533936,
+    -0.041931152,
+    -0.03756714,
+    -0.024871826,
+    -0.02998352,
+    -0.017044067,
+    -0.020996094,
+    0.0021705627,
+    0.01436615,
+    -0.03878784,
+    0.0006175041,
+    0.011909485,
+    -0.0005249977,
+    -0.031463623,
+    -0.017028809,
+    -0.059173584,
+    0.011657715,
+    0.003967285,
+    0.025665283,
+    0.0052490234,
+    0.019363403,
+    -0.01902771,
+    -0.027557373,
+    -0.008422852,
+    -0.06173706,
+    0.0037136078,
+    -0.026519775,
+    -0.08062744,
+    -0.027954102,
+    0.014312744,
+    -0.0030784607,
+    -0.033325195,
+    -0.059326172,
+    0.09576416,
+    -0.02671814,
+    -0.009140015,
+    0.020462036,
+    0.043395996,
+    -0.081970215,
+    -0.027069092,
+    0.052093506,
+    0.033111572,
+    -0.010681152,
+    0.0016927719,
+    0.0104599,
+    -0.011924744,
+    -0.031799316,
+    -0.0035495758,
+    -0.014381409,
+    -0.05105591,
+    0.047698975,
+    -0.010803223,
+    0.03074646,
+    -0.0602417,
+    0.03363037,
+    -0.034973145,
+    -0.022628784,
+    -0.021636963,
+    0.037841797,
+    0.028182983,
+    -0.012619019,
+    0.03817749,
+    0.015312195,
+    0.018676758,
+    0.008659363,
+    0.047210693,
+    -0.0014619827,
+    -0.011482239,
+    0.023361206,
+    -0.018051147,
+    -0.004295349,
+    -0.0036125183,
+    0.0033092499,
+    -0.010673523,
+    0.033477783,
+    0.017593384,
+    -0.029693604,
+    0.01197052,
+    0.010658264,
+    -0.04269409,
+    0.0058059692,
+    -0.022583008,
+    -0.006832123,
+    -0.13342285,
+    0.021270752,
+    -0.010612488,
+    -0.042755127,
+    0.013839722,
+    -0.1038208,
+    -0.051727295,
+    -0.07312012,
+    0.023834229,
+    0.0491333,
+    -0.0059547424,
+    -0.003540039,
+    -0.015327454,
+    0.0059280396,
+    -0.012649536,
+    -0.0040283203,
+    -0.037109375,
+    -0.014503479,
+    -0.05545044,
+    0.066711426,
+    0.062927246,
+    -0.05203247,
+    0.023788452,
+    0.057373047,
+    -0.0032920837,
+    -0.026443481,
+    -0.021255493,
+    -0.009010315,
+    -0.0046043396,
+    0.042999268,
+    -0.033416748,
+    0.010292053,
+    -0.017654419,
+    -0.0647583,
+    -0.037750244,
+    0.0011825562,
+    -0.010826111,
+    0.037384033,
+    -0.014129639,
+    -0.005218506,
+    0.015029907,
+    0.007259369,
+    -0.033599854,
+    -0.003774643,
+    -0.017791748,
+    -0.03366089,
+    0.0050582886,
+    0.008338928,
+    0.0056610107,
+    -0.054626465,
+    -0.006084442,
+    0.018753052,
+    0.084350586,
+    0.02330017,
+    0.014274597,
+    0.0060310364,
+    0.008163452,
+    0.039489746,
+    -0.021377563,
+    -0.0077056885,
+    0.015380859,
+    -0.004966736,
+    -0.04876709,
+    -0.008331299,
+    -0.0019254684,
+    -0.016281128,
+    0.026245117,
+    0.017456055,
+    0.0069084167,
+    -0.008178711,
+    0.026763916,
+    0.024047852,
+    -0.021392822,
+    -0.023208618,
+    0.007385254,
+    0.028793335,
+    -0.011108398,
+    -0.022460938,
+    0.018722534,
+    0.036865234,
+    -0.06719971,
+    0.009986877,
+    -0.013900757,
+    0.015945435,
+    0.025115967,
+    0.019317627,
+    0.029891968,
+    0.033233643,
+    0.0058937073,
+    0.042541504,
+    0.021209717,
+    0.010253906,
+    0.02999878,
+    0.009216309,
+    -0.011360168,
+    0.00207901,
+    0.013763428,
+    0.02053833,
+    -0.04714966,
+    -0.043884277,
+    -0.08148193,
+    -0.024597168,
+    0.0060577393,
+    0.0037937164,
+    0.038909912,
+    0.033294678,
+    -0.024032593,
+    0.002960205,
+    -0.01852417,
+    -0.047821045,
+    0.0051956177,
+    -0.040008545,
+    -0.0063705444,
+    0.018798828,
+    -0.04147339,
+    0.010536194,
+    -0.012901306,
+    -0.042877197,
+    -0.0061035156,
+    0.015640259,
+    -0.00023031235,
+    0.017089844,
+    0.040740967,
+    0.07196045,
+    -0.047851562,
+    -0.017410278,
+    -0.015167236,
+    -0.023391724,
+    -0.032165527,
+    -0.028152466,
+    0.03564453,
+    0.033813477,
+    0.008361816,
+    0.0034732819,
+    -0.008865356,
+    0.016052246,
+    0.023635864,
+    0.022842407,
+    0.012557983,
+    -0.034088135,
+    0.010910034,
+    0.012779236,
+    -0.010910034,
+    -0.042541504,
+    -0.0041503906,
+    -0.02633667,
+    0.0012664795,
+    0.06890869,
+    -0.06713867,
+    0.048858643,
+    0.002029419,
+    0.0003950596,
+    0.006324768,
+    -0.06304932,
+    -0.054656982,
+    0.022232056,
+    0.02545166,
+    -0.021392822,
+    0.0040016174,
+    -0.0042915344,
+    -0.026489258,
+    0.035003662,
+    -0.020309448,
+    0.0045051575,
+    -0.030517578,
+    0.033111572,
+    0.013946533,
+    -0.0041770935,
+    0.008079529,
+    -0.03414917,
+    -0.027755737,
+    -0.036376953,
+    0.0309906,
+    0.0007457733,
+    -0.012374878,
+    -0.020904541,
+    -0.01675415,
+    0.046569824,
+    -0.015686035,
+    0.002313614,
+    -0.012931824,
+    -0.0034332275,
+    -0.003189087,
+    0.050201416,
+    -0.024368286,
+    -0.012527466,
+    0.047821045,
+    -0.04989624,
+    -0.0024871826,
+    -0.008277893,
+    0.046447754,
+    -0.012214661,
+    0.019226074,
+    0.016845703,
+    -0.017578125,
+    -0.021087646,
+    -0.009429932,
+    -0.044433594,
+    0.03237915,
+    -0.0069847107,
+    -0.015991211,
+    0.0073776245,
+    0.0024318695,
+    -0.014465332,
+    0.038269043,
+    0.06161499,
+    0.006263733,
+    0.037963867,
+    -0.019607544,
+    0.005844116,
+    0.06304932,
+    0.0569458,
+    -0.05114746,
+    0.00015377998,
+    -0.0050964355,
+    -0.037017822,
+    -0.022277832,
+    0.028503418,
+    0.055847168,
+    -0.029190063,
+    0.031082153,
+    0.03201294,
+    0.007797241,
+    0.01399231,
+    -0.037475586,
+    0.060424805,
+    0.006565094,
+    -0.038330078,
+    -0.055999756,
+    0.016448975,
+    -0.031173706,
+    -0.011138916,
+    -0.036621094,
+    -0.04156494,
+    -0.04425049,
+    0.026947021,
+    -0.01210022,
+    -0.0446167,
+    -0.010635376,
+    0.011039734,
+    -0.017120361,
+    0.022460938,
+    -0.013504028,
+    -0.020339966,
+    0.079956055,
+    -0.009735107,
+    -0.007850647,
+    0.014122009,
+    -0.009880066,
+    -0.022598267,
+    -0.018829346,
+    0.0042304993,
+    0.0062294006,
+    -0.01737976,
+    -0.0004246235,
+    -0.0032749176,
+    -0.0049743652,
+    -0.012779236,
+    0.01739502,
+    -0.04321289,
+    -0.07312012,
+    -0.019012451,
+    -0.009719849,
+    -0.023147583,
+    -0.08453369,
+    -0.0104904175,
+    0.044799805,
+    0.005142212,
+    0.0053901672,
+    -0.07788086,
+    0.0039253235,
+    0.01876831,
+    -0.060272217,
+    -0.060180664,
+    -0.010147095,
+    0.019943237,
+    0.023788452,
+    0.03012085,
+    0.029556274,
+    -0.07745361,
+    0.006816864,
+    0.027908325,
+    -0.009033203,
+    0.0132751465,
+    -0.035003662,
+    0.05090332,
+    -0.029296875,
+    -0.012184143,
+    -0.018875122,
+    0.016799927,
+    -0.030639648,
+    0.009880066,
+    -0.012672424,
+    -0.018936157,
+    -0.022323608,
+    -0.012992859,
+    -0.021957397,
+    -0.024673462,
+    -0.034454346,
+    -0.004283905,
+    0.018249512,
+    -0.009124756,
+    0.028564453,
+    -0.017578125,
+    0.016357422,
+    0.028884888,
+    -0.041290283,
+    -0.009384155,
+    -0.0020942688,
+    0.00869751,
+    -0.014129639,
+    0.024841309,
+    -0.025863647,
+    -0.019638062,
+    0.043426514,
+    0.0019397736,
+    0.02482605,
+    -0.012687683,
+    -0.035461426,
+    -0.007911682,
+    0.004722595,
+    0.035980225,
+    0.030441284,
+    -0.023010254,
+    0.04537964,
+    -0.041900635,
+    -0.024780273,
+    0.029953003,
+    -0.0022563934,
+    -0.011291504,
+    0.020233154,
+    -0.054779053,
+    0.0027370453,
+    0.006134033,
+    -0.01184845,
+    -0.01058197,
+    0.015777588,
+    0.004940033,
+    -0.03527832,
+    0.018310547,
+    0.0012435913,
+    -0.002128601,
+    0.03375244,
+    -0.026931763,
+    -0.07122803,
+    -0.017822266,
+    0.0033302307,
+    -0.037475586,
+    -0.09466553,
+    -0.050720215,
+    -0.0045928955,
+    -0.032714844,
+    -0.08569336,
+    -0.008934021,
+    0.033569336,
+    0.038757324,
+    0.018341064,
+    -0.029205322,
+    -0.08648682,
+    0.026290894,
+    -0.0027809143,
+    0.019363403,
+    -0.009529114,
+    0.004173279,
+    -0.023406982,
+    0.030426025,
+    -0.070007324,
+    -0.07458496,
+    -0.012809753,
+    0.010681152,
+    0.011024475,
+    -0.00049877167,
+    -0.003528595,
+    -0.0104522705,
+    0.0034866333,
+    0.014122009,
+    0.041748047,
+    -0.03149414,
+    -0.021591187,
+    -0.027175903,
+    -0.021591187,
+    -0.0007147789,
+    -0.03503418,
+    0.02494812,
+    -0.020614624,
+    -0.006500244,
+    0.00016772747,
+    0.032592773,
+    -0.06378174,
+    -0.03881836,
+    0.027023315,
+    0.07232666,
+    -0.0043144226,
+    -0.015930176,
+    -0.015686035,
+    -0.0045394897,
+    -0.02861023,
+    -0.020385742,
+    0.035827637,
+    -0.02230835,
+    -0.015113831,
+    -0.011695862,
+    -0.03857422,
+    -0.011955261,
+    -0.039886475,
+    -0.00944519,
+    0.005306244,
+    0.0017766953,
+    0.048553467,
+    -0.06365967,
+    0.015808105,
+    -0.060913086,
+    0.05807495,
+    -0.016464233,
+    0.04135132,
+    0.027832031,
+    -0.043395996,
+    -0.023620605,
+    0.011528015,
+    -0.012794495,
+    0.015655518,
+    0.04324341,
+    0.01713562,
+    0.0039978027,
+    -0.04067993,
+    0.016952515,
+    -0.004753113,
+    -0.045013428,
+    0.015625,
+    -0.014251709,
+    0.005619049,
+    0.0028858185,
+    -0.0069084167,
+    -0.015106201,
+    -0.008094788,
+    0.058532715,
+    0.054595947,
+    -0.035888672,
+    0.0067443848,
+    0.060821533,
+    0.011787415,
+    0.00970459,
+    -0.011314392,
+    0.019638062,
+    -0.066101074,
+    0.0050354004,
+    0.027313232,
+    0.00907135,
+    -0.006340027,
+    0.06274414,
+    0.005706787,
+    0.008811951,
+    0.02923584,
+    -0.010070801,
+    0.0027751923,
+    0.028213501,
+    0.023040771,
+    -0.014190674,
+    0.0044136047,
+    0.0259552,
+    -0.019226074,
+    0.028213501,
+    0.02784729,
+    0.02041626,
+    0.0019893646,
+    0.0440979,
+    -0.002532959,
+    -0.009185791,
+    0.024780273,
+    -0.003396988,
+    0.02809143,
+    0.009475708,
+    -0.07550049,
+    -0.01713562,
+    -0.008621216,
+    -0.037994385,
+    0.028839111,
+    0.05130005,
+    -0.011199951,
+    0.031982422,
+    0.012306213,
+    -0.02532959,
+    0.027008057,
+    -0.028060913,
+    -0.0066337585,
+    -0.007896423,
+    0.021987915,
+    0.01272583,
+    0.072387695,
+    0.017715454,
+    -0.015060425,
+    -0.004928589,
+    0.007698059,
+    0.03112793,
+    0.06439209,
+    0.05508423,
+    -0.022033691,
+    -0.022277832,
+    -0.03894043,
+    0.05114746,
+    -0.0357666,
+    -0.032562256,
+    -0.018081665,
+    -0.048583984,
+    0.05429077,
+    -0.015129089,
+    -0.009315491,
+    -0.0848999,
+    -0.026397705,
+    -0.00299263,
+    0.037506104,
+    0.01033783,
+    -0.0592041,
+    -0.03427124,
+    0.03302002,
+    -0.024734497,
+    -0.059570312,
+    -0.048614502,
+    -0.0090408325,
+    -0.016448975,
+    -0.037353516,
+    -0.020385742,
+    0.023986816,
+    0.00868988,
+    -0.0063323975,
+    0.002155304,
+    0.035980225,
+    -0.021408081,
+    -0.013633728,
+    0.043640137,
+    0.029525757,
+    0.014297485,
+    0.079711914,
+    0.02368164,
+    0.015213013,
+    0.0064201355,
+    -0.016326904,
+    -0.015052795,
+    -0.031921387,
+    0.017715454,
+    0.00056934357,
+    0.011436462,
+    0.0038928986,
+    0.040496826,
+    0.023376465,
+    -0.040985107,
+    0.022705078,
+    -0.0016040802,
+    -0.053253174,
+    0.0524292,
+    0.0552063,
+    -0.0010089874,
+    -0.017333984,
+    -0.004512787,
+    0.018173218,
+    0.040252686,
+    0.003036499,
+    -0.015197754,
+    0.0018482208,
+    -0.050445557,
+    0.005470276,
+    -0.00042796135,
+    0.030456543,
+    0.0034313202,
+    -0.027420044,
+    -0.0051651,
+    -0.016998291,
+    -0.014320374,
+    0.008918762,
+    0.014884949,
+    0.023040771,
+    0.013427734,
+    -0.021957397,
+    0.0008029938,
+    -0.0084991455,
+    -0.028396606,
+    0.010429382,
+    -0.0034294128,
+    0.00919342,
+    0.012481689,
+    -0.012718201,
+    0.0317688,
+    -0.017791748,
+    -0.0112838745,
+    0.012817383,
+    -0.027420044,
+    0.0015745163,
+    0.010627747,
+    -0.008926392,
+    0.0026626587,
+    -0.020950317,
+    0.052368164,
+    0.029876709,
+    -0.005569458,
+    -0.0022411346,
+    0.012039185,
+    0.025360107,
+    -0.003736496,
+    0.0028915405,
+    -0.041107178,
+    0.0010976791,
+    -0.0060691833,
+    0.030258179,
+    -0.012107849,
+    -0.006587982,
+    -0.05718994,
+    -0.0335083,
+    -0.018844604,
+    -0.029846191,
+    -0.015388489,
+    -0.06439209,
+    0.05130005,
+    0.0044670105,
+    -0.016983032,
+    0.040039062,
+    -0.0067634583,
+    0.0010585785,
+    0.025146484,
+    -0.0011463165,
+    0.025802612,
+    0.0010652542,
+    -0.0635376,
+    -0.010185242,
+    -0.006011963
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+    "file_name": "90569.md",
+    "file_size": 12115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Pilot and Aircraft Component Information",
+      "The pilot held an airline transport certificate.",
+      "The pilot held a commercial certificate.",
+      "The pilot was a flight instructor.",
+      "The pilot was 47 years old.",
+      "The pilot had airplane ratings for single-engine land.",
+      "The pilot had airplane ratings for single-engine sea.",
+      "The pilot had airplane ratings for multi-engine land.",
+      "The pilot occupied the left seat.",
+      "The pilot had helicopter rating.",
+      "The pilot used a 3-point restraint.",
+      "The pilot had instrument rating for airplane.",
+      "No second pilot was present.",
+      "The pilot had instructor ratings for airplane multi-engine.",
+      "The pilot had instructor ratings for airplane single-engine.",
+      "The pilot had instructor ratings for instrument airplane.",
+      "No toxicology was performed on the pilot.",
+      "The pilot held a Class 1 medical certification with waivers/limitations.",
+      "The pilot's last Federal Aviation Administration (FAA) medical exam was on April 26, 2014.",
+      "The pilot was an occupational pilot.",
+      "The pilot's last flight review or equivalent was on April 30, 2014.",
+      "The pilot had 8540 total flight hours in all aircraft.",
+      "The pilot had 24 total flight hours in this make and model of aircraft.",
+      "The pilot had 8281 hours as Pilot In Command in all aircraft.",
+      "The pilot had 171 flight hours in the last 90 days in all aircraft.",
+      "The pilot had 32 flight hours in the last 30 days in all aircraft.",
+      "The fuel pump was part number 638154-1.",
+      "The fuel pump had serial number 1752.",
+      "The fuel pump did not exhibit external damage.",
+      "The spline on the fuel pump was intact.",
+      "The fuel pump rotated when actuated by hand.",
+      "The fuel pump was installed on a test stand.",
+      "The fuel pump ran at rpms between 700 and 3,200 for several minutes.",
+      "The fuel pump functioned as designed.",
+      "The fuel pump recorded high pressure.",
+      "The left magneto was Slick model number 6210.",
+      "The left magneto had serial number 90080047.",
+      "The left magneto did not exhibit external damage.",
+      "The left magneto was installed on a test bench.",
+      "The left magneto ran at different rpms for several minutes.",
+      "A blue spark was observed on each lead of the left magneto at varying rpms.",
+      "The right magneto was Slick model number 6210.",
+      "The right magneto had serial number 91040206.",
+      "The right magneto did not exhibit external damage.",
+      "The right magneto was installed on a test bench.",
+      "The right magneto ran at different rpms for several minutes.",
+      "A blue spark was observed on each lead of the right magneto at varying rpms.",
+      "Two passengers reported to a Federal Aviation Administration (FAA) inspector that the airplane was \"chartered\" by a third passenger.",
+      "The charter was for a round trip flight to EYW.",
+      "A credit card receipt for $1,180.80 was provided to investigators.",
+      "The credit card receipt was charged on the third passenger's credit card.",
+      "The credit card receipt was charged by the operator, Exec Air."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Pilot Information and Qualifications",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "FAA",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held an airline transport certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport certificate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a commercial certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial certificate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was a flight instructor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was 47 years old.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "AGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "47 years",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had airplane ratings for single-engine land.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "single-engine land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had airplane ratings for single-engine sea.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "single-engine sea",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had airplane ratings for multi-engine land.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multi-engine land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot occupied the left seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had helicopter rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot used a 3-point restraint.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED RESTRAINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3-point restraint",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had instrument rating for airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instrument rating for airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had instructor ratings for airplane multi-engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane multi-engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had instructor ratings for airplane single-engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane single-engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had instructor ratings for instrument airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instrument airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not performed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Class 1 medical certification with waivers/limitations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class 1 with waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last Federal Aviation Administration (FAA) medical exam was on April 26, 2014.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST MEDICAL EXAM DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 26, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was an occupational pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PILOT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "occupational",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last flight review or equivalent was on April 30, 2014.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 30, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 8540 total flight hours in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "8540",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 24 total flight hours in this make and model of aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS IN MAKE MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "24",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 8281 hours as Pilot In Command in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PILOT IN COMMAND HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "8281",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 171 flight hours in the last 90 days in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 90 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "171",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 32 flight hours in the last 30 days in all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 30 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "32",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Component Testing",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel pump",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "left magneto",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right magneto",
+              "classification": "Aircraftcomponent"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump was part number 638154-1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PART NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "638154-1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump had serial number 1752.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1752",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump did not exhibit external damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXTERNAL DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The spline on the fuel pump was intact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SPLINE CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump rotated when actuated by hand.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "MANUAL ROTATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "functional",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump was installed on a test stand.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "installed on test stand",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump ran at rpms between 700 and 3,200 for several minutes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST RPM RANGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "700 to 3,200",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "several minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump functioned as designed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUNCTIONALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "as designed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel pump recorded high pressure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "PRESSURE READING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "high",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left magneto was Slick model number 6210.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Slick",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "MODEL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6210",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left magneto had serial number 90080047.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "90080047",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left magneto did not exhibit external damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXTERNAL DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left magneto was installed on a test bench.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "installed on test bench",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left magneto ran at different rpms for several minutes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "several minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST RPM RANGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "different rpms",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A blue spark was observed on each lead of the left magneto at varying rpms.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SPARK COLOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blue",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SPARK COVERAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "each lead",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right magneto was Slick model number 6210.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Slick",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "MODEL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6210",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right magneto had serial number 91040206.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "91040206",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right magneto did not exhibit external damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXTERNAL DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right magneto was installed on a test bench.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "installed on test bench",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right magneto ran at different rpms for several minutes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "several minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "TEST RPM RANGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "different rpms",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A blue spark was observed on each lead of the right magneto at varying rpms.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SPARK COLOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blue",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right magneto",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SPARK COVERAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "each lead",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Flight Charter Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "FAA inspector",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Exec Air",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "EYW",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "third passenger",
+              "classification": "Person"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The charter was for a round trip flight to EYW.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "CHARTER DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "EYW",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "CHARTER TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "round trip",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A credit card receipt for $1,180.80 was provided to investigators.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PAYMENT AMOUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$1,180.80",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The credit card receipt was charged on the third passenger's credit card.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PAYMENT METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "credit card",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The credit card receipt was charged by the operator, Exec Air.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PAID TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Exec Air",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Exec Air",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operator",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::c8c167ae:3b1a",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "e7ba00178d47412ab6d607c9e6e987e8c07e226bff79f52511184e6c84b6609e",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::c8c167ae:3b1a:c0827b53",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0330b9a0260e6787031b11f067371da1bfe070a94a3dc5cdb937f6667da1da2a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::c8c167ae:3b1a:73269cd2",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "101623494868232d8b18c815ba934fec3f6ddfa296e5e8c1b68104cfc93ad314",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Pilot Information\n\n## Certificate:\nAirline transport; Commercial; Flight instructor\n\n## Age:\n47\n\n## Airplane Rating(s):\nSingle-engine land; Single-engine sea; Multi-engine land\n\n## Seat Occupied:\nLeft\n\n## Other Aircraft Rating(s):\nHelicopter\n\n## Restraint Used:\n3-point\n\n## Instrument Rating(s):\nAirplane\n\n## Second Pilot Present:\nNo\n\n## Instructor Rating(s):\nAirplane multi-engine; Airplane single-engine; Instrument airplane\n\n## Toxicology Performed:\nNo\n\n## Medical Certification:\nClass 1 With waivers/limitations\n\n## Last FAA Medical Exam:\nApril 26, 2014\n\n## Occupational Pilot:\nYes\n\n## Last Flight Review or Equivalent:\nApril 30, 2014\n\n## Flight Time:\n8540 hours (Total, all aircraft), 24 hours (Total, this make and model), 8281 hours (Pilot In Command, all aircraft), 171 hours (Last 90 days, all aircraft), 32 hours (Last 30 days, all aircraft)\n\nThe fuel pump (part # 638154-1; serial # 1752) did not exhibit external damage. The spline on the fuel pump was intact and the unit rotated when actuated by hand. The fuel pump was installed on a test stand and ran at rpms between 700 and 3,200 for several minutes. The unit functioned as designed and the recorded pressure was high.\n\nThe left magneto (Slick model # 6210; serial # 90080047) did not exhibit external damage. The left magneto was installed on a test bench and ran at different rpms for several minutes. A blue spark was observed on each lead at varying rpms. The right magneto (Slick model # 6210; serial #91040206) did not exhibit external damage. The right magneto was installed on a test bench and ran at different rpms for several minutes. A blue spark was observed on each lead at varying rpms.\n\nTwo passengers reported to an FAA inspector that the airplane was \"chartered\" by a third passenger for the round trip flight to EYW. A credit card receipt for $1,180.80 was provided to investigators, on the third passenger's credit card and charged by the operator, Exec Air.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1947,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2190 @@
+{
+  "id_": "aws::dc10177c:a2a5:53d11179",
+  "embedding": [
+    -0.010757446,
+    -0.015068054,
+    0.032928467,
+    -0.017684937,
+    -0.040924072,
+    0.009666443,
+    -0.017959595,
+    -0.004890442,
+    -0.03152466,
+    0.024307251,
+    0.0064582825,
+    0.015296936,
+    0.004322052,
+    -0.04336548,
+    0.04660034,
+    -0.01751709,
+    0.006767273,
+    -0.0018234253,
+    0.049316406,
+    -0.002319336,
+    -0.009689331,
+    0.011558533,
+    0.025482178,
+    -0.025756836,
+    -0.009651184,
+    0.047790527,
+    -0.059631348,
+    0.010009766,
+    -0.012458801,
+    -0.006504059,
+    -0.0066947937,
+    0.00680542,
+    0.010856628,
+    0.02519226,
+    -0.016052246,
+    -0.043060303,
+    -0.027557373,
+    0.015083313,
+    -0.027694702,
+    0.04727173,
+    -0.00072050095,
+    0.012672424,
+    0.04333496,
+    0.017913818,
+    -0.0024356842,
+    -0.020736694,
+    0.0107803345,
+    -0.03652954,
+    0.03817749,
+    0.066467285,
+    0.014778137,
+    -0.009742737,
+    -0.008308411,
+    0.075805664,
+    -0.013549805,
+    0.0033721924,
+    -0.07501221,
+    0.07904053,
+    -0.019866943,
+    0.047576904,
+    0.03012085,
+    0.055664062,
+    -0.018981934,
+    0.015182495,
+    -0.022354126,
+    -0.04321289,
+    -0.07208252,
+    0.038085938,
+    0.043823242,
+    -0.021453857,
+    -0.020645142,
+    0.034484863,
+    -0.011665344,
+    -0.013633728,
+    -0.009506226,
+    -0.0039520264,
+    -0.010124207,
+    -0.022338867,
+    -0.00016725063,
+    0.023391724,
+    0.019958496,
+    0.03074646,
+    -0.039215088,
+    0.01272583,
+    -0.005344391,
+    0.044433594,
+    -0.020904541,
+    -0.046905518,
+    -0.0022888184,
+    -0.0101623535,
+    0.0051078796,
+    -0.0026187897,
+    0.0036754608,
+    0.021621704,
+    -0.001917839,
+    -0.038726807,
+    -0.011665344,
+    -0.09686279,
+    0.026519775,
+    -0.0473938,
+    0.09844971,
+    -0.08178711,
+    0.0065345764,
+    0.026550293,
+    0.010498047,
+    0.0066375732,
+    -0.007247925,
+    -0.023376465,
+    0.0256958,
+    -0.010772705,
+    -0.03704834,
+    0.022064209,
+    0.00844574,
+    -0.0010967255,
+    -0.056518555,
+    -0.0006284714,
+    -0.011024475,
+    -0.02796936,
+    -1.7464161e-05,
+    -0.011985779,
+    -0.010444641,
+    0.026641846,
+    -0.028167725,
+    -0.039733887,
+    -0.0055885315,
+    -0.039215088,
+    -0.0062332153,
+    0.0012845993,
+    0.0284729,
+    -0.01914978,
+    -0.015556335,
+    0.045074463,
+    -0.0066604614,
+    -0.023071289,
+    -0.013221741,
+    0.017700195,
+    -0.008300781,
+    -0.024459839,
+    -0.013793945,
+    0.012619019,
+    -0.05014038,
+    0.028320312,
+    0.10424805,
+    -0.06854248,
+    0.00724411,
+    0.0423584,
+    0.012908936,
+    -0.005996704,
+    -0.008117676,
+    -0.034210205,
+    -0.008148193,
+    -0.02381897,
+    0.06109619,
+    -0.0031661987,
+    -0.030395508,
+    -0.055664062,
+    0.04510498,
+    -0.054382324,
+    -0.0061187744,
+    -0.08380127,
+    -0.001660347,
+    -0.0357666,
+    0.0107040405,
+    -0.022537231,
+    -0.061157227,
+    0.06161499,
+    -0.032440186,
+    -0.008224487,
+    0.013656616,
+    -0.031173706,
+    0.042633057,
+    0.01802063,
+    -0.030044556,
+    -0.05593872,
+    -0.017868042,
+    -0.020080566,
+    0.013793945,
+    0.054870605,
+    0.009269714,
+    0.031402588,
+    0.020248413,
+    -0.037139893,
+    0.05657959,
+    -0.023620605,
+    0.028518677,
+    -0.035003662,
+    -0.005130768,
+    -0.034210205,
+    0.0048446655,
+    0.011917114,
+    -0.036590576,
+    0.014442444,
+    0.00023245811,
+    -0.034088135,
+    -0.0073165894,
+    -0.04486084,
+    0.009689331,
+    -0.026245117,
+    -0.005130768,
+    0.03375244,
+    -0.050933838,
+    0.033966064,
+    -0.0047798157,
+    0.04107666,
+    0.03778076,
+    -0.015731812,
+    0.015274048,
+    0.020339966,
+    -0.047607422,
+    0.019058228,
+    0.038208008,
+    -0.025985718,
+    -0.015075684,
+    0.03378296,
+    0.031082153,
+    -0.027648926,
+    0.004146576,
+    0.002161026,
+    0.0032100677,
+    0.008377075,
+    -0.021606445,
+    -0.019989014,
+    -0.02029419,
+    0.03778076,
+    -0.007083893,
+    -0.02079773,
+    -0.01058197,
+    -0.0052223206,
+    -0.015701294,
+    0.021270752,
+    -0.017822266,
+    -0.026123047,
+    -0.02154541,
+    -0.017196655,
+    -0.06335449,
+    0.03189087,
+    -0.024627686,
+    0.051483154,
+    -0.022369385,
+    -0.003358841,
+    -0.0040283203,
+    -0.030212402,
+    -0.02796936,
+    0.03994751,
+    -0.068725586,
+    -0.026931763,
+    0.009185791,
+    0.018661499,
+    0.010269165,
+    0.02053833,
+    0.049713135,
+    0.001074791,
+    0.0011138916,
+    0.0395813,
+    0.040039062,
+    -0.02357483,
+    -0.053009033,
+    -0.045166016,
+    -0.007003784,
+    -0.013366699,
+    0.03479004,
+    -0.027770996,
+    -0.036224365,
+    -0.009056091,
+    0.012504578,
+    -0.027053833,
+    0.025512695,
+    0.027557373,
+    0.04135132,
+    -0.04309082,
+    -0.010658264,
+    -0.049194336,
+    -0.0043525696,
+    0.026824951,
+    -0.077819824,
+    0.001739502,
+    -0.0418396,
+    0.0368042,
+    0.007949829,
+    -0.011352539,
+    -0.010536194,
+    0.037963867,
+    -0.059295654,
+    -0.020828247,
+    -0.0054016113,
+    -0.035095215,
+    -0.04055786,
+    -0.014305115,
+    0.012031555,
+    0.029006958,
+    0.06573486,
+    -0.032165527,
+    0.015342712,
+    -0.01272583,
+    -0.03591919,
+    -0.016433716,
+    0.058563232,
+    -0.032409668,
+    0.013458252,
+    0.0090408325,
+    0.024734497,
+    0.064331055,
+    0.011291504,
+    0.0005235672,
+    0.006919861,
+    0.0034332275,
+    -0.0022506714,
+    0.045196533,
+    0.022628784,
+    0.030593872,
+    -0.07537842,
+    -0.02015686,
+    0.045684814,
+    0.062805176,
+    0.010246277,
+    -0.0046310425,
+    0.014320374,
+    0.05545044,
+    0.042633057,
+    0.021835327,
+    -0.014328003,
+    0.024368286,
+    -0.0035419464,
+    -0.008468628,
+    0.03942871,
+    -0.005973816,
+    -0.021911621,
+    -0.00969696,
+    0.029846191,
+    0.0017166138,
+    -0.027267456,
+    -0.016586304,
+    -0.053833008,
+    0.02128601,
+    0.018981934,
+    0.021118164,
+    -0.007713318,
+    -0.0044021606,
+    -0.027816772,
+    -0.034088135,
+    -0.007648468,
+    -0.0066947937,
+    0.012008667,
+    -0.017959595,
+    -0.068725586,
+    -0.035858154,
+    0.049713135,
+    -0.020462036,
+    -0.05718994,
+    -0.0020370483,
+    0.08721924,
+    0.013221741,
+    -0.032287598,
+    0.0036315918,
+    -0.000936985,
+    -0.079956055,
+    0.0071029663,
+    -0.02381897,
+    -0.048828125,
+    -0.074279785,
+    0.038024902,
+    0.005592346,
+    -0.011550903,
+    0.012504578,
+    0.0060272217,
+    -0.032958984,
+    -0.008010864,
+    -0.0030021667,
+    0.03741455,
+    0.031433105,
+    0.029144287,
+    0.038208008,
+    -0.02394104,
+    -0.021331787,
+    -0.018035889,
+    -0.043151855,
+    0.00856781,
+    -0.038238525,
+    0.03012085,
+    0.003314972,
+    0.014007568,
+    0.0070648193,
+    0.027359009,
+    0.026565552,
+    0.0070228577,
+    -0.0008840561,
+    -0.048919678,
+    -0.032196045,
+    0.04434204,
+    0.031707764,
+    0.034057617,
+    -0.008666992,
+    -0.045562744,
+    0.0062713623,
+    -0.0012207031,
+    -0.024337769,
+    0.044647217,
+    0.027999878,
+    -0.054656982,
+    -0.028579712,
+    -0.1237793,
+    0.012557983,
+    -0.021652222,
+    -0.058410645,
+    0.010185242,
+    -0.092163086,
+    -0.045715332,
+    -0.08081055,
+    0.01159668,
+    0.03390503,
+    0.003479004,
+    0.01625061,
+    -0.010253906,
+    0.012397766,
+    -0.0012521744,
+    0.002336502,
+    0.0005469322,
+    0.010322571,
+    -0.020095825,
+    0.006427765,
+    0.048583984,
+    -0.007133484,
+    0.00085258484,
+    -0.0064315796,
+    -0.011352539,
+    -0.0074501038,
+    -0.032989502,
+    0.0040245056,
+    -0.02458191,
+    0.04031372,
+    -0.030960083,
+    -0.006336212,
+    0.008773804,
+    0.02468872,
+    -0.07965088,
+    -0.00920105,
+    0.023071289,
+    0.02684021,
+    0.08648682,
+    -0.08190918,
+    0.018112183,
+    -0.008811951,
+    -0.06726074,
+    0.027801514,
+    -0.037841797,
+    0.011459351,
+    -0.032592773,
+    -0.0096588135,
+    0.012565613,
+    -0.05331421,
+    0.019042969,
+    -0.009902954,
+    0.074523926,
+    0.019424438,
+    0.014556885,
+    0.078308105,
+    0.03878784,
+    0.04046631,
+    -0.041809082,
+    -0.038085938,
+    3.8802624e-05,
+    -0.02909851,
+    -0.044067383,
+    -0.025177002,
+    0.006038666,
+    -0.027694702,
+    0.018798828,
+    0.008888245,
+    -0.0040512085,
+    0.0055618286,
+    9.8347664e-05,
+    0.033355713,
+    -0.010749817,
+    -0.011054993,
+    0.008293152,
+    -0.015899658,
+    -0.022781372,
+    -0.020645142,
+    0.052886963,
+    0.024398804,
+    0.006298065,
+    -0.0020751953,
+    0.05911255,
+    0.022994995,
+    0.05090332,
+    -0.008415222,
+    -0.018432617,
+    -0.009880066,
+    -0.0039043427,
+    -0.020599365,
+    -0.011024475,
+    0.0016012192,
+    0.015640259,
+    -0.0368042,
+    0.007987976,
+    -0.035339355,
+    -0.0027103424,
+    0.0012426376,
+    0.0012903214,
+    -0.04360962,
+    -0.015701294,
+    -0.012939453,
+    -0.0075187683,
+    -0.008460999,
+    -0.011871338,
+    -0.0044937134,
+    -0.0012769699,
+    0.011505127,
+    0.01826477,
+    -0.0141067505,
+    -0.002565384,
+    -0.0076828003,
+    0.05783081,
+    0.042236328,
+    -0.012054443,
+    0.049438477,
+    0.027160645,
+    0.048065186,
+    0.02067566,
+    -0.026916504,
+    -0.06210327,
+    -0.06585693,
+    0.0340271,
+    0.06542969,
+    -0.05090332,
+    -0.0048065186,
+    0.006126404,
+    0.029891968,
+    -0.047973633,
+    -0.00894165,
+    0.0049057007,
+    0.070373535,
+    -0.008712769,
+    -0.022903442,
+    0.03024292,
+    -0.03286743,
+    -0.017929077,
+    0.013587952,
+    0.0064735413,
+    -0.011795044,
+    -0.0009737015,
+    0.01751709,
+    -0.0060920715,
+    2.336502e-05,
+    -0.005092621,
+    -0.053955078,
+    -0.011329651,
+    0.014808655,
+    0.011817932,
+    -0.013122559,
+    0.015731812,
+    0.014549255,
+    0.0022583008,
+    -0.032958984,
+    -0.030807495,
+    -8.517504e-05,
+    -0.0053482056,
+    -0.009002686,
+    -0.019943237,
+    0.038330078,
+    -0.05105591,
+    -0.038330078,
+    -0.027008057,
+    0.05706787,
+    -0.018249512,
+    0.013122559,
+    0.040802002,
+    0.013084412,
+    0.0158844,
+    0.0116119385,
+    -0.012962341,
+    -0.010902405,
+    0.086364746,
+    -0.019927979,
+    -0.011177063,
+    -0.058898926,
+    -0.022750854,
+    0.012557983,
+    -0.0126571655,
+    -0.0030975342,
+    -0.011184692,
+    0.01689148,
+    -0.001001358,
+    0.024475098,
+    -0.0031700134,
+    0.021255493,
+    -0.015296936,
+    0.0055122375,
+    -0.012054443,
+    5.221367e-05,
+    0.034606934,
+    -0.0043640137,
+    0.005924225,
+    -0.043884277,
+    -0.03253174,
+    0.02357483,
+    -0.037750244,
+    0.004173279,
+    0.028625488,
+    -0.0047187805,
+    0.008598328,
+    -0.010131836,
+    -0.006614685,
+    -0.029724121,
+    0.056915283,
+    -0.024108887,
+    -0.006839752,
+    -0.0026569366,
+    0.017593384,
+    0.03326416,
+    0.005432129,
+    0.010383606,
+    -0.034240723,
+    0.010749817,
+    -0.0067253113,
+    -0.0058021545,
+    -0.042175293,
+    0.050964355,
+    0.06604004,
+    0.0046844482,
+    0.030456543,
+    0.013397217,
+    0.01209259,
+    -0.007896423,
+    0.021652222,
+    -0.046875,
+    -0.020950317,
+    -0.0074653625,
+    0.0044670105,
+    -0.020828247,
+    -0.0007786751,
+    -0.012336731,
+    0.003396988,
+    0.0002527237,
+    0.003583908,
+    -0.018096924,
+    -0.0062446594,
+    -0.020935059,
+    -0.024047852,
+    -0.012840271,
+    -0.022247314,
+    -0.005897522,
+    -0.03668213,
+    0.020950317,
+    -0.016601562,
+    -0.024017334,
+    -0.0041046143,
+    -0.042297363,
+    -0.014724731,
+    -0.018981934,
+    0.01576233,
+    0.0019273758,
+    -0.044677734,
+    -0.0118255615,
+    0.018112183,
+    -0.035614014,
+    -0.017822266,
+    -0.008277893,
+    -0.009933472,
+    -0.06542969,
+    -0.08477783,
+    -0.046539307,
+    -0.006755829,
+    -0.032073975,
+    -0.0635376,
+    0.023162842,
+    0.018234253,
+    0.018203735,
+    -0.025100708,
+    -0.012496948,
+    -0.021438599,
+    0.0395813,
+    -0.040863037,
+    -0.047302246,
+    -0.019714355,
+    0.022994995,
+    0.0072364807,
+    0.03363037,
+    0.01991272,
+    -0.037017822,
+    0.024887085,
+    0.0317688,
+    0.0019702911,
+    -0.014953613,
+    -0.032562256,
+    0.070129395,
+    -0.054992676,
+    -0.028915405,
+    -0.039154053,
+    0.010391235,
+    -0.07775879,
+    -0.021514893,
+    0.0024204254,
+    -0.029022217,
+    0.0023460388,
+    -0.029159546,
+    -0.0005068779,
+    -0.00013279915,
+    -0.009796143,
+    -0.03338623,
+    0.014556885,
+    -6.2167645e-05,
+    0.0026454926,
+    -0.00056886673,
+    -0.02760315,
+    0.025177002,
+    -0.02470398,
+    0.036468506,
+    -0.047210693,
+    -0.022827148,
+    -0.0071258545,
+    0.06317139,
+    -0.021972656,
+    -0.02418518,
+    0.06640625,
+    0.012413025,
+    0.0579834,
+    0.014289856,
+    -0.01663208,
+    -0.021850586,
+    -0.01789856,
+    -0.0036830902,
+    8.767843e-05,
+    0.016052246,
+    0.04675293,
+    -0.027359009,
+    -0.0914917,
+    0.007709503,
+    -0.0018291473,
+    -0.0385437,
+    0.004180908,
+    -0.0524292,
+    0.019592285,
+    -0.010307312,
+    -0.047668457,
+    0.0446167,
+    -0.00085639954,
+    -0.003921509,
+    -0.019058228,
+    -0.0027103424,
+    -0.04244995,
+    -0.0004594326,
+    0.02507019,
+    -0.0055274963,
+    -0.0009212494,
+    0.032409668,
+    0.019561768,
+    -0.057800293,
+    0.0033550262,
+    0.013519287,
+    0.030685425,
+    -0.03866577,
+    -0.070129395,
+    -0.005077362,
+    -0.0025043488,
+    -0.027648926,
+    -0.0010080338,
+    0.05706787,
+    -0.03363037,
+    0.018478394,
+    -0.026229858,
+    0.00012075901,
+    -0.02029419,
+    0.017044067,
+    -0.040252686,
+    -0.004119873,
+    -0.026016235,
+    -0.0099487305,
+    -0.021224976,
+    -0.0016107559,
+    0.031219482,
+    -0.0042800903,
+    0.0010995865,
+    -0.015464783,
+    0.035217285,
+    -0.009895325,
+    0.0138168335,
+    -0.05859375,
+    4.4465065e-05,
+    -0.004863739,
+    0.010879517,
+    0.02960205,
+    0.050048828,
+    -0.0051879883,
+    0.01109314,
+    -0.0082092285,
+    0.016448975,
+    -0.010688782,
+    0.0058670044,
+    -0.015174866,
+    0.029693604,
+    0.017990112,
+    0.0025177002,
+    0.01864624,
+    0.014923096,
+    0.018478394,
+    -0.011054993,
+    -0.0051879883,
+    -0.0256958,
+    -0.029190063,
+    -0.001991272,
+    0.0054893494,
+    -0.016418457,
+    -0.001367569,
+    -0.023162842,
+    -0.027420044,
+    0.02003479,
+    0.024932861,
+    0.030090332,
+    -0.030975342,
+    0.017074585,
+    -0.013397217,
+    0.024398804,
+    -0.0096588135,
+    -0.018814087,
+    0.02809143,
+    -0.06982422,
+    -0.043121338,
+    -0.017654419,
+    -0.013641357,
+    0.046142578,
+    0.04949951,
+    -0.008544922,
+    0.0127334595,
+    0.020904541,
+    -0.022720337,
+    -0.0015516281,
+    -0.014305115,
+    0.06201172,
+    0.05633545,
+    -0.009033203,
+    0.04071045,
+    -0.0004079342,
+    -0.00894165,
+    0.032592773,
+    0.037231445,
+    0.0077171326,
+    -0.00970459,
+    -0.00077676773,
+    0.018737793,
+    0.0020484924,
+    -0.031097412,
+    0.022415161,
+    -0.0012426376,
+    -0.0178833,
+    0.014640808,
+    0.017349243,
+    0.005970001,
+    0.027542114,
+    0.047790527,
+    0.03387451,
+    -0.007446289,
+    0.036590576,
+    -0.032348633,
+    0.0017271042,
+    -0.026977539,
+    0.00724411,
+    -0.034973145,
+    -0.005809784,
+    -0.020629883,
+    -0.036499023,
+    0.030700684,
+    -0.011482239,
+    0.0067214966,
+    0.0021209717,
+    0.033050537,
+    -0.018936157,
+    0.025299072,
+    0.00983429,
+    0.018188477,
+    0.031311035,
+    0.026824951,
+    -0.04446411,
+    -0.016021729,
+    -0.017074585,
+    -0.010818481,
+    0.0053100586,
+    0.028839111,
+    -0.02154541,
+    -0.021850586,
+    -0.01727295,
+    -0.035827637,
+    0.032836914,
+    -0.0036506653,
+    0.0005059242,
+    -0.01940918,
+    0.013702393,
+    -0.0058784485,
+    0.049346924,
+    0.035491943,
+    -0.024047852,
+    -0.025619507,
+    -0.031982422,
+    0.010620117,
+    0.04849243,
+    0.121398926,
+    -0.006210327,
+    -0.013801575,
+    -0.074035645,
+    0.051971436,
+    -0.0703125,
+    -0.054351807,
+    0.040222168,
+    -0.07739258,
+    0.034423828,
+    0.018478394,
+    0.015640259,
+    -0.056365967,
+    -0.014533997,
+    -0.013824463,
+    0.012832642,
+    0.0016841888,
+    -0.014907837,
+    -8.016825e-05,
+    0.016937256,
+    0.0010643005,
+    -0.014160156,
+    -0.044769287,
+    0.053710938,
+    -0.05392456,
+    -0.031311035,
+    -0.011131287,
+    0.028930664,
+    0.013191223,
+    0.018478394,
+    -0.010154724,
+    0.06750488,
+    -0.008613586,
+    0.00995636,
+    -0.015457153,
+    -0.016723633,
+    0.00894928,
+    0.104003906,
+    -0.06298828,
+    0.077697754,
+    -0.014709473,
+    -0.008857727,
+    -0.050933838,
+    -0.00907135,
+    0.025100708,
+    -0.0016431808,
+    -0.04763794,
+    -0.06112671,
+    0.028839111,
+    0.011276245,
+    0.00091028214,
+    0.028198242,
+    -0.017410278,
+    -0.083862305,
+    -0.011436462,
+    -0.022964478,
+    0.02671814,
+    -0.026000977,
+    -0.014816284,
+    0.017959595,
+    0.017623901,
+    -0.032104492,
+    -0.007911682,
+    0.0048103333,
+    0.01121521,
+    0.0178833,
+    0.039276123,
+    0.014907837,
+    0.0181427,
+    -0.015380859,
+    -0.007167816,
+    0.012207031,
+    -0.012435913,
+    -0.0099487305,
+    -0.018585205,
+    0.004447937,
+    -0.011276245,
+    -0.00541687,
+    -0.033111572,
+    0.011299133,
+    -0.0058174133,
+    -0.0050964355,
+    -0.024917603,
+    0.028869629,
+    -0.03173828,
+    -0.016921997,
+    0.007881165,
+    0.005870819,
+    -0.0390625,
+    0.05029297,
+    -0.011054993,
+    -0.013389587,
+    -0.009162903,
+    -0.0029830933,
+    -0.021072388,
+    -0.039031982,
+    -0.0024528503,
+    0.039886475,
+    0.043701172,
+    -0.033233643,
+    -0.010406494,
+    0.03930664,
+    -0.009742737,
+    -0.011054993,
+    -0.018920898,
+    -0.030151367,
+    0.008628845,
+    0.02243042,
+    0.018844604,
+    -0.015945435,
+    -0.019241333,
+    0.0034637451,
+    0.037261963,
+    -0.015655518,
+    0.022003174,
+    -0.039154053,
+    0.043426514,
+    0.015808105,
+    -0.009468079,
+    0.040252686,
+    -0.0043182373,
+    0.022201538,
+    0.017822266,
+    0.04425049,
+    0.060150146,
+    -0.036987305,
+    0.019378662,
+    0.017166138,
+    -0.030654907
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85376.md",
+    "file_name": "85376.md",
+    "file_size": 7495,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Kitfox Super Sport N960WM in Twin Bridges, Montana",
+      "The accident occurred in Twin Bridges, Montana.",
+      "The accident occurred on October 18, 2012, at 14:40 local time.",
+      "The aircraft involved was an Albright Stan Kitfox Super Sport.",
+      "The defining event was loss of control in flight.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was WPR13CA018.",
+      "The aircraft registration was N960WM.",
+      "The aircraft sustained substantial damage.",
+      "There were no injuries to the sole occupant.",
+      "The pilot attempted to perform a full-flap soft-field takeoff in the experimental light sport airplane.",
+      "The pilot had flown about 16 hours in the accident airplane.",
+      "The pilot purchased the airplane from the airplane builder 4 months before the accident.",
+      "This was the pilot's first attempt at full-flap soft-field takeoff in this airplane.",
+      "The airplane rolled abruptly to the right as it left the ground.",
+      "The right wing tip struck the ground.",
+      "The airplane cartwheeled.",
+      "The airplane came to rest pointing in the opposite direction of intended travel.",
+      "The right wing and fuselage were substantially damaged.",
+      "Postaccident examination revealed that the airplane's flaperons were misrigged.",
+      "The difference in flaperon deflection was more extreme in the full flap position.",
+      "In the full flap position with a full left control deflection input, the right flaperon moved 3 degrees more than properly rigged.",
+      "In the full flap position with a full left control deflection input, the left flaperon moved 3 degrees less than properly rigged.",
+      "The asymmetric nature of the flaperon deflections induced an adverse yaw to the right.",
+      "The adverse yaw occurred despite the pilot's corrective control inputs.",
+      "The airplane builder performed the most recent annual airworthiness inspection 4 1/2 months before the accident.",
+      "The National Transportation Safety Board determined the probable cause of this accident to be the airplane builder's failure to rig the flight controls correctly.",
+      "The incorrectly rigged flight controls resulted in a loss of control after takeoff."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Kitfox Super Sport N960WM in Twin Bridges, Montana",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Twin Bridges, Montana",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Albright Stan Kitfox Super Sport",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N960WM",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of control in flight",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR13CA018",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane builder",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Twin Bridges, Montana.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Twin Bridges, Montana",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on October 18, 2012, at 1440 local time.",
+              "details": [
+                "accident DATE October 18, 2012",
+                "accident TIME 14:40 local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "October 18, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14:40 local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was an Albright Stan Kitfox Super Sport.",
+              "details": [
+                "accident INVOLVED Albright Stan Kitfox Super Sport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Albright Stan Kitfox Super Sport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of control in flight.",
+              "details": [
+                "accident DEFINING EVENT loss of control in flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control in flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR13CA018.",
+              "details": [
+                "accident NUMBER WPR13CA018"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR13CA018",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N960WM.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Albright Stan Kitfox Super Sport",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N960WM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Albright Stan Kitfox Super Sport",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no injuries to the sole occupant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attempted to perform a full-flap soft-field takeoff in the experimental light sport airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ATTEMPTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "full-flap soft-field takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Albright Stan Kitfox Super Sport",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CATEGORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "experimental light sport airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had flown about 16 hours in the accident airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 16 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot purchased the airplane from the airplane builder 4 months before the accident.",
+              "details": [
+                "purchase TIME 4 months before the accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PURCHASED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane builder",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "purchase",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4 months before the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "This was the pilot's first attempt at full-flap soft-field takeoff in this airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "first attempt at full-flap soft-field takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane rolled abruptly to the right as it left the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Albright Stan Kitfox Super Sport",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rolled abruptly to the right as it left the ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right wing tip struck the ground.",
+              "details": [
+                "right wing tip ACTION struck the ground"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing tip",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "struck the ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane cartwheeled.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Albright Stan Kitfox Super Sport",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cartwheeled",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to rest pointing in the opposite direction of intended travel.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Albright Stan Kitfox Super Sport",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pointing in the opposite direction of intended travel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right wing and fuselage were substantially damaged.",
+              "details": [
+                "right wing DAMAGE substantial",
+                "fuselage DAMAGE substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed that the airplane's flaperons were misrigged.",
+              "details": [
+                "flaperons CONDITION misrigged"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flaperons",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "misrigged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The difference in flaperon deflection was more extreme in the full flap position.",
+              "details": [
+                "flaperon deflection CHARACTERISTIC more extreme in the full flap position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flaperon deflection",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more extreme in the full flap position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "In the full flap position with a full left control deflection input, the right flaperon moved 3 degrees more than properly rigged.",
+              "details": [
+                "right flaperon MOVEMENT 3 degrees more than properly rigged",
+                "right flaperon CONDITION full flap position with a full left control deflection input"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right flaperon",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3 degrees more than properly rigged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right flaperon",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "full flap position with a full left control deflection input",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "In the full flap position with a full left control deflection input, the left flaperon moved 3 degrees less than properly rigged.",
+              "details": [
+                "left flaperon MOVEMENT 3 degrees less than properly rigged",
+                "left flaperon CONDITION full flap position with a full left control deflection input"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left flaperon",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3 degrees less than properly rigged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left flaperon",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "full flap position with a full left control deflection input",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The asymmetric nature of the flaperon deflections induced an adverse yaw to the right.",
+              "details": [
+                "flaperon deflections EFFECT induced an adverse yaw to the right",
+                "flaperon deflections CHARACTERISTIC asymmetric"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flaperon deflections",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "induced an adverse yaw to the right",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flaperon deflections",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "asymmetric",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The adverse yaw occurred despite the pilot's corrective control inputs.",
+              "details": [
+                "adverse yaw OCCURRED DESPITE pilot's corrective control inputs"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "adverse yaw",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DESPITE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's corrective control inputs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane builder performed the most recent annual airworthiness inspection 4 1/2 months before the accident.",
+              "details": [
+                "annual airworthiness inspection TIME 4 1/2 months before the accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane builder",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "annual airworthiness inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "annual airworthiness inspection",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4 1/2 months before the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of this accident to be the airplane builder's failure to rig the flight controls correctly.",
+              "details": [
+                "accident PROBABLE CAUSE airplane builder's failure to rig the flight controls correctly"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane builder's failure to rig the flight controls correctly",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incorrectly rigged flight controls resulted in a loss of control after takeoff.",
+              "details": [
+                "incorrectly rigged flight controls RESULTED IN loss of control after takeoff"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incorrectly rigged flight controls",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control after takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::dc10177c:a2a5",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85376.md",
+        "file_name": "85376.md",
+        "file_size": 7495,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "15b1c1d8fc033acb8bf007e07ec83d2c9110f863b4ed197bc2e7ba44a1af6a76",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::dc10177c:a2a5:1f10649d",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85376.md",
+        "file_name": "85376.md",
+        "file_size": 7495,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "2566d1da26b502012ce517a225a9ef9328208530c83bb73e07747d0d4afbb66f",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nTwin Bridges, Montana\n\n## Date & Time: \nOctober 18, 2012, 14:40 Local\n\n## Aircraft:\nALBRIGHT STAN KITFOX SUPER SPORT\n\n## Defining Event:\nLoss of control in flight\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nWPR13CA018\n\n## Registration:\nN960WM\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nThe pilot attempted to perform a full-flap soft-field takeoff in the experimental light sport airplane. The pilot had flown about 16 hours in the accident airplane in the 4 months since he purchased it from the airplane builder; however, this was his first attempt at full-flap soft-field takeoff in this airplane. As the airplane left the ground, it rolled abruptly to the right. The right wing tip struck the ground, and the airplane cartwheeled, coming to rest pointing in the opposite direction of intended travel. The right wing and fuselage were substantially damaged.\n\nPostaccident examination revealed that the airplane's flaperons were misrigged and that the resultant difference in flaperon deflection was more extreme in the full flap position. In the full flap position with a full left control deflection input, the right flaperon moved 3 degrees more and the left flaperon 3 degrees less than they would have if properly rigged. The asymmetric nature of the flaperon deflections induced an adverse yaw to the right despite the pilot's corrective control inputs. Examination of the airplane maintenance logbook revealed that the airplane builder performed the most recent annual airworthiness inspection 4 1/2 months before the accident.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\nThe airplane builder's failure to rig the flight controls correctly, which resulted in a loss of control after takeoff.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1911,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

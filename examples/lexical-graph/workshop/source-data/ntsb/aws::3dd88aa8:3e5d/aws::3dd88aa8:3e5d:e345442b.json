@@ -1,0 +1,2614 @@
+{
+  "id_": "aws::3dd88aa8:3e5d:e345442b",
+  "embedding": [
+    0.023483276,
+    0.006385803,
+    0.012413025,
+    -0.045654297,
+    0.006122589,
+    -0.0075683594,
+    -0.01322937,
+    0.009307861,
+    -0.05178833,
+    0.025543213,
+    0.04321289,
+    0.013214111,
+    -0.015594482,
+    -0.042663574,
+    0.04055786,
+    -0.026046753,
+    -0.0012950897,
+    0.059783936,
+    0.049194336,
+    -0.0047798157,
+    -0.0019054413,
+    -0.0006389618,
+    0.028045654,
+    -0.06088257,
+    0.0015363693,
+    0.072265625,
+    -0.03829956,
+    0.00699234,
+    0.0068626404,
+    0.031585693,
+    0.011772156,
+    -0.047058105,
+    0.012321472,
+    0.05834961,
+    -0.04876709,
+    0.005302429,
+    -0.018951416,
+    0.013656616,
+    -0.016525269,
+    0.023666382,
+    -0.013755798,
+    0.008987427,
+    0.064331055,
+    -0.07366943,
+    0.02053833,
+    0.0059547424,
+    -0.012786865,
+    -0.051940918,
+    0.01625061,
+    0.051727295,
+    -0.013320923,
+    0.0030899048,
+    -0.017852783,
+    0.019577026,
+    0.0073928833,
+    0.010719299,
+    -0.009727478,
+    -0.01576233,
+    -0.012893677,
+    0.022064209,
+    0.03439331,
+    0.0597229,
+    0.015213013,
+    0.034179688,
+    -0.027404785,
+    -0.010192871,
+    0.015991211,
+    0.01675415,
+    0.06173706,
+    -0.029129028,
+    -0.06604004,
+    0.0496521,
+    -0.00182724,
+    0.013420105,
+    0.018920898,
+    -0.04550171,
+    -0.03074646,
+    -0.017227173,
+    0.02142334,
+    0.056732178,
+    0.032806396,
+    -0.008285522,
+    -0.0146102905,
+    0.0345459,
+    8.0406666e-05,
+    0.059906006,
+    -0.0041656494,
+    -0.038635254,
+    0.010223389,
+    0.009185791,
+    -0.010673523,
+    -0.023147583,
+    0.07714844,
+    0.006099701,
+    -0.047973633,
+    -0.013954163,
+    -0.011909485,
+    -0.07043457,
+    0.07110596,
+    0.004940033,
+    0.032806396,
+    -0.050354004,
+    0.015792847,
+    -0.004535675,
+    -0.009239197,
+    -0.03869629,
+    0.014862061,
+    -0.04248047,
+    0.02293396,
+    0.017044067,
+    -0.045318604,
+    0.07965088,
+    -0.00995636,
+    -0.07293701,
+    0.0017147064,
+    0.07220459,
+    0.031143188,
+    -0.005970001,
+    0.01979065,
+    -0.012184143,
+    0.035308838,
+    0.053466797,
+    -0.07531738,
+    -0.021530151,
+    -0.005065918,
+    -0.0335083,
+    -0.026306152,
+    0.037475586,
+    0.0051498413,
+    0.007827759,
+    -0.024520874,
+    0.02330017,
+    0.00819397,
+    -0.009284973,
+    -0.0032310486,
+    -0.007843018,
+    -0.01309967,
+    -0.0043411255,
+    0.019317627,
+    -0.046020508,
+    0.044006348,
+    0.007385254,
+    0.06512451,
+    0.038146973,
+    -0.049438477,
+    0.023254395,
+    0.018615723,
+    -0.004295349,
+    -0.027435303,
+    -0.054382324,
+    -0.02268982,
+    -0.014816284,
+    0.040100098,
+    -0.014564514,
+    -0.032409668,
+    -0.08074951,
+    -0.010482788,
+    -0.053344727,
+    0.05142212,
+    -0.06384277,
+    0.009170532,
+    -0.011199951,
+    0.007457733,
+    0.028198242,
+    -0.031311035,
+    0.020858765,
+    -0.004173279,
+    -0.02015686,
+    0.00598526,
+    0.022827148,
+    0.018463135,
+    -0.016357422,
+    -0.019241333,
+    -0.0010566711,
+    -0.008590698,
+    0.006164551,
+    0.02355957,
+    0.059020996,
+    -0.0039711,
+    0.017578125,
+    0.018127441,
+    -0.032104492,
+    0.05795288,
+    -0.020828247,
+    0.007095337,
+    -0.015487671,
+    0.018478394,
+    -0.013153076,
+    -0.010551453,
+    0.0019245148,
+    0.025939941,
+    0.024246216,
+    0.02508545,
+    -0.0082473755,
+    -0.008728027,
+    -0.04336548,
+    -0.010139465,
+    -0.012275696,
+    -0.022644043,
+    0.014877319,
+    -0.005672455,
+    0.018447876,
+    0.0060577393,
+    0.034484863,
+    -0.0040130615,
+    0.0073432922,
+    0.00944519,
+    0.026535034,
+    -0.055999756,
+    0.020324707,
+    0.050079346,
+    -0.0041923523,
+    -0.033294678,
+    0.042419434,
+    0.036071777,
+    0.010475159,
+    0.009277344,
+    -0.007358551,
+    0.004009247,
+    0.008811951,
+    -0.03930664,
+    0.04574585,
+    -0.040985107,
+    0.017913818,
+    -0.0026664734,
+    -0.034210205,
+    0.0057678223,
+    -0.0099487305,
+    0.04815674,
+    0.009307861,
+    0.06365967,
+    -0.024734497,
+    0.020339966,
+    0.08520508,
+    0.016799927,
+    0.026901245,
+    0.044403076,
+    -0.016860962,
+    0.010650635,
+    -0.015213013,
+    -0.0069732666,
+    -0.045776367,
+    -0.03652954,
+    0.06365967,
+    -0.111450195,
+    -0.0826416,
+    -0.019073486,
+    0.038024902,
+    -0.005420685,
+    0.02734375,
+    0.030532837,
+    0.033569336,
+    0.0017271042,
+    0.012161255,
+    0.0064201355,
+    0.014511108,
+    -0.020599365,
+    -0.025924683,
+    0.018463135,
+    -0.002538681,
+    0.018508911,
+    -0.01083374,
+    -0.024993896,
+    -0.00548172,
+    0.031402588,
+    0.029922485,
+    0.06365967,
+    0.062683105,
+    -0.026977539,
+    0.012756348,
+    -0.0098724365,
+    0.018737793,
+    0.011932373,
+    0.033325195,
+    -0.06384277,
+    -0.022155762,
+    -0.011245728,
+    0.010192871,
+    0.015380859,
+    -0.0099105835,
+    -0.0062675476,
+    0.010932922,
+    -0.02355957,
+    -0.0061149597,
+    0.050842285,
+    0.0068969727,
+    -0.027130127,
+    -0.011436462,
+    0.04019165,
+    0.079711914,
+    0.084228516,
+    -0.0075683594,
+    -0.029678345,
+    0.047576904,
+    -0.043121338,
+    -0.02053833,
+    0.072387695,
+    0.019973755,
+    -0.0096206665,
+    0.029663086,
+    0.03527832,
+    0.051330566,
+    0.0016222,
+    0.011566162,
+    0.013542175,
+    -0.027786255,
+    -0.012557983,
+    0.016159058,
+    0.011459351,
+    0.0004310608,
+    0.0005097389,
+    0.07891846,
+    0.030593872,
+    0.050354004,
+    -0.027893066,
+    -0.017608643,
+    -0.043762207,
+    0.043640137,
+    -0.0046653748,
+    0.013793945,
+    -0.007949829,
+    -0.015914917,
+    0.005092621,
+    -0.0034656525,
+    0.0053977966,
+    -0.010658264,
+    0.00061130524,
+    -0.0025596619,
+    0.003419876,
+    -0.019134521,
+    0.013595581,
+    -0.013519287,
+    -0.027786255,
+    -0.008293152,
+    0.022567749,
+    0.010055542,
+    -0.00076818466,
+    0.043914795,
+    -0.010597229,
+    -0.011146545,
+    -0.03338623,
+    -0.038391113,
+    0.0027599335,
+    -0.03866577,
+    -0.036376953,
+    -0.04953003,
+    0.053497314,
+    -0.015472412,
+    -0.028335571,
+    0.0078048706,
+    0.038848877,
+    -0.0056648254,
+    -0.0068626404,
+    0.013305664,
+    0.010665894,
+    -0.07318115,
+    -0.009338379,
+    0.027709961,
+    -0.040740967,
+    -0.04925537,
+    -0.02067566,
+    0.006668091,
+    -0.049224854,
+    -0.047332764,
+    0.03475952,
+    0.0069465637,
+    -0.032989502,
+    0.0037155151,
+    0.004234314,
+    0.026046753,
+    -0.044891357,
+    0.020614624,
+    -0.021560669,
+    0.001115799,
+    -0.008102417,
+    0.004383087,
+    0.033233643,
+    -0.028137207,
+    0.028060913,
+    0.045532227,
+    0.016952515,
+    0.025024414,
+    0.0005993843,
+    0.004207611,
+    0.04824829,
+    -0.008346558,
+    0.003545761,
+    0.034698486,
+    0.028579712,
+    0.020523071,
+    -0.0035533905,
+    -0.027755737,
+    0.028396606,
+    -0.014816284,
+    0.009254456,
+    -0.011238098,
+    -0.0045433044,
+    0.0069236755,
+    -0.03086853,
+    -0.0009598732,
+    -0.055999756,
+    0.005630493,
+    -0.00869751,
+    -0.0014762878,
+    -0.0033721924,
+    -0.104003906,
+    -0.0038833618,
+    -0.03982544,
+    0.030334473,
+    0.05444336,
+    -0.032592773,
+    0.031707764,
+    -0.032318115,
+    0.03086853,
+    -0.025436401,
+    0.024002075,
+    -0.0052833557,
+    -0.007118225,
+    -0.0079956055,
+    0.018951416,
+    0.04953003,
+    -0.03503418,
+    0.005493164,
+    0.0236969,
+    -0.03366089,
+    -0.04019165,
+    -0.0040359497,
+    0.03186035,
+    -0.030395508,
+    0.021072388,
+    -0.026367188,
+    -0.018936157,
+    0.010887146,
+    -0.012626648,
+    -0.02458191,
+    0.040161133,
+    -0.022537231,
+    0.01184082,
+    -0.003583908,
+    -0.029663086,
+    0.0057144165,
+    0.000279665,
+    0.008918762,
+    0.0031471252,
+    -0.0064697266,
+    -0.01461792,
+    -0.0035495758,
+    0.025924683,
+    0.014846802,
+    -0.037322998,
+    -0.0017499924,
+    -0.0058059692,
+    0.055023193,
+    0.024246216,
+    0.0037498474,
+    0.040161133,
+    0.039886475,
+    0.047851562,
+    0.03326416,
+    -0.058563232,
+    -0.012557983,
+    -0.024017334,
+    -0.04498291,
+    0.010902405,
+    -0.009552002,
+    -0.019592285,
+    0.03439331,
+    -0.009796143,
+    0.016464233,
+    -0.018463135,
+    -0.05340576,
+    0.0713501,
+    7.43866e-05,
+    -0.03491211,
+    0.03048706,
+    -0.0035972595,
+    -0.00016999245,
+    -0.043060303,
+    0.043518066,
+    0.012054443,
+    -0.02999878,
+    -0.015029907,
+    0.017227173,
+    0.07714844,
+    0.032318115,
+    0.014389038,
+    0.049957275,
+    0.09387207,
+    -0.00409317,
+    0.0002462864,
+    -0.00043320656,
+    0.013893127,
+    0.029510498,
+    -0.019210815,
+    0.0034713745,
+    -0.024932861,
+    0.001074791,
+    -0.010971069,
+    -0.019592285,
+    -0.05545044,
+    -0.035888672,
+    -0.012062073,
+    -0.002155304,
+    -0.00712204,
+    0.013114929,
+    0.029190063,
+    -0.0037708282,
+    0.005012512,
+    0.011428833,
+    0.010383606,
+    -0.046661377,
+    -0.021438599,
+    0.004047394,
+    -0.027267456,
+    -0.00793457,
+    0.07293701,
+    -0.020004272,
+    -0.051696777,
+    0.04336548,
+    -0.0053710938,
+    -0.04510498,
+    -0.018188477,
+    0.049316406,
+    0.057037354,
+    -0.05883789,
+    0.009918213,
+    0.0050201416,
+    0.04067993,
+    -0.03439331,
+    -0.0054740906,
+    0.010421753,
+    0.013282776,
+    0.009140015,
+    -0.010269165,
+    0.026321411,
+    0.005332947,
+    0.008583069,
+    0.018066406,
+    -0.052001953,
+    -0.06222534,
+    -0.01777649,
+    0.0059661865,
+    0.022827148,
+    -0.058807373,
+    0.0007638931,
+    -0.03564453,
+    0.010665894,
+    -0.018341064,
+    -0.009880066,
+    -0.05709839,
+    0.0049705505,
+    0.037475586,
+    -0.0078125,
+    -0.039123535,
+    -0.04547119,
+    0.047698975,
+    0.0068359375,
+    -0.0090789795,
+    -0.001709938,
+    0.01638794,
+    -0.013092041,
+    -0.037384033,
+    -0.0076065063,
+    0.028457642,
+    -0.0043678284,
+    0.025146484,
+    -0.0061073303,
+    -0.030090332,
+    0.027923584,
+    0.0030345917,
+    -0.05117798,
+    -0.039764404,
+    0.031188965,
+    0.01663208,
+    -0.026794434,
+    -0.02027893,
+    -0.015655518,
+    0.038208008,
+    -0.03805542,
+    0.011329651,
+    0.033447266,
+    0.026672363,
+    -0.041778564,
+    0.0748291,
+    -0.027999878,
+    0.0055770874,
+    0.020446777,
+    0.002861023,
+    -0.012702942,
+    -0.016693115,
+    0.026000977,
+    -0.0102005005,
+    0.016036987,
+    0.021697998,
+    -0.0025558472,
+    -0.022064209,
+    -0.005393982,
+    -0.06008911,
+    0.012588501,
+    -0.009277344,
+    -0.0090408325,
+    -0.0309906,
+    -0.0027942657,
+    -0.027160645,
+    0.06304932,
+    0.01159668,
+    -0.01234436,
+    0.032165527,
+    0.035369873,
+    0.017974854,
+    -0.025253296,
+    -0.016113281,
+    -0.072753906,
+    0.042663574,
+    -0.054351807,
+    -0.0146865845,
+    -0.059692383,
+    0.03186035,
+    0.067871094,
+    -0.0021438599,
+    0.039245605,
+    0.0112838745,
+    0.0035114288,
+    0.008865356,
+    -0.005760193,
+    0.037628174,
+    -0.006477356,
+    -0.05734253,
+    -0.041625977,
+    0.044067383,
+    -0.043426514,
+    0.0055389404,
+    -0.021621704,
+    -0.01777649,
+    -0.017349243,
+    0.00969696,
+    -0.011993408,
+    -0.023666382,
+    -0.014167786,
+    -0.00415802,
+    -0.024978638,
+    0.038085938,
+    -0.007411957,
+    -0.01739502,
+    0.012107849,
+    -0.032196045,
+    -0.015052795,
+    -0.03149414,
+    -0.009254456,
+    0.00064754486,
+    -0.030960083,
+    -0.0047416687,
+    -0.034576416,
+    -0.019470215,
+    0.012901306,
+    -0.022232056,
+    -0.015609741,
+    -0.025772095,
+    0.0040283203,
+    -0.028457642,
+    -0.0579834,
+    0.010093689,
+    -0.05126953,
+    0.013572693,
+    -0.045318604,
+    -0.017044067,
+    0.0149002075,
+    0.010566711,
+    -0.03060913,
+    -0.0055503845,
+    -0.03491211,
+    0.04727173,
+    -0.0025520325,
+    -0.035705566,
+    0.029159546,
+    -0.023025513,
+    0.035888672,
+    0.01914978,
+    0.025772095,
+    -0.10070801,
+    0.013549805,
+    0.015090942,
+    -0.009063721,
+    0.015594482,
+    -0.02709961,
+    0.053253174,
+    -0.045928955,
+    -0.02128601,
+    -0.013069153,
+    -0.023361206,
+    0.018920898,
+    0.051605225,
+    -0.031402588,
+    -0.0029277802,
+    0.010681152,
+    -0.014915466,
+    -0.05001831,
+    0.022018433,
+    0.028503418,
+    -0.013450623,
+    -0.0209198,
+    0.0026798248,
+    -0.018920898,
+    -0.025131226,
+    -0.057678223,
+    0.04724121,
+    0.0018596649,
+    0.042510986,
+    -0.08728027,
+    -0.019073486,
+    -0.0043754578,
+    0.02418518,
+    -0.0017061234,
+    0.0021095276,
+    0.03125,
+    0.018508911,
+    0.033111572,
+    -0.019836426,
+    -0.043029785,
+    0.0020999908,
+    0.0034732819,
+    0.020935059,
+    0.040222168,
+    -0.047851562,
+    0.018936157,
+    0.0028572083,
+    0.0010213852,
+    0.02772522,
+    -0.006252289,
+    -0.014076233,
+    0.018066406,
+    -0.03250122,
+    0.028549194,
+    -0.0051727295,
+    -0.03503418,
+    -0.012702942,
+    -0.013519287,
+    0.015136719,
+    0.0015735626,
+    -0.032806396,
+    -0.06506348,
+    -0.006587982,
+    0.01448822,
+    0.019989014,
+    -0.042999268,
+    -0.012138367,
+    0.0047454834,
+    -0.074645996,
+    -0.060394287,
+    -0.03869629,
+    0.01473999,
+    -0.05630493,
+    -0.042388916,
+    0.009414673,
+    0.0077552795,
+    0.008262634,
+    -0.023651123,
+    0.018432617,
+    -0.028152466,
+    0.01020813,
+    -0.0075416565,
+    0.009506226,
+    0.013908386,
+    0.026535034,
+    0.0063209534,
+    0.029144287,
+    0.026855469,
+    0.017181396,
+    0.01826477,
+    -0.011894226,
+    -0.03326416,
+    -0.013809204,
+    -0.017333984,
+    -0.021118164,
+    0.06951904,
+    0.0020961761,
+    0.045196533,
+    -0.014801025,
+    -0.014633179,
+    -0.04815674,
+    -0.04711914,
+    0.017471313,
+    -0.028305054,
+    0.030471802,
+    -0.046020508,
+    0.0014657974,
+    -0.004753113,
+    0.06665039,
+    -0.018814087,
+    0.046051025,
+    -0.024887085,
+    0.043395996,
+    -0.026275635,
+    -0.05911255,
+    -0.010307312,
+    -0.05569458,
+    -0.10180664,
+    -0.01625061,
+    -0.072753906,
+    -0.052642822,
+    0.0066947937,
+    -0.023422241,
+    -0.006187439,
+    0.004234314,
+    -0.038146973,
+    0.0016345978,
+    -0.016601562,
+    0.035003662,
+    0.017852783,
+    -0.04714966,
+    0.021881104,
+    -0.04953003,
+    0.045135498,
+    0.011116028,
+    0.020202637,
+    0.016983032,
+    0.0013475418,
+    -0.03845215,
+    0.011810303,
+    0.03189087,
+    0.00028181076,
+    0.04208374,
+    0.06329346,
+    -0.032043457,
+    0.03930664,
+    -0.00070905685,
+    -0.014053345,
+    -0.013008118,
+    0.02670288,
+    -0.020431519,
+    0.0028934479,
+    0.0124435425,
+    -0.015655518,
+    -0.036590576,
+    0.016403198,
+    0.048797607,
+    0.022247314,
+    -0.016525269,
+    0.010406494,
+    0.026031494,
+    -0.026626587,
+    0.0034637451,
+    -0.00018167496,
+    -0.014671326,
+    -0.02166748,
+    0.05114746,
+    0.0335083,
+    -0.0062179565,
+    -0.017959595,
+    0.0541687,
+    0.010002136,
+    -0.00013363361,
+    0.045806885,
+    -0.005142212,
+    0.0031471252,
+    -0.00491333,
+    0.00067281723,
+    -0.026672363,
+    0.024032593,
+    0.028152466,
+    -0.015609741,
+    0.036010742,
+    0.017700195,
+    0.0075149536,
+    -0.0034179688,
+    0.031280518,
+    -0.020645142,
+    0.015808105,
+    0.0008511543,
+    0.046081543,
+    0.029464722,
+    -0.0029201508,
+    -0.057434082,
+    -0.0038852692,
+    -0.015144348,
+    -0.057861328,
+    0.02154541,
+    0.011184692,
+    -0.024368286,
+    -0.022735596,
+    -0.031433105,
+    -0.051635742,
+    0.040008545,
+    0.032287598,
+    0.0031528473,
+    -0.08862305,
+    0.016906738,
+    -2.2053719e-05,
+    0.028518677,
+    0.04171753,
+    0.028167725,
+    -0.041107178,
+    -0.0052490234,
+    0.026351929,
+    0.0067825317,
+    0.062927246,
+    0.019378662,
+    -0.026412964,
+    -0.02935791,
+    -0.008995056,
+    0.011161804,
+    -0.04296875,
+    -0.00907135,
+    -0.035583496,
+    0.02104187,
+    -0.004333496,
+    0.021881104,
+    -0.07745361,
+    -0.017166138,
+    -0.050628662,
+    -0.005760193,
+    -0.023895264,
+    -0.008811951,
+    0.017959595,
+    0.015808105,
+    -0.034423828,
+    -0.00086927414,
+    -0.015899658,
+    0.05706787,
+    -0.051330566,
+    -0.049987793,
+    -0.03086853,
+    0.032318115,
+    0.05404663,
+    0.026824951,
+    -0.032684326,
+    0.08062744,
+    -0.013175964,
+    0.0031871796,
+    -0.013641357,
+    -0.019561768,
+    0.00045228004,
+    0.06878662,
+    -0.011375427,
+    0.041046143,
+    -0.0018873215,
+    -0.012428284,
+    -0.0256958,
+    -0.028366089,
+    0.024810791,
+    -0.0029964447,
+    -0.0062942505,
+    -0.012390137,
+    0.043823242,
+    -0.013801575,
+    -0.011024475,
+    0.018722534,
+    -0.042297363,
+    -0.05532837,
+    -0.00806427,
+    -0.020339966,
+    -0.0115737915,
+    -0.0019626617,
+    -0.011512756,
+    0.0027637482,
+    0.012931824,
+    -0.036315918,
+    0.0050849915,
+    -0.020965576,
+    -0.010620117,
+    -0.0013103485,
+    0.01727295,
+    0.04626465,
+    0.0018863678,
+    -0.053863525,
+    -0.005607605,
+    -0.029647827,
+    0.00010919571,
+    0.008857727,
+    0.017684937,
+    -0.007865906,
+    -0.033233643,
+    -0.0062332153,
+    -0.01335907,
+    -0.007659912,
+    -0.056884766,
+    -0.001294136,
+    -0.05166626,
+    -0.013343811,
+    -0.029953003,
+    -0.017028809,
+    -0.020141602,
+    -0.017211914,
+    0.037902832,
+    -0.002916336,
+    0.01309967,
+    -0.0184021,
+    -0.035339355,
+    0.009986877,
+    0.0127334595,
+    -0.027114868,
+    0.008232117,
+    0.005973816,
+    0.005504608,
+    -0.02670288,
+    0.0046691895,
+    -0.0022525787,
+    -0.01134491,
+    -0.018203735,
+    -0.005382538,
+    -0.02394104,
+    0.0129852295,
+    0.020339966,
+    0.0132751465,
+    0.0048217773,
+    -0.029220581,
+    0.00048446655,
+    0.008331299,
+    -0.030731201,
+    -0.058807373,
+    -0.062683105,
+    0.024749756,
+    0.041778564,
+    -0.012504578,
+    0.08148193,
+    0.0012626648,
+    0.0039787292,
+    0.060455322,
+    0.024215698,
+    0.017196655,
+    -0.00466156,
+    -0.0013437271,
+    0.038330078,
+    -0.01940918
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+    "file_name": "89181.md",
+    "file_size": 28636,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aircraft Accident Investigation Findings",
+      "Personnel from the recovery company noted when they righted the airplane, about 4 to 5 gallons of aviation gasoline came pouring out of the bottom main fuel tank.",
+      "The recovery personnel did not report exactly where the fuel exited from.",
+      "The recovery personnel did not determine whether there was any fuel in the wing tank.",
+      "The airplane was equipped with a smoke oil tank mounted near the main fuel tank.",
+      "Neither the pre-departure nor post-accident oil quantity of the smoke oil tank was determined.",
+      "The possibility that the smoke oil comprised a portion of the observed spill could not be discounted.",
+      "The actual remaining fuel quantity at the time of the accident was not able to be determined.",
+      "The investigation was unable to obtain detailed design and construction information such as system schematics and component manuals.",
+      "The airplane was examined in detail at the recovery facility several months after the accident.",
+      "The upper wing had been removed as a unit for recovery and transport.",
+      "The lower wings were cut and fracture-separated from the fuselage.",
+      "The cockpits were intact.",
+      "The engine was displaced aft and canted nose-down.",
+      "The engine remained attached to all the engine mounts.",
+      "The three blade wood/composite propeller damage was consistent with little or no power being provided to the propeller at the time of impact.",
+      "All components of the airplane and engine were accounted for at the recovery facility.",
+      "The engine was fuel injected.",
+      "The engine had a dual magneto ignition system controlled by two dedicated cockpit switches.",
+      "Aside from crush damage to the underside, there was no obvious damage to the engine.",
+      "The throttle/injector body was fractured and fracture-separated from the engine.",
+      "The throttle body placard identified it as an Airflow Performance brand \"Experimental Fuel Control.\"",
+      "Two fuel lines and the throttle linkage retained the throttle body to the engine/airframe.",
+      "Throttle linkage continuity from the cockpits to the throttle body was confirmed.",
+      "The cockpit throttle controls moved synchronously through their full ranges.",
+      "All spark plugs were installed and intact, with one exception due to impact.",
+      "All ignition leads remained attached to their respective spark plugs.",
+      "All examined spark plug electrodes were consistent with near-new condition.",
+      "The propeller was manually rotated during examination.",
+      "Thumb compressions were detected on all cylinders when the propeller was manually rotated."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Accident Investigation Findings",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "recovery company",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "recovery personnel",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main fuel tank",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "wing tank",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "smoke oil tank",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "upper wing",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "lower wings",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuselage",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cockpits",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine mounts",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "propeller",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "throttle/injector body",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airflow Performance",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "throttle body",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "throttle linkage",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cockpit throttle controls",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "spark plugs",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ignition leads",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cylinders",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "recovery facility",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Personnel from the recovery company noted when they righted the airplane, about 4 to 5 gallons of aviation gasoline came pouring out of the bottom main fuel tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recovery company",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "EMPLOYED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recovery personnel",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main fuel tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "LEAKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4 to 5 gallons of aviation gasoline",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The recovery personnel did not report exactly where the fuel exited from.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recovery personnel",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FAILED TO REPORT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel exit location",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The recovery personnel did not determine whether there was any fuel in the wing tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recovery personnel",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FAILED TO DETERMINE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing tank fuel presence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was equipped with a smoke oil tank mounted near the main fuel tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smoke oil tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smoke oil tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "LOCATED NEAR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main fuel tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Neither the pre-departure nor post-accident oil quantity of the smoke oil tank was determined.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smoke oil tank",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "UNDETERMINED QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oil",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The possibility that the smoke oil comprised a portion of the observed spill could not be discounted.",
+              "details": [
+                "smoke oil POSSIBLE COMPONENT OF observed spill"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smoke oil",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "POSSIBLE COMPONENT OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "observed spill",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The actual remaining fuel quantity at the time of the accident was not able to be determined.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "UNDETERMINED QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remaining fuel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The investigation was unable to obtain detailed design and construction information such as system schematics and component manuals.",
+              "details": [
+                "investigation LACKED detailed design information",
+                "investigation LACKED construction information",
+                "investigation LACKED system schematics",
+                "investigation LACKED component manuals"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "detailed design information",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "construction information",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "system schematics",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "investigation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LACKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "component manuals",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was examined in detail at the recovery facility several months after the accident.",
+              "details": [
+                "examination TIMING several months after accident"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recovery facility",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "examination",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "several months after accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The upper wing had been removed as a unit for recovery and transport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper wing",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "REMOVAL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed as unit",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper wing",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "REMOVAL PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recovery and transport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The lower wings were cut and fracture-separated from the fuselage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lower wings",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SEPARATED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lower wings",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SEPARATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cut and fracture-separated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cockpits were intact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cockpits",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was displaced aft and canted nose-down.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DISPLACEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aft",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "ORIENTATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "canted nose-down",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine remained attached to all the engine mounts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "ATTACHED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine mounts",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The three blade wood/composite propeller damage was consistent with little or no power being provided to the propeller at the time of impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "COMPOSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "three blade wood/composite",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE INDICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "little or no power at impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All components of the airplane and engine were accounted for at the recovery facility.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "COMPONENTS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "all accounted for",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "COMPONENTS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "all accounted for",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was fuel injected.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "FUEL SYSTEM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel injected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine had a dual magneto ignition system controlled by two dedicated cockpit switches.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "IGNITION SYSTEM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dual magneto",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "IGNITION CONTROL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two dedicated cockpit switches",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Aside from crush damage to the underside, there was no obvious damage to the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crush damage to underside",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE EXTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no obvious damage elsewhere",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The throttle/injector body was fractured and fracture-separated from the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle/injector body",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SEPARATED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle/injector body",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fractured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The throttle body placard identified it as an Airflow Performance brand \"Experimental Fuel Control.\"",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airflow Performance",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle body",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle body",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Fuel Control",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Two fuel lines and the throttle linkage retained the throttle body to the engine/airframe.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle linkage",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle body",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle linkage",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle body",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "RETENTION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two fuel lines and throttle linkage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Throttle linkage continuity from the cockpits to the throttle body was confirmed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle linkage",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cockpits",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle linkage",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle body",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle linkage",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONTINUITY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confirmed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cockpit throttle controls moved synchronously through their full ranges.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cockpit throttle controls",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "synchronous",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cockpit throttle controls",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "RANGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "full",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All spark plugs were installed and intact, with one exception due to impact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "INSTALLATION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "installed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intact with one exception",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXCEPTION CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All ignition leads remained attached to their respective spark plugs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "ATTACHED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "ATTACHMENT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remained attached",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All examined spark plug electrodes were consistent with near-new condition.",
+              "details": [
+                "spark plug electrodes CONDITION near-new"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plug electrodes",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near-new",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller was manually rotated during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manually rotated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Thumb compressions were detected on all cylinders when the propeller was manually rotated.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "COMPRESSION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thumb compressions detected",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "COMPRESSION TEST METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual propeller rotation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::3dd88aa8:3e5d",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "69e01b7394bfac113f1d42ab0377efa9a281b97dbf3f13460a18ffd81fbc4ae1",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::3dd88aa8:3e5d:20df882c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "03405802c0496b6795b425fc4027a3f1973b8fafeda555b76d4b5a5e387533ba",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::3dd88aa8:3e5d:3f5e2efa",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "26869170c5df4e299a7ff24c4b0af9965e9ca90377032d06a57d560d3fc71c15",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Personnel from the recovery company noted that when they righted the airplane, about \"4 to 5 gallons of av gas came pouring out of the bottom [main] fuel tank.\" They did not report exactly where the fuel exited from. The recovery personnel did not determine whether there was any fuel in the wing tank. The airplane was equipped with a smoke oil tank mounted near the main fuel tank. Neither the pre departure nor post accident oil quantity of that tank was determined, and the possibility that the smoke oil comprised a portion of the observed spill could not be discounted. As a result of those events and circumstances, the actual remaining fuel quantity at the time of the accident was not able to be determined.\n\nThe investigation was unable to obtain detailed design and construction information such as system schematics and component manuals. The airplane was examined in detail at the recovery facility several months after the accident. The upper wing had been removed as a unit for recovery and transport, while the lower wings were cut and fracture-separated from the fuselage. The cockpits were intact. The engine was displaced aft and canted nose-down, but remained attached to all the engine mounts. The three blade wood/composite propeller damage was consistent with little or no power being provided to the propeller at the time of impact. All components of the airplane and engine were accounted for at the recovery facility.\n\nThe engine was fuel injected, with a dual magneto ignition system controlled by two dedicated cockpit switches. Aside from crush damage to the underside, there was no obvious damage to the engine. The throttle/injector body was fractured and fracture-separated from the engine, and the throttle body placard identified it as an Airflow Performance brand \"Experimental Fuel Control.\" Two fuel lines and the throttle linkage retained the throttle body to the engine/airframe. Throttle linkage continuity from the cockpits to the throttle body was confirmed, and the cockpit throttle controls moved synchronously through their full ranges.\n\nAll spark plugs were installed and intact, with one exception due to impact. All ignition leads remained attached to their respective spark plugs. All examined spark plug electrodes were consistent with near-new condition. The propeller was manually rotated, and thumb compressions were detected on all cylinders.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2398,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

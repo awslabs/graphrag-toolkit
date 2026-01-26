@@ -1,0 +1,2072 @@
+{
+  "id_": "aws::484668b1:d689:76348b3e",
+  "embedding": [
+    0.02168274,
+    0.026657104,
+    0.018005371,
+    -0.027801514,
+    0.024276733,
+    0.0053367615,
+    0.007583618,
+    -0.009140015,
+    0.01373291,
+    -0.018844604,
+    -0.0035953522,
+    0.024124146,
+    -0.035980225,
+    -0.05340576,
+    0.04663086,
+    -0.01940918,
+    -0.004421234,
+    0.059051514,
+    0.05218506,
+    -0.0069122314,
+    0.010231018,
+    -0.008773804,
+    0.010292053,
+    -0.04434204,
+    -0.025726318,
+    0.08581543,
+    -0.056243896,
+    -0.0051574707,
+    -0.03475952,
+    -0.020233154,
+    -0.009590149,
+    0.028762817,
+    0.0034427643,
+    0.017990112,
+    0.010391235,
+    -0.02859497,
+    -0.019012451,
+    0.017837524,
+    -0.02658081,
+    0.034179688,
+    0.056793213,
+    -0.021270752,
+    0.041625977,
+    -0.02848816,
+    0.0062675476,
+    -0.006526947,
+    0.052734375,
+    -0.013389587,
+    0.025314331,
+    0.019897461,
+    0.025512695,
+    0.010826111,
+    0.01739502,
+    -0.0055160522,
+    0.026535034,
+    0.043640137,
+    -0.0017375946,
+    -0.03277588,
+    -0.004585266,
+    0.026535034,
+    0.018585205,
+    0.029708862,
+    0.016677856,
+    0.01914978,
+    -0.052734375,
+    0.025131226,
+    -0.038085938,
+    0.011169434,
+    0.048736572,
+    -0.054016113,
+    -0.043792725,
+    0.012680054,
+    0.026153564,
+    0.05441284,
+    0.00030708313,
+    -0.08984375,
+    0.013885498,
+    0.008636475,
+    0.00056934357,
+    0.042663574,
+    0.045532227,
+    0.043914795,
+    -0.00056552887,
+    -0.043121338,
+    0.046936035,
+    -0.0040779114,
+    -0.010467529,
+    -0.03265381,
+    -0.0042915344,
+    -0.042999268,
+    -0.004634857,
+    -0.031082153,
+    -0.029541016,
+    0.017868042,
+    0.0029850006,
+    -0.045928955,
+    0.028030396,
+    -0.04748535,
+    0.022949219,
+    -0.022994995,
+    0.0077705383,
+    -0.049194336,
+    -0.021438599,
+    0.013397217,
+    -0.027328491,
+    0.053833008,
+    0.042114258,
+    0.029037476,
+    -0.021820068,
+    -0.0006952286,
+    -0.025238037,
+    -0.02407837,
+    -0.068237305,
+    -0.044921875,
+    -0.003768921,
+    0.07141113,
+    -0.033599854,
+    -0.0009036064,
+    0.015052795,
+    0.0057792664,
+    0.007896423,
+    0.024398804,
+    -0.0132369995,
+    -0.020935059,
+    -0.0076560974,
+    -0.02166748,
+    -0.04244995,
+    0.012672424,
+    0.07977295,
+    0.0068511963,
+    -0.0014677048,
+    0.039398193,
+    -0.06732178,
+    -0.103515625,
+    -0.07501221,
+    0.014038086,
+    -0.061645508,
+    0.016723633,
+    -0.006088257,
+    -0.0065956116,
+    -0.060333252,
+    -0.02305603,
+    0.0791626,
+    -0.021728516,
+    -0.014877319,
+    0.025344849,
+    0.018798828,
+    0.0025596619,
+    -0.010055542,
+    -0.0038280487,
+    -0.053985596,
+    0.037109375,
+    0.046447754,
+    -0.032684326,
+    0.0209198,
+    -0.078063965,
+    0.014297485,
+    -0.045684814,
+    0.040863037,
+    -0.03741455,
+    -0.04776001,
+    -0.024246216,
+    0.026443481,
+    0.011650085,
+    -0.012214661,
+    0.05050659,
+    -0.0116119385,
+    0.015808105,
+    0.032440186,
+    0.029342651,
+    0.0435791,
+    -0.033843994,
+    -0.035461426,
+    -0.02305603,
+    -0.013664246,
+    -0.00881958,
+    0.00096321106,
+    0.036499023,
+    0.037231445,
+    0.03161621,
+    0.0209198,
+    -0.0073623657,
+    0.05834961,
+    0.014427185,
+    0.0024662018,
+    -0.022628784,
+    0.033111572,
+    0.0043258667,
+    -0.002357483,
+    0.03616333,
+    0.029647827,
+    0.014457703,
+    0.010856628,
+    -0.040222168,
+    -0.019958496,
+    -0.032470703,
+    -0.019088745,
+    -0.026931763,
+    -0.027175903,
+    0.055236816,
+    -0.061798096,
+    0.02885437,
+    -0.0060539246,
+    0.057525635,
+    0.053375244,
+    -0.007396698,
+    0.0211792,
+    0.015304565,
+    -0.025527954,
+    -0.013641357,
+    0.02331543,
+    -0.035064697,
+    -0.0043029785,
+    -0.00057411194,
+    -0.054626465,
+    -0.049346924,
+    0.0029449463,
+    -0.009559631,
+    0.010986328,
+    0.026901245,
+    0.009536743,
+    0.018417358,
+    -0.010482788,
+    0.017929077,
+    -0.00025820732,
+    0.0011196136,
+    -0.011680603,
+    0.0034866333,
+    0.048675537,
+    -0.0021209717,
+    0.051330566,
+    -0.007671356,
+    -0.018676758,
+    -0.0016794205,
+    -0.039611816,
+    0.022521973,
+    -0.013221741,
+    0.03353882,
+    0.0038013458,
+    0.0005273819,
+    -0.012229919,
+    -0.053009033,
+    -0.032714844,
+    0.053100586,
+    -0.085754395,
+    0.005970001,
+    0.022918701,
+    0.027114868,
+    -0.015388489,
+    -0.009925842,
+    0.0473938,
+    0.003818512,
+    0.025726318,
+    0.041778564,
+    0.02619934,
+    0.015655518,
+    -0.07507324,
+    -0.0552063,
+    0.02659607,
+    -0.0025844574,
+    0.009468079,
+    -0.019744873,
+    0.004558563,
+    -0.011817932,
+    0.026473999,
+    0.010803223,
+    0.017791748,
+    0.0074310303,
+    -0.01914978,
+    0.028869629,
+    -0.0005235672,
+    -0.043121338,
+    -0.024047852,
+    0.029205322,
+    -0.027374268,
+    0.015151978,
+    -0.03488159,
+    0.023727417,
+    -0.0385437,
+    0.0046310425,
+    -0.03967285,
+    0.024520874,
+    0.0067825317,
+    -0.020889282,
+    0.0048446655,
+    -0.05001831,
+    0.0055122375,
+    -0.045013428,
+    0.018844604,
+    0.079956055,
+    0.06518555,
+    0.0513916,
+    0.015701294,
+    0.0023670197,
+    -0.008972168,
+    0.031311035,
+    -0.0074386597,
+    0.052978516,
+    -0.008651733,
+    -0.023880005,
+    -0.010856628,
+    0.014945984,
+    -0.047058105,
+    0.0049057007,
+    -0.0057144165,
+    -0.023712158,
+    -0.04647827,
+    0.026016235,
+    0.013031006,
+    0.0077209473,
+    -0.041168213,
+    0.030792236,
+    0.017578125,
+    -0.00033569336,
+    0.029525757,
+    0.0031719208,
+    0.017456055,
+    0.04031372,
+    0.0262146,
+    0.038146973,
+    -0.01687622,
+    0.011703491,
+    -0.0046424866,
+    0.012260437,
+    0.013809204,
+    -0.014213562,
+    0.02017212,
+    0.0017976761,
+    0.008308411,
+    -0.028579712,
+    -0.053863525,
+    -0.053131104,
+    -0.04449463,
+    0.013671875,
+    -0.00033926964,
+    -0.007297516,
+    -0.004711151,
+    -0.047180176,
+    -0.036224365,
+    -0.024215698,
+    -0.034973145,
+    -0.048980713,
+    0.028167725,
+    -0.0541687,
+    -0.03552246,
+    -0.032928467,
+    -0.0009331703,
+    0.01486969,
+    -0.012008667,
+    -0.028121948,
+    0.053833008,
+    0.0023288727,
+    -0.030319214,
+    -0.008255005,
+    -0.007423401,
+    -0.06726074,
+    0.006088257,
+    0.027450562,
+    -0.010299683,
+    -0.031311035,
+    -0.0016965866,
+    0.032684326,
+    -0.019515991,
+    -0.054260254,
+    -0.019607544,
+    0.005870819,
+    -0.022415161,
+    0.022338867,
+    -0.011962891,
+    0.01537323,
+    0.01348114,
+    0.017715454,
+    -0.008010864,
+    -0.025360107,
+    -0.053375244,
+    -0.017654419,
+    0.02494812,
+    -0.033050537,
+    -0.011787415,
+    -0.0031051636,
+    0.03353882,
+    0.024978638,
+    0.015304565,
+    0.026489258,
+    0.0060577393,
+    0.009056091,
+    -0.0056419373,
+    0.02079773,
+    0.010696411,
+    -0.0016536713,
+    -0.0033416748,
+    0.032958984,
+    -0.040496826,
+    -0.0055503845,
+    -0.020965576,
+    -0.009521484,
+    0.014228821,
+    -0.018875122,
+    -0.048706055,
+    -0.008575439,
+    -0.09954834,
+    -0.00029492378,
+    0.006450653,
+    -0.041778564,
+    0.016189575,
+    -0.078308105,
+    -0.022003174,
+    -0.04827881,
+    0.023849487,
+    0.05392456,
+    -0.026123047,
+    0.066711426,
+    -0.011619568,
+    0.054504395,
+    -0.016906738,
+    0.0096588135,
+    -0.01727295,
+    -0.017150879,
+    0.01399231,
+    0.00554657,
+    0.01928711,
+    -0.040100098,
+    0.019073486,
+    0.035369873,
+    0.004798889,
+    -0.016616821,
+    -0.03466797,
+    -0.032409668,
+    -0.010925293,
+    0.0519104,
+    -0.03918457,
+    0.0069122314,
+    -0.018295288,
+    -0.005569458,
+    -0.047210693,
+    0.013656616,
+    0.020584106,
+    0.053253174,
+    0.045959473,
+    -0.04675293,
+    0.023803711,
+    0.035980225,
+    -0.020065308,
+    0.010276794,
+    0.010467529,
+    -0.019943237,
+    0.02784729,
+    -0.007091522,
+    -0.027328491,
+    -0.05038452,
+    -0.008377075,
+    0.032714844,
+    0.03668213,
+    0.0234375,
+    0.025405884,
+    0.006996155,
+    -0.011421204,
+    0.009002686,
+    0.031082153,
+    -0.006664276,
+    -0.028030396,
+    -0.016921997,
+    0.0067367554,
+    -0.009689331,
+    -0.004425049,
+    0.012191772,
+    0.01979065,
+    0.025161743,
+    0.027038574,
+    -0.006839752,
+    0.01083374,
+    -0.0045280457,
+    0.012023926,
+    0.0015659332,
+    -0.005531311,
+    0.016540527,
+    0.0087890625,
+    -0.06512451,
+    0.04220581,
+    0.014877319,
+    -0.042175293,
+    0.028015137,
+    0.0046157837,
+    0.032318115,
+    -0.0034828186,
+    0.019897461,
+    0.0062713623,
+    0.015075684,
+    0.008346558,
+    -0.029754639,
+    -0.02015686,
+    -0.011932373,
+    0.028701782,
+    -0.014297485,
+    0.0103302,
+    -0.008621216,
+    -0.0024299622,
+    0.024032593,
+    0.010551453,
+    -0.0048217773,
+    -0.016555786,
+    -0.035217285,
+    -0.030593872,
+    0.0010356903,
+    -0.010902405,
+    0.009681702,
+    0.010108948,
+    0.0033111572,
+    0.01826477,
+    -0.0001989603,
+    -0.004360199,
+    -0.0055618286,
+    -0.0002720356,
+    0.036895752,
+    -0.046081543,
+    0.0435791,
+    -0.023330688,
+    0.030517578,
+    -0.028671265,
+    -0.0055007935,
+    -0.06713867,
+    -0.0061798096,
+    0.050109863,
+    0.04537964,
+    -0.06347656,
+    -0.0028858185,
+    0.048950195,
+    0.06112671,
+    -0.04248047,
+    -0.028930664,
+    -0.0061950684,
+    0.025344849,
+    -0.048736572,
+    -0.028411865,
+    0.06689453,
+    0.035705566,
+    -0.017700195,
+    0.04168701,
+    -0.019332886,
+    -0.053771973,
+    -0.019927979,
+    -0.0060920715,
+    0.019088745,
+    -0.04119873,
+    0.0028266907,
+    -0.016937256,
+    -0.00032114983,
+    0.045166016,
+    -0.024551392,
+    0.015960693,
+    -0.0034427643,
+    -0.0011968613,
+    -0.0035591125,
+    -0.049591064,
+    -0.050842285,
+    0.06323242,
+    0.003583908,
+    -0.012466431,
+    -0.008735657,
+    0.03793335,
+    -0.010398865,
+    -0.055664062,
+    -0.006023407,
+    0.057678223,
+    -0.025543213,
+    0.02798462,
+    -0.034820557,
+    -0.059906006,
+    0.022979736,
+    -0.036621094,
+    -0.01902771,
+    -0.030197144,
+    0.073791504,
+    0.0046577454,
+    0.01878357,
+    -0.03967285,
+    -0.00920105,
+    0.0042533875,
+    -0.008102417,
+    0.02973938,
+    0.025527954,
+    0.050201416,
+    -0.0069274902,
+    0.066711426,
+    -0.049438477,
+    0.027450562,
+    0.017486572,
+    0.01373291,
+    -0.023361206,
+    -0.019470215,
+    -0.0002799034,
+    0.0043182373,
+    -3.361702e-05,
+    -0.023361206,
+    -0.02067566,
+    0.050628662,
+    -0.091796875,
+    -0.045074463,
+    0.033813477,
+    -0.009361267,
+    0.012664795,
+    -0.025314331,
+    -0.0041656494,
+    -0.02230835,
+    0.055480957,
+    -0.039855957,
+    -0.005039215,
+    0.015182495,
+    0.03378296,
+    0.078552246,
+    -0.011741638,
+    -0.018981934,
+    -0.009849548,
+    0.0072898865,
+    0.01965332,
+    0.0069885254,
+    -0.0129470825,
+    0.05178833,
+    0.101379395,
+    -0.019897461,
+    0.028717041,
+    0.042663574,
+    -0.004432678,
+    0.008895874,
+    -0.0022735596,
+    0.034973145,
+    -0.0023651123,
+    0.020324707,
+    -0.004283905,
+    -0.004047394,
+    -0.0029907227,
+    -0.03186035,
+    -0.06640625,
+    0.029769897,
+    -0.044036865,
+    -0.04135132,
+    -0.015388489,
+    -0.009017944,
+    0.02142334,
+    -0.044677734,
+    -0.007183075,
+    0.025405884,
+    0.0068855286,
+    -0.014167786,
+    -0.0041885376,
+    -0.04058838,
+    -0.015541077,
+    -0.013725281,
+    -0.0027179718,
+    -0.014297485,
+    -0.012268066,
+    -0.0054130554,
+    -0.029174805,
+    -0.0065612793,
+    0.011169434,
+    -0.0027046204,
+    -0.0039482117,
+    0.009628296,
+    -0.0050582886,
+    -0.028640747,
+    -0.074279785,
+    -0.013038635,
+    -0.020126343,
+    -0.019561768,
+    -0.0758667,
+    0.015411377,
+    0.07141113,
+    0.0026988983,
+    0.03805542,
+    -0.070007324,
+    -0.00831604,
+    0.024047852,
+    -0.0064201355,
+    -0.0064201355,
+    -0.0014858246,
+    0.04034424,
+    0.042785645,
+    0.013648987,
+    0.022384644,
+    -0.02255249,
+    0.0024585724,
+    -0.044769287,
+    0.048736572,
+    -0.01789856,
+    -0.028656006,
+    0.03050232,
+    -0.064086914,
+    -0.0031089783,
+    -0.0118637085,
+    0.048919678,
+    -0.016586304,
+    0.016967773,
+    0.008117676,
+    -0.018463135,
+    -0.044891357,
+    -0.02897644,
+    -0.004425049,
+    -0.017349243,
+    0.0006585121,
+    -0.03753662,
+    -0.009895325,
+    -0.0019426346,
+    0.04019165,
+    0.02432251,
+    -0.013916016,
+    0.055847168,
+    0.04611206,
+    0.043548584,
+    -0.02748108,
+    -0.019638062,
+    0.037200928,
+    0.06304932,
+    0.018753052,
+    -0.011352539,
+    -0.039367676,
+    -0.000890255,
+    0.04562378,
+    0.042938232,
+    0.03189087,
+    0.03250122,
+    0.0057029724,
+    0.022567749,
+    -0.0049858093,
+    0.0044822693,
+    0.0496521,
+    -0.04611206,
+    -0.053649902,
+    0.04071045,
+    -0.031433105,
+    -0.05618286,
+    -0.00045681,
+    -0.009086609,
+    0.022277832,
+    -0.01927185,
+    -0.043395996,
+    0.012245178,
+    -0.028884888,
+    0.034820557,
+    -0.0075645447,
+    0.01966858,
+    -0.024215698,
+    -0.006175995,
+    0.03062439,
+    -0.00440979,
+    -0.04525757,
+    -0.037261963,
+    0.013053894,
+    -0.09881592,
+    -0.00031352043,
+    -0.028823853,
+    0.0670166,
+    -0.04937744,
+    -0.054901123,
+    -0.010421753,
+    -0.018432617,
+    -0.020507812,
+    0.027359009,
+    0.010406494,
+    -0.04055786,
+    -0.010314941,
+    0.0034809113,
+    0.005554199,
+    -0.013542175,
+    0.0121154785,
+    -0.024917603,
+    0.011634827,
+    -0.03024292,
+    -0.044769287,
+    -0.024963379,
+    0.008049011,
+    -0.014442444,
+    0.008735657,
+    -0.030441284,
+    -0.052337646,
+    0.04611206,
+    -0.0014600754,
+    -0.0015144348,
+    -0.057891846,
+    -0.0008020401,
+    0.016494751,
+    0.035491943,
+    -0.0061149597,
+    -0.0004849434,
+    -0.013626099,
+    -0.0015678406,
+    0.007873535,
+    -0.015052795,
+    -5.9902668e-05,
+    0.0049552917,
+    -0.0022697449,
+    -0.031066895,
+    0.00944519,
+    0.014839172,
+    -0.0031852722,
+    0.023834229,
+    -0.032165527,
+    -0.057495117,
+    -0.009254456,
+    -0.04220581,
+    -0.048614502,
+    -0.044525146,
+    -0.006134033,
+    -0.040618896,
+    0.028869629,
+    -0.014343262,
+    0.0075035095,
+    0.0037517548,
+    0.034606934,
+    0.036193848,
+    -0.048553467,
+    0.022079468,
+    -0.029876709,
+    0.030914307,
+    -0.017608643,
+    -0.032592773,
+    0.022094727,
+    -0.026275635,
+    -0.03274536,
+    0.0025901794,
+    -0.005874634,
+    -0.0029335022,
+    0.026626587,
+    0.009231567,
+    -0.00630188,
+    -0.027023315,
+    -0.00094509125,
+    0.011230469,
+    -0.004234314,
+    -0.011291504,
+    0.030578613,
+    0.018539429,
+    -0.018661499,
+    0.001707077,
+    0.008506775,
+    0.003458023,
+    -0.006549835,
+    -0.031982422,
+    0.066589355,
+    -0.024108887,
+    -0.0146865845,
+    0.05303955,
+    -0.021118164,
+    0.02670288,
+    0.015129089,
+    0.02909851,
+    -0.0025997162,
+    0.00034737587,
+    -0.020401001,
+    0.062286377,
+    0.0770874,
+    0.0078125,
+    -0.021316528,
+    0.020690918,
+    0.008926392,
+    -0.013908386,
+    0.0016498566,
+    0.047180176,
+    -0.016448975,
+    0.019714355,
+    0.047851562,
+    -0.021560669,
+    0.03540039,
+    -0.01486969,
+    0.018630981,
+    -0.016540527,
+    0.05734253,
+    -0.013542175,
+    0.0039901733,
+    0.02619934,
+    0.0075912476,
+    0.021621704,
+    0.053527832,
+    -0.06500244,
+    -0.005115509,
+    -0.010467529,
+    -0.001707077,
+    -0.01322937,
+    0.07385254,
+    -0.012336731,
+    -0.0015449524,
+    -0.07623291,
+    -0.049682617,
+    0.018539429,
+    0.0039520264,
+    0.009841919,
+    -0.062805176,
+    -0.0035934448,
+    -0.00667572,
+    0.05731201,
+    0.018600464,
+    0.014122009,
+    -0.012245178,
+    -0.01878357,
+    0.055541992,
+    0.016845703,
+    0.062927246,
+    -0.010253906,
+    0.038482666,
+    -0.015205383,
+    -0.004852295,
+    -0.010147095,
+    -0.041534424,
+    -0.010131836,
+    0.011238098,
+    0.030151367,
+    0.021377563,
+    0.02798462,
+    -0.042114258,
+    -0.0066070557,
+    -0.0008878708,
+    0.024871826,
+    0.0009241104,
+    -0.058502197,
+    -0.022994995,
+    0.049438477,
+    -0.022018433,
+    -0.05783081,
+    -0.07507324,
+    0.0037078857,
+    -0.064453125,
+    -0.017959595,
+    0.0025138855,
+    -0.01927185,
+    0.035339355,
+    0.017700195,
+    -0.0015192032,
+    0.018432617,
+    -0.019042969,
+    -0.0026226044,
+    -0.010757446,
+    -0.0028038025,
+    -0.007369995,
+    0.0715332,
+    -0.0020942688,
+    0.036315918,
+    -0.0050315857,
+    0.011039734,
+    -0.041900635,
+    -0.0259552,
+    0.068115234,
+    0.018066406,
+    -0.024307251,
+    -0.038482666,
+    0.0030136108,
+    -0.008529663,
+    0.03262329,
+    0.011070251,
+    -0.042388916,
+    -0.040802002,
+    -0.0115356445,
+    -0.002986908,
+    0.004371643,
+    -0.0116119385,
+    0.01108551,
+    -0.005760193,
+    0.055999756,
+    -0.028869629,
+    -0.0014848709,
+    -0.023971558,
+    -0.026107788,
+    -0.018051147,
+    0.0052719116,
+    0.070617676,
+    0.05126953,
+    0.008705139,
+    -0.029907227,
+    -0.011260986,
+    -0.04220581,
+    -0.020355225,
+    -0.013938904,
+    -0.052490234,
+    -0.049743652,
+    0.031585693,
+    -0.066833496,
+    -0.0140686035,
+    -0.012809753,
+    0.005329132,
+    -0.016998291,
+    0.00349617,
+    -0.029785156,
+    -0.02015686,
+    -0.029556274,
+    -0.011367798,
+    -0.025497437,
+    0.054595947,
+    -0.021942139,
+    0.0010690689,
+    0.045654297,
+    -0.014160156,
+    -0.023010254,
+    0.0036640167,
+    0.049713135,
+    -0.003824234,
+    -0.02947998,
+    -0.007701874,
+    0.0056152344,
+    0.012466431,
+    0.031021118,
+    0.01423645,
+    -0.032989502,
+    -0.01676941,
+    -0.028167725,
+    0.013175964,
+    -0.023788452,
+    0.02998352,
+    -0.039215088,
+    -0.0008263588,
+    -0.044769287,
+    0.0030498505,
+    0.0025634766,
+    -0.020111084,
+    0.042633057,
+    0.0058135986,
+    -0.028900146,
+    0.0070877075,
+    -0.013534546,
+    0.011291504,
+    0.066345215,
+    -0.0032482147,
+    -0.0028800964,
+    0.021438599,
+    0.020767212,
+    0.044158936,
+    0.018630981
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89064.md",
+    "file_name": "89064.md",
+    "file_size": 6881,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Zenith 701 in Eutaw Springs",
+      "The accident occurred in Eutaw Springs, South Carolina.",
+      "The accident occurred on April 14, 2014, at 18:00 Local time.",
+      "The aircraft involved was a KALDOR GREGORY N ZENITH 701.",
+      "The defining event of the accident was landing gear collapse.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was ERA14CA200.",
+      "The aircraft registration was N851RC.",
+      "The aircraft sustained substantial damage.",
+      "There was 1 person involved in the accident.",
+      "No injuries occurred in the accident.",
+      "The pilot was flying over a small airstrip near a campground.",
+      "The pilot experienced a severe gust of wind.",
+      "The severe gust of wind made the airplane turn abruptly to the right.",
+      "The pilot felt that the airplane was out of control.",
+      "The pilot decided to make a precautionary landing in a plowed field.",
+      "During the precautionary landing, the airplane sustained substantial damage to the nose landing gear.",
+      "During the precautionary landing, the airplane sustained substantial damage to the wings.",
+      "During the precautionary landing, the airplane sustained substantial damage to the fuselage.",
+      "The pilot reported no preimpact mechanical malfunctions with the airplane.",
+      "The pilot reported no preimpact mechanical failures with the airplane.",
+      "The National Transportation Safety Board determined the probable cause of the accident.",
+      "The probable cause was the pilot's improper decision to execute a precautionary landing to unsuitable terrain.",
+      "The precautionary landing followed an inflight encounter with a wind gust.",
+      "The precautionary landing resulted in substantial damage to the airplane.",
+      "The accident involved personnel issues related to decision making/judgment by the pilot.",
+      "The aircraft was not attained/maintained.",
+      "Environmental issues included gusts that affected the operation.",
+      "Environmental issues included rough terrain that contributed to the outcome."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Zenith 701 in Eutaw Springs",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Eutaw Springs, South Carolina",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "KALDOR GREGORY N ZENITH 701",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N851RC",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ERA14CA200",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Eutaw Springs, South Carolina.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eutaw Springs, South Carolina",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on April 14, 2014, at 1800 Local time.",
+              "details": [
+                "accident DATE April 14, 2014",
+                "accident TIME 18:00 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 14, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "18:00 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a KALDOR GREGORY N ZENITH 701.",
+              "details": [
+                "accident INVOLVED KALDOR GREGORY N ZENITH 701"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was landing gear collapse.",
+              "details": [
+                "accident DEFINING EVENT landing gear collapse"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear collapse",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was ERA14CA200.",
+              "details": [
+                "accident NUMBER ERA14CA200"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ERA14CA200",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N851RC.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N851RC",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was 1 person involved in the accident.",
+              "details": [
+                "accident PERSONS INVOLVED 1"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PERSONS INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No injuries occurred in the accident.",
+              "details": [
+                "accident INJURIES 0"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was flying over a small airstrip near a campground.",
+              "details": [
+                "flight LOCATION over a small airstrip near a campground"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLYING"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "over a small airstrip near a campground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot experienced a severe gust of wind.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "severe gust of wind",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The severe gust of wind made the airplane turn abruptly to the right.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "severe gust of wind",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "TURNED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "abruptly to the right",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot felt that the airplane was out of control.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PERCEIVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane was out of control",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot decided to make a precautionary landing in a plowed field.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DECISION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "make a precautionary landing in a plowed field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the precautionary landing, the airplane sustained substantial damage to the nose landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the precautionary landing, the airplane sustained substantial damage to the wings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the precautionary landing, the airplane sustained substantial damage to the fuselage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no preimpact mechanical malfunctions with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact mechanical malfunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no preimpact mechanical failures with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact mechanical failures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause was the pilot's improper decision to execute a precautionary landing to unsuitable terrain.",
+              "details": [
+                "accident PROBABLE CAUSE pilot's improper decision to execute a precautionary landing to unsuitable terrain"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's improper decision to execute a precautionary landing to unsuitable terrain",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The precautionary landing followed an inflight encounter with a wind gust.",
+              "details": [
+                "precautionary landing FOLLOWED inflight encounter with a wind gust"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precautionary landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FOLLOWED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inflight encounter with a wind gust",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The precautionary landing resulted in substantial damage to the airplane.",
+              "details": [
+                "precautionary landing RESULTED IN substantial damage to the airplane"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precautionary landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage to the airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved personnel issues related to decision making/judgment by the pilot.",
+              "details": [
+                "accident INVOLVED personnel issues related to decision making/judgment by the pilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personnel issues related to decision making/judgment by the pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was not attained/maintained.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KALDOR GREGORY N ZENITH 701",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not attained/maintained",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Environmental issues included gusts that affected the operation.",
+              "details": [
+                "accident ENVIRONMENTAL FACTOR gusts that affected the operation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENVIRONMENTAL FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gusts that affected the operation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Environmental issues included rough terrain that contributed to the outcome.",
+              "details": [
+                "accident ENVIRONMENTAL FACTOR rough terrain that contributed to the outcome"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENVIRONMENTAL FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rough terrain that contributed to the outcome",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::484668b1:d689",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89064.md",
+        "file_name": "89064.md",
+        "file_size": 6881,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "c9c46cd15064f53bbd7b0c9e59e1f5fc0a883c7247c3290dd0cc383430f92303",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::484668b1:d689:b1d0a048",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89064.md",
+        "file_name": "89064.md",
+        "file_size": 6881,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0ce49098f1fff125857585b50ec8c48e6aee30a1c2e9e6517e30a1c05fef4217",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nEutaw Springs, South Carolina\n\n## Date & Time: \nApril 14, 2014, 18:00 Local\n\n## Aircraft:\nKALDOR GREGORY N ZENITH 701\n\n## Defining Event:\nLanding gear collapse\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nERA14CA200\n\n## Registration:\nN851RC\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nAccording to the pilot, he was flying over a small airstrip near a campground when he experienced a severe gust of wind that made the airplane turn abruptly to the right. The pilot felt that the airplane was out of control and decided to make a precautionary landing in a plowed field. During the precautionary landing, the airplane sustained substantial damage to the nose landing gear, wings, and fuselage. The pilot reported no preimpact mechanical malfunctions or failures with the airplane that would have precluded normal operation.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be: The pilot's improper decision to execute a precautionary landing to unsuitable terrain following an inflight encounter with a wind gust, resulting in substantial damage to the airplane.\n\n## Findings\n\n| Personnel issues | Decision making/judgment - Pilot |\n| --- | --- |\n| Aircraft (general) | Not attained/maintained |\n| Environmental issues | Gusts - Effect on operation |\n| Environmental issues | Rough terrain - Contributed to outcome |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1516,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,3153 @@
+{
+  "id_": "aws::faaadcc2:38d6:2e7b027a",
+  "embedding": [
+    -0.0008568764,
+    -0.0071258545,
+    -0.010253906,
+    0.011238098,
+    -0.010475159,
+    -0.025878906,
+    0.027786255,
+    -0.025741577,
+    -0.042633057,
+    0.04043579,
+    0.016662598,
+    0.03552246,
+    0.02645874,
+    -0.029312134,
+    0.049713135,
+    -0.010093689,
+    0.04647827,
+    0.013267517,
+    0.05142212,
+    0.00919342,
+    0.00020670891,
+    0.049072266,
+    0.03555298,
+    0.011482239,
+    0.08093262,
+    -0.093811035,
+    0.02357483,
+    -0.013259888,
+    0.05178833,
+    0.005619049,
+    0.055236816,
+    -0.027008057,
+    0.016952515,
+    -0.019760132,
+    0.028900146,
+    0.018844604,
+    0.01763916,
+    -0.0024814606,
+    0.011711121,
+    0.009376526,
+    0.02810669,
+    -0.03414917,
+    0.070373535,
+    -0.027832031,
+    0.022369385,
+    -0.0019626617,
+    0.018218994,
+    -0.06640625,
+    0.016708374,
+    0.0062408447,
+    0.022064209,
+    0.03186035,
+    0.012939453,
+    0.03942871,
+    -0.008399963,
+    0.022399902,
+    0.06567383,
+    -0.046936035,
+    0.03817749,
+    -0.05218506,
+    -0.050628662,
+    -0.008506775,
+    0.0637207,
+    -0.00011181831,
+    0.0026493073,
+    0.0028305054,
+    0.0066604614,
+    0.014778137,
+    -0.040161133,
+    0.012023926,
+    0.04486084,
+    -0.043304443,
+    -0.003967285,
+    0.0013694763,
+    -0.010215759,
+    0.023101807,
+    0.0015211105,
+    0.012359619,
+    0.016540527,
+    0.003490448,
+    -0.025177002,
+    -0.012542725,
+    0.022247314,
+    -0.05923462,
+    0.0011205673,
+    -0.05105591,
+    -0.014823914,
+    0.024246216,
+    0.0048179626,
+    0.024734497,
+    0.0071983337,
+    -0.027023315,
+    -0.0077400208,
+    0.07366943,
+    0.022125244,
+    -0.0143585205,
+    0.041534424,
+    0.04071045,
+    0.005886078,
+    -0.02279663,
+    -0.015602112,
+    -0.03451538,
+    -0.046417236,
+    0.0019302368,
+    -0.013877869,
+    0.02079773,
+    0.033050537,
+    0.001996994,
+    -0.000808239,
+    -0.004940033,
+    -0.013435364,
+    0.020126343,
+    0.014389038,
+    -0.04031372,
+    -0.019989014,
+    0.032287598,
+    0.011711121,
+    -0.002937317,
+    0.02809143,
+    0.008216858,
+    -0.0068359375,
+    0.0047569275,
+    0.028182983,
+    0.002286911,
+    0.020141602,
+    0.0019779205,
+    -0.024124146,
+    -0.01399231,
+    0.006843567,
+    0.052703857,
+    0.0077934265,
+    0.0068092346,
+    -0.095947266,
+    -0.035980225,
+    -0.047180176,
+    -0.0084991455,
+    0.032043457,
+    0.02027893,
+    0.028564453,
+    -0.048675537,
+    0.04425049,
+    0.054016113,
+    0.0496521,
+    0.018615723,
+    -0.013916016,
+    -0.03967285,
+    -0.004009247,
+    0.04324341,
+    0.0019798279,
+    0.012214661,
+    0.03213501,
+    -0.008895874,
+    0.0072784424,
+    0.013092041,
+    0.022735596,
+    -0.041809082,
+    0.0096588135,
+    -0.025100708,
+    0.037231445,
+    -0.011024475,
+    0.0051879883,
+    -0.010437012,
+    -0.008071899,
+    0.0440979,
+    0.016921997,
+    0.031311035,
+    0.04660034,
+    0.009216309,
+    0.031234741,
+    0.04586792,
+    -0.018981934,
+    -0.045837402,
+    -0.0012016296,
+    0.02142334,
+    -0.01638794,
+    0.04574585,
+    0.039398193,
+    -0.028320312,
+    0.018661499,
+    0.02746582,
+    -0.024429321,
+    -0.01914978,
+    0.013763428,
+    -0.03074646,
+    -0.018157959,
+    0.017684937,
+    0.011917114,
+    0.05255127,
+    -0.0022907257,
+    0.015602112,
+    -0.0038585663,
+    0.022827148,
+    -0.03137207,
+    0.0151901245,
+    0.018997192,
+    -0.009750366,
+    0.003068924,
+    -0.004470825,
+    0.011756897,
+    -0.031051636,
+    0.020599365,
+    -0.0010004044,
+    0.0021915436,
+    -0.042022705,
+    -0.006965637,
+    -0.04849243,
+    0.008293152,
+    0.025909424,
+    -0.023330688,
+    0.0017871857,
+    0.020965576,
+    -0.05633545,
+    0.011192322,
+    0.015090942,
+    0.0035820007,
+    -0.03869629,
+    0.0015325546,
+    0.0060768127,
+    0.03933716,
+    -0.024551392,
+    0.06097412,
+    0.05480957,
+    0.042541504,
+    0.03692627,
+    -0.033355713,
+    0.022720337,
+    -0.010253906,
+    0.03805542,
+    -0.0012359619,
+    0.036712646,
+    0.06756592,
+    -0.035491943,
+    0.06738281,
+    0.07745361,
+    0.00017225742,
+    -0.029296875,
+    -0.009643555,
+    -0.08514404,
+    0.0052757263,
+    0.040130615,
+    0.0317688,
+    -0.027420044,
+    -0.014221191,
+    -0.028137207,
+    0.02230835,
+    -0.028396606,
+    0.006389618,
+    -0.010391235,
+    0.010681152,
+    0.020950317,
+    0.0435791,
+    0.0037765503,
+    0.007820129,
+    0.019454956,
+    0.024383545,
+    -0.0037574768,
+    -0.04623413,
+    -0.013534546,
+    -0.017440796,
+    0.00036764145,
+    0.0004594326,
+    0.00041270256,
+    0.03225708,
+    -0.015319824,
+    -0.03677368,
+    0.03439331,
+    0.011306763,
+    0.020568848,
+    -0.013786316,
+    0.0064697266,
+    0.015182495,
+    -0.019851685,
+    -0.0041007996,
+    0.04071045,
+    0.018707275,
+    -0.0030593872,
+    -0.01247406,
+    -0.017654419,
+    -0.020462036,
+    0.0079574585,
+    -0.007789612,
+    0.0017213821,
+    0.0025806427,
+    -0.010597229,
+    0.018966675,
+    -0.0062179565,
+    0.02444458,
+    0.006134033,
+    0.007217407,
+    -0.011299133,
+    0.02230835,
+    0.002866745,
+    -0.008232117,
+    -0.00060367584,
+    0.060180664,
+    -0.032348633,
+    -0.023864746,
+    -0.016983032,
+    0.016311646,
+    -0.052825928,
+    -0.009315491,
+    0.042236328,
+    -0.02720642,
+    0.005783081,
+    0.027450562,
+    -0.031799316,
+    0.04324341,
+    -0.008598328,
+    0.0128479,
+    0.007041931,
+    -0.03652954,
+    0.031311035,
+    0.012924194,
+    -0.04324341,
+    0.03466797,
+    -0.014678955,
+    -0.02178955,
+    0.0016698837,
+    -0.07476807,
+    -0.009002686,
+    -0.020965576,
+    -0.0011053085,
+    0.004196167,
+    0.009689331,
+    0.016296387,
+    -0.008422852,
+    0.0141067505,
+    0.0013952255,
+    -0.011062622,
+    -0.04876709,
+    -0.08453369,
+    -0.1048584,
+    -0.0871582,
+    0.025054932,
+    -0.0074386597,
+    0.021850586,
+    0.0124435425,
+    0.06524658,
+    0.012527466,
+    -0.059539795,
+    0.011131287,
+    0.025985718,
+    -0.026138306,
+    0.03543091,
+    0.0129470825,
+    -0.06970215,
+    -0.013412476,
+    0.0037059784,
+    0.030395508,
+    -0.0036354065,
+    0.004878998,
+    0.01939392,
+    0.020187378,
+    -0.018218994,
+    0.05899048,
+    0.017837524,
+    -0.036315918,
+    0.027557373,
+    0.08508301,
+    -0.031677246,
+    0.023620605,
+    -0.0018692017,
+    -0.0053710938,
+    -0.008895874,
+    -0.02961731,
+    -0.01675415,
+    0.008071899,
+    -0.0021095276,
+    0.054351807,
+    0.04827881,
+    -0.051483154,
+    0.03036499,
+    -0.006504059,
+    0.008132935,
+    0.053710938,
+    0.018066406,
+    -0.03012085,
+    -0.047332764,
+    0.008102417,
+    -0.022232056,
+    -0.009773254,
+    0.002828598,
+    -0.0057792664,
+    0.017349243,
+    -0.03982544,
+    0.031555176,
+    -0.041870117,
+    0.027908325,
+    -0.029083252,
+    -0.018844604,
+    -0.00013411045,
+    0.09625244,
+    0.0013790131,
+    -0.032470703,
+    0.020721436,
+    0.013214111,
+    -0.00548172,
+    0.009262085,
+    -0.013877869,
+    -0.0256958,
+    0.046173096,
+    -0.021743774,
+    -0.049072266,
+    0.019424438,
+    0.01727295,
+    -0.07104492,
+    0.07836914,
+    -0.02067566,
+    0.0030403137,
+    0.009170532,
+    0.021240234,
+    -0.02268982,
+    0.04385376,
+    -0.041259766,
+    0.045013428,
+    -0.05419922,
+    -0.018966675,
+    0.0057411194,
+    0.009841919,
+    -0.0073509216,
+    0.013206482,
+    -0.029327393,
+    0.0024108887,
+    0.020217896,
+    -0.045166016,
+    -0.014442444,
+    -0.025512695,
+    0.03250122,
+    -0.019104004,
+    0.030075073,
+    -0.03741455,
+    -0.005783081,
+    0.015991211,
+    0.007472992,
+    -0.064208984,
+    -0.027282715,
+    -0.0027618408,
+    -0.003774643,
+    0.0569458,
+    -0.04107666,
+    -0.016693115,
+    0.017974854,
+    0.07885742,
+    0.018432617,
+    0.041229248,
+    0.009010315,
+    0.019363403,
+    0.024765015,
+    0.013954163,
+    -0.0053596497,
+    -0.028198242,
+    0.007408142,
+    0.010543823,
+    0.019180298,
+    -0.011390686,
+    -0.008110046,
+    -0.010284424,
+    0.025115967,
+    0.01979065,
+    0.010246277,
+    0.029129028,
+    -0.0029754639,
+    -0.03564453,
+    0.025146484,
+    -0.03237915,
+    0.029510498,
+    -0.0057258606,
+    0.030517578,
+    0.0063438416,
+    -0.048950195,
+    0.0071372986,
+    0.04547119,
+    -0.016540527,
+    -0.015625,
+    -0.035339355,
+    -0.05722046,
+    0.04458618,
+    0.022384644,
+    0.058502197,
+    -0.03955078,
+    -0.0037212372,
+    0.014953613,
+    -0.0073127747,
+    -0.036346436,
+    -0.03640747,
+    0.016036987,
+    -0.07611084,
+    -0.050323486,
+    -0.011520386,
+    -0.022476196,
+    -0.02859497,
+    -8.940697e-06,
+    0.013175964,
+    -0.015960693,
+    -0.020187378,
+    -0.013397217,
+    -0.027359009,
+    0.0309906,
+    -0.010520935,
+    -0.050079346,
+    0.046905518,
+    -0.016235352,
+    0.005176544,
+    0.032562256,
+    -0.013053894,
+    -0.0006875992,
+    -0.009819031,
+    0.03552246,
+    0.021102905,
+    -0.039031982,
+    -0.0073623657,
+    0.0079574585,
+    0.046661377,
+    -0.0045814514,
+    -0.0066375732,
+    0.046295166,
+    0.0074806213,
+    -0.036743164,
+    0.027755737,
+    -0.0053901672,
+    0.04901123,
+    0.03277588,
+    0.0047187805,
+    0.015289307,
+    0.018234253,
+    -0.005142212,
+    -0.031951904,
+    -0.010650635,
+    -0.0074653625,
+    0.027618408,
+    -0.03048706,
+    0.017364502,
+    -0.0004107952,
+    -0.018051147,
+    0.030029297,
+    -0.042114258,
+    -0.041137695,
+    -0.0024967194,
+    -0.0024471283,
+    0.011482239,
+    -0.042388916,
+    -0.02444458,
+    0.014793396,
+    0.056549072,
+    0.00063180923,
+    -0.03201294,
+    -0.031280518,
+    0.004585266,
+    -0.060821533,
+    0.016204834,
+    -0.017089844,
+    -0.0071983337,
+    -0.0055122375,
+    0.010276794,
+    0.026977539,
+    -0.093322754,
+    -0.062805176,
+    -0.0048446655,
+    0.032165527,
+    0.04034424,
+    -0.0038414001,
+    -0.039367676,
+    -0.02420044,
+    0.04220581,
+    0.020019531,
+    0.0054512024,
+    0.0033302307,
+    -0.026382446,
+    -0.05014038,
+    0.012031555,
+    -0.015342712,
+    0.017120361,
+    0.015068054,
+    -0.054016113,
+    -0.0038547516,
+    -0.046539307,
+    0.023803711,
+    0.020324707,
+    -0.0096206665,
+    -0.034057617,
+    -0.029251099,
+    0.011276245,
+    0.039764404,
+    0.052825928,
+    -0.041015625,
+    -0.008514404,
+    0.044769287,
+    -0.031143188,
+    -0.0115737915,
+    -0.008743286,
+    0.03579712,
+    0.0019445419,
+    -0.05883789,
+    -0.056365967,
+    0.0107421875,
+    0.05822754,
+    -0.04135132,
+    0.06896973,
+    0.07122803,
+    0.025344849,
+    -0.0070152283,
+    -0.056274414,
+    -0.021835327,
+    -0.035369873,
+    0.10595703,
+    -0.07507324,
+    -0.006374359,
+    -0.012275696,
+    -0.013450623,
+    0.032226562,
+    -0.017532349,
+    -0.04421997,
+    0.03955078,
+    -0.011726379,
+    0.02545166,
+    0.04916382,
+    0.019744873,
+    -0.020935059,
+    -0.0007491112,
+    -0.023635864,
+    0.03378296,
+    0.003648758,
+    0.02420044,
+    0.051086426,
+    -0.01626587,
+    -0.081726074,
+    -0.03213501,
+    -0.014381409,
+    -0.013175964,
+    0.0061073303,
+    0.027328491,
+    0.0030441284,
+    -0.017181396,
+    0.037597656,
+    0.06951904,
+    -0.029129028,
+    -0.027709961,
+    0.029006958,
+    -0.035705566,
+    -0.046813965,
+    0.02519226,
+    -0.025100708,
+    -0.035491943,
+    -0.06561279,
+    -0.012168884,
+    -0.030548096,
+    -0.039764404,
+    0.0014781952,
+    -0.0006957054,
+    0.010643005,
+    0.04852295,
+    -0.016586304,
+    -0.0501709,
+    -0.050109863,
+    0.011550903,
+    -0.04586792,
+    -0.053833008,
+    0.019592285,
+    0.043518066,
+    0.0021953583,
+    -0.032073975,
+    0.06726074,
+    0.019134521,
+    0.016357422,
+    0.018859863,
+    0.0002758503,
+    -0.004524231,
+    0.04425049,
+    -0.030471802,
+    0.03125,
+    0.015296936,
+    -0.012680054,
+    0.00058698654,
+    0.005241394,
+    0.023040771,
+    -0.0069885254,
+    -0.03253174,
+    0.0047721863,
+    -0.047821045,
+    0.011154175,
+    0.0037078857,
+    -0.02999878,
+    0.048828125,
+    -0.0513916,
+    0.006538391,
+    0.029815674,
+    0.007858276,
+    0.0039100647,
+    -0.041900635,
+    -0.035705566,
+    0.008872986,
+    0.05999756,
+    -0.062316895,
+    0.02192688,
+    0.03527832,
+    -0.055847168,
+    -0.07122803,
+    -0.0020427704,
+    -0.0008010864,
+    0.038757324,
+    -0.013969421,
+    -0.027023315,
+    0.02217102,
+    -0.04360962,
+    0.03552246,
+    -0.021224976,
+    -0.028640747,
+    -0.013725281,
+    0.077819824,
+    0.027954102,
+    0.017562866,
+    -0.0033493042,
+    -0.017990112,
+    -0.005138397,
+    -0.02633667,
+    -0.024139404,
+    -0.0074005127,
+    0.035064697,
+    0.02508545,
+    0.03289795,
+    -0.034332275,
+    0.0022716522,
+    -0.024032593,
+    -0.061187744,
+    0.0067367554,
+    -0.0791626,
+    -0.024902344,
+    -0.016693115,
+    -0.0043945312,
+    -0.00016462803,
+    0.019226074,
+    -0.02142334,
+    -0.0028858185,
+    0.017791748,
+    -0.022460938,
+    0.048095703,
+    -0.02268982,
+    0.001121521,
+    -0.015670776,
+    0.0025959015,
+    -0.019805908,
+    -0.012641907,
+    0.019851685,
+    0.028717041,
+    0.006023407,
+    0.05053711,
+    0.023483276,
+    0.030807495,
+    0.023513794,
+    0.01096344,
+    0.02758789,
+    -0.009208679,
+    -0.03717041,
+    -0.020584106,
+    -0.0026741028,
+    -0.030456543,
+    0.03616333,
+    0.021606445,
+    -0.022598267,
+    -0.007297516,
+    0.016983032,
+    0.0155181885,
+    -0.009376526,
+    -0.039276123,
+    -0.027130127,
+    -0.037963867,
+    -0.023864746,
+    -0.018463135,
+    0.03100586,
+    -0.0023288727,
+    0.026901245,
+    -0.021942139,
+    0.020599365,
+    0.051696777,
+    -0.006839752,
+    0.036224365,
+    0.0061950684,
+    -0.030044556,
+    -0.021438599,
+    0.015083313,
+    0.03326416,
+    0.0044784546,
+    -0.06225586,
+    -0.0068855286,
+    -0.006462097,
+    0.067993164,
+    0.067993164,
+    -0.028717041,
+    -0.0178833,
+    -0.034301758,
+    0.020965576,
+    0.016357422,
+    -0.022842407,
+    0.011459351,
+    0.009849548,
+    0.009353638,
+    -0.009376526,
+    -0.017501831,
+    0.02166748,
+    -0.033813477,
+    -0.0017938614,
+    -0.026565552,
+    0.03805542,
+    0.014801025,
+    -0.0042533875,
+    -0.0024776459,
+    0.010643005,
+    0.04989624,
+    -0.012214661,
+    0.015136719,
+    0.00774765,
+    -0.013244629,
+    0.03564453,
+    -0.062438965,
+    0.03186035,
+    -0.019683838,
+    0.0013475418,
+    -0.016052246,
+    0.015792847,
+    -0.0015668869,
+    0.00044631958,
+    0.04425049,
+    0.014083862,
+    -0.0048179626,
+    0.026397705,
+    -0.008628845,
+    -0.0013360977,
+    -0.010795593,
+    0.028213501,
+    0.01626587,
+    0.01373291,
+    0.021194458,
+    0.04953003,
+    0.012962341,
+    0.07385254,
+    0.029403687,
+    0.0029907227,
+    -0.080078125,
+    0.026687622,
+    0.011138916,
+    0.011665344,
+    0.050048828,
+    -0.027572632,
+    0.016571045,
+    0.013175964,
+    0.018112183,
+    0.0033874512,
+    -0.011634827,
+    -0.059753418,
+    0.05709839,
+    -0.024429321,
+    0.004524231,
+    0.064453125,
+    -0.021743774,
+    -0.009986877,
+    0.009651184,
+    0.03152466,
+    -0.0023918152,
+    0.008270264,
+    0.04925537,
+    0.011817932,
+    0.018096924,
+    0.022613525,
+    0.016113281,
+    0.007446289,
+    0.00459671,
+    -0.02520752,
+    0.01360321,
+    -0.028274536,
+    0.017807007,
+    0.024108887,
+    0.018966675,
+    0.0067443848,
+    -0.024642944,
+    -0.032409668,
+    0.0068588257,
+    0.0056037903,
+    -0.003583908,
+    -0.034576416,
+    0.04019165,
+    0.0026760101,
+    0.00881958,
+    0.029037476,
+    -0.04260254,
+    -0.00042247772,
+    0.0074653625,
+    0.0022659302,
+    0.017059326,
+    0.030548096,
+    -0.0037193298,
+    -0.03845215,
+    -0.008270264,
+    0.02355957,
+    -0.023635864,
+    0.032958984,
+    -0.027694702,
+    0.009498596,
+    -0.0259552,
+    -0.0110321045,
+    -0.0357666,
+    0.001247406,
+    0.020370483,
+    0.026367188,
+    -0.02973938,
+    0.0209198,
+    -0.00579834,
+    -0.0011043549,
+    -0.042236328,
+    -0.02708435,
+    -0.005908966,
+    0.046203613,
+    0.015670776,
+    0.036376953,
+    0.01576233,
+    -0.057556152,
+    0.0003581047,
+    0.056365967,
+    0.061340332,
+    0.08642578,
+    0.049957275,
+    -0.024673462,
+    0.01701355,
+    -0.018096924,
+    -0.009162903,
+    0.0065841675,
+    0.012466431,
+    -0.013534546,
+    -0.05340576,
+    -0.027816772,
+    0.034088135,
+    0.042175293,
+    -0.011764526,
+    -0.0050964355,
+    -0.0013971329,
+    0.012496948,
+    -0.023223877,
+    0.0074310303,
+    -0.045013428,
+    -0.030685425,
+    0.064697266,
+    -0.0008997917,
+    -0.01776123,
+    -0.02659607,
+    0.01828003,
+    0.018188477,
+    0.028427124,
+    0.018112183,
+    0.008277893,
+    -0.0027885437,
+    0.034820557,
+    0.01701355,
+    0.026779175,
+    -0.037109375,
+    0.023986816,
+    -0.023468018,
+    0.029449463,
+    -0.007675171,
+    -0.068847656,
+    -0.013328552,
+    -0.02508545,
+    0.02545166,
+    -0.0012321472,
+    -0.017700195,
+    -0.031921387,
+    -0.044921875,
+    0.037078857,
+    0.002817154,
+    0.006980896,
+    0.014587402,
+    -0.05303955,
+    0.0013847351,
+    0.013710022,
+    -0.0034866333,
+    -0.03338623,
+    0.007499695,
+    0.032348633,
+    -0.005569458,
+    -0.05230713,
+    -0.0135269165,
+    -0.031143188,
+    -0.026657104,
+    -0.03479004,
+    -0.0105896,
+    0.05316162,
+    -0.033477783,
+    0.038360596,
+    -0.0256958,
+    -0.02178955,
+    -0.0052986145,
+    0.02458191,
+    -0.0063705444,
+    0.0056877136,
+    0.02784729,
+    -0.055419922,
+    0.03050232,
+    0.040496826,
+    0.021377563,
+    0.009559631,
+    0.0110321045,
+    -0.050750732,
+    -0.026824951,
+    0.03756714,
+    0.03503418,
+    0.053710938,
+    -0.064086914,
+    0.09777832,
+    0.04852295,
+    -0.011398315,
+    -0.03930664,
+    0.009605408,
+    -0.024047852,
+    0.009086609,
+    -0.005279541,
+    0.022216797,
+    0.024154663,
+    -0.007980347,
+    0.031051636,
+    -0.0043258667,
+    -0.030212402,
+    0.05142212,
+    -0.047668457,
+    0.024993896,
+    -0.060180664,
+    -0.020370483
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part I/Developers and Enterprises/",
+    "aws::graph::propositions": [
+      "Intellectual Property Protection at Amazon",
+      "Amazon regards trademarks as critical to its success.",
+      "Amazon regards service marks as critical to its success.",
+      "Amazon regards copyrights as critical to its success.",
+      "Amazon regards patents as critical to its success.",
+      "Amazon regards domain names as critical to its success.",
+      "Amazon regards trade dress as critical to its success.",
+      "Amazon regards trade secrets as critical to its success.",
+      "Amazon regards proprietary technologies as critical to its success.",
+      "Amazon regards similar intellectual property as critical to its success.",
+      "Amazon relies on trademark law to protect its proprietary rights.",
+      "Amazon relies on copyright law to protect its proprietary rights.",
+      "Amazon relies on patent law to protect its proprietary rights.",
+      "Amazon relies on trade-secret protection to protect its proprietary rights.",
+      "Amazon relies on confidentiality agreements with its employees to protect its proprietary rights.",
+      "Amazon relies on confidentiality agreements with its customers to protect its proprietary rights.",
+      "Amazon relies on confidentiality agreements with its partners to protect its proprietary rights.",
+      "Amazon relies on confidentiality agreements with others to protect its proprietary rights.",
+      "Amazon relies on license agreements with its employees to protect its proprietary rights.",
+      "Amazon relies on license agreements with its customers to protect its proprietary rights.",
+      "Amazon relies on license agreements with its partners to protect its proprietary rights.",
+      "Amazon relies on license agreements with others to protect its proprietary rights.",
+      "Amazon has registered a number of U.S. domain names.",
+      "Amazon has registered a number of international domain names.",
+      "Amazon has registered a number of U.S. trademarks.",
+      "Amazon has registered a number of international trademarks.",
+      "Amazon has registered a number of U.S. service marks.",
+      "Amazon has registered a number of international service marks.",
+      "Amazon has registered a number of U.S. copyrights.",
+      "Amazon has registered a number of international copyrights.",
+      "Amazon has applied for registration of a number of U.S. domain names.",
+      "Amazon has applied for registration of a number of international domain names.",
+      "Amazon has applied for registration of a number of U.S. trademarks.",
+      "Amazon has applied for registration of a number of international trademarks.",
+      "Amazon has applied for registration of a number of U.S. service marks.",
+      "Amazon has applied for registration of a number of international service marks.",
+      "Amazon has applied for registration of a number of U.S. copyrights.",
+      "Amazon has applied for registration of a number of international copyrights.",
+      "Amazon has filed U.S. patent applications covering certain of its proprietary technology.",
+      "Amazon has filed international patent applications covering certain of its proprietary technology."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Intellectual Property Protection at Amazon",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "trademark law",
+              "classification": "Regulation"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "copyright law",
+              "classification": "Regulation"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "patent law",
+              "classification": "Regulation"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "trade-secret protection",
+              "classification": "Regulation"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "confidentiality agreements",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "license agreements",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "U.S. domain names",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "international domain names",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "U.S. trademarks",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "international trademarks",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "U.S. service marks",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "international service marks",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "U.S. copyrights",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "international copyrights",
+              "classification": "Asset"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "U.S. patent applications",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "international patent applications",
+              "classification": "Document"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards trademarks as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trademarks as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards service marks as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "service marks as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards copyrights as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "copyrights as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards patents as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "patents as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards domain names as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "domain names as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards trade dress as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trade dress as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards trade secrets as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trade secrets as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards proprietary technologies as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "proprietary technologies as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon regards similar intellectual property as critical to its success.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGARDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "similar intellectual property as critical to its success",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on trademark law to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trademark law",
+                    "classification": "Regulation"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on copyright law to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "copyright law",
+                    "classification": "Regulation"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on patent law to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "patent law",
+                    "classification": "Regulation"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on trade-secret protection to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trade-secret protection",
+                    "classification": "Regulation"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on confidentiality agreements with its employees to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "employees",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on confidentiality agreements with its customers to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on confidentiality agreements with its partners to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "partners",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on confidentiality agreements with others to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confidentiality agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "others",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on license agreements with its employees to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "employees",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on license agreements with its customers to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on license agreements with its partners to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "partners",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on license agreements with others to protect its proprietary rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "license agreements",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "HAS PARTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "others",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "protect its proprietary rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of U.S. domain names.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. domain names",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. domain names",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of international domain names.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international domain names",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international domain names",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of U.S. trademarks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. trademarks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. trademarks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of international trademarks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international trademarks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international trademarks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of U.S. service marks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. service marks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. service marks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of international service marks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international service marks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international service marks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of U.S. copyrights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. copyrights",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. copyrights",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has registered a number of international copyrights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international copyrights",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international copyrights",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registered",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of U.S. domain names.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. domain names",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. domain names",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of international domain names.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international domain names",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international domain names",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of U.S. trademarks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. trademarks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. trademarks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of international trademarks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international trademarks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international trademarks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of U.S. service marks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. service marks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. service marks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of international service marks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international service marks",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international service marks",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of U.S. copyrights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. copyrights",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. copyrights",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has applied for registration of a number of international copyrights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "APPLIED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international copyrights",
+                    "classification": "Asset"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international copyrights",
+                    "classification": "Asset"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "registration applied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has filed U.S. patent applications covering certain of its proprietary technology.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. patent applications",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "U.S. patent applications",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "proprietary technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon has filed international patent applications covering certain of its proprietary technology.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international patent applications",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "international patent applications",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "proprietary technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:e92ca77c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Developers and Enterprises/"
+      },
+      "hash": "f6f35f9bbd69410a8b071c545e9c6b8b61607fa256176949011991ed568962b8",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:be8fd728",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Developers and Enterprises/"
+      },
+      "hash": "2e9316737e17c9318dcfb01f93f5ef1f7cd67f45726fe7671188c176379caeaa",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "#### Intellectual Property\n\nWe regard our trademarks, service marks, copyrights, patents, domain names, trade dress, trade secrets, proprietary technologies, and similar intellectual property as critical to our success, and we rely on trademark, copyright, and patent law, trade-secret protection, and confidentiality and/or license agreements with our employees, customers, partners, and others to protect our proprietary rights. We have registered, or applied for the registration of, a number of U.S. and international domain names, trademarks, service marks, and copyrights. Additionally, we have filed U.S. and international patent applications covering certain of our proprietary technology.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 697,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

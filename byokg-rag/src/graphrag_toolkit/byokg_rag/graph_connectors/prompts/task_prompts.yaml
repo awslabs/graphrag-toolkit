@@ -142,3 +142,43 @@ opencypher-linking: '''
     LIMIT 5
 
     '''
+
+opencypher-linking-iterative: '''
+    ## Task: Iterative OpenCypher Keyword and Entity Linking & Task Completion
+    Based on the current graph context and question, identify remaining entities and keywords that need to be linked to continue answering the question.
+    Focus only on entities/keywords that are necessary for the next step and haven''t been adequately explored yet.
+    Pay attention to the specific node type that each keyword or entity refers to, and generate an openCypher query for checking if your extracted keywords and entities can be matched.
+    
+    Construct a complete, executable OpenCypher statement that will retrieve those matched keywords or entities from a graph database.
+    - Your query must only use node types, relationship types, and properties defined in the provided schema
+    - Include appropriate MATCH patterns, WHERE clauses, and RETURN statements
+    - Prefer toLower() and CONTAINS for WHERE clauses on keywords for more robustness
+    - **If execution feedback is provided, ensure your query does not make the same errors**
+    - **If graph context is provided, analyze it to determine what additional entities need to be explored to complete the answer**
+    - Limit the return results to 5 at this step
+    - Return always the ID of the linked node(s)
+    - Prioritize the most important entities/keywords first
+
+    - Format your response as follows:
+
+    <opencypher-linking>
+    MATCH ...
+    WHERE ...
+    RETURN ...
+    LIMIT 5
+    </opencypher-linking>
+
+    Task Completion Instructions:
+    If the current graph context provides sufficient information to answer the question and no further entity linking is needed, respond with:
+    <task-completion>
+    FINISH
+    </task-completion>
+    If the linking task is not completed and more entities need to be explored, do not include <task-completion> tags.
+
+    One example includes:
+    MATCH (t:TYPE)
+    WHERE toLower(t.keyword) CONTAINS toLower(keyword) OR toLower(t.name) CONTAINS toLower(entity)
+    RETURN ID(t)
+    LIMIT 5
+
+    '''

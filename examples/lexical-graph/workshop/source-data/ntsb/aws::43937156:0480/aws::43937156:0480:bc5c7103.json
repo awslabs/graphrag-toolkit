@@ -1,0 +1,2413 @@
+{
+  "id_": "aws::43937156:0480:bc5c7103",
+  "embedding": [
+    -0.009651184,
+    -0.0049743652,
+    -0.046325684,
+    0.0066604614,
+    -0.0073509216,
+    -0.039215088,
+    0.0052108765,
+    0.015838623,
+    -0.00022506714,
+    0.00080156326,
+    0.017105103,
+    0.018692017,
+    -0.04586792,
+    -0.032196045,
+    -0.007751465,
+    -0.0048065186,
+    0.004047394,
+    0.014533997,
+    0.02545166,
+    -0.0016822815,
+    0.0017271042,
+    0.01953125,
+    -0.005088806,
+    -0.013755798,
+    0.032562256,
+    0.02255249,
+    0.033325195,
+    0.026870728,
+    0.0110321045,
+    0.030517578,
+    0.01687622,
+    -0.062927246,
+    0.02217102,
+    -0.0011672974,
+    -0.0011987686,
+    -0.00060606,
+    -0.032958984,
+    0.013908386,
+    0.010101318,
+    -0.017913818,
+    0.012001038,
+    -0.00982666,
+    0.03768921,
+    -0.05343628,
+    -0.0013914108,
+    0.013786316,
+    -0.0014791489,
+    -0.016098022,
+    0.03375244,
+    0.007007599,
+    0.015609741,
+    0.038604736,
+    0.012641907,
+    0.03201294,
+    -0.007080078,
+    0.034942627,
+    -0.026626587,
+    0.06317139,
+    -0.001042366,
+    0.052825928,
+    0.011405945,
+    0.0496521,
+    -0.019317627,
+    -0.031707764,
+    -0.021362305,
+    -0.01789856,
+    0.06335449,
+    0.0020275116,
+    0.032714844,
+    -0.014877319,
+    0.006351471,
+    0.04522705,
+    0.014328003,
+    -0.04397583,
+    -0.00566864,
+    -0.0060043335,
+    -0.0084991455,
+    -0.020492554,
+    0.0061454773,
+    -0.0015926361,
+    -0.00033164024,
+    0.00021231174,
+    -0.037841797,
+    0.0129776,
+    -0.0035171509,
+    0.041809082,
+    -0.005924225,
+    -0.026443481,
+    0.016098022,
+    0.0037727356,
+    -0.00381279,
+    -0.024963379,
+    0.07537842,
+    0.034698486,
+    -0.035491943,
+    -0.031921387,
+    -0.024017334,
+    -0.04534912,
+    0.057403564,
+    0.049621582,
+    0.021377563,
+    -0.06286621,
+    0.044708252,
+    -0.025939941,
+    0.018661499,
+    -0.00541687,
+    -0.0065612793,
+    -0.025100708,
+    0.03845215,
+    0.005935669,
+    -0.033843994,
+    0.032562256,
+    -0.011207581,
+    -0.06524658,
+    -0.008514404,
+    0.080566406,
+    0.018707275,
+    -0.016830444,
+    0.03062439,
+    0.012413025,
+    -0.014663696,
+    -0.0031204224,
+    -0.037322998,
+    -0.024215698,
+    0.0059547424,
+    -0.03555298,
+    -0.032226562,
+    0.055999756,
+    -0.042266846,
+    0.0131073,
+    -0.014770508,
+    0.015129089,
+    0.0015878677,
+    0.012168884,
+    -0.009262085,
+    -0.016204834,
+    -0.0020046234,
+    0.018966675,
+    0.007621765,
+    -0.0006532669,
+    -0.019546509,
+    -0.018218994,
+    0.055419922,
+    -0.006416321,
+    -0.01159668,
+    0.021133423,
+    0.03567505,
+    0.01474762,
+    -0.031097412,
+    -0.04711914,
+    -0.00045013428,
+    0.0002708435,
+    0.06188965,
+    -0.012687683,
+    -0.060760498,
+    -0.05126953,
+    0.008369446,
+    -0.047576904,
+    -0.007144928,
+    -0.066467285,
+    0.0826416,
+    -0.017669678,
+    -0.039855957,
+    0.005756378,
+    -0.04650879,
+    0.00049829483,
+    -0.008590698,
+    -0.02218628,
+    -0.0006875992,
+    -0.0022354126,
+    -0.053497314,
+    0.010360718,
+    -0.0335083,
+    -0.008453369,
+    0.010749817,
+    0.02960205,
+    -0.00844574,
+    -0.009788513,
+    0.011871338,
+    0.04336548,
+    0.0033111572,
+    -0.03878784,
+    0.016647339,
+    0.00034928322,
+    0.004005432,
+    -0.024108887,
+    0.039215088,
+    0.013641357,
+    -0.020553589,
+    0.020843506,
+    0.026229858,
+    0.0047073364,
+    -0.028686523,
+    0.0002462864,
+    0.0119018555,
+    0.0011529922,
+    -0.03945923,
+    0.005584717,
+    -0.006793976,
+    -0.029586792,
+    -0.003484726,
+    0.03640747,
+    -0.017608643,
+    0.018218994,
+    -0.046844482,
+    0.019088745,
+    -0.012329102,
+    0.035186768,
+    -0.015930176,
+    0.042266846,
+    0.039245605,
+    0.019439697,
+    -0.055389404,
+    0.020401001,
+    -0.0079956055,
+    -0.02810669,
+    0.00049734116,
+    -0.036468506,
+    0.008926392,
+    -0.017715454,
+    -0.00036597252,
+    0.04208374,
+    -0.017044067,
+    0.009033203,
+    -0.012268066,
+    -0.02558899,
+    0.010345459,
+    -0.005264282,
+    0.004333496,
+    0.03741455,
+    -0.00856781,
+    -0.028686523,
+    0.051727295,
+    0.07324219,
+    -0.016677856,
+    0.0019226074,
+    0.021774292,
+    -0.009063721,
+    0.010566711,
+    0.0065841675,
+    0.003025055,
+    0.018417358,
+    -0.026062012,
+    0.013839722,
+    -0.06402588,
+    -0.035888672,
+    0.024917603,
+    -0.01953125,
+    0.002506256,
+    0.039916992,
+    0.0031871796,
+    0.031433105,
+    -0.003200531,
+    0.007835388,
+    -0.0025558472,
+    0.009971619,
+    -0.018539429,
+    -0.042633057,
+    -0.006614685,
+    -0.0008568764,
+    0.018554688,
+    -0.039215088,
+    -0.020339966,
+    -0.0024909973,
+    0.0256958,
+    0.07067871,
+    0.06555176,
+    0.05706787,
+    -0.061950684,
+    0.054138184,
+    0.016418457,
+    0.05142212,
+    0.0007133484,
+    0.013809204,
+    -0.012634277,
+    -0.044403076,
+    -0.027557373,
+    0.027053833,
+    -0.00932312,
+    -0.009376526,
+    -0.019241333,
+    0.002368927,
+    -0.016815186,
+    -0.017440796,
+    0.019073486,
+    0.040863037,
+    -0.003730774,
+    -0.022567749,
+    -0.048461914,
+    -0.0063323975,
+    -0.007637024,
+    0.034820557,
+    -0.011878967,
+    0.0110321045,
+    0.045898438,
+    0.016998291,
+    -0.006099701,
+    -0.015396118,
+    0.027526855,
+    -0.017364502,
+    -0.008338928,
+    0.04815674,
+    0.010269165,
+    -0.009407043,
+    -0.0061454773,
+    0.05596924,
+    0.00021791458,
+    0.006290436,
+    0.023208618,
+    0.0013837814,
+    -0.009056091,
+    0.012496948,
+    0.014350891,
+    0.05117798,
+    -0.008117676,
+    -0.0015983582,
+    -0.008964539,
+    0.044067383,
+    0.031311035,
+    0.035705566,
+    -0.06817627,
+    -0.036102295,
+    -0.054229736,
+    0.037078857,
+    -0.023986816,
+    0.03842163,
+    0.0440979,
+    0.011672974,
+    -0.05444336,
+    -0.042755127,
+    -0.05657959,
+    -0.07598877,
+    -0.04888916,
+    0.054534912,
+    -0.003019333,
+    0.00819397,
+    -0.003036499,
+    0.020217896,
+    -0.022247314,
+    -0.008018494,
+    -0.0013008118,
+    -0.012054443,
+    0.026535034,
+    -0.012130737,
+    -0.016448975,
+    -0.004085541,
+    0.041900635,
+    -0.003063202,
+    -0.013618469,
+    0.03189087,
+    -0.006641388,
+    -0.018981934,
+    0.045928955,
+    -0.005306244,
+    0.06097412,
+    -0.038879395,
+    -0.07879639,
+    0.05355835,
+    0.019607544,
+    -0.020462036,
+    0.03567505,
+    0.019577026,
+    0.020645142,
+    0.0011377335,
+    -0.04650879,
+    -0.026794434,
+    -0.01210022,
+    0.035461426,
+    0.011802673,
+    0.0005645752,
+    -0.033416748,
+    -0.0045051575,
+    0.0016498566,
+    0.0028095245,
+    0.030090332,
+    0.014785767,
+    0.056732178,
+    -0.012710571,
+    -0.025253296,
+    0.014884949,
+    0.02130127,
+    0.026824951,
+    -0.035095215,
+    -0.019943237,
+    0.026733398,
+    0.0004324913,
+    -0.05380249,
+    -0.021850586,
+    0.021881104,
+    0.033996582,
+    0.0064735413,
+    -0.0017719269,
+    -0.015777588,
+    -0.032196045,
+    -0.020370483,
+    0.01789856,
+    0.00995636,
+    -0.04055786,
+    0.031234741,
+    -0.051086426,
+    -0.051727295,
+    0.0076904297,
+    0.003419876,
+    -0.038360596,
+    -0.003376007,
+    -0.038208008,
+    -0.0209198,
+    -0.019378662,
+    0.017456055,
+    0.05795288,
+    -0.0018119812,
+    0.03756714,
+    -0.036743164,
+    0.06585693,
+    -0.020370483,
+    0.0043258667,
+    -0.07299805,
+    -0.018753052,
+    -0.032409668,
+    0.059631348,
+    0.038513184,
+    -0.04815674,
+    -0.016220093,
+    0.02557373,
+    -0.03201294,
+    -0.016952515,
+    -0.0044021606,
+    0.018432617,
+    0.007774353,
+    0.045837402,
+    0.0018148422,
+    -0.0010433197,
+    -0.016540527,
+    -0.043762207,
+    0.0027008057,
+    0.010009766,
+    -0.017684937,
+    0.037078857,
+    -0.03427124,
+    0.0033168793,
+    0.043395996,
+    0.03125,
+    0.019729614,
+    0.0024375916,
+    -0.018585205,
+    -0.009315491,
+    0.039154053,
+    0.054016113,
+    -0.009140015,
+    0.00079488754,
+    -0.03338623,
+    0.007183075,
+    0.0025730133,
+    0.027801514,
+    -0.01727295,
+    0.05697632,
+    0.033477783,
+    0.0073509216,
+    -0.02684021,
+    0.040161133,
+    0.0028648376,
+    0.022094727,
+    -0.007331848,
+    -0.030136108,
+    -0.02394104,
+    -0.03829956,
+    0.018844604,
+    0.0036258698,
+    0.014808655,
+    -0.025543213,
+    -0.027664185,
+    0.08569336,
+    -0.026809692,
+    -0.010566711,
+    -0.017868042,
+    -0.024414062,
+    0.018844604,
+    0.0010538101,
+    0.066345215,
+    -0.0033168793,
+    -0.0076141357,
+    -0.013328552,
+    -0.011222839,
+    0.07952881,
+    0.031555176,
+    -6.854534e-06,
+    0.047790527,
+    0.090148926,
+    -0.04043579,
+    0.044525146,
+    -0.00086307526,
+    0.040374756,
+    -0.01020813,
+    0.036499023,
+    -0.019760132,
+    -0.0020771027,
+    -0.010879517,
+    -0.011741638,
+    -0.020401001,
+    -0.06512451,
+    0.03274536,
+    0.0063438416,
+    0.02557373,
+    0.040222168,
+    -6.145239e-05,
+    -0.0072402954,
+    -0.02748108,
+    -0.0023899078,
+    0.020339966,
+    0.02305603,
+    -0.044036865,
+    -0.0073394775,
+    0.0009469986,
+    -0.0231781,
+    -0.010192871,
+    0.018722534,
+    0.041229248,
+    -0.09222412,
+    0.05126953,
+    0.01838684,
+    -0.03375244,
+    -0.06726074,
+    0.06707764,
+    0.00793457,
+    -0.040039062,
+    0.029937744,
+    0.034362793,
+    0.034088135,
+    -0.024307251,
+    0.029006958,
+    0.0029392242,
+    0.0020103455,
+    0.0048332214,
+    -0.04296875,
+    0.03817749,
+    -0.013519287,
+    -0.0010652542,
+    0.011802673,
+    -0.05987549,
+    -0.045410156,
+    -0.014282227,
+    -0.022781372,
+    0.018447876,
+    -0.029953003,
+    0.0025081635,
+    -0.07751465,
+    -0.0042152405,
+    0.014038086,
+    -0.021194458,
+    -0.029403687,
+    0.032928467,
+    0.025115967,
+    -0.015670776,
+    -0.0011835098,
+    -0.010940552,
+    -0.012077332,
+    -0.058258057,
+    0.019973755,
+    0.012039185,
+    0.018096924,
+    -0.013221741,
+    -0.0013246536,
+    -0.018203735,
+    0.0043907166,
+    -0.005344391,
+    0.012611389,
+    0.034973145,
+    0.0050582886,
+    0.015380859,
+    -0.008514404,
+    -0.0023708344,
+    -0.031799316,
+    0.011695862,
+    0.015655518,
+    -0.035308838,
+    -0.016723633,
+    0.00945282,
+    0.038848877,
+    -0.014968872,
+    -0.022872925,
+    -0.007019043,
+    -0.0020179749,
+    0.003419876,
+    0.054595947,
+    -0.027877808,
+    -0.014793396,
+    0.038635254,
+    -0.007484436,
+    -0.0016288757,
+    0.0011348724,
+    0.046447754,
+    -0.042114258,
+    0.005466461,
+    -0.03741455,
+    -0.0017690659,
+    0.011894226,
+    0.0031280518,
+    -0.025527954,
+    -0.026855469,
+    0.008148193,
+    -0.050689697,
+    0.0008749962,
+    -0.005241394,
+    -0.008834839,
+    0.06591797,
+    0.060333252,
+    -0.016403198,
+    0.009117126,
+    0.038208008,
+    -0.0077171326,
+    -0.018966675,
+    -0.09442139,
+    0.0061836243,
+    0.089660645,
+    -0.005542755,
+    -0.060699463,
+    -0.023498535,
+    0.011474609,
+    0.08093262,
+    0.0018892288,
+    0.04916382,
+    0.009963989,
+    0.010383606,
+    0.027114868,
+    -0.06542969,
+    0.024810791,
+    0.025665283,
+    -0.035491943,
+    -0.046051025,
+    0.06149292,
+    -0.014793396,
+    0.011779785,
+    -0.04284668,
+    -0.035888672,
+    -0.00869751,
+    0.045684814,
+    -0.026611328,
+    -0.02166748,
+    -0.0055007935,
+    0.005973816,
+    0.04434204,
+    0.0017356873,
+    0.002023697,
+    -0.05807495,
+    0.06488037,
+    0.0087509155,
+    0.0052604675,
+    0.057556152,
+    -0.012191772,
+    0.013755798,
+    0.008918762,
+    0.0115737915,
+    -0.020751953,
+    -0.021759033,
+    0.032836914,
+    -0.021759033,
+    -0.011260986,
+    -0.019485474,
+    0.026123047,
+    -0.052215576,
+    -0.041259766,
+    0.027053833,
+    -0.024307251,
+    0.008636475,
+    -0.032958984,
+    0.009300232,
+    0.033111572,
+    0.013923645,
+    0.0043525696,
+    -0.046203613,
+    0.002292633,
+    0.021972656,
+    -0.025314331,
+    -0.004562378,
+    -0.004917145,
+    0.02557373,
+    -0.00617218,
+    0.013633728,
+    -0.027053833,
+    0.007896423,
+    -0.0077209473,
+    0.009124756,
+    0.058013916,
+    0.010574341,
+    -0.03970337,
+    0.008720398,
+    0.0019874573,
+    0.018127441,
+    -0.016937256,
+    0.018417358,
+    0.03161621,
+    0.06506348,
+    -0.007171631,
+    0.05380249,
+    -0.011856079,
+    -0.0063819885,
+    -0.013877869,
+    0.00592041,
+    -0.03945923,
+    0.034942627,
+    0.06378174,
+    -0.026885986,
+    -0.013496399,
+    -0.03793335,
+    -0.02619934,
+    0.011528015,
+    -0.020904541,
+    0.08654785,
+    -0.028823853,
+    0.0013341904,
+    0.038604736,
+    0.03866577,
+    -0.0014095306,
+    -0.0043792725,
+    0.009536743,
+    0.006916046,
+    0.0011034012,
+    0.027175903,
+    -0.009376526,
+    -0.005340576,
+    -0.076049805,
+    0.008407593,
+    -0.04888916,
+    -0.038116455,
+    0.008171082,
+    -0.004558563,
+    -0.10595703,
+    -0.030197144,
+    -0.0022602081,
+    -0.012519836,
+    0.012687683,
+    0.017486572,
+    -0.000497818,
+    -0.0027656555,
+    -0.004737854,
+    -0.018875122,
+    0.0039043427,
+    0.010749817,
+    -0.05331421,
+    -0.015472412,
+    -0.03186035,
+    -0.0057640076,
+    -0.0018453598,
+    -0.05419922,
+    -0.014572144,
+    0.0011539459,
+    0.012512207,
+    0.0066947937,
+    -0.04837036,
+    -0.033966064,
+    0.0027179718,
+    -0.026031494,
+    -0.04336548,
+    0.008956909,
+    0.038879395,
+    0.03692627,
+    0.03677368,
+    -0.0368042,
+    -0.04827881,
+    0.0039043427,
+    0.013092041,
+    -0.0028190613,
+    -0.03125,
+    0.0074501038,
+    -0.06713867,
+    -0.014961243,
+    -0.07885742,
+    -0.089538574,
+    -0.059661865,
+    0.0023097992,
+    -0.01285553,
+    0.03463745,
+    -0.030960083,
+    -0.05545044,
+    0.007904053,
+    -0.02104187,
+    0.0025691986,
+    0.040985107,
+    -0.0044441223,
+    -0.0362854,
+    -0.043060303,
+    0.006450653,
+    -0.02015686,
+    0.02520752,
+    -0.042236328,
+    0.02128601,
+    -0.012023926,
+    0.056152344,
+    -0.0446167,
+    -0.0020656586,
+    -0.008773804,
+    0.044128418,
+    0.042541504,
+    -0.022140503,
+    0.04296875,
+    -0.004081726,
+    -0.0067481995,
+    0.00045633316,
+    -0.037139893,
+    -0.008972168,
+    -0.06561279,
+    -0.0053863525,
+    -0.011726379,
+    0.05618286,
+    0.02960205,
+    0.030792236,
+    0.020477295,
+    0.033599854,
+    0.021759033,
+    -0.013587952,
+    0.01612854,
+    0.004673004,
+    0.006904602,
+    0.03286743,
+    -0.0390625,
+    0.06060791,
+    -0.020629883,
+    -0.010147095,
+    -0.007457733,
+    0.011947632,
+    0.0074806213,
+    0.021957397,
+    0.018066406,
+    0.04147339,
+    0.044921875,
+    -0.013092041,
+    0.038482666,
+    0.0033092499,
+    -0.0050964355,
+    0.032318115,
+    0.03414917,
+    0.020217896,
+    -0.014801025,
+    0.007972717,
+    0.059692383,
+    -0.017700195,
+    -0.040802002,
+    0.01878357,
+    0.008781433,
+    -0.030563354,
+    -0.01763916,
+    -0.0028591156,
+    0.014762878,
+    0.015602112,
+    -0.06311035,
+    0.057556152,
+    0.039367676,
+    -0.030914307,
+    -0.04827881,
+    0.092285156,
+    -0.006248474,
+    -0.0013341904,
+    0.057403564,
+    -0.004562378,
+    -0.008972168,
+    0.017074585,
+    -0.05709839,
+    -0.035247803,
+    0.027435303,
+    0.07476807,
+    0.008361816,
+    -0.0016927719,
+    -0.057250977,
+    -0.02809143,
+    0.03036499,
+    0.05810547,
+    0.0073509216,
+    0.038482666,
+    -0.014465332,
+    0.08074951,
+    0.02607727,
+    -0.026412964,
+    0.017059326,
+    -0.057556152,
+    -0.030563354,
+    0.004776001,
+    -0.0038871765,
+    -0.030044556,
+    -0.02973938,
+    0.11798096,
+    -0.015625,
+    0.0007777214,
+    0.009338379,
+    -0.009262085,
+    -0.0132369995,
+    -0.003856659,
+    -0.009094238,
+    -0.011131287,
+    0.07550049,
+    0.035095215,
+    0.016616821,
+    -0.038116455,
+    -0.033813477,
+    0.023132324,
+    0.028640747,
+    0.09625244,
+    -0.017959595,
+    -0.027801514,
+    -0.047912598,
+    0.038848877,
+    -0.012252808,
+    -0.040496826,
+    -0.0060043335,
+    -0.050598145,
+    0.05718994,
+    -0.013183594,
+    -0.0096588135,
+    -0.081726074,
+    -0.012916565,
+    -0.01247406,
+    0.022628784,
+    -0.0031719208,
+    -0.01210022,
+    -0.016326904,
+    -0.0048942566,
+    0.032318115,
+    -0.029464722,
+    0.0126953125,
+    0.021835327,
+    0.042510986,
+    -0.018325806,
+    0.027404785,
+    -0.014564514,
+    0.020233154,
+    -0.018341064,
+    -0.009262085,
+    -0.04812622,
+    -0.003786087,
+    -0.031402588,
+    0.0060653687,
+    -0.005558014,
+    -0.017715454,
+    0.01360321,
+    -0.05026245,
+    0.029708862,
+    -0.025970459,
+    0.007297516,
+    -0.030883789,
+    -0.033599854,
+    0.077941895,
+    0.0078048706,
+    -0.010749817,
+    -0.004966736,
+    0.04776001,
+    -0.014793396,
+    -0.0074653625,
+    0.0015363693,
+    -0.017837524,
+    -0.052734375,
+    0.021469116,
+    0.026367188,
+    -0.022735596,
+    0.017242432,
+    0.008117676,
+    0.020690918,
+    0.05218506,
+    -0.028671265,
+    0.036071777,
+    -0.015136719,
+    -0.05215454,
+    0.005329132,
+    0.02331543,
+    0.005554199,
+    -0.0028438568,
+    -0.048736572,
+    0.01638794,
+    0.00068569183,
+    -0.009429932,
+    0.024963379,
+    -0.018218994,
+    -0.05227661,
+    -0.0018472672,
+    0.0056648254,
+    -0.022598267,
+    0.019699097,
+    -0.016555786,
+    0.008453369,
+    -0.02357483,
+    -0.015083313,
+    -0.009918213,
+    -0.02859497,
+    -0.012008667,
+    -0.009544373,
+    0.047058105,
+    -0.050476074,
+    -0.019699097,
+    0.007331848,
+    -0.012611389,
+    -0.00617218,
+    0.04348755,
+    -0.053649902,
+    0.038391113,
+    0.0116119385,
+    -0.037994385,
+    0.0087509155,
+    -0.004119873,
+    0.017333984,
+    0.026794434,
+    0.018539429,
+    -0.028244019,
+    0.04168701,
+    0.0014038086,
+    -0.020874023,
+    -0.003982544,
+    0.037017822,
+    0.0040359497,
+    -0.05126953,
+    0.005504608,
+    -0.023269653,
+    -0.061553955,
+    -0.03250122,
+    0.016845703,
+    -0.032714844,
+    0.009315491,
+    0.009140015,
+    -0.018035889,
+    -0.0064353943,
+    -0.0016832352,
+    -0.0034866333,
+    -0.041931152,
+    0.021224976,
+    -0.009727478,
+    0.010368347,
+    0.022216797
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90347.md",
+    "file_name": "90347.md",
+    "file_size": 14933,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Engine Bearing and Crankshaft Examination Findings",
+      "The Number 1 main bearing displayed normal wear and a few score marks consistent with hard-particle-passage.",
+      "The Number 2 main bearing displayed normal wear and a few score marks consistent with hard-particle-passage.",
+      "There was no sign of lock tab movement on the Number 1 main bearing.",
+      "There was no sign of lock slot elongation on the Number 1 main bearing.",
+      "There was no sign of lock tab movement on the Number 2 main bearing.",
+      "There was no sign of lock slot elongation on the Number 2 main bearing.",
+      "The Number 3 main bearing displayed wear and scoring that removed the babbit layer.",
+      "The Number 3 main bearing displayed the copper underlay.",
+      "There was no sign of lock tab movement on the Number 3 main bearing.",
+      "There was no sign of lock slot elongation on the Number 3 main bearing.",
+      "The Number 4 main bearing was discolored black.",
+      "The Number 4 main bearing was heavily worn.",
+      "The Number 4 main bearing was displaced in the saddle.",
+      "The Number 4 main bearing split line did not match up with the case half split line.",
+      "There was no evidence of lateral lock slot elongation on the Number 4 main bearing.",
+      "The oil feed to the backside of the Number 4 bearing was unobstructed.",
+      "The Number 5 main bearing was discolored black.",
+      "The Number 5 main bearing was heavily worn.",
+      "The Number 5 main bearing was displaced in the saddle.",
+      "The Number 5 main bearing split line did not match up with the case half split line.",
+      "There was no evidence of lateral lock slot elongation on the Number 5 main bearing.",
+      "The oil feed to the backside of the Number 5 bearing was obstructed by displaced saddle material.",
+      "The crankshaft remained intact.",
+      "The crankshaft displayed thermal distress at the Number 1 connecting rod journal.",
+      "The crankshaft displayed thermal distress at the Number 2 connecting rod journal.",
+      "The crankshaft displayed thermal distress at the Number 6 connecting rod journal.",
+      "The Number 6 connecting rod journal was mechanically damaged.",
+      "The oil feed hole on the Number 6 connecting rod journal was no longer visible due to displaced material.",
+      "The crankshaft's Number 4 main bearing journal displayed black thermal discoloration.",
+      "The crankshaft's Number 5 main bearing journal displayed black thermal discoloration.",
+      "The crankshaft's Number 5 bearing journal displayed material displacement.",
+      "All of the crankshaft oil tubes were clear of debris with the exception of the Number 6 connecting rod journal."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Engine Bearing and Crankshaft Examination Findings",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 1 main bearing",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 2 main bearing",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 3 main bearing",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 4 main bearing",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 5 main bearing",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "crankshaft",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 1 connecting rod journal",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 2 connecting rod journal",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 6 connecting rod journal",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 4 main bearing journal",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 5 main bearing journal",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Number 5 bearing journal",
+              "classification": "Component"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 1 main bearing displayed normal wear and a few score marks consistent with hard-particle-passage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 1 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal wear",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 1 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "few score marks",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 1 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard-particle-passage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 2 main bearing displayed normal wear and a few score marks consistent with hard-particle-passage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 2 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal wear",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 2 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "few score marks",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 2 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard-particle-passage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no sign of lock tab movement on the Number 1 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 1 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LOCK TAB MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no sign of lock slot elongation on the Number 1 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 1 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LOCK SLOT ELONGATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no sign of lock tab movement on the Number 2 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 2 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LOCK TAB MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no sign of lock slot elongation on the Number 2 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 2 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LOCK SLOT ELONGATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 3 main bearing displayed wear and scoring that removed the babbit layer.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 3 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wear and scoring",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 3 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed babbit layer",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 3 main bearing displayed the copper underlay.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 3 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DISPLAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "copper underlay",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no sign of lock tab movement on the Number 3 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 3 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LOCK TAB MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no sign of lock slot elongation on the Number 3 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 3 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LOCK SLOT ELONGATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 4 main bearing was discolored black.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DISCOLORATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "black",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 4 main bearing was heavily worn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "heavily worn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 4 main bearing was displaced in the saddle.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "POSITION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "displaced in saddle",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 4 main bearing split line did not match up with the case half split line.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "SPLIT LINE ALIGNMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not match case half split line",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no evidence of lateral lock slot elongation on the Number 4 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LATERAL LOCK SLOT ELONGATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The oil feed to the backside of the Number 4 bearing was unobstructed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "OIL FEED STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unobstructed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 5 main bearing was discolored black.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DISCOLORATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "black",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 5 main bearing was heavily worn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "heavily worn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 5 main bearing was displaced in the saddle.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "POSITION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "displaced in saddle",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 5 main bearing split line did not match up with the case half split line.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "SPLIT LINE ALIGNMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not match case half split line",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no evidence of lateral lock slot elongation on the Number 5 main bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS LATERAL LOCK SLOT ELONGATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The oil feed to the backside of the Number 5 bearing was obstructed by displaced saddle material.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "OIL FEED STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "obstructed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "OBSTRUCTION CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "displaced saddle material",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crankshaft remained intact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crankshaft displayed thermal distress at the Number 1 connecting rod journal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 1 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 1 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thermal distress",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crankshaft displayed thermal distress at the Number 2 connecting rod journal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 2 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 2 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thermal distress",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crankshaft displayed thermal distress at the Number 6 connecting rod journal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONNECTS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 6 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 6 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thermal distress",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Number 6 connecting rod journal was mechanically damaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 6 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mechanical damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The oil feed hole on the Number 6 connecting rod journal was no longer visible due to displaced material.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 6 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "OIL FEED HOLE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not visible",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 6 connecting rod journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY ISSUE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "displaced material",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crankshaft's Number 4 main bearing journal displayed black thermal discoloration.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing journal",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 4 main bearing journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DISCOLORATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "black thermal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crankshaft's Number 5 main bearing journal displayed black thermal discoloration.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing journal",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 main bearing journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DISCOLORATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "black thermal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crankshaft's Number 5 bearing journal displayed material displacement.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 bearing journal",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Number 5 bearing journal",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "material displacement",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "All of the crankshaft oil tubes were clear of debris with the exception of the Number 6 connecting rod journal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crankshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "OIL TUBES STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "clear of debris except Number 6 connecting rod journal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::43937156:0480",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90347.md",
+        "file_name": "90347.md",
+        "file_size": 14933,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "d0d03940678839c8bc2987e469553148fceaf996f653af7ecb629cd2ca4c251f",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::43937156:0480:bf6062fd",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90347.md",
+        "file_name": "90347.md",
+        "file_size": 14933,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "2df7e8b499a71414823eafa141e1877cf363818c5c100db3b071296923dfd8c2",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::43937156:0480:4e89c05b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90347.md",
+        "file_name": "90347.md",
+        "file_size": 14933,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "e6b351f671a66c8c78c35f2d0ba460c8a0e27d45aba06516ddd80b4c3146be15",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Transcription of Page 4 of 8 (WPR15LA032)\n\n## The Number 1 and 2 Main Bearings\n- Displayed normal wear and a few score marks consistent with hard-particle-passage\n- There was no sign of lock tab movement or lock slot elongation\n\n## The Number 3 Main Bearing\n- Displayed wear and scoring that removed the babbit layer and displayed the copper underlay\n- There was no sign of lock tab movement or lock slot elongation\n\n## The Number 4 Main Bearing\n- Was discolored black, heavily worn, and displaced in the saddle such that the bearing split line did not match up with the case half split line\n- There was no evidence of lateral lock slot elongation\n- The oil feed to the backside of the number 4 bearing was unobstructed\n\n## The Number 5 Main Bearing\n- Was discolored black, heavily worn, and displaced in the saddle such that the bearing split line did not match up with the case half split line\n- There was no evidence of lateral lock slot elongation\n- The oil feed to the backside of the number 5 bearing was obstructed by displaced saddle material\n\n## The Crankshaft\n- Remained intact but displayed thermal distress at the number 1, number 2, and the number 6 connecting rod journals\n- The number 6 connecting rod journal was also mechanically damaged and the oil feed hole was no longer visible due to the displaced material\n- The crankshaft's number 4 and number 5 main bearing journals displayed black thermal discoloration, along with material displacement at the number 5 bearing journal\n- All of the crankshaft oil tubes were clear of debris with the exception of the number 6 connecting rod journal,",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1611,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

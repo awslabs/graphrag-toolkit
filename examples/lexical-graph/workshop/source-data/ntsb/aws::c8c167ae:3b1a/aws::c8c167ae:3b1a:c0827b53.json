@@ -1,0 +1,2215 @@
+{
+  "id_": "aws::c8c167ae:3b1a:c0827b53",
+  "embedding": [
+    0.04437256,
+    0.027359009,
+    0.006958008,
+    -0.072387695,
+    0.025238037,
+    -0.013191223,
+    -0.004611969,
+    0.018066406,
+    -0.018981934,
+    -0.012054443,
+    0.021362305,
+    3.7431717e-05,
+    -0.013839722,
+    -0.049224854,
+    0.041931152,
+    -0.025253296,
+    -0.011810303,
+    0.07751465,
+    0.047088623,
+    -0.017120361,
+    0.005970001,
+    -0.024307251,
+    0.017425537,
+    -0.0053215027,
+    0.02128601,
+    -0.020874023,
+    -0.027633667,
+    0.029190063,
+    -0.0029525757,
+    0.012527466,
+    0.022338867,
+    -0.0039100647,
+    0.013137817,
+    0.049804688,
+    -0.06109619,
+    -0.027755737,
+    -0.03050232,
+    0.015472412,
+    -0.009559631,
+    0.02458191,
+    0.038116455,
+    -0.02911377,
+    0.024856567,
+    -0.042510986,
+    -0.0043754578,
+    -0.0052833557,
+    0.019927979,
+    -0.018478394,
+    0.022918701,
+    0.028427124,
+    0.019500732,
+    0.015823364,
+    0.01209259,
+    0.029525757,
+    0.0011129379,
+    0.029312134,
+    -0.062194824,
+    0.047668457,
+    -0.007827759,
+    0.029510498,
+    0.026351929,
+    0.03878784,
+    0.010902405,
+    0.011428833,
+    -0.053741455,
+    -0.0028018951,
+    -0.029190063,
+    -0.009643555,
+    0.06463623,
+    -0.04626465,
+    -0.036376953,
+    0.027664185,
+    -0.00080776215,
+    0.027664185,
+    0.019256592,
+    -0.04949951,
+    -0.012252808,
+    0.0078048706,
+    0.021621704,
+    0.032958984,
+    0.026992798,
+    0.013061523,
+    -0.0036640167,
+    0.023071289,
+    -0.01687622,
+    0.040100098,
+    -0.009315491,
+    -0.04336548,
+    0.020187378,
+    0.009254456,
+    -0.007598877,
+    0.015686035,
+    0.049438477,
+    0.0107803345,
+    -0.054138184,
+    0.0011138916,
+    0.022155762,
+    -0.009597778,
+    0.039855957,
+    0.00050497055,
+    0.007537842,
+    -0.03668213,
+    -0.021728516,
+    -0.004714966,
+    -0.0024585724,
+    -0.011016846,
+    -0.026489258,
+    -0.027008057,
+    0.043029785,
+    0.029891968,
+    -0.029144287,
+    0.022109985,
+    -0.015342712,
+    -0.06173706,
+    0.00078487396,
+    0.07946777,
+    0.021530151,
+    -0.0022716522,
+    0.022857666,
+    -0.003293991,
+    0.039398193,
+    0.03265381,
+    -0.02104187,
+    -0.026748657,
+    0.027328491,
+    -0.01626587,
+    -0.06732178,
+    0.03201294,
+    0.024383545,
+    0.032684326,
+    -0.016525269,
+    0.0065193176,
+    -0.001332283,
+    -0.003004074,
+    -0.006641388,
+    -0.0035495758,
+    -0.05267334,
+    0.0038833618,
+    -0.0043144226,
+    -0.003967285,
+    0.011314392,
+    -0.037384033,
+    0.049041748,
+    0.018997192,
+    -0.027511597,
+    0.043029785,
+    0.010398865,
+    -0.02319336,
+    -0.0034770966,
+    -0.030548096,
+    -0.035339355,
+    -0.033233643,
+    0.024414062,
+    0.002231598,
+    -0.03387451,
+    -0.049560547,
+    -0.018508911,
+    -0.02293396,
+    0.02859497,
+    -0.031463623,
+    0.016601562,
+    -0.013450623,
+    -0.011199951,
+    0.0005645752,
+    -0.068603516,
+    0.028274536,
+    -0.008232117,
+    -0.011390686,
+    0.011909485,
+    -0.041381836,
+    0.031555176,
+    -0.008796692,
+    -0.019226074,
+    0.0039100647,
+    0.0102005005,
+    0.014717102,
+    0.017822266,
+    0.0143966675,
+    0.005783081,
+    0.023086548,
+    0.005821228,
+    -0.018600464,
+    0.032440186,
+    -0.010757446,
+    -0.0056648254,
+    -0.025360107,
+    0.022705078,
+    0.008995056,
+    0.014984131,
+    0.02558899,
+    0.027404785,
+    0.0022201538,
+    0.017807007,
+    -0.013961792,
+    -0.013511658,
+    -0.034606934,
+    -0.00472641,
+    -0.0063934326,
+    -0.029129028,
+    0.02154541,
+    -0.008880615,
+    0.0011959076,
+    0.022354126,
+    0.03427124,
+    -0.0019302368,
+    0.015289307,
+    -0.012069702,
+    0.018035889,
+    -0.055114746,
+    0.011634827,
+    0.041900635,
+    -0.030395508,
+    -0.017318726,
+    0.0112838745,
+    0.006008148,
+    -0.033477783,
+    0.028656006,
+    0.02067566,
+    0.015068054,
+    0.0012836456,
+    -0.011772156,
+    0.028564453,
+    -0.023223877,
+    0.029022217,
+    -0.012298584,
+    0.0017824173,
+    -0.01739502,
+    -0.004337311,
+    0.011291504,
+    -0.015258789,
+    0.08148193,
+    0.022384644,
+    0.02720642,
+    0.07757568,
+    -0.0026302338,
+    0.008575439,
+    0.01448822,
+    0.0052490234,
+    0.013206482,
+    -0.0069236755,
+    0.006603241,
+    -0.019882202,
+    -0.017868042,
+    0.044158936,
+    -0.044189453,
+    -0.042541504,
+    0.0030536652,
+    0.006290436,
+    -0.001543045,
+    0.08880615,
+    -0.015510559,
+    0.061309814,
+    -0.015090942,
+    0.04510498,
+    -0.027175903,
+    0.032470703,
+    0.0015411377,
+    -0.016723633,
+    -0.014770508,
+    0.01449585,
+    0.026062012,
+    0.0023021698,
+    -0.04031372,
+    0.011634827,
+    -0.015823364,
+    0.06298828,
+    0.05429077,
+    0.06591797,
+    -0.04244995,
+    0.026275635,
+    0.009750366,
+    0.06185913,
+    0.0107803345,
+    0.01763916,
+    -0.07043457,
+    0.0035552979,
+    -0.03100586,
+    0.0209198,
+    0.029205322,
+    -0.018035889,
+    -0.023422241,
+    0.036102295,
+    -0.009399414,
+    -0.014350891,
+    0.0041503906,
+    0.015945435,
+    0.00013434887,
+    -0.032562256,
+    0.05267334,
+    0.0848999,
+    0.08685303,
+    -0.03111267,
+    -0.03878784,
+    0.03677368,
+    -0.027236938,
+    -0.01828003,
+    0.02218628,
+    0.0029697418,
+    0.0009899139,
+    -0.0049858093,
+    0.00699234,
+    0.06707764,
+    0.003030777,
+    -0.001241684,
+    0.01486969,
+    -0.018539429,
+    0.009002686,
+    0.012908936,
+    0.015365601,
+    0.024353027,
+    -0.028045654,
+    0.05819702,
+    0.016067505,
+    0.03793335,
+    -0.052886963,
+    -0.047210693,
+    -0.046966553,
+    0.028671265,
+    -0.020751953,
+    0.041625977,
+    -0.04446411,
+    -0.024658203,
+    0.013412476,
+    0.017440796,
+    0.0030612946,
+    -0.002073288,
+    0.023712158,
+    0.014083862,
+    -0.0056762695,
+    -0.0010147095,
+    -0.016448975,
+    -0.019485474,
+    -0.032714844,
+    0.024765015,
+    0.009086609,
+    0.031433105,
+    0.010116577,
+    0.0025634766,
+    -0.0087509155,
+    -0.004638672,
+    -0.004348755,
+    -0.0262146,
+    0.011123657,
+    -0.021911621,
+    -0.03955078,
+    -0.020706177,
+    0.03314209,
+    -0.00023472309,
+    -0.03692627,
+    0.0043754578,
+    0.040283203,
+    -0.01499939,
+    -0.0016489029,
+    -0.0058517456,
+    0.017791748,
+    -0.10620117,
+    -0.02104187,
+    0.038848877,
+    -0.03515625,
+    -0.054626465,
+    0.0043258667,
+    0.006690979,
+    -0.044830322,
+    -0.047454834,
+    0.036956787,
+    -0.012252808,
+    -0.026870728,
+    -0.029953003,
+    0.000813961,
+    0.037261963,
+    -0.03149414,
+    0.016662598,
+    -0.018249512,
+    -0.0070533752,
+    0.006149292,
+    -0.009033203,
+    0.057373047,
+    -0.020202637,
+    0.051879883,
+    0.053955078,
+    0.02772522,
+    0.050323486,
+    0.01600647,
+    0.045043945,
+    0.064575195,
+    -0.0033836365,
+    -0.008560181,
+    0.019134521,
+    0.0064697266,
+    0.026107788,
+    -0.0124435425,
+    -0.034301758,
+    0.00078344345,
+    -0.017822266,
+    0.030792236,
+    0.024169922,
+    -0.05722046,
+    -0.024795532,
+    -0.03778076,
+    0.006259918,
+    -0.11541748,
+    -0.00013804436,
+    -0.01374054,
+    -0.052124023,
+    0.024871826,
+    -0.14111328,
+    -0.025863647,
+    -0.0690918,
+    0.020996094,
+    0.07159424,
+    -0.004776001,
+    0.006000519,
+    -0.015068054,
+    0.012252808,
+    -0.014137268,
+    0.016296387,
+    -0.010284424,
+    0.0013160706,
+    -0.03201294,
+    0.024978638,
+    0.051483154,
+    -0.05493164,
+    0.004119873,
+    0.012626648,
+    -0.060302734,
+    -0.014312744,
+    -0.009010315,
+    0.053253174,
+    -0.038482666,
+    0.028961182,
+    -0.015083313,
+    -0.033935547,
+    -0.009246826,
+    -0.03149414,
+    -0.002254486,
+    0.025756836,
+    -0.0071792603,
+    0.008255005,
+    -0.008338928,
+    -0.0028076172,
+    0.046844482,
+    0.018814087,
+    -0.011238098,
+    -0.010635376,
+    -0.021194458,
+    -0.028457642,
+    0.021957397,
+    0.048614502,
+    0.018966675,
+    -0.02748108,
+    -0.012519836,
+    -0.0062026978,
+    0.09625244,
+    0.03265381,
+    0.0093688965,
+    0.034454346,
+    0.012191772,
+    0.02319336,
+    0.058502197,
+    -0.058258057,
+    -0.0345459,
+    -0.014480591,
+    -0.055541992,
+    0.007858276,
+    0.028442383,
+    -0.040283203,
+    0.025726318,
+    0.006702423,
+    0.023040771,
+    0.008033752,
+    0.00868988,
+    0.010810852,
+    -0.0022087097,
+    -0.020492554,
+    0.014320374,
+    0.0413208,
+    -0.003452301,
+    -0.019210815,
+    0.0056991577,
+    0.017791748,
+    -0.0501709,
+    7.7188015e-05,
+    0.022949219,
+    0.057250977,
+    0.02859497,
+    0.013893127,
+    0.04449463,
+    0.053131104,
+    0.013000488,
+    0.019134521,
+    0.017059326,
+    0.022018433,
+    0.033813477,
+    0.021743774,
+    0.009765625,
+    -0.0071754456,
+    0.018478394,
+    -0.045898438,
+    -0.032958984,
+    -0.022781372,
+    -0.07220459,
+    -0.027267456,
+    -0.0033817291,
+    0.0055274963,
+    0.028686523,
+    0.04437256,
+    -0.040924072,
+    0.021881104,
+    0.010360718,
+    -0.0062561035,
+    -0.04977417,
+    -0.0127334595,
+    -0.0057907104,
+    -0.022323608,
+    -0.026916504,
+    0.085876465,
+    -0.039215088,
+    -0.07171631,
+    0.025253296,
+    0.005329132,
+    -0.028442383,
+    0.0046424866,
+    0.060760498,
+    0.045928955,
+    -0.08331299,
+    0.0024757385,
+    0.025360107,
+    0.031021118,
+    -0.04248047,
+    -0.01033783,
+    0.029144287,
+    -0.0070266724,
+    0.041107178,
+    -0.004673004,
+    0.013374329,
+    0.048065186,
+    -0.019638062,
+    0.019622803,
+    -0.009727478,
+    -0.03414917,
+    -0.023345947,
+    -0.011192322,
+    0.013061523,
+    -0.007850647,
+    0.00095558167,
+    0.019714355,
+    0.038757324,
+    0.04989624,
+    -0.017028809,
+    -0.009674072,
+    -0.00818634,
+    0.017501831,
+    -0.011169434,
+    -0.045135498,
+    -0.07269287,
+    0.07513428,
+    0.03970337,
+    -0.013336182,
+    -0.014541626,
+    -0.031707764,
+    0.0046806335,
+    -0.035705566,
+    -0.01713562,
+    0.038360596,
+    0.03643799,
+    0.019958496,
+    -0.016555786,
+    -0.06689453,
+    0.032836914,
+    -0.0119018555,
+    -0.022964478,
+    -0.036499023,
+    0.06124878,
+    0.024215698,
+    -0.01777649,
+    -0.018341064,
+    0.00027155876,
+    0.048217773,
+    -0.025436401,
+    -0.018218994,
+    0.019042969,
+    0.0062789917,
+    -0.0046195984,
+    0.077819824,
+    -0.016693115,
+    0.004371643,
+    0.008743286,
+    -0.030349731,
+    -0.028045654,
+    -0.03982544,
+    0.013427734,
+    0.013084412,
+    0.0032100677,
+    0.016967773,
+    -0.00806427,
+    -0.020767212,
+    -0.019561768,
+    -0.05480957,
+    0.016799927,
+    -0.013206482,
+    -0.013374329,
+    -0.012229919,
+    0.00032401085,
+    -0.036346436,
+    0.038330078,
+    0.022506714,
+    -0.028274536,
+    0.005809784,
+    0.015296936,
+    0.013664246,
+    0.008590698,
+    -0.026000977,
+    -0.0519104,
+    0.043060303,
+    -0.026794434,
+    -0.016799927,
+    -0.06585693,
+    0.053466797,
+    0.064208984,
+    0.0074882507,
+    0.033996582,
+    0.012832642,
+    0.01158905,
+    -0.016311646,
+    0.011428833,
+    0.0017461777,
+    -0.024047852,
+    -0.04156494,
+    -0.028045654,
+    0.016479492,
+    -0.033569336,
+    0.00069379807,
+    -0.027633667,
+    -0.041503906,
+    -0.050048828,
+    0.033477783,
+    -0.011665344,
+    -0.03366089,
+    -0.016174316,
+    -0.0104904175,
+    0.021469116,
+    0.018615723,
+    0.0024166107,
+    -0.024642944,
+    0.020858765,
+    0.010688782,
+    0.033050537,
+    0.008590698,
+    -0.009284973,
+    0.0005631447,
+    -0.014198303,
+    0.00038313866,
+    -0.015159607,
+    -0.019821167,
+    0.009933472,
+    -0.021072388,
+    0.0017299652,
+    -0.02406311,
+    0.0036029816,
+    -0.05343628,
+    -0.09124756,
+    -0.046203613,
+    -0.036376953,
+    -0.021240234,
+    -0.041290283,
+    0.007358551,
+    0.022537231,
+    0.011299133,
+    -0.00043344498,
+    -0.04360962,
+    -0.010726929,
+    0.040222168,
+    -0.021347046,
+    -0.026367188,
+    6.66976e-05,
+    0.008255005,
+    0.06695557,
+    0.014038086,
+    0.03286743,
+    -0.08404541,
+    0.031036377,
+    0.031082153,
+    -0.017318726,
+    0.014144897,
+    -0.031234741,
+    0.045196533,
+    -0.056915283,
+    0.0028495789,
+    -0.019210815,
+    -0.008857727,
+    0.0107421875,
+    0.0597229,
+    -0.020141602,
+    0.026779175,
+    -0.0082092285,
+    -0.011817932,
+    -0.01663208,
+    -0.02507019,
+    0.0060310364,
+    -0.039245605,
+    -0.008804321,
+    -0.0062217712,
+    0.0061416626,
+    -0.0065841675,
+    -0.021133423,
+    0.047454834,
+    0.0068626404,
+    0.025238037,
+    -0.064697266,
+    -0.021896362,
+    0.0060806274,
+    0.056610107,
+    -0.009338379,
+    -0.006298065,
+    0.025924683,
+    -0.022979736,
+    0.02229309,
+    0.019195557,
+    0.0020008087,
+    -0.013679504,
+    -0.026672363,
+    0.04626465,
+    0.028640747,
+    -0.07116699,
+    0.026748657,
+    -0.010894775,
+    -0.043640137,
+    0.016021729,
+    0.004146576,
+    0.025848389,
+    -0.03338623,
+    -0.023162842,
+    0.040222168,
+    -0.03942871,
+    -0.030273438,
+    -0.027832031,
+    0.001004219,
+    0.006072998,
+    0.009300232,
+    -0.033691406,
+    -0.040405273,
+    -0.0072669983,
+    0.025268555,
+    0.015731812,
+    -0.055908203,
+    0.0010538101,
+    -0.0020484924,
+    -0.036956787,
+    -0.060577393,
+    -0.048797607,
+    -0.014190674,
+    -0.015655518,
+    -0.040039062,
+    0.020889282,
+    0.013092041,
+    0.044830322,
+    0.010047913,
+    -0.01576233,
+    -0.050720215,
+    -0.00097227097,
+    0.00699234,
+    0.019515991,
+    0.014251709,
+    0.021102905,
+    -0.010765076,
+    0.041992188,
+    -0.017837524,
+    -0.023117065,
+    -0.012268066,
+    -0.00046682358,
+    -0.0060768127,
+    0.018478394,
+    -0.009902954,
+    -0.0019388199,
+    0.004032135,
+    -0.020996094,
+    0.060668945,
+    0.0023479462,
+    -0.015464783,
+    -0.05987549,
+    -0.064941406,
+    0.013031006,
+    -0.03277588,
+    0.052642822,
+    -0.012565613,
+    0.0022716522,
+    -0.052947998,
+    0.059539795,
+    -0.031402588,
+    0.012023926,
+    -0.061035156,
+    0.049438477,
+    0.014404297,
+    -0.03894043,
+    -0.019989014,
+    -0.0713501,
+    -0.05984497,
+    -0.0021438599,
+    -0.05267334,
+    -0.045928955,
+    -0.029434204,
+    -0.030776978,
+    -0.016082764,
+    0.004261017,
+    -0.033172607,
+    0.0209198,
+    -0.01914978,
+    0.02911377,
+    0.024673462,
+    -0.049957275,
+    0.026733398,
+    -0.05203247,
+    0.03164673,
+    0.008605957,
+    0.024642944,
+    0.031066895,
+    -0.013420105,
+    -0.056365967,
+    0.027069092,
+    0.02659607,
+    0.008277893,
+    0.039978027,
+    0.055847168,
+    -0.035888672,
+    0.01725769,
+    0.02670288,
+    -0.029937744,
+    -0.024887085,
+    0.033294678,
+    -0.015380859,
+    0.01878357,
+    0.026260376,
+    0.0033855438,
+    -0.017990112,
+    -0.013389587,
+    0.067871094,
+    0.033172607,
+    -0.0044174194,
+    -0.011428833,
+    0.055145264,
+    -0.044677734,
+    -0.011764526,
+    -0.011688232,
+    -0.033996582,
+    -0.0048828125,
+    0.036956787,
+    0.005619049,
+    0.00856781,
+    0.008872986,
+    0.05621338,
+    0.012207031,
+    -0.0047035217,
+    0.048431396,
+    -0.03805542,
+    0.0063323975,
+    -0.011833191,
+    0.029067993,
+    -0.02357483,
+    -0.015853882,
+    -0.0073013306,
+    -0.00017595291,
+    0.020248413,
+    0.01474762,
+    -0.016937256,
+    0.0035495758,
+    0.041229248,
+    -0.016967773,
+    0.022491455,
+    -0.02357483,
+    0.045288086,
+    0.027404785,
+    0.0064353943,
+    -0.028182983,
+    0.011001587,
+    -0.007320404,
+    -0.009849548,
+    0.02015686,
+    0.032836914,
+    0.014930725,
+    0.0047836304,
+    -0.07928467,
+    -0.03955078,
+    0.031951904,
+    0.015357971,
+    0.0067977905,
+    -0.06982422,
+    -0.0018205643,
+    0.008903503,
+    0.05947876,
+    0.023025513,
+    0.00050878525,
+    -0.0289917,
+    -0.019165039,
+    0.015419006,
+    0.008857727,
+    0.076660156,
+    0.027114868,
+    -0.013786316,
+    -0.040924072,
+    -0.0023326874,
+    0.016036987,
+    -0.058807373,
+    0.02017212,
+    -0.0418396,
+    0.076538086,
+    -0.04284668,
+    -0.023162842,
+    -0.06011963,
+    -0.017364502,
+    -0.041931152,
+    0.045166016,
+    0.025726318,
+    -0.026275635,
+    0.013725281,
+    0.018569946,
+    -0.028289795,
+    -0.060516357,
+    -0.017654419,
+    -0.0066566467,
+    0.016433716,
+    -0.036376953,
+    -0.026016235,
+    0.010231018,
+    0.043914795,
+    0.03842163,
+    0.011688232,
+    0.025787354,
+    -0.05227661,
+    -0.04321289,
+    0.019821167,
+    -0.013053894,
+    -0.010955811,
+    0.045562744,
+    -0.020446777,
+    0.016448975,
+    0.009147644,
+    -0.047729492,
+    -0.022109985,
+    -0.027954102,
+    0.05545044,
+    -0.0071411133,
+    -0.040496826,
+    -0.020568848,
+    0.060638428,
+    0.0042495728,
+    0.001917839,
+    -0.0013332367,
+    -0.037200928,
+    -0.057281494,
+    -0.002576828,
+    -0.013328552,
+    0.014381409,
+    -0.004863739,
+    0.016418457,
+    0.007637024,
+    0.036010742,
+    -0.024291992,
+    -0.003856659,
+    -0.028015137,
+    -0.04095459,
+    0.00087308884,
+    0.03074646,
+    0.049438477,
+    0.043884277,
+    -0.029922485,
+    -0.016189575,
+    -0.022659302,
+    -0.022338867,
+    0.020736694,
+    0.022964478,
+    0.02796936,
+    0.014328003,
+    -0.021240234,
+    0.0135650635,
+    0.004219055,
+    -0.024749756,
+    0.0043945312,
+    -0.03274536,
+    -0.021621704,
+    -0.0076179504,
+    -0.015945435,
+    -0.023513794,
+    -0.025009155,
+    0.055145264,
+    0.012397766,
+    -0.027648926,
+    -0.00283432,
+    -0.007686615,
+    -0.021514893,
+    0.0014915466,
+    -0.030441284,
+    -0.0045318604,
+    0.0042304993,
+    0.021560669,
+    -0.05444336,
+    0.0027980804,
+    -0.0046195984,
+    0.031280518,
+    -0.023712158,
+    -0.013877869,
+    -0.0063171387,
+    -0.0030155182,
+    -8.016825e-05,
+    0.0006785393,
+    0.02670288,
+    -0.028747559,
+    -0.02027893,
+    -0.018478394,
+    -0.037200928,
+    -0.045898438,
+    -0.05319214,
+    0.0340271,
+    0.024612427,
+    -0.003742218,
+    0.058502197,
+    -0.012397766,
+    -0.0013742447,
+    0.02645874,
+    -0.02949524,
+    0.043151855,
+    -0.038848877,
+    -0.043945312,
+    -0.008392334,
+    -0.03555298
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+    "file_name": "90569.md",
+    "file_size": 12115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aircraft Examination Details",
+      "There was no fuel or oil observed on the exterior surfaces of the airplane.",
+      "A fueling record was recovered that indicated 42.2 gallons of fuel was purchased at APF prior to the flight.",
+      "Fuel was observed in the lines between the electric boost pump and the engine-driven fuel pump.",
+      "Fuel was observed in the line from the engine-driven pump to the fuel metering valve.",
+      "Fuel was observed in the line entering the fuel manifold valve.",
+      "Fuel was observed inside the fuel manifold valve.",
+      "The engine-driven fuel pump appeared normal.",
+      "The drive shaft of the engine-driven fuel pump was intact.",
+      "The top six spark plugs were removed.",
+      "The top six spark plugs were normal in appearance.",
+      "The engine was turned by hand.",
+      "Internal continuity of the engine was established.",
+      "Compression was confirmed on all six cylinders.",
+      "Suction was confirmed on all six cylinders.",
+      "The magnetos were turned by hand.",
+      "The impulse couplings appeared to operate normally.",
+      "No spark was observed on the ignition leads when the magnetos were turned.",
+      "The magnetos were retained by the Federal Aviation Administration (FAA) inspector for additional examination and testing.",
+      "The ignition harnesses were retained by the Federal Aviation Administration (FAA) inspector for additional examination and testing.",
+      "On April 9, 2015, the magnetos were examined at the Continental Motors facility at Mobile, Alabama under the direction of the National Transportation Safety Board (NTSB).",
+      "On April 9, 2015, the ignition harnesses were examined at the Continental Motors facility at Mobile, Alabama under the direction of the National Transportation Safety Board (NTSB).",
+      "On April 9, 2015, the engine driven fuel pump was examined at the Continental Motors facility at Mobile, Alabama under the direction of the National Transportation Safety Board (NTSB)."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aircraft Examination Details",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "APF",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "electric boost pump",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine-driven fuel pump",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel metering valve",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel manifold valve",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "engine",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "spark plugs",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cylinders",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "magnetos",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "impulse couplings",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ignition leads",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ignition harnesses",
+              "classification": "Aircraftcomponent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "FAA",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Continental Motors",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mobile, Alabama",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "NTSB",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no fuel or oil observed on the exterior surfaces of the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no fuel or oil observed on exterior surfaces",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A fueling record was recovered that indicated 42.2 gallons of fuel was purchased at APF prior to the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "APF",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel purchase",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FUEL PURCHASED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "42.2 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Fuel was observed in the lines between the electric boost pump and the engine-driven fuel pump.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electric boost pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electric boost pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel observed in connecting lines",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Fuel was observed in the line from the engine-driven pump to the fuel metering valve.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel metering valve",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel observed in output line",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Fuel was observed in the line entering the fuel manifold valve.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel manifold valve",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel observed in input line",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Fuel was observed inside the fuel manifold valve.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel manifold valve",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel observed inside",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine-driven fuel pump appeared normal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "APPEARANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The drive shaft of the engine-driven fuel pump was intact.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "DRIVE SHAFT CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The top six spark plugs were removed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "six",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "top",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The top six spark plugs were normal in appearance.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spark plugs",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "APPEARANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was turned by hand.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turned by hand",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Internal continuity of the engine was established.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "INTERNAL CONTINUITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "established",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Compression was confirmed on all six cylinders.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "COMPRESSION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confirmed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "six",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Suction was confirmed on all six cylinders.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinders",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SUCTION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "confirmed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The magnetos were turned by hand.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turned by hand",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The impulse couplings appeared to operate normally.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impulse couplings",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "OPERATION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No spark was observed on the ignition leads when the magnetos were turned.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition leads",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "SPARK STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no spark observed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The magnetos were retained by the Federal Aviation Administration (FAA) inspector for additional examination and testing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RETAINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "RETENTION PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "additional examination and testing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The ignition harnesses were retained by the Federal Aviation Administration (FAA) inspector for additional examination and testing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RETAINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition harnesses",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition harnesses",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "RETENTION PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "additional examination and testing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On April 9, 2015, the magnetos were examined at the Continental Motors facility at Mobile, Alabama under the direction of the National Transportation Safety Board (NTSB).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Continental Motors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mobile, Alabama",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DIRECTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos examination",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 9, 2015",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Continental Motors facility",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On April 9, 2015, the ignition harnesses were examined at the Continental Motors facility at Mobile, Alabama under the direction of the National Transportation Safety Board (NTSB).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DIRECTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition harnesses examination",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition harnesses",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 9, 2015",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ignition harnesses",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Continental Motors facility",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On April 9, 2015, the engine driven fuel pump was examined at the Continental Motors facility at Mobile, Alabama under the direction of the National Transportation Safety Board (NTSB).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DIRECTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump examination",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 9, 2015",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine-driven fuel pump",
+                    "classification": "Aircraftcomponent"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Continental Motors facility",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::c8c167ae:3b1a",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "e7ba00178d47412ab6d607c9e6e987e8c07e226bff79f52511184e6c84b6609e",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::c8c167ae:3b1a:0107c785",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "3d69663f212ce050c213caf620fb4005392ac25d2def6849800d06929ad7df6a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::c8c167ae:3b1a:48aa2b88",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90569.md",
+        "file_name": "90569.md",
+        "file_size": 12115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "aee4c524246008ff95dab14013e3a98659d8ab7c9050f1f1f7056f73e3481eb0",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "There was no fuel or oil observed on the exterior surfaces of the airplane. A fueling record was recovered that indicated 42.2 gallons of fuel was purchased at APF prior to the flight.\n\nFuel was observed in the lines between the electric boost pump and the engine-driven fuel pump, in the line from the engine-driven pump to the fuel metering valve, and there was fuel in the line entering the fuel manifold valve and inside the valve. The engine-driven fuel pump appeared normal and the drive shaft was intact. The top six spark plugs were removed and were normal in appearance. The engine was turned by hand; internal continuity was established and compression and suction was confirmed an all six cylinders. The magnetos were tuned by hand; the impulse couplings appeared to operate normally. No spark was observed on the ignition leads when the magnetos were turned. The magnetos and ignition harnesses were retained by the FAA inspector for additional examination and testing.\n\nOn April 9, 2015, the magnetos, ignition harnesses, and engine driven fuel pump were examined at the Continental Motors facility at Mobile, Alabama under the direction of the NTSB.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 1967,
+  "end_char_idx": 3135,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

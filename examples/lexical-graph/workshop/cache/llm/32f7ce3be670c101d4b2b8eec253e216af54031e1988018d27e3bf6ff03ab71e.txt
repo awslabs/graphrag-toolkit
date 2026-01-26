@@ -1,0 +1,187 @@
+topic: r5 Family Instance Types Specifications and Performance Characteristics
+
+  entities:
+  
+    r5 family|Product
+    r5.large|Product
+    r5.xlarge|Product
+    r5.2xlarge|Product
+    r5.12xlarge|Product
+    r5.16xlarge|Product
+    r5.24xlarge|Product
+    Intel CPU architecture|Product
+  
+  proposition: The r5 family is a family of instance types.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    r5 family|IS_TYPE|family of instance types
+      
+  proposition: The r5 family contains memory-optimized instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5 family|CONTAINS|memory-optimized instance types
+    
+  proposition: The r5 family memory-optimized instance types work well for most graph use cases.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5 family|WORKS_WELL_FOR|most graph use cases
+    
+  proposition: The r5 family contains instance types from r5.large up to r5.24xlarge.
+  
+    entity-entity relationships:
+    r5.large|PART_OF|r5 family
+    r5.24xlarge|PART_OF|r5 family
+  
+    entity-attributes:
+    r5 family|HAS_RANGE|r5.large up to r5.24xlarge
+    
+  proposition: The r5 family instance types scale linearly in compute performance as you increase in size.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5 family|SCALES|linearly in compute performance
+    
+  proposition: r5.large is an instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.large|IS_TYPE|instance type
+    
+  proposition: r5.large has 2 vCPUs and 16GiB of memory.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.large|HAS_VCPUS|2
+    r5.large|HAS_MEMORY|16GiB
+    
+  proposition: r5.xlarge is an instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.xlarge|IS_TYPE|instance type
+    
+  proposition: r5.xlarge has 4 vCPUs and 32GiB of memory.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.xlarge|HAS_VCPUS|4
+    r5.xlarge|HAS_MEMORY|32GiB
+    
+  proposition: r5.xlarge has twice the vCPUs and memory of r5.large.
+  
+    entity-entity relationships:
+    r5.xlarge|COMPARED_TO|r5.large
+  
+    entity-attributes:
+    r5.xlarge|HAS_RATIO|twice the vCPUs and memory of r5.large
+    
+  proposition: r5.2xlarge is an instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.2xlarge|IS_TYPE|instance type
+    
+  proposition: r5.2xlarge has 8 vCPUs and 64GiB of memory.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.2xlarge|HAS_VCPUS|8
+    r5.2xlarge|HAS_MEMORY|64GiB
+    
+  proposition: r5.2xlarge has twice the vCPUs and memory of r5.xlarge.
+  
+    entity-entity relationships:
+    r5.2xlarge|COMPARED_TO|r5.xlarge
+  
+    entity-attributes:
+    r5.2xlarge|HAS_RATIO|twice the vCPUs and memory of r5.xlarge
+    
+  proposition: Query performance scales directly with compute capacity up to the r5.12xlarge instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.12xlarge|HAS_SCALING_LIMIT|query performance scales directly with compute capacity up to
+    
+  proposition: r5.12xlarge is an instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.12xlarge|IS_TYPE|instance type
+    
+  proposition: The r5 instance family has a 2-socket Intel CPU architecture.
+  
+    entity-entity relationships:
+    r5 family|HAS_ARCHITECTURE|Intel CPU architecture
+  
+    entity-attributes:
+    r5 family|HAS_SOCKETS|2-socket
+    Intel CPU architecture|HAS_SOCKETS|2-socket
+    
+  proposition: r5.12xlarge and smaller types use a single socket.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.12xlarge|USES_SOCKETS|single socket
+    
+  proposition: r5.12xlarge and smaller types use the system memory owned by that single-socket processor.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.12xlarge|USES_MEMORY|system memory owned by single-socket processor
+    
+  proposition: r5.16xlarge is an instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.16xlarge|IS_TYPE|instance type
+    
+  proposition: r5.24xlarge is an instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.24xlarge|IS_TYPE|instance type
+    
+  proposition: r5.16xlarge and r5.24xlarge types use both sockets and available memory.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5.16xlarge|USES_SOCKETS|both sockets
+    r5.16xlarge|USES_MEMORY|available memory
+    r5.24xlarge|USES_SOCKETS|both sockets
+    r5.24xlarge|USES_MEMORY|available memory
+    
+  proposition: There is some memory-management overhead required between two physical processors in a 2-socket architecture.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Intel CPU architecture|HAS_OVERHEAD|memory-management overhead between two physical processors
+    
+  proposition: The performance gains scaling up from r5.12xlarge to r5.16xlarge or r5.24xlarge instance type are not as linear as you get scaling up at the smaller sizes.
+  
+    entity-entity relationships:
+    r5.12xlarge|SCALES_TO|r5.16xlarge
+    r5.12xlarge|SCALES_TO|r5.24xlarge
+  
+    entity-attributes:
+    r5.12xlarge|HAS_SCALING_CHARACTERISTIC|performance gains not as linear when scaling to larger sizes

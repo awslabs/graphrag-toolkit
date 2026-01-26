@@ -1,0 +1,2209 @@
+{
+  "id_": "aws::faaadcc2:38d6:46a388bd",
+  "embedding": [
+    0.059783936,
+    -0.00605011,
+    0.012817383,
+    -0.007850647,
+    -0.002281189,
+    -0.030456543,
+    0.03225708,
+    -0.040100098,
+    -0.0020885468,
+    0.062927246,
+    -0.0062065125,
+    0.02357483,
+    0.043762207,
+    -0.004676819,
+    -0.004047394,
+    -0.0024414062,
+    0.025558472,
+    0.0028152466,
+    0.05505371,
+    0.011749268,
+    0.006832123,
+    0.028945923,
+    0.03314209,
+    -0.04916382,
+    0.06774902,
+    -0.05609131,
+    -0.021713257,
+    -0.009819031,
+    0.058441162,
+    0.004180908,
+    0.044555664,
+    -0.04763794,
+    0.037261963,
+    -0.05078125,
+    0.034942627,
+    -0.004737854,
+    -0.017196655,
+    -0.02355957,
+    -0.007095337,
+    -0.010353088,
+    -0.011886597,
+    0.010116577,
+    0.0904541,
+    -0.054656982,
+    0.034332275,
+    -0.0052986145,
+    -0.0090789795,
+    -0.06939697,
+    0.0026397705,
+    0.033081055,
+    -0.0013780594,
+    0.013504028,
+    -0.013809204,
+    0.061767578,
+    5.5015087e-05,
+    -0.004585266,
+    0.04244995,
+    -0.02746582,
+    0.033996582,
+    -0.06628418,
+    -0.034118652,
+    -0.004005432,
+    0.05404663,
+    0.032226562,
+    -0.0037155151,
+    -0.00920105,
+    0.0042381287,
+    0.0032367706,
+    -0.012718201,
+    0.030349731,
+    0.051818848,
+    -0.014503479,
+    -0.0034389496,
+    -0.016738892,
+    -0.019424438,
+    0.0014762878,
+    0.033599854,
+    0.004562378,
+    0.013671875,
+    0.010971069,
+    -0.002313614,
+    -0.0021762848,
+    -0.012397766,
+    -0.03677368,
+    0.025161743,
+    0.0002822876,
+    -0.01184082,
+    -0.013015747,
+    0.011955261,
+    0.032836914,
+    0.006084442,
+    -0.04144287,
+    0.030761719,
+    0.070129395,
+    0.015075684,
+    -0.012145996,
+    0.0058517456,
+    0.024871826,
+    -0.0052261353,
+    -0.007331848,
+    0.01184845,
+    -0.030639648,
+    -0.0020122528,
+    -0.018814087,
+    -0.006000519,
+    -0.0068626404,
+    0.010192871,
+    -0.03881836,
+    0.014671326,
+    0.005168915,
+    -0.04937744,
+    0.04901123,
+    0.016403198,
+    -0.022460938,
+    -0.02494812,
+    0.036834717,
+    0.018081665,
+    0.011268616,
+    0.026321411,
+    0.031921387,
+    -0.028366089,
+    -0.006072998,
+    -0.025848389,
+    -0.00025820732,
+    0.031341553,
+    0.0095825195,
+    -0.009773254,
+    0.015808105,
+    -0.040283203,
+    0.030014038,
+    0.00079107285,
+    0.03302002,
+    -0.039733887,
+    -0.027664185,
+    -0.053375244,
+    -0.0020523071,
+    -0.0004682541,
+    -0.006641388,
+    0.04360962,
+    -0.055908203,
+    0.058807373,
+    0.040252686,
+    0.04547119,
+    0.035827637,
+    0.043548584,
+    -0.0038871765,
+    0.0019483566,
+    0.028915405,
+    0.008811951,
+    -0.008003235,
+    0.07525635,
+    -0.035247803,
+    0.02218628,
+    0.007232666,
+    0.007297516,
+    -0.030548096,
+    0.025177002,
+    -0.030639648,
+    -0.0076141357,
+    -0.039855957,
+    0.0368042,
+    0.0011539459,
+    0.0029621124,
+    0.040161133,
+    0.029907227,
+    -0.007369995,
+    0.022949219,
+    0.0060577393,
+    0.01777649,
+    0.096191406,
+    -0.044006348,
+    -0.038848877,
+    -0.02822876,
+    0.0058135986,
+    -0.030441284,
+    0.024398804,
+    0.03302002,
+    -0.010292053,
+    0.025756836,
+    0.021362305,
+    -0.00034999847,
+    -0.01461792,
+    0.06274414,
+    -0.012611389,
+    -0.057647705,
+    0.01309967,
+    -0.018951416,
+    0.03100586,
+    0.05517578,
+    -0.0036087036,
+    0.019729614,
+    -0.038970947,
+    0.005218506,
+    0.013084412,
+    -0.009147644,
+    -0.0435791,
+    0.03289795,
+    -0.006526947,
+    -0.0009059906,
+    -0.004760742,
+    0.03591919,
+    0.024108887,
+    -0.0236969,
+    -0.015113831,
+    -0.019622803,
+    -0.03768921,
+    0.012275696,
+    0.010986328,
+    -0.05114746,
+    0.047454834,
+    0.04058838,
+    0.0014982224,
+    -0.03604126,
+    0.050567627,
+    0.06524658,
+    -0.035064697,
+    -0.014953613,
+    0.007724762,
+    0.0006432533,
+    -0.017364502,
+    0.031707764,
+    0.032989502,
+    0.038635254,
+    0.043060303,
+    -0.012016296,
+    0.0044174194,
+    -0.010719299,
+    0.010276794,
+    0.024291992,
+    0.035705566,
+    0.06149292,
+    -0.037963867,
+    0.0725708,
+    0.07940674,
+    0.01008606,
+    -0.02861023,
+    -0.008300781,
+    -0.1194458,
+    0.0138549805,
+    0.048614502,
+    0.052001953,
+    -0.020462036,
+    0.0178833,
+    -0.0072517395,
+    -0.017822266,
+    -0.06304932,
+    0.026275635,
+    -0.045043945,
+    0.013793945,
+    0.021209717,
+    0.016693115,
+    -0.026367188,
+    0.023620605,
+    0.014122009,
+    0.021331787,
+    0.0018482208,
+    -0.009223938,
+    0.0052986145,
+    -0.01335144,
+    -0.009033203,
+    -0.00039243698,
+    -0.010887146,
+    -0.017593384,
+    -0.007095337,
+    -0.02748108,
+    -0.009407043,
+    0.0025959015,
+    -0.0030899048,
+    -0.0020503998,
+    -0.035614014,
+    0.029815674,
+    -0.014274597,
+    -0.0028800964,
+    0.0033340454,
+    0.040100098,
+    0.0231781,
+    -0.014045715,
+    -0.014060974,
+    -0.002922058,
+    0.017807007,
+    -0.012130737,
+    0.013458252,
+    -0.032165527,
+    -0.0075263977,
+    0.005332947,
+    0.0055732727,
+    -0.0036010742,
+    0.021987915,
+    -0.025131226,
+    -0.037384033,
+    -0.0012359619,
+    0.022918701,
+    -0.009933472,
+    -0.0032978058,
+    0.0236969,
+    -0.021697998,
+    -0.025039673,
+    -0.027145386,
+    0.038146973,
+    -0.06378174,
+    -0.012413025,
+    0.047058105,
+    -0.051452637,
+    0.03643799,
+    0.012176514,
+    0.035614014,
+    0.059661865,
+    -0.033721924,
+    -0.015335083,
+    0.022094727,
+    -0.06738281,
+    -0.032714844,
+    0.010108948,
+    -0.007457733,
+    0.008010864,
+    -0.002231598,
+    -0.010131836,
+    0.00818634,
+    -0.052093506,
+    -0.057373047,
+    -0.006362915,
+    -0.00096940994,
+    0.0018901825,
+    0.004573822,
+    0.0034999847,
+    -0.018157959,
+    0.035095215,
+    -0.004688263,
+    0.01083374,
+    -0.031921387,
+    -0.05154419,
+    -0.06555176,
+    -0.05810547,
+    0.006210327,
+    -0.010597229,
+    -0.011199951,
+    0.00021290779,
+    0.07446289,
+    -0.0056381226,
+    -0.06817627,
+    -0.016159058,
+    0.029907227,
+    -0.006263733,
+    0.019897461,
+    -0.008232117,
+    0.011772156,
+    -0.023391724,
+    0.009536743,
+    -0.03967285,
+    -0.00029850006,
+    0.005722046,
+    -0.02532959,
+    0.0138549805,
+    0.0053710938,
+    0.015563965,
+    -0.0050239563,
+    0.0017118454,
+    0.012069702,
+    0.0037555695,
+    -0.05859375,
+    0.027252197,
+    0.03778076,
+    0.006389618,
+    -0.049346924,
+    -0.046569824,
+    -0.031051636,
+    0.012283325,
+    -0.0034122467,
+    0.03314209,
+    0.03475952,
+    -0.08404541,
+    0.034179688,
+    -0.002714157,
+    0.012886047,
+    0.051239014,
+    0.05392456,
+    -0.020980835,
+    -0.05722046,
+    -0.028366089,
+    -0.038330078,
+    -0.025390625,
+    0.0047073364,
+    -0.015586853,
+    0.023468018,
+    0.04055786,
+    -0.0018291473,
+    -0.028137207,
+    0.042877197,
+    -0.035186768,
+    0.003643036,
+    -0.05596924,
+    -0.006095886,
+    0.04550171,
+    -0.040802002,
+    -0.0287323,
+    -0.04168701,
+    0.015777588,
+    0.06286621,
+    0.011802673,
+    -0.019012451,
+    0.115478516,
+    -0.037597656,
+    -0.034606934,
+    0.02418518,
+    -0.010971069,
+    -0.033355713,
+    0.071777344,
+    0.020950317,
+    0.024612427,
+    -0.047973633,
+    0.0149383545,
+    0.006095886,
+    0.023956299,
+    -0.025375366,
+    0.004673004,
+    -0.036590576,
+    -0.050994873,
+    -0.013870239,
+    0.0046577454,
+    0.02104187,
+    -0.03237915,
+    0.049194336,
+    -0.021591187,
+    0.029541016,
+    0.0022277832,
+    0.017990112,
+    0.013847351,
+    0.0061531067,
+    0.0152282715,
+    0.031188965,
+    0.008453369,
+    -0.012268066,
+    0.016677856,
+    0.011161804,
+    -0.021408081,
+    -0.02519226,
+    -0.04638672,
+    -0.04611206,
+    -0.003036499,
+    -0.028747559,
+    -0.039978027,
+    0.009391785,
+    0.01826477,
+    0.00831604,
+    0.011627197,
+    -0.012680054,
+    -0.0027122498,
+    -0.03274536,
+    0.010131836,
+    0.01727295,
+    -0.026000977,
+    0.002784729,
+    0.025634766,
+    0.02810669,
+    -0.019882202,
+    0.025436401,
+    -0.0064926147,
+    0.040863037,
+    0.0051841736,
+    0.022262573,
+    0.034118652,
+    -0.036499023,
+    0.045928955,
+    0.022735596,
+    0.010307312,
+    0.020599365,
+    0.0022945404,
+    0.017288208,
+    -0.0115356445,
+    -0.008117676,
+    0.025741577,
+    -0.005153656,
+    -0.03643799,
+    -0.0435791,
+    0.0015392303,
+    -0.056793213,
+    0.012550354,
+    -0.021743774,
+    0.09881592,
+    0.0049324036,
+    -0.0022830963,
+    0.02178955,
+    -0.01739502,
+    -0.016189575,
+    -0.0052757263,
+    0.0016212463,
+    -0.072387695,
+    -0.06921387,
+    -0.0011730194,
+    -0.051483154,
+    -0.066467285,
+    -0.014770508,
+    0.010070801,
+    -0.031829834,
+    0.012870789,
+    -0.00080013275,
+    -0.021102905,
+    0.058776855,
+    -0.010643005,
+    -0.044311523,
+    -0.0015516281,
+    -0.016189575,
+    0.013114929,
+    -0.002401352,
+    -0.022323608,
+    -0.011131287,
+    0.0013971329,
+    -7.170439e-05,
+    0.034820557,
+    -0.018234253,
+    0.027679443,
+    -0.006866455,
+    0.035858154,
+    -0.0050201416,
+    -0.008010864,
+    0.06726074,
+    -0.037353516,
+    -0.016494751,
+    0.011772156,
+    -0.0090408325,
+    0.05444336,
+    0.04345703,
+    0.0071525574,
+    0.006225586,
+    0.013298035,
+    -0.008804321,
+    -0.028442383,
+    -0.030441284,
+    -0.0095825195,
+    0.013877869,
+    -0.03945923,
+    0.0076789856,
+    -0.014389038,
+    -0.01272583,
+    0.0647583,
+    -0.020584106,
+    -0.029968262,
+    -0.060913086,
+    -0.045776367,
+    0.030731201,
+    -0.030227661,
+    -0.039794922,
+    -0.023605347,
+    0.05496216,
+    -0.0076179504,
+    0.012687683,
+    -0.0236969,
+    0.060424805,
+    -0.045043945,
+    0.03744507,
+    -0.016418457,
+    -0.015327454,
+    -0.0042800903,
+    -0.004497528,
+    -0.011116028,
+    -0.038848877,
+    -0.06359863,
+    0.031188965,
+    0.038848877,
+    0.008178711,
+    -0.01235199,
+    -0.038604736,
+    -0.006275177,
+    0.026245117,
+    -0.00018823147,
+    0.030578613,
+    -0.030899048,
+    -0.051483154,
+    -0.06970215,
+    -0.003648758,
+    -0.021575928,
+    0.010551453,
+    -0.026473999,
+    -0.04321289,
+    -0.033050537,
+    0.008621216,
+    0.01197052,
+    0.022064209,
+    -0.036254883,
+    -0.051879883,
+    -0.0051002502,
+    0.01927185,
+    0.030456543,
+    0.039489746,
+    -0.019592285,
+    -0.042785645,
+    0.04107666,
+    0.0009217262,
+    -0.022094727,
+    -0.04800415,
+    0.042663574,
+    -0.034179688,
+    -0.07110596,
+    -0.05807495,
+    0.044525146,
+    0.077819824,
+    -0.0090789795,
+    0.044555664,
+    0.033813477,
+    0.031799316,
+    0.007865906,
+    -0.040100098,
+    -0.008636475,
+    -0.03237915,
+    0.06124878,
+    -0.06616211,
+    -0.0019197464,
+    -0.015449524,
+    -0.017593384,
+    0.0519104,
+    -0.02935791,
+    -0.0087890625,
+    0.021987915,
+    -0.044769287,
+    0.025253296,
+    0.06854248,
+    0.070129395,
+    -0.005378723,
+    -0.0440979,
+    -0.037872314,
+    0.0049591064,
+    0.026397705,
+    0.027999878,
+    -0.004146576,
+    -0.017791748,
+    -0.05255127,
+    -0.029754639,
+    -0.016082764,
+    -0.008644104,
+    -0.00018537045,
+    0.014945984,
+    0.002445221,
+    -0.0077819824,
+    0.037872314,
+    0.06097412,
+    -0.045410156,
+    -0.014122009,
+    0.022033691,
+    -0.034851074,
+    -0.04446411,
+    -0.005115509,
+    -0.026733398,
+    -0.07434082,
+    -0.032714844,
+    0.015075684,
+    -0.02909851,
+    -0.03878784,
+    -0.013473511,
+    -0.011375427,
+    -0.008041382,
+    -0.013114929,
+    -0.0005502701,
+    -0.057037354,
+    0.016616821,
+    0.033325195,
+    -0.016326904,
+    -0.02973938,
+    -0.01071167,
+    0.030715942,
+    -0.018508911,
+    -0.016693115,
+    0.05404663,
+    -0.02998352,
+    0.024917603,
+    2.682209e-06,
+    0.023620605,
+    -0.030227661,
+    0.06463623,
+    -0.046203613,
+    0.03253174,
+    0.03881836,
+    -0.04660034,
+    -0.03475952,
+    0.0095825195,
+    0.049621582,
+    0.029571533,
+    -0.03353882,
+    0.02192688,
+    -0.039886475,
+    0.0017690659,
+    -0.0049552917,
+    -0.032104492,
+    0.045959473,
+    -0.0209198,
+    -0.006340027,
+    0.047027588,
+    -0.056915283,
+    -0.043914795,
+    -0.017303467,
+    -0.0032901764,
+    -0.030014038,
+    0.003479004,
+    -0.015136719,
+    0.010795593,
+    0.009536743,
+    0.0076828003,
+    -0.012191772,
+    -0.03579712,
+    -0.02859497,
+    -0.0132369995,
+    0.017242432,
+    -0.017196655,
+    -0.005458832,
+    -0.038085938,
+    0.022994995,
+    0.028152466,
+    0.030532837,
+    -0.0055885315,
+    0.03213501,
+    0.0008158684,
+    0.035339355,
+    0.018325806,
+    -0.04638672,
+    -0.003736496,
+    -0.021606445,
+    -0.029663086,
+    -0.064331055,
+    -0.013168335,
+    -0.010009766,
+    0.04727173,
+    -0.010604858,
+    0.001791954,
+    -0.028518677,
+    -0.048614502,
+    0.022872925,
+    -0.09539795,
+    -0.018997192,
+    -0.00868988,
+    -0.009780884,
+    -0.0155181885,
+    0.05899048,
+    -0.039093018,
+    0.02218628,
+    0.025924683,
+    -0.018966675,
+    0.005302429,
+    0.034729004,
+    -0.002286911,
+    0.0068626404,
+    0.011482239,
+    -0.022705078,
+    -0.0018596649,
+    0.020736694,
+    -0.00067949295,
+    -0.0104599,
+    0.014602661,
+    0.0068511963,
+    -0.03302002,
+    0.003850937,
+    -0.0073432922,
+    0.018920898,
+    -0.010284424,
+    0.007843018,
+    -0.046295166,
+    0.008705139,
+    -0.041015625,
+    -0.019317627,
+    -0.04864502,
+    -0.0071640015,
+    0.008682251,
+    0.0023593903,
+    0.019241333,
+    -0.03050232,
+    -0.0317688,
+    -0.03756714,
+    -0.054626465,
+    0.005645752,
+    -0.0019235611,
+    -0.005432129,
+    -0.016143799,
+    -0.018600464,
+    -0.037902832,
+    -0.013290405,
+    0.015052795,
+    0.07305908,
+    0.024490356,
+    -0.0070228577,
+    -0.011985779,
+    0.0042648315,
+    0.036346436,
+    0.02947998,
+    0.020385742,
+    -0.055389404,
+    -0.024475098,
+    0.017333984,
+    0.020523071,
+    0.0110321045,
+    -0.03378296,
+    -0.03768921,
+    -0.0680542,
+    0.015068054,
+    0.035949707,
+    -0.019134521,
+    -0.045166016,
+    -0.030319214,
+    -0.0010023117,
+    0.035247803,
+    -0.02961731,
+    -0.019882202,
+    -0.0143966675,
+    0.006038666,
+    -0.029632568,
+    -0.014823914,
+    0.005504608,
+    -0.02267456,
+    0.027679443,
+    -0.016342163,
+    0.046051025,
+    0.0010347366,
+    -0.0071640015,
+    0.008804321,
+    -0.021057129,
+    0.03717041,
+    -0.011253357,
+    -0.014320374,
+    0.0053520203,
+    -0.036102295,
+    -0.007129669,
+    -0.0024871826,
+    -0.020477295,
+    -0.0018119812,
+    0.04046631,
+    -0.0064201355,
+    0.018829346,
+    0.019607544,
+    0.002231598,
+    0.025756836,
+    -0.029571533,
+    0.017074585,
+    -0.034179688,
+    -0.004508972,
+    -0.0055160522,
+    0.053527832,
+    0.033294678,
+    0.052947998,
+    0.017059326,
+    -0.0017414093,
+    -0.010528564,
+    -0.008956909,
+    0.016159058,
+    0.03933716,
+    -0.043121338,
+    0.032043457,
+    0.032989502,
+    -0.013977051,
+    -0.015167236,
+    0.00422287,
+    0.0012645721,
+    -0.013542175,
+    0.08526611,
+    -0.021194458,
+    0.016525269,
+    0.060791016,
+    -0.03277588,
+    -0.013343811,
+    0.03579712,
+    0.008224487,
+    -0.020507812,
+    0.015792847,
+    0.042144775,
+    -0.003036499,
+    0.014663696,
+    0.008056641,
+    0.029800415,
+    0.0007638931,
+    0.061767578,
+    0.004600525,
+    0.030380249,
+    0.018249512,
+    0.046173096,
+    0.035949707,
+    -0.00944519,
+    -0.033691406,
+    -0.020431519,
+    -0.02748108,
+    -0.0059432983,
+    -0.0005707741,
+    0.0011415482,
+    -0.015960693,
+    0.019058228,
+    0.01285553,
+    -0.022247314,
+    0.027252197,
+    -0.008522034,
+    -0.004722595,
+    -0.005748749,
+    0.017486572,
+    -0.004447937,
+    -0.014434814,
+    0.010101318,
+    -0.023529053,
+    -0.0093688965,
+    0.03616333,
+    0.0034370422,
+    0.04034424,
+    0.0140686035,
+    0.034088135,
+    -0.020935059,
+    0.016326904,
+    -0.07550049,
+    0.032592773,
+    0.013824463,
+    0.046691895,
+    -0.013969421,
+    0.022094727,
+    -0.018295288,
+    -0.009887695,
+    -0.040496826,
+    -0.036895752,
+    -0.04208374,
+    0.039794922,
+    -0.04055786,
+    0.028945923,
+    0.023849487,
+    -0.041625977,
+    0.010978699,
+    0.020202637,
+    0.042236328,
+    0.058166504,
+    0.042053223,
+    -0.023025513,
+    0.009597778,
+    -0.02067566,
+    -0.00712204,
+    0.008514404,
+    0.021820068,
+    -0.0236969,
+    -0.040863037,
+    -0.018157959,
+    0.023513794,
+    0.053100586,
+    -0.0033416748,
+    0.0056419373,
+    -0.08099365,
+    0.036895752,
+    -0.029129028,
+    0.035949707,
+    -0.032226562,
+    -0.02633667,
+    0.032318115,
+    0.015716553,
+    -0.020065308,
+    -0.008529663,
+    0.004802704,
+    0.03289795,
+    0.0071983337,
+    0.043884277,
+    0.0066490173,
+    -0.032958984,
+    0.032226562,
+    0.012702942,
+    0.023925781,
+    -0.02319336,
+    0.03186035,
+    -0.026046753,
+    0.027557373,
+    -0.032287598,
+    -0.056671143,
+    -0.039916992,
+    -0.0010852814,
+    -0.0048713684,
+    0.018539429,
+    0.017868042,
+    0.051208496,
+    0.0368042,
+    0.051727295,
+    0.0036907196,
+    -0.07312012,
+    0.018112183,
+    -0.005592346,
+    0.003572464,
+    0.009361267,
+    -0.0012817383,
+    -1.7523766e-05,
+    0.011352539,
+    -0.026367188,
+    -0.007621765,
+    -0.050231934,
+    0.0029239655,
+    -0.05731201,
+    -0.014472961,
+    -0.018417358,
+    0.011123657,
+    -0.01751709,
+    -0.014633179,
+    0.013801575,
+    -0.02859497,
+    -0.042022705,
+    -0.00053453445,
+    0.01373291,
+    -0.034484863,
+    0.0013771057,
+    -0.0005879402,
+    -0.068115234,
+    0.011154175,
+    0.055755615,
+    -0.0060272217,
+    0.04244995,
+    -0.03866577,
+    -0.043182373,
+    -0.0112838745,
+    0.03753662,
+    0.019241333,
+    0.056762695,
+    -0.03704834,
+    0.05807495,
+    0.021087646,
+    -0.01838684,
+    -0.042816162,
+    0.061584473,
+    -0.031158447,
+    0.024032593,
+    -0.05908203,
+    0.03692627,
+    -0.03503418,
+    0.00056505203,
+    0.021575928,
+    -0.018051147,
+    -0.0085372925,
+    0.018203735,
+    -0.03765869,
+    -0.0065193176,
+    -0.033966064,
+    -0.015975952
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Business and Industry Risks/",
+    "aws::graph::propositions": [
+      "# Amazon's Intellectual Property and Digital Content Challenges",
+      "Such claims, whether or not meritorious, have in the past resulted in the expenditure of significant financial resources.",
+      "Such claims, whether or not meritorious, have in the past resulted in the expenditure of significant managerial resources.",
+      "Such claims, whether or not meritorious, may in the future result in the expenditure of significant financial resources.",
+      "Such claims, whether or not meritorious, may in the future result in the expenditure of significant managerial resources.",
+      "Such claims, whether or not meritorious, have in the past resulted in injunctions against Amazon.",
+      "Such claims, whether or not meritorious, may in the future result in injunctions against Amazon.",
+      "Such claims, whether or not meritorious, have in the past resulted in significant payments for damages.",
+      "Such claims, whether or not meritorious, may in the future result in significant payments for damages.",
+      "Amazon may make significant payments for damages to satisfy indemnification obligations.",
+      "Amazon may make significant payments to obtain licenses from third parties who allege that Amazon has infringed their rights.",
+      "Licenses from third parties who allege that Amazon has infringed their rights may not be available on terms acceptable to Amazon.",
+      "Licenses from third parties who allege that Amazon has infringed their rights may not be available at all.",
+      "These risks have been amplified by the increase in third parties whose sole business is to assert such claims.",
+      "These risks have been amplified by the increase in third parties whose primary business is to assert such claims.",
+      "Amazon's development of artificial intelligence may result in increased claims of infringement.",
+      "Amazon's customers' development of artificial intelligence may result in increased claims of infringement.",
+      "Amazon's use of artificial intelligence may result in increased claims of infringement.",
+      "Amazon's customers' use of artificial intelligence may result in increased claims of infringement.",
+      "Amazon's development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party technology.",
+      "Amazon's customers' development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party technology.",
+      "Amazon's development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party content.",
+      "Amazon's customers' development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party content.",
+      "Amazon's digital content offerings depend in part on effective digital rights management technology.",
+      "Effective digital rights management technology controls access to digital content."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Amazon's Intellectual Property and Digital Content Challenges",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "third parties",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Such claims, whether or not meritorious, have in the past resulted in injunctions against Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "injunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Such claims, whether or not meritorious, may in the future result in injunctions against Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "injunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon may make significant payments for damages to satisfy indemnification obligations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS OBLIGATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "indemnification obligations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon may make significant payments to obtain licenses from third parties who allege that Amazon has infringed their rights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OBTAINS FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCUSED OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "infringement",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS RIGHTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Licenses from third parties who allege that Amazon has infringed their rights may not be available on terms acceptable to Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LICENSES TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCUSED OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "infringement",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS RIGHTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Licenses from third parties who allege that Amazon has infringed their rights may not be available at all.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LICENSES TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCUSED OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "infringement",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS RIGHTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These risks have been amplified by the increase in third parties whose sole business is to assert such claims.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "assert claims",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "These risks have been amplified by the increase in third parties whose primary business is to assert such claims.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "assert claims",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's development of artificial intelligence may result in increased claims of infringement.",
+              "details": [
+                "artificial intelligence ASSOCIATED WITH infringement claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "infringement claims",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's customers' development of artificial intelligence may result in increased claims of infringement.",
+              "details": [
+                "Amazon's customers DEVELOPS artificial intelligence",
+                "Amazon's customers RELATED TO Amazon",
+                "artificial intelligence ASSOCIATED WITH infringement claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "infringement claims",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's use of artificial intelligence may result in increased claims of infringement.",
+              "details": [
+                "artificial intelligence ASSOCIATED WITH infringement claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "infringement claims",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's customers' use of artificial intelligence may result in increased claims of infringement.",
+              "details": [
+                "Amazon's customers USES artificial intelligence",
+                "Amazon's customers RELATED TO Amazon",
+                "artificial intelligence ASSOCIATED WITH infringement claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "infringement claims",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party technology.",
+              "details": [
+                "artificial intelligence ASSOCIATED WITH unauthorized use claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unauthorized use claims",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's customers' development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party technology.",
+              "details": [
+                "Amazon's customers DEVELOPS artificial intelligence",
+                "Amazon's customers RELATED TO Amazon",
+                "artificial intelligence ASSOCIATED WITH unauthorized use claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unauthorized use claims",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party content.",
+              "details": [
+                "artificial intelligence ASSOCIATED WITH unauthorized use claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unauthorized use claims",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "content",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's customers' development of artificial intelligence may result in other claims, including those based on unauthorized use of third-party content.",
+              "details": [
+                "Amazon's customers DEVELOPS artificial intelligence",
+                "Amazon's customers RELATED TO Amazon",
+                "artificial intelligence ASSOCIATED WITH unauthorized use claims"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's customers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RELATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "artificial intelligence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unauthorized use claims",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "content",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's digital content offerings depend in part on effective digital rights management technology.",
+              "details": [
+                "digital content DEPENDS ON digital rights management technology",
+                "digital rights management technology DESCRIBED BY effective"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OFFERS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital content",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital content",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPENDS ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital rights management technology",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital rights management technology",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "effective",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Effective digital rights management technology controls access to digital content.",
+              "details": [
+                "digital rights management technology CONTROLS digital content",
+                "digital rights management technology DESCRIBED BY effective"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital rights management technology",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTROLS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital content",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "digital rights management technology",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "effective",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:b7875ff1",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Business and Industry Risks/"
+      },
+      "hash": "6bbe5ec2b4b7d804caa4e4eea96fa369f35b51b63b34444205c9073d35f6796b",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:ee551fba",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Business and Industry Risks/"
+      },
+      "hash": "72d46288a5826e52ccced3ad262f353e2a5c4e2888e126d1aface3eb949d9d92",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "Such claims, whether or not meritorious, have in the past, and may in the future, result in the expenditure of significant financial and managerial resources, injunctions against us, or significant payments for damages, including to satisfy indemnification obligations or to obtain licenses from third parties who allege that we have infringed their rights. Such licenses may not be available on terms acceptable to us or at all. These risks have been amplified by the increase in third parties whose sole or primary business is to assert such claims. In addition, our and our customers’ development and use of artificial intelligence may result in increased claims of infringement or other claims, including those based on unauthorized use of third-party technology or content.\n\nOur digital content offerings depend in part on effective digital rights management technology to control access to digital content.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1992,
+  "end_char_idx": 2904,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

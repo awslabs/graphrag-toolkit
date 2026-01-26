@@ -1,0 +1,2227 @@
+{
+  "id_": "aws::d9656505:f2d0:694f5a05",
+  "embedding": [
+    0.009384155,
+    0.011665344,
+    -0.01134491,
+    -0.041107178,
+    0.015159607,
+    0.005718231,
+    0.020217896,
+    0.01828003,
+    -0.06384277,
+    0.018966675,
+    0.018920898,
+    0.032043457,
+    -0.017974854,
+    -0.03149414,
+    0.04916382,
+    -0.006801605,
+    0.001036644,
+    0.06573486,
+    0.03237915,
+    -0.01828003,
+    -0.0154418945,
+    0.00365448,
+    -0.03845215,
+    0.02973938,
+    -0.0005965233,
+    0.041778564,
+    -0.037078857,
+    -0.0146865845,
+    0.00021648407,
+    -0.0053710938,
+    -0.0051231384,
+    0.009780884,
+    0.017456055,
+    0.036132812,
+    -0.03729248,
+    0.015182495,
+    0.0112838745,
+    0.0052833557,
+    -0.038970947,
+    0.041656494,
+    0.010131836,
+    -0.0066070557,
+    0.04348755,
+    -0.049102783,
+    0.008293152,
+    -0.027389526,
+    0.02607727,
+    -0.017593384,
+    0.084472656,
+    0.023422241,
+    -0.0053863525,
+    0.030456543,
+    -0.009254456,
+    0.022903442,
+    -3.9219856e-05,
+    0.022659302,
+    0.00016915798,
+    0.01612854,
+    -0.024612427,
+    0.030715942,
+    0.016464233,
+    0.060791016,
+    -0.0012130737,
+    0.022537231,
+    0.0046844482,
+    0.0019130707,
+    -0.0043182373,
+    0.0005760193,
+    0.066711426,
+    0.0051193237,
+    -0.03286743,
+    0.029922485,
+    -0.03717041,
+    0.00831604,
+    -0.056030273,
+    -0.019577026,
+    0.029693604,
+    -0.027191162,
+    -0.029556274,
+    0.027114868,
+    -0.03564453,
+    -0.0014600754,
+    -0.008392334,
+    -0.057617188,
+    0.001367569,
+    -0.046081543,
+    -0.031433105,
+    0.021881104,
+    0.019866943,
+    -0.040618896,
+    -0.0031394958,
+    -0.02305603,
+    0.015426636,
+    0.015350342,
+    -0.032714844,
+    -0.025131226,
+    0.002105713,
+    -0.053466797,
+    -0.013580322,
+    -0.03375244,
+    -0.0003130436,
+    -0.022628784,
+    -0.030166626,
+    0.01322937,
+    0.007118225,
+    0.07562256,
+    0.009819031,
+    -0.044067383,
+    0.016708374,
+    -0.031921387,
+    -0.0008020401,
+    0.005176544,
+    0.019882202,
+    -0.004055023,
+    -0.045043945,
+    0.0087890625,
+    0.017028809,
+    -0.03161621,
+    0.023803711,
+    -0.013725281,
+    0.014427185,
+    0.046905518,
+    -0.07556152,
+    0.028686523,
+    -0.04296875,
+    -0.037109375,
+    0.006904602,
+    0.009307861,
+    0.025024414,
+    0.0071372986,
+    0.0016069412,
+    0.058044434,
+    -0.06756592,
+    -0.09979248,
+    -0.067993164,
+    0.011070251,
+    -0.043060303,
+    0.017929077,
+    0.0014543533,
+    -0.0007224083,
+    -0.043762207,
+    0.0099105835,
+    0.10986328,
+    -0.008872986,
+    0.0211792,
+    0.052947998,
+    0.024780273,
+    -0.029205322,
+    -0.024749756,
+    -0.038238525,
+    0.0060768127,
+    -0.064086914,
+    0.039093018,
+    -0.0066452026,
+    -0.016799927,
+    -0.047973633,
+    0.025421143,
+    -0.040100098,
+    0.013580322,
+    -0.053833008,
+    0.024963379,
+    0.020370483,
+    0.019866943,
+    -0.027038574,
+    -0.046203613,
+    -0.04815674,
+    -0.0023498535,
+    -0.008399963,
+    0.008224487,
+    -0.0015306473,
+    0.05493164,
+    -0.017303467,
+    -0.04949951,
+    -0.03579712,
+    -0.0067367554,
+    -0.011146545,
+    0.0036010742,
+    0.028701782,
+    0.009468079,
+    0.023071289,
+    0.01852417,
+    -0.04385376,
+    0.04058838,
+    -0.021133423,
+    -0.032196045,
+    0.040252686,
+    0.0030879974,
+    0.020248413,
+    0.025726318,
+    -0.0066719055,
+    0.011299133,
+    0.033050537,
+    0.035308838,
+    -0.041168213,
+    -0.00092458725,
+    -0.008972168,
+    -0.014923096,
+    -0.0038528442,
+    -0.021987915,
+    0.012107849,
+    -0.06616211,
+    0.042175293,
+    -0.0005865097,
+    0.026916504,
+    0.046539307,
+    0.013648987,
+    0.017959595,
+    0.040222168,
+    -0.00086021423,
+    -0.0036411285,
+    0.028152466,
+    -0.0024967194,
+    -0.025161743,
+    -0.020370483,
+    -0.036193848,
+    0.007007599,
+    -0.009727478,
+    -0.0054092407,
+    0.005180359,
+    0.011672974,
+    -0.035217285,
+    0.033721924,
+    -0.026382446,
+    -0.010932922,
+    -0.039916992,
+    -0.051483154,
+    -0.0074501038,
+    -0.012107849,
+    -0.0059432983,
+    0.0016365051,
+    0.062469482,
+    -0.014663696,
+    -0.022750854,
+    0.009803772,
+    -0.01751709,
+    0.014137268,
+    -0.009246826,
+    0.005657196,
+    0.0037593842,
+    0.015396118,
+    -0.0064315796,
+    -0.034454346,
+    -0.013916016,
+    0.052825928,
+    -0.060333252,
+    -0.014190674,
+    0.0126953125,
+    0.018814087,
+    0.0072135925,
+    0.0074882507,
+    0.10119629,
+    0.03677368,
+    0.0154800415,
+    0.06161499,
+    0.08544922,
+    -0.0124053955,
+    -0.017318726,
+    -0.04550171,
+    0.007881165,
+    0.0018625259,
+    0.027313232,
+    -0.027801514,
+    -0.054229736,
+    0.0107421875,
+    0.030273438,
+    0.017089844,
+    0.08087158,
+    0.06488037,
+    -0.0033054352,
+    -0.010894775,
+    -0.018295288,
+    0.025283813,
+    -0.010223389,
+    -0.025619507,
+    -0.04309082,
+    -0.0023784637,
+    -0.018829346,
+    0.022460938,
+    0.01260376,
+    -0.019577026,
+    -0.034210205,
+    0.011802673,
+    -0.02444458,
+    -0.0102005005,
+    -0.018173218,
+    -0.008460999,
+    0.015914917,
+    0.014099121,
+    0.005619049,
+    0.0501709,
+    0.076538086,
+    -0.018951416,
+    -0.0022621155,
+    -0.0047683716,
+    0.025848389,
+    -0.020217896,
+    0.018692017,
+    -0.0032424927,
+    0.010543823,
+    0.0033435822,
+    -0.001294136,
+    0.049682617,
+    0.0035495758,
+    0.004802704,
+    -0.010017395,
+    0.00605011,
+    0.0026245117,
+    -0.003982544,
+    0.00013720989,
+    0.0032043457,
+    -0.033813477,
+    0.020309448,
+    0.0184021,
+    0.0068206787,
+    0.01878357,
+    -0.002445221,
+    -0.0018482208,
+    0.038726807,
+    -0.0024147034,
+    0.0035476685,
+    -0.029663086,
+    -0.008583069,
+    -0.032104492,
+    0.033447266,
+    -0.00088739395,
+    0.008369446,
+    0.015289307,
+    0.0036525726,
+    0.00040364265,
+    -0.038879395,
+    -0.056640625,
+    -0.0848999,
+    -0.054260254,
+    0.0099105835,
+    -0.013084412,
+    0.0057792664,
+    -0.003921509,
+    -0.036712646,
+    -0.022918701,
+    0.009590149,
+    -0.029464722,
+    0.0010261536,
+    0.005672455,
+    -0.087768555,
+    -0.07910156,
+    -0.038482666,
+    0.03274536,
+    -0.008125305,
+    -0.039001465,
+    -0.035736084,
+    0.08691406,
+    0.010688782,
+    -0.027374268,
+    0.031677246,
+    -0.010826111,
+    -0.061157227,
+    0.015113831,
+    0.014305115,
+    -0.022888184,
+    -0.028915405,
+    0.024902344,
+    0.010643005,
+    -0.016067505,
+    -0.07006836,
+    -0.009803772,
+    0.01625061,
+    -0.009376526,
+    -0.013381958,
+    -0.02659607,
+    -0.025405884,
+    0.051513672,
+    -0.018127441,
+    -0.036315918,
+    -0.03704834,
+    -0.05529785,
+    -0.015792847,
+    0.057250977,
+    -0.018997192,
+    -0.0018520355,
+    0.044128418,
+    -0.019592285,
+    -0.0109939575,
+    0.008712769,
+    0.0054740906,
+    0.026367188,
+    0.03338623,
+    0.012283325,
+    0.0055885315,
+    0.005378723,
+    -0.005329132,
+    -0.009162903,
+    -0.009887695,
+    -0.06774902,
+    -0.01727295,
+    -0.029953003,
+    -0.0087509155,
+    0.03463745,
+    0.014678955,
+    -0.026046753,
+    -0.027709961,
+    -0.08642578,
+    0.033294678,
+    -0.009498596,
+    -0.007911682,
+    0.0054855347,
+    -0.07232666,
+    -0.010910034,
+    -0.06542969,
+    0.009651184,
+    0.055023193,
+    0.011230469,
+    0.0018730164,
+    -0.0053596497,
+    0.036712646,
+    0.01424408,
+    -0.011962891,
+    -0.011444092,
+    -0.02658081,
+    0.04724121,
+    0.007205963,
+    -0.029937744,
+    -0.005718231,
+    -0.02558899,
+    0.03555298,
+    -0.032348633,
+    0.021774292,
+    -0.05480957,
+    -0.009162903,
+    -0.023239136,
+    0.04248047,
+    -0.062469482,
+    0.030654907,
+    0.011886597,
+    2.4914742e-05,
+    -0.029586792,
+    0.008163452,
+    -0.0079422,
+    -0.039031982,
+    0.027297974,
+    -0.037322998,
+    0.031402588,
+    0.0048599243,
+    0.013648987,
+    0.06878662,
+    -0.008857727,
+    0.0068206787,
+    -0.030410767,
+    0.024047852,
+    -0.0284729,
+    -0.0017147064,
+    -0.030151367,
+    0.0096588135,
+    0.05038452,
+    0.021392822,
+    0.005847931,
+    -0.006614685,
+    0.017700195,
+    0.026260376,
+    0.010414124,
+    -0.010604858,
+    -0.015045166,
+    0.0017642975,
+    -0.04824829,
+    -0.01576233,
+    0.016235352,
+    -0.0040359497,
+    -0.009933472,
+    -0.013038635,
+    -0.00491333,
+    0.011947632,
+    -0.003829956,
+    0.042419434,
+    -0.012413025,
+    -0.024154663,
+    -0.015670776,
+    -0.03643799,
+    0.024230957,
+    -0.02330017,
+    0.07373047,
+    -0.0031375885,
+    -0.023620605,
+    -0.0044059753,
+    0.034729004,
+    0.053527832,
+    0.049591064,
+    0.0036849976,
+    0.047180176,
+    0.066711426,
+    0.025558472,
+    -0.01235199,
+    -0.04321289,
+    -0.012886047,
+    0.01789856,
+    0.01737976,
+    0.020263672,
+    0.006477356,
+    0.0067710876,
+    -0.0046081543,
+    0.026321411,
+    0.00057315826,
+    -0.022766113,
+    -0.0016508102,
+    -0.09118652,
+    -0.023101807,
+    -0.017074585,
+    0.0138549805,
+    0.043182373,
+    0.03857422,
+    0.026657104,
+    -0.017929077,
+    0.023712158,
+    0.007949829,
+    0.023208618,
+    0.033355713,
+    -0.03048706,
+    0.017105103,
+    -0.03250122,
+    0.0390625,
+    -0.045959473,
+    -0.0033130646,
+    -0.032409668,
+    -0.05303955,
+    0.06958008,
+    0.031097412,
+    -0.042938232,
+    0.00466156,
+    0.044067383,
+    0.030456543,
+    -0.07269287,
+    -0.046875,
+    -0.021499634,
+    0.050445557,
+    -0.021606445,
+    -0.02168274,
+    0.07342529,
+    0.026824951,
+    -0.01121521,
+    -0.018859863,
+    -0.02319336,
+    -0.005882263,
+    0.0011510849,
+    -0.016860962,
+    -0.016860962,
+    -0.006839752,
+    0.008964539,
+    -0.038024902,
+    -0.0003335476,
+    0.045166016,
+    -0.052978516,
+    0.022018433,
+    0.013534546,
+    -0.004234314,
+    -0.0054016113,
+    -0.043762207,
+    -0.059753418,
+    0.060791016,
+    0.02293396,
+    -0.023345947,
+    -0.009437561,
+    0.058685303,
+    -0.033081055,
+    -0.027908325,
+    -0.04446411,
+    0.06161499,
+    -0.010055542,
+    0.018005371,
+    -0.0017814636,
+    -0.025131226,
+    -0.010627747,
+    -0.010261536,
+    -0.020843506,
+    -0.03567505,
+    0.07977295,
+    -0.0049324036,
+    -0.012130737,
+    -0.035095215,
+    -0.031951904,
+    0.01977539,
+    -0.027130127,
+    0.008575439,
+    -0.0067977905,
+    -0.0014019012,
+    -0.03149414,
+    -0.0036563873,
+    -0.014228821,
+    0.021194458,
+    0.006729126,
+    -0.0140686035,
+    0.0010824203,
+    0.002243042,
+    0.0034770966,
+    -0.004547119,
+    0.0054969788,
+    -0.040893555,
+    -0.018325806,
+    0.0021018982,
+    -0.09240723,
+    0.0039367676,
+    0.023391724,
+    -0.002822876,
+    0.0010795593,
+    -0.006137848,
+    0.010253906,
+    -0.017242432,
+    0.026107788,
+    -0.002773285,
+    -0.037506104,
+    0.031158447,
+    0.007873535,
+    0.009605408,
+    0.031097412,
+    -0.007865906,
+    -0.010498047,
+    0.028503418,
+    0.007835388,
+    -0.015945435,
+    -0.0047454834,
+    0.03878784,
+    0.0435791,
+    -0.02230835,
+    0.032806396,
+    0.034729004,
+    0.022628784,
+    0.010604858,
+    0.022003174,
+    -0.03466797,
+    -0.02229309,
+    -0.0132751465,
+    -0.0077323914,
+    -0.023712158,
+    -0.02986145,
+    -0.025283813,
+    -0.03643799,
+    0.050354004,
+    -0.042114258,
+    -0.031311035,
+    -0.025756836,
+    -0.073913574,
+    -0.021514893,
+    -0.0028324127,
+    0.010177612,
+    0.01197052,
+    0.034210205,
+    -0.0748291,
+    -0.011413574,
+    -0.04434204,
+    -0.033325195,
+    0.0050086975,
+    0.00038838387,
+    0.025619507,
+    0.011383057,
+    -0.011131287,
+    -0.026382446,
+    -0.0519104,
+    -0.005340576,
+    -0.0135650635,
+    0.029373169,
+    0.03302002,
+    -0.05834961,
+    -0.049346924,
+    0.010620117,
+    -0.026931763,
+    -0.0056114197,
+    -0.038970947,
+    -0.06414795,
+    -0.004501343,
+    -0.0061187744,
+    0.008705139,
+    -0.016647339,
+    -0.026153564,
+    -0.011329651,
+    -0.0038661957,
+    0.059417725,
+    -0.018539429,
+    -0.012489319,
+    -0.010299683,
+    -0.024230957,
+    -0.012908936,
+    -0.007637024,
+    0.005317688,
+    0.009178162,
+    -0.039916992,
+    -0.0019874573,
+    -0.04321289,
+    0.0033779144,
+    0.013397217,
+    -0.0018625259,
+    0.036743164,
+    -0.0070610046,
+    0.009590149,
+    -0.051330566,
+    -0.022705078,
+    0.0017318726,
+    -0.048828125,
+    -0.010696411,
+    -0.00932312,
+    0.018539429,
+    -0.04397583,
+    0.022521973,
+    -0.02935791,
+    0.032348633,
+    -0.025253296,
+    -0.014183044,
+    -0.03387451,
+    -0.030685425,
+    0.032928467,
+    0.029418945,
+    0.03479004,
+    -0.06298828,
+    -0.031173706,
+    0.004245758,
+    0.08068848,
+    -0.0138549805,
+    0.010681152,
+    -0.037994385,
+    -0.010749817,
+    0.0052719116,
+    0.01576233,
+    -0.0013589859,
+    0.030227661,
+    -0.017807007,
+    0.035827637,
+    -0.0048599243,
+    -0.029174805,
+    0.01751709,
+    -0.019073486,
+    -0.056030273,
+    0.010215759,
+    0.015838623,
+    0.028213501,
+    0.0063209534,
+    -0.03250122,
+    0.007007599,
+    0.0028629303,
+    -0.019241333,
+    0.008934021,
+    -0.022399902,
+    0.03933716,
+    0.03253174,
+    -0.011161804,
+    0.023925781,
+    -0.030059814,
+    0.043273926,
+    0.016830444,
+    0.0052375793,
+    -0.002313614,
+    0.015106201,
+    -0.037475586,
+    0.049713135,
+    0.018798828,
+    0.054718018,
+    -0.03555298,
+    -0.059814453,
+    0.018981934,
+    -0.0066986084,
+    -0.01689148,
+    0.001830101,
+    0.023986816,
+    -0.044189453,
+    0.007701874,
+    -0.01626587,
+    -0.0059890747,
+    -0.003025055,
+    0.034179688,
+    -0.00068187714,
+    0.03741455,
+    -0.022247314,
+    -0.03753662,
+    0.015136719,
+    -0.017242432,
+    -0.028060913,
+    0.013259888,
+    0.018753052,
+    -0.004764557,
+    0.040252686,
+    -0.05343628,
+    0.014915466,
+    -0.02507019,
+    -0.038726807,
+    0.00724411,
+    0.029708862,
+    -0.018859863,
+    -0.005970001,
+    -0.0009188652,
+    0.0066947937,
+    0.050720215,
+    0.016296387,
+    -0.04284668,
+    0.009284973,
+    0.0020389557,
+    -0.06500244,
+    -0.0012073517,
+    0.032226562,
+    -0.015357971,
+    0.0053215027,
+    -0.0026664734,
+    0.023452759,
+    -0.02279663,
+    -0.015556335,
+    -0.016845703,
+    -0.077819824,
+    -0.014602661,
+    -0.036956787,
+    0.054138184,
+    0.009124756,
+    0.0209198,
+    0.028656006,
+    0.017562866,
+    0.0236969,
+    -0.028457642,
+    0.015426636,
+    -0.021072388,
+    0.044799805,
+    -0.019363403,
+    -0.00089359283,
+    0.02772522,
+    -0.0736084,
+    -0.03515625,
+    -0.005870819,
+    0.029693604,
+    -0.0037155151,
+    0.031188965,
+    0.031951904,
+    0.009460449,
+    0.018432617,
+    -0.006111145,
+    -0.03741455,
+    0.019683838,
+    0.018814087,
+    0.0024051666,
+    0.0052375793,
+    0.018127441,
+    -0.020904541,
+    -0.02720642,
+    0.005252838,
+    0.011703491,
+    0.0007390976,
+    0.032989502,
+    0.0014352798,
+    0.009414673,
+    -0.036590576,
+    -0.008453369,
+    -0.045043945,
+    -0.025909424,
+    -0.033935547,
+    -0.011940002,
+    0.013191223,
+    0.023147583,
+    0.03213501,
+    0.036071777,
+    0.044921875,
+    0.0013380051,
+    0.020843506,
+    -0.01802063,
+    0.0032405853,
+    -0.021255493,
+    0.03970337,
+    -0.013702393,
+    -0.022506714,
+    -0.0071029663,
+    0.028015137,
+    0.024658203,
+    0.031982422,
+    -0.014762878,
+    0.0009012222,
+    0.047027588,
+    -0.0048217773,
+    0.050964355,
+    -0.0011930466,
+    0.10003662,
+    0.024551392,
+    -0.03186035,
+    -0.089538574,
+    -0.030426025,
+    -0.020980835,
+    -0.031921387,
+    -0.00869751,
+    0.060302734,
+    -0.028930664,
+    -0.025009155,
+    -0.066345215,
+    -0.045654297,
+    -0.00071430206,
+    0.00044989586,
+    0.00944519,
+    -0.05355835,
+    0.0063552856,
+    -0.017654419,
+    0.040863037,
+    0.021392822,
+    0.006362915,
+    -0.006801605,
+    -0.022445679,
+    0.048950195,
+    0.019348145,
+    0.115478516,
+    -0.032043457,
+    -0.016830444,
+    -0.051635742,
+    0.027862549,
+    -0.050109863,
+    -0.050750732,
+    0.014755249,
+    -0.07623291,
+    0.031341553,
+    0.019439697,
+    0.027038574,
+    -0.05819702,
+    0.0024795532,
+    -0.00025248528,
+    0.012191772,
+    0.022140503,
+    -0.019378662,
+    0.01159668,
+    0.017120361,
+    0.0043144226,
+    -0.024734497,
+    -0.024642944,
+    0.019317627,
+    -0.06112671,
+    -0.051330566,
+    -0.017181396,
+    0.035125732,
+    0.02279663,
+    0.05532837,
+    -0.022994995,
+    0.11627197,
+    0.007827759,
+    -0.02709961,
+    -0.02154541,
+    -0.030731201,
+    -0.033599854,
+    0.05206299,
+    -0.06878662,
+    0.05493164,
+    -0.025772095,
+    0.022949219,
+    -0.04937744,
+    -0.015808105,
+    0.014137268,
+    0.022445679,
+    -0.043823242,
+    -0.042663574,
+    0.021713257,
+    0.0140686035,
+    0.034973145,
+    0.02583313,
+    -0.013931274,
+    -0.00548172,
+    0.020141602,
+    0.024169922,
+    0.02784729,
+    0.0105896,
+    -0.010444641,
+    0.03338623,
+    0.025039673,
+    -0.018585205,
+    0.04525757,
+    -0.0016946793,
+    -0.019836426,
+    0.007575989,
+    -0.042236328,
+    0.0010890961,
+    0.032989502,
+    0.025344849,
+    0.04638672,
+    0.0028915405,
+    -0.07196045,
+    -0.017959595,
+    -0.03677368,
+    0.013549805,
+    -0.008377075,
+    -0.014381409,
+    -0.0076942444,
+    0.016921997,
+    -0.011550903,
+    -0.005996704,
+    -0.012756348,
+    -0.006919861,
+    -0.033081055,
+    -0.0029525757,
+    0.0049057007,
+    0.011711121,
+    -0.016647339,
+    0.05645752,
+    -0.0231781,
+    -0.006374359,
+    0.0037193298,
+    -0.0138549805,
+    -0.016921997,
+    -0.026763916,
+    0.0178833,
+    0.050720215,
+    0.02128601,
+    -0.01689148,
+    0.00308609,
+    0.036590576,
+    0.053833008,
+    -0.0075798035,
+    -0.049591064,
+    -0.028198242,
+    -0.013893127,
+    0.017990112,
+    -0.022369385,
+    0.026763916,
+    -0.061035156,
+    -0.014709473,
+    0.030700684,
+    -0.015312195,
+    0.003578186,
+    -0.044830322,
+    0.05053711,
+    0.010139465,
+    -0.021316528,
+    0.025238037,
+    -0.003566742,
+    0.010032654,
+    0.022232056,
+    0.0016012192,
+    -0.0010156631,
+    0.01638794,
+    0.074035645,
+    0.0026741028,
+    0.0012245178
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/88790.md",
+    "file_name": "88790.md",
+    "file_size": 9740,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Pitts S2C in Roseburg, Oregon",
+      "The accident occurred in Roseburg, Oregon.",
+      "The accident occurred on January 26, 2014, at 15:30 Local time.",
+      "The aircraft involved was a Pitts S2C.",
+      "The aircraft registration was N102ZT.",
+      "The defining event was collision during takeoff/land.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was WPR14LA114.",
+      "The aircraft sustained substantial damage.",
+      "There were no injuries in the accident.",
+      "The pilot involved was a commercial pilot.",
+      "The pilot was conducting a local personal flight.",
+      "The pilot entered the traffic pattern behind a slower airplane.",
+      "The pilot observed a second high-wing airplane on an apparent base leg about 1 mile south of the airport.",
+      "The pilot made a right 360-degree turn while on the downwind leg for spacing.",
+      "The pilot reestablished his position on the downwind leg.",
+      "The pilot requested position reports from local area traffic.",
+      "The pilot in the first airplane reported being clear of the runway.",
+      "The accident pilot heard no other position reports.",
+      "The accident pilot began a normal approach to the runway.",
+      "A pilot from an unknown airplane transmitted that his airplane was on final for the same runway.",
+      "The accident pilot rolled the airplane wings level.",
+      "The accident pilot checked the final approach path for traffic.",
+      "The accident pilot observed no traffic.",
+      "The accident pilot rolled the airplane back into a left turn to final with a shallow left forward slip.",
+      "The airplane collided with the upper portion of a tall tree as it rolled onto short final.",
+      "The pilot landed the airplane successfully after the collision.",
+      "The Federal Aviation Administration Digital Airport/Facility Directory noted that the runway had a displaced threshold of 371 feet due to a tree.",
+      "The tree was depicted on the airport diagram.",
+      "The pilot likely lost his orientation with respect to the tree when he diverted his scan to look for another airplane in the traffic pattern.",
+      "The National Transportation Safety Board determined the probable cause of the accident to be the pilot's loss of orientation while scanning for airport traffic.",
+      "The pilot's loss of orientation resulted in his failure to maintain clearance from a tree."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Pitts S2C in Roseburg, Oregon",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Roseburg, Oregon",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pitts S2C",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N102ZT",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "collision during takeoff/land",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR14LA114",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "commercial pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration Digital Airport/Facility Directory",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Roseburg, Oregon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Roseburg, Oregon",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on January 26, 2014, at 1530 Local time.",
+              "details": [
+                "accident DATE January 26, 2014",
+                "accident TIME 15:30 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 26, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "15:30 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Pitts S2C.",
+              "details": [
+                "accident INVOLVED Pitts S2C"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N102ZT.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N102ZT",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was collision during takeoff/land.",
+              "details": [
+                "accident DEFINING EVENT collision during takeoff/land"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision during takeoff/land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR14LA114.",
+              "details": [
+                "accident NUMBER WPR14LA114"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR14LA114",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no injuries in the accident.",
+              "details": [
+                "accident INJURIES none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot involved was a commercial pilot.",
+              "details": [
+                "pilot LICENSE TYPE commercial pilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LICENSE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was conducting a local personal flight.",
+              "details": [
+                "flight TYPE local personal",
+                "pilot CONDUCTING local personal flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local personal",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local personal flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot entered the traffic pattern behind a slower airplane.",
+              "details": [
+                "pilot ACTION entered the traffic pattern behind a slower airplane"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "entered the traffic pattern behind a slower airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot observed a second high-wing airplane on an apparent base leg about 1 mile south of the airport.",
+              "details": [
+                "pilot OBSERVED second high-wing airplane on an apparent base leg about 1 mile south of the airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second high-wing airplane on an apparent base leg about 1 mile south of the airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot made a right 360-degree turn while on the downwind leg for spacing.",
+              "details": [
+                "pilot ACTION made a right 360-degree turn while on the downwind leg for spacing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "made a right 360-degree turn while on the downwind leg for spacing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reestablished his position on the downwind leg.",
+              "details": [
+                "pilot ACTION reestablished his position on the downwind leg"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reestablished his position on the downwind leg",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot requested position reports from local area traffic.",
+              "details": [
+                "pilot ACTION requested position reports from local area traffic"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "requested position reports from local area traffic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot in the first airplane reported being clear of the runway.",
+              "details": [
+                "pilot in the first airplane REPORTED being clear of the runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot in the first airplane",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "being clear of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident pilot heard no other position reports.",
+              "details": [
+                "accident pilot HEARD no other position reports"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HEARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no other position reports",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident pilot began a normal approach to the runway.",
+              "details": [
+                "accident pilot ACTION began a normal approach to the runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "began a normal approach to the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A pilot from an unknown airplane transmitted that his airplane was on final for the same runway.",
+              "details": [
+                "pilot from an unknown airplane TRANSMITTED his airplane was on final for the same runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot from an unknown airplane",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TRANSMITTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "his airplane was on final for the same runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident pilot rolled the airplane wings level.",
+              "details": [
+                "accident pilot ACTION rolled the airplane wings level"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rolled the airplane wings level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident pilot checked the final approach path for traffic.",
+              "details": [
+                "accident pilot ACTION checked the final approach path for traffic"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "checked the final approach path for traffic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident pilot observed no traffic.",
+              "details": [
+                "accident pilot OBSERVED no traffic"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no traffic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident pilot rolled the airplane back into a left turn to final with a shallow left forward slip.",
+              "details": [
+                "accident pilot ACTION rolled the airplane back into a left turn to final with a shallow left forward slip"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rolled the airplane back into a left turn to final with a shallow left forward slip",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane collided with the upper portion of a tall tree as it rolled onto short final.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper portion of a tall tree as it rolled onto short final",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot landed the airplane successfully after the collision.",
+              "details": [
+                "pilot ACTION landed the airplane successfully after the collision"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landed the airplane successfully after the collision",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration Digital Airport/Facility Directory noted that the runway had a displaced threshold of 371 feet due to a tree.",
+              "details": [
+                "runway HAS FEATURE displaced threshold of 371 feet due to a tree"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration Digital Airport/Facility Directory",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "NOTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway had a displaced threshold of 371 feet due to a tree",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS FEATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "displaced threshold of 371 feet due to a tree",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tree was depicted on the airport diagram.",
+              "details": [
+                "tree DEPICTED ON airport diagram"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tree",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPICTED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airport diagram",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot likely lost his orientation with respect to the tree when he diverted his scan to look for another airplane in the traffic pattern.",
+              "details": [
+                "pilot LOST orientation with respect to the tree when he diverted his scan to look for another airplane in the traffic pattern"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOST"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "orientation with respect to the tree when he diverted his scan to look for another airplane in the traffic pattern",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident to be the pilot's loss of orientation while scanning for airport traffic.",
+              "details": [
+                "accident PROBABLE CAUSE pilot's loss of orientation while scanning for airport traffic"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause of the accident to be the pilot's loss of orientation while scanning for airport traffic",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's loss of orientation while scanning for airport traffic",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's loss of orientation resulted in his failure to maintain clearance from a tree.",
+              "details": [
+                "pilot's loss of orientation RESULTED IN failure to maintain clearance from a tree"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's loss of orientation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure to maintain clearance from a tree",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::d9656505:f2d0",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/88790.md",
+        "file_name": "88790.md",
+        "file_size": 9740,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "4f347452c6bb90a17ea43471fcfc2483c2b0c9d7eb9cd5d5c5705c71827d9ae8",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::d9656505:f2d0:33eddc6e",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/88790.md",
+        "file_name": "88790.md",
+        "file_size": 9740,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "a80ee4d6059601f2d3ec0372c2ec82e9d16e75d2e265b80d0ab29269a1b4bcbb",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nRoseburg, Oregon\n\n## Date & Time: \nJanuary 26, 2014, 15:30 Local\n\n## Aircraft:\nPitts S2C\n\n## Defining Event:\nCollision during takeoff/land\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nWPR14LA114\n\n## Registration:\nN102ZT\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nThe commercial pilot was conducting a local personal flight. The pilot reported that he entered the traffic pattern behind a much slower airplane and observed a second (high-wing) airplane on an apparent base leg about 1 mile south of the airport. The pilot made a right 360-degree turn while on the downwind leg for spacing. After reestablishing his position on the downwind leg, he requested position reports from local area traffic. The pilot in the first airplane in the traffic pattern reported clear of the runway; the accident pilot heard no other position reports and subsequently began a normal approach to the runway. Immediately before turning to final, the pilot from an unknown airplane transmitted that his airplane was on final for the same runway. The accident pilot then rolled the airplane wings level and checked the final approach path for traffic. He observed no traffic and subsequently rolled the airplane back into a left turn to final with a shallow left forward slip. As the airplane rolled onto short final, it collided with the upper portion of a tall tree. The pilot then landed the airplane successfully.\n\nThe Federal Aviation Administration Digital Airport/Facility Directory noted that the runway had a displaced threshold of 371 ft due to a tree, which was also depicted on the airport diagram. It is likely that the pilot lost his orientation with respect to the tree when he diverted his scan to look for another airplane in the traffic pattern.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\nThe pilot's loss of orientation while scanning for airport traffic during the turn from the base to final legs of the traffic pattern, which resulted in his failure to maintain clearance from a tree.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2198,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2462 @@
+{
+  "id_": "aws::2cfb82fa:a29e:a7a101e4",
+  "embedding": [
+    0.025894165,
+    0.021957397,
+    0.020965576,
+    -0.043945312,
+    0.0107421875,
+    -0.0017261505,
+    -0.02458191,
+    -0.019744873,
+    -0.052490234,
+    -0.002029419,
+    0.0010919571,
+    0.034851074,
+    -0.03564453,
+    -0.042999268,
+    0.04107666,
+    -0.031677246,
+    0.012649536,
+    -0.003944397,
+    -0.0015697479,
+    -0.038360596,
+    0.014175415,
+    -0.03930664,
+    0.035125732,
+    0.042510986,
+    -0.0061569214,
+    0.064208984,
+    -0.024597168,
+    -0.030975342,
+    -0.014389038,
+    -0.023162842,
+    0.0036182404,
+    0.0067100525,
+    0.03164673,
+    0.018661499,
+    -0.028961182,
+    -0.006702423,
+    -0.018157959,
+    0.009483337,
+    -0.016677856,
+    0.02357483,
+    0.013343811,
+    -0.011276245,
+    0.09503174,
+    -0.043121338,
+    0.03161621,
+    -0.0053367615,
+    0.023773193,
+    -0.058776855,
+    0.040039062,
+    0.035491943,
+    0.023391724,
+    -0.015640259,
+    0.031433105,
+    -0.012451172,
+    -0.04220581,
+    -0.032165527,
+    -0.07556152,
+    0.035491943,
+    0.022399902,
+    0.042236328,
+    0.01789856,
+    -0.018585205,
+    0.0026893616,
+    0.004234314,
+    -0.011352539,
+    -0.020812988,
+    0.01259613,
+    -0.00015234947,
+    0.013694763,
+    0.012145996,
+    0.026168823,
+    0.006248474,
+    0.0050582886,
+    0.002298355,
+    0.018081665,
+    -0.046875,
+    0.05316162,
+    0.018447876,
+    -0.027435303,
+    0.040405273,
+    0.031707764,
+    0.029388428,
+    -0.00674057,
+    -0.020965576,
+    0.0005426407,
+    -0.027542114,
+    -0.0045318604,
+    -0.018539429,
+    0.009849548,
+    -0.02810669,
+    -0.01210022,
+    0.029586792,
+    0.015136719,
+    -0.008232117,
+    -0.053985596,
+    -0.0048065186,
+    0.009773254,
+    -0.023895264,
+    -0.025970459,
+    -0.0287323,
+    0.029449463,
+    -0.034423828,
+    0.026367188,
+    0.0030002594,
+    -0.01600647,
+    -0.0009918213,
+    0.04449463,
+    -0.020202637,
+    -0.0066947937,
+    -0.02078247,
+    -0.052001953,
+    0.043518066,
+    -0.019683838,
+    -0.011260986,
+    -0.048217773,
+    0.04800415,
+    -0.019134521,
+    -0.0026512146,
+    0.007621765,
+    0.037872314,
+    0.023757935,
+    0.06311035,
+    -0.029525757,
+    -0.042114258,
+    -0.014274597,
+    -0.029815674,
+    -0.0017547607,
+    -0.01763916,
+    0.05444336,
+    -0.0010700226,
+    -0.012397766,
+    0.046081543,
+    -0.054595947,
+    -0.07397461,
+    -0.0625,
+    0.016464233,
+    0.041137695,
+    0.00097608566,
+    -0.017471313,
+    1.8894672e-05,
+    0.00044941902,
+    -0.010269165,
+    0.008781433,
+    -0.018753052,
+    -0.047576904,
+    0.030853271,
+    0.017578125,
+    0.003932953,
+    -0.01939392,
+    -0.022277832,
+    -0.036987305,
+    -0.013038635,
+    0.048339844,
+    -0.014541626,
+    -0.026290894,
+    -0.068359375,
+    0.042510986,
+    -0.07019043,
+    0.010223389,
+    -0.070129395,
+    -0.053771973,
+    -0.037322998,
+    0.049591064,
+    -0.032348633,
+    -0.051116943,
+    0.06222534,
+    -0.017547607,
+    -0.0060653687,
+    0.01576233,
+    0.017578125,
+    -0.002008438,
+    -0.029251099,
+    -0.023635864,
+    0.007797241,
+    -0.0045051575,
+    0.017074585,
+    0.048095703,
+    0.058624268,
+    -0.0046539307,
+    0.005580902,
+    -0.006416321,
+    -0.042266846,
+    0.06262207,
+    -0.032348633,
+    -0.018417358,
+    0.0003836155,
+    0.034362793,
+    0.020339966,
+    -0.015449524,
+    0.017623901,
+    0.025482178,
+    0.050048828,
+    0.028305054,
+    -0.038879395,
+    -0.016296387,
+    -0.011642456,
+    -0.018676758,
+    0.0026111603,
+    -0.01360321,
+    0.04586792,
+    -0.08477783,
+    0.039489746,
+    0.0049934387,
+    0.039001465,
+    0.024353027,
+    0.044921875,
+    -0.004348755,
+    0.038269043,
+    0.0036125183,
+    0.02079773,
+    0.016342163,
+    -0.021972656,
+    -0.03866577,
+    0.041534424,
+    -0.021820068,
+    -0.037750244,
+    -0.021865845,
+    0.0040359497,
+    0.016571045,
+    0.009712219,
+    0.022827148,
+    0.025253296,
+    0.018844604,
+    0.0010280609,
+    -0.026794434,
+    0.043792725,
+    -0.019836426,
+    0.03918457,
+    0.000831604,
+    0.060943604,
+    0.00932312,
+    -0.08288574,
+    -0.000310421,
+    -0.018722534,
+    -0.041625977,
+    0.010894775,
+    -0.004886627,
+    -0.00299263,
+    -0.017562866,
+    0.030670166,
+    0.023498535,
+    0.0030555725,
+    0.003276825,
+    0.029800415,
+    -0.07098389,
+    -0.046875,
+    0.045837402,
+    -0.02178955,
+    -0.022033691,
+    -0.023132324,
+    0.026901245,
+    0.013092041,
+    0.046783447,
+    0.09033203,
+    -0.0009627342,
+    0.015220642,
+    -0.0063705444,
+    -0.05734253,
+    -0.030380249,
+    0.0413208,
+    0.029510498,
+    -0.009468079,
+    -0.054840088,
+    0.012390137,
+    -0.00447464,
+    0.008361816,
+    -0.0059394836,
+    -0.0054893494,
+    -0.05657959,
+    0.010108948,
+    0.04244995,
+    0.011512756,
+    0.020248413,
+    0.044128418,
+    -0.087768555,
+    -0.031585693,
+    -0.008926392,
+    0.022338867,
+    0.00894928,
+    -0.016479492,
+    -0.0041275024,
+    0.041778564,
+    0.03338623,
+    -0.027786255,
+    0.033416748,
+    -0.021224976,
+    -0.016479492,
+    -0.06365967,
+    0.0075950623,
+    0.008758545,
+    0.044830322,
+    0.016937256,
+    -0.0026474,
+    0.0018596649,
+    0.022140503,
+    -0.015380859,
+    -8.291006e-05,
+    0.036956787,
+    -0.008674622,
+    -0.017654419,
+    -0.01828003,
+    0.01638794,
+    -0.0047302246,
+    -0.045318604,
+    -0.008010864,
+    -0.0065727234,
+    0.0075950623,
+    -0.006580353,
+    -0.017578125,
+    -0.038391113,
+    -0.0012559891,
+    0.005050659,
+    0.024505615,
+    -0.011238098,
+    0.018707275,
+    -0.014091492,
+    -0.008613586,
+    0.015457153,
+    -0.018051147,
+    -0.011131287,
+    0.0104904175,
+    0.022888184,
+    0.018585205,
+    0.024490356,
+    0.028945923,
+    -0.0541687,
+    0.028625488,
+    -0.008026123,
+    -0.035369873,
+    -0.0062026978,
+    -0.061523438,
+    -0.039154053,
+    -0.03427124,
+    0.05227661,
+    -0.01689148,
+    0.0127334595,
+    0.010910034,
+    -0.053863525,
+    -0.030136108,
+    0.006931305,
+    0.015060425,
+    -0.015586853,
+    0.016204834,
+    -0.023620605,
+    -0.06365967,
+    -0.026412964,
+    0.030792236,
+    -0.003929138,
+    -0.02923584,
+    -0.03475952,
+    0.068359375,
+    -0.02218628,
+    -0.02130127,
+    0.01979065,
+    -0.013381958,
+    0.0061569214,
+    0.029037476,
+    -0.008087158,
+    -0.012008667,
+    -0.055267334,
+    0.006668091,
+    0.009864807,
+    -0.020629883,
+    0.00497818,
+    -0.027191162,
+    -0.005935669,
+    0.007534027,
+    0.016403198,
+    -0.025802612,
+    0.023254395,
+    -0.018005371,
+    0.022521973,
+    -0.014091492,
+    -0.018707275,
+    -0.02468872,
+    0.009460449,
+    0.07318115,
+    0.02053833,
+    -0.040985107,
+    0.029586792,
+    0.03024292,
+    -0.01374054,
+    0.02041626,
+    -0.032989502,
+    -0.02041626,
+    0.028259277,
+    -0.008232117,
+    0.019729614,
+    -0.034454346,
+    -0.0138549805,
+    -0.031951904,
+    0.031677246,
+    -0.0062828064,
+    -0.0317688,
+    -0.022903442,
+    -0.0030593872,
+    0.023773193,
+    -0.0042419434,
+    0.010749817,
+    -0.016113281,
+    -0.12512207,
+    -0.00077199936,
+    0.015258789,
+    -0.044067383,
+    -0.0054779053,
+    -0.039245605,
+    -0.058502197,
+    -0.04977417,
+    0.015808105,
+    0.0463562,
+    -0.028533936,
+    0.03555298,
+    -0.063964844,
+    0.05609131,
+    -0.02067566,
+    -0.0026397705,
+    -0.0158844,
+    -0.011802673,
+    -0.009414673,
+    0.026412964,
+    0.04019165,
+    -0.048736572,
+    -0.0077209473,
+    0.028640747,
+    0.034423828,
+    0.00844574,
+    0.014450073,
+    -0.03048706,
+    0.040252686,
+    0.043914795,
+    0.016052246,
+    0.009498596,
+    -0.0020580292,
+    -0.0002541542,
+    -0.06958008,
+    0.047210693,
+    0.020828247,
+    0.07116699,
+    0.058502197,
+    -0.040863037,
+    -0.017349243,
+    0.027999878,
+    0.02557373,
+    0.014785767,
+    0.01777649,
+    -0.023635864,
+    0.021011353,
+    -0.011688232,
+    0.0013437271,
+    0.00027513504,
+    0.007965088,
+    -0.013092041,
+    0.07684326,
+    0.04019165,
+    -0.0037078857,
+    0.05581665,
+    -0.011077881,
+    0.0022335052,
+    -0.034057617,
+    0.004283905,
+    -0.0010900497,
+    0.018051147,
+    -0.036590576,
+    -0.052642822,
+    -0.04937744,
+    0.05126953,
+    -0.008506775,
+    0.03265381,
+    -0.012878418,
+    -0.012611389,
+    0.011184692,
+    0.022155762,
+    -0.043762207,
+    0.007797241,
+    0.017105103,
+    0.018585205,
+    -0.042633057,
+    -0.012527466,
+    0.04336548,
+    0.059448242,
+    -0.026016235,
+    0.01058197,
+    0.008140564,
+    0.004638672,
+    0.049865723,
+    -0.009765625,
+    0.00315094,
+    0.0061073303,
+    -0.026107788,
+    -0.0491333,
+    -0.008476257,
+    -0.015823364,
+    0.005592346,
+    -0.03579712,
+    -0.022994995,
+    -0.04626465,
+    -0.00047802925,
+    0.012908936,
+    0.007926941,
+    -0.026031494,
+    -0.028671265,
+    -0.0021343231,
+    -0.010734558,
+    -0.017990112,
+    0.010894775,
+    0.017822266,
+    -0.03201294,
+    0.04498291,
+    0.012451172,
+    -0.033325195,
+    -0.011665344,
+    -0.014640808,
+    0.009124756,
+    0.04937744,
+    -0.049102783,
+    0.06222534,
+    -0.0769043,
+    0.042785645,
+    -0.049102783,
+    0.003604889,
+    0.0041618347,
+    0.01537323,
+    0.017288208,
+    0.045959473,
+    -0.026275635,
+    -0.0027980804,
+    -0.018447876,
+    0.0012359619,
+    -0.058563232,
+    -0.020492554,
+    0.020629883,
+    0.039916992,
+    -0.032806396,
+    -0.046905518,
+    0.0362854,
+    -0.0056610107,
+    -0.0066184998,
+    0.04977417,
+    -0.02633667,
+    -0.07507324,
+    -0.00944519,
+    0.051483154,
+    0.035125732,
+    -0.05682373,
+    0.034973145,
+    -0.04763794,
+    0.008094788,
+    0.0016498566,
+    -0.03744507,
+    0.0020561218,
+    -0.023269653,
+    -0.016708374,
+    0.035736084,
+    -0.017303467,
+    -0.034698486,
+    0.007167816,
+    0.02268982,
+    -0.0181427,
+    -0.0109939575,
+    0.026901245,
+    -0.016723633,
+    0.010108948,
+    -0.033691406,
+    0.011581421,
+    0.028549194,
+    0.020233154,
+    0.009109497,
+    -0.025741577,
+    0.07299805,
+    -0.028747559,
+    0.020812988,
+    -0.024459839,
+    0.116882324,
+    0.03125,
+    0.03857422,
+    -0.054016113,
+    0.0031166077,
+    0.02180481,
+    -0.0018873215,
+    -0.040771484,
+    -0.03475952,
+    0.021316528,
+    0.044952393,
+    0.029586792,
+    -0.053710938,
+    0.023712158,
+    0.03878784,
+    -0.0007863045,
+    -0.0006432533,
+    0.012771606,
+    0.022094727,
+    -0.016799927,
+    -0.0077323914,
+    -0.014633179,
+    -0.0017623901,
+    0.0289917,
+    -0.030731201,
+    -0.022735596,
+    0.026641846,
+    -0.003074646,
+    0.007183075,
+    -0.0064964294,
+    -0.007610321,
+    -0.008880615,
+    0.049926758,
+    0.019821167,
+    0.030853271,
+    0.050354004,
+    0.01524353,
+    0.029388428,
+    0.021392822,
+    0.029296875,
+    -0.034179688,
+    0.009727478,
+    0.002067566,
+    -0.046447754,
+    0.018600464,
+    -0.0058021545,
+    0.04437256,
+    0.016220093,
+    0.022903442,
+    0.033050537,
+    0.004547119,
+    -0.027877808,
+    0.017181396,
+    -0.018798828,
+    -0.060546875,
+    -0.0107803345,
+    -0.004432678,
+    -0.006969452,
+    -0.0009965897,
+    -0.007194519,
+    -0.01675415,
+    -0.035247803,
+    -0.020599365,
+    0.020523071,
+    -0.016616821,
+    -0.050964355,
+    -0.011474609,
+    0.04486084,
+    0.024978638,
+    0.017044067,
+    -0.022598267,
+    -0.030029297,
+    0.013313293,
+    -0.0098724365,
+    -0.0041885376,
+    0.0019168854,
+    0.0015354156,
+    -0.016342163,
+    0.0038928986,
+    -0.01083374,
+    0.030471802,
+    -0.05508423,
+    -0.051879883,
+    0.0004119873,
+    -0.0057754517,
+    0.0031776428,
+    -0.016723633,
+    -0.039886475,
+    -0.08959961,
+    -0.06298828,
+    -0.009605408,
+    -0.049957275,
+    -0.006587982,
+    0.0022258759,
+    0.03189087,
+    0.036010742,
+    -0.013313293,
+    -0.022598267,
+    0.025024414,
+    -0.016799927,
+    -0.042755127,
+    -0.054382324,
+    0.0062446594,
+    0.04522705,
+    0.020584106,
+    0.046783447,
+    0.040527344,
+    -0.065979004,
+    0.004337311,
+    -0.013771057,
+    0.031707764,
+    -0.037017822,
+    -0.013885498,
+    0.010261536,
+    -0.029510498,
+    0.028442383,
+    -0.00932312,
+    0.06463623,
+    -0.042419434,
+    -0.00076150894,
+    0.016067505,
+    -0.020584106,
+    -0.046905518,
+    -0.05218506,
+    -0.0028915405,
+    -0.007411957,
+    -0.007659912,
+    -0.0152282715,
+    0.0050849915,
+    -0.0021362305,
+    0.029769897,
+    0.0050468445,
+    -0.004436493,
+    -0.0049705505,
+    0.011550903,
+    0.023330688,
+    0.011024475,
+    -0.0072669983,
+    0.017181396,
+    0.027114868,
+    -0.023162842,
+    -0.022323608,
+    0.0625,
+    0.009666443,
+    0.034301758,
+    0.036315918,
+    -0.00095415115,
+    -0.047851562,
+    -0.051818848,
+    -0.024353027,
+    -0.0075950623,
+    -0.03050232,
+    0.011054993,
+    -0.0053596497,
+    -0.05871582,
+    -0.025894165,
+    -0.018569946,
+    -0.028945923,
+    0.0024299622,
+    -0.08068848,
+    0.012992859,
+    -0.0129852295,
+    -0.03704834,
+    0.002286911,
+    0.03692627,
+    0.004211426,
+    -0.00289917,
+    0.02545166,
+    0.049621582,
+    -0.016082764,
+    0.0440979,
+    -0.038269043,
+    -0.041412354,
+    -0.011062622,
+    0.011375427,
+    -0.076171875,
+    -0.02658081,
+    -0.030303955,
+    0.046905518,
+    -0.030776978,
+    -0.08795166,
+    -0.01638794,
+    0.01902771,
+    -0.017120361,
+    -0.04171753,
+    -0.029006958,
+    -0.07159424,
+    0.022476196,
+    -0.01689148,
+    -0.0093307495,
+    -0.008323669,
+    0.011817932,
+    -0.07525635,
+    -0.011314392,
+    -0.0068206787,
+    -0.011795044,
+    -0.008216858,
+    -0.025909424,
+    -0.024047852,
+    0.014564514,
+    0.0063552856,
+    0.012298584,
+    0.041870117,
+    -0.029342651,
+    0.0044136047,
+    -0.0029468536,
+    0.013977051,
+    0.0033550262,
+    -0.01777649,
+    0.02116394,
+    -0.017501831,
+    -0.018508911,
+    0.0035266876,
+    0.012718201,
+    -0.022064209,
+    0.0006108284,
+    -0.029525757,
+    -0.046783447,
+    -0.023880005,
+    0.044189453,
+    -0.0074653625,
+    -0.008865356,
+    0.047546387,
+    -0.0048980713,
+    -0.08325195,
+    -0.029510498,
+    -0.035369873,
+    -0.062927246,
+    -0.017623901,
+    0.0063972473,
+    -0.07287598,
+    0.020065308,
+    -0.030975342,
+    0.001250267,
+    -0.019439697,
+    0.04083252,
+    0.048583984,
+    -0.03842163,
+    0.017837524,
+    -0.037902832,
+    0.030059814,
+    -0.035491943,
+    0.01158905,
+    0.029083252,
+    -0.02178955,
+    -0.017700195,
+    -0.01209259,
+    0.03503418,
+    0.008872986,
+    0.029312134,
+    0.049835205,
+    -0.020004272,
+    -0.005744934,
+    0.019866943,
+    -0.018203735,
+    -0.005569458,
+    -0.008605957,
+    -0.010543823,
+    0.019439697,
+    0.0057907104,
+    -0.0637207,
+    -0.045043945,
+    -0.03753662,
+    0.041412354,
+    0.016983032,
+    0.073791504,
+    -0.018112183,
+    0.022003174,
+    -0.005138397,
+    -0.06890869,
+    0.026168823,
+    0.005126953,
+    -0.03567505,
+    -0.0029335022,
+    0.004283905,
+    -0.0046577454,
+    0.070495605,
+    0.04864502,
+    0.037841797,
+    -0.025253296,
+    0.061279297,
+    -0.047668457,
+    -0.012931824,
+    -0.051818848,
+    -0.042053223,
+    -0.02935791,
+    -0.027389526,
+    0.05090332,
+    0.039642334,
+    -0.00016248226,
+    0.037200928,
+    0.0024204254,
+    -0.030426025,
+    0.010757446,
+    -0.03036499,
+    0.022598267,
+    0.024124146,
+    0.013015747,
+    0.01612854,
+    0.007106781,
+    -0.044799805,
+    0.013183594,
+    -0.018875122,
+    -0.040252686,
+    0.029510498,
+    0.041625977,
+    -0.01612854,
+    -0.02218628,
+    -0.06744385,
+    -0.038024902,
+    -0.007972717,
+    -0.02746582,
+    -0.004299164,
+    -0.045837402,
+    -0.015625,
+    0.02166748,
+    0.019104004,
+    0.011306763,
+    -0.012451172,
+    0.008377075,
+    0.010925293,
+    0.02104187,
+    0.043426514,
+    0.04324341,
+    0.013946533,
+    -0.030807495,
+    -0.049926758,
+    0.030975342,
+    -0.033172607,
+    -0.020050049,
+    0.04849243,
+    -0.06286621,
+    0.012832642,
+    0.0335083,
+    0.053863525,
+    -0.039093018,
+    0.018936157,
+    0.00605011,
+    -0.020645142,
+    0.0178833,
+    -0.020385742,
+    0.011192322,
+    0.007698059,
+    0.017242432,
+    -0.024673462,
+    0.0040740967,
+    0.023376465,
+    -0.025985718,
+    -0.051452637,
+    -0.014259338,
+    -0.0077171326,
+    0.019104004,
+    0.04812622,
+    0.010398865,
+    0.011627197,
+    -0.04776001,
+    0.019378662,
+    0.002281189,
+    -0.009460449,
+    -0.0010499954,
+    0.034179688,
+    -0.0085372925,
+    0.046417236,
+    -0.010093689,
+    -0.0016555786,
+    -0.04586792,
+    -0.02885437,
+    0.078125,
+    0.011360168,
+    0.0031051636,
+    -0.030075073,
+    0.016464233,
+    0.00080013275,
+    0.052734375,
+    -0.018325806,
+    0.018829346,
+    -0.014175415,
+    0.03604126,
+    0.010498047,
+    0.013824463,
+    0.023971558,
+    -0.018737793,
+    0.032562256,
+    0.038604736,
+    -0.041931152,
+    -0.014785767,
+    -0.02671814,
+    -0.047912598,
+    -0.0069999695,
+    0.0018901825,
+    0.043640137,
+    0.039367676,
+    -0.004016876,
+    0.010871887,
+    -0.018722534,
+    -0.043395996,
+    0.012542725,
+    0.03161621,
+    -0.021118164,
+    0.026046753,
+    0.0059318542,
+    -0.008995056,
+    0.01612854,
+    -0.030212402,
+    0.006542206,
+    -0.026153564,
+    0.03842163,
+    -0.0048217773,
+    -0.0023288727,
+    0.03567505,
+    -0.018859863,
+    -0.02418518,
+    0.0073547363,
+    -0.012519836,
+    -0.006061554,
+    0.002620697,
+    -0.044647217,
+    0.01121521,
+    -0.019973755,
+    0.0034046173,
+    0.020553589,
+    -0.004589081,
+    -0.0034236908,
+    0.013183594,
+    0.029510498,
+    0.023590088,
+    0.028671265,
+    -0.033569336,
+    0.02760315,
+    -0.004501343,
+    -0.004798889,
+    -0.010314941,
+    -0.02645874,
+    0.022079468,
+    -0.040039062,
+    0.048553467,
+    -0.0340271,
+    -0.0034866333,
+    -0.06112671,
+    0.05343628,
+    0.039276123,
+    -0.021530151,
+    0.06402588,
+    -0.0054016113,
+    0.012031555,
+    0.015380859,
+    -0.011222839,
+    0.008575439,
+    -0.007293701,
+    -0.024658203,
+    -0.011299133,
+    -0.0044174194
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89491.md",
+    "file_name": "89491.md",
+    "file_size": 11837,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# McDonnell Douglas Helicopter 500N Landing Gear Collapse Incident",
+      "A McDonnell Douglas Helicopter (MDHI) 500N with registration N522GS experienced a landing gear collapse on April 18, 2014.",
+      "The incident occurred at approximately 1340 Pacific daylight time (PDT).",
+      "The incident took place at Santa Monica Airport (SMO) in Santa Monica, California.",
+      "The right rear landing gear strut failed during landing.",
+      "The front strut collapsed while attempting to set the helicopter on the ground.",
+      "The helicopter was operated under the provisions of 14 Code of Federal Regulations (CFR) Part 91.",
+      "The owner of the helicopter was also the pilot of the flight.",
+      "The private pilot was not injured in the incident.",
+      "Three passengers were on board the helicopter.",
+      "None of the three passengers were injured in the incident.",
+      "The helicopter sustained substantial damage to the front landing gear structure.",
+      "The flight was a local personal flight.",
+      "The flight departed from Camarillo, California.",
+      "The flight departed at approximately 1315 PDT.",
+      "The planned destination of the flight was Santa Monica.",
+      "Visual meteorological conditions prevailed during the flight.",
+      "No flight plan had been filed for the flight.",
+      "The pilot reported slowly setting the helicopter down on a landing pad.",
+      "The pilot felt the helicopter \"drastically\" slip to the right during landing.",
+      "The pilot lifted the helicopter off the pad after feeling it slip.",
+      "A passenger on board verified the right strut was broken.",
+      "A passenger reported hearing a \"loud pop\" on touchdown.",
+      "The helicopter was a 1993 McDonnell Douglas 500N model.",
+      "The helicopter was subject to Airworthiness Directive (AD) 2007-12-23.",
+      "AD 2007-12-23 required modifications to the strut and fairings.",
+      "AD 2007-12-23 required continuing inspections of the landing gear.",
+      "The AD referenced MD Helicopter Service Bulletin SB500N-022.",
+      "MD Helicopter Service Bulletin SB500N-022 described the required modifications.",
+      "The increased size of the rivet hole suggested that the modifications had been performed.",
+      "The polished surface around the hole suggested that the modifications had been performed.",
+      "The AD required an initial dye penetrant inspection.",
+      "The AD required continuing 10x magnified visual inspections.",
+      "The inspections were required at intervals not exceeding every 100 hours time in service.",
+      "The inspections were also required during each annual inspection.",
+      "According to the Federal Aviation Administration (FAA), AD 2007-12-23 was complied with at an airframe total time of 2,248.3 hours.",
+      "At the time of the accident, the total airframe time was reported as 2,274 hours."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "McDonnell Douglas Helicopter 500N Landing Gear Collapse Incident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "McDonnell Douglas Helicopter 500N",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N522GS",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Santa Monica Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Santa Monica",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Camarillo",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airworthiness Directive 2007-12-23",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "MD Helicopter Service Bulletin SB500N-022",
+              "classification": "Document"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A McDonnell Douglas Helicopter (MDHI) 500N with registration N522GS experienced a landing gear collapse on April 18, 2014.",
+              "details": [
+                "landing gear collapse OCCURRED ON April 18, 2014"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N522GS",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear collapse",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear collapse",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 18, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred at approximately 1340 Pacific daylight time (PDT).",
+              "details": [
+                "landing gear collapse OCCURRED AT approximately 1340 Pacific daylight time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear collapse",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1340 Pacific daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident took place at Santa Monica Airport (SMO) in Santa Monica, California.",
+              "details": [
+                "landing gear collapse OCCURRED AT Santa Monica Airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Santa Monica Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Santa Monica",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Santa Monica",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Santa Monica Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS CODE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "SMO",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing gear collapse",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Santa Monica Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right rear landing gear strut failed during landing.",
+              "details": [
+                "right rear landing gear strut EXPERIENCED EVENT failed during landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right rear landing gear strut",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failed during landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The front strut collapsed while attempting to set the helicopter on the ground.",
+              "details": [
+                "front strut EXPERIENCED EVENT collapsed during landing attempt"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "front strut",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collapsed during landing attempt",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was operated under the provisions of 14 Code of Federal Regulations (CFR) Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The owner of the helicopter was also the pilot of the flight.",
+              "details": [
+                "pilot IS OWNER true"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IS OWNER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "true",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot was not injured in the incident.",
+              "details": [
+                "pilot LICENSE TYPE private",
+                "pilot INJURY STATUS not injured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LICENSE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Three passengers were on board the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "three",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "None of the three passengers were injured in the incident.",
+              "details": [
+                "passengers INJURY STATUS not injured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passengers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter sustained substantial damage to the front landing gear structure.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "front landing gear structure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a local personal flight.",
+              "details": [
+                "flight TYPE local personal flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local personal flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed from Camarillo, California.",
+              "details": [
+                "flight DEPARTED FROM Camarillo"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Camarillo",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Camarillo",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed at approximately 1315 PDT.",
+              "details": [
+                "flight DEPARTURE TIME approximately 1315 PDT"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1315 PDT",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The planned destination of the flight was Santa Monica.",
+              "details": [
+                "flight DESTINATION Santa Monica"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Santa Monica",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed during the flight.",
+              "details": [
+                "flight WEATHER CONDITIONS visual meteorological conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan had been filed for the flight.",
+              "details": [
+                "flight FLIGHT PLAN STATUS not filed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported slowly setting the helicopter down on a landing pad.",
+              "details": [
+                "pilot REPORTED ACTION slowly setting the helicopter down on a landing pad"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "slowly setting the helicopter down on a landing pad",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot felt the helicopter \"drastically\" slip to the right during landing.",
+              "details": [
+                "pilot REPORTED OBSERVATION helicopter \"drastically\" slip to the right during landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED OBSERVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter \"drastically\" slip to the right during landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot lifted the helicopter off the pad after feeling it slip.",
+              "details": [
+                "pilot REPORTED ACTION lifted the helicopter off the pad after feeling it slip"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lifted the helicopter off the pad after feeling it slip",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A passenger on board verified the right strut was broken.",
+              "details": [
+                "passenger REPORTED OBSERVATION right strut was broken"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED OBSERVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right strut was broken",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A passenger reported hearing a \"loud pop\" on touchdown.",
+              "details": [
+                "passenger REPORTED OBSERVATION hearing a \"loud pop\" on touchdown"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED OBSERVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hearing a \"loud pop\" on touchdown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was a 1993 McDonnell Douglas 500N model.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1993",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was subject to Airworthiness Directive (AD) 2007-12-23.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airworthiness Directive 2007-12-23",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AD 2007-12-23 required modifications to the strut and fairings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airworthiness Directive 2007-12-23",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "modifications to the strut and fairings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AD 2007-12-23 required continuing inspections of the landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airworthiness Directive 2007-12-23",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continuing inspections of the landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AD referenced MD Helicopter Service Bulletin SB500N-022.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airworthiness Directive 2007-12-23",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REFERENCED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MD Helicopter Service Bulletin SB500N-022",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "MD Helicopter Service Bulletin SB500N-022 described the required modifications.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MD Helicopter Service Bulletin SB500N-022",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "required modifications",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The increased size of the rivet hole suggested that the modifications had been performed.",
+              "details": [
+                "increased size of the rivet hole SUGGESTED modifications had been performed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "increased size of the rivet hole",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SUGGESTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "modifications had been performed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The polished surface around the hole suggested that the modifications had been performed.",
+              "details": [
+                "polished surface around the hole SUGGESTED modifications had been performed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "polished surface around the hole",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SUGGESTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "modifications had been performed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AD required an initial dye penetrant inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airworthiness Directive 2007-12-23",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initial dye penetrant inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AD required continuing 10x magnified visual inspections.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airworthiness Directive 2007-12-23",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continuing 10x magnified visual inspections",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The inspections were required at intervals not exceeding every 100 hours time in service.",
+              "details": [
+                "inspections REQUIRED INTERVAL not exceeding every 100 hours time in service"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inspections",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED INTERVAL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not exceeding every 100 hours time in service",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The inspections were also required during each annual inspection.",
+              "details": [
+                "inspections REQUIRED DURING each annual inspection"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inspections",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "each annual inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to the Federal Aviation Administration (FAA), AD 2007-12-23 was complied with at an airframe total time of 2,248.3 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airworthiness Directive 2007-12-23",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "COMPLIANCE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airframe total time of 2,248.3 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At the time of the accident, the total airframe time was reported as 2,274 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "McDonnell Douglas Helicopter 500N",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRFRAME TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2,274 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2cfb82fa:a29e",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89491.md",
+        "file_name": "89491.md",
+        "file_size": 11837,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "feb51de773ecb78269cb0ef2411b86852d1c130995b7de2220226b9bcd4a02bf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::2cfb82fa:a29e:e85c39c2",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89491.md",
+        "file_name": "89491.md",
+        "file_size": 11837,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "9a7a760711544d3fc5287bb254e63eee003694b9c4139c3fd5fd8a965b647e06",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2cfb82fa:a29e:a87ef849",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89491.md",
+        "file_name": "89491.md",
+        "file_size": 11837,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "dd218eeca3396bf2849999991f6a81783a51fda62d8f3bd7b07b23374cf41c02",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Landing | Landing gear collapse (Defining event) |\n| --- | --- |\n\n### HISTORY OF FLIGHT\n\nOn April 18, 2014, about 1340 Pacific daylight time (PDT), a McDonnell Douglas Helicopter (MDHI) 500N, N522GS, right rear landing gear strut failed during landing, and while attempting to set the helicopter on the ground, the front strut also collapsed at Santa Monica Airport (SMO), Santa Monica, California. The owner/pilot was operating the helicopter under the provisions of 14 Code of Federal Regulations (CFR) Part 91. The private pilot and three passengers were not injured; the helicopter sustained substantial damage to the front landing gear structure. The local personal flight departed Camarillo, California, about 1315, with a planned destination of Santa Monica. Visual meteorological conditions prevailed, and no flight plan had been filed.\n\nThe pilot reported that on landing he slowly sat the helicopter down on a landing pad and felt the helicopter \"drastically\" slip to the right. He then lifted the helicopter off the pad at which time a passenger on board verified the right strut was broken. A passenger reported that on touchdown he heard a \"loud pop.\"\n\n### AIRCRAFT AND AIRWORTHINESS DIRECTIVE\n\nThe 1993 McDonnell Douglas 500N helicopter was subject to Airworthiness Directive (AD) 2007-12-23, requiring modifications to the strut and fairings and continuing inspections. The AD references MD Helicopter Service Bulletin SB500N-022 that describes the modifications. The increased size of the rivet hole and the polished surface around the hole suggest that the modifications had been performed. The AD required an initial dye penetrant inspection followed by continuing 10x magnified visual inspections at intervals not to exceed every 100 hours time in service or during each annual inspection. According to the Federal Aviation Administration (FAA), AD 2007-12-23 was complied with at a airframe total time of 2,248.3; at the time of the accident the a total airframe time of 2,274 was reported.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2057,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

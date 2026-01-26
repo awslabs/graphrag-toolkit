@@ -46,7 +46,7 @@ from .lexical_graph_query_engine import LexicalGraphQueryEngine
 from .lexical_graph_index import LexicalGraphIndex
 from .lexical_graph_index import ExtractionConfig, BuildConfig, IndexingConfig
 from .metadata import to_metadata_filter
-from .versioning import add_versioning_info, VersioningConfig
+from .versioning import add_versioning_info, VersioningConfig, VersioningMode
 from . import utils
 from . import indexing
 from . import retrieval

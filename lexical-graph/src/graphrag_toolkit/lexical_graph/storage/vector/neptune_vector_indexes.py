@@ -173,17 +173,6 @@ class NeptuneIndex(VectorIndex):
 
         if not self.writeable:
             raise IndexError(f'Index {self.index_name} is read-only')
-        
-        #text_map = { node.node_id: node.text for node in nodes }
-        
-        #for node in nodes:
-        #    node.metadata['index'] = self.underlying_index_name()
-        #    node.text = f'''index: {self.underlying_index_name()}
-
-#{node.text}
-
-#index: {self.underlying_index_name()}
-#'''
                     
         id_to_embed_map = embed_nodes(
             nodes, self.embed_model
@@ -206,12 +195,6 @@ class NeptuneIndex(VectorIndex):
             }
 
             self._neptune_client().execute_query_with_retry(query, properties)
-            
-            
-            
-        #for node in nodes:
-        #    node.metadata.pop('index', None)
-        #    node.text = text_map[node.node_id]
         
         return nodes
     
@@ -232,36 +215,21 @@ class NeptuneIndex(VectorIndex):
             List[Dict]: A list of results where each result dictionary contains a 'score' field
                 and the fields specified in self.return_fields.
         """
-        #query_str = f'''index: {self.underlying_index_name()}
-
-#{query_bundle.query_str}
-#'''
-
-        #query_bundle = QueryBundle(query_str=query_str) 
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
-
         tenant_specific_label = self.tenant_id.format_label(self.label).replace('`', '')
 
-        where_clause =  filter_config_to_opencypher_filters(filter_config)
-        where_clause = f'WHERE {where_clause}' if where_clause else ''
-
-        logger.debug(f'filter: {where_clause}')
-
         cypher = f'''
-        CALL neptune.algo.vectors.topKByEmbedding(
-            {query_bundle.embedding},
+        CALL neptune.algo.vectors.topK.byEmbedding(
             {{   
+                embedding: {query_bundle.embedding},
                 topK: {top_k},
                 concurrency: 4,
                 vertexFilter:  {{equals:{{property: "~label", value: "{tenant_specific_label}"}}}}
             }}
         )
         YIELD node, score       
-        // WITH node as {self.index_name}, score WHERE '{tenant_specific_label}' in labels({self.index_name}) 
-        // WITH {self.index_name}, score ORDER BY score ASC
         WITH node as {self.index_name}, score ORDER BY score ASC
         MATCH {self.path}
-        // {where_clause}
         RETURN {{
             score: score,
             {self.return_fields}
@@ -298,8 +266,7 @@ class NeptuneIndex(VectorIndex):
                 n
             )
             YIELD node, embedding       
-            // WITH node as {self.index_name}, embedding WHERE '{tenant_specific_label}' in labels({self.index_name}) 
-            WITH node as {self.index_name}, embedding
+            WITH node as {self.index_name}, embedding WHERE '{tenant_specific_label}' in labels({self.index_name}) 
             MATCH {self.path}
             RETURN {{
                 embedding: embedding,
@@ -322,4 +289,7 @@ class NeptuneIndex(VectorIndex):
         return []
     
     def enable_for_versioning(self, ids:List[str]=[]):
+        return []
+    
+    def delete_embeddings(self, ids:List[str]=[]):
         return []

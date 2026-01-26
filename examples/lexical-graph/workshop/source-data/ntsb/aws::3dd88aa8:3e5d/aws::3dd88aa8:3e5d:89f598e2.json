@@ -1,0 +1,2682 @@
+{
+  "id_": "aws::3dd88aa8:3e5d:89f598e2",
+  "embedding": [
+    0.002363205,
+    0.039611816,
+    -0.031341553,
+    -0.064819336,
+    0.017181396,
+    -0.0058403015,
+    -0.046325684,
+    -0.0017347336,
+    -0.049926758,
+    0.011955261,
+    -0.003124237,
+    0.0063705444,
+    -0.0128479,
+    -0.027801514,
+    0.016525269,
+    -0.038970947,
+    0.018081665,
+    0.04336548,
+    0.04748535,
+    -0.013153076,
+    0.00024676323,
+    0.004535675,
+    0.04269409,
+    0.032958984,
+    0.0070533752,
+    0.0030174255,
+    -0.027160645,
+    -0.0035743713,
+    -0.0128479,
+    -0.016098022,
+    0.011184692,
+    0.03152466,
+    0.030731201,
+    0.040039062,
+    -0.031433105,
+    0.035888672,
+    0.020355225,
+    0.002998352,
+    0.009292603,
+    0.024887085,
+    0.015541077,
+    -0.016677856,
+    0.044311523,
+    -0.04083252,
+    0.012512207,
+    -0.019165039,
+    0.024108887,
+    -0.044281006,
+    0.010139465,
+    0.04953003,
+    0.004009247,
+    -0.006816864,
+    -0.015106201,
+    0.022705078,
+    -0.008415222,
+    -0.026855469,
+    0.0058784485,
+    0.0143585205,
+    -0.008338928,
+    0.010818481,
+    0.012817383,
+    0.07397461,
+    0.0043907166,
+    0.027694702,
+    -0.03994751,
+    -0.01890564,
+    0.048675537,
+    0.008934021,
+    0.087890625,
+    -0.03894043,
+    -0.052246094,
+    0.07543945,
+    -0.0011425018,
+    0.035125732,
+    -0.0079574585,
+    -0.026428223,
+    0.005092621,
+    0.022949219,
+    0.013404846,
+    0.03805542,
+    -0.020263672,
+    -0.04333496,
+    -0.00541687,
+    0.034942627,
+    -0.0345459,
+    0.020965576,
+    -0.013114929,
+    -0.00944519,
+    0.031311035,
+    0.018875122,
+    -0.00018048286,
+    0.030670166,
+    0.08111572,
+    0.021728516,
+    -0.046081543,
+    -0.016952515,
+    0.00088214874,
+    -0.075683594,
+    0.044799805,
+    -0.02519226,
+    0.02041626,
+    -0.052368164,
+    -0.031280518,
+    0.036712646,
+    -0.004016876,
+    0.022628784,
+    0.0070648193,
+    -0.023956299,
+    0.029678345,
+    0.002981186,
+    -0.0053100586,
+    0.040252686,
+    -0.005821228,
+    -0.060150146,
+    -0.022216797,
+    0.043426514,
+    0.021316528,
+    -0.027740479,
+    0.023849487,
+    -0.031799316,
+    0.06591797,
+    0.053253174,
+    -0.010475159,
+    -0.030136108,
+    -0.034118652,
+    -0.058044434,
+    -0.0647583,
+    -0.022979736,
+    -0.041229248,
+    0.04486084,
+    -0.009651184,
+    0.012229919,
+    0.011489868,
+    -0.0065994263,
+    -0.014144897,
+    -0.0390625,
+    -0.013458252,
+    -0.045043945,
+    -0.0030460358,
+    0.02494812,
+    -0.023803711,
+    -0.04220581,
+    0.06329346,
+    0.0042800903,
+    -0.05609131,
+    0.007911682,
+    0.016296387,
+    0.014564514,
+    -0.017425537,
+    -0.049743652,
+    -0.0066223145,
+    -0.0066833496,
+    0.027389526,
+    0.0018320084,
+    -0.032928467,
+    -0.03112793,
+    -0.050201416,
+    -0.016067505,
+    0.042236328,
+    -0.013793945,
+    -0.01713562,
+    -0.035461426,
+    0.00617218,
+    0.010749817,
+    -0.037200928,
+    0.05130005,
+    -0.008712769,
+    -0.013023376,
+    0.006626129,
+    -0.014389038,
+    0.023651123,
+    0.0018224716,
+    -0.03591919,
+    0.00034308434,
+    0.011253357,
+    0.0020618439,
+    0.017410278,
+    0.0034294128,
+    0.031219482,
+    0.012107849,
+    0.00730896,
+    0.0027542114,
+    0.06713867,
+    -0.03427124,
+    -0.014602661,
+    -0.0032615662,
+    -0.007232666,
+    -0.0015974045,
+    0.037353516,
+    0.005455017,
+    0.0019283295,
+    0.014434814,
+    0.030944824,
+    0.00919342,
+    0.021102905,
+    -0.045684814,
+    -0.039733887,
+    -0.018814087,
+    -0.017425537,
+    -0.0050735474,
+    -0.051086426,
+    0.00818634,
+    -0.007888794,
+    0.01914978,
+    -0.042419434,
+    0.008758545,
+    -0.013267517,
+    0.04159546,
+    -0.030197144,
+    0.008422852,
+    0.015007019,
+    -0.036193848,
+    0.0059051514,
+    -0.015426636,
+    0.015556335,
+    0.016448975,
+    0.0004453659,
+    0.055236816,
+    0.025741577,
+    0.09307861,
+    -0.015670776,
+    0.009750366,
+    -0.0012683868,
+    -0.029708862,
+    -0.049835205,
+    -0.008636475,
+    -0.015914917,
+    -0.0001205802,
+    -0.0025501251,
+    0.0012979507,
+    0.07727051,
+    0.006072998,
+    0.057525635,
+    0.07543945,
+    -0.026763916,
+    0.010353088,
+    0.02798462,
+    0.03982544,
+    -0.0049858093,
+    -0.001004219,
+    0.009048462,
+    -0.0435791,
+    -0.04824829,
+    0.018859863,
+    -0.07287598,
+    -0.03579712,
+    -0.002653122,
+    0.009277344,
+    -0.0154953,
+    0.034423828,
+    0.039916992,
+    0.03930664,
+    0.0022468567,
+    0.03543091,
+    0.0005054474,
+    0.01525116,
+    -0.010368347,
+    -0.017425537,
+    -0.0021743774,
+    0.006614685,
+    0.026992798,
+    0.028793335,
+    -0.027999878,
+    0.029678345,
+    0.030776978,
+    0.027282715,
+    0.08190918,
+    0.066711426,
+    -0.0062713623,
+    -0.02027893,
+    -0.013557434,
+    0.04559326,
+    0.010002136,
+    -0.042755127,
+    -0.10235596,
+    0.00063991547,
+    0.007030487,
+    0.045959473,
+    0.01234436,
+    -0.050964355,
+    -0.03753662,
+    -0.020690918,
+    -0.05718994,
+    -0.016433716,
+    0.039276123,
+    -0.008712769,
+    -0.01399231,
+    -0.035217285,
+    -0.0010461807,
+    0.024856567,
+    0.07092285,
+    -0.0256958,
+    -0.028717041,
+    0.01159668,
+    -0.0051612854,
+    -0.030136108,
+    0.07281494,
+    -0.012367249,
+    0.014007568,
+    0.0030460358,
+    0.049835205,
+    0.053131104,
+    -0.025482178,
+    0.02758789,
+    0.012802124,
+    -0.07470703,
+    0.00046157837,
+    0.023040771,
+    0.021972656,
+    -0.0055999756,
+    -0.024734497,
+    0.09118652,
+    0.021408081,
+    0.0040283203,
+    -0.0019426346,
+    -0.01600647,
+    -0.043060303,
+    0.03164673,
+    -0.028060913,
+    0.015777588,
+    0.0132369995,
+    -0.0064086914,
+    -0.006225586,
+    0.021331787,
+    0.0129776,
+    -0.020812988,
+    0.03100586,
+    -0.003255844,
+    -0.05770874,
+    -0.017929077,
+    -0.036132812,
+    -0.072143555,
+    -0.039916992,
+    0.026733398,
+    -0.0037708282,
+    0.043029785,
+    -0.024612427,
+    0.017593384,
+    -0.024505615,
+    -0.012840271,
+    -0.049957275,
+    -0.041503906,
+    0.027542114,
+    -0.030426025,
+    -0.049682617,
+    -0.06744385,
+    0.0769043,
+    -0.0231781,
+    0.04055786,
+    0.0044555664,
+    0.062347412,
+    0.012367249,
+    -0.01939392,
+    0.0037899017,
+    0.010688782,
+    -0.0552063,
+    0.012138367,
+    0.01889038,
+    -0.006259918,
+    -0.044708252,
+    -0.072387695,
+    0.025604248,
+    -0.08013916,
+    -0.052246094,
+    0.04623413,
+    0.014099121,
+    -0.042144775,
+    0.013931274,
+    -0.031433105,
+    -0.014930725,
+    -0.012435913,
+    0.0014333725,
+    -0.039520264,
+    -0.013412476,
+    -0.027572632,
+    0.03463745,
+    0.05014038,
+    -0.023376465,
+    0.028427124,
+    0.05029297,
+    0.02381897,
+    0.042266846,
+    -0.006954193,
+    0.030456543,
+    0.0015974045,
+    0.036712646,
+    0.009498596,
+    0.018875122,
+    -0.008354187,
+    -0.03439331,
+    -0.0033607483,
+    0.04449463,
+    -0.0021800995,
+    -0.013916016,
+    -0.021453857,
+    0.0053634644,
+    -0.0018053055,
+    -0.04550171,
+    -0.0074920654,
+    -0.008232117,
+    -0.07342529,
+    -0.012481689,
+    -0.02607727,
+    -0.020233154,
+    -0.0029888153,
+    -0.0836792,
+    -0.032348633,
+    -0.0541687,
+    0.013633728,
+    0.07019043,
+    -0.046691895,
+    0.0067100525,
+    -0.0541687,
+    0.011962891,
+    -0.0007472038,
+    0.009437561,
+    -0.040283203,
+    -0.008430481,
+    -0.013473511,
+    0.032348633,
+    0.048553467,
+    -0.08673096,
+    0.01473999,
+    0.038146973,
+    -0.027664185,
+    0.018875122,
+    -0.030288696,
+    0.026947021,
+    -0.017623901,
+    0.0046653748,
+    -0.028121948,
+    -0.008384705,
+    0.010627747,
+    -0.01876831,
+    -0.011222839,
+    0.021118164,
+    -0.007835388,
+    0.0077781677,
+    0.010757446,
+    -0.016830444,
+    0.021011353,
+    -0.0019721985,
+    -0.016204834,
+    0.03765869,
+    -0.017745972,
+    0.0028800964,
+    -0.021484375,
+    0.010948181,
+    0.006713867,
+    -0.058410645,
+    0.02192688,
+    0.00308609,
+    0.08148193,
+    0.010528564,
+    0.014823914,
+    0.053100586,
+    -0.020065308,
+    0.03781128,
+    0.046813965,
+    -0.024841309,
+    -0.0038852692,
+    -0.014129639,
+    -0.003396988,
+    0.022628784,
+    -0.043670654,
+    0.00015044212,
+    -0.011634827,
+    0.0064849854,
+    0.019592285,
+    -0.052124023,
+    -0.038970947,
+    0.1071167,
+    -0.02670288,
+    -0.013534546,
+    -0.012329102,
+    0.023010254,
+    0.04046631,
+    -0.00024700165,
+    0.013671875,
+    -0.020874023,
+    -0.029525757,
+    -0.002450943,
+    -0.030899048,
+    0.07318115,
+    0.054901123,
+    -0.005306244,
+    0.068359375,
+    0.05895996,
+    0.0054626465,
+    0.029296875,
+    0.027542114,
+    0.029388428,
+    0.029632568,
+    0.03149414,
+    0.012496948,
+    -0.021530151,
+    0.02357483,
+    -0.058776855,
+    -0.024032593,
+    -0.043670654,
+    -0.04559326,
+    0.013893127,
+    0.00042152405,
+    0.04067993,
+    -0.029388428,
+    0.037963867,
+    0.054260254,
+    0.015289307,
+    -0.0042304993,
+    -0.029403687,
+    -0.00037765503,
+    -0.037963867,
+    0.012748718,
+    0.008972168,
+    -0.020050049,
+    0.058380127,
+    -0.016571045,
+    0.0018424988,
+    0.013412476,
+    -0.024337769,
+    -0.007888794,
+    -0.00434494,
+    0.047790527,
+    0.037078857,
+    -0.05239868,
+    -9.548664e-05,
+    0.025543213,
+    0.022125244,
+    -0.02229309,
+    -0.028930664,
+    0.0209198,
+    0.03967285,
+    -0.009117126,
+    0.015274048,
+    -0.00021576881,
+    0.0068893433,
+    -0.0063095093,
+    0.01739502,
+    -0.028549194,
+    -0.045776367,
+    -0.026000977,
+    -0.008277893,
+    0.021575928,
+    -0.038909912,
+    -0.0077438354,
+    0.022033691,
+    0.013053894,
+    0.044403076,
+    -0.0135269165,
+    -0.01802063,
+    8.457899e-05,
+    0.01663208,
+    -0.0014667511,
+    -0.052642822,
+    -0.037384033,
+    0.08898926,
+    0.055267334,
+    -0.037902832,
+    -0.0068092346,
+    0.023773193,
+    -0.0007457733,
+    -0.012138367,
+    -0.01612854,
+    0.0047798157,
+    0.0053901672,
+    0.005218506,
+    0.022079468,
+    -0.02281189,
+    0.010269165,
+    0.020553589,
+    -0.043640137,
+    -0.030136108,
+    0.07409668,
+    0.013046265,
+    -0.023422241,
+    -0.051208496,
+    -0.016448975,
+    0.010475159,
+    -0.0042152405,
+    0.0018434525,
+    -0.0055389404,
+    0.019897461,
+    -0.0061798096,
+    0.04815674,
+    -0.06100464,
+    0.031204224,
+    0.03314209,
+    -0.045318604,
+    -0.034423828,
+    -0.023254395,
+    0.03100586,
+    0.039123535,
+    0.037200928,
+    0.009651184,
+    -0.027572632,
+    -0.015823364,
+    -0.045074463,
+    -0.06896973,
+    -0.009117126,
+    -0.021408081,
+    -0.018218994,
+    -0.019073486,
+    0.0034923553,
+    -0.026428223,
+    0.02796936,
+    0.011978149,
+    -0.027557373,
+    0.027297974,
+    0.00881958,
+    0.052459717,
+    0.01737976,
+    0.005592346,
+    -0.03845215,
+    0.006122589,
+    0.0132369995,
+    -0.0043525696,
+    -0.07019043,
+    0.05709839,
+    0.06060791,
+    -0.0031394958,
+    0.038482666,
+    -0.016906738,
+    0.00014591217,
+    0.00983429,
+    -0.011650085,
+    0.008888245,
+    0.022445679,
+    -0.015167236,
+    -0.02444458,
+    0.02583313,
+    -0.019577026,
+    -0.0058898926,
+    -0.042114258,
+    -0.005180359,
+    -0.015853882,
+    0.008232117,
+    -0.018722534,
+    -0.030395508,
+    -0.0025310516,
+    0.007358551,
+    -0.02645874,
+    0.0023899078,
+    -0.04534912,
+    -0.027252197,
+    0.051116943,
+    -0.028549194,
+    -0.029159546,
+    0.017166138,
+    0.018630981,
+    -0.010070801,
+    0.01524353,
+    -0.014816284,
+    -0.058135986,
+    -0.048553467,
+    0.04425049,
+    -0.049835205,
+    0.012535095,
+    0.014434814,
+    -0.036743164,
+    -0.03665161,
+    -0.050109863,
+    -0.029205322,
+    -0.010055542,
+    -0.035736084,
+    -0.029190063,
+    -0.013977051,
+    0.028442383,
+    0.02305603,
+    -0.011436462,
+    -0.0124053955,
+    0.0034484863,
+    0.009544373,
+    0.030548096,
+    -0.019821167,
+    -0.006427765,
+    0.008071899,
+    0.019958496,
+    0.0060272217,
+    0.012168884,
+    -0.032684326,
+    0.003824234,
+    -0.021087646,
+    -0.015319824,
+    0.0109939575,
+    -0.019882202,
+    0.0035591125,
+    -0.014595032,
+    0.028305054,
+    -0.008903503,
+    -0.008300781,
+    -0.0054512024,
+    0.011703491,
+    -0.021392822,
+    -0.03173828,
+    -0.013175964,
+    -0.030593872,
+    -0.017669678,
+    0.049804688,
+    0.02281189,
+    -0.05090332,
+    0.010871887,
+    0.04574585,
+    -0.04626465,
+    0.009681702,
+    -0.049865723,
+    0.029159546,
+    0.042541504,
+    0.055236816,
+    -0.06542969,
+    -0.021865845,
+    0.0073623657,
+    0.042541504,
+    0.031463623,
+    -0.0012226105,
+    0.013008118,
+    0.017593384,
+    0.068115234,
+    0.0035686493,
+    -0.033233643,
+    0.019760132,
+    -0.021087646,
+    -0.046020508,
+    -0.002691269,
+    -0.027450562,
+    0.015426636,
+    -0.017059326,
+    -0.012504578,
+    -0.009773254,
+    -0.00945282,
+    0.012626648,
+    0.012771606,
+    -0.007068634,
+    0.024856567,
+    -0.007408142,
+    -0.030273438,
+    -0.022842407,
+    0.0019741058,
+    0.016921997,
+    0.0053634644,
+    0.025115967,
+    -0.01663208,
+    -0.0016860962,
+    0.02633667,
+    0.015151978,
+    -0.033996582,
+    -0.03225708,
+    0.0014657974,
+    0.013214111,
+    -0.03555298,
+    -0.037261963,
+    0.048675537,
+    -0.022781372,
+    -0.03866577,
+    -0.001947403,
+    0.015701294,
+    0.023071289,
+    -0.014129639,
+    -0.023391724,
+    -0.046325684,
+    0.011054993,
+    -0.03753662,
+    0.020950317,
+    0.041412354,
+    0.02607727,
+    0.01838684,
+    0.02142334,
+    -0.01008606,
+    0.03817749,
+    -0.0074920654,
+    0.003030777,
+    -0.009391785,
+    -0.005619049,
+    -0.004295349,
+    0.013656616,
+    0.017990112,
+    -0.015991211,
+    0.05380249,
+    -0.01651001,
+    -0.038024902,
+    -0.030303955,
+    -0.02078247,
+    0.027145386,
+    -0.048309326,
+    0.01727295,
+    -0.0013227463,
+    0.029846191,
+    0.005962372,
+    0.021591187,
+    -0.0009379387,
+    -0.014259338,
+    0.01600647,
+    0.009513855,
+    0.022567749,
+    -0.014404297,
+    -0.0035476685,
+    -0.033966064,
+    -0.018188477,
+    0.004501343,
+    -0.05117798,
+    -0.03491211,
+    -0.0073280334,
+    0.024612427,
+    -0.041778564,
+    0.023605347,
+    -0.036254883,
+    -0.025543213,
+    0.0023517609,
+    0.03894043,
+    0.029144287,
+    -0.041992188,
+    0.02444458,
+    -0.051635742,
+    0.029724121,
+    0.019714355,
+    0.05368042,
+    0.04949951,
+    -0.07519531,
+    -0.044006348,
+    -0.011024475,
+    0.0046844482,
+    0.040405273,
+    0.061767578,
+    0.0231781,
+    -0.013442993,
+    -0.024261475,
+    0.0025234222,
+    -0.014587402,
+    -0.005531311,
+    -0.016189575,
+    -0.004627228,
+    0.017211914,
+    -0.013343811,
+    -0.035858154,
+    -0.019897461,
+    -0.0095825195,
+    0.026519775,
+    0.025802612,
+    0.05847168,
+    -0.012207031,
+    0.02859497,
+    -0.00592041,
+    0.030853271,
+    -0.033996582,
+    0.02381897,
+    -0.051940918,
+    0.02407837,
+    0.025253296,
+    -0.015045166,
+    0.0035915375,
+    0.08190918,
+    0.0132369995,
+    0.022613525,
+    0.046661377,
+    -0.020690918,
+    0.003168106,
+    0.0039367676,
+    0.029556274,
+    -0.023910522,
+    -0.012329102,
+    0.011917114,
+    -0.002008438,
+    0.015571594,
+    0.009017944,
+    -0.007484436,
+    0.041809082,
+    0.040100098,
+    0.0054397583,
+    0.008728027,
+    -0.02508545,
+    0.05734253,
+    0.036499023,
+    0.008354187,
+    -0.07458496,
+    0.019561768,
+    -0.009384155,
+    -0.039733887,
+    0.0013132095,
+    0.060821533,
+    0.007701874,
+    -0.07519531,
+    -0.028930664,
+    -0.019958496,
+    0.0357666,
+    0.008392334,
+    0.010231018,
+    -0.0435791,
+    0.007949829,
+    0.04031372,
+    0.036193848,
+    0.0061073303,
+    0.017608643,
+    -0.031234741,
+    -0.02684021,
+    0.023071289,
+    -0.055236816,
+    0.043670654,
+    0.001364708,
+    -0.0076904297,
+    -0.04724121,
+    0.033325195,
+    -0.013458252,
+    -0.060821533,
+    -0.010910034,
+    -0.047027588,
+    -0.004638672,
+    -0.018478394,
+    -0.04171753,
+    -0.03829956,
+    -0.023483276,
+    -0.06311035,
+    0.042175293,
+    0.0002913475,
+    -0.006095886,
+    0.007068634,
+    0.023330688,
+    -0.03353882,
+    0.004650116,
+    -0.03302002,
+    0.067871094,
+    -0.028701782,
+    -0.020614624,
+    0.017913818,
+    0.018081665,
+    -0.023132324,
+    -0.02482605,
+    0.0037384033,
+    0.017364502,
+    -0.0009784698,
+    0.015853882,
+    -0.022415161,
+    -0.03314209,
+    -0.00093889236,
+    0.044647217,
+    0.040405273,
+    0.037963867,
+    -0.0049858093,
+    -0.016799927,
+    0.018707275,
+    -0.0143966675,
+    0.03643799,
+    -0.00056028366,
+    -0.03363037,
+    -0.01499939,
+    0.010101318,
+    -0.010345459,
+    -0.008201599,
+    0.015655518,
+    -0.049041748,
+    -0.06488037,
+    -0.011741638,
+    -0.013801575,
+    -0.008842468,
+    -0.025024414,
+    0.018463135,
+    -0.009284973,
+    0.020568848,
+    -0.004058838,
+    0.006839752,
+    0.011917114,
+    -0.032562256,
+    -0.0005865097,
+    -0.021987915,
+    0.040496826,
+    0.024505615,
+    -0.056549072,
+    0.023361206,
+    -0.026977539,
+    -0.043304443,
+    0.015197754,
+    0.02142334,
+    -0.012512207,
+    0.00737381,
+    0.0035114288,
+    -0.023880005,
+    -0.008460999,
+    -0.019622803,
+    -0.0004992485,
+    0.00013816357,
+    -0.008171082,
+    0.016418457,
+    -0.00844574,
+    0.028305054,
+    -0.016311646,
+    0.034820557,
+    -0.016952515,
+    -0.043945312,
+    0.008522034,
+    -0.044158936,
+    -0.011779785,
+    0.036468506,
+    -0.087402344,
+    -0.0046806335,
+    -0.0423584,
+    -0.019378662,
+    -0.008605957,
+    0.0134887695,
+    -0.017593384,
+    0.023422241,
+    -0.0066871643,
+    0.008918762,
+    -0.015792847,
+    0.018218994,
+    0.016021729,
+    0.028900146,
+    -0.009429932,
+    0.008125305,
+    0.0034675598,
+    0.0060691833,
+    -0.0014095306,
+    -0.044677734,
+    -0.04458618,
+    0.03543091,
+    0.05718994,
+    -0.034118652,
+    0.08874512,
+    -0.013442993,
+    0.022583008,
+    0.008125305,
+    0.047027588,
+    0.005794525,
+    0.02381897,
+    0.060333252,
+    -0.0006017685,
+    0.01322937
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+    "file_name": "89181.md",
+    "file_size": 28636,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Pitts S-12 Aircraft Fuel System and Documentation Information",
+      "The POH found in the airplane was specific to the accident airplane by serial number.",
+      "The POH was prepared by an individual who is an airshow pilot who flies a Pitts S-12.",
+      "The POH document consisted of 21 single-sided pages.",
+      "The POH stated that the airplane had a total fuel capacity of 54 gallons.",
+      "The POH stated that 53 gallons of the total fuel capacity were usable.",
+      "The POH presented a table for five different engine power settings.",
+      "The engine power settings in the POH were Takeoff, Max Acro, Mid Acro, Normal Cruise, and Economy Cruise.",
+      "The POH power setting table included RPM, manifold pressure, and fuel flow values.",
+      "The POH did not define applicable conditions such as altitude or temperature for the power settings.",
+      "The POH power setting table stated it was for a \"M-14P(PF) Engine and MTV-9-C/CL250(260)-29 propeller.\"",
+      "The POH table stated that takeoff power was 400hp.",
+      "The takeoff fuel burn rate was 46 gallons per hour according to the POH.",
+      "The normal cruise fuel burn rate was 16 gallons per hour according to the POH.",
+      "The economy cruise fuel burn rate was 14 gallons per hour according to the POH.",
+      "The POH \"Procedures\" section did not contain information regarding fuel management.",
+      "The POH contained a seven-step checklist for \"Inflight Engine Restart.\"",
+      "The \"Inflight Engine Restart\" checklist included a step for glide speed of \"100 MPH.\"",
+      "The \"Inflight Engine Restart\" checklist included a step for throttle setting of \"OPEN 1/4 FULL.\"",
+      "The \"Inflight Engine Restart\" checklist included a step for boost pump to be \"ON.\"",
+      "The \"Inflight Engine Restart\" checklist did not cite a specific fuel tank selection.",
+      "The \"Inflight Engine Restart\" checklist did not contain any reference to the engine primer switch.",
+      "The engine in the airplane was a \"VMP\" brand.",
+      "The engine model was M14P.",
+      "The engine serial number was K?012068.",
+      "The engine serial number appeared to match the engine data plate.",
+      "The propeller was an \"MT\" brand.",
+      "The propeller model was MTV-9-K-C/CL250-29.",
+      "The airplane was equipped with three fuel tanks.",
+      "The three fuel tanks were a wing-mounted auxiliary tank, a fuselage-mounted main tank, and a fuselage-mounted header tank.",
+      "The main tank was plumbed directly to the header tank.",
+      "The header tank was plumbed to the fuel selector valve.",
+      "The header tank was plumbed to the engine.",
+      "The auxiliary tank was plumbed directly to the fuel selector valve."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Pitts S-12 Aircraft Fuel System and Documentation Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "POH",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pitts S-12",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "M-14P",
+              "classification": "Engine"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "M14P",
+              "classification": "Engine"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "VMP",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "MT",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "MTV-9-C/CL250-29",
+              "classification": "Propeller"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "MTV-9-K-C/CL250-29",
+              "classification": "Propeller"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "K?012068",
+              "classification": "Serialnumber"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH found in the airplane was specific to the accident airplane by serial number.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "POH",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "SPECIFIC TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S-12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "POH",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S-12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S-12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "serial number",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH was prepared by an individual who is an airshow pilot who flies a Pitts S-12.",
+              "details": [
+                "airshow pilot FLIES Pitts S-12",
+                "airshow pilot OCCUPATION airshow pilot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "POH",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "PREPARED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airshow pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airshow pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S-12",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airshow pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airshow pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH document consisted of 21 single-sided pages.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "POH",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "PAGE COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "21 single-sided pages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH stated that the airplane had a total fuel capacity of 54 gallons.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S-12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "54 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH stated that 53 gallons of the total fuel capacity were usable.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S-12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "USABLE FUEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "53 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH presented a table for five different engine power settings.",
+              "details": [
+                "power settings table HAS COUNT five different settings"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "POH",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "five different settings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine power settings in the POH were Takeoff, Max Acro, Mid Acro, Normal Cruise, and Economy Cruise.",
+              "details": [
+                "power settings table INCLUDES Takeoff",
+                "power settings table INCLUDES Max Acro",
+                "power settings table INCLUDES Mid Acro",
+                "power settings table INCLUDES Normal Cruise",
+                "power settings table INCLUDES Economy Cruise"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Max Acro",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mid Acro",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Normal Cruise",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Economy Cruise",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH power setting table included RPM, manifold pressure, and fuel flow values.",
+              "details": [
+                "power settings table INCLUDES RPM",
+                "power settings table INCLUDES manifold pressure",
+                "power settings table INCLUDES fuel flow values"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "RPM",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manifold pressure",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel flow values",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH did not define applicable conditions such as altitude or temperature for the power settings.",
+              "details": [
+                "power settings table MISSING INFORMATION applicable conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MISSING INFORMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "applicable conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH power setting table stated it was for a \"M-14P(PF) Engine and MTV-9-C/CL250(260)-29 propeller.\"",
+              "details": [
+                "power settings table APPLIES TO M-14P",
+                "power settings table APPLIES TO MTV-9-C/CL250(260)-29"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "APPLIES TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M-14P",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power settings table",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "APPLIES TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MTV-9-C/CL250(260)-29",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M-14P",
+                    "classification": "Engine"
+                  },
+                  "predicate": {
+                    "value": "VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PF",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH table stated that takeoff power was 400hp.",
+              "details": [
+                "Takeoff POWER 400hp"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Takeoff",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "POWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "400hp",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The takeoff fuel burn rate was 46 gallons per hour according to the POH.",
+              "details": [
+                "Takeoff FUEL BURN RATE 46 gallons per hour"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Takeoff",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL BURN RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "46 gallons per hour",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The normal cruise fuel burn rate was 16 gallons per hour according to the POH.",
+              "details": [
+                "Normal Cruise FUEL BURN RATE 16 gallons per hour"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Normal Cruise",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL BURN RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "16 gallons per hour",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The economy cruise fuel burn rate was 14 gallons per hour according to the POH.",
+              "details": [
+                "Economy Cruise FUEL BURN RATE 14 gallons per hour"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Economy Cruise",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FUEL BURN RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 gallons per hour",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH \"Procedures\" section did not contain information regarding fuel management.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "POH",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "MISSING INFORMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel management in Procedures section",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The POH contained a seven-step checklist for \"Inflight Engine Restart.\"",
+              "details": [
+                "Inflight Engine Restart checklist STEP COUNT seven"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "POH",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Inflight Engine Restart checklist",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Inflight Engine Restart checklist",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STEP COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "seven",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The \"Inflight Engine Restart\" checklist included a step for glide speed of \"100 MPH.\"",
+              "details": [
+                "Inflight Engine Restart checklist INCLUDES glide speed",
+                "glide speed HAS VALUE 100 MPH"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Inflight Engine Restart checklist",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "glide speed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "glide speed",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS VALUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "100 MPH",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The \"Inflight Engine Restart\" checklist included a step for throttle setting of \"OPEN 1/4 FULL.\"",
+              "details": [
+                "Inflight Engine Restart checklist INCLUDES throttle setting",
+                "throttle setting HAS VALUE OPEN 1/4 FULL"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Inflight Engine Restart checklist",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle setting",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle setting",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS VALUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "OPEN 1/4 FULL",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The \"Inflight Engine Restart\" checklist included a step for boost pump to be \"ON.\"",
+              "details": [
+                "Inflight Engine Restart checklist INCLUDES boost pump setting",
+                "boost pump setting HAS VALUE ON"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Inflight Engine Restart checklist",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "boost pump setting",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "boost pump setting",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS VALUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ON",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The \"Inflight Engine Restart\" checklist did not cite a specific fuel tank selection.",
+              "details": [
+                "Inflight Engine Restart checklist MISSING INFORMATION fuel tank selection"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Inflight Engine Restart checklist",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MISSING INFORMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel tank selection",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The \"Inflight Engine Restart\" checklist did not contain any reference to the engine primer switch.",
+              "details": [
+                "Inflight Engine Restart checklist MISSING INFORMATION engine primer switch"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Inflight Engine Restart checklist",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MISSING INFORMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine primer switch",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine in the airplane was a \"VMP\" brand.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "VMP",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M14P",
+                    "classification": "Engine"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M14P",
+                    "classification": "Engine"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine model was M14P.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M14P",
+                    "classification": "Engine"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine model",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine serial number was K?012068.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M14P",
+                    "classification": "Engine"
+                  },
+                  "predicate": {
+                    "value": "SERIAL NUMBER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "K?012068",
+                    "classification": "Serialnumber"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine serial number appeared to match the engine data plate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "K?012068",
+                    "classification": "Serialnumber"
+                  },
+                  "predicate": {
+                    "value": "MATCHES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine data plate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller was an \"MT\" brand.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MT",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MTV-9-K-C/CL250-29",
+                    "classification": "Propeller"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller model was MTV-9-K-C/CL250-29.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MTV-9-K-C/CL250-29",
+                    "classification": "Propeller"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller model",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was equipped with three fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S-12",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS FUEL TANKS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "three",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The three fuel tanks were a wing-mounted auxiliary tank, a fuselage-mounted main tank, and a fuselage-mounted header tank.",
+              "details": [
+                "auxiliary tank LOCATION wing-mounted",
+                "main tank LOCATION fuselage-mounted",
+                "header tank LOCATION fuselage-mounted"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing-mounted",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage-mounted",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "header tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage-mounted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main tank was plumbed directly to the header tank.",
+              "details": [
+                "main tank CONNECTED TO header tank",
+                "main tank CONNECTION TYPE direct"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "header tank",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONNECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The header tank was plumbed to the fuel selector valve.",
+              "details": [
+                "header tank CONNECTED TO fuel selector valve"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "header tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selector valve",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The header tank was plumbed to the engine.",
+              "details": [
+                "header tank CONNECTED TO M14P"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "header tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M14P",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The auxiliary tank was plumbed directly to the fuel selector valve.",
+              "details": [
+                "auxiliary tank CONNECTED TO fuel selector valve",
+                "auxiliary tank CONNECTION TYPE direct"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONNECTED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selector valve",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONNECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::3dd88aa8:3e5d",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "69e01b7394bfac113f1d42ab0377efa9a281b97dbf3f13460a18ffd81fbc4ae1",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::3dd88aa8:3e5d:3f5e2efa",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "26869170c5df4e299a7ff24c4b0af9965e9ca90377032d06a57d560d3fc71c15",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::3dd88aa8:3e5d:4023c088",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89181.md",
+        "file_name": "89181.md",
+        "file_size": 28636,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "989e94d6488b773110172451984fe477c40ab1526a46b6e2a3f29f2796a6170d",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# ADDITIONAL INFORMATION\n\n## Pilots Operating Handbook (POH) Information\n\nA POH was found in the airplane. The POH cover page indicated that it was specific to the accident airplane by serial number, and was prepared by an individual whose website indicated that he is an airshow pilot who flies a Pitts S-12. The document consisted of 21 single-sided pages. The POH stated that the airplane had a total fuel capacity of 54 gallons, of which 53 gallons were usable.\n\nThe POH presented a table for five different engine power settings (Takeoff, Max Acro, Mid Acro, Normal Cruise, and Economy Cruise) with accompanying RPM, manifold pressure, and fuel flow values. The POH did not define any other applicable conditions such as altitude or temperature. The POH power setting table stated that it was for a \"M-14P(PF) Engine and MTV-9-C/CL250(260)-29 propeller.\" The POH table stated that takeoff power was 400hp. The takeoff, normal cruise, and economy cruise fuel burn rates were 46, 16, and 14 gph respectively.\n\nThe POH \"Procedures\" section did not contain any information regarding fuel management, but did contain a seven-step checklist for \"Inflight Engine Restart.\" That checklist included steps regarding glide speed (\"100 MPH\"), throttle setting (\"OPEN 1/4 FULL\"), and boost pump (\"ON\"). The checklist did not cite a specific fuel tank selection, or contain any reference to the engine primer switch.\n\n## Engine and Propeller Information\n\nAccording to the engine logbook, the engine was a \"VMP,\" model M14P, serial number K?012068; which appeared to match the engine data plate. According to the propeller logbook, the propeller was an \"MT\" brand, and cited as a model MTV-9-K-C/CL250-29.\n\n## Airplane Fuel System\n\nThe airplane was equipped with three fuel tanks; a wing-mounted auxiliary (\"aux\") tank, and fuselage-mounted main and header tanks. The main tank was plumbed directly to the header tank, which in turn was plumbed to the fuel selector valve and then to the engine. The aux tank was plumbed directly to the fuel selector valve.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2047,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

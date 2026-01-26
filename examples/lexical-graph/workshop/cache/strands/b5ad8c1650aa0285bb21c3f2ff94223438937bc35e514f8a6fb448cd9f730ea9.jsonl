@@ -1,0 +1,20 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_Qty6Jr4UTNGDrskaIkssYw", "name": "aircraft"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"que"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ry\": \"Robins"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "on h"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "elicopter de"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sign featu"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "re"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s safet"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y charac"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "terist"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ics compared"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " to"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Bell h"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "elicopt"}}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ers\"}"}}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 6981, "outputTokens": 61, "totalTokens": 7042}, "metrics": {"latencyMs": 4758}}}

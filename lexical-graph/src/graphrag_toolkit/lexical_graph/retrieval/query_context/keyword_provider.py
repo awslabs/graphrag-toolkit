@@ -1,10 +1,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-import concurrent.futures
 import logging
 from enum import Enum
-from itertools import repeat
-from typing import List, Iterator, cast
+from typing import List
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
@@ -18,8 +16,6 @@ from llama_index.core.schema import QueryBundle
 logger = logging.getLogger(__name__)
 
 
-from dataclasses import dataclass
-from typing import Optional
 
 class KeywordProviderMode(Enum):
     

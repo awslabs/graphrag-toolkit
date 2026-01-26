@@ -1,0 +1,2987 @@
+{
+  "id_": "aws::5d7badf5:9149:355d8b82",
+  "embedding": [
+    0.041931152,
+    -0.0034561157,
+    0.059051514,
+    -0.06378174,
+    -0.018722534,
+    0.021896362,
+    -0.059753418,
+    -0.035614014,
+    -0.021072388,
+    0.012687683,
+    0.005092621,
+    0.044708252,
+    -0.046325684,
+    -0.03375244,
+    0.03567505,
+    -0.016418457,
+    -0.006713867,
+    0.019210815,
+    0.017318726,
+    -0.013847351,
+    0.017303467,
+    -0.009918213,
+    0.007396698,
+    -0.010398865,
+    -0.015640259,
+    0.051086426,
+    -0.01940918,
+    -0.00434494,
+    -0.0073776245,
+    -0.012123108,
+    -0.010726929,
+    0.016296387,
+    0.0491333,
+    0.038391113,
+    -0.0793457,
+    0.040405273,
+    -0.035491943,
+    0.013206482,
+    -0.033966064,
+    0.012908936,
+    0.04324341,
+    -0.014640808,
+    0.025894165,
+    -0.012794495,
+    -0.0051612854,
+    -0.0019359589,
+    0.070251465,
+    0.0069999695,
+    0.008773804,
+    0.028137207,
+    0.032470703,
+    0.025299072,
+    0.029785156,
+    0.016189575,
+    -0.010826111,
+    -0.027282715,
+    -0.028015137,
+    0.013923645,
+    -0.019927979,
+    0.035369873,
+    0.023590088,
+    0.047668457,
+    0.0058898926,
+    0.0073661804,
+    0.004219055,
+    -0.011192322,
+    -0.013198853,
+    -0.0047416687,
+    0.037872314,
+    0.021606445,
+    0.008995056,
+    0.0023937225,
+    -0.014144897,
+    0.031463623,
+    -0.007724762,
+    -0.046691895,
+    0.013298035,
+    -0.011909485,
+    -0.03729248,
+    0.05609131,
+    0.02218628,
+    0.011390686,
+    -0.03756714,
+    0.01158905,
+    -0.0014133453,
+    0.044433594,
+    -0.018936157,
+    -0.03137207,
+    -0.0019207001,
+    0.009208679,
+    -0.002817154,
+    0.014709473,
+    0.034729004,
+    0.021728516,
+    -0.033203125,
+    0.0038204193,
+    0.019882202,
+    -0.051605225,
+    0.042999268,
+    -0.02243042,
+    0.058410645,
+    -0.045715332,
+    -0.04333496,
+    0.014030457,
+    0.0015878677,
+    0.009597778,
+    0.038024902,
+    -0.02229309,
+    0.00705719,
+    0.0028057098,
+    -0.047424316,
+    0.030426025,
+    0.0138549805,
+    -0.010360718,
+    -0.038848877,
+    0.04348755,
+    0.018722534,
+    -0.0211792,
+    0.009429932,
+    0.030197144,
+    -0.020690918,
+    -0.019332886,
+    0.0032806396,
+    -0.01285553,
+    0.03048706,
+    0.0049362183,
+    -0.042175293,
+    0.038238525,
+    -0.005218506,
+    -0.006668091,
+    0.009742737,
+    0.06768799,
+    -0.05117798,
+    -0.060821533,
+    -0.06713867,
+    0.0107421875,
+    0.006439209,
+    0.03274536,
+    -0.023757935,
+    0.008392334,
+    -0.030593872,
+    0.0055999756,
+    0.06451416,
+    -0.05001831,
+    0.036010742,
+    0.015045166,
+    -0.012840271,
+    0.011360168,
+    0.035125732,
+    0.0073776245,
+    0.020965576,
+    -0.0670166,
+    0.038330078,
+    -0.006511688,
+    0.028823853,
+    -0.08856201,
+    0.025802612,
+    -0.05999756,
+    0.053009033,
+    -0.049102783,
+    -0.01512146,
+    0.013031006,
+    0.03250122,
+    -0.062561035,
+    -0.02734375,
+    -0.037231445,
+    -0.036102295,
+    0.0008111,
+    0.026947021,
+    0.07397461,
+    0.047790527,
+    -0.017684937,
+    -0.035247803,
+    -0.020004272,
+    -0.022018433,
+    -0.036071777,
+    0.009735107,
+    0.04397583,
+    0.028244019,
+    -0.023147583,
+    -0.0030956268,
+    -0.04385376,
+    0.06689453,
+    -0.024093628,
+    0.004535675,
+    -0.032592773,
+    0.01133728,
+    -0.036834717,
+    0.032348633,
+    -0.009422302,
+    0.0027618408,
+    -0.013084412,
+    0.011314392,
+    0.017471313,
+    -0.05429077,
+    -0.038879395,
+    0.060638428,
+    0.031982422,
+    -0.03463745,
+    -0.0009832382,
+    -0.09106445,
+    0.010978699,
+    0.004142761,
+    0.0049743652,
+    0.050323486,
+    -0.027679443,
+    0.019958496,
+    0.03439331,
+    -0.017288208,
+    0.02079773,
+    0.03503418,
+    0.00077962875,
+    -0.04220581,
+    0.0418396,
+    -0.003282547,
+    -0.02557373,
+    0.014801025,
+    -0.017578125,
+    0.012763977,
+    0.005630493,
+    -0.002248764,
+    0.020889282,
+    -0.024124146,
+    0.030914307,
+    0.0027484894,
+    0.00012922287,
+    -0.032409668,
+    -0.0038337708,
+    -0.0024852753,
+    -0.004009247,
+    0.0395813,
+    0.043182373,
+    -0.012084961,
+    -0.0051574707,
+    -0.060638428,
+    0.008041382,
+    -0.017471313,
+    0.043121338,
+    0.0036239624,
+    0.015853882,
+    -0.020980835,
+    -0.07550049,
+    -0.050109863,
+    0.03186035,
+    -0.09350586,
+    -0.05029297,
+    -0.018371582,
+    0.05026245,
+    -0.015342712,
+    0.016571045,
+    0.030227661,
+    0.01852417,
+    0.026229858,
+    0.0014715195,
+    0.04168701,
+    0.02758789,
+    -0.026794434,
+    -0.016937256,
+    0.053985596,
+    -0.026947021,
+    0.0075645447,
+    -0.057769775,
+    -0.022750854,
+    -0.013648987,
+    0.031921387,
+    0.0013923645,
+    0.035888672,
+    0.016021729,
+    -0.0037937164,
+    0.009284973,
+    -0.01751709,
+    -0.07739258,
+    0.006336212,
+    0.008117676,
+    -0.04522705,
+    0.0134887695,
+    -0.0107803345,
+    -0.005695343,
+    0.0035686493,
+    -0.016326904,
+    -0.006252289,
+    0.06567383,
+    -0.021606445,
+    -0.020324707,
+    -0.015396118,
+    0.011352539,
+    -0.011383057,
+    0.010879517,
+    -0.015777588,
+    -0.005393982,
+    0.026947021,
+    0.004890442,
+    0.0066604614,
+    0.0013751984,
+    -0.013076782,
+    -0.026473999,
+    0.05706787,
+    -0.019836426,
+    -0.00071811676,
+    -0.0002143383,
+    0.0284729,
+    0.03463745,
+    0.0016717911,
+    -0.009902954,
+    0.0014715195,
+    -0.020736694,
+    -0.0011053085,
+    0.018127441,
+    0.015289307,
+    0.0026874542,
+    -0.04837036,
+    -0.007850647,
+    0.02911377,
+    -0.017623901,
+    0.030212402,
+    0.022781372,
+    -0.0044021606,
+    0.025482178,
+    -0.0015954971,
+    0.024932861,
+    -0.017364502,
+    0.015434265,
+    -0.014717102,
+    -0.005077362,
+    0.023986816,
+    0.0010671616,
+    -0.024856567,
+    -0.009712219,
+    0.013053894,
+    -0.0058250427,
+    0.023880005,
+    -0.015472412,
+    -0.037261963,
+    -0.054473877,
+    0.011909485,
+    0.0013971329,
+    0.006717682,
+    -0.02041626,
+    -0.043426514,
+    -0.06124878,
+    -0.02053833,
+    -0.024871826,
+    0.011161804,
+    0.017578125,
+    -0.068847656,
+    -0.017730713,
+    -0.0035324097,
+    0.021011353,
+    -0.025787354,
+    -0.0579834,
+    0.06866455,
+    -0.03604126,
+    -0.002090454,
+    0.051940918,
+    0.016098022,
+    -0.057617188,
+    -0.025802612,
+    0.05718994,
+    -0.0020751953,
+    -0.0141067505,
+    -0.029327393,
+    0.05255127,
+    -0.013092041,
+    -0.028320312,
+    0.004085541,
+    -0.018630981,
+    0.010101318,
+    -0.000541687,
+    -0.043640137,
+    -0.020523071,
+    0.07720947,
+    -0.056396484,
+    -0.051513672,
+    -0.017105103,
+    -0.050231934,
+    -0.026901245,
+    0.025543213,
+    -0.007858276,
+    -0.019577026,
+    -0.0072898865,
+    0.0103302,
+    -0.026367188,
+    0.073913574,
+    -0.011352539,
+    0.02897644,
+    -0.02168274,
+    -0.049743652,
+    0.006931305,
+    0.046783447,
+    0.04663086,
+    0.011207581,
+    -0.029708862,
+    -0.04937744,
+    -0.017730713,
+    0.018859863,
+    0.016113281,
+    0.0037136078,
+    0.00920105,
+    -0.0413208,
+    -0.018966675,
+    -0.13500977,
+    0.040985107,
+    -0.0021305084,
+    -0.027679443,
+    -0.009552002,
+    -0.018218994,
+    -0.05758667,
+    -0.050354004,
+    0.02507019,
+    0.034179688,
+    -0.008552551,
+    0.042541504,
+    -0.025802612,
+    0.046173096,
+    0.00077962875,
+    -0.022659302,
+    -0.021636963,
+    -0.006755829,
+    -0.031341553,
+    0.031188965,
+    0.035247803,
+    -0.008377075,
+    0.012741089,
+    0.043914795,
+    4.249811e-05,
+    -0.035980225,
+    -0.014450073,
+    -0.02658081,
+    -0.019714355,
+    0.07019043,
+    -0.026275635,
+    0.0022411346,
+    0.00020813942,
+    -0.0151901245,
+    -0.045806885,
+    -0.0158844,
+    -0.005054474,
+    0.0019836426,
+    0.044403076,
+    -0.036865234,
+    0.021606445,
+    -0.020736694,
+    -0.008018494,
+    0.043762207,
+    -0.052825928,
+    0.022109985,
+    -0.010154724,
+    0.021408081,
+    -0.056671143,
+    0.005695343,
+    -0.018218994,
+    0.0013341904,
+    0.026504517,
+    0.03579712,
+    0.006134033,
+    0.044677734,
+    0.066223145,
+    0.027023315,
+    0.0256958,
+    -0.043792725,
+    -0.042266846,
+    -0.013618469,
+    -0.058654785,
+    -0.01928711,
+    0.029907227,
+    -0.039031982,
+    0.045776367,
+    0.00024092197,
+    -0.0074920654,
+    0.019241333,
+    0.010375977,
+    0.003829956,
+    0.013504028,
+    -0.0045928955,
+    -0.023284912,
+    0.0055007935,
+    0.021606445,
+    -0.0289917,
+    0.03552246,
+    -0.0069770813,
+    -0.044403076,
+    0.011581421,
+    0.011436462,
+    0.04824829,
+    0.022598267,
+    0.00762558,
+    0.048217773,
+    0.06500244,
+    -0.0014209747,
+    0.002029419,
+    -0.015327454,
+    0.019989014,
+    0.013427734,
+    0.011779785,
+    0.012252808,
+    -0.0029697418,
+    0.016479492,
+    -0.029403687,
+    -0.00070619583,
+    -0.015396118,
+    -0.06225586,
+    0.008453369,
+    -0.04296875,
+    0.010101318,
+    -0.007446289,
+    0.010498047,
+    0.048675537,
+    0.004180908,
+    0.015960693,
+    0.0075645447,
+    0.02960205,
+    0.0025119781,
+    0.024902344,
+    0.034729004,
+    -0.0345459,
+    0.015090942,
+    0.020690918,
+    0.07196045,
+    -0.017044067,
+    -0.026565552,
+    -0.035858154,
+    -0.0134887695,
+    0.048797607,
+    0.03491211,
+    -0.029632568,
+    -0.021774292,
+    0.053619385,
+    0.040283203,
+    -0.04437256,
+    -0.022659302,
+    -0.014572144,
+    0.04840088,
+    -0.0149002075,
+    -0.018112183,
+    0.030761719,
+    -0.00907135,
+    -0.0127334595,
+    0.01727295,
+    0.007221222,
+    0.016296387,
+    -0.04623413,
+    -0.017715454,
+    0.039520264,
+    0.025405884,
+    0.024551392,
+    -0.028335571,
+    0.023773193,
+    0.039611816,
+    -0.08666992,
+    0.0137786865,
+    -0.0034484863,
+    0.010124207,
+    0.011169434,
+    -0.03225708,
+    -0.04928589,
+    0.05053711,
+    -0.009437561,
+    -0.0069847107,
+    0.031143188,
+    0.03125,
+    -0.016860962,
+    0.009422302,
+    -0.029342651,
+    -0.00017249584,
+    0.0071754456,
+    0.028549194,
+    0.010040283,
+    -0.007007599,
+    0.039764404,
+    -0.057891846,
+    -0.0012607574,
+    -0.03201294,
+    0.08111572,
+    0.040649414,
+    0.032562256,
+    -0.020263672,
+    -0.047088623,
+    -0.010871887,
+    -0.028717041,
+    0.01574707,
+    0.0034275055,
+    0.039367676,
+    -0.0078125,
+    -0.022033691,
+    -0.07757568,
+    0.06161499,
+    0.0037555695,
+    0.0037612915,
+    -0.045959473,
+    -0.0104904175,
+    0.029769897,
+    0.021881104,
+    0.012741089,
+    -0.006286621,
+    0.0003168583,
+    0.0051345825,
+    -0.041259766,
+    -0.059906006,
+    0.0063591003,
+    -0.009178162,
+    -0.021957397,
+    0.018737793,
+    0.007095337,
+    -0.03527832,
+    0.028839111,
+    0.031402588,
+    0.0049057007,
+    -0.025421143,
+    0.0284729,
+    0.0016851425,
+    -0.0017251968,
+    0.012207031,
+    -0.048919678,
+    0.028823853,
+    -0.041259766,
+    -0.018936157,
+    -0.031921387,
+    0.050811768,
+    0.036102295,
+    -0.024887085,
+    0.012939453,
+    0.023223877,
+    0.009147644,
+    -0.015701294,
+    -0.025466919,
+    -0.07244873,
+    -0.027236938,
+    -0.032165527,
+    -0.013221741,
+    -0.027618408,
+    0.006629944,
+    -0.014793396,
+    -0.025802612,
+    -0.008514404,
+    -0.008613586,
+    -0.003660202,
+    -0.0023899078,
+    -0.019515991,
+    -0.022705078,
+    -0.023529053,
+    -0.01838684,
+    0.03186035,
+    0.00024700165,
+    -0.020996094,
+    0.046081543,
+    -0.012634277,
+    -0.015541077,
+    -0.010902405,
+    -0.0015821457,
+    -0.02217102,
+    -0.00554657,
+    -0.0034866333,
+    -0.038208008,
+    -0.02217102,
+    0.010620117,
+    -0.023849487,
+    -0.0048675537,
+    -0.00043559074,
+    -0.031082153,
+    -0.020706177,
+    -0.06781006,
+    -0.058288574,
+    -0.048095703,
+    -0.01763916,
+    -0.06335449,
+    -0.03857422,
+    0.03945923,
+    0.04244995,
+    -0.018066406,
+    -0.047668457,
+    0.0418396,
+    0.031921387,
+    -0.0038223267,
+    -0.0007658005,
+    -0.005958557,
+    0.020629883,
+    -0.029708862,
+    0.012054443,
+    -0.007194519,
+    0.011802673,
+    -0.008903503,
+    -0.03970337,
+    0.036834717,
+    -0.012786865,
+    -0.028335571,
+    0.016662598,
+    -0.035247803,
+    0.011734009,
+    -0.0050201416,
+    -0.04446411,
+    -0.029937744,
+    -0.0035266876,
+    -0.030456543,
+    -0.06793213,
+    0.015388489,
+    -0.028305054,
+    -0.00818634,
+    -0.027954102,
+    0.03237915,
+    -0.06317139,
+    -0.019973755,
+    0.020904541,
+    -0.0023422241,
+    0.00630188,
+    -0.0005283356,
+    0.015319824,
+    -0.021072388,
+    0.027359009,
+    -0.001917839,
+    -0.0014972687,
+    0.01965332,
+    0.036193848,
+    -0.018341064,
+    -0.016525269,
+    0.011161804,
+    0.034301758,
+    0.062042236,
+    -0.020202637,
+    -0.026931763,
+    0.0137786865,
+    -0.014930725,
+    0.051605225,
+    0.004878998,
+    -0.0892334,
+    -0.00046420097,
+    -0.033447266,
+    -0.011543274,
+    0.020355225,
+    -0.047302246,
+    -0.05996704,
+    0.043701172,
+    0.024917603,
+    0.006259918,
+    0.0035858154,
+    -0.036132812,
+    -0.0069847107,
+    -0.05758667,
+    0.04321289,
+    -0.011978149,
+    -0.032226562,
+    -0.014190674,
+    -0.034454346,
+    0.035003662,
+    0.0022449493,
+    -0.0256958,
+    0.0076904297,
+    0.020355225,
+    -0.06939697,
+    -0.008255005,
+    -0.0051002502,
+    0.019256592,
+    -0.03253174,
+    -0.048431396,
+    -0.0015573502,
+    -0.006324768,
+    -0.009857178,
+    0.032806396,
+    0.00806427,
+    -0.054382324,
+    -0.015594482,
+    -0.028564453,
+    -0.0056991577,
+    -0.013618469,
+    0.019210815,
+    -0.0362854,
+    -0.029586792,
+    -0.0018072128,
+    0.006515503,
+    0.00030589104,
+    0.001115799,
+    0.014160156,
+    -0.018661499,
+    0.0107421875,
+    -0.0018930435,
+    0.034973145,
+    0.006290436,
+    0.022384644,
+    -0.033111572,
+    -0.03149414,
+    -0.02357483,
+    0.029434204,
+    -0.008056641,
+    -0.017486572,
+    0.005130768,
+    0.00944519,
+    0.029281616,
+    0.0047302246,
+    -0.028701782,
+    0.012550354,
+    -0.028656006,
+    -0.0496521,
+    0.018478394,
+    0.006580353,
+    -0.022125244,
+    0.0069122314,
+    0.004776001,
+    -0.0345459,
+    -0.016815186,
+    0.030166626,
+    -0.023391724,
+    -0.051635742,
+    0.025924683,
+    -0.047790527,
+    0.059539795,
+    -0.010467529,
+    -0.018951416,
+    0.017974854,
+    0.042022705,
+    0.02078247,
+    -0.048614502,
+    0.011146545,
+    -0.0440979,
+    0.052459717,
+    -0.006038666,
+    -0.00059604645,
+    0.008384705,
+    -0.10241699,
+    -0.04849243,
+    -0.019134521,
+    0.02947998,
+    0.04058838,
+    0.034423828,
+    0.03552246,
+    -0.01789856,
+    0.030151367,
+    0.0065727234,
+    -0.065979004,
+    0.025436401,
+    0.018844604,
+    -0.029556274,
+    0.017211914,
+    0.0063171387,
+    -0.022735596,
+    -0.030426025,
+    -0.03552246,
+    0.060668945,
+    0.007701874,
+    0.03652954,
+    -0.034484863,
+    0.05444336,
+    -0.020355225,
+    -0.0034313202,
+    -0.02796936,
+    -0.041107178,
+    0.041809082,
+    -0.006679535,
+    0.0077552795,
+    0.011634827,
+    0.057739258,
+    0.049835205,
+    0.007320404,
+    -0.014015198,
+    -0.0053634644,
+    0.008674622,
+    -0.005531311,
+    0.03881836,
+    0.06298828,
+    -4.1127205e-06,
+    -0.000916481,
+    0.04031372,
+    0.0038280487,
+    0.024642944,
+    0.011207581,
+    0.0013771057,
+    -0.022567749,
+    0.03161621,
+    -0.03186035,
+    0.008354187,
+    0.026062012,
+    0.03161621,
+    0.03289795,
+    -0.014968872,
+    -0.08166504,
+    0.017150879,
+    -0.00868988,
+    -0.023223877,
+    0.009590149,
+    0.10064697,
+    -0.018875122,
+    0.019210815,
+    -0.028640747,
+    -0.02973938,
+    0.0059051514,
+    -0.026382446,
+    -0.005996704,
+    0.016662598,
+    0.0015821457,
+    -0.039733887,
+    0.006072998,
+    -4.506111e-05,
+    -0.038482666,
+    -0.0065460205,
+    -0.0009508133,
+    0.0016946793,
+    0.03253174,
+    0.053497314,
+    0.02494812,
+    0.0052871704,
+    -0.03717041,
+    0.05001831,
+    -0.031463623,
+    -0.04522705,
+    -0.0032539368,
+    -0.013015747,
+    -0.045166016,
+    0.026519775,
+    0.031677246,
+    -0.030838013,
+    -0.025375366,
+    -0.023162842,
+    0.007335663,
+    -0.010475159,
+    -0.040802002,
+    -0.0037403107,
+    0.008163452,
+    -0.038085938,
+    -0.01033783,
+    -0.009391785,
+    0.03225708,
+    -0.039764404,
+    -0.028076172,
+    -0.009147644,
+    -0.0052948,
+    0.03326416,
+    0.036743164,
+    -0.042938232,
+    0.08392334,
+    -0.016601562,
+    -0.023208618,
+    0.0025043488,
+    0.01309967,
+    0.0027923584,
+    0.058258057,
+    -0.024276733,
+    0.030273438,
+    -0.008926392,
+    -0.027801514,
+    0.022766113,
+    -0.0012378693,
+    0.025238037,
+    -0.0032157898,
+    -0.035217285,
+    -0.0115737915,
+    0.008926392,
+    0.016662598,
+    -0.0013551712,
+    0.066223145,
+    -0.03488159,
+    -0.051208496,
+    -0.013931274,
+    -0.035095215,
+    0.020446777,
+    -0.029678345,
+    0.006801605,
+    0.023712158,
+    0.033081055,
+    -0.003868103,
+    0.02357483,
+    0.027511597,
+    -0.039215088,
+    -0.018295288,
+    0.037078857,
+    0.05480957,
+    0.035064697,
+    0.021957397,
+    -0.0010547638,
+    -0.0064811707,
+    -0.025497437,
+    0.032165527,
+    -0.024536133,
+    -0.0234375,
+    -0.041290283,
+    0.0059509277,
+    -0.021972656,
+    -0.010093689,
+    -0.016860962,
+    0.0088272095,
+    -0.01373291,
+    0.04360962,
+    0.005844116,
+    0.0023021698,
+    0.029006958,
+    -0.04046631,
+    -0.0078125,
+    0.070007324,
+    -0.04031372,
+    -0.0026245117,
+    -0.015411377,
+    0.0026168823,
+    -0.026901245,
+    -0.04095459,
+    0.041992188,
+    -0.057647705,
+    -0.017105103,
+    0.019042969,
+    0.0231781,
+    -0.007904053,
+    0.035125732,
+    0.0087890625,
+    0.017959595,
+    -0.022018433,
+    0.020324707,
+    0.019332886,
+    0.035736084,
+    0.042877197,
+    -0.07495117,
+    -0.008934021,
+    -0.02696228,
+    -0.0049476624,
+    0.0059013367,
+    -0.034576416,
+    0.059753418,
+    0.04437256,
+    -0.049468994,
+    0.079711914,
+    -0.03668213,
+    0.015586853,
+    0.042388916,
+    0.013847351,
+    0.03967285,
+    0.013847351,
+    -0.0013799667,
+    0.0053215027,
+    -0.017242432
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89888.md",
+    "file_name": "89888.md",
+    "file_size": 9874,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Stits Playmate SA11A Airplane Accident at Bridgeport Municipal Airport",
+      "Stits Playmate SA11A airplane with registration N76WS was involved in an accident.",
+      "The accident occurred on July 29, 2014, at approximately 1305 central daylight time.",
+      "The accident occurred at Bridgeport Municipal Airport (XBP) in Bridgeport, Texas.",
+      "The airplane was substantially damaged in the accident.",
+      "The airline transport rated pilot was not injured in the accident.",
+      "The airplane was registered to a private individual.",
+      "The airplane was operated by a private individual.",
+      "The flight was conducted under the provisions of 14 Code of Federal Regulations Part 91 as a personal flight.",
+      "Visual meteorological conditions prevailed during the flight.",
+      "A flight plan was not filed for the flight.",
+      "The flight was departing Bridgeport Municipal Airport at the time of the accident.",
+      "The pilot departed from an airport located about 25 miles southeast of Bridgeport Municipal Airport earlier.",
+      "The wind was 8-10 mph from 150 degrees at the departure airport.",
+      "As the pilot approached Bridgeport Municipal Airport, the pilot observed the winds to be 8-10 mph from 150-170 degrees.",
+      "The pilot conducted a normal landing on runway 18 at Bridgeport Municipal Airport.",
+      "The pilot refueled the airplane at Bridgeport Municipal Airport.",
+      "About 30 minutes after arriving at Bridgeport Municipal Airport, the pilot planned to return to the original airport.",
+      "The pilot noticed the winds were now 8-10 mph and varying from 050 to 090 degrees.",
+      "The pilot selected runway 36 for departure from Bridgeport Municipal Airport.",
+      "During takeoff, when the airplane was 10-15 feet in the air, the airplane made a descending left turn.",
+      "The pilot stayed in the traffic pattern and landed on the runway.",
+      "The pilot checked the flight controls after landing.",
+      "The flight controls appeared to respond correctly during the pilot's check.",
+      "The pilot departed Bridgeport Municipal Airport again.",
+      "After becoming airborne on the second takeoff attempt, the airplane made another descending left turn.",
+      "The airplane did not respond to the pilot's control inputs during the second takeoff attempt.",
+      "The pilot reduced power during the second takeoff attempt.",
+      "The pilot landed the airplane in the grass near the runway.",
+      "The airplane slid across a taxiway after landing in the grass.",
+      "The airplane impacted a tree at the airport perimeter.",
+      "The airplane impacted a fence at the airport perimeter.",
+      "Examination of the airplane by the NTSB Investigator revealed substantial damage to the left wing.",
+      "Examination of the airplane by the NTSB Investigator revealed substantial damage to the right wing.",
+      "Examination of the airplane by the NTSB Investigator revealed substantial damage to the fuselage.",
+      "Control continuity of the ailerons was established with no abnormalities noted.",
+      "The accident involved windshear or thunderstorm during takeoff.",
+      "The accident involved loss of control in flight as the defining event.",
+      "The accident involved an uncontrolled descent.",
+      "The accident involved collision with terrain/object (non-CFIT)."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Stits Playmate SA11A Airplane Accident at Bridgeport Municipal Airport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Stits Playmate SA11A",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N76WS",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bridgeport Municipal Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "XBP",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bridgeport",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Texas",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airline transport rated pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "14 Code of Federal Regulations Part 91",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "NTSB Investigator",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "windshear or thunderstorm",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of control in flight",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "uncontrolled descent",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "collision with terrain/object",
+              "classification": "Definingevent"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Stits Playmate SA11A airplane with registration N76WS was involved in an accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N76WS",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on July 29, 2014, at approximately 1305 central daylight time.",
+              "details": [
+                "accident OCCURRED ON July 29, 2014",
+                "accident OCCURRED AT approximately 1305 central daylight time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "July 29, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1305 central daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred at Bridgeport Municipal Airport (XBP) in Bridgeport, Texas.",
+              "details": [
+                "accident OCCURRED AT Bridgeport Municipal Airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Texas",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS CODE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "XBP",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was substantially damaged in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airline transport rated pilot was not injured in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was registered to a private individual.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTERED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private individual",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was operated by a private individual.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private individual",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under the provisions of 14 Code of Federal Regulations Part 91 as a personal flight.",
+              "details": [
+                "flight CONDUCTED UNDER 14 Code of Federal Regulations Part 91",
+                "flight TYPE personal flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "personal flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed during the flight.",
+              "details": [
+                "flight WEATHER CONDITIONS Visual meteorological conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A flight plan was not filed for the flight.",
+              "details": [
+                "flight FLIGHT PLAN STATUS not filed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was departing Bridgeport Municipal Airport at the time of the accident.",
+              "details": [
+                "flight DEPARTING FROM Bridgeport Municipal Airport",
+                "accident OCCURRED DURING departure"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTING FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "departure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot departed from an airport located about 25 miles southeast of Bridgeport Municipal Airport earlier.",
+              "details": [
+                "airport LOCATED about 25 miles southeast of Bridgeport Municipal Airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 25 miles southeast of Bridgeport Municipal Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wind was 8-10 mph from 150 degrees at the departure airport.",
+              "details": [
+                "departure airport WIND SPEED 8-10 mph",
+                "departure airport WIND DIRECTION 150 degrees"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "departure airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WIND SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "8-10 mph",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "departure airport",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WIND DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "150 degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "As the pilot approached Bridgeport Municipal Airport, the pilot observed the winds to be 8-10 mph from 150-170 degrees.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED WIND SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "8-10 mph",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED WIND DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "150-170 degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot conducted a normal landing on runway 18 at Bridgeport Municipal Airport.",
+              "details": [
+                "landing TYPE normal",
+                "landing RUNWAY runway 18"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RUNWAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 18",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot refueled the airplane at Bridgeport Municipal Airport.",
+              "details": [
+                "refueling LOCATION Bridgeport Municipal Airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REFUELED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "refueling",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "About 30 minutes after arriving at Bridgeport Municipal Airport, the pilot planned to return to the original airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PLANNED RETURN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "original airport",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PLANNED RETURN TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "About 30 minutes after arriving",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot noticed the winds were now 8-10 mph and varying from 050 to 090 degrees.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "UPDATED WIND SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "8-10 mph",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "UPDATED WIND DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "varying from 050 to 090 degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot selected runway 36 for departure from Bridgeport Municipal Airport.",
+              "details": [
+                "departure LOCATION Bridgeport Municipal Airport"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SELECTED RUNWAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 36",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "departure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During takeoff, when the airplane was 10-15 feet in the air, the airplane made a descending left turn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HEIGHT DURING TAKEOFF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10-15 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "descending left turn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot stayed in the traffic pattern and landed on the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "stayed in the traffic pattern",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot checked the flight controls after landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "checked the flight controls",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight controls appeared to respond correctly during the pilot's check.",
+              "details": [
+                "flight controls RESPONSE correctly"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight controls",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESPONSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "correctly",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot departed Bridgeport Municipal Airport again.",
+              "details": [
+                "departure SEQUENCE again"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bridgeport Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "departure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEQUENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "again",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After becoming airborne on the second takeoff attempt, the airplane made another descending left turn.",
+              "details": [
+                "takeoff attempt SEQUENCE second"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another descending left turn",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff attempt",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEQUENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane did not respond to the pilot's control inputs during the second takeoff attempt.",
+              "details": [
+                "takeoff attempt SEQUENCE second"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RESPONSE TO CONTROLS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not respond",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff attempt",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEQUENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reduced power during the second takeoff attempt.",
+              "details": [
+                "takeoff attempt SEQUENCE second"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reduced power",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff attempt",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEQUENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "second",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot landed the airplane in the grass near the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport rated pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "grass near the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane slid across a taxiway after landing in the grass.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT AFTER LANDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "slid across a taxiway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted a tree at the airport perimeter.",
+              "details": [
+                "tree LOCATION airport perimeter"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tree",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tree",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airport perimeter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted a fence at the airport perimeter.",
+              "details": [
+                "fence LOCATION airport perimeter"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airport perimeter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane by the NTSB Investigator revealed substantial damage to the left wing.",
+              "details": [
+                "left wing DAMAGE LEVEL substantial damage"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "NTSB Investigator",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stits Playmate SA11A",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left wing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane by the NTSB Investigator revealed substantial damage to the right wing.",
+              "details": [
+                "right wing DAMAGE LEVEL substantial damage"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane by the NTSB Investigator revealed substantial damage to the fuselage.",
+              "details": [
+                "fuselage DAMAGE LEVEL substantial damage"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Control continuity of the ailerons was established with no abnormalities noted.",
+              "details": [
+                "ailerons CONTROL CONTINUITY established",
+                "ailerons ABNORMALITIES none noted"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ailerons",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTROL CONTINUITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "established",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ailerons",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ABNORMALITIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none noted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved windshear or thunderstorm during takeoff.",
+              "details": [
+                "accident INVOLVED windshear or thunderstorm"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "windshear or thunderstorm",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "windshear or thunderstorm",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved loss of control in flight as the defining event.",
+              "details": [
+                "accident INVOLVED loss of control in flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control in flight",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control in flight",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "EVENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "defining event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved an uncontrolled descent.",
+              "details": [
+                "accident INVOLVED uncontrolled descent"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uncontrolled descent",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved collision with terrain/object (non-CFIT).",
+              "details": [
+                "accident INVOLVED collision with terrain/object"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision with terrain/object",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::5d7badf5:9149",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89888.md",
+        "file_name": "89888.md",
+        "file_size": 9874,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "5c08f783aea88720b65a61430897fabd6db56e5a87d463965e2dc8df60d8438f",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::5d7badf5:9149:737f4966",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89888.md",
+        "file_name": "89888.md",
+        "file_size": 9874,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "405f950d8c62201e37de3923c427a27b036d1470aac12315ba91eec910918326",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::5d7badf5:9149:263e20af",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89888.md",
+        "file_name": "89888.md",
+        "file_size": 9874,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "5f78cd5427e1911cb1c59a782454c7d9b7419f0d9303c4d5ee8a5829e47189ae",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Takeoff | Windshear or thunderstorm |\n| Takeoff | Loss of control in flight (Defining event) |\n| Uncontrolled descent | Collision with terr/obj (non-CFIT) |\n\nOn July 29, 2014, about 1305 central daylight time, a Stits Playmate SA11A airplane, N76WS, impacted terrain at the Bridgeport Municipal Airport (XBP), Bridgeport, Texas. The airline transport rated pilot was not injured and the airplane was substantially damaged. The airplane was registered to and operated by a private individual, under the provisions of 14 Code of Federal Regulations Part 91 as a personal flight. Visual meteorological conditions prevailed and a flight plan was not filed. The flight was departing XBP at the time of the accident.\n\nThe pilot departed from an airport located about 25 miles southeast of XBP earlier, and the wind was 8-10 mph from 150 degrees. As he approached his destination airport, he observed the winds to be 8-10 mph from 150-170 degrees, and then conducted a normal landing on runway 18. After refueling the airplane and about 30 minutes after arriving, he planned to return to his original airport. He noticed the winds were now 8-10 mph and varying from 050 to 090 degrees. The pilot then selected runway 36 for departure. During the takeoff, when the airplane was 10-15 feet in the air, the airplane made a descending left turn. He then stayed in the traffic pattern and landed on the runway. The pilot checked the flight controls and the controls appeared to respond correctly. He departed the airport and after becoming airborne, the airplane made another descending left turn. The airplane did not respond to his control inputs, so he reduced power and landed in the grass near the runway. The airplane slid across a taxiway and impacted a tree and fence, at the airport perimeter.\n\nExamination of the airplane by the NTSB Investigator revealed substantial damage to the left and right wings, and fuselage. Control continuity of the ailerons was established with no abnormalities noted.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2042,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

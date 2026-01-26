@@ -1,0 +1,3035 @@
+{
+  "id_": "aws::faaadcc2:38d6:e92ca77c",
+  "embedding": [
+    0.041931152,
+    -0.0055732727,
+    0.024307251,
+    0.02609253,
+    -0.017532349,
+    -0.021728516,
+    0.038391113,
+    -0.053771973,
+    -0.037872314,
+    0.031204224,
+    0.020492554,
+    0.032562256,
+    0.01309967,
+    -0.024780273,
+    0.022277832,
+    0.016082764,
+    0.04159546,
+    0.007511139,
+    0.025177002,
+    0.02230835,
+    0.0007324219,
+    0.051849365,
+    0.0016794205,
+    0.013969421,
+    0.061462402,
+    -0.055480957,
+    0.009597778,
+    -0.0027446747,
+    0.059783936,
+    0.017181396,
+    0.041809082,
+    -0.05606079,
+    0.018081665,
+    -0.0184021,
+    0.047546387,
+    -0.027740479,
+    -0.00026202202,
+    0.009887695,
+    0.028335571,
+    0.0030288696,
+    0.03765869,
+    -0.03366089,
+    0.04119873,
+    -0.040008545,
+    0.019073486,
+    0.012702942,
+    0.014503479,
+    -0.06048584,
+    0.028213501,
+    -0.03677368,
+    0.02571106,
+    0.02696228,
+    0.03881836,
+    0.0049972534,
+    -0.038848877,
+    -0.013069153,
+    0.018936157,
+    -0.005306244,
+    0.011413574,
+    -0.047546387,
+    -0.010696411,
+    0.016571045,
+    0.035461426,
+    0.058654785,
+    -0.03012085,
+    0.005077362,
+    0.02999878,
+    -0.0012636185,
+    0.051605225,
+    -0.031204224,
+    -0.030044556,
+    0.016693115,
+    -0.037506104,
+    0.016448975,
+    -0.029663086,
+    -0.009925842,
+    0.058563232,
+    0.0049057007,
+    -0.02558899,
+    0.048461914,
+    -0.034210205,
+    0.0076179504,
+    0.0231781,
+    -0.04159546,
+    -0.0072364807,
+    -0.036376953,
+    -0.031173706,
+    0.013092041,
+    -0.025405884,
+    0.011268616,
+    -0.009521484,
+    -0.034210205,
+    -0.015571594,
+    0.03189087,
+    0.010696411,
+    -0.015701294,
+    -0.01473999,
+    -0.0390625,
+    0.032440186,
+    -0.012718201,
+    0.014694214,
+    -0.031829834,
+    -0.014976501,
+    -0.0016241074,
+    -0.037353516,
+    -0.022064209,
+    0.03387451,
+    0.03250122,
+    0.016815186,
+    0.0052757263,
+    -0.028839111,
+    0.05508423,
+    0.019958496,
+    0.022216797,
+    -0.046691895,
+    -0.028411865,
+    -0.035491943,
+    -0.0067443848,
+    -0.026611328,
+    0.007030487,
+    0.01701355,
+    0.010368347,
+    0.055023193,
+    0.009109497,
+    0.028717041,
+    0.018356323,
+    -0.044952393,
+    -0.02267456,
+    -0.018753052,
+    0.0079956055,
+    0.00047397614,
+    0.028823853,
+    -0.046417236,
+    -0.014213562,
+    -0.025360107,
+    0.010253906,
+    -0.023162842,
+    -0.0011787415,
+    0.050079346,
+    -0.040039062,
+    0.08013916,
+    -0.034820557,
+    -0.014732361,
+    0.090270996,
+    0.030456543,
+    -0.03729248,
+    -0.014808655,
+    0.051361084,
+    0.043426514,
+    0.05960083,
+    -0.013046265,
+    0.013938904,
+    0.058563232,
+    -0.004142761,
+    -0.014266968,
+    -0.025527954,
+    -0.0005712509,
+    -0.03048706,
+    -0.020446777,
+    -0.023422241,
+    0.016616821,
+    -0.0072021484,
+    0.054840088,
+    0.014762878,
+    0.002840042,
+    0.007911682,
+    -0.058441162,
+    -0.005634308,
+    0.010894775,
+    -0.0040893555,
+    -0.03414917,
+    0.00070905685,
+    0.01713562,
+    0.012580872,
+    0.010154724,
+    0.022201538,
+    0.04196167,
+    -0.018936157,
+    0.0014028549,
+    -0.0047950745,
+    -0.034057617,
+    -0.031234741,
+    0.051513672,
+    -0.043304443,
+    -0.019058228,
+    0.03741455,
+    0.027542114,
+    0.081604004,
+    -0.027008057,
+    0.021316528,
+    -0.007888794,
+    0.028030396,
+    -0.010765076,
+    0.005329132,
+    0.0021419525,
+    -0.010513306,
+    -0.0095825195,
+    -0.00018167496,
+    0.004512787,
+    -0.008468628,
+    0.00017774105,
+    0.008628845,
+    -0.009254456,
+    0.026855469,
+    0.019744873,
+    -0.03164673,
+    0.0027866364,
+    0.0066947937,
+    -0.019241333,
+    0.0012559891,
+    0.00014257431,
+    -0.049346924,
+    0.028503418,
+    -0.035949707,
+    0.0112838745,
+    -0.023269653,
+    -0.009971619,
+    0.00030303,
+    0.015686035,
+    0.0025978088,
+    0.023635864,
+    0.02456665,
+    0.025665283,
+    0.016677856,
+    -0.066467285,
+    0.025497437,
+    -0.014549255,
+    0.055725098,
+    -0.022888184,
+    0.046173096,
+    0.06829834,
+    -0.051086426,
+    0.12402344,
+    0.10290527,
+    0.025390625,
+    0.015174866,
+    0.03036499,
+    -0.05142212,
+    -0.019866943,
+    0.00806427,
+    0.010284424,
+    -0.020935059,
+    -0.015235901,
+    0.051879883,
+    -0.027786255,
+    -0.068237305,
+    -0.0135650635,
+    0.032592773,
+    0.025512695,
+    0.06695557,
+    0.0023479462,
+    0.003227234,
+    0.008354187,
+    0.005207062,
+    0.008628845,
+    0.008842468,
+    -0.031143188,
+    0.03062439,
+    -0.027297974,
+    0.02406311,
+    -0.010414124,
+    0.08898926,
+    0.05899048,
+    0.006626129,
+    0.009643555,
+    -0.005584717,
+    0.0012989044,
+    0.012313843,
+    -0.020141602,
+    -0.0027256012,
+    0.011955261,
+    -0.048217773,
+    0.0074806213,
+    -0.004257202,
+    -0.0028877258,
+    0.0129852295,
+    -0.028015137,
+    0.003353119,
+    0.027786255,
+    -0.008872986,
+    0.0037879944,
+    0.023788452,
+    0.031280518,
+    0.0039596558,
+    -0.01637268,
+    -0.07055664,
+    0.045562744,
+    0.04321289,
+    0.02609253,
+    0.01108551,
+    0.055999756,
+    -0.041229248,
+    -0.03353882,
+    0.023208618,
+    0.0033340454,
+    -0.047821045,
+    -0.06793213,
+    -0.017974854,
+    0.02684021,
+    -0.030944824,
+    0.029266357,
+    0.06762695,
+    -0.023483276,
+    0.032409668,
+    0.018127441,
+    -0.008338928,
+    0.049926758,
+    -0.029556274,
+    -0.014717102,
+    0.030838013,
+    -0.08148193,
+    -0.0039482117,
+    0.023162842,
+    -0.010017395,
+    0.028793335,
+    0.014579773,
+    0.006591797,
+    0.047424316,
+    0.019332886,
+    0.020050049,
+    -0.06011963,
+    0.02268982,
+    0.036315918,
+    0.035888672,
+    0.030014038,
+    -0.03060913,
+    0.041870117,
+    0.021911621,
+    -0.011062622,
+    -0.03378296,
+    -0.06072998,
+    -0.072387695,
+    -0.08660889,
+    0.020599365,
+    -0.003206253,
+    0.037139893,
+    -0.0016860962,
+    0.07684326,
+    -0.001865387,
+    -0.08190918,
+    -0.029190063,
+    -0.02558899,
+    -0.028900146,
+    0.01197052,
+    -0.0076293945,
+    -0.017486572,
+    0.0079422,
+    -0.018859863,
+    0.022079468,
+    0.027069092,
+    -0.0011005402,
+    0.002286911,
+    0.00831604,
+    0.0027427673,
+    0.039886475,
+    0.021026611,
+    -0.006011963,
+    0.02861023,
+    0.05807495,
+    -0.026046753,
+    0.019256592,
+    -0.006340027,
+    -0.028152466,
+    0.010383606,
+    0.01576233,
+    -0.027389526,
+    0.008392334,
+    0.0013179779,
+    -0.026351929,
+    -0.0070877075,
+    -0.05960083,
+    -0.023208618,
+    0.024734497,
+    0.0013723373,
+    0.0093307495,
+    0.06347656,
+    0.015205383,
+    -0.038024902,
+    -0.05154419,
+    -0.017929077,
+    -0.023590088,
+    0.009590149,
+    -0.049346924,
+    -0.001912117,
+    -0.026321411,
+    0.04812622,
+    0.010368347,
+    0.028778076,
+    -0.008026123,
+    -0.03387451,
+    0.0058631897,
+    0.07092285,
+    0.051605225,
+    -0.03994751,
+    -0.035186768,
+    -0.022476196,
+    0.025390625,
+    0.030395508,
+    0.04058838,
+    -0.023132324,
+    0.10583496,
+    -0.010986328,
+    -0.018814087,
+    0.046691895,
+    -0.015510559,
+    -0.016189575,
+    0.08795166,
+    0.013763428,
+    0.0036296844,
+    0.009666443,
+    0.029022217,
+    0.017715454,
+    0.034088135,
+    -0.011161804,
+    0.010246277,
+    -0.03842163,
+    0.04647827,
+    -0.010856628,
+    0.026062012,
+    -0.0463562,
+    -0.005882263,
+    0.024276733,
+    -0.004547119,
+    0.0018787384,
+    -0.004737854,
+    0.024353027,
+    0.008460999,
+    0.004322052,
+    0.02444458,
+    0.026000977,
+    0.02394104,
+    -0.001543045,
+    0.028045654,
+    0.007736206,
+    -0.035308838,
+    -0.015151978,
+    -0.009483337,
+    -0.015075684,
+    0.05316162,
+    -0.053009033,
+    -0.026550293,
+    -0.018508911,
+    0.01626587,
+    0.025039673,
+    0.011276245,
+    -0.008720398,
+    -0.029785156,
+    -0.0051498413,
+    -0.016082764,
+    0.0013132095,
+    -0.016235352,
+    0.037139893,
+    -0.0115356445,
+    0.013999939,
+    -0.007019043,
+    -0.023391724,
+    0.006713867,
+    0.0020046234,
+    0.0019207001,
+    0.0041923523,
+    0.00016319752,
+    0.0011148453,
+    -0.027145386,
+    -0.030715942,
+    0.027938843,
+    -0.007144928,
+    0.05130005,
+    0.01184082,
+    0.029693604,
+    0.011009216,
+    0.027572632,
+    -0.02760315,
+    -0.015991211,
+    -0.010047913,
+    -0.037994385,
+    -0.027267456,
+    0.02720642,
+    -0.012001038,
+    0.06756592,
+    -0.0050621033,
+    0.025482178,
+    -0.008979797,
+    0.03366089,
+    -0.008987427,
+    0.0076141357,
+    -0.00078868866,
+    -0.054260254,
+    -0.038726807,
+    -0.0027160645,
+    0.014549255,
+    -0.057922363,
+    0.036010742,
+    0.0008010864,
+    -0.0017681122,
+    0.0011224747,
+    0.01763916,
+    -0.007419586,
+    0.045196533,
+    0.005168915,
+    -0.045654297,
+    0.027770996,
+    0.0068130493,
+    -0.049865723,
+    0.0019025803,
+    -0.0791626,
+    0.029800415,
+    -0.0017147064,
+    -0.019088745,
+    0.028396606,
+    -0.11993408,
+    -0.03933716,
+    -0.04800415,
+    -0.005050659,
+    -0.0124435425,
+    -0.006855011,
+    0.05117798,
+    -0.018173218,
+    -0.049621582,
+    0.017990112,
+    0.0049057007,
+    0.04498291,
+    0.049316406,
+    -0.019805908,
+    -0.0072669983,
+    0.03640747,
+    -0.008071899,
+    -0.037719727,
+    0.006454468,
+    0.016311646,
+    0.011955261,
+    -0.049346924,
+    -0.048309326,
+    -0.004032135,
+    0.008872986,
+    0.08721924,
+    0.018615723,
+    -0.044036865,
+    -0.018218994,
+    0.056671143,
+    0.036712646,
+    -0.022781372,
+    -0.011512756,
+    -0.02670288,
+    0.06939697,
+    0.01121521,
+    0.010246277,
+    0.011993408,
+    0.041229248,
+    -0.063964844,
+    0.012519836,
+    -0.004371643,
+    0.0098724365,
+    -0.0124435425,
+    1.6570091e-05,
+    0.0032901764,
+    -0.07940674,
+    -0.068237305,
+    0.01486969,
+    0.025741577,
+    0.02204895,
+    -0.0055351257,
+    -0.022140503,
+    -0.016357422,
+    0.038269043,
+    -0.06854248,
+    0.018615723,
+    -0.048828125,
+    -0.05105591,
+    0.011993408,
+    -0.0035629272,
+    -0.0028800964,
+    -0.00983429,
+    0.011192322,
+    -0.03829956,
+    -0.012825012,
+    -0.034820557,
+    0.014877319,
+    -0.0050621033,
+    0.01096344,
+    -0.027389526,
+    -0.0076942444,
+    0.03314209,
+    0.03225708,
+    -0.02168274,
+    -0.0058670044,
+    -0.010871887,
+    -0.001625061,
+    -0.010246277,
+    -0.012634277,
+    -0.01751709,
+    0.00054597855,
+    -0.0076065063,
+    -0.018493652,
+    -0.08343506,
+    0.010772705,
+    -0.0019292831,
+    -0.025924683,
+    0.027282715,
+    0.027313232,
+    0.0140686035,
+    -0.01638794,
+    -0.037719727,
+    0.0021705627,
+    -0.0435791,
+    0.060760498,
+    -0.0546875,
+    0.036071777,
+    -0.10797119,
+    -0.026550293,
+    0.031555176,
+    0.015426636,
+    0.0045547485,
+    0.016601562,
+    -0.027297974,
+    0.0154953,
+    0.045166016,
+    0.00793457,
+    0.004257202,
+    0.007572174,
+    0.018447876,
+    0.019882202,
+    -0.0005168915,
+    0.027679443,
+    0.0036334991,
+    -0.023208618,
+    -0.0023880005,
+    0.01838684,
+    -0.0062065125,
+    -0.014083862,
+    0.02947998,
+    -0.0137786865,
+    -0.005672455,
+    -0.009025574,
+    0.046875,
+    0.03060913,
+    -0.043304443,
+    -0.03338623,
+    -0.017562866,
+    -0.027755737,
+    -0.045562744,
+    0.041870117,
+    -0.009529114,
+    -0.033233643,
+    -0.031463623,
+    -0.007156372,
+    -0.0025596619,
+    -0.006767273,
+    0.017929077,
+    -0.02041626,
+    -0.028549194,
+    0.04244995,
+    -0.005092621,
+    -0.05142212,
+    0.050628662,
+    0.009651184,
+    -0.009391785,
+    -0.033050537,
+    -0.006752014,
+    0.0090408325,
+    -0.024597168,
+    -0.068237305,
+    0.0014162064,
+    -0.012298584,
+    0.019134521,
+    -0.0071754456,
+    -0.008506775,
+    -0.01247406,
+    0.0317688,
+    -0.036132812,
+    0.008399963,
+    0.016052246,
+    0.018692017,
+    0.012519836,
+    0.009437561,
+    0.021591187,
+    0.02658081,
+    -0.031585693,
+    0.018112183,
+    -0.015853882,
+    0.021026611,
+    0.016738892,
+    -0.024536133,
+    0.038635254,
+    -0.031158447,
+    -0.011131287,
+    0.0099487305,
+    -0.035491943,
+    0.027923584,
+    -0.008552551,
+    -0.06970215,
+    -0.03086853,
+    -0.021774292,
+    -0.046325684,
+    -0.060058594,
+    0.047454834,
+    -0.021942139,
+    -0.052001953,
+    -0.095825195,
+    -0.010940552,
+    0.036590576,
+    0.017593384,
+    -0.0692749,
+    0.030288696,
+    -0.082214355,
+    0.014625549,
+    -0.009773254,
+    -0.016052246,
+    0.002292633,
+    0.05117798,
+    0.023666382,
+    0.017028809,
+    0.011833191,
+    -0.045715332,
+    -0.01739502,
+    0.0061187744,
+    -0.014846802,
+    0.0004274845,
+    0.044525146,
+    0.02305603,
+    -0.009880066,
+    -0.012908936,
+    -0.029815674,
+    0.019638062,
+    -0.014144897,
+    0.017440796,
+    -0.018249512,
+    0.0044174194,
+    0.0009198189,
+    -0.0049743652,
+    0.004219055,
+    0.050109863,
+    -0.028869629,
+    0.062438965,
+    0.00093889236,
+    -0.049835205,
+    -0.022613525,
+    -0.008026123,
+    0.024398804,
+    0.018859863,
+    -0.05050659,
+    -0.04437256,
+    -0.02243042,
+    0.04449463,
+    0.023284912,
+    -0.014022827,
+    -0.0121536255,
+    -0.0104904175,
+    0.068847656,
+    0.0033721924,
+    -0.016281128,
+    0.02746582,
+    0.024887085,
+    -0.045928955,
+    -0.013908386,
+    0.0011329651,
+    -0.040283203,
+    -0.004676819,
+    0.030975342,
+    -0.030426025,
+    0.011955261,
+    -0.02178955,
+    0.005367279,
+    -0.007396698,
+    -0.012283325,
+    -0.030441284,
+    -0.034729004,
+    -0.018554688,
+    -0.0036334991,
+    0.009162903,
+    -0.007587433,
+    -0.012969971,
+    -0.01600647,
+    0.0056114197,
+    0.020187378,
+    0.021957397,
+    0.013946533,
+    0.009971619,
+    -0.039794922,
+    -0.012008667,
+    0.0077056885,
+    0.019470215,
+    0.008888245,
+    -0.040649414,
+    -0.018737793,
+    -0.010902405,
+    0.018417358,
+    0.020126343,
+    0.0052604675,
+    -0.006072998,
+    0.020736694,
+    -0.024108887,
+    0.03930664,
+    0.004306793,
+    0.014694214,
+    -0.0026874542,
+    -0.020645142,
+    0.009147644,
+    0.0026741028,
+    0.03100586,
+    -0.022720337,
+    0.0012817383,
+    -0.040283203,
+    0.015007019,
+    0.0012359619,
+    -0.00440979,
+    0.0040397644,
+    0.008705139,
+    0.020339966,
+    -0.020935059,
+    0.006126404,
+    0.003835678,
+    -0.04901123,
+    0.04248047,
+    -0.026260376,
+    0.05606079,
+    -0.022109985,
+    -0.026535034,
+    -0.021011353,
+    0.0040283203,
+    -0.016143799,
+    0.025054932,
+    0.04373169,
+    -0.021591187,
+    0.044006348,
+    0.019622803,
+    -0.019592285,
+    -0.02935791,
+    0.015563965,
+    0.020111084,
+    -0.0016336441,
+    0.008735657,
+    0.009185791,
+    0.0574646,
+    0.029891968,
+    0.079589844,
+    0.01473999,
+    -0.038879395,
+    0.070007324,
+    -0.04144287,
+    -0.0206604,
+    0.02418518,
+    -0.045043945,
+    0.049041748,
+    0.010757446,
+    0.012306213,
+    0.02758789,
+    0.004257202,
+    -0.015617371,
+    -0.003818512,
+    0.034088135,
+    -0.010269165,
+    -0.024856567,
+    0.014984131,
+    -0.04449463,
+    0.017578125,
+    0.05114746,
+    -0.020080566,
+    -0.012825012,
+    0.026535034,
+    0.05529785,
+    0.0032634735,
+    0.0040512085,
+    -0.027236938,
+    -0.017807007,
+    0.050994873,
+    -0.013534546,
+    0.012298584,
+    0.018539429,
+    -0.038391113,
+    0.019546509,
+    0.026885986,
+    -0.024902344,
+    0.013298035,
+    0.021835327,
+    -0.026748657,
+    0.0014867783,
+    0.002374649,
+    0.0149002075,
+    -0.010787964,
+    0.005832672,
+    0.0030822754,
+    0.018310547,
+    0.010482788,
+    -0.06561279,
+    -0.001578331,
+    0.038970947,
+    0.005092621,
+    0.030471802,
+    -0.023651123,
+    0.0014801025,
+    0.0014371872,
+    -0.0018148422,
+    0.0131073,
+    0.043304443,
+    0.018737793,
+    0.07183838,
+    0.005317688,
+    0.04309082,
+    0.018203735,
+    -0.060760498,
+    0.023025513,
+    -0.013336182,
+    0.018600464,
+    0.011245728,
+    0.017105103,
+    -0.0209198,
+    -0.0022087097,
+    -0.011352539,
+    -0.017440796,
+    -0.041870117,
+    0.039489746,
+    0.022857666,
+    0.00049972534,
+    -0.0024051666,
+    -0.0058250427,
+    -0.033050537,
+    -0.035125732,
+    0.009925842,
+    -0.012954712,
+    0.03591919,
+    -0.046569824,
+    -0.025054932,
+    0.014907837,
+    0.032836914,
+    0.033996582,
+    -0.016326904,
+    0.057891846,
+    -0.02796936,
+    -0.014762878,
+    0.02545166,
+    0.0390625,
+    -0.0030899048,
+    -0.014465332,
+    0.042236328,
+    0.013755798,
+    -0.0012617111,
+    -0.03756714,
+    -0.0065193176,
+    -0.0034732819,
+    -0.006729126,
+    -0.034698486,
+    -0.002286911,
+    -0.0101623535,
+    0.0413208,
+    0.022262573,
+    0.048187256,
+    0.022384644,
+    0.02268982,
+    -0.01586914,
+    0.026321411,
+    0.00018799305,
+    0.012046814,
+    0.01322937,
+    -0.0034313202,
+    0.0030460358,
+    0.015609741,
+    -0.037139893,
+    -0.0044898987,
+    -0.019134521,
+    -0.024017334,
+    0.016235352,
+    -0.027023315,
+    0.031555176,
+    -0.014274597,
+    -0.040252686,
+    0.009170532,
+    -0.018371582,
+    -0.006340027,
+    0.01550293,
+    -0.018478394,
+    0.017547607,
+    0.04437256,
+    -0.026260376,
+    0.022613525,
+    0.03048706,
+    0.00093460083,
+    0.0014791489,
+    -0.006565094,
+    -0.040649414,
+    -0.035186768,
+    -0.013977051,
+    -0.03591919,
+    -0.0029067993,
+    -0.015670776,
+    0.06573486,
+    0.018066406,
+    -0.043914795,
+    -0.040100098,
+    -0.016998291,
+    -0.018417358,
+    -0.022064209,
+    -0.031280518,
+    -0.02822876,
+    -0.027496338,
+    0.025543213,
+    0.04147339,
+    -0.0041770935,
+    0.010246277,
+    -0.016433716,
+    0.016113281,
+    -0.02128601,
+    0.0680542,
+    0.02619934,
+    0.064086914,
+    -0.058563232,
+    0.11303711,
+    0.039154053,
+    0.045806885,
+    -0.028869629,
+    -0.011833191,
+    -0.024383545,
+    0.031051636,
+    -0.015220642,
+    0.022201538,
+    0.012557983,
+    0.0015192032,
+    0.005695343,
+    -0.0024375916,
+    -0.032073975,
+    -0.010871887,
+    0.020111084,
+    0.10925293,
+    -0.02168274,
+    0.015701294
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part I/Developers and Enterprises/",
+    "aws::graph::propositions": [
+      "Competitive Factors for Amazon's Seller and Enterprise Services",
+      "Additional competitive factors for seller and enterprise services include quality of services and tools.",
+      "Additional competitive factors for seller and enterprise services include speed of services and tools.",
+      "Additional competitive factors for seller and enterprise services include reliability of services and tools.",
+      "Additional competitive factors for seller and enterprise services include customers' ability to change business practices.",
+      "Additional competitive factors for seller and enterprise services include customers' willingness to change business practices.",
+      "Some current competitors have greater resources than Amazon.",
+      "Some potential competitors have greater resources than Amazon.",
+      "Some current competitors have longer histories than Amazon.",
+      "Some potential competitors have longer histories than Amazon.",
+      "Some current competitors have more customers than Amazon.",
+      "Some potential competitors have more customers than Amazon.",
+      "Some current competitors have greater brand recognition than Amazon.",
+      "Some potential competitors have greater brand recognition than Amazon.",
+      "Some current competitors have greater control over inputs critical to Amazon's various businesses.",
+      "Some potential competitors have greater control over inputs critical to Amazon's various businesses.",
+      "Competitors may secure better terms from suppliers.",
+      "Competitors may adopt more aggressive pricing.",
+      "Competitors may pursue restrictive distribution agreements that restrict Amazon's access to supply.",
+      "Competitors may direct consumers to their own offerings instead of Amazon's offerings.",
+      "Competitors may lock-in potential customers with restrictive terms.",
+      "Competitors may devote more resources to technology than Amazon.",
+      "Competitors may devote more resources to infrastructure than Amazon.",
+      "Competitors may devote more resources to fulfillment than Amazon.",
+      "Competitors may devote more resources to marketing than Amazon.",
+      "The internet facilitates competitive entry.",
+      "The internet facilitates comparison shopping.",
+      "The internet enhances the ability of new businesses to compete against Amazon.",
+      "The internet enhances the ability of smaller businesses to compete against Amazon.",
+      "The internet enhances the ability of lesser-known businesses to compete against Amazon.",
+      "Each of Amazon's businesses is subject to rapid change.",
+      "Each of Amazon's businesses is subject to the development of new business models.",
+      "Each of Amazon's businesses is subject to the entry of new competitors.",
+      "Each of Amazon's businesses is subject to the entry of well-funded competitors.",
+      "Other companies may enter into business combinations that strengthen their competitive positions.",
+      "Other companies may enter into alliances that strengthen their competitive positions."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Competitive Factors for Amazon's Seller and Enterprise Services",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "competitors",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "current competitors",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "potential competitors",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "internet",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "customers",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "suppliers",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "consumers",
+              "classification": "Person"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Additional competitive factors for seller and enterprise services include quality of services and tools.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPETITIVE FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "quality of services and tools",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Additional competitive factors for seller and enterprise services include speed of services and tools.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPETITIVE FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "speed of services and tools",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Additional competitive factors for seller and enterprise services include reliability of services and tools.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPETITIVE FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reliability of services and tools",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Additional competitive factors for seller and enterprise services include customers' ability to change business practices.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS ABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "change business practices",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPETITIVE FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers' ability to change business practices",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Additional competitive factors for seller and enterprise services include customers' willingness to change business practices.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS WILLINGNESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "change business practices",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPETITIVE FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers' willingness to change business practices",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some current competitors have greater resources than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS RESOURCES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "greater than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some potential competitors have greater resources than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS RESOURCES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "greater than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some current competitors have longer histories than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS HISTORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "longer than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some potential competitors have longer histories than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS HISTORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "longer than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some current competitors have more customers than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CUSTOMERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CUSTOMERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "CUSTOMER COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some potential competitors have more customers than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CUSTOMERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CUSTOMERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "CUSTOMER COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some current competitors have greater brand recognition than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BRAND RECOGNITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "greater than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some potential competitors have greater brand recognition than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BRAND RECOGNITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "greater than Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some current competitors have greater control over inputs critical to Amazon's various businesses.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "current competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CONTROL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "greater control over critical inputs",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESSES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "various businesses",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some potential competitors have greater control over inputs critical to Amazon's various businesses.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CONTROL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "greater control over critical inputs",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESSES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "various businesses",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may secure better terms from suppliers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "NEGOTIATES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "suppliers",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY SECURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "better terms from suppliers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may adopt more aggressive pricing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY ADOPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more aggressive pricing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may pursue restrictive distribution agreements that restrict Amazon's access to supply.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY PURSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "restrictive distribution agreements",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS ACCESS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "restricted access to supply",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may direct consumers to their own offerings instead of Amazon's offerings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DIRECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "consumers",
+                    "classification": "Person"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS OFFERINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "own offerings",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS OFFERINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "offerings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may lock-in potential customers with restrictive terms.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "TARGETS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customers",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY USE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "restrictive terms",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may devote more resources to technology than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY DEVOTE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more resources to technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may devote more resources to infrastructure than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY DEVOTE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more resources to infrastructure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may devote more resources to fulfillment than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY DEVOTE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more resources to fulfillment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competitors may devote more resources to marketing than Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitors",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY DEVOTE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more resources to marketing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The internet facilitates competitive entry.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internet",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "FACILITATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitive entry",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The internet facilitates comparison shopping.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internet",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "FACILITATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "comparison shopping",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The internet enhances the ability of new businesses to compete against Amazon.",
+              "details": [
+                "new businesses COMPETES WITH Amazon"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new businesses",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internet",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "ENHANCES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ability of new businesses to compete",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The internet enhances the ability of smaller businesses to compete against Amazon.",
+              "details": [
+                "smaller businesses COMPETES WITH Amazon"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smaller businesses",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internet",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "ENHANCES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ability of smaller businesses to compete",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The internet enhances the ability of lesser-known businesses to compete against Amazon.",
+              "details": [
+                "lesser-known businesses COMPETES WITH Amazon"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lesser-known businesses",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internet",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "ENHANCES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ability of lesser-known businesses to compete",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Each of Amazon's businesses is subject to rapid change.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESSES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "businesses",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rapid change",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Each of Amazon's businesses is subject to the development of new business models.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESSES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "businesses",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "development of new business models",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Each of Amazon's businesses is subject to the entry of new competitors.",
+              "details": [
+                "new competitors COMPETES WITH Amazon"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new competitors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESSES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "businesses",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "entry of new competitors",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Each of Amazon's businesses is subject to the entry of well-funded competitors.",
+              "details": [
+                "well-funded competitors COMPETES WITH Amazon"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "well-funded competitors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COMPETES WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS BUSINESSES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "businesses",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "entry of well-funded competitors",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Other companies may enter into business combinations that strengthen their competitive positions.",
+              "details": [
+                "other companies MAY ENTER business combinations",
+                "business combinations STRENGTHENS competitive positions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other companies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MAY ENTER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "business combinations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "business combinations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STRENGTHENS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitive positions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Other companies may enter into alliances that strengthen their competitive positions.",
+              "details": [
+                "other companies MAY ENTER alliances",
+                "alliances STRENGTHENS competitive positions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other companies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MAY ENTER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "alliances",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "alliances",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STRENGTHENS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competitive positions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:e30c1a7f",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Developers and Enterprises/"
+      },
+      "hash": "adfc6de824d0c9112f0ec4e569a3a28bdce6fe118ac03ce47fd25c312d5109a2",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:2e7b027a",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Developers and Enterprises/"
+      },
+      "hash": "ddde5fad63dfe72bf01c5b0c69f4d92fa7e73c27cdffd7ebc9adb1ba63b64a09",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "Additional competitive factors for our seller and enterprise services include the quality, speed, and reliability of our services and tools, as well as customers’ ability and willingness to change business practices. Some of our current and potential competitors have greater resources, longer histories, more customers, greater brand recognition, and greater control over inputs critical to our various businesses. They may secure better terms from suppliers, adopt more aggressive pricing, pursue restrictive distribution agreements that restrict our access to supply, direct consumers to their own offerings instead of ours, lock-in potential customers with restrictive terms, and devote more resources to technology, infrastructure, fulfillment, and marketing. The internet facilitates competitive entry and comparison shopping, which enhances the ability of new, smaller, or lesser-known businesses to compete against us. Each of our businesses is also subject to rapid change and the development of new business models and the entry of new and well-funded competitors. Other companies also may enter into business combinations or alliances that strengthen their competitive positions.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1984,
+  "end_char_idx": 3174,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

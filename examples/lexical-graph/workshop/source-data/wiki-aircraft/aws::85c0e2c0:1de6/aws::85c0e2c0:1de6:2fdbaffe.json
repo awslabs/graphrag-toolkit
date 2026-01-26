@@ -1,0 +1,2056 @@
+{
+  "id_": "aws::85c0e2c0:1de6:2fdbaffe",
+  "embedding": [
+    -0.039794922,
+    0.00365448,
+    -0.022857666,
+    0.016616821,
+    -0.029846191,
+    -0.0023536682,
+    -0.003566742,
+    -0.009216309,
+    -0.04006958,
+    0.0073776245,
+    -0.014572144,
+    0.009971619,
+    0.017181396,
+    -0.0132369995,
+    0.025787354,
+    -0.029968262,
+    -0.0032806396,
+    0.0031967163,
+    -0.013656616,
+    -0.0357666,
+    0.031173706,
+    -0.043914795,
+    -0.013374329,
+    -0.0074768066,
+    0.00015640259,
+    0.014419556,
+    -0.061706543,
+    -0.0023841858,
+    -0.0070114136,
+    -0.020507812,
+    -0.005924225,
+    0.044799805,
+    0.01626587,
+    -0.026611328,
+    0.04937744,
+    0.023925781,
+    -0.047790527,
+    0.007686615,
+    0.025024414,
+    -0.04144287,
+    0.041259766,
+    -0.028244019,
+    0.08886719,
+    -0.061584473,
+    0.04248047,
+    0.02355957,
+    0.026611328,
+    -0.04083252,
+    0.020355225,
+    -0.044708252,
+    0.011260986,
+    0.031341553,
+    0.0440979,
+    -0.0670166,
+    -0.01398468,
+    0.018157959,
+    -0.04940796,
+    0.08258057,
+    -0.0057525635,
+    0.061645508,
+    0.030197144,
+    0.059387207,
+    -0.023162842,
+    -0.02746582,
+    -0.012245178,
+    -0.038238525,
+    0.010696411,
+    0.048187256,
+    0.024017334,
+    -0.051940918,
+    -0.0072021484,
+    0.025939941,
+    -0.009086609,
+    -0.019622803,
+    0.043884277,
+    -0.009719849,
+    -0.012237549,
+    0.016906738,
+    -0.0019454956,
+    0.044647217,
+    -0.037597656,
+    -0.03668213,
+    0.0018234253,
+    -0.0060920715,
+    -0.021957397,
+    0.022979736,
+    -0.02255249,
+    0.012794495,
+    0.0045814514,
+    0.055145264,
+    0.00046539307,
+    0.046569824,
+    -0.006626129,
+    0.05343628,
+    0.015274048,
+    -0.0002861023,
+    0.018005371,
+    -0.010696411,
+    -0.0048980713,
+    -0.04840088,
+    0.008026123,
+    -0.030456543,
+    -0.04336548,
+    0.003189087,
+    -0.047912598,
+    -0.026123047,
+    0.0625,
+    0.05493164,
+    0.004463196,
+    0.02178955,
+    -0.036621094,
+    0.043395996,
+    -0.016143799,
+    -0.031204224,
+    -0.025253296,
+    0.004234314,
+    -0.048339844,
+    -0.0045051575,
+    0.012901306,
+    -0.037872314,
+    0.0032920837,
+    0.022369385,
+    0.02180481,
+    -0.04498291,
+    0.0006713867,
+    -0.018463135,
+    -0.028427124,
+    -0.052764893,
+    0.03289795,
+    0.0110321045,
+    -0.010856628,
+    0.015625,
+    -0.013618469,
+    -0.018447876,
+    -0.023803711,
+    -0.00090026855,
+    -0.01701355,
+    -0.0024776459,
+    -0.022064209,
+    0.005962372,
+    -0.033203125,
+    -0.029327393,
+    0.015899658,
+    -0.028625488,
+    0.009254456,
+    0.03100586,
+    0.028320312,
+    0.002368927,
+    -0.031219482,
+    -0.030593872,
+    0.00090026855,
+    -0.0016937256,
+    0.036132812,
+    0.022109985,
+    0.015548706,
+    -0.052856445,
+    0.07763672,
+    -0.0637207,
+    0.01133728,
+    -0.084472656,
+    0.028366089,
+    -0.0149383545,
+    -0.01083374,
+    0.007133484,
+    -0.017120361,
+    0.011169434,
+    -0.028076172,
+    0.004676819,
+    0.031082153,
+    0.015014648,
+    0.03982544,
+    -0.008293152,
+    0.0018892288,
+    0.069885254,
+    0.03805542,
+    0.02949524,
+    -0.015686035,
+    0.087402344,
+    0.011680603,
+    -0.04260254,
+    0.0014562607,
+    -0.052001953,
+    0.088378906,
+    -0.020599365,
+    -0.0063552856,
+    -0.012741089,
+    0.010360718,
+    -0.0065460205,
+    -0.010917664,
+    -0.004917145,
+    0.054992676,
+    0.05706787,
+    -0.03829956,
+    -0.048583984,
+    -0.0014038086,
+    4.5776367e-05,
+    -0.02861023,
+    -0.021865845,
+    -0.0016746521,
+    0.054138184,
+    -0.0602417,
+    0.060943604,
+    -0.06274414,
+    0.07366943,
+    -0.02468872,
+    0.0034809113,
+    -0.0012197495,
+    0.024353027,
+    -0.020309448,
+    0.017501831,
+    0.025863647,
+    -0.041503906,
+    -0.03262329,
+    0.053771973,
+    0.0018234253,
+    -0.013557434,
+    -0.029876709,
+    -0.009307861,
+    0.016464233,
+    -0.017333984,
+    0.021392822,
+    0.025680542,
+    0.033355713,
+    0.0021743774,
+    -0.027938843,
+    -0.0140686035,
+    -0.012084961,
+    0.0044021606,
+    -0.015991211,
+    0.01499176,
+    0.018493652,
+    -0.0006599426,
+    -0.02973938,
+    0.016998291,
+    0.017745972,
+    0.025741577,
+    0.043792725,
+    -0.019897461,
+    0.019088745,
+    0.0019721985,
+    -0.0011281967,
+    -0.06121826,
+    -0.026229858,
+    0.054138184,
+    -0.112854004,
+    -0.08721924,
+    -0.0019340515,
+    0.030578613,
+    -0.032287598,
+    -0.027359009,
+    0.035339355,
+    0.009460449,
+    0.024856567,
+    0.08294678,
+    -0.008354187,
+    -0.008239746,
+    0.022766113,
+    -0.0063209534,
+    -0.018920898,
+    0.011009216,
+    -0.0001373291,
+    -0.060638428,
+    -0.06262207,
+    -0.018005371,
+    0.052215576,
+    -0.018615723,
+    0.057373047,
+    0.036376953,
+    -0.0463562,
+    0.0036811829,
+    0.025024414,
+    0.027038574,
+    0.020462036,
+    -0.017913818,
+    -0.11016846,
+    -0.005519867,
+    0.0043525696,
+    0.021743774,
+    0.0037841797,
+    -0.047851562,
+    -0.00831604,
+    0.038879395,
+    -0.006702423,
+    8.392334e-05,
+    -0.02810669,
+    -0.007621765,
+    0.014122009,
+    0.010574341,
+    -0.015777588,
+    -0.01234436,
+    0.03765869,
+    -0.018585205,
+    -0.029800415,
+    -0.0049438477,
+    0.02519226,
+    -0.04144287,
+    0.08380127,
+    0.030670166,
+    -0.016860962,
+    -0.0022449493,
+    0.052612305,
+    0.036590576,
+    -0.015319824,
+    -0.012313843,
+    -0.004512787,
+    -0.031066895,
+    -0.026306152,
+    0.020553589,
+    0.0045776367,
+    -0.01586914,
+    -0.034118652,
+    0.038208008,
+    0.03363037,
+    0.087646484,
+    0.013549805,
+    -0.015640259,
+    0.027069092,
+    0.081848145,
+    0.054107666,
+    0.026901245,
+    -0.025772095,
+    -0.04284668,
+    -0.0013465881,
+    -0.0357666,
+    -0.012535095,
+    -0.004295349,
+    -0.043884277,
+    0.0024032593,
+    0.01625061,
+    -0.027053833,
+    -0.03817749,
+    -0.03378296,
+    -0.05807495,
+    -0.00422287,
+    0.011375427,
+    0.016693115,
+    0.012359619,
+    0.0038394928,
+    -0.0031757355,
+    -0.029067993,
+    0.0184021,
+    0.006942749,
+    0.005290985,
+    0.013076782,
+    -0.03942871,
+    -0.038085938,
+    -0.005344391,
+    0.004676819,
+    0.02571106,
+    -0.026382446,
+    0.031021118,
+    0.0008535385,
+    -0.024627686,
+    0.028015137,
+    -0.017822266,
+    0.0018997192,
+    0.04473877,
+    -0.0058288574,
+    -0.039978027,
+    -0.047607422,
+    0.035491943,
+    -0.013763428,
+    0.004508972,
+    0.055114746,
+    0.0034713745,
+    -0.027542114,
+    -0.024810791,
+    0.024337769,
+    0.0096206665,
+    0.027694702,
+    -0.047729492,
+    0.011703491,
+    -0.03186035,
+    -0.01071167,
+    -0.006767273,
+    0.023590088,
+    0.018661499,
+    -0.038635254,
+    0.01751709,
+    0.0033283234,
+    0.017471313,
+    0.03491211,
+    0.001124382,
+    0.021621704,
+    0.03161621,
+    0.013839722,
+    -0.011428833,
+    -0.008110046,
+    0.030395508,
+    -0.002822876,
+    0.02607727,
+    -0.002904892,
+    0.017715454,
+    -0.041870117,
+    0.01675415,
+    0.01424408,
+    0.004814148,
+    0.0023784637,
+    0.011383057,
+    -0.044677734,
+    -0.047332764,
+    0.007835388,
+    -0.004020691,
+    -0.042785645,
+    0.0362854,
+    -0.04638672,
+    0.0048599243,
+    -0.049560547,
+    0.014289856,
+    0.046936035,
+    -0.004142761,
+    0.04168701,
+    -0.02331543,
+    0.06201172,
+    -0.015388489,
+    -0.0075912476,
+    0.0037841797,
+    -0.025772095,
+    0.013114929,
+    0.012390137,
+    0.033050537,
+    -0.057617188,
+    0.003704071,
+    0.013702393,
+    -0.022735596,
+    0.0014266968,
+    -0.01965332,
+    0.007408142,
+    0.0110321045,
+    0.0077667236,
+    -0.013725281,
+    -0.022064209,
+    -0.01701355,
+    0.033966064,
+    -0.0017127991,
+    0.056396484,
+    0.007434845,
+    -0.028289795,
+    0.03945923,
+    -0.04171753,
+    0.06726074,
+    0.02357483,
+    -0.0057373047,
+    0.002319336,
+    0.0013427734,
+    -0.031982422,
+    0.023880005,
+    0.030303955,
+    0.027267456,
+    0.028320312,
+    -0.02696228,
+    -0.021118164,
+    0.0034046173,
+    0.018554688,
+    -0.034820557,
+    0.052734375,
+    0.023223877,
+    0.006336212,
+    0.023925781,
+    0.0003786087,
+    -0.0368042,
+    0.00062942505,
+    0.008369446,
+    -0.029190063,
+    -0.0043640137,
+    -0.025619507,
+    0.07495117,
+    -0.010894775,
+    -0.030944824,
+    0.026641846,
+    -0.037353516,
+    0.0067100525,
+    0.00027656555,
+    -0.01914978,
+    -0.014953613,
+    -0.02281189,
+    0.027236938,
+    0.011833191,
+    0.013076782,
+    -0.015357971,
+    -0.0138168335,
+    -0.0041122437,
+    -0.0053253174,
+    0.00068855286,
+    0.013145447,
+    0.008132935,
+    -0.037109375,
+    -0.006706238,
+    0.00036621094,
+    3.0040741e-05,
+    0.04196167,
+    -0.0038757324,
+    0.023529053,
+    0.019515991,
+    -0.003692627,
+    -0.029418945,
+    0.021408081,
+    -0.0068473816,
+    0.0030288696,
+    -0.020568848,
+    -0.09674072,
+    0.028503418,
+    0.03656006,
+    0.01436615,
+    -0.07702637,
+    -0.00035095215,
+    0.07128906,
+    0.010932922,
+    0.0126953125,
+    -0.03302002,
+    0.028564453,
+    -0.019897461,
+    0.026565552,
+    0.01727295,
+    -0.030258179,
+    0.028167725,
+    -0.012756348,
+    -0.05630493,
+    0.010421753,
+    0.023925781,
+    -0.031219482,
+    -0.0340271,
+    0.023086548,
+    0.019378662,
+    0.024353027,
+    0.009552002,
+    -0.005935669,
+    0.030639648,
+    -0.02519226,
+    -0.0013189316,
+    0.018554688,
+    0.01876831,
+    -0.038208008,
+    -0.027389526,
+    0.039855957,
+    0.00365448,
+    -0.0068626404,
+    -0.017547607,
+    -0.04989624,
+    -0.022537231,
+    -0.009124756,
+    0.0025367737,
+    0.016235352,
+    -0.017181396,
+    -0.00016021729,
+    -0.02532959,
+    -0.0060806274,
+    0.022857666,
+    -0.042938232,
+    -0.016403198,
+    -0.00093078613,
+    0.0026779175,
+    -0.044677734,
+    -0.015731812,
+    -0.010238647,
+    0.026382446,
+    -0.022949219,
+    -0.0017337799,
+    -0.02810669,
+    0.017242432,
+    0.013366699,
+    -0.025253296,
+    -0.0053215027,
+    0.0023784637,
+    -0.05142212,
+    0.016815186,
+    0.015899658,
+    -0.03970337,
+    0.014099121,
+    -0.030548096,
+    -0.022201538,
+    -0.027511597,
+    0.04925537,
+    0.0135269165,
+    0.0043945312,
+    -0.0012664795,
+    0.04345703,
+    0.019348145,
+    0.016586304,
+    -0.06088257,
+    -0.013694763,
+    -0.016326904,
+    0.02709961,
+    -0.017547607,
+    -0.036346436,
+    0.02281189,
+    -0.0015144348,
+    0.025466919,
+    -0.027557373,
+    -0.001953125,
+    0.034301758,
+    -0.0047569275,
+    0.018981934,
+    0.007965088,
+    -0.018615723,
+    -0.047821045,
+    -0.0074157715,
+    -0.041259766,
+    0.006126404,
+    -0.007369995,
+    -0.020477295,
+    -0.0090789795,
+    -0.0009422302,
+    -0.015365601,
+    0.0065345764,
+    0.0211792,
+    0.0027484894,
+    -0.022644043,
+    0.020385742,
+    0.035003662,
+    -0.0026378632,
+    -0.009643555,
+    -0.030975342,
+    0.014854431,
+    0.01171875,
+    -0.009819031,
+    -0.00019264221,
+    0.011512756,
+    -0.03164673,
+    0.01335907,
+    0.017578125,
+    0.012802124,
+    0.051452637,
+    -0.032287598,
+    0.011116028,
+    -0.013442993,
+    -0.010353088,
+    0.01184082,
+    -0.0022277832,
+    -0.02041626,
+    -0.0069122314,
+    -0.019866943,
+    -0.047943115,
+    -0.035614014,
+    -0.03326416,
+    0.013954163,
+    -0.0077438354,
+    -0.035125732,
+    0.030792236,
+    -0.015151978,
+    -0.015945435,
+    0.008529663,
+    -0.02243042,
+    0.02357483,
+    0.029815674,
+    -0.002199173,
+    0.007701874,
+    -0.0044784546,
+    -0.009963989,
+    -0.0013160706,
+    0.0637207,
+    0.016296387,
+    -0.018249512,
+    -0.02720642,
+    0.004337311,
+    -0.02267456,
+    -0.044555664,
+    0.002822876,
+    0.0073280334,
+    -0.017852783,
+    -0.07623291,
+    0.013282776,
+    0.010246277,
+    0.0016479492,
+    -0.019500732,
+    -0.012420654,
+    0.04159546,
+    0.022399902,
+    -0.007320404,
+    -0.035491943,
+    -0.0020828247,
+    0.020614624,
+    0.03866577,
+    -0.01977539,
+    -0.02407837,
+    -0.0066337585,
+    0.052978516,
+    -0.007865906,
+    0.0071640015,
+    -0.02545166,
+    0.0072517395,
+    0.009002686,
+    -0.041748047,
+    -0.0044517517,
+    -0.0007724762,
+    0.038757324,
+    -0.002521515,
+    0.0059814453,
+    -0.029891968,
+    -0.015304565,
+    -0.07543945,
+    -0.0067214966,
+    -0.008987427,
+    -0.010902405,
+    0.026123047,
+    -0.006313324,
+    -0.028137207,
+    0.04473877,
+    -0.024932861,
+    -0.0090789795,
+    -0.027450562,
+    0.03186035,
+    0.029815674,
+    0.03250122,
+    -0.008308411,
+    0.0027656555,
+    -0.035186768,
+    -0.018341064,
+    0.045043945,
+    0.045898438,
+    0.00015640259,
+    -0.05899048,
+    0.0075149536,
+    -0.019165039,
+    0.040283203,
+    -0.009979248,
+    0.06762695,
+    0.009185791,
+    -0.03164673,
+    -0.0013122559,
+    -0.019226074,
+    0.034606934,
+    0.014320374,
+    -0.037231445,
+    0.03869629,
+    -0.026657104,
+    -0.047058105,
+    -0.013519287,
+    -0.023971558,
+    -0.048309326,
+    0.0067710876,
+    -0.004043579,
+    0.041870117,
+    -0.021087646,
+    -0.05038452,
+    -0.0024375916,
+    0.056640625,
+    -0.06945801,
+    -0.034484863,
+    0.036865234,
+    0.03729248,
+    0.019897461,
+    0.01348114,
+    0.0055656433,
+    -0.027359009,
+    -0.008300781,
+    0.0065956116,
+    -0.06100464,
+    0.0060043335,
+    -0.022125244,
+    0.06561279,
+    -0.029541016,
+    -0.051849365,
+    -0.015472412,
+    -0.005104065,
+    -0.061676025,
+    -0.056762695,
+    0.053894043,
+    -0.0010757446,
+    0.006046295,
+    0.010925293,
+    -0.004966736,
+    -0.016143799,
+    0.029052734,
+    -0.044952393,
+    0.043640137,
+    0.042785645,
+    -0.008758545,
+    -0.0014381409,
+    -0.009643555,
+    -0.028152466,
+    -0.030288696,
+    -0.0028839111,
+    -0.012428284,
+    0.0736084,
+    0.032226562,
+    0.0018844604,
+    0.004589081,
+    0.009223938,
+    0.006248474,
+    -0.010177612,
+    0.038391113,
+    -0.028442383,
+    0.007335663,
+    0.010131836,
+    -0.029312134,
+    0.03579712,
+    -0.03894043,
+    0.016204834,
+    0.0032844543,
+    0.0181427,
+    0.015090942,
+    -0.010116577,
+    0.012008667,
+    -0.0090789795,
+    -0.052856445,
+    -0.009857178,
+    -0.0020389557,
+    -0.043518066,
+    -0.04852295,
+    0.002937317,
+    0.04257202,
+    -0.048309326,
+    0.008224487,
+    -0.02432251,
+    -0.04727173,
+    0.07366943,
+    -0.004722595,
+    -0.0019111633,
+    0.022338867,
+    0.011528015,
+    -0.06173706,
+    0.057678223,
+    0.011474609,
+    0.15441895,
+    0.044891357,
+    -0.036956787,
+    -0.03060913,
+    -0.009887695,
+    0.024383545,
+    0.029373169,
+    0.028427124,
+    -0.012924194,
+    0.034973145,
+    0.05130005,
+    0.017654419,
+    0.016357422,
+    -0.036224365,
+    0.002281189,
+    -0.019714355,
+    0.027709961,
+    0.007522583,
+    -0.004989624,
+    -0.0049438477,
+    0.020385742,
+    -0.0028095245,
+    0.0041389465,
+    -0.04107666,
+    0.03326416,
+    0.018981934,
+    -0.032165527,
+    -0.040496826,
+    -0.0066108704,
+    -0.018310547,
+    -0.028900146,
+    -0.0034637451,
+    -0.010650635,
+    0.012741089,
+    0.043640137,
+    -0.0061149597,
+    0.016967773,
+    -0.04763794,
+    -0.025512695,
+    -0.039215088,
+    0.027130127,
+    -0.0008831024,
+    0.013923645,
+    -0.0019207001,
+    0.018630981,
+    0.06555176,
+    0.0055770874,
+    -0.0041236877,
+    -0.017303467,
+    0.010093689,
+    -0.023803711,
+    -0.0051841736,
+    0.0010261536,
+    0.009002686,
+    0.036346436,
+    -0.019165039,
+    0.022491455,
+    -0.029968262,
+    0.015670776,
+    -0.042541504,
+    -0.026000977,
+    -0.013412476,
+    0.00995636,
+    -0.054779053,
+    -0.024459839,
+    -0.046020508,
+    0.03488159,
+    -0.009132385,
+    0.035369873,
+    -0.038360596,
+    -0.0072021484,
+    0.02180481,
+    0.0020065308,
+    0.0026168823,
+    0.036712646,
+    0.00047540665,
+    -0.047576904,
+    0.01399231,
+    -0.002067566,
+    0.02796936,
+    0.047302246,
+    0.0871582,
+    0.0019836426,
+    -0.015434265,
+    0.0099487305,
+    -0.07165527,
+    0.026367188,
+    0.037078857,
+    0.02809143,
+    -0.03378296,
+    0.053710938,
+    0.009468079,
+    0.022994995,
+    -0.05883789,
+    0.027130127,
+    -0.0057678223,
+    -0.016403198,
+    0.022003174,
+    0.0034828186,
+    0.017105103,
+    -0.012619019,
+    0.059143066,
+    -0.025848389,
+    -0.0004119873,
+    0.008728027,
+    -0.051849365,
+    -0.012145996,
+    0.014404297,
+    -0.002614975,
+    0.018936157,
+    0.00983429,
+    -0.0146484375,
+    0.046142578,
+    -0.019454956,
+    0.06890869,
+    -0.029037476,
+    0.017578125,
+    0.033294678,
+    0.112854004,
+    -0.07293701,
+    0.095581055,
+    -0.011383057,
+    -0.049316406,
+    0.0033302307,
+    -0.014198303,
+    0.013442993,
+    -0.029815674,
+    0.009727478,
+    -0.024536133,
+    0.032928467,
+    -0.0067710876,
+    0.040496826,
+    0.022247314,
+    -0.017807007,
+    -0.002532959,
+    -0.02557373,
+    -0.018081665,
+    -0.028015137,
+    -0.055236816,
+    0.048431396,
+    -0.016174316,
+    0.03741455,
+    0.028900146,
+    0.028533936,
+    0.020248413,
+    -0.06896973,
+    0.017303467,
+    -0.011306763,
+    0.02545166,
+    -0.023757935,
+    -0.04736328,
+    -0.052520752,
+    -0.015350342,
+    0.013450623,
+    0.021896362,
+    0.036621094,
+    0.040039062,
+    -0.0047302246,
+    -0.019622803,
+    -0.0040359497,
+    -0.030853271,
+    -0.0385437,
+    -0.027709961,
+    -0.0034446716,
+    -0.008354187,
+    -0.04522705,
+    0.0075302124,
+    -0.05038452,
+    -0.027328491,
+    -0.028396606,
+    -0.01399231,
+    0.0011749268,
+    0.0011920929,
+    0.022323608,
+    -0.008895874,
+    0.0060043335,
+    0.0017204285,
+    0.06137085,
+    -0.0049362183,
+    -0.018692017,
+    -0.02192688,
+    0.019714355,
+    0.007850647,
+    -0.007247925,
+    0.008758545,
+    -0.01436615,
+    -0.014564514,
+    0.041168213,
+    0.049346924,
+    0.08239746,
+    -0.06365967,
+    0.0073280334,
+    0.039978027,
+    -0.07873535,
+    -0.026550293,
+    -0.057922363,
+    -0.041534424,
+    0.025543213,
+    0.0129470825,
+    -0.0066070557,
+    0.05609131,
+    -0.016220093,
+    0.011398315,
+    0.013648987,
+    0.035369873,
+    0.009429932,
+    -0.010116577,
+    -0.036315918,
+    0.01802063,
+    -0.0034294128
+  ],
+  "metadata": {
+    "title": "Mooney M20",
+    "original_title": "Mooney M20",
+    "wikipedia_id": "949842",
+    "url": "https://en.wikipedia.org/wiki/Mooney_M20",
+    "header_path": "/Development/",
+    "aws::graph::propositions": [
+      "Mooney M20 Aircraft Company History in the 1980s",
+      "General aviation manufacturing experienced a significant downturn starting in 1982.",
+      "Mooney was affected by the general aviation manufacturing downturn.",
+      "Mooney was forced to downsize through temporary layoffs due to the recession.",
+      "Development work at Mooney continued despite the recession.",
+      "The Mooney 201 received improvements during the recession.",
+      "The Mooney 231 received improvements during the recession.",
+      "Significant reductions in cabin noise levels were among the improvements to Mooney aircraft.",
+      "Mooney aircraft deliveries fell to 218 units in 1982.",
+      "Mooney produced only 154 aircraft in 1983.",
+      "The United States Air Force announced a competition to develop a replacement for the Cessna T-41 trainer.",
+      "Mooney immediately began to develop a military trainer based on the Mooney 231.",
+      "Republic Steel was acquired by the Ling-Temco-Vought corporation.",
+      "Republic Steel dropped Mooney after being acquired.",
+      "Mooney ended up in the hands of Armand Rivard of Lake Aircraft.",
+      "Mooney ended up in the hands of Alexandre Couvelair.",
+      "Alexandre Couvelair was a Mooney dealer from Paris.",
+      "Mooney sales continued to fall after the ownership change.",
+      "Mooney sales totaled 143 aircraft in 1984.",
+      "Mooney sales totaled 99 aircraft in 1985."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Mooney M20 Aircraft Company History in the 1980s",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mooney",
+              "classification": "Manufacturer"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mooney 201",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mooney 231",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United States Air Force",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna T-41",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Republic Steel",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Ling-Temco-Vought",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Armand Rivard",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Lake Aircraft",
+              "classification": "Manufacturer"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Alexandre Couvelair",
+              "classification": "Person"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "General aviation manufacturing experienced a significant downturn starting in 1982.",
+              "details": [
+                "General aviation manufacturing START DATE 1982",
+                "General aviation manufacturing EXPERIENCED significant downturn"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "General aviation manufacturing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "START DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1982",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "General aviation manufacturing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant downturn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney was affected by the general aviation manufacturing downturn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "general aviation manufacturing downturn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney was forced to downsize through temporary layoffs due to the recession.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "DOWNSIZED THROUGH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "temporary layoffs",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recession",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Development work at Mooney continued despite the recession.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "CONTINUED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "development work",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Mooney 201 received improvements during the recession.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney 201",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney 201",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "RECEIVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improvements",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney 201",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IMPROVEMENT PERIOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during the recession",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Mooney 231 received improvements during the recession.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney 231",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney 231",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "RECEIVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improvements",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney 231",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IMPROVEMENT PERIOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during the recession",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Significant reductions in cabin noise levels were among the improvements to Mooney aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "HAS IMPROVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant reductions in cabin noise levels",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney aircraft deliveries fell to 218 units in 1982.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "DELIVERY COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "218 units",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "DELIVERY YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1982",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney produced only 154 aircraft in 1983.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "154 aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1983",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The United States Air Force announced a competition to develop a replacement for the Cessna T-41 trainer.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United States Air Force",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ANNOUNCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "competition",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United States Air Force",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS REPLACEMENT FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna T-41 trainer",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney immediately began to develop a military trainer based on the Mooney 231.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "military trainer",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "BASED TRAINER ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney 231",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Republic Steel was acquired by the Ling-Temco-Vought corporation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Republic Steel",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACQUIRED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Ling-Temco-Vought",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Republic Steel dropped Mooney after being acquired.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Republic Steel",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DROPPED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Republic Steel",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DROP TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after being acquired",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney ended up in the hands of Armand Rivard of Lake Aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "OWNED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Armand Rivard",
+                    "classification": "Person"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Armand Rivard",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "ASSOCIATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Lake Aircraft",
+                    "classification": "Manufacturer"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney ended up in the hands of Alexandre Couvelair.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "OWNED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Alexandre Couvelair",
+                    "classification": "Person"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Alexandre Couvelair was a Mooney dealer from Paris.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Alexandre Couvelair",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "DEALER FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Alexandre Couvelair",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Paris",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney sales continued to fall after the ownership change.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "SALES TREND"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continued to fall",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "SALES TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after the ownership change",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney sales totaled 143 aircraft in 1984.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "SALES COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "143 aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "SALES YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1984",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mooney sales totaled 99 aircraft in 1985.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "SALES COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "99 aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mooney",
+                    "classification": "Manufacturer"
+                  },
+                  "predicate": {
+                    "value": "SALES YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1985",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::85c0e2c0:1de6",
+      "node_type": "4",
+      "metadata": {
+        "title": "Mooney M20",
+        "original_title": "Mooney M20",
+        "wikipedia_id": "949842",
+        "url": "https://en.wikipedia.org/wiki/Mooney_M20"
+      },
+      "hash": "8a45fc624add802b756530023841bda39b251527e7679e099932143783d0bbe5",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::85c0e2c0:1de6:8ce18a3e",
+      "node_type": "1",
+      "metadata": {
+        "title": "Mooney M20",
+        "original_title": "Mooney M20",
+        "wikipedia_id": "949842",
+        "url": "https://en.wikipedia.org/wiki/Mooney_M20",
+        "header_path": "/Development/"
+      },
+      "hash": "2c2a1fe1c075aeec41d9e8b50596dabbd829a478735e4639fa44e28b538fe7dc",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::85c0e2c0:1de6:5cbcefca",
+      "node_type": "1",
+      "metadata": {
+        "title": "Mooney M20",
+        "original_title": "Mooney M20",
+        "wikipedia_id": "949842",
+        "url": "https://en.wikipedia.org/wiki/Mooney_M20",
+        "header_path": "/Development/"
+      },
+      "hash": "26518f2762edd4fdd8e7c40a21b13fe459b38734aaf3d28650ad591c6781aa2b",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "### 1980s\nGeneral aviation manufacturing experienced a significant downturn starting in 1982. Mooney was affected along with other manufacturers and was forced to downsize through temporary layoffs. Despite the recession, development work continued. The 201 and 231 received more improvements, including significant reductions in cabin noise levels. In 1982, deliveries fell to 218 units, and in 1983 only 154 aircraft were produced. The United States Air Force announced a competition to develop a replacement for the Cessna T-41 trainer, and Mooney immediately began to develop a military trainer based on the 231.\nWhile the company was dealing with the recession, Republic Steel was acquired by the Ling-Temco-Vought corporation and dropped Mooney. The company ended up in the hands of Armand Rivard of Lake Aircraft and Alexandre Couvelair, a Mooney dealer from Paris. Sales continued to fall, totaling 143 in 1984 and 99 in 1985.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 934,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

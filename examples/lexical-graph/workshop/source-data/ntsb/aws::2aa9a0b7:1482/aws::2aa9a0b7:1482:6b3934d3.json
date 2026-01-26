@@ -1,0 +1,2234 @@
+{
+  "id_": "aws::2aa9a0b7:1482:6b3934d3",
+  "embedding": [
+    0.043029785,
+    -0.02267456,
+    0.022079468,
+    -0.05316162,
+    -0.018707275,
+    0.0016937256,
+    -0.022247314,
+    0.026367188,
+    -0.04727173,
+    0.029891968,
+    -0.00031757355,
+    0.02319336,
+    -0.01713562,
+    -0.020401001,
+    0.018157959,
+    -0.025344849,
+    0.0015974045,
+    -0.0014162064,
+    -0.024536133,
+    -0.014755249,
+    0.0035762787,
+    -0.02281189,
+    -0.021743774,
+    -0.0039138794,
+    -0.0014896393,
+    0.057891846,
+    -0.05783081,
+    0.025253296,
+    -0.027297974,
+    -0.019363403,
+    -0.014564514,
+    0.033355713,
+    0.011787415,
+    0.06304932,
+    -0.09020996,
+    -0.0690918,
+    -0.02557373,
+    0.028366089,
+    -0.030761719,
+    0.032287598,
+    0.03149414,
+    -0.024963379,
+    0.03074646,
+    -0.016845703,
+    -0.0005283356,
+    0.0035362244,
+    0.006225586,
+    -0.028060913,
+    0.018493652,
+    0.06329346,
+    0.046936035,
+    -0.017974854,
+    0.029937744,
+    0.062316895,
+    0.00042414665,
+    0.026016235,
+    -0.05130005,
+    0.0060920715,
+    0.021026611,
+    0.029434204,
+    0.006954193,
+    -0.029144287,
+    0.016494751,
+    -0.01184845,
+    -0.011238098,
+    -0.02861023,
+    0.0011854172,
+    0.033172607,
+    0.055725098,
+    0.010131836,
+    -0.019470215,
+    0.026824951,
+    -0.03164673,
+    0.029510498,
+    0.0385437,
+    -0.03665161,
+    -0.00018382072,
+    -0.018981934,
+    -0.034576416,
+    0.10028076,
+    0.038909912,
+    0.036254883,
+    -0.0032901764,
+    -0.010986328,
+    0.024383545,
+    0.005241394,
+    0.0070648193,
+    -0.027664185,
+    0.009933472,
+    -0.020980835,
+    -0.02458191,
+    0.031921387,
+    0.0011129379,
+    0.027893066,
+    -0.04373169,
+    -0.005794525,
+    0.027297974,
+    -0.0043563843,
+    0.04232788,
+    -0.014404297,
+    -0.029266357,
+    -0.034820557,
+    -0.061920166,
+    -0.0052604675,
+    -0.008369446,
+    0.058746338,
+    0.022872925,
+    -0.037078857,
+    0.002811432,
+    -0.01689148,
+    -0.01524353,
+    -0.02079773,
+    -0.03845215,
+    -0.028121948,
+    -0.048095703,
+    0.06286621,
+    -0.022979736,
+    -0.022094727,
+    0.017227173,
+    0.019546509,
+    -0.014205933,
+    -0.0062065125,
+    0.0077934265,
+    -0.008743286,
+    0.0013408661,
+    -0.0062828064,
+    -0.015220642,
+    0.008682251,
+    0.041137695,
+    -0.035003662,
+    -0.013725281,
+    0.07574463,
+    -0.006416321,
+    -0.06329346,
+    -0.05053711,
+    0.025222778,
+    0.01727295,
+    -0.048065186,
+    -0.0010871887,
+    -0.028198242,
+    0.042297363,
+    0.023361206,
+    0.025848389,
+    0.0073928833,
+    -0.009963989,
+    0.031036377,
+    0.013786316,
+    -0.013580322,
+    -0.0013999939,
+    -0.005214691,
+    -0.015106201,
+    -0.04446411,
+    0.019515991,
+    0.045288086,
+    0.018432617,
+    -0.031173706,
+    0.0259552,
+    -0.048583984,
+    0.018203735,
+    -0.030136108,
+    9.8347664e-05,
+    0.0036792755,
+    0.031082153,
+    -0.071899414,
+    -0.091552734,
+    -0.002796173,
+    -0.03137207,
+    -0.014411926,
+    0.009353638,
+    -0.008682251,
+    0.030151367,
+    -0.031188965,
+    -0.011917114,
+    -0.014862061,
+    0.006416321,
+    0.0121154785,
+    0.010604858,
+    0.0036506653,
+    0.0023441315,
+    0.041534424,
+    0.04815674,
+    -0.00674057,
+    0.004081726,
+    0.026290894,
+    0.020965576,
+    0.018203735,
+    0.019058228,
+    0.01084137,
+    -0.01927185,
+    0.022735596,
+    -0.020721436,
+    0.029006958,
+    0.010437012,
+    -0.0054740906,
+    -0.0158844,
+    -0.025848389,
+    -0.01537323,
+    0.009025574,
+    -0.041046143,
+    -0.002658844,
+    -0.04840088,
+    0.0047912598,
+    0.0317688,
+    0.040893555,
+    0.017868042,
+    0.0101623535,
+    -0.014450073,
+    0.028640747,
+    0.019195557,
+    0.044891357,
+    0.01953125,
+    0.024169922,
+    -0.036987305,
+    0.008125305,
+    0.00046491623,
+    0.0052375793,
+    -0.03439331,
+    -0.015510559,
+    0.019363403,
+    0.011810303,
+    0.032958984,
+    0.039764404,
+    0.0072402954,
+    -0.0074310303,
+    -0.006664276,
+    0.029022217,
+    -0.0079193115,
+    0.02545166,
+    0.030014038,
+    0.031555176,
+    0.05343628,
+    -0.049713135,
+    0.0069885254,
+    0.010131836,
+    -0.012062073,
+    0.021499634,
+    0.01083374,
+    -0.0064926147,
+    0.0056877136,
+    0.0101623535,
+    -0.032562256,
+    -0.034362793,
+    -0.04562378,
+    0.03955078,
+    -0.05178833,
+    -0.012298584,
+    -0.0075302124,
+    0.032348633,
+    -0.023101807,
+    0.02293396,
+    -0.00819397,
+    0.024887085,
+    0.0368042,
+    0.015686035,
+    0.01259613,
+    0.027664185,
+    -0.04385376,
+    -0.06878662,
+    0.0024681091,
+    0.024673462,
+    0.013687134,
+    -0.051361084,
+    -0.0025196075,
+    -0.01689148,
+    -0.019180298,
+    -0.00068855286,
+    0.008270264,
+    0.003660202,
+    0.00074386597,
+    -0.01348114,
+    0.015213013,
+    0.014717102,
+    -0.013717651,
+    0.036010742,
+    -0.027740479,
+    -0.023468018,
+    -0.0067443848,
+    0.0076942444,
+    -0.026565552,
+    -0.022125244,
+    0.02468872,
+    0.071777344,
+    0.0008029938,
+    -0.01625061,
+    0.008758545,
+    -0.008934021,
+    -0.032409668,
+    0.012252808,
+    -0.060760498,
+    0.01701355,
+    0.038879395,
+    0.019989014,
+    -0.027252197,
+    -0.032165527,
+    0.041809082,
+    0.011131287,
+    0.022781372,
+    0.041992188,
+    -0.029418945,
+    0.036712646,
+    6.175041e-05,
+    0.026748657,
+    0.0048065186,
+    -0.0038909912,
+    0.009025574,
+    -0.021392822,
+    0.010696411,
+    0.0036506653,
+    -0.0013246536,
+    -0.013076782,
+    -0.035369873,
+    -0.004917145,
+    0.016052246,
+    0.024749756,
+    -0.024749756,
+    -0.023010254,
+    -0.02671814,
+    0.009414673,
+    0.00030612946,
+    0.011924744,
+    0.012046814,
+    0.002670288,
+    0.027389526,
+    -0.027908325,
+    0.017944336,
+    -0.053375244,
+    -0.011528015,
+    -0.0048942566,
+    0.0014343262,
+    0.0017375946,
+    -0.034454346,
+    -0.018417358,
+    -0.031555176,
+    0.03479004,
+    -0.0020713806,
+    0.018325806,
+    0.010223389,
+    -0.053009033,
+    0.009727478,
+    0.032226562,
+    0.046661377,
+    -0.010192871,
+    -0.0049934387,
+    -0.018615723,
+    -0.06561279,
+    0.015014648,
+    -0.0014228821,
+    0.0209198,
+    -0.07501221,
+    -0.028289795,
+    0.058654785,
+    -0.019836426,
+    -0.005405426,
+    -0.036193848,
+    0.002937317,
+    0.010887146,
+    -0.018432617,
+    0.0063171387,
+    0.008895874,
+    -0.055114746,
+    0.025985718,
+    -0.0073280334,
+    -0.031143188,
+    0.0048217773,
+    -0.019439697,
+    0.020080566,
+    0.03100586,
+    -0.037017822,
+    -0.022415161,
+    0.0039138794,
+    -0.066833496,
+    -0.019058228,
+    0.0045204163,
+    0.0059165955,
+    0.005657196,
+    0.061340332,
+    -0.028701782,
+    -0.053131104,
+    0.011405945,
+    -0.027145386,
+    -0.003932953,
+    -0.015701294,
+    0.04425049,
+    0.0084991455,
+    0.022277832,
+    -0.00057411194,
+    -0.02810669,
+    -0.041137695,
+    0.03189087,
+    0.018844604,
+    0.029464722,
+    -0.016357422,
+    -0.02670288,
+    -0.0236969,
+    -0.017150879,
+    0.014579773,
+    -0.04034424,
+    -0.029144287,
+    0.003660202,
+    0.009223938,
+    -0.11541748,
+    -0.011810303,
+    -0.02357483,
+    -0.025253296,
+    0.0033798218,
+    -0.033813477,
+    -0.04840088,
+    -0.055847168,
+    0.022354126,
+    0.10015869,
+    -0.029907227,
+    0.06512451,
+    -0.03060913,
+    0.08441162,
+    -0.021011353,
+    0.017974854,
+    -0.05444336,
+    -0.012023926,
+    -0.01727295,
+    0.0592041,
+    0.016296387,
+    -0.037628174,
+    -0.012901306,
+    0.05810547,
+    0.01373291,
+    -0.0031528473,
+    -0.05026245,
+    -0.056549072,
+    -0.0104904175,
+    0.07006836,
+    -0.03161621,
+    0.03866577,
+    0.004627228,
+    -0.03982544,
+    -0.0155181885,
+    -0.010978699,
+    0.0021839142,
+    0.03378296,
+    0.021621704,
+    -0.007209778,
+    0.021469116,
+    0.018203735,
+    0.01977539,
+    0.027648926,
+    -0.05117798,
+    0.025314331,
+    0.014801025,
+    0.024124146,
+    -0.015419006,
+    -0.020050049,
+    -0.03463745,
+    0.024917603,
+    -0.0010910034,
+    0.0154953,
+    0.0035972595,
+    0.0071258545,
+    0.0053863525,
+    0.028549194,
+    -0.010810852,
+    0.0119018555,
+    0.017944336,
+    0.0018835068,
+    -0.037322998,
+    -0.029632568,
+    0.013374329,
+    -0.020828247,
+    0.022201538,
+    -0.0036830902,
+    0.025863647,
+    -0.011978149,
+    0.006866455,
+    0.0132369995,
+    -0.008079529,
+    0.00083208084,
+    -0.00843811,
+    -0.010925293,
+    0.00932312,
+    -0.02041626,
+    0.044036865,
+    -0.0019445419,
+    -0.06213379,
+    0.021026611,
+    -0.06567383,
+    0.059326172,
+    0.006752014,
+    0.010391235,
+    0.04925537,
+    0.04763794,
+    0.025665283,
+    -0.04449463,
+    -0.036987305,
+    -0.014060974,
+    0.04864502,
+    -0.050567627,
+    0.015197754,
+    -7.170439e-05,
+    -0.012207031,
+    -0.018310547,
+    0.02619934,
+    -0.039001465,
+    0.004180908,
+    0.008636475,
+    -0.0039711,
+    -0.050750732,
+    -0.020843506,
+    -0.0090408325,
+    0.004108429,
+    0.008361816,
+    -0.024856567,
+    -0.023910522,
+    -0.0063591003,
+    -0.010093689,
+    0.018554688,
+    0.026306152,
+    -0.02015686,
+    0.05117798,
+    0.01272583,
+    0.041229248,
+    -0.010795593,
+    -0.039642334,
+    -0.00066900253,
+    0.0003736019,
+    0.030944824,
+    0.031311035,
+    -0.01902771,
+    0.0031738281,
+    0.0052604675,
+    0.006641388,
+    -0.046417236,
+    -0.029769897,
+    0.0035095215,
+    0.024353027,
+    0.008171082,
+    0.010505676,
+    0.02772522,
+    0.00047183037,
+    -0.024154663,
+    0.055419922,
+    -0.00598526,
+    -0.078186035,
+    -0.00957489,
+    0.0023517609,
+    0.0068244934,
+    -0.049804688,
+    0.00051021576,
+    0.018539429,
+    -0.018005371,
+    0.04525757,
+    -0.054840088,
+    0.022827148,
+    -0.029190063,
+    -0.009284973,
+    0.0135650635,
+    -0.04208374,
+    -0.0725708,
+    0.061340332,
+    0.041137695,
+    -0.025863647,
+    -0.023452759,
+    0.057556152,
+    0.026428223,
+    -0.0040626526,
+    -0.021514893,
+    -0.015731812,
+    0.026473999,
+    0.009475708,
+    0.018127441,
+    -0.04989624,
+    -0.0031032562,
+    -0.028533936,
+    -0.0151901245,
+    -0.0021400452,
+    0.062805176,
+    -0.023895264,
+    0.014045715,
+    -0.035003662,
+    -0.008666992,
+    -0.0071525574,
+    0.01625061,
+    0.0071983337,
+    0.0031013489,
+    -0.00044870377,
+    -0.03591919,
+    -0.08728027,
+    -0.029251099,
+    0.033721924,
+    -0.0012426376,
+    -0.0029964447,
+    -0.0010461807,
+    0.020324707,
+    0.021728516,
+    -0.0049705505,
+    -0.012214661,
+    -0.024169922,
+    0.022888184,
+    0.07006836,
+    0.0028247833,
+    -0.06237793,
+    -0.049194336,
+    0.0036621094,
+    0.012825012,
+    0.005306244,
+    -0.0031929016,
+    -0.02017212,
+    -0.059448242,
+    0.04220581,
+    -0.0021953583,
+    -0.030273438,
+    0.039093018,
+    0.041748047,
+    0.033599854,
+    -0.005710602,
+    -0.05105591,
+    0.036346436,
+    -0.026000977,
+    -0.00016343594,
+    -0.05593872,
+    0.03829956,
+    0.044006348,
+    0.0071258545,
+    0.013656616,
+    -0.044952393,
+    -0.0004968643,
+    -0.037231445,
+    -2.9563904e-05,
+    -0.03277588,
+    -0.049804688,
+    -0.055511475,
+    -0.018829346,
+    0.009887695,
+    0.004043579,
+    -0.0025157928,
+    -0.021331787,
+    -0.05621338,
+    -0.029220581,
+    0.046447754,
+    -0.009376526,
+    -0.04714966,
+    0.007896423,
+    0.03378296,
+    -0.017913818,
+    -0.00053310394,
+    -0.031234741,
+    -0.03741455,
+    0.0057868958,
+    -0.05392456,
+    -0.045196533,
+    -0.0052871704,
+    -0.027618408,
+    -0.02230835,
+    -0.019836426,
+    0.00032567978,
+    0.012664795,
+    -0.011947632,
+    -0.031799316,
+    -0.011459351,
+    0.014640808,
+    -0.0009946823,
+    -0.0335083,
+    -0.07788086,
+    -0.07067871,
+    -0.066589355,
+    -0.009208679,
+    -0.037994385,
+    -0.019470215,
+    0.013092041,
+    0.00083351135,
+    0.0063667297,
+    -0.0023593903,
+    -0.01928711,
+    -0.014312744,
+    0.040740967,
+    -0.009552002,
+    -0.018661499,
+    -0.007335663,
+    0.06378174,
+    0.03363037,
+    0.01777649,
+    0.02027893,
+    -0.019577026,
+    0.012458801,
+    0.02041626,
+    0.023590088,
+    -0.05871582,
+    -0.013633728,
+    0.03086853,
+    -0.013183594,
+    0.0043258667,
+    -0.021530151,
+    -0.017990112,
+    -0.028762817,
+    0.01499939,
+    -0.02986145,
+    -0.016098022,
+    -0.0056991577,
+    -0.034454346,
+    -0.021881104,
+    -0.07702637,
+    0.018661499,
+    -0.022354126,
+    0.00166893,
+    -0.059570312,
+    0.0073242188,
+    -0.064819336,
+    -0.033599854,
+    0.03527832,
+    0.047851562,
+    0.055358887,
+    -0.056671143,
+    -0.040771484,
+    0.033813477,
+    0.08679199,
+    0.021987915,
+    -0.015296936,
+    0.060668945,
+    0.036224365,
+    0.09893799,
+    0.02760315,
+    -0.0140686035,
+    -0.047729492,
+    -0.003993988,
+    0.014778137,
+    -0.01979065,
+    -0.03982544,
+    0.00932312,
+    -0.02015686,
+    -0.025909424,
+    0.053131104,
+    -0.018081665,
+    -0.020965576,
+    0.004852295,
+    0.019165039,
+    0.027954102,
+    -0.02168274,
+    -0.033721924,
+    -0.047790527,
+    0.005554199,
+    -0.0050735474,
+    -0.04849243,
+    0.009536743,
+    0.023803711,
+    -0.014259338,
+    -0.008758545,
+    -0.022949219,
+    -0.028778076,
+    -0.024673462,
+    -0.0069618225,
+    -0.031921387,
+    -0.0048446655,
+    -0.027526855,
+    0.052978516,
+    -0.0131073,
+    -0.03591919,
+    -0.03543091,
+    0.010635376,
+    -0.056732178,
+    -0.015579224,
+    -0.007843018,
+    -0.012069702,
+    -0.010253906,
+    0.005645752,
+    0.009101868,
+    -0.012550354,
+    -0.001376152,
+    -0.049346924,
+    -0.015167236,
+    -0.03564453,
+    -0.027908325,
+    -0.035003662,
+    -0.01499939,
+    0.032440186,
+    0.014511108,
+    -0.0022583008,
+    -0.0016050339,
+    0.022903442,
+    -0.049713135,
+    0.0040512085,
+    -0.0045547485,
+    -0.02758789,
+    -0.045654297,
+    0.00818634,
+    -0.026504517,
+    0.02204895,
+    0.019515991,
+    0.030517578,
+    -0.005279541,
+    -0.058624268,
+    0.0033435822,
+    0.0032482147,
+    -0.01953125,
+    -0.0758667,
+    0.0027503967,
+    0.02607727,
+    -0.01687622,
+    0.008682251,
+    -0.0065612793,
+    0.00077295303,
+    -0.0017280579,
+    -0.02911377,
+    -0.014335632,
+    -0.028686523,
+    -0.036132812,
+    -0.01939392,
+    0.016647339,
+    -0.012214661,
+    -0.019042969,
+    -0.026260376,
+    0.051818848,
+    0.03012085,
+    -0.057769775,
+    0.021102905,
+    -0.025909424,
+    0.041809082,
+    -0.013076782,
+    -0.028625488,
+    0.022628784,
+    -0.033813477,
+    -0.007461548,
+    0.008178711,
+    -0.032409668,
+    0.0055007935,
+    0.044403076,
+    0.0132751465,
+    -0.012214661,
+    -0.020568848,
+    0.005279541,
+    0.0023479462,
+    -0.01423645,
+    0.02458191,
+    0.022766113,
+    -0.010383606,
+    0.0075187683,
+    -0.04067993,
+    -0.026382446,
+    -0.027572632,
+    0.03543091,
+    0.007820129,
+    0.009483337,
+    0.010757446,
+    0.029693604,
+    0.02532959,
+    -0.018005371,
+    0.04269409,
+    0.02998352,
+    -0.051116943,
+    0.034820557,
+    0.05255127,
+    -0.030380249,
+    0.042938232,
+    0.056488037,
+    -0.0206604,
+    -0.043823242,
+    0.0014877319,
+    -0.0062675476,
+    -0.0029563904,
+    0.035125732,
+    0.03845215,
+    -0.030517578,
+    -0.013931274,
+    0.025390625,
+    0.015304565,
+    0.021209717,
+    -0.0051345825,
+    -0.027252197,
+    -0.0066871643,
+    0.007106781,
+    -0.044921875,
+    0.012428284,
+    -0.009086609,
+    0.020980835,
+    0.032348633,
+    0.020812988,
+    -0.053863525,
+    0.013435364,
+    -0.0005378723,
+    -0.03137207,
+    0.025939941,
+    0.03543091,
+    -0.024230957,
+    -0.008491516,
+    -0.030654907,
+    -0.06573486,
+    0.0073127747,
+    0.00069761276,
+    -0.013435364,
+    -0.07623291,
+    0.02305603,
+    -0.032836914,
+    0.07525635,
+    0.04046631,
+    0.009132385,
+    -0.036499023,
+    -0.03778076,
+    0.024627686,
+    0.018447876,
+    0.10015869,
+    0.016616821,
+    -0.064086914,
+    -0.054901123,
+    0.04107666,
+    -0.0066947937,
+    -0.021377563,
+    -0.0069999695,
+    -0.07281494,
+    0.03253174,
+    0.0073509216,
+    0.06359863,
+    -0.043670654,
+    -0.020904541,
+    -0.008522034,
+    0.0077667236,
+    -0.024536133,
+    -0.050994873,
+    0.013641357,
+    0.017684937,
+    -0.014526367,
+    -0.0869751,
+    -0.03237915,
+    -0.026031494,
+    -0.07910156,
+    -0.055603027,
+    -0.033416748,
+    0.010978699,
+    0.029129028,
+    0.07293701,
+    -0.015792847,
+    0.093444824,
+    -0.062042236,
+    0.00070905685,
+    -0.029876709,
+    0.006324768,
+    -0.0045928955,
+    0.033691406,
+    0.056488037,
+    0.040771484,
+    -0.008079529,
+    0.005405426,
+    -0.00052690506,
+    -0.021102905,
+    0.0026359558,
+    0.010734558,
+    -0.011833191,
+    -0.01360321,
+    0.009841919,
+    0.0065307617,
+    0.0014486313,
+    0.010040283,
+    -0.0236969,
+    -0.0284729,
+    0.013435364,
+    -0.005050659,
+    -0.014190674,
+    0.028839111,
+    0.011276245,
+    0.0031738281,
+    0.04373169,
+    -0.035217285,
+    0.035003662,
+    -0.050323486,
+    -0.016693115,
+    0.01499939,
+    0.039916992,
+    0.005897522,
+    0.044769287,
+    0.004840851,
+    0.043273926,
+    0.007232666,
+    -0.06414795,
+    0.037902832,
+    0.0006122589,
+    -0.008201599,
+    -0.0135269165,
+    -0.008377075,
+    -0.011222839,
+    -0.005821228,
+    -0.023971558,
+    0.019119263,
+    0.018966675,
+    -0.022506714,
+    0.009521484,
+    -0.0028533936,
+    0.027297974,
+    0.0026550293,
+    -0.03604126,
+    -0.046325684,
+    0.03918457,
+    -0.033416748,
+    0.0065345764,
+    0.025650024,
+    0.031158447,
+    0.0076408386,
+    0.050231934,
+    0.009902954,
+    -0.055725098,
+    0.02532959,
+    0.0090789795,
+    0.020721436,
+    0.0060806274,
+    0.032470703,
+    -0.048828125,
+    0.0021800995,
+    -0.0051994324,
+    0.029800415,
+    0.0032176971,
+    0.0005502701,
+    -0.013038635,
+    -0.02960205,
+    -0.06726074,
+    -0.008270264,
+    -0.024841309,
+    -0.023544312,
+    0.037231445,
+    0.0625,
+    -0.026397705,
+    0.099853516,
+    -0.027862549,
+    0.0206604,
+    0.034576416,
+    0.049346924,
+    0.031082153,
+    0.025650024,
+    0.024505615,
+    0.016662598,
+    -0.00043940544
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+    "file_name": "85615.md",
+    "file_size": 49115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Helicopter Collision at Helipad",
+      "The pilot of N911FA made a normal approach from the north to the main pad.",
+      "The pilot of N911FA performed a left pedal turn from the main pad.",
+      "The left pedal turn rotated the helicopter to the east.",
+      "The pilot of N911FA hover-taxied toward pad 2.",
+      "The pilot of N911FA made a right pedal turn.",
+      "The right pedal turn rotated the helicopter to the south.",
+      "The pilot of N911FA lowered the collective to land on pad 2.",
+      "N911FA's main rotor blades came into contact with N96BM's main rotor blades.",
+      "N96BM was positioned on Pad 1.",
+      "The air support Lieutenant was interviewed on November 18, 2012.",
+      "The air support Lieutenant observed spotty weather throughout the day prior to the accident.",
+      "The weather alternated between clear and cloudy/overcast.",
+      "The air support Lieutenant observed marginal weather conditions as N911FA took off.",
+      "The air support Lieutenant noted the weather was closing in a couple of minutes later.",
+      "The air support Lieutenant observed N96BM was on Pad 1 preparing to take off.",
+      "The air support Lieutenant walked out of his office toward N96BM.",
+      "The air support Lieutenant intended to tell the flight crew to stand down.",
+      "The air support Lieutenant was standing by the left door on the outside of N96BM.",
+      "The air support Lieutenant observed N911FA returning to base.",
+      "The air support Lieutenant thought N911FA's return was a good thing.",
+      "The air support Lieutenant recalled hearing a loud bang.",
+      "The air support Lieutenant was knocked to the ground.",
+      "The air support Lieutenant ran away from N96BM after being knocked down."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Helicopter Collision at Helipad",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N911FA",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N96BM",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main pad",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pad 1",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pad 2",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "air support Lieutenant",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N911FA made a normal approach from the north to the main pad.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "APPROACHED FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "north",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "APPROACHED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main pad",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "HAS APPROACH TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N911FA performed a left pedal turn from the main pad.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main pad",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "PERFORMED MANEUVER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left pedal turn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left pedal turn rotated the helicopter to the east.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ROTATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "east",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N911FA hover-taxied toward pad 2.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "MOVED TOWARD"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pad 2",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hover-taxi",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N911FA made a right pedal turn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "PERFORMED MANEUVER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right pedal turn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right pedal turn rotated the helicopter to the south.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ROTATED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "south",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N911FA lowered the collective to land on pad 2.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ATTEMPTED LANDING ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pad 2",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "CONTROL ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lowered collective",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N911FA's main rotor blades came into contact with N96BM's main rotor blades.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLISION POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor blades",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLISION POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor blades",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N96BM was positioned on Pad 1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITIONED ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pad 1",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant was interviewed on November 18, 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INTERVIEW DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 18, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant observed spotty weather throughout the day prior to the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED WEATHER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spotty",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The weather alternated between clear and cloudy/overcast.",
+              "details": [
+                "weather CONDITION ALTERNATED BETWEEN clear and cloudy/overcast"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION ALTERNATED BETWEEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "clear and cloudy/overcast",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant observed marginal weather conditions as N911FA took off.",
+              "details": [
+                "weather CONDITION DURING TAKEOFF marginal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION DURING TAKEOFF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "marginal",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "took off",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant noted the weather was closing in a couple of minutes later.",
+              "details": [
+                "weather CONDITION CHANGE closing in",
+                "weather CHANGE TIMEFRAME couple of minutes later"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION CHANGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "closing in",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CHANGE TIMEFRAME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "couple of minutes later",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant observed N96BM was on Pad 1 preparing to take off.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITIONED ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pad 1",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "preparing to take off",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant walked out of his office toward N96BM.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVED TOWARD"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "office",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "walked",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant intended to tell the flight crew to stand down.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INTENDED TO COMMUNICATE WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight crew",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INTENDED MESSAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "stand down",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant was standing by the left door on the outside of N96BM.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "POSITIONED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "POSITION DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left door on the outside",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant observed N911FA returning to base.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "RETURNING TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "base",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant thought N911FA's return was a good thing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ASSESSMENT OF RETURN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "good thing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant recalled hearing a loud bang.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HEARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loud bang",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant was knocked to the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "IMPACT RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "knocked to the ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The air support Lieutenant ran away from N96BM after being knocked down.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVED AWAY FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ran",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air support Lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after being knocked down",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2aa9a0b7:1482",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a45c36e0d4254ce290d515a8c90431d59411a5f52134b921e4be9debc05a3ddf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::2aa9a0b7:1482:3b65e6f8",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "e708ee667e366e5b34a98aee59dcbd608d35127e958a326f880c57abd72884b0",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2aa9a0b7:1482:de670c0c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "d93883659a91a2660eea02602183c148cb4d9b12e33a91049bcb08fe5aa99b2f",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The pilot of N911FA made a normal approach from the north to the main pad. From the main pad, the pilot performed a left pedal turn turning the helicopter to the east, and hover-taxied toward pad 2. The pilot then made a right pedal turn, turning the helicopter to the south. As she lowered the collective to land on pad 2, the main rotor blades came into contact with N96BM's main rotor blades.\n\nThe air support Lieutenant (Lt.) was interviewed on November 18, 2012. He had observed that throughout the day prior to the accident, the weather had been spotty; clear one moment, cloudy and overcast the next. As N911FA took off, he observed from his office marginal weather conditions. A couple of minutes later, he looked out his window, and noted that the weather was closing in, and that N96BM was on Pad 1 preparing to take off. He walked out of his office toward N96BM, with the intent of telling the flight crew to stand down. He stated that he had been standing by the left door on the outside of N96BM. He observed N911FA returning to base, and thought that was a good thing. He recalled hearing a loud bang, getting knocked to the ground, and then running away from N96BM.\n\n## PERSONNEL INFORMATION\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 1791,
+  "end_char_idx": 3002,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

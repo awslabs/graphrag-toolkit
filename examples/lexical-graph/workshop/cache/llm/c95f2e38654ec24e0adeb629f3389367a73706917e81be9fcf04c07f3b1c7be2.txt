@@ -1,0 +1,60 @@
+topic: Amazon R6i Instance Types Information
+
+  entities:
+  
+    r6i|Product
+    Amazon R6i instances|Product
+    3rd-generation Intel Xeon Scalable processors|Product
+    Ice Lake|Product
+    R5 instance types|Product
+  
+  proposition: r6i is a family of instance types.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    r6i|IS_TYPE_OF|family of instance types
+      
+  proposition: Amazon R6i instances are powered by 3rd-generation Intel Xeon Scalable processors.
+  
+    entity-entity relationships:
+    Amazon R6i instances|POWERED_BY|3rd-generation Intel Xeon Scalable processors
+  
+    entity-attributes:
+    
+  proposition: 3rd-generation Intel Xeon Scalable processors are code named Ice Lake.
+  
+    entity-entity relationships:
+    3rd-generation Intel Xeon Scalable processors|CODE_NAMED|Ice Lake
+  
+    entity-attributes:
+
+  proposition: Amazon R6i instances are an ideal fit for memory-intensive workloads.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Amazon R6i instances|IDEAL_FOR|memory-intensive workloads
+
+  proposition: Amazon R6i instances offer up to 15% better compute price performance than comparable R5 instance types.
+  
+    entity-entity relationships:
+    Amazon R6i instances|COMPARED_TO|R5 instance types
+  
+    entity-attributes:
+    Amazon R6i instances|PERFORMANCE_IMPROVEMENT|up to 15% better compute price performance
+
+  proposition: Amazon R6i instances offer up to 20% higher memory bandwidth per vCPU than comparable R5 instance types.
+  
+    entity-entity relationships:
+    Amazon R6i instances|COMPARED_TO|R5 instance types
+  
+    entity-attributes:
+    Amazon R6i instances|MEMORY_BANDWIDTH|up to 20% higher memory bandwidth per vCPU
+
+  proposition: R5 instance types are comparable to Amazon R6i instances.
+  
+    entity-entity relationships:
+    R5 instance types|COMPARABLE_TO|Amazon R6i instances
+  
+    entity-attributes:

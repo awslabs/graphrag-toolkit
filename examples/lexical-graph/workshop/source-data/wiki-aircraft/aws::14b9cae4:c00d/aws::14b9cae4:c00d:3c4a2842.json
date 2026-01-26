@@ -1,0 +1,2427 @@
+{
+  "id_": "aws::14b9cae4:c00d:3c4a2842",
+  "embedding": [
+    0.007232666,
+    0.037109375,
+    0.009292603,
+    -0.055786133,
+    0.02684021,
+    0.01902771,
+    -0.052703857,
+    -0.021255493,
+    -0.04260254,
+    -0.0072250366,
+    0.007068634,
+    0.014678955,
+    -0.030883789,
+    -0.050445557,
+    0.068847656,
+    -0.020599365,
+    0.002193451,
+    0.026321411,
+    0.03326416,
+    0.011550903,
+    0.021575928,
+    0.018157959,
+    -0.032318115,
+    -0.054870605,
+    0.033843994,
+    0.024337769,
+    -0.08319092,
+    -0.02558899,
+    -0.0022792816,
+    -0.03427124,
+    0.0036354065,
+    0.046844482,
+    0.00894928,
+    0.058685303,
+    -0.059509277,
+    0.0024909973,
+    0.026672363,
+    0.007217407,
+    0.020248413,
+    -0.003578186,
+    0.028182983,
+    -0.006942749,
+    0.10656738,
+    -0.06112671,
+    0.044311523,
+    0.022491455,
+    0.025421143,
+    -0.031463623,
+    0.021270752,
+    0.04034424,
+    0.004463196,
+    0.03918457,
+    -0.0028705597,
+    0.023773193,
+    0.03479004,
+    0.044067383,
+    -0.03152466,
+    0.023635864,
+    0.012054443,
+    0.025482178,
+    -0.007820129,
+    0.009681702,
+    0.0066223145,
+    -0.008033752,
+    -0.039886475,
+    0.037261963,
+    -0.018936157,
+    -0.018325806,
+    0.0602417,
+    -0.022888184,
+    -0.04071045,
+    0.010154724,
+    -0.015304565,
+    0.0065727234,
+    0.011917114,
+    0.017974854,
+    0.015914917,
+    0.040039062,
+    -0.019866943,
+    0.04473877,
+    0.021881104,
+    0.043518066,
+    0.014556885,
+    -0.041229248,
+    0.011184692,
+    0.006504059,
+    -0.022033691,
+    -0.017044067,
+    -0.00064849854,
+    -0.043395996,
+    -0.0054244995,
+    -0.014663696,
+    -0.04510498,
+    0.043762207,
+    -0.00012111664,
+    -0.033294678,
+    0.01309967,
+    -0.027435303,
+    -0.021514893,
+    -0.04534912,
+    -0.015563965,
+    0.006175995,
+    -0.09564209,
+    0.026107788,
+    -0.003993988,
+    0.045166016,
+    0.0056991577,
+    0.0012187958,
+    0.053863525,
+    0.014587402,
+    0.0047683716,
+    0.04901123,
+    -0.0066833496,
+    -0.03488159,
+    -0.019378662,
+    0.032043457,
+    -0.021881104,
+    0.0008430481,
+    0.0040512085,
+    0.004798889,
+    0.007171631,
+    0.0049591064,
+    -0.05218506,
+    0.03918457,
+    -0.012809753,
+    -0.021652222,
+    -0.0104522705,
+    0.04058838,
+    0.024276733,
+    -0.057495117,
+    0.0082092285,
+    0.07092285,
+    0.00035858154,
+    -0.011367798,
+    -0.034362793,
+    0.045013428,
+    -0.003540039,
+    -0.009811401,
+    -0.02041626,
+    0.017974854,
+    -0.0038471222,
+    -0.02760315,
+    0.023239136,
+    -0.009483337,
+    -0.01864624,
+    0.024902344,
+    0.0054626465,
+    0.004196167,
+    0.00093078613,
+    -0.018371582,
+    -0.028411865,
+    -0.015220642,
+    0.046142578,
+    0.001789093,
+    -0.028152466,
+    -0.008491516,
+    -0.008834839,
+    -0.008155823,
+    -0.024780273,
+    -0.02607727,
+    0.050598145,
+    0.0028953552,
+    -0.009498596,
+    -0.00081062317,
+    -0.055358887,
+    0.013282776,
+    -0.029708862,
+    -0.01159668,
+    0.016952515,
+    -0.009597778,
+    0.055633545,
+    -0.030822754,
+    -0.039886475,
+    0.012893677,
+    0.028015137,
+    0.025054932,
+    0.015487671,
+    -0.0118255615,
+    -0.0079422,
+    0.027023315,
+    0.00042390823,
+    -0.029968262,
+    -0.018615723,
+    -0.0033454895,
+    -0.038330078,
+    -0.0050697327,
+    -0.0015296936,
+    -0.0385437,
+    0.03845215,
+    -0.023101807,
+    0.062805176,
+    0.033050537,
+    0.06237793,
+    -0.014671326,
+    -0.044128418,
+    -0.05078125,
+    0.0068092346,
+    0.015533447,
+    -0.042144775,
+    0.037353516,
+    -0.036499023,
+    -0.0034675598,
+    0.014816284,
+    0.0060195923,
+    0.046447754,
+    -0.0362854,
+    0.02998352,
+    -0.0042419434,
+    -0.03161621,
+    0.036956787,
+    0.044952393,
+    0.0154418945,
+    -0.024368286,
+    0.00089359283,
+    0.028961182,
+    -0.008346558,
+    -0.015380859,
+    0.013198853,
+    -0.0020656586,
+    0.023147583,
+    -0.015991211,
+    0.005027771,
+    -0.017547607,
+    0.01675415,
+    -0.0063438416,
+    -0.025390625,
+    -0.02708435,
+    -0.02658081,
+    -0.0112838745,
+    -0.03237915,
+    0.046844482,
+    0.0491333,
+    -0.0069007874,
+    0.037628174,
+    0.005256653,
+    0.028366089,
+    -0.00019454956,
+    0.018920898,
+    0.0001938343,
+    -0.016525269,
+    0.0060577393,
+    -0.02960205,
+    -0.031219482,
+    0.022964478,
+    -0.1217041,
+    -0.099975586,
+    -0.006542206,
+    -0.0056762695,
+    -0.0256958,
+    0.007965088,
+    0.066833496,
+    0.007095337,
+    0.015914917,
+    0.07196045,
+    0.017288208,
+    -0.009864807,
+    -0.0062789917,
+    -0.04888916,
+    0.023742676,
+    0.0012741089,
+    0.023742676,
+    0.0016536713,
+    -0.047821045,
+    0.023880005,
+    0.050842285,
+    -0.040283203,
+    0.016143799,
+    -0.00422287,
+    0.030731201,
+    -0.01134491,
+    -0.009353638,
+    -0.089904785,
+    -0.0076293945,
+    0.0007638931,
+    0.0023651123,
+    0.04537964,
+    -0.0077400208,
+    0.00680542,
+    0.023590088,
+    0.0067329407,
+    0.0113220215,
+    0.016021729,
+    -0.011062622,
+    0.013900757,
+    0.04071045,
+    -0.0116119385,
+    -0.010932922,
+    0.042755127,
+    0.007293701,
+    -0.0005264282,
+    0.033721924,
+    -0.009429932,
+    -0.024627686,
+    0.037872314,
+    -0.022735596,
+    -0.033233643,
+    0.046905518,
+    -0.007583618,
+    0.015289307,
+    0.0046310425,
+    0.033935547,
+    0.06121826,
+    -0.012359619,
+    0.02067566,
+    -0.011505127,
+    -0.009979248,
+    -0.018814087,
+    0.005695343,
+    -0.0064849854,
+    -0.022338867,
+    -0.021987915,
+    0.0234375,
+    0.0134887695,
+    0.008171082,
+    -0.0074386597,
+    -0.006904602,
+    -0.02381897,
+    0.031341553,
+    0.022369385,
+    0.022888184,
+    0.023956299,
+    -0.0035762787,
+    -0.055389404,
+    0.012420654,
+    -0.014839172,
+    -0.008003235,
+    0.006778717,
+    -0.020050049,
+    -0.013320923,
+    -0.002779007,
+    0.016738892,
+    -0.00018882751,
+    -0.0056610107,
+    -0.011474609,
+    0.0076828003,
+    -0.011207581,
+    0.008514404,
+    -0.017578125,
+    -0.029693604,
+    0.013931274,
+    -0.020401001,
+    -0.02911377,
+    -0.00028181076,
+    -0.049102783,
+    -0.012969971,
+    -0.021331787,
+    -0.042388916,
+    0.013313293,
+    0.03262329,
+    -0.0082092285,
+    0.008712769,
+    0.00299263,
+    -0.012626648,
+    -0.0014038086,
+    0.011665344,
+    -0.053466797,
+    0.0005078316,
+    0.016555786,
+    -0.01890564,
+    -0.042175293,
+    0.0029315948,
+    -0.0024032593,
+    -0.039001465,
+    -0.07739258,
+    0.030395508,
+    0.0073165894,
+    -0.010437012,
+    -0.036956787,
+    0.013496399,
+    0.020965576,
+    -0.048675537,
+    0.022750854,
+    0.004650116,
+    -0.0011548996,
+    0.035461426,
+    0.0008716583,
+    -0.016052246,
+    -0.048797607,
+    0.04248047,
+    0.008216858,
+    0.017807007,
+    0.012680054,
+    0.057769775,
+    0.038146973,
+    -0.019439697,
+    0.013076782,
+    -0.020187378,
+    0.016204834,
+    0.0029315948,
+    -0.021713257,
+    0.0395813,
+    0.061401367,
+    -0.06951904,
+    -0.03152466,
+    0.025054932,
+    0.012664795,
+    0.024246216,
+    0.02684021,
+    -0.011306763,
+    -0.041900635,
+    -0.09844971,
+    -0.028579712,
+    -0.018356323,
+    -0.033447266,
+    0.050354004,
+    -0.05899048,
+    -0.0013818741,
+    -0.06713867,
+    0.028320312,
+    0.02923584,
+    -0.014274597,
+    0.015838623,
+    0.0028457642,
+    -0.013801575,
+    -0.025680542,
+    0.011230469,
+    -0.040527344,
+    -0.0030708313,
+    -0.017532349,
+    0.036132812,
+    0.018157959,
+    -0.014282227,
+    -0.013763428,
+    0.040527344,
+    -0.01927185,
+    0.0059013367,
+    0.024093628,
+    0.033691406,
+    -0.005130768,
+    -0.019454956,
+    -0.010803223,
+    -0.037597656,
+    -0.008323669,
+    -0.030410767,
+    -0.042236328,
+    0.0045928955,
+    -0.0056114197,
+    -0.011657715,
+    0.027893066,
+    -0.046203613,
+    -0.017303467,
+    0.0041656494,
+    0.061950684,
+    -0.0021686554,
+    0.020812988,
+    -0.013839722,
+    0.017593384,
+    0.021408081,
+    0.068725586,
+    0.048339844,
+    -0.007709503,
+    -0.0069770813,
+    0.062469482,
+    0.0028572083,
+    -0.03982544,
+    -0.058929443,
+    -0.007587433,
+    0.016021729,
+    0.014572144,
+    0.00059890747,
+    -0.03286743,
+    -0.020874023,
+    0.032836914,
+    -0.011566162,
+    -0.015304565,
+    -0.022262573,
+    0.05911255,
+    -0.006778717,
+    0.023986816,
+    -0.020233154,
+    -0.029907227,
+    0.040161133,
+    0.006248474,
+    -0.06188965,
+    0.027053833,
+    -0.05996704,
+    0.0035552979,
+    -0.028656006,
+    0.051605225,
+    -0.019180298,
+    -0.022857666,
+    0.004196167,
+    -0.013839722,
+    0.05810547,
+    0.008651733,
+    0.024749756,
+    -0.012763977,
+    0.029174805,
+    0.012771606,
+    -0.013084412,
+    0.008995056,
+    -0.011482239,
+    0.012962341,
+    0.021484375,
+    -0.000995636,
+    0.00623703,
+    0.002090454,
+    -0.0049858093,
+    0.003479004,
+    -0.022857666,
+    -0.03564453,
+    0.008834839,
+    -0.023086548,
+    0.0039405823,
+    -0.021881104,
+    0.0062713623,
+    0.016220093,
+    0.0178833,
+    -0.00048446655,
+    -0.0021209717,
+    0.019546509,
+    0.00022125244,
+    0.040130615,
+    0.03274536,
+    -0.03717041,
+    0.042663574,
+    -0.00756073,
+    0.03744507,
+    -0.007671356,
+    -0.014175415,
+    -0.016662598,
+    -0.010070801,
+    0.057006836,
+    0.036590576,
+    -0.044036865,
+    -0.017364502,
+    0.046569824,
+    -0.026824951,
+    -0.03503418,
+    -0.044128418,
+    0.010971069,
+    0.035614014,
+    0.006755829,
+    0.036712646,
+    -0.014984131,
+    0.010910034,
+    -0.03616333,
+    -0.014724731,
+    -0.03515625,
+    -0.010116577,
+    -0.02709961,
+    -0.04928589,
+    -0.016342163,
+    0.012557983,
+    0.019592285,
+    0.02911377,
+    -0.011650085,
+    0.011650085,
+    0.0068206787,
+    0.0039749146,
+    -0.051361084,
+    -0.05831909,
+    0.0146102905,
+    -0.07067871,
+    -0.056854248,
+    0.097961426,
+    0.0871582,
+    -0.045074463,
+    -0.0041122437,
+    0.015686035,
+    0.0048828125,
+    -0.04031372,
+    0.005241394,
+    0.02053833,
+    0.019897461,
+    0.025100708,
+    -0.0050582886,
+    -0.045776367,
+    0.050445557,
+    -0.037017822,
+    -0.046051025,
+    -0.00680542,
+    0.14233398,
+    0.009124756,
+    0.06768799,
+    -0.05480957,
+    -0.019958496,
+    0.0231781,
+    -0.038238525,
+    -0.010437012,
+    -0.008880615,
+    0.009216309,
+    -0.014587402,
+    0.01574707,
+    -0.03378296,
+    0.036193848,
+    0.026916504,
+    -0.008239746,
+    0.0015335083,
+    0.027313232,
+    0.043884277,
+    -0.012664795,
+    -0.004737854,
+    -0.010375977,
+    -0.00894165,
+    0.03390503,
+    -0.03265381,
+    -0.026046753,
+    -0.005088806,
+    0.005027771,
+    0.009223938,
+    -0.036895752,
+    0.00831604,
+    -0.0077285767,
+    0.014930725,
+    -0.045562744,
+    -0.03945923,
+    0.002231598,
+    0.027435303,
+    0.059906006,
+    0.01928711,
+    -0.0143966675,
+    -0.011604309,
+    0.020812988,
+    0.031280518,
+    -0.027526855,
+    -0.042877197,
+    0.02067566,
+    -0.010055542,
+    -0.009468079,
+    -0.0041885376,
+    -0.03640747,
+    0.009010315,
+    -0.03414917,
+    0.028503418,
+    0.008544922,
+    -0.058441162,
+    -0.01914978,
+    -0.0025138855,
+    0.0037765503,
+    -0.00019073486,
+    -0.022018433,
+    -0.02960205,
+    -0.021713257,
+    -0.00089263916,
+    -0.0037784576,
+    0.0035705566,
+    -0.0048561096,
+    0.054992676,
+    0.013298035,
+    -0.04437256,
+    0.022781372,
+    -0.0073547363,
+    0.0178833,
+    -0.024017334,
+    -0.024658203,
+    -0.0016708374,
+    -0.05166626,
+    -0.0069732666,
+    -0.026641846,
+    -0.046813965,
+    0.01423645,
+    0.003955841,
+    0.02798462,
+    -0.011726379,
+    0.027297974,
+    0.010154724,
+    0.002735138,
+    -0.018859863,
+    -0.035888672,
+    -0.036071777,
+    -0.0131073,
+    -0.040283203,
+    -0.038635254,
+    -0.05041504,
+    0.023483276,
+    0.02999878,
+    0.015403748,
+    0.015899658,
+    -0.083496094,
+    0.0055160522,
+    0.010261536,
+    0.061828613,
+    -0.0032997131,
+    0.00048065186,
+    -0.0015277863,
+    0.009841919,
+    -0.0017986298,
+    0.028930664,
+    -0.010620117,
+    0.042144775,
+    0.06921387,
+    -0.024505615,
+    -0.0064926147,
+    -0.028198242,
+    0.032562256,
+    -0.040802002,
+    0.022277832,
+    -0.017120361,
+    0.0024681091,
+    -0.050354004,
+    -0.05166626,
+    0.0046463013,
+    -0.038024902,
+    -0.009529114,
+    -0.021102905,
+    -0.022521973,
+    -0.04449463,
+    0.04458618,
+    -0.021636963,
+    -0.023208618,
+    -0.030517578,
+    0.008872986,
+    -0.04626465,
+    0.0010328293,
+    0.022247314,
+    0.009727478,
+    -0.006904602,
+    -0.011962891,
+    -0.024032593,
+    0.011482239,
+    0.079711914,
+    0.0046043396,
+    -0.012069702,
+    0.06274414,
+    -0.0008049011,
+    0.052642822,
+    0.04071045,
+    -0.010063171,
+    -0.038513184,
+    0.0011367798,
+    0.028900146,
+    0.024551392,
+    -0.0345459,
+    0.043548584,
+    -0.039489746,
+    -0.026123047,
+    0.013168335,
+    0.034240723,
+    0.030670166,
+    0.026794434,
+    -0.006351471,
+    0.0045776367,
+    0.008544922,
+    -0.0005645752,
+    0.010314941,
+    0.052337646,
+    0.016281128,
+    0.020889282,
+    0.010375977,
+    0.030456543,
+    0.014419556,
+    0.043060303,
+    -0.03515625,
+    -0.03201294,
+    -0.0030212402,
+    0.01651001,
+    -0.09136963,
+    -0.030090332,
+    -0.010681152,
+    0.025878906,
+    -0.056854248,
+    -0.010505676,
+    -0.042907715,
+    -0.0121536255,
+    -0.076416016,
+    -0.05508423,
+    0.01374054,
+    0.01058197,
+    0.0028591156,
+    -0.040130615,
+    0.016418457,
+    0.017547607,
+    0.013969421,
+    -0.0033302307,
+    0.025299072,
+    -0.066345215,
+    -0.021438599,
+    0.042022705,
+    -0.015991211,
+    -0.013702393,
+    -0.07513428,
+    0.007858276,
+    0.02418518,
+    0.08862305,
+    0.05029297,
+    0.015541077,
+    -0.016067505,
+    -0.017456055,
+    0.004737854,
+    0.0058135986,
+    0.016830444,
+    -0.03366089,
+    0.0043678284,
+    -0.008529663,
+    0.02166748,
+    -0.028213501,
+    0.01637268,
+    -0.015281677,
+    -0.0071525574,
+    -0.018508911,
+    0.03338623,
+    0.034851074,
+    -0.0066490173,
+    -0.017242432,
+    -0.009208679,
+    0.034057617,
+    0.014961243,
+    -0.01902771,
+    -0.005836487,
+    -0.053894043,
+    -0.024749756,
+    -0.01890564,
+    -0.0129470825,
+    -0.0087890625,
+    0.023712158,
+    0.026382446,
+    -0.030471802,
+    0.027740479,
+    -0.08062744,
+    0.03564453,
+    -0.051330566,
+    -0.010734558,
+    -0.00089263916,
+    -0.045043945,
+    0.028427124,
+    -0.064819336,
+    -0.045776367,
+    0.011421204,
+    0.03970337,
+    0.033203125,
+    0.038391113,
+    0.010307312,
+    -0.0011367798,
+    0.021820068,
+    -0.034118652,
+    -0.004714966,
+    0.0061569214,
+    0.0124435425,
+    -0.028564453,
+    -0.0031166077,
+    -0.02130127,
+    -0.02331543,
+    -0.014328003,
+    -0.022491455,
+    0.007522583,
+    0.066345215,
+    0.013839722,
+    0.023406982,
+    0.029907227,
+    0.03112793,
+    0.012535095,
+    -0.019866943,
+    -0.010910034,
+    0.09637451,
+    -0.054534912,
+    -0.024749756,
+    -0.0006790161,
+    0.038146973,
+    0.022628784,
+    0.025024414,
+    -0.018341064,
+    -0.00019454956,
+    -0.012817383,
+    0.005683899,
+    -0.0027313232,
+    0.05355835,
+    -0.013725281,
+    0.0017700195,
+    -0.00019836426,
+    -0.026626587,
+    0.049987793,
+    0.013397217,
+    -0.029922485,
+    -0.027877808,
+    0.027420044,
+    -0.04119873,
+    0.023071289,
+    0.012252808,
+    0.07647705,
+    0.040161133,
+    0.009086609,
+    -0.044677734,
+    -0.050445557,
+    -0.02923584,
+    0.01651001,
+    -0.029067993,
+    0.07702637,
+    -0.06100464,
+    0.020126343,
+    -0.052459717,
+    -0.028656006,
+    0.033203125,
+    -0.0073165894,
+    0.02432251,
+    -0.050109863,
+    0.009376526,
+    0.012268066,
+    0.027557373,
+    0.0007171631,
+    -0.026412964,
+    0.008766174,
+    0.006668091,
+    0.025283813,
+    0.035949707,
+    0.04321289,
+    0.0069389343,
+    -0.014793396,
+    -0.0619812,
+    0.04522705,
+    -0.046325684,
+    -0.042633057,
+    0.027572632,
+    -0.049346924,
+    -0.015449524,
+    0.004966736,
+    0.05142212,
+    -0.03387451,
+    -0.031402588,
+    -0.013000488,
+    0.017852783,
+    -0.014183044,
+    -0.043518066,
+    0.00031280518,
+    0.012931824,
+    -0.003730774,
+    -0.034576416,
+    -0.01965332,
+    -0.015716553,
+    -0.076049805,
+    -0.05532837,
+    -0.026763916,
+    0.024307251,
+    0.00945282,
+    0.06555176,
+    0.0051002502,
+    0.11254883,
+    -0.046905518,
+    -0.061828613,
+    0.010864258,
+    0.01159668,
+    -0.00038433075,
+    0.061309814,
+    -0.034973145,
+    0.03805542,
+    -0.0010986328,
+    -0.002620697,
+    -0.038269043,
+    -0.004497528,
+    0.020568848,
+    0.0009431839,
+    -0.011978149,
+    -0.06933594,
+    0.016403198,
+    -0.016204834,
+    -0.017425537,
+    0.049957275,
+    -0.026489258,
+    0.009231567,
+    0.0027046204,
+    0.032470703,
+    -0.038635254,
+    -0.017059326,
+    0.007133484,
+    0.043395996,
+    0.025253296,
+    -0.00081062317,
+    0.079589844,
+    0.027236938,
+    -0.03213501,
+    0.013877869,
+    -0.03692627,
+    -0.0029678345,
+    -0.010940552,
+    0.015655518,
+    0.0058898926,
+    -0.005607605,
+    -0.005569458,
+    0.01966858,
+    0.01373291,
+    -0.032226562,
+    0.008621216,
+    0.013458252,
+    0.009384155,
+    0.032318115,
+    -0.06298828,
+    0.00023889542,
+    0.0017538071,
+    -0.018615723,
+    -0.03375244,
+    -0.00894165,
+    -0.041656494,
+    -0.03729248,
+    0.013748169,
+    0.0541687,
+    -0.008041382,
+    -0.02545166,
+    -0.015525818,
+    0.016494751,
+    -0.030838013,
+    -0.0058059692,
+    0.041656494,
+    0.008041382,
+    0.036865234,
+    -0.018737793,
+    0.013313293,
+    0.031036377,
+    -0.014572144,
+    -0.020874023,
+    -0.013404846,
+    -0.033477783,
+    -0.011581421,
+    0.037017822,
+    -0.02659607,
+    -0.03378296,
+    -0.026046753,
+    0.018081665,
+    -0.032836914,
+    -0.021697998,
+    -0.014198303,
+    -0.025390625,
+    0.016983032,
+    -0.0178833,
+    0.007297516,
+    0.029708862,
+    -0.03164673,
+    0.012832642,
+    0.028701782,
+    -0.009216309,
+    0.020629883,
+    -0.0152282715,
+    0.03643799,
+    0.005821228,
+    -0.015350342
+  ],
+  "metadata": {
+    "title": "Cessna 172",
+    "original_title": "Cessna 172",
+    "wikipedia_id": "173462",
+    "url": "https://en.wikipedia.org/wiki/Cessna_172",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Cessna 172 Collision Incidents",
+      "Cessna 172 is an aircraft model.",
+      "N7711G is a Cessna 172 aircraft.",
+      "On September 25, 1978, Cessna 172 N7711G collided with Pacific Southwest Airlines Flight 182 over San Diego, California.",
+      "Pacific Southwest Airlines Flight 182 was a Boeing 727 aircraft.",
+      "The collision between Cessna 172 N7711G and Pacific Southwest Airlines Flight 182 resulted in 144 fatalities.",
+      "2 fatalities occurred in the Cessna 172 N7711G.",
+      "135 fatalities occurred on Pacific Southwest Airlines Flight 182.",
+      "7 fatalities occurred on the ground from the collision between Cessna 172 N7711G and Pacific Southwest Airlines Flight 182.",
+      "Reims Cessna F172P is a variant of the Cessna 172 aircraft.",
+      "D-ECJB was a Reims Cessna F172P aircraft.",
+      "D-ECJB was a rented aircraft.",
+      "On May 28, 1987, German teenage pilot Mathias Rust flew Reims Cessna F172P D-ECJB in an unauthorized flight.",
+      "Mathias Rust's unauthorized flight in Cessna F172P D-ECJB began at Helsinki-Malmi Airport.",
+      "Mathias Rust flew Cessna F172P D-ECJB through Soviet airspace.",
+      "Mathias Rust landed Cessna F172P D-ECJB near Red Square in Moscow.",
+      "Soviet air defense did not intercept Mathias Rust's Cessna F172P D-ECJB during the unauthorized flight.",
+      "N99501 was a Cessna 172 aircraft.",
+      "N99501 belonged to Civil Air Patrol.",
+      "On April 9, 1990, Civil Air Patrol Cessna 172 N99501 collided head-on with Atlantic Southeast Airlines Flight 2254.",
+      "Atlantic Southeast Airlines Flight 2254 was an Embraer EMB 120 Brasilia aircraft.",
+      "The collision between Civil Air Patrol Cessna 172 N99501 and Atlantic Southeast Airlines Flight 2254 occurred while Flight 2254 was en route from Gadsden Municipal Airport to Hartsfield–Jackson Atlanta International Airport."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Cessna 172 Collision Incidents",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna 172",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N7711G",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pacific Southwest Airlines Flight 182",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "San Diego, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing 727",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Reims Cessna F172P",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "D-ECJB",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mathias Rust",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Helsinki-Malmi Airport",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Soviet airspace",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Red Square",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Moscow",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Soviet air defense",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N99501",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Civil Air Patrol",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Atlantic Southeast Airlines Flight 2254",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB 120 Brasilia",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Gadsden Municipal Airport",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Hartsfield–Jackson Atlanta International Airport",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cessna 172 is an aircraft model.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft model",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N7711G is a Cessna 172 aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On September 25, 1978, Cessna 172 N7711G collided with Pacific Southwest Airlines Flight 182 over San Diego, California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "September 25, 1978",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Diego, California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "September 25, 1978",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Diego, California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pacific Southwest Airlines Flight 182 was a Boeing 727 aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing 727",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The collision between Cessna 172 N7711G and Pacific Southwest Airlines Flight 182 resulted in 144 fatalities.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION FATALITIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "144",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION FATALITIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "144",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "2 fatalities occurred in the Cessna 172 N7711G.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "ONBOARD FATALITIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "135 fatalities occurred on Pacific Southwest Airlines Flight 182.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "ONBOARD FATALITIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "135",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "7 fatalities occurred on the ground from the collision between Cessna 172 N7711G and Pacific Southwest Airlines Flight 182.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N7711G",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "GROUND FATALITIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pacific Southwest Airlines Flight 182",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "GROUND FATALITIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Reims Cessna F172P is a variant of the Cessna 172 aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Reims Cessna F172P",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VARIANT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "D-ECJB was a Reims Cessna F172P aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Reims Cessna F172P",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "D-ECJB was a rented aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rented aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On May 28, 1987, German teenage pilot Mathias Rust flew Reims Cessna F172P D-ECJB in an unauthorized flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "FLEW"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "NATIONALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "German",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "AGE GROUP"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "teenage",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 28, 1987",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unauthorized",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mathias Rust's unauthorized flight in Cessna F172P D-ECJB began at Helsinki-Malmi Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "FLEW"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Helsinki-Malmi Airport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unauthorized",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mathias Rust flew Cessna F172P D-ECJB through Soviet airspace.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "FLEW"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FLEW THROUGH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Soviet airspace",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Mathias Rust landed Cessna F172P D-ECJB near Red Square in Moscow.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "FLEW"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "LANDED NEAR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Red Square",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Red Square",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Moscow",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Soviet air defense did not intercept Mathias Rust's Cessna F172P D-ECJB during the unauthorized flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Soviet air defense",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FAILED TO INTERCEPT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mathias Rust",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "FLEW"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D-ECJB",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unauthorized",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N99501 was a Cessna 172 aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N99501 belonged to Civil Air Patrol.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "BELONGS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Civil Air Patrol",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On April 9, 1990, Civil Air Patrol Cessna 172 N99501 collided head-on with Atlantic Southeast Airlines Flight 2254.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "BELONGS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Civil Air Patrol",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 9, 1990",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "head-on",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 9, 1990",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLISION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "head-on",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Atlantic Southeast Airlines Flight 2254 was an Embraer EMB 120 Brasilia aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB 120 Brasilia",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The collision between Civil Air Patrol Cessna 172 N99501 and Atlantic Southeast Airlines Flight 2254 occurred while Flight 2254 was en route from Gadsden Municipal Airport to Hartsfield–Jackson Atlanta International Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "BELONGS TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Civil Air Patrol",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99501",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Gadsden Municipal Airport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hartsfield–Jackson Atlanta International Airport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Atlantic Southeast Airlines Flight 2254",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "en route",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::14b9cae4:c00d",
+      "node_type": "4",
+      "metadata": {
+        "title": "Cessna 172",
+        "original_title": "Cessna 172",
+        "wikipedia_id": "173462",
+        "url": "https://en.wikipedia.org/wiki/Cessna_172"
+      },
+      "hash": "69c14c82ecf6f063a3be85313bc230f0da866946ae5d837ae092902c1658ba2d",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::14b9cae4:c00d:d5dbcd57",
+      "node_type": "1",
+      "metadata": {
+        "title": "Cessna 172",
+        "original_title": "Cessna 172",
+        "wikipedia_id": "173462",
+        "url": "https://en.wikipedia.org/wiki/Cessna_172",
+        "header_path": "/"
+      },
+      "hash": "7f97d22e01a1bb6beaf7691eeb91c2951a137871540a17075e45a091d8d4b4df",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::14b9cae4:c00d:7bf71a4c",
+      "node_type": "1",
+      "metadata": {
+        "title": "Cessna 172",
+        "original_title": "Cessna 172",
+        "wikipedia_id": "173462",
+        "url": "https://en.wikipedia.org/wiki/Cessna_172",
+        "header_path": "/"
+      },
+      "hash": "9e62e8a56d1654111bf5cddcd306bea56f13fee3cbc1bde10085342a5da7c012",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "On September 25, 1978, a Cessna 172, N7711G, and Pacific Southwest Airlines Flight 182, a Boeing 727, collided over San Diego, California. There were 144 fatalities, 2 in the Cessna 172, 135 on the PSA Flight 182 and 7 on the ground.\nOn May 28, 1987, a rented Reims Cessna F172P, registered D-ECJB, was used by German teenage pilot Mathias Rust in an unauthorized flight from Helsinki-Malmi Airport through Soviet airspace to land near the Red Square in Moscow, all without being intercepted by Soviet air defense.\nOn April 9, 1990, Atlantic Southeast Airlines Flight 2254, an Embraer EMB 120 Brasilia, collided head-on with a Civil Air Patrol Cessna 172, N99501, while en route from Gadsden Municipal Airport to Hartsfield–Jackson Atlanta International Airport.",
+  "mimetype": "text/plain",
+  "start_char_idx": 812,
+  "end_char_idx": 1574,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

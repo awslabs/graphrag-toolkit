@@ -13,7 +13,7 @@
 		"NeptuneEngineVersion": {
 			"Description": "Neptune DB engine version",
 			"Type": "String",
-			"Default": "1.4.5.1"
+			"Default": "1.4.6.2"
 		},
 		"NeptuneDbInstanceType": {
 			"Description": "Neptune DB instance type (use db.serverless to provision a Neptune Serverless cluster)",
@@ -23,7 +23,8 @@
 				"db.serverless",
 				"db.r8g.large",
 				"db.r8g.xlarge",
-				"db.r8g.2xlarge"
+        "db.r8g.2xlarge",
+        "db.r8g.4xlarge"
 			],
 			"ConstraintDescription": "Must be a valid Neptune instance type."
 		},
@@ -87,6 +88,8 @@
 			"Default": "ml.m5.xlarge",
 			"AllowedValues": [
 				"ml.m5.xlarge",
+        "ml.m5.2xlarge",
+        "ml.m5.4xlarge",
 				"ml.p3.2xlarge"
 			],
 			"ConstraintDescription": "Must be a valid SageMaker instance type."
@@ -777,10 +780,22 @@
 								},
 								{
 									"Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
-								}
-							]
-						}
-					]
+								},
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.rerank-v3-5:0"
+                }
+              ]
+            },
+            {
+              "Action": [
+                "bedrock:Rerank"
+              ],
+              "Resource": [
+                "*"
+              ],
+              "Effect": "Allow"
+            }
+          ]
 				},
 				"Roles": [
 					{
@@ -1410,7 +1425,7 @@
 										"echo \"export EXTRACTION_MODEL=",
 										{
 											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+												"${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
 												{
 													"partition": {
 														"Ref": "AWS::Partition"
@@ -1443,7 +1458,7 @@
 										"echo \"export RESPONSE_MODEL=",
 										{
 											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+												"${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
 												{
 													"partition": {
 														"Ref": "AWS::Partition"
@@ -1474,7 +1489,7 @@
 										"echo \"export EVALUATION_MODEL=",
 										{
 											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+												"${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
 												{
 													"partition": {
 														"Ref": "AWS::Partition"
@@ -1669,7 +1684,7 @@
 										"  echo \"export EXTRACTION_MODEL=",
 										{
 											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+												"${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
 												{
 													"partition": {
 														"Ref": "AWS::Partition"
@@ -1702,7 +1717,7 @@
 										"  echo \"export RESPONSE_MODEL=",
 										{
 											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+												"${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
 												{
 													"partition": {
 														"Ref": "AWS::Partition"
@@ -1733,7 +1748,7 @@
 										"  echo \"export EVALUATION_MODEL=",
 										{
 											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+												"${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
 												{
 													"partition": {
 														"Ref": "AWS::Partition"

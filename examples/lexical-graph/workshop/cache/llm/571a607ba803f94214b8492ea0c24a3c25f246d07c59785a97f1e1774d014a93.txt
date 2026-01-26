@@ -1,0 +1,120 @@
+topic: AWS Security Group Configuration
+
+  entities:
+  
+    sg-0d3ff7717958bd983|SecurityGroup
+    vpc-0f81e2d959d7be034|VPC
+    1234567890|OwnerId
+    0.0.0.0/0|CidrIp
+  
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has VpcId 'vpc-0f81e2d959d7be034'
+    
+    entity-entity relationships:
+    sg-0d3ff7717958bd983|HAS_VPCID|vpc-0f81e2d959d7be034
+    
+    entity-attributes:
+      
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has SecurityGroupArn 'arn:aws:ec2:us-east-1:1234567890:security-group/sg-0d3ff7717958bd983'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_SECURITYGROUPARN|arn:aws:ec2:us-east-1:1234567890:security-group/sg-0d3ff7717958bd983
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has OwnerId '1234567890'
+    
+    entity-entity relationships:
+    sg-0d3ff7717958bd983|HAS_OWNERID|1234567890
+    
+    entity-attributes:
+      
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has GroupName 'default'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_GROUPNAME|default
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has Description 'default VPC security group'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_DESCRIPTION|default VPC security group
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with IpProtocol '-1'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONSEGRESS_WITH_IPPROTOCOL|-1
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with UserIdGroupPairs None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONSEGRESS_WITH_USERIDGROUPPAIRS|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with IpRanges with CidrIp '0.0.0.0/0'
+  
+    entity-entity relationships:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONSEGRESS_WITH_IPRANGES_WITH_CIDRIP|0.0.0.0/0
+  
+    entity-attributes:
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with Ipv6Ranges None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONSEGRESS_WITH_IPV6RANGES|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissionsEgress with PrefixListIds None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONSEGRESS_WITH_PREFIXLISTIDS|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with IpProtocol '-1'
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONS_WITH_IPPROTOCOL|-1
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with UserIdGroupPairs with UserId '1234567890'
+  
+    entity-entity relationships:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONS_WITH_USERIDGROUPPAIRS_WITH_USERID|1234567890
+  
+    entity-attributes:
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with UserIdGroupPairs with GroupId 'sg-0d3ff7717958bd983'
+  
+    entity-entity relationships:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONS_WITH_USERIDGROUPPAIRS_WITH_GROUPID|sg-0d3ff7717958bd983
+  
+    entity-attributes:
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with IpRanges None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONS_WITH_IPRANGES|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with Ipv6Ranges None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONS_WITH_IPV6RANGES|None
+
+  proposition: The SecurityGroup with GroupId 'sg-0d3ff7717958bd983' has IpPermissions with PrefixListIds None
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    sg-0d3ff7717958bd983|HAS_IPPERMISSIONS_WITH_PREFIXLISTIDS|None

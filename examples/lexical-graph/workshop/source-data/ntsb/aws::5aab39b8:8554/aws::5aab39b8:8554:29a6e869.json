@@ -1,0 +1,2382 @@
+{
+  "id_": "aws::5aab39b8:8554:29a6e869",
+  "embedding": [
+    0.034454346,
+    -0.013839722,
+    -0.015640259,
+    -0.12463379,
+    -0.0066070557,
+    0.0031776428,
+    -0.06402588,
+    0.03555298,
+    -0.04135132,
+    0.0062942505,
+    -0.008361816,
+    -0.009124756,
+    -0.035583496,
+    -0.045684814,
+    0.022003174,
+    -0.04598999,
+    0.0042152405,
+    0.024551392,
+    0.025970459,
+    -0.0234375,
+    0.03540039,
+    -0.019607544,
+    -0.013946533,
+    0.01979065,
+    0.0010652542,
+    0.0826416,
+    -0.008361816,
+    0.024261475,
+    -0.021148682,
+    -0.0027389526,
+    0.0043144226,
+    -0.023788452,
+    0.012954712,
+    0.06536865,
+    -0.060821533,
+    0.013786316,
+    -0.06994629,
+    0.041809082,
+    -0.03842163,
+    0.054626465,
+    0.02960205,
+    -0.023010254,
+    0.031982422,
+    -0.00806427,
+    0.023208618,
+    -0.032684326,
+    0.072265625,
+    -0.03149414,
+    0.017578125,
+    0.025253296,
+    0.019882202,
+    1.6748905e-05,
+    0.018463135,
+    0.041290283,
+    0.0005187988,
+    0.023147583,
+    -0.037139893,
+    -0.009361267,
+    -0.014839172,
+    0.08288574,
+    0.050720215,
+    0.034301758,
+    -0.01739502,
+    -0.021606445,
+    0.0017499924,
+    -0.005268097,
+    -0.031829834,
+    0.018737793,
+    0.03488159,
+    0.010810852,
+    -0.008178711,
+    -0.015457153,
+    -0.035125732,
+    0.040771484,
+    -0.015266418,
+    -0.064331055,
+    0.01991272,
+    -0.026397705,
+    -0.014892578,
+    0.07421875,
+    0.038879395,
+    -0.02432251,
+    -0.011398315,
+    0.03112793,
+    0.009552002,
+    0.06347656,
+    0.004016876,
+    -0.042785645,
+    0.0041542053,
+    -0.022918701,
+    -0.014976501,
+    0.030288696,
+    0.035827637,
+    -0.0088272095,
+    -0.055511475,
+    -0.017440796,
+    0.032806396,
+    -0.039123535,
+    0.0059432983,
+    -0.0395813,
+    0.028503418,
+    -0.050628662,
+    -0.0074005127,
+    0.011230469,
+    -0.0057411194,
+    -0.011672974,
+    -0.020126343,
+    -0.045166016,
+    0.0390625,
+    0.026885986,
+    -0.03488159,
+    0.046813965,
+    0.04611206,
+    0.029571533,
+    -0.051635742,
+    -0.013580322,
+    0.016448975,
+    -0.016937256,
+    -0.01373291,
+    0.014289856,
+    -0.035614014,
+    -0.024841309,
+    -0.028030396,
+    0.05114746,
+    0.019439697,
+    -0.002380371,
+    0.0039482117,
+    0.030578613,
+    -0.03640747,
+    -0.018630981,
+    0.0018033981,
+    0.042510986,
+    -0.025283813,
+    -0.017837524,
+    -0.04660034,
+    0.013633728,
+    0.021652222,
+    0.025985718,
+    -0.0017309189,
+    -0.014656067,
+    -0.0025539398,
+    -0.001657486,
+    0.06222534,
+    0.0023612976,
+    -0.0032844543,
+    0.057739258,
+    0.009407043,
+    -0.021408081,
+    -0.017425537,
+    -0.026550293,
+    -0.0039978027,
+    -0.076171875,
+    0.057678223,
+    -0.025375366,
+    -0.022888184,
+    -0.07281494,
+    -0.026626587,
+    -0.04119873,
+    0.01802063,
+    -0.044525146,
+    0.005016327,
+    -0.008728027,
+    0.0027446747,
+    0.012077332,
+    -0.010398865,
+    0.015899658,
+    -0.00089359283,
+    -0.011680603,
+    0.012107849,
+    -0.008140564,
+    0.03994751,
+    0.017318726,
+    -0.0037002563,
+    -0.004306793,
+    0.011230469,
+    0.0014743805,
+    0.033843994,
+    0.07220459,
+    0.018997192,
+    0.017868042,
+    0.0151901245,
+    -0.030761719,
+    0.10723877,
+    -0.048950195,
+    -0.008705139,
+    0.0006699562,
+    -0.005264282,
+    -0.008575439,
+    0.03616333,
+    0.0031108856,
+    -0.019805908,
+    0.017700195,
+    0.032958984,
+    -0.040222168,
+    -0.010025024,
+    -0.0019340515,
+    -0.03918457,
+    0.009674072,
+    -0.023773193,
+    0.02078247,
+    -0.0031585693,
+    0.02619934,
+    -0.0066490173,
+    -0.0019893646,
+    -0.0056152344,
+    -0.0059776306,
+    0.0078086853,
+    0.030761719,
+    0.018508911,
+    0.032562256,
+    0.012298584,
+    -0.004497528,
+    -0.042938232,
+    0.058929443,
+    -0.014228821,
+    -0.024002075,
+    -0.012542725,
+    0.061553955,
+    0.0074501038,
+    0.059326172,
+    -0.0058898926,
+    -0.016174316,
+    -0.0010156631,
+    0.022720337,
+    -0.06945801,
+    -0.010765076,
+    -0.02734375,
+    0.008865356,
+    -0.024032593,
+    -0.016067505,
+    0.10864258,
+    0.0073127747,
+    -0.018112183,
+    0.029586792,
+    -0.0044555664,
+    0.019134521,
+    0.01739502,
+    0.030593872,
+    0.00283432,
+    0.0046043396,
+    -0.021591187,
+    -0.014724731,
+    -0.02999878,
+    0.054107666,
+    -0.09313965,
+    -0.05343628,
+    -0.012039185,
+    0.04095459,
+    -0.032287598,
+    -0.0037937164,
+    0.060424805,
+    0.015571594,
+    0.0043258667,
+    0.011459351,
+    0.034606934,
+    0.007549286,
+    -0.064208984,
+    -0.03326416,
+    0.0030994415,
+    -0.017959595,
+    0.0340271,
+    -0.04699707,
+    -0.010726929,
+    -0.014343262,
+    0.075927734,
+    -0.026535034,
+    0.05569458,
+    0.025817871,
+    0.008102417,
+    -0.015655518,
+    -0.012176514,
+    -0.062347412,
+    0.024276733,
+    0.015510559,
+    -0.034423828,
+    0.029663086,
+    -0.0335083,
+    0.0029659271,
+    0.051086426,
+    0.0025482178,
+    -0.016159058,
+    0.043762207,
+    -0.0012168884,
+    -0.018188477,
+    0.008331299,
+    0.04135132,
+    -0.008399963,
+    -0.021865845,
+    -0.0013532639,
+    -0.0051612854,
+    0.032989502,
+    -0.0031757355,
+    -0.030563354,
+    0.034942627,
+    -0.016601562,
+    -0.029449463,
+    0.016357422,
+    0.013977051,
+    0.013916016,
+    -0.016555786,
+    0.011131287,
+    0.04925537,
+    -0.026687622,
+    0.020843506,
+    0.0003554821,
+    -0.01651001,
+    -0.0064048767,
+    0.0017986298,
+    0.009735107,
+    0.019470215,
+    -0.03286743,
+    0.04852295,
+    0.013031006,
+    -0.078552246,
+    0.037597656,
+    0.018966675,
+    -0.047027588,
+    1.4901161e-05,
+    -0.03378296,
+    0.00548172,
+    0.00057935715,
+    -0.0059928894,
+    -0.010009766,
+    0.02104187,
+    -0.009918213,
+    -0.015975952,
+    0.02760315,
+    -0.0012540817,
+    0.0056877136,
+    -0.003648758,
+    0.041534424,
+    0.039916992,
+    0.0070114136,
+    0.025817871,
+    0.014640808,
+    0.0010099411,
+    -0.0069618225,
+    0.015281677,
+    -0.031341553,
+    0.018112183,
+    -0.03744507,
+    -0.04232788,
+    0.016036987,
+    -0.06451416,
+    -0.016082764,
+    -0.041992188,
+    0.007858276,
+    0.010543823,
+    -0.032989502,
+    -0.03439331,
+    0.0440979,
+    -0.029144287,
+    -0.02859497,
+    0.004890442,
+    0.011604309,
+    -0.107543945,
+    0.011978149,
+    0.053344727,
+    -0.02330017,
+    -0.009689331,
+    0.036621094,
+    0.015838623,
+    -0.021377563,
+    -0.04763794,
+    0.0025501251,
+    -0.022155762,
+    0.008506775,
+    -0.039855957,
+    0.02798462,
+    0.03894043,
+    0.029251099,
+    0.02394104,
+    0.025558472,
+    -0.005142212,
+    -0.016586304,
+    -0.07196045,
+    0.0463562,
+    -0.011375427,
+    -0.030181885,
+    0.023590088,
+    0.028823853,
+    0.022232056,
+    0.008140564,
+    0.010223389,
+    0.010314941,
+    0.048187256,
+    -0.014266968,
+    -0.010040283,
+    0.031829834,
+    -0.0060920715,
+    0.043029785,
+    0.024002075,
+    -0.0046806335,
+    -0.020553589,
+    0.002609253,
+    0.014953613,
+    -0.034729004,
+    -0.013534546,
+    -0.006904602,
+    -0.0090789795,
+    -0.044525146,
+    -0.010894775,
+    0.0021190643,
+    -0.023086548,
+    0.01876831,
+    -0.02809143,
+    0.013427734,
+    -0.041656494,
+    0.012054443,
+    0.033966064,
+    -0.009063721,
+    0.009063721,
+    -0.0015859604,
+    0.0038814545,
+    -0.021652222,
+    -0.005897522,
+    -0.028533936,
+    0.003692627,
+    -0.013877869,
+    -0.0032463074,
+    0.0070533752,
+    -0.0049095154,
+    -0.0076904297,
+    0.026031494,
+    -0.012763977,
+    -0.007987976,
+    -0.016616821,
+    -0.0056610107,
+    0.035736084,
+    0.030136108,
+    -0.043121338,
+    0.018722534,
+    -0.0076026917,
+    0.00944519,
+    -0.002691269,
+    0.047027588,
+    -0.0044403076,
+    -0.01826477,
+    0.024475098,
+    -0.036468506,
+    0.012077332,
+    -0.012397766,
+    0.001206398,
+    0.02796936,
+    -0.0035686493,
+    -0.01763916,
+    -0.04168701,
+    0.0031661987,
+    0.01928711,
+    -0.029403687,
+    -0.0005402565,
+    0.013221741,
+    0.05316162,
+    0.010261536,
+    -0.0001142025,
+    0.022567749,
+    0.008575439,
+    0.031585693,
+    0.0034313202,
+    -0.02230835,
+    -0.010040283,
+    -0.03050232,
+    0.009391785,
+    -0.012741089,
+    -0.026504517,
+    0.038482666,
+    0.005001068,
+    0.044647217,
+    -0.0004003048,
+    -0.027572632,
+    0.02659607,
+    -0.004016876,
+    -0.066833496,
+    -0.033966064,
+    0.016525269,
+    0.0025482178,
+    0.014808655,
+    -0.033172607,
+    0.0836792,
+    0.000320673,
+    -0.060272217,
+    0.018325806,
+    0.03857422,
+    0.02279663,
+    0.024902344,
+    0.00067281723,
+    0.031463623,
+    0.011001587,
+    -0.009933472,
+    -0.031158447,
+    -0.0008087158,
+    0.013931274,
+    0.0116119385,
+    -0.0012350082,
+    0.013420105,
+    -0.032073975,
+    -0.00078105927,
+    0.024139404,
+    0.016418457,
+    -0.007949829,
+    -0.053100586,
+    -0.0024929047,
+    -0.035064697,
+    -0.022506714,
+    0.012489319,
+    0.01550293,
+    -0.011329651,
+    0.025665283,
+    0.03050232,
+    -0.023498535,
+    0.025924683,
+    -0.020996094,
+    0.0758667,
+    0.010688782,
+    -0.016067505,
+    0.033416748,
+    -0.004508972,
+    -0.0032691956,
+    -0.009963989,
+    -0.0038013458,
+    -0.048614502,
+    -0.048217773,
+    0.053771973,
+    0.034057617,
+    -0.04031372,
+    -0.006412506,
+    0.045135498,
+    0.02798462,
+    -0.029632568,
+    0.039642334,
+    0.044403076,
+    0.03479004,
+    0.02357483,
+    -0.0501709,
+    0.013595581,
+    -0.036102295,
+    -0.020401001,
+    0.009941101,
+    0.007369995,
+    0.017532349,
+    -0.02961731,
+    -0.061645508,
+    -0.005405426,
+    0.017486572,
+    0.013755798,
+    0.022232056,
+    0.04598999,
+    0.064697266,
+    -0.034698486,
+    0.021728516,
+    -0.0074653625,
+    0.002872467,
+    -0.01461792,
+    -0.064819336,
+    -0.06524658,
+    0.10491943,
+    0.044189453,
+    -0.017227173,
+    -0.01902771,
+    0.024383545,
+    0.004272461,
+    0.005455017,
+    -0.031951904,
+    0.018936157,
+    -0.0015764236,
+    0.008415222,
+    0.030792236,
+    -0.004142761,
+    0.04071045,
+    -0.03829956,
+    -0.074401855,
+    -0.049316406,
+    0.04058838,
+    -0.030822754,
+    0.02067566,
+    -0.024993896,
+    0.0057868958,
+    0.034698486,
+    -0.036712646,
+    -0.024154663,
+    0.007865906,
+    0.031555176,
+    0.010566711,
+    0.086120605,
+    -0.05291748,
+    0.003189087,
+    0.015541077,
+    0.008659363,
+    -0.057434082,
+    -0.068603516,
+    0.008140564,
+    0.026657104,
+    -0.03817749,
+    -0.02911377,
+    0.011772156,
+    0.049865723,
+    -0.0115356445,
+    -0.0090789795,
+    -0.0038013458,
+    0.013252258,
+    -0.017303467,
+    -0.019515991,
+    0.010887146,
+    -0.0005412102,
+    0.061431885,
+    0.002773285,
+    -0.033203125,
+    0.013534546,
+    0.03237915,
+    0.035827637,
+    0.018325806,
+    -0.0068244934,
+    -0.064941406,
+    0.034698486,
+    -0.016677856,
+    -0.029205322,
+    -0.012939453,
+    0.009155273,
+    0.031158447,
+    0.011459351,
+    0.018692017,
+    0.021530151,
+    0.01828003,
+    -0.03274536,
+    0.008117676,
+    -0.0793457,
+    -0.06298828,
+    -0.019561768,
+    0.009933472,
+    0.020767212,
+    0.038482666,
+    0.008140564,
+    -0.06036377,
+    -0.0015630722,
+    -0.034606934,
+    0.02772522,
+    -0.039001465,
+    -0.060058594,
+    -0.0047798157,
+    -0.00566864,
+    0.023468018,
+    0.021240234,
+    -0.011009216,
+    -0.06726074,
+    0.03741455,
+    -0.004055023,
+    -0.014839172,
+    -0.0013942719,
+    0.015617371,
+    -0.022460938,
+    0.010101318,
+    -0.010940552,
+    -0.052001953,
+    -0.012062073,
+    0.027679443,
+    -0.03668213,
+    -0.025375366,
+    0.008834839,
+    -0.06072998,
+    -0.012718201,
+    -0.021011353,
+    -0.029037476,
+    -0.034423828,
+    0.003479004,
+    -0.053497314,
+    0.025512695,
+    0.023651123,
+    -0.016983032,
+    0.018157959,
+    -0.097473145,
+    -0.022109985,
+    0.02041626,
+    -0.031799316,
+    -0.014183044,
+    0.041015625,
+    -0.038238525,
+    -0.013771057,
+    0.02772522,
+    -0.026428223,
+    -0.054992676,
+    0.01108551,
+    0.0012359619,
+    0.040283203,
+    0.018722534,
+    -0.03845215,
+    0.050598145,
+    -0.054351807,
+    -0.018005371,
+    -0.019454956,
+    0.03845215,
+    -0.024124146,
+    -0.009506226,
+    -0.025360107,
+    -0.027069092,
+    -0.032409668,
+    -0.048095703,
+    -0.027267456,
+    -0.04849243,
+    0.015098572,
+    -0.016311646,
+    -0.0073776245,
+    -0.028244019,
+    0.021148682,
+    -0.041931152,
+    -0.0015563965,
+    0.026306152,
+    0.0036811829,
+    0.018753052,
+    -0.0057296753,
+    -0.008155823,
+    0.021957397,
+    0.059783936,
+    -0.03753662,
+    -0.02444458,
+    0.055023193,
+    -0.0012674332,
+    0.0013380051,
+    0.0072784424,
+    -0.019638062,
+    -0.02760315,
+    0.022735596,
+    0.07373047,
+    0.022827148,
+    -0.038146973,
+    0.049926758,
+    -0.032196045,
+    -0.030319214,
+    0.03555298,
+    -0.006023407,
+    0.0038166046,
+    -0.0031604767,
+    0.044647217,
+    0.021469116,
+    -0.033935547,
+    -0.01927185,
+    -0.05343628,
+    -0.014434814,
+    0.053833008,
+    0.025543213,
+    -0.053466797,
+    -0.02949524,
+    -0.041931152,
+    0.05328369,
+    0.004776001,
+    -0.011650085,
+    -0.03967285,
+    -0.0019378662,
+    -0.0069618225,
+    -0.03112793,
+    -0.024749756,
+    0.051483154,
+    -0.045043945,
+    -0.0690918,
+    -0.0018892288,
+    0.008155823,
+    0.010467529,
+    -0.011161804,
+    0.03390503,
+    -0.054840088,
+    0.0009918213,
+    -0.0413208,
+    0.013519287,
+    0.009422302,
+    0.0073394775,
+    0.009223938,
+    -0.0019664764,
+    -0.04208374,
+    -0.008468628,
+    0.030654907,
+    -0.014884949,
+    -0.042053223,
+    -0.004184723,
+    0.0011014938,
+    0.012687683,
+    0.057037354,
+    -0.0075912476,
+    0.010437012,
+    0.005104065,
+    -0.0057373047,
+    -0.011009216,
+    -0.016586304,
+    0.043823242,
+    -0.00067186356,
+    0.018218994,
+    -0.0071640015,
+    0.005016327,
+    0.028076172,
+    0.013427734,
+    0.0132369995,
+    0.044036865,
+    0.0016222,
+    0.0184021,
+    -0.023162842,
+    0.008224487,
+    0.01335144,
+    0.011375427,
+    -0.04663086,
+    -0.040893555,
+    0.0090408325,
+    -0.0357666,
+    -0.05291748,
+    0.004737854,
+    -0.017837524,
+    0.041809082,
+    -0.016677856,
+    -0.005367279,
+    0.05343628,
+    0.013000488,
+    0.033416748,
+    -0.03161621,
+    0.019104004,
+    -0.018218994,
+    0.0037727356,
+    0.012870789,
+    -0.009719849,
+    0.056762695,
+    -0.009742737,
+    -0.023666382,
+    0.033996582,
+    0.03781128,
+    -0.0071411133,
+    0.025222778,
+    0.040802002,
+    0.0040359497,
+    0.01902771,
+    -0.035064697,
+    -0.008506775,
+    0.0068473816,
+    0.031082153,
+    0.030029297,
+    0.009719849,
+    0.013702393,
+    0.010559082,
+    0.016281128,
+    0.012779236,
+    0.0067443848,
+    0.02330017,
+    -0.010032654,
+    0.02444458,
+    0.021911621,
+    0.00021028519,
+    -0.005592346,
+    -0.0138168335,
+    -0.021987915,
+    0.009536743,
+    0.0034255981,
+    0.039764404,
+    -0.0069351196,
+    0.04522705,
+    0.016616821,
+    0.037261963,
+    -0.016799927,
+    -0.024749756,
+    -0.020828247,
+    0.013656616,
+    0.025619507,
+    0.09875488,
+    0.005706787,
+    0.0082473755,
+    0.00042200089,
+    -0.00082731247,
+    0.05117798,
+    0.06817627,
+    0.006877899,
+    0.021438599,
+    0.03479004,
+    0.011474609,
+    0.016845703,
+    0.005722046,
+    0.030822754,
+    0.009552002,
+    0.004261017,
+    -0.07098389,
+    -0.037872314,
+    -0.018569946,
+    -0.015930176,
+    -0.017333984,
+    0.04727173,
+    -0.008468628,
+    -0.021499634,
+    -0.041809082,
+    -0.066223145,
+    0.012084961,
+    0.012359619,
+    0.0033226013,
+    -0.10876465,
+    0.030471802,
+    0.0018720627,
+    0.018310547,
+    0.009124756,
+    -0.0127334595,
+    -0.033050537,
+    -0.009719849,
+    0.01940918,
+    -0.021835327,
+    0.06567383,
+    0.004875183,
+    -0.001906395,
+    -0.0385437,
+    0.014297485,
+    -0.032073975,
+    -0.058288574,
+    0.011444092,
+    -0.013534546,
+    0.041870117,
+    -0.014221191,
+    0.029388428,
+    -0.04034424,
+    -0.008506775,
+    -0.012954712,
+    0.037139893,
+    0.016906738,
+    -0.0513916,
+    -0.038085938,
+    0.03100586,
+    -0.0042304993,
+    -0.046936035,
+    -0.030273438,
+    -0.0002515316,
+    -0.01651001,
+    -0.008430481,
+    0.013679504,
+    0.011421204,
+    -0.048339844,
+    -0.028259277,
+    -0.001364708,
+    0.05014038,
+    -0.008796692,
+    0.012489319,
+    -0.015670776,
+    -0.020141602,
+    -0.0075263977,
+    0.060760498,
+    -0.042877197,
+    0.061401367,
+    -0.019424438,
+    -0.005874634,
+    -0.04989624,
+    -0.022033691,
+    0.046417236,
+    -0.0034370422,
+    -0.02658081,
+    -0.05105591,
+    0.02696228,
+    -0.006023407,
+    0.056243896,
+    0.010383606,
+    -0.028884888,
+    0.0025310516,
+    0.0053634644,
+    -0.01600647,
+    0.01713562,
+    -0.009651184,
+    -0.0072364807,
+    0.0024662018,
+    0.009735107,
+    -0.049804688,
+    -0.01524353,
+    -0.017456055,
+    0.014846802,
+    -0.002161026,
+    -0.004535675,
+    0.031234741,
+    0.0362854,
+    0.013244629,
+    0.007293701,
+    -0.013664246,
+    -0.029296875,
+    -0.015296936,
+    -0.0072021484,
+    0.013496399,
+    -0.022567749,
+    0.009140015,
+    -0.03375244,
+    -0.010543823,
+    -0.029953003,
+    0.0061683655,
+    -0.026138306,
+    0.014930725,
+    -0.017471313,
+    -0.02671814,
+    -0.0015087128,
+    0.0058403015,
+    -0.037078857,
+    0.02999878,
+    -0.0049934387,
+    -0.003698349,
+    0.0041542053,
+    -0.0055389404,
+    -0.008377075,
+    -0.0066108704,
+    0.039154053,
+    0.027633667,
+    0.026138306,
+    -0.026657104,
+    0.02494812,
+    0.034698486,
+    0.0037498474,
+    -0.029022217,
+    -0.023895264,
+    0.02053833,
+    0.0007209778,
+    -0.011054993,
+    -0.011047363,
+    0.038330078,
+    -0.040618896,
+    -0.05709839,
+    0.028671265,
+    -0.015220642,
+    -0.061767578,
+    -0.095581055,
+    0.0748291,
+    0.051116943,
+    -0.031799316,
+    0.08685303,
+    -0.002796173,
+    0.013725281,
+    0.03778076,
+    -0.0014839172,
+    0.04144287,
+    -0.0047302246,
+    0.034240723,
+    0.00039601326,
+    -0.017028809
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89879.md",
+    "file_name": "89879.md",
+    "file_size": 11455,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Bombardier CL600 Airplane Collision with Tug During Pushback at San Antonio International Airport",
+      "Bombardier CL600 airplane with registration N943LR collided with a tug during pushback from the gate.",
+      "The collision occurred on August 9, 2014, at approximately 0735 central daylight time.",
+      "The collision occurred at San Antonio International Airport in San Antonio, Texas.",
+      "The airplane was registered to Mesa Airlines Inc.",
+      "The airplane was operated by Mesa Airlines Inc. as US Airways flight 2763.",
+      "The collision caused substantial damage to the fuselage structure of the airplane.",
+      "The collision caused internal damage to the nose landing gear of the airplane.",
+      "Four flight crewmembers were on board the airplane during the collision.",
+      "No flight crewmembers were injured in the collision.",
+      "No passengers were injured in the collision.",
+      "Visual meteorological conditions prevailed at the time of the accident.",
+      "The flight operated on an instrument flight rules flight plan.",
+      "The flight was operated under the provisions of 14 Code of Federal Regulations Part 121.",
+      "The flight was a scheduled, domestic passenger flight.",
+      "The flight was destined for Phoenix Sky Harbor International Airport in Phoenix, Arizona.",
+      "The first officer reported the tug driver did not have an operable headset.",
+      "The pushback was initiated using hand signals due to the inoperable headset.",
+      "The airplane was positioned on the ramp at a 90-degree angle to the gate.",
+      "The tug driver turned the airplane onto the taxiway.",
+      "The tug driver \"reversed back,\" pulling the airplane forward after turning onto the taxiway.",
+      "The tug stopped perpendicular to the left nose of the airplane.",
+      "The airplane continued to roll forward while still attached to the tow bar.",
+      "The airplane rolled into the tug.",
+      "The airplane impacted the left side of the fuselage against the tug.",
+      "Examination revealed the tow bar shear pin had failed.",
+      "The investigation could not determine if the shear pin failed prior to or during the pushback process.",
+      "A postaccident drug test was administered to the tug driver about 9 hours after the accident.",
+      "The drug test of the tug driver was positive for marijuana.",
+      "The drug test was administered in accordance with company policies and procedures.",
+      "According to 49 CFR Part 40 Section 40.87, the initial test cut off for marijuana is 50 ng/ml.",
+      "A positive marijuana test can be reported if the confirmatory test identifies 15 ng/ml or more of marijuana metabolite in urine.",
+      "Marijuana metabolite is also known as tetrahydrocannabinol carboxylic acid or THC-COOH."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Bombardier CL600 Airplane Collision with Tug During Pushback at San Antonio International Airport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bombardier CL600",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N943LR",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mesa Airlines Inc.",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "US Airways flight 2763",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "San Antonio International Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "San Antonio",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Texas",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Phoenix Sky Harbor International Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Phoenix",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Arizona",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tug driver",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Bombardier CL600 airplane with registration N943LR collided with a tug during pushback from the gate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT MODEL"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bombardier CL600",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "EVENT PHASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushback from the gate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The collision occurred on August 9, 2014, at approximately 0735 central daylight time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLISION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 9, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLISION TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0735 central daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The collision occurred at San Antonio International Airport in San Antonio, Texas.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Antonio International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Antonio",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Antonio",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Texas",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLISION LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Antonio International Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was registered to Mesa Airlines Inc.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTERED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mesa Airlines Inc.",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was operated by Mesa Airlines Inc. as US Airways flight 2763.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mesa Airlines Inc.",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mesa Airlines Inc.",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "OPERATES AS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Airways flight 2763",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT NUMBER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Airways flight 2763",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The collision caused substantial damage to the fuselage structure of the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DESCRIPTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage to the fuselage structure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The collision caused internal damage to the nose landing gear of the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DESCRIPTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internal damage to the nose landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Four flight crewmembers were on board the airplane during the collision.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "CREW COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "four flight crewmembers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight crewmembers were injured in the collision.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "CREW INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No passengers were injured in the collision.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed at the time of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight operated on an instrument flight rules flight plan.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Airways flight 2763",
+                    "classification": "Flightconductedunder"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instrument flight rules",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was operated under the provisions of 14 Code of Federal Regulations Part 121.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Airways flight 2763",
+                    "classification": "Flightconductedunder"
+                  },
+                  "predicate": {
+                    "value": "REGULATORY PROVISIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 121",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a scheduled, domestic passenger flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Airways flight 2763",
+                    "classification": "Flightconductedunder"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "scheduled, domestic passenger flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was destined for Phoenix Sky Harbor International Airport in Phoenix, Arizona.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "US Airways flight 2763",
+                    "classification": "Flightconductedunder"
+                  },
+                  "predicate": {
+                    "value": "DESTINED FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Phoenix Sky Harbor International Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Phoenix Sky Harbor International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Phoenix",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Phoenix",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Arizona",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The first officer reported the tug driver did not have an operable headset.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug driver",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EQUIPMENT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no operable headset",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pushback was initiated using hand signals due to the inoperable headset.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "PUSHBACK METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hand signals",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "PUSHBACK REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inoperable headset",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was positioned on the ramp at a 90-degree angle to the gate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on the ramp at a 90-degree angle to the gate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tug driver turned the airplane onto the taxiway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug driver",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tug driver \"reversed back,\" pulling the airplane forward after turning onto the taxiway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug driver",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reversed back, pulling the airplane forward after turning onto taxiway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tug stopped perpendicular to the left nose of the airplane.",
+              "details": [
+                "tug POSITION perpendicular to the left nose of the airplane"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "perpendicular to the left nose of the airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane continued to roll forward while still attached to the tow bar.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continued to roll forward while still attached to the tow bar",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane rolled into the tug.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted the left side of the fuselage against the tug.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N943LR",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "IMPACT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left side of the fuselage against the tug",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination revealed the tow bar shear pin had failed.",
+              "details": [
+                "tow bar FAILURE POINT shear pin had failed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tow bar",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILURE POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shear pin had failed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The investigation could not determine if the shear pin failed prior to or during the pushback process.",
+              "details": [
+                "shear pin FAILURE TIMING undetermined if prior to or during pushback process"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shear pin",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILURE TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "undetermined if prior to or during pushback process",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A postaccident drug test was administered to the tug driver about 9 hours after the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug driver",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DRUG TEST TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 9 hours after the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The drug test of the tug driver was positive for marijuana.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tug driver",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DRUG TEST RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "positive for marijuana",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The drug test was administered in accordance with company policies and procedures.",
+              "details": [
+                "drug test ADMINISTRATION COMPLIANCE in accordance with company policies and procedures"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drug test",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ADMINISTRATION COMPLIANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "in accordance with company policies and procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to 49 CFR Part 40 Section 40.87, the initial test cut off for marijuana is 50 ng/ml.",
+              "details": [
+                "marijuana test INITIAL CUTOFF 50 ng/ml",
+                "marijuana test REGULATION 49 CFR Part 40 Section 40.87"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "marijuana test",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INITIAL CUTOFF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "50 ng/ml",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "marijuana test",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REGULATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "49 CFR Part 40 Section 40.87",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A positive marijuana test can be reported if the confirmatory test identifies 15 ng/ml or more of marijuana metabolite in urine.",
+              "details": [
+                "marijuana test CONFIRMATORY THRESHOLD 15 ng/ml or more of marijuana metabolite in urine"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "marijuana test",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONFIRMATORY THRESHOLD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "15 ng/ml or more of marijuana metabolite in urine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Marijuana metabolite is also known as tetrahydrocannabinol carboxylic acid or THC-COOH.",
+              "details": [
+                "marijuana metabolite ALTERNATIVE NAMES tetrahydrocannabinol carboxylic acid or THC-COOH"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "marijuana metabolite",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ALTERNATIVE NAMES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tetrahydrocannabinol carboxylic acid or THC-COOH",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::5aab39b8:8554",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89879.md",
+        "file_name": "89879.md",
+        "file_size": 11455,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "4e7328a2e140c6a864e4b476089766e7bb4042115b26ab54895adb190b4beda3",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::5aab39b8:8554:3739b8f4",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89879.md",
+        "file_name": "89879.md",
+        "file_size": 11455,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "9baa958afa8cbaefa8ec1b67e2de8d5a610a2fd05aec48becad9d000882d7ae2",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::5aab39b8:8554:354493d3",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89879.md",
+        "file_name": "89879.md",
+        "file_size": 11455,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "a9aefe7f3d9f0c597b526796e5ed479e40bb2dd7f30a9d782b386871d54c8949",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Pushback/towing | Ground collision (Defining event) |\n| --- | --- |\n\nOn August 9, 2014, about 0735 central daylight time (CDT), a Bombardier CL600 airplane, N943LR, collided with a tug during pushback from the gate at San Antonio International Airport (SAT) San Antonio, Texas. The airplane sustained substantial damage to the fuselage structure and internal damage to nose landing gear. The airplane was registered to and operated by Mesa Airlines Inc. as US Airways flight 2763. The four flight crewmembers and passengers on-board were not injured. Visual meteorological conditions prevailed at the time of the accident and the flight operated on a instrument flight rules flight plan. The scheduled, domestic passenger flight was operated under the provisions of 14 Code of Federal Regulations Part 121. The flight was destined for Phoenix Sky Harbor International Airport (PHX), Phoenix, Arizona.\n\nThe first officer reported the tug driver did not have an operable headset and the pushback was initiated using hand signals. The airplane was positioned on the ramp at a 90-degree angle to the gate. The tug driver stated after turning the airplane onto the taxiway he \"reversed back,\" pulling the airplane forward. The tug stopped perpendicular to the left nose of the airplane, but the airplane continued to roll forward while still attached to the tow bar. The airplane rolled into the tug impacting the left side of the fuselage.\n\nExamination revealed the tow bar shear pin had failed, but the investigation could not determine if the shear pin failed prior to or during the pushback process.\n\nIn accordance with company policies and procedures, a postaccident drug test of the tug driver was administered about 9 hours after the accident, which was positive for marijuana. According to 49 CFR Part 40 Section 40.87, the initial test cut off is 50 ng/ml, but a positive marijuana test can be reported if the confirmatory test identifies 15 ng/ml or more of marijuana metabolite (tetrahydrocannabinol carboxylic acid, or THC-COOH) in urine.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2092,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

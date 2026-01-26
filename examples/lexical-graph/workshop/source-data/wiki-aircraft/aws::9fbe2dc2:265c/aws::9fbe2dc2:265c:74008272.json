@@ -1,0 +1,2189 @@
+{
+  "id_": "aws::9fbe2dc2:265c:74008272",
+  "embedding": [
+    0.005279541,
+    0.0042686462,
+    0.015327454,
+    0.046569824,
+    -0.035491943,
+    -0.014823914,
+    -6.401539e-05,
+    -0.064697266,
+    -0.041290283,
+    -0.010520935,
+    0.015731812,
+    0.0066223145,
+    -0.016479492,
+    -0.059631348,
+    0.061828613,
+    -0.043304443,
+    0.04071045,
+    0.050109863,
+    0.052612305,
+    0.012023926,
+    -0.009056091,
+    0.055603027,
+    -0.0014209747,
+    0.029052734,
+    0.0012683868,
+    0.009002686,
+    -0.062194824,
+    -0.046539307,
+    0.021057129,
+    -0.020614624,
+    0.012588501,
+    0.03366089,
+    0.031829834,
+    -0.002658844,
+    -0.01525116,
+    -0.0006599426,
+    0.001455307,
+    -0.008201599,
+    -0.010284424,
+    0.008621216,
+    0.017211914,
+    -0.0118255615,
+    0.05053711,
+    0.0044555664,
+    0.0022277832,
+    -0.0077667236,
+    0.028930664,
+    -0.02017212,
+    0.0075912476,
+    0.053955078,
+    0.011138916,
+    -0.05783081,
+    -0.0051727295,
+    0.0892334,
+    -0.03567505,
+    -0.031585693,
+    -0.0036849976,
+    -0.010940552,
+    0.06011963,
+    -0.005710602,
+    -0.020690918,
+    -0.03829956,
+    0.032836914,
+    -0.026565552,
+    -0.027679443,
+    -0.046447754,
+    -0.017318726,
+    0.030197144,
+    -0.013175964,
+    -0.04547119,
+    0.018218994,
+    0.025299072,
+    -0.00982666,
+    0.015640259,
+    -0.008094788,
+    -0.009796143,
+    0.04559326,
+    0.036468506,
+    -0.010498047,
+    0.03552246,
+    0.034301758,
+    -0.016860962,
+    -0.037109375,
+    -0.021850586,
+    0.024139404,
+    0.0045204163,
+    0.007881165,
+    -0.0051193237,
+    0.0021820068,
+    -0.012237549,
+    -0.009216309,
+    -0.011428833,
+    0.013267517,
+    0.0046310425,
+    -0.056427002,
+    -0.012969971,
+    0.067993164,
+    -0.02947998,
+    0.040374756,
+    -0.033477783,
+    0.0132751465,
+    -0.04046631,
+    -0.06567383,
+    0.030731201,
+    -0.016189575,
+    0.021453857,
+    -0.007133484,
+    -0.06530762,
+    -0.030410767,
+    0.0064430237,
+    -0.01309967,
+    -0.013595581,
+    0.02810669,
+    -0.011856079,
+    -0.029006958,
+    -0.037963867,
+    -0.017120361,
+    0.015029907,
+    0.023971558,
+    -0.03527832,
+    0.010879517,
+    0.052337646,
+    0.014884949,
+    -0.021713257,
+    -0.012214661,
+    0.02394104,
+    0.024490356,
+    -0.09765625,
+    0.044311523,
+    -0.047729492,
+    -0.014183044,
+    0.027374268,
+    0.006462097,
+    -0.0020618439,
+    -0.019805908,
+    0.012458801,
+    -0.00605011,
+    0.00012683868,
+    -0.022583008,
+    -0.00088882446,
+    0.0023651123,
+    -0.006690979,
+    0.041259766,
+    -0.016723633,
+    0.024093628,
+    -0.015731812,
+    0.01322937,
+    0.032470703,
+    -0.001663208,
+    0.005039215,
+    0.025100708,
+    -0.011276245,
+    0.027435303,
+    0.032043457,
+    0.024459839,
+    -0.036865234,
+    0.07788086,
+    -0.042236328,
+    0.005569458,
+    -0.072387695,
+    -0.016601562,
+    -0.043426514,
+    -0.006855011,
+    0.016067505,
+    -0.07537842,
+    0.09863281,
+    0.0335083,
+    -0.021347046,
+    0.027938843,
+    -0.024856567,
+    0.015335083,
+    -0.1237793,
+    -0.013366699,
+    -0.015525818,
+    -0.0038261414,
+    0.07141113,
+    -0.047180176,
+    -0.0030174255,
+    0.043640137,
+    -0.08496094,
+    -0.06173706,
+    -0.039733887,
+    0.0287323,
+    -0.0046844482,
+    -0.028045654,
+    -0.0014266968,
+    -0.011245728,
+    0.008331299,
+    0.04562378,
+    0.0099487305,
+    0.02545166,
+    -0.008270264,
+    0.0055732727,
+    0.029891968,
+    0.009246826,
+    -0.038482666,
+    -0.05480957,
+    0.022750854,
+    -0.025634766,
+    -0.0435791,
+    0.006511688,
+    0.026153564,
+    0.005882263,
+    0.046569824,
+    0.105651855,
+    0.004787445,
+    0.037872314,
+    -0.01701355,
+    0.06744385,
+    0.020507812,
+    0.00078487396,
+    0.01133728,
+    0.006614685,
+    -0.06536865,
+    -0.08453369,
+    -0.02432251,
+    -0.005455017,
+    0.0018863678,
+    0.0056152344,
+    -0.006336212,
+    -0.009414673,
+    0.030929565,
+    0.0053100586,
+    0.013717651,
+    -0.019683838,
+    0.011184692,
+    -0.050079346,
+    0.00090408325,
+    -0.0032978058,
+    0.010345459,
+    0.040161133,
+    0.0020866394,
+    0.023742676,
+    0.027648926,
+    -0.0037956238,
+    0.044891357,
+    0.057556152,
+    -0.010871887,
+    -0.019378662,
+    -0.010566711,
+    0.039916992,
+    0.047424316,
+    0.0007972717,
+    -0.005584717,
+    -0.016052246,
+    -0.008712769,
+    0.05105591,
+    -0.032348633,
+    -0.04940796,
+    -0.023849487,
+    0.06329346,
+    0.05303955,
+    -0.014915466,
+    0.037017822,
+    0.011520386,
+    0.012939453,
+    -0.059020996,
+    -0.06616211,
+    0.015083313,
+    0.014343262,
+    0.009185791,
+    -0.029922485,
+    0.0043945312,
+    -0.012138367,
+    -0.00090551376,
+    -0.013168335,
+    0.037963867,
+    0.022521973,
+    -0.036468506,
+    -0.022537231,
+    0.034729004,
+    0.05078125,
+    0.0049819946,
+    0.060913086,
+    -0.023071289,
+    -0.00045013428,
+    -0.009239197,
+    -0.014541626,
+    -0.00022697449,
+    0.015403748,
+    0.0141067505,
+    0.026611328,
+    -0.035827637,
+    -0.020751953,
+    0.031921387,
+    -0.0033721924,
+    -0.04296875,
+    0.004638672,
+    -0.06964111,
+    -0.018829346,
+    0.021911621,
+    -0.001367569,
+    -0.025253296,
+    -0.023925781,
+    0.03604126,
+    -0.037719727,
+    0.032043457,
+    0.005706787,
+    -0.018951416,
+    0.012168884,
+    0.05529785,
+    0.05859375,
+    0.027359009,
+    0.009307861,
+    0.0020370483,
+    -0.036254883,
+    -0.019363403,
+    0.03338623,
+    0.006996155,
+    -0.016601562,
+    -0.022323608,
+    0.01751709,
+    0.020019531,
+    -0.019378662,
+    -0.003730774,
+    -0.019927979,
+    -0.04046631,
+    -0.0051345825,
+    -0.074157715,
+    -0.04724121,
+    0.0335083,
+    -0.0033950806,
+    -0.0021324158,
+    -0.017303467,
+    -0.0036392212,
+    -0.027114868,
+    -0.015823364,
+    -0.007610321,
+    -0.0034179688,
+    0.003238678,
+    -0.006462097,
+    0.006549835,
+    0.011047363,
+    0.028533936,
+    -0.0064849854,
+    -0.008407593,
+    0.011558533,
+    -0.0017623901,
+    -0.017364502,
+    -0.011680603,
+    -0.0065231323,
+    -0.01499939,
+    0.023086548,
+    -0.029876709,
+    -0.05014038,
+    1.9073486e-06,
+    -0.00605011,
+    0.0009975433,
+    0.013122559,
+    -0.025299072,
+    0.011619568,
+    -0.0013427734,
+    0.03527832,
+    -0.01423645,
+    0.011566162,
+    -0.016921997,
+    -0.013702393,
+    0.01033783,
+    -0.0035171509,
+    -0.04135132,
+    0.0736084,
+    -0.023986816,
+    0.0028953552,
+    -0.011184692,
+    -0.025253296,
+    -0.032409668,
+    -0.024887085,
+    -0.0023174286,
+    0.033081055,
+    0.00831604,
+    -0.09814453,
+    0.025054932,
+    0.021713257,
+    0.026794434,
+    0.076660156,
+    0.044647217,
+    -0.0032920837,
+    -0.048065186,
+    0.034942627,
+    -0.014862061,
+    -0.023986816,
+    -0.01864624,
+    0.0236969,
+    -0.00806427,
+    -0.07092285,
+    0.033996582,
+    -0.010299683,
+    0.011474609,
+    -0.004173279,
+    -0.025619507,
+    0.05206299,
+    0.088256836,
+    0.009506226,
+    -0.022979736,
+    -0.023651123,
+    -0.004676819,
+    0.01876831,
+    0.03805542,
+    -0.017608643,
+    -0.0017127991,
+    -0.017059326,
+    -0.025863647,
+    -0.026641846,
+    -0.016418457,
+    0.009590149,
+    -0.0004043579,
+    -5.722046e-05,
+    -0.049560547,
+    0.030014038,
+    -0.051330566,
+    0.020217896,
+    0.031433105,
+    0.045654297,
+    -0.020858765,
+    -0.00018692017,
+    -0.023452759,
+    -0.099487305,
+    -0.03302002,
+    -0.0037727356,
+    0.014389038,
+    0.023757935,
+    -0.083618164,
+    -0.0017223358,
+    0.024368286,
+    0.019821167,
+    0.0062675476,
+    0.01398468,
+    -0.028839111,
+    0.0072669983,
+    0.055145264,
+    0.008560181,
+    -0.0016365051,
+    -0.022659302,
+    -0.0034828186,
+    -0.006000519,
+    -0.011764526,
+    0.0066223145,
+    -0.04748535,
+    0.06298828,
+    -0.03540039,
+    0.043762207,
+    0.020019531,
+    0.0002193451,
+    -0.014427185,
+    -0.006401062,
+    -0.039978027,
+    0.027496338,
+    0.041900635,
+    0.011917114,
+    0.036010742,
+    -0.004650116,
+    0.021713257,
+    0.013336182,
+    0.012565613,
+    -0.026382446,
+    0.0035705566,
+    -0.012878418,
+    -0.008956909,
+    -0.007484436,
+    0.046722412,
+    0.0072288513,
+    0.010253906,
+    -0.002298355,
+    -0.041503906,
+    0.004272461,
+    0.024108887,
+    -0.022827148,
+    0.035369873,
+    -0.007003784,
+    -0.016036987,
+    0.049835205,
+    -0.009300232,
+    0.0017299652,
+    -0.03503418,
+    0.03805542,
+    -0.023651123,
+    -0.044281006,
+    -0.03074646,
+    0.04397583,
+    0.030776978,
+    -0.0770874,
+    0.033966064,
+    -0.025512695,
+    -0.01713562,
+    0.00762558,
+    0.012680054,
+    0.0017948151,
+    -0.01751709,
+    0.0041389465,
+    0.04260254,
+    0.122802734,
+    -0.00674057,
+    0.030548096,
+    0.055145264,
+    -0.022369385,
+    -0.042236328,
+    -0.0073509216,
+    0.035614014,
+    0.0039596558,
+    -0.039978027,
+    -0.036865234,
+    0.018035889,
+    0.0032997131,
+    0.011688232,
+    -0.043151855,
+    0.018585205,
+    0.011878967,
+    0.030654907,
+    0.0259552,
+    -0.056640625,
+    0.014678955,
+    -0.011299133,
+    -0.02029419,
+    0.029281616,
+    -0.047424316,
+    0.015853882,
+    -0.04135132,
+    -0.0103302,
+    -0.041992188,
+    0.0056381226,
+    -0.046813965,
+    -0.004753113,
+    -0.01928711,
+    0.032806396,
+    0.048034668,
+    -0.050231934,
+    -0.01398468,
+    0.024917603,
+    -0.0077438354,
+    -0.057373047,
+    -0.034240723,
+    -0.0043563843,
+    0.020339966,
+    0.040374756,
+    0.04663086,
+    0.05609131,
+    -0.00025367737,
+    0.01675415,
+    0.022918701,
+    0.0028839111,
+    -0.0059776306,
+    0.04510498,
+    0.03515625,
+    -0.0032196045,
+    0.016784668,
+    -0.038726807,
+    0.03286743,
+    0.019744873,
+    -0.038909912,
+    -0.022247314,
+    0.030471802,
+    0.04510498,
+    -0.019088745,
+    -0.060028076,
+    -0.02658081,
+    -0.023651123,
+    0.0112838745,
+    -0.010139465,
+    0.02357483,
+    -0.014976501,
+    0.008026123,
+    -0.010269165,
+    0.024749756,
+    -0.014404297,
+    0.029815674,
+    0.025238037,
+    0.02557373,
+    -0.030822754,
+    0.013366699,
+    -0.010169983,
+    -0.021072388,
+    -0.012863159,
+    0.04006958,
+    -0.033843994,
+    -0.0009937286,
+    -0.055267334,
+    -0.010482788,
+    0.013473511,
+    -0.0178833,
+    -0.0035552979,
+    -0.012619019,
+    0.048095703,
+    0.020019531,
+    0.061798096,
+    -0.049804688,
+    0.076293945,
+    0.023071289,
+    0.0018844604,
+    -0.0158844,
+    0.01940918,
+    -0.027832031,
+    0.023498535,
+    0.00015258789,
+    -0.04727173,
+    -0.0019683838,
+    -0.0038967133,
+    0.018432617,
+    -0.00390625,
+    -0.010154724,
+    0.01828003,
+    0.06536865,
+    -0.008796692,
+    0.008491516,
+    0.008728027,
+    -0.028457642,
+    -0.011390686,
+    0.050048828,
+    0.039154053,
+    -0.024719238,
+    -0.011772156,
+    0.01159668,
+    -0.02357483,
+    0.011192322,
+    0.017990112,
+    -0.001373291,
+    -0.006919861,
+    -0.01285553,
+    0.070617676,
+    0.058807373,
+    -0.061676025,
+    -0.015129089,
+    0.051727295,
+    -0.027816772,
+    -0.0055160522,
+    0.016143799,
+    0.059814453,
+    -0.04486084,
+    -0.0051193237,
+    -0.023773193,
+    0.03970337,
+    -0.009277344,
+    -0.002670288,
+    -0.032165527,
+    -0.04260254,
+    0.0028305054,
+    0.00047302246,
+    0.01210022,
+    -0.004432678,
+    0.019119263,
+    0.008422852,
+    0.016967773,
+    -0.024749756,
+    -0.08288574,
+    0.047088623,
+    0.02154541,
+    0.026153564,
+    0.0001411438,
+    -0.012382507,
+    -0.0025501251,
+    0.031555176,
+    0.01235199,
+    0.003206253,
+    0.027877808,
+    -0.068725586,
+    -0.019729614,
+    0.00045967102,
+    -0.036071777,
+    -0.0023155212,
+    0.010353088,
+    -0.016159058,
+    -0.06878662,
+    0.00038528442,
+    -0.01574707,
+    -0.015625,
+    0.005241394,
+    0.012771606,
+    0.07702637,
+    -0.0124053955,
+    0.031158447,
+    -0.073791504,
+    -0.01713562,
+    -0.0020637512,
+    0.035247803,
+    -0.014862061,
+    -0.01876831,
+    0.073913574,
+    -0.0028648376,
+    0.0008625984,
+    0.009010315,
+    0.016571045,
+    0.013908386,
+    1.1444092e-05,
+    -0.024383545,
+    0.0039596558,
+    -0.019973755,
+    0.024307251,
+    -0.03060913,
+    0.005458832,
+    0.0075302124,
+    0.062683105,
+    -0.050445557,
+    -0.029327393,
+    0.019973755,
+    -0.0053253174,
+    -0.012390137,
+    0.007080078,
+    -0.02444458,
+    -0.0040512085,
+    0.006580353,
+    0.0027446747,
+    0.008773804,
+    -0.007331848,
+    -0.003364563,
+    -0.016494751,
+    -0.0075035095,
+    -0.033569336,
+    -0.050933838,
+    0.021942139,
+    0.011985779,
+    0.007873535,
+    0.001625061,
+    -0.0061569214,
+    -0.025878906,
+    -0.013206482,
+    -0.0043754578,
+    0.0045776367,
+    0.024612427,
+    -0.0018644333,
+    -0.0047073364,
+    0.02003479,
+    0.013542175,
+    0.009971619,
+    -0.017684937,
+    -0.03652954,
+    -0.000869751,
+    -0.023269653,
+    -0.0013437271,
+    0.036834717,
+    -0.014038086,
+    -0.040496826,
+    0.020233154,
+    -0.01689148,
+    -0.011962891,
+    0.0024871826,
+    -0.010803223,
+    -0.0234375,
+    0.022155762,
+    -0.031707764,
+    -0.025512695,
+    -0.012390137,
+    -0.029083252,
+    -0.00038528442,
+    0.012672424,
+    0.0079956055,
+    -0.0124053955,
+    0.0025177002,
+    -1.001358e-05,
+    -0.014251709,
+    -0.020309448,
+    -0.014587402,
+    0.020751953,
+    -0.016921997,
+    -0.019744873,
+    -0.013076782,
+    -0.0026397705,
+    -0.033203125,
+    -0.015388489,
+    -0.012901306,
+    -0.01121521,
+    -0.007335663,
+    -0.016693115,
+    -0.017944336,
+    -0.0050964355,
+    0.033691406,
+    -0.034942627,
+    0.040039062,
+    0.0107421875,
+    0.009597778,
+    -0.03652954,
+    0.00061035156,
+    0.019561768,
+    0.02357483,
+    -0.008773804,
+    -0.026107788,
+    -0.0013685226,
+    -0.010108948,
+    -0.013442993,
+    -0.028289795,
+    0.0028953552,
+    0.034118652,
+    0.038391113,
+    0.012763977,
+    0.007896423,
+    -0.016998291,
+    0.012260437,
+    -0.057922363,
+    -0.006614685,
+    -0.019821167,
+    0.02204895,
+    0.026672363,
+    0.0012836456,
+    0.013458252,
+    0.002872467,
+    -0.01876831,
+    -0.0032863617,
+    0.0003604889,
+    -0.023086548,
+    -0.012481689,
+    -0.027938843,
+    -0.030380249,
+    -0.03427124,
+    0.0013198853,
+    -0.058044434,
+    0.023651123,
+    -0.030578613,
+    0.025375366,
+    -0.00075912476,
+    0.023376465,
+    -0.028381348,
+    -0.013252258,
+    0.013839722,
+    -0.017608643,
+    0.016479492,
+    0.025390625,
+    -0.025939941,
+    -0.0105896,
+    -0.051483154,
+    -0.044921875,
+    0.03768921,
+    0.020721436,
+    0.0056381226,
+    0.034057617,
+    -0.013153076,
+    0.033203125,
+    -0.051849365,
+    -0.006526947,
+    -0.009391785,
+    -0.016479492,
+    0.024642944,
+    0.011810303,
+    -0.018249512,
+    -0.013786316,
+    -0.06365967,
+    -0.04888916,
+    -0.038757324,
+    0.039367676,
+    0.033599854,
+    -0.022155762,
+    0.009506226,
+    0.037628174,
+    -0.035369873,
+    -0.064819336,
+    0.006477356,
+    -0.0024032593,
+    -0.05419922,
+    0.00047683716,
+    -0.0042877197,
+    0.005142212,
+    0.022079468,
+    0.050354004,
+    0.02130127,
+    -0.0032291412,
+    0.032684326,
+    -0.010803223,
+    -0.0056381226,
+    -0.014717102,
+    0.020629883,
+    -0.011390686,
+    -0.042999268,
+    -0.0035114288,
+    0.035369873,
+    0.027374268,
+    0.078186035,
+    -0.019378662,
+    0.050109863,
+    0.090148926,
+    0.021881104,
+    -0.009552002,
+    -0.012565613,
+    0.061340332,
+    0.03302002,
+    0.021224976,
+    -0.078308105,
+    -0.004508972,
+    0.0003490448,
+    -0.04534912,
+    0.01889038,
+    0.020111084,
+    -0.004737854,
+    -0.030548096,
+    -0.110961914,
+    -0.042053223,
+    0.0022182465,
+    -0.022384644,
+    0.030944824,
+    -0.07928467,
+    0.006000519,
+    0.0039749146,
+    0.010246277,
+    -0.026153564,
+    0.012619019,
+    -0.00063705444,
+    0.029541016,
+    0.014480591,
+    0.020507812,
+    -0.056274414,
+    -0.010406494,
+    -0.013763428,
+    -0.046691895,
+    0.048065186,
+    -0.028335571,
+    -0.046447754,
+    -0.0045928955,
+    -0.024490356,
+    0.021911621,
+    -0.028137207,
+    -0.008560181,
+    -0.034240723,
+    -0.0055122375,
+    -0.0051574707,
+    0.030441284,
+    0.055633545,
+    -0.00831604,
+    0.007118225,
+    -0.014595032,
+    -0.037139893,
+    -0.034210205,
+    0.013412476,
+    -0.012275696,
+    0.04928589,
+    -0.019622803,
+    -0.019073486,
+    -0.0071411133,
+    -0.008010864,
+    0.03604126,
+    0.040985107,
+    0.0023460388,
+    -0.10369873,
+    0.052825928,
+    -0.02128601,
+    0.030700684,
+    0.0048561096,
+    0.021438599,
+    0.080078125,
+    0.023880005,
+    -0.013549805,
+    -0.049804688,
+    0.00062179565,
+    0.012771606,
+    -0.024429321,
+    -0.032226562,
+    0.037200928,
+    -0.05770874,
+    -0.00969696,
+    -0.037475586,
+    0.028823853,
+    -0.049438477,
+    0.016738892,
+    -0.02810669,
+    0.04736328,
+    0.034820557,
+    -0.04147339,
+    -0.0031871796,
+    -0.034484863,
+    0.011314392,
+    0.023788452,
+    -0.008262634,
+    -0.045959473,
+    0.015563965,
+    -0.04171753,
+    -0.006690979,
+    -0.029083252,
+    0.0048332214,
+    -0.014076233,
+    0.06112671,
+    -0.024230957,
+    0.00064468384,
+    -0.01777649,
+    0.027877808,
+    0.018051147,
+    0.010414124,
+    0.0037727356,
+    0.0036849976,
+    -0.015487671,
+    -0.0006170273,
+    0.0044288635,
+    -0.0007338524,
+    -0.00017166138,
+    -0.0519104,
+    -0.016647339,
+    -0.0006246567,
+    0.009262085,
+    0.0025806427,
+    0.03894043,
+    0.08526611,
+    -0.0028572083,
+    -0.039642334,
+    -0.03189087,
+    -0.027267456,
+    -0.033325195,
+    -0.017211914,
+    -0.04977417,
+    0.028060913,
+    -0.033447266,
+    0.017669678,
+    0.0015773773,
+    0.025314331,
+    0.0011415482,
+    0.038726807,
+    -0.04815674,
+    -0.011924744,
+    0.011230469,
+    0.036956787,
+    0.016525269,
+    -0.05307007,
+    0.032470703,
+    0.036376953,
+    -0.029815674,
+    -0.0006828308,
+    -0.03149414,
+    -0.044921875,
+    0.044830322,
+    -0.004245758,
+    -0.018630981,
+    0.01864624,
+    0.010665894,
+    0.025054932,
+    -0.0056266785,
+    0.053527832,
+    0.023513794,
+    -0.0143966675,
+    -0.029754639,
+    -0.0077552795,
+    -0.012481689
+  ],
+  "metadata": {
+    "title": "Eurocopter AS350 Écureuil",
+    "original_title": "Eurocopter AS350 Écureuil",
+    "wikipedia_id": "2691322",
+    "url": "https://en.wikipedia.org/wiki/Eurocopter_AS350_%C3%89cureuil",
+    "header_path": "/Operators/",
+    "aws::graph::propositions": [
+      "Operators of Eurocopter AS350 Écureuil Helicopter",
+      "Qatar Ministry of Internal Administration operates Eurocopter AS350 Écureuil.",
+      "Qatar Ministry of Defence operates Eurocopter AS350 Écureuil.",
+      "Russian Aerospace Forces operates Eurocopter AS350 Écureuil.",
+      "South African Police Service operates Eurocopter AS350 Écureuil.",
+      "South African National Parks Air Wing operates Eurocopter AS350 Écureuil.",
+      "Empire Test Pilots School in the United Kingdom operates Eurocopter AS350 Écureuil.",
+      "Texas Department of Public Safety operates Eurocopter AS350 Écureuil.",
+      "Alaska State Troopers operates Eurocopter AS350 Écureuil.",
+      "Anaheim Police Department operates Eurocopter AS350 Écureuil.",
+      "Baltimore County Police Department operates Eurocopter AS350 Écureuil.",
+      "California Highway Patrol operates Eurocopter AS350 Écureuil.",
+      "East Flagler Mosquito Control District operates Eurocopter AS350 Écureuil.",
+      "Kansas State Highway Patrol operates Eurocopter AS350 Écureuil.",
+      "Los Angeles County Sheriff's Department operates Eurocopter AS350 Écureuil.",
+      "Los Angeles Police Department operates Eurocopter AS350 Écureuil.",
+      "Memphis Police Department operates Eurocopter AS350 Écureuil.",
+      "D.C. Metropolitan Police Department operates AS350B3 variant of Eurocopter AS350 Écureuil.",
+      "D.C. Metropolitan Police Department operates H125 variant of Eurocopter AS350 Écureuil.",
+      "New Mexico State Police operates Eurocopter AS350 Écureuil.",
+      "Miami Police Department operates Eurocopter AS350 Écureuil.",
+      "Oakland County Sheriff's Office operates Eurocopter AS350 Écureuil.",
+      "Ohio State Highway Patrol operates Eurocopter AS350 Écureuil.",
+      "Oklahoma City Police Department operates Eurocopter AS350 Écureuil.",
+      "Orange County Sheriff's Department operates Eurocopter AS350 Écureuil.",
+      "Philadelphia Police Department operates Eurocopter AS350 Écureuil.",
+      "San Diego Police Department operates Eurocopter AS350 Écureuil.",
+      "San Jose Police Department operates Eurocopter AS350 Écureuil.",
+      "United States operates Eurocopter AS350 Écureuil."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Operators of Eurocopter AS350 Écureuil Helicopter",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Eurocopter AS350 Écureuil",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Qatar Ministry of Internal Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Qatar Ministry of Defence",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Russian Aerospace Forces",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "South African Police Service",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "South African National Parks Air Wing",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Empire Test Pilots School",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United Kingdom",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Texas Department of Public Safety",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Alaska State Troopers",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Anaheim Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Baltimore County Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "California Highway Patrol",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "East Flagler Mosquito Control District",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Kansas State Highway Patrol",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Los Angeles County Sheriff's Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Los Angeles Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Memphis Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "D.C. Metropolitan Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "AS350B3",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "H125",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "New Mexico State Police",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Miami Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Oakland County Sheriff's Office",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Ohio State Highway Patrol",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Oklahoma City Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Orange County Sheriff's Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Philadelphia Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "San Diego Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "San Jose Police Department",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United States",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Qatar Ministry of Internal Administration operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Qatar Ministry of Internal Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Qatar Ministry of Defence operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Qatar Ministry of Defence",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Russian Aerospace Forces operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Russian Aerospace Forces",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "South African Police Service operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "South African Police Service",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "South African National Parks Air Wing operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "South African National Parks Air Wing",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Empire Test Pilots School in the United Kingdom operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Empire Test Pilots School",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Empire Test Pilots School",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United Kingdom",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Texas Department of Public Safety operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Texas Department of Public Safety",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Alaska State Troopers operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Alaska State Troopers",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Anaheim Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Anaheim Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Baltimore County Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Baltimore County Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "California Highway Patrol operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California Highway Patrol",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "East Flagler Mosquito Control District operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "East Flagler Mosquito Control District",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Kansas State Highway Patrol operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Kansas State Highway Patrol",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Los Angeles County Sheriff's Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Los Angeles County Sheriff's Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Los Angeles Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Los Angeles Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Memphis Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Memphis Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "D.C. Metropolitan Police Department operates AS350B3 variant of Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D.C. Metropolitan Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350B3",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350B3",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VARIANT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "D.C. Metropolitan Police Department operates H125 variant of Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "D.C. Metropolitan Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "H125",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "H125",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "VARIANT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "New Mexico State Police operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "New Mexico State Police",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Miami Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Miami Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Oakland County Sheriff's Office operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Oakland County Sheriff's Office",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Ohio State Highway Patrol operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Ohio State Highway Patrol",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Oklahoma City Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Oklahoma City Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Orange County Sheriff's Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Orange County Sheriff's Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Philadelphia Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Philadelphia Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "San Diego Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Diego Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "San Jose Police Department operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "San Jose Police Department",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "United States operates Eurocopter AS350 Écureuil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United States",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eurocopter AS350 Écureuil",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::9fbe2dc2:265c",
+      "node_type": "4",
+      "metadata": {
+        "title": "Eurocopter AS350 Écureuil",
+        "original_title": "Eurocopter AS350 Écureuil",
+        "wikipedia_id": "2691322",
+        "url": "https://en.wikipedia.org/wiki/Eurocopter_AS350_%C3%89cureuil"
+      },
+      "hash": "47f26dd1085a4ecc0cf44577540b871073d25e203f93a5c6ef8c2d16ffd88bf2",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::9fbe2dc2:265c:b02b74e6",
+      "node_type": "1",
+      "metadata": {
+        "title": "Eurocopter AS350 Écureuil",
+        "original_title": "Eurocopter AS350 Écureuil",
+        "wikipedia_id": "2691322",
+        "url": "https://en.wikipedia.org/wiki/Eurocopter_AS350_%C3%89cureuil",
+        "header_path": "/Operators/"
+      },
+      "hash": "fa22b21b3a671399ba02c13eeb389a2d781258a7837d8babed2a31cbc14c9c9a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::9fbe2dc2:265c:4612305b",
+      "node_type": "1",
+      "metadata": {
+        "title": "Eurocopter AS350 Écureuil",
+        "original_title": "Eurocopter AS350 Écureuil",
+        "wikipedia_id": "2691322",
+        "url": "https://en.wikipedia.org/wiki/Eurocopter_AS350_%C3%89cureuil",
+        "header_path": "/Operators/"
+      },
+      "hash": "34373e949eec8dd1ec3676fa5b5f965215674190c8ac857864d0b7ad6b23c241",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "of Internal Administration\n Qatar\n\nQatar Ministry of Defence\n Russia\n\nRussian Aerospace Forces\n South Africa\n\nSouth African Police Service\nSouth African National Parks Air Wing\n United Kingdom \n\nEmpire Test Pilots School\n United States\n\nTexas DPS\nAlaska State Troopers\nAnaheim Police Department\nBaltimore County Police Department\nCalifornia Highway Patrol\nEast Flagler Mosquito Control District\nKansas State Highway Patrol\nLos Angeles County Sheriff's Department\nLos Angeles Police Department\nMemphis Police Department\nD.C. Metropolitan Police Department, both AS350B3 and H125 variants in use.\nNew Mexico State Police\nMiami Police Department\nOakland County Sheriff's Office\nOhio State Highway Patrol\nOklahoma City Police Department\nOrange County Sheriff's Department\nPhiladelphia Police Department\nSan Diego Police Department\nSan Jose Police Department\nU.S.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1422,
+  "end_char_idx": 2280,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

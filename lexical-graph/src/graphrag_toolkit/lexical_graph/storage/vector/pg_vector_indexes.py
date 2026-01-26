@@ -714,3 +714,26 @@ class PGIndex(VectorIndex):
             dbconn.close()
 
         return []
+    
+    def delete_embeddings(self, ids:List[str]=[]):
+
+        dbconn = self._get_connection()
+        cur = dbconn.cursor()
+
+        def format_ids(ids):
+            return ','.join([f"'{id}'" for id in set(ids)])
+        
+        try:
+
+            cur.execute(f'''DELETE FROM {self.schema_name}.{self.underlying_index_name()}
+                WHERE {self.index_name}Id IN ({format_ids(ids)});'''
+            )
+
+        except UndefinedTable as e:
+            logger.warning(f'Index {self.underlying_index_name()} does not exist')
+
+        finally:
+            cur.close()
+            dbconn.close()
+
+        return ids

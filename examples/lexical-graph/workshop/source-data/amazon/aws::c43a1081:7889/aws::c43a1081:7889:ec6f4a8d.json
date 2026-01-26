@@ -1,0 +1,2328 @@
+{
+  "id_": "aws::c43a1081:7889:ec6f4a8d",
+  "embedding": [
+    0.025894165,
+    0.012191772,
+    -0.032318115,
+    -0.038085938,
+    0.0041122437,
+    -0.025619507,
+    -0.0045928955,
+    -0.012298584,
+    -0.015312195,
+    0.054626465,
+    -0.0064353943,
+    0.037078857,
+    0.01209259,
+    -0.011856079,
+    -0.0014734268,
+    -0.0059776306,
+    0.0317688,
+    0.036376953,
+    0.06604004,
+    0.026611328,
+    -0.0146102905,
+    0.06561279,
+    0.006855011,
+    -0.05230713,
+    0.030349731,
+    -0.03363037,
+    0.026504517,
+    -0.042053223,
+    0.020126343,
+    -0.03741455,
+    0.015670776,
+    0.045776367,
+    0.02243042,
+    0.0074310303,
+    -0.022384644,
+    -0.052490234,
+    0.0017786026,
+    0.00856781,
+    -0.041412354,
+    0.034698486,
+    0.013298035,
+    -0.008743286,
+    0.0725708,
+    -0.07873535,
+    0.01739502,
+    -0.00484848,
+    0.026290894,
+    -0.021621704,
+    0.046173096,
+    -0.015701294,
+    -0.03173828,
+    0.005584717,
+    -0.029464722,
+    -0.011329651,
+    -0.0073394775,
+    0.004558563,
+    0.013496399,
+    -0.0033626556,
+    0.014663696,
+    0.010604858,
+    -6.2584877e-06,
+    0.031204224,
+    -0.005405426,
+    -0.015686035,
+    -0.028701782,
+    0.03161621,
+    0.055236816,
+    -0.0052986145,
+    0.011795044,
+    -0.054595947,
+    -0.025802612,
+    0.0143585205,
+    0.0016050339,
+    -0.013687134,
+    0.002313614,
+    0.010658264,
+    -0.013092041,
+    -0.0034046173,
+    0.024597168,
+    0.018081665,
+    0.0007252693,
+    -0.018936157,
+    0.039398193,
+    -0.084106445,
+    0.03765869,
+    -0.06616211,
+    0.0049705505,
+    0.020889282,
+    -0.044708252,
+    -0.011512756,
+    -0.0231781,
+    -0.0074920654,
+    -0.02154541,
+    0.0034885406,
+    -0.028213501,
+    0.010948181,
+    0.006828308,
+    0.040374756,
+    -0.010551453,
+    -0.011978149,
+    0.021072388,
+    -0.0345459,
+    -0.009124756,
+    -0.022506714,
+    0.01751709,
+    0.021240234,
+    -0.0141067505,
+    -0.034332275,
+    0.04119873,
+    0.017669678,
+    -0.007583618,
+    0.03427124,
+    0.0029716492,
+    -0.017425537,
+    -0.0149383545,
+    0.034698486,
+    -0.0070533752,
+    0.030044556,
+    0.0027217865,
+    0.025543213,
+    -0.07098389,
+    -0.049346924,
+    -0.0022068024,
+    0.070739746,
+    0.033416748,
+    0.037597656,
+    0.034606934,
+    0.01159668,
+    0.016860962,
+    -0.004272461,
+    0.01033783,
+    0.02659607,
+    -0.07141113,
+    -0.02166748,
+    -0.044281006,
+    0.009651184,
+    0.058685303,
+    0.00030136108,
+    -0.008483887,
+    -0.0009531975,
+    0.0055885315,
+    -0.0013933182,
+    -0.002752304,
+    0.016860962,
+    0.033843994,
+    -0.03277588,
+    0.011634827,
+    0.037261963,
+    0.018798828,
+    0.041381836,
+    0.0019359589,
+    0.017028809,
+    0.0075531006,
+    0.0024204254,
+    0.0014743805,
+    -0.06530762,
+    -0.016998291,
+    -0.038146973,
+    0.051208496,
+    -0.024520874,
+    0.030654907,
+    -0.017425537,
+    -0.0317688,
+    0.08300781,
+    0.035247803,
+    0.028930664,
+    0.055725098,
+    0.022003174,
+    -0.0019283295,
+    -0.00064611435,
+    -0.021606445,
+    0.03552246,
+    -0.016235352,
+    -0.011856079,
+    -0.006500244,
+    -0.024734497,
+    -0.0024871826,
+    -0.0019550323,
+    0.015235901,
+    0.0068092346,
+    0.013977051,
+    -0.021560669,
+    0.028442383,
+    0.021774292,
+    0.0061035156,
+    -0.02746582,
+    0.007335663,
+    -0.021453857,
+    0.018539429,
+    0.002702713,
+    -0.006706238,
+    0.030807495,
+    -0.03463745,
+    -0.0715332,
+    -0.012886047,
+    0.009437561,
+    0.007843018,
+    -0.008804321,
+    0.003967285,
+    0.05670166,
+    0.046295166,
+    0.011199951,
+    -0.015281677,
+    -0.019866943,
+    -0.049072266,
+    -0.016540527,
+    -0.009269714,
+    0.030960083,
+    -0.015281677,
+    0.021820068,
+    0.014221191,
+    -0.009384155,
+    -0.008911133,
+    -0.01335907,
+    0.0010786057,
+    0.013000488,
+    0.011962891,
+    0.01158905,
+    0.03967285,
+    0.018112183,
+    0.03829956,
+    0.0345459,
+    0.03765869,
+    0.000364542,
+    0.046081543,
+    -0.006603241,
+    0.00016129017,
+    -0.013435364,
+    0.12646484,
+    -0.035186768,
+    0.0847168,
+    0.004589081,
+    0.010055542,
+    0.021530151,
+    -0.011459351,
+    -0.003583908,
+    0.0592041,
+    -0.018737793,
+    0.01889038,
+    0.0036449432,
+    0.0046653748,
+    0.0063171387,
+    -0.067993164,
+    -0.012763977,
+    0.014411926,
+    -0.03994751,
+    -0.025756836,
+    0.034088135,
+    0.031433105,
+    0.02861023,
+    0.017990112,
+    -0.011260986,
+    0.025787354,
+    -0.02154541,
+    0.04473877,
+    0.029876709,
+    -0.044128418,
+    -0.009719849,
+    0.025299072,
+    0.0066833496,
+    -0.012161255,
+    0.0340271,
+    0.036224365,
+    -0.008354187,
+    -0.036315918,
+    0.0051460266,
+    0.030075073,
+    0.05105591,
+    0.013000488,
+    -0.044830322,
+    -0.0023059845,
+    0.044433594,
+    0.00094127655,
+    0.045837402,
+    0.017608643,
+    0.004005432,
+    -0.020599365,
+    -0.01713562,
+    0.014823914,
+    0.025314331,
+    -0.041931152,
+    -0.0048713684,
+    -0.023208618,
+    -0.014709473,
+    0.004837036,
+    0.020431519,
+    0.009849548,
+    -0.05105591,
+    -0.03062439,
+    -0.022583008,
+    0.049468994,
+    -0.037994385,
+    -0.023864746,
+    -0.034179688,
+    0.01008606,
+    -0.049041748,
+    -0.047668457,
+    0.00056028366,
+    0.003929138,
+    -0.021408081,
+    -0.03250122,
+    0.035949707,
+    -0.0066337585,
+    -0.009483337,
+    0.028686523,
+    -0.02911377,
+    0.08270264,
+    -0.02494812,
+    0.00806427,
+    0.018753052,
+    0.00015091896,
+    0.061706543,
+    0.010231018,
+    -0.061706543,
+    0.016189575,
+    1.6093254e-05,
+    -0.01826477,
+    -0.022766113,
+    -0.028015137,
+    0.010360718,
+    0.006416321,
+    0.045440674,
+    0.019592285,
+    0.033569336,
+    0.02748108,
+    -0.029815674,
+    0.017044067,
+    -0.0048332214,
+    -0.0019426346,
+    -0.030807495,
+    -0.0037059784,
+    -0.028778076,
+    -0.024749756,
+    0.010398865,
+    0.0018291473,
+    0.0062675476,
+    -0.0017690659,
+    0.07763672,
+    0.008918762,
+    -0.06121826,
+    -0.01083374,
+    -0.00060224533,
+    -0.021240234,
+    0.03515625,
+    0.023590088,
+    -0.02243042,
+    -0.009651184,
+    -0.0027313232,
+    0.072631836,
+    0.030914307,
+    -0.03152466,
+    0.0040245056,
+    -0.017623901,
+    -0.04525757,
+    -0.028747559,
+    0.026992798,
+    0.027770996,
+    -0.05810547,
+    -0.013748169,
+    -0.07434082,
+    0.0026836395,
+    0.010467529,
+    -0.01838684,
+    -0.03286743,
+    -0.021057129,
+    -0.010955811,
+    -0.011291504,
+    0.030685425,
+    0.03817749,
+    0.0395813,
+    0.0335083,
+    0.053710938,
+    -0.08154297,
+    -0.028198242,
+    -0.037139893,
+    -0.020065308,
+    0.07434082,
+    0.020935059,
+    -0.03768921,
+    0.033569336,
+    0.051818848,
+    0.034301758,
+    -0.016418457,
+    -0.009094238,
+    0.010147095,
+    0.024215698,
+    0.019424438,
+    0.0032787323,
+    0.0024986267,
+    -0.018096924,
+    -0.02204895,
+    0.015258789,
+    -0.002128601,
+    -0.012207031,
+    0.01676941,
+    -0.0048179626,
+    -0.015289307,
+    0.025115967,
+    -0.053253174,
+    -0.0023460388,
+    -0.01852417,
+    0.022216797,
+    0.008796692,
+    0.00045013428,
+    -0.023742676,
+    0.023162842,
+    -0.015853882,
+    -0.011268616,
+    0.010375977,
+    0.064331055,
+    -0.030731201,
+    0.028869629,
+    -0.020309448,
+    0.011444092,
+    8.535385e-05,
+    0.0104599,
+    -0.04336548,
+    0.007156372,
+    0.005870819,
+    -0.020431519,
+    -0.054595947,
+    0.08630371,
+    -0.053222656,
+    -0.011924744,
+    -0.02671814,
+    -0.02947998,
+    -0.0082473755,
+    0.024856567,
+    -0.031829834,
+    -0.002046585,
+    -0.02809143,
+    -0.019012451,
+    0.013427734,
+    0.024368286,
+    -0.059814453,
+    -0.0035877228,
+    -0.02104187,
+    -0.05014038,
+    0.018997192,
+    -0.06628418,
+    0.0034103394,
+    -0.009124756,
+    0.013381958,
+    0.031677246,
+    0.02444458,
+    -0.015342712,
+    -0.020019531,
+    -0.010009766,
+    0.036895752,
+    -0.015487671,
+    0.030426025,
+    0.004623413,
+    0.024108887,
+    0.0037136078,
+    -0.026306152,
+    -0.036254883,
+    -0.010261536,
+    0.024002075,
+    0.018875122,
+    -0.012016296,
+    -0.0077819824,
+    0.0006456375,
+    -0.0074806213,
+    -0.011314392,
+    0.043762207,
+    -0.036254883,
+    0.01928711,
+    -0.0038433075,
+    0.01449585,
+    0.0018529892,
+    0.011787415,
+    0.015274048,
+    -0.00020432472,
+    -0.044799805,
+    -0.018035889,
+    -0.055511475,
+    0.04083252,
+    -0.02230835,
+    0.08905029,
+    -0.042022705,
+    0.0023212433,
+    -0.007713318,
+    -0.041931152,
+    0.081726074,
+    0.07470703,
+    -0.0357666,
+    0.033325195,
+    0.028381348,
+    -0.0009531975,
+    -0.027359009,
+    0.0047683716,
+    -0.03656006,
+    0.021881104,
+    -0.023712158,
+    -0.030685425,
+    -0.0030078888,
+    -0.00016593933,
+    0.009788513,
+    0.053466797,
+    -0.005886078,
+    0.0003964901,
+    0.020904541,
+    -0.030929565,
+    -0.053466797,
+    -0.02571106,
+    0.06439209,
+    0.006416321,
+    -0.014434814,
+    -0.003452301,
+    -0.09814453,
+    -0.0032787323,
+    -0.06970215,
+    0.034729004,
+    0.030395508,
+    -0.025177002,
+    0.011482239,
+    -0.01965332,
+    0.052886963,
+    -0.041625977,
+    -0.011703491,
+    0.054382324,
+    0.020507812,
+    0.01309967,
+    0.016983032,
+    0.01777649,
+    -0.014518738,
+    -0.00061511993,
+    -0.04534912,
+    -0.018951416,
+    -0.021636963,
+    0.007972717,
+    0.015594482,
+    0.015991211,
+    0.0078125,
+    0.003255844,
+    0.00566864,
+    -0.010818481,
+    -0.040893555,
+    -0.014961243,
+    0.013908386,
+    -0.009231567,
+    -0.0048179626,
+    0.0077667236,
+    0.037200928,
+    0.0010509491,
+    0.03173828,
+    -0.034423828,
+    0.06341553,
+    -0.07434082,
+    0.09210205,
+    -0.040405273,
+    -0.05947876,
+    -0.030593872,
+    -0.05593872,
+    -0.044433594,
+    -4.1544437e-05,
+    0.020217896,
+    0.018508911,
+    -0.0008416176,
+    -0.01638794,
+    -0.0054855347,
+    -0.026779175,
+    -0.039276123,
+    0.054351807,
+    -0.035583496,
+    0.0057792664,
+    0.0039901733,
+    -0.037750244,
+    0.049224854,
+    -0.051818848,
+    -0.058807373,
+    -0.053375244,
+    0.05117798,
+    0.030258179,
+    0.022888184,
+    0.0072135925,
+    0.04425049,
+    0.037322998,
+    0.02017212,
+    -0.032989502,
+    -0.014297485,
+    0.0016155243,
+    0.017562866,
+    0.07678223,
+    -0.010787964,
+    -0.022888184,
+    0.030380249,
+    -0.018447876,
+    -0.008796692,
+    -0.022155762,
+    0.026779175,
+    -0.02243042,
+    -0.03262329,
+    -0.022628784,
+    0.043914795,
+    0.021316528,
+    0.027511597,
+    0.00017750263,
+    0.04257202,
+    0.025558472,
+    0.020858765,
+    0.012420654,
+    0.018737793,
+    -0.009101868,
+    -0.027450562,
+    -0.0047035217,
+    0.036895752,
+    -0.011734009,
+    0.049041748,
+    0.021240234,
+    -0.057373047,
+    -0.07757568,
+    -0.0020179749,
+    0.06298828,
+    -0.01927185,
+    -0.0127334595,
+    -0.00034618378,
+    0.0014801025,
+    0.021362305,
+    -0.00869751,
+    0.040618896,
+    0.049804688,
+    0.0317688,
+    0.030838013,
+    -0.004699707,
+    -0.007896423,
+    -0.0011692047,
+    0.027511597,
+    0.00060749054,
+    -0.013931274,
+    0.013839722,
+    -0.033416748,
+    -0.028427124,
+    -0.032226562,
+    -0.022476196,
+    0.00944519,
+    0.0066184998,
+    -0.010803223,
+    0.03756714,
+    0.02722168,
+    -0.0037631989,
+    0.008239746,
+    -0.01826477,
+    -0.03137207,
+    -0.014625549,
+    -0.04977417,
+    -0.04547119,
+    -0.0044937134,
+    -0.009010315,
+    -0.00484848,
+    0.009849548,
+    -0.023620605,
+    -0.011299133,
+    -0.048706055,
+    0.0054130554,
+    -0.028366089,
+    -0.03540039,
+    0.0061149597,
+    -0.008346558,
+    -0.03250122,
+    -0.035858154,
+    -0.0015602112,
+    -0.031066895,
+    0.0047073364,
+    0.0064353943,
+    -0.016525269,
+    -0.035064697,
+    0.030700684,
+    -0.04827881,
+    0.03665161,
+    -0.011558533,
+    -0.0670166,
+    -0.082336426,
+    0.012939453,
+    0.041931152,
+    -0.008666992,
+    -0.018539429,
+    0.03277588,
+    -0.07714844,
+    0.002632141,
+    3.3974648e-06,
+    0.012519836,
+    0.025909424,
+    -0.0031051636,
+    -0.028503418,
+    0.012680054,
+    0.0019340515,
+    0.0074768066,
+    0.019195557,
+    0.047912598,
+    -0.017700195,
+    0.017791748,
+    0.039123535,
+    0.032562256,
+    -0.026062012,
+    0.037475586,
+    0.020904541,
+    0.009567261,
+    -0.026855469,
+    -0.031433105,
+    0.007335663,
+    0.039367676,
+    0.031158447,
+    0.026489258,
+    0.03137207,
+    -0.002363205,
+    0.02368164,
+    -0.057006836,
+    0.048828125,
+    0.019973755,
+    -0.02885437,
+    0.011024475,
+    -0.007297516,
+    -0.0054092407,
+    -0.04083252,
+    -0.04940796,
+    -0.062438965,
+    0.006046295,
+    -0.0066604614,
+    0.04638672,
+    0.016067505,
+    0.04260254,
+    0.005065918,
+    -0.02444458,
+    0.029418945,
+    -0.050079346,
+    -0.028549194,
+    0.0234375,
+    0.021865845,
+    0.025619507,
+    0.01928711,
+    -0.020492554,
+    0.019119263,
+    0.0024299622,
+    -0.01586914,
+    0.037963867,
+    -0.026428223,
+    0.027877808,
+    0.010887146,
+    -0.011428833,
+    -0.019836426,
+    -0.024246216,
+    0.0418396,
+    0.03982544,
+    -0.053466797,
+    0.05050659,
+    0.012840271,
+    -0.04196167,
+    -0.02458191,
+    -0.028121948,
+    -0.015159607,
+    0.021820068,
+    -0.0047798157,
+    0.005558014,
+    0.017150879,
+    0.012313843,
+    0.031555176,
+    -0.019134521,
+    -0.010009766,
+    -0.017227173,
+    -0.03640747,
+    0.0049591064,
+    -0.027236938,
+    0.015655518,
+    0.0026760101,
+    0.019943237,
+    -0.051574707,
+    -0.04107666,
+    -0.00037693977,
+    -0.0015735626,
+    0.029220581,
+    0.042785645,
+    0.022567749,
+    0.021011353,
+    -0.08721924,
+    -0.023757935,
+    0.016296387,
+    -0.06555176,
+    -0.0016822815,
+    0.07330322,
+    0.04937744,
+    0.01210022,
+    -0.09802246,
+    -0.042663574,
+    -0.028198242,
+    0.04437256,
+    0.058563232,
+    0.014472961,
+    0.015197754,
+    0.035583496,
+    0.04925537,
+    -0.009391785,
+    -0.019378662,
+    -0.011405945,
+    0.013023376,
+    0.014389038,
+    -0.02243042,
+    -0.00868988,
+    0.012992859,
+    -0.031707764,
+    -0.080200195,
+    -0.022613525,
+    -0.046295166,
+    0.03201294,
+    0.0031089783,
+    0.06945801,
+    0.01348114,
+    0.0154418945,
+    -0.02178955,
+    -0.024993896,
+    -0.001791954,
+    -0.07373047,
+    0.052856445,
+    -0.00793457,
+    0.081848145,
+    -0.013252258,
+    -0.035980225,
+    -0.025619507,
+    0.056610107,
+    0.012069702,
+    -0.018981934,
+    0.02053833,
+    -0.0053520203,
+    0.015777588,
+    0.014389038,
+    0.023284912,
+    -0.002538681,
+    -0.024734497,
+    0.012077332,
+    -0.01953125,
+    0.010635376,
+    0.008026123,
+    -0.0026836395,
+    -0.00756073,
+    0.01235199,
+    0.02330017,
+    0.04916382,
+    -0.032470703,
+    0.038513184,
+    0.03250122,
+    0.016601562,
+    -0.01663208,
+    0.02809143,
+    0.03942871,
+    -0.035736084,
+    0.014205933,
+    0.013053894,
+    -0.030014038,
+    0.025131226,
+    0.028701782,
+    0.027313232,
+    -0.038116455,
+    -0.021057129,
+    0.020248413,
+    0.010620117,
+    -0.0061302185,
+    -0.033477783,
+    -0.047821045,
+    -0.04562378,
+    0.03692627,
+    0.02432251,
+    -0.03579712,
+    -0.020462036,
+    0.004886627,
+    -0.009254456,
+    0.028320312,
+    -0.02482605,
+    0.016189575,
+    0.014022827,
+    -0.0008506775,
+    0.010177612,
+    0.037994385,
+    -0.021072388,
+    0.064208984,
+    0.012382507,
+    0.04168701,
+    0.0052261353,
+    0.054382324,
+    0.055236816,
+    -0.03479004,
+    -0.020904541,
+    0.012062073,
+    0.02230835,
+    -0.043701172,
+    0.020812988,
+    0.016342163,
+    -0.010955811,
+    0.03164673,
+    0.021499634,
+    -0.016281128,
+    -0.020233154,
+    -0.004337311,
+    -0.004432678,
+    0.0024337769,
+    -0.007255554,
+    -0.015258789,
+    0.010978699,
+    0.021652222,
+    -0.009643555,
+    -0.002412796,
+    -0.016220093,
+    -0.0181427,
+    0.021774292,
+    0.019851685,
+    -0.02468872,
+    0.006626129,
+    0.031280518,
+    0.02255249,
+    -0.015716553,
+    -0.0049705505,
+    0.050079346,
+    0.024734497,
+    -0.041107178,
+    -0.038635254,
+    -0.003074646,
+    0.0770874,
+    -0.08355713,
+    -0.0011234283,
+    -0.04437256,
+    0.0692749,
+    -0.015411377,
+    0.008216858,
+    -0.0131073,
+    -0.009010315,
+    0.059661865,
+    0.027236938,
+    0.039855957,
+    -0.07897949,
+    -0.025344849,
+    0.004924774,
+    0.008201599,
+    -0.010444641,
+    0.021316528,
+    -0.03543091,
+    0.035308838,
+    -0.02748108,
+    0.020889282,
+    -0.0256958,
+    -0.014541626,
+    0.031402588,
+    -0.00037264824,
+    0.013008118,
+    -0.022460938,
+    -0.0076408386,
+    0.03866577,
+    -0.0053749084,
+    0.016723633,
+    0.02319336,
+    -0.05581665,
+    0.05038452,
+    0.028045654,
+    0.027038574,
+    -0.057647705,
+    0.029205322,
+    0.00096797943,
+    -0.004425049,
+    -0.021850586,
+    0.09967041,
+    0.042907715,
+    0.030288696,
+    0.010803223,
+    0.0019435883,
+    -0.009399414,
+    -0.0064811707,
+    0.019638062,
+    0.017028809,
+    0.009986877,
+    -0.028167725,
+    -0.022720337,
+    -0.024490356,
+    0.008415222,
+    -0.014678955,
+    -0.008354187,
+    -0.022491455,
+    -0.0037326813,
+    -0.0028152466,
+    -0.008293152,
+    -0.035125732,
+    -0.041748047,
+    -0.03869629,
+    -0.025131226,
+    -0.06890869,
+    -0.041870117,
+    0.060638428,
+    -0.01687622,
+    -0.015213013,
+    0.0015678406,
+    -0.009727478,
+    -0.039520264,
+    0.04574585,
+    -0.027038574,
+    -0.02229309,
+    -0.009559631,
+    -0.024642944,
+    0.011421204,
+    0.016448975,
+    0.002380371,
+    -0.041015625,
+    0.010604858,
+    -0.010818481,
+    0.019683838,
+    -0.0018377304,
+    -0.009407043,
+    0.0052452087,
+    0.0022468567,
+    0.0076789856,
+    -0.036224365,
+    0.02407837,
+    -0.009155273,
+    -0.056274414,
+    -0.03677368,
+    0.040283203,
+    -0.045532227,
+    -0.008384705,
+    -0.020965576,
+    -0.035827637,
+    0.005908966,
+    0.02482605,
+    -0.0093688965,
+    -0.017089844,
+    -0.014373779,
+    0.038146973,
+    0.020477295,
+    -0.0102005005
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/sustainable_energy_breakthrough.md",
+    "file_name": "sustainable_energy_breakthrough.md",
+    "file_size": 2776,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-22",
+    "header_path": "/Amazon Achieves Carbon-Negative Operations Through Revolutionary Energy Innovation/",
+    "aws::graph::propositions": [
+      "# Amazon's Carbon-Negative Achievement",
+      "Amazon declared a historic milestone in corporate environmental responsibility.",
+      "Amazon announced that its global operations have achieved carbon-negative status.",
+      "Amazon achieved carbon-negative status three years ahead of schedule.",
+      "The achievement stems from Amazon's \"Green Horizon\" initiative.",
+      "\"Green Horizon\" is a revolutionary initiative.",
+      "\"Green Horizon\" combines cutting-edge renewable energy technologies with advanced carbon capture and storage systems.",
+      "Amazon developed next-generation solar technologies.",
+      "Amazon developed next-generation wind technologies.",
+      "The next-generation solar and wind technologies generate 40% more energy than traditional renewable systems.",
+      "Amazon deployed these innovations across 500 facilities worldwide.",
+      "The innovations include floating solar farms.",
+      "The floating solar farms cover Amazon's logistics centers.",
+      "The innovations include vertical wind turbines.",
+      "The vertical wind turbines are integrated directly into data center designs.",
+      "Dr. Maria Santos is Amazon's Chief Sustainability Officer.",
+      "Dr. Maria Santos announced \"We've fundamentally reimagined what it means to be an environmentally responsible technology company.\"",
+      "Dr. Maria Santos made the announcement during a presentation.",
+      "The presentation was at Amazon's new carbon-negative headquarters.",
+      "Amazon's new carbon-negative headquarters is in Seattle.",
+      "Amazon's operations now remove more carbon from the atmosphere than they produce.",
+      "Amazon's operations create a positive environmental impact.",
+      "The positive environmental impact grows stronger every day."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Amazon's Carbon-Negative Achievement",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Green Horizon",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Dr. Maria Santos",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Seattle",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon declared a historic milestone in corporate environmental responsibility.",
+              "details": [
+                "historic milestone DESCRIBED BY corporate environmental responsibility"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DECLARED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "historic milestone",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "historic milestone",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "corporate environmental responsibility",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon announced that its global operations have achieved carbon-negative status.",
+              "details": [
+                "global operations HAS STATUS carbon-negative status"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ANNOUNCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative status",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS OPERATIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global operations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "global operations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative status",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon achieved carbon-negative status three years ahead of schedule.",
+              "details": [
+                "carbon-negative status ACHIEVED TIMING three years ahead of schedule"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACHIEVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative status",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative status",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACHIEVED TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "three years ahead of schedule",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The achievement stems from Amazon's \"Green Horizon\" initiative.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Green Horizon",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Green Horizon",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "SOURCE OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "achievement",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Green Horizon",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initiative",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Green Horizon\" is a revolutionary initiative.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Green Horizon",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "revolutionary initiative",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Green Horizon\" combines cutting-edge renewable energy technologies with advanced carbon capture and storage systems.",
+              "details": [
+                "renewable energy technologies DESCRIBED BY cutting-edge",
+                "carbon capture and storage systems DESCRIBED BY advanced"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Green Horizon",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "COMBINES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "renewable energy technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Green Horizon",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "COMBINES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon capture and storage systems",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "renewable energy technologies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cutting-edge",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon capture and storage systems",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "advanced",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon developed next-generation solar technologies.",
+              "details": [
+                "solar technologies DESCRIBED BY next-generation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solar technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solar technologies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "next-generation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon developed next-generation wind technologies.",
+              "details": [
+                "wind technologies DESCRIBED BY next-generation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEVELOPED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wind technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wind technologies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "next-generation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The next-generation solar and wind technologies generate 40% more energy than traditional renewable systems.",
+              "details": [
+                "next-generation solar and wind technologies GENERATES 40% more energy than traditional renewable systems"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "next-generation solar and wind technologies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "GENERATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "40% more energy than traditional renewable systems",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon deployed these innovations across 500 facilities worldwide.",
+              "details": [
+                "innovations DEPLOYMENT SCOPE 500 facilities worldwide"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DEPLOYED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "innovations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "innovations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPLOYMENT SCOPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "500 facilities worldwide",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The innovations include floating solar farms.",
+              "details": [
+                "innovations INCLUDE floating solar farms"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "innovations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "floating solar farms",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The floating solar farms cover Amazon's logistics centers.",
+              "details": [
+                "floating solar farms COVER logistics centers"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "floating solar farms",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COVER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "logistics centers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "logistics centers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The innovations include vertical wind turbines.",
+              "details": [
+                "innovations INCLUDE vertical wind turbines"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "innovations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vertical wind turbines",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The vertical wind turbines are integrated directly into data center designs.",
+              "details": [
+                "vertical wind turbines INTEGRATED INTO data center designs",
+                "vertical wind turbines INTEGRATION METHOD directly"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vertical wind turbines",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INTEGRATED INTO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "data center designs",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vertical wind turbines",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INTEGRATION METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "directly",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Dr. Maria Santos is Amazon's Chief Sustainability Officer.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dr. Maria Santos",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "WORKS FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dr. Maria Santos",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Chief Sustainability Officer",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Dr. Maria Santos announced \"We've fundamentally reimagined what it means to be an environmentally responsible technology company.\"",
+              "details": [
+                "statement CONTENT We've fundamentally reimagined what it means to be an environmentally responsible technology company"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dr. Maria Santos",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "ANNOUNCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "statement",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "statement",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "We've fundamentally reimagined what it means to be an environmentally responsible technology company",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Dr. Maria Santos made the announcement during a presentation.",
+              "details": [
+                "announcement MADE DURING presentation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Dr. Maria Santos",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "MADE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "announcement",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "announcement",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MADE DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "presentation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The presentation was at Amazon's new carbon-negative headquarters.",
+              "details": [
+                "presentation LOCATED AT carbon-negative headquarters",
+                "carbon-negative headquarters DESCRIBED BY new"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "presentation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative headquarters",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative headquarters",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative headquarters",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's new carbon-negative headquarters is in Seattle.",
+              "details": [
+                "carbon-negative headquarters LOCATED IN Seattle",
+                "carbon-negative headquarters DESCRIBED BY new"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative headquarters",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Seattle",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative headquarters",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "carbon-negative headquarters",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "new",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's operations now remove more carbon from the atmosphere than they produce.",
+              "details": [
+                "operations CARBON IMPACT remove more carbon from the atmosphere than they produce",
+                "operations TIMING now"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CARBON IMPACT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remove more carbon from the atmosphere than they produce",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "now",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's operations create a positive environmental impact.",
+              "details": [
+                "operations CREATE positive environmental impact"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CREATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "positive environmental impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The positive environmental impact grows stronger every day.",
+              "details": [
+                "positive environmental impact GROWTH PATTERN grows stronger every day"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "positive environmental impact",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "GROWTH PATTERN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "grows stronger every day",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::c43a1081:7889",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/sustainable_energy_breakthrough.md",
+        "file_name": "sustainable_energy_breakthrough.md",
+        "file_size": 2776,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22"
+      },
+      "hash": "a6c2dd077c34aea6dc01df8aa1559c1023639ac6a53a934daa666e16293877ac",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::c43a1081:7889:094b02fb",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/sustainable_energy_breakthrough.md",
+        "file_name": "sustainable_energy_breakthrough.md",
+        "file_size": 2776,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Achieves Carbon-Negative Operations Through Revolutionary Energy Innovation/"
+      },
+      "hash": "549d48ba574ee72c74aea2fa0fab66abf3115ac1292a2ed52404086a5d10bfdb",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::c43a1081:7889:5091a0e9",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/sustainable_energy_breakthrough.md",
+        "file_name": "sustainable_energy_breakthrough.md",
+        "file_size": 2776,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Achieves Carbon-Negative Operations Through Revolutionary Energy Innovation/"
+      },
+      "hash": "8276fc97cf7ccb2967c4e6023f7ddc3daef4dd98326487c2f12bf6b9ee28483a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "## News Report\n\nAmazon today declared a historic milestone in corporate environmental responsibility, announcing that its global operations have achieved carbon-negative status three years ahead of schedule. The achievement stems from the company's revolutionary \"Green Horizon\" initiative, which combines cutting-edge renewable energy technologies with advanced carbon capture and storage systems.\n\nThe transformation centers around Amazon's development of next-generation solar and wind technologies that generate 40% more energy than traditional renewable systems. These innovations, deployed across 500 facilities worldwide, include floating solar farms that cover Amazon's logistics centers and vertical wind turbines integrated directly into data center designs.\n\n\"We've fundamentally reimagined what it means to be an environmentally responsible technology company,\" announced Dr. Maria Santos, Amazon's Chief Sustainability Officer, during a presentation at the company's new carbon-negative headquarters in Seattle. \"Our operations now remove more carbon from the atmosphere than they produce, creating a positive environmental impact that grows stronger every day.\"",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1175,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

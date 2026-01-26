@@ -1,0 +1,17 @@
+r5d Instance Types and Neptune Lookup Cache Feature
+
+Neptune is a service.
+Neptune has a lookup-cache feature.
+The lookup-cache feature can be used to improve the performance of queries which need to fetch and return large numbers of property values and literals.
+The lookup-cache feature is used primarily by customers with queries that need to return many attributes.
+The lookup cache boosts performance of these queries by fetching these attribute values locally rather than looking up each one over and over in Neptune indexed storage.
+The lookup cache is implemented using a NVMe-attached EBS volume on an r5d instance type.
+The lookup cache is enabled using a cluster's parameter group.
+As data is fetched from Neptune indexed storage, property values and RDF literals are cached within this NVMe volume.
+r5d is a family of instance types.
+r5 is a family of instance types.
+If you don't need the lookup cache feature, use a standard r5 instance type rather than an r5d, to avoid the higher cost of the r5d.
+The r5d family has instance types in the same sizes as the r5 family.
+The r5d family ranges from r5d.large to r5d.24xlarge.
+r5d.large is an instance type in the r5d family.
+r5d.24xlarge is an instance type in the r5d family.

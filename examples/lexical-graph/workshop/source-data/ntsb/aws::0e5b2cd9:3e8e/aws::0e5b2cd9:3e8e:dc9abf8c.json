@@ -1,0 +1,2311 @@
+{
+  "id_": "aws::0e5b2cd9:3e8e:dc9abf8c",
+  "embedding": [
+    -0.013053894,
+    -0.0018339157,
+    -0.015594482,
+    -0.061523438,
+    -0.0024738312,
+    0.01928711,
+    -0.06112671,
+    0.018066406,
+    -0.06591797,
+    -0.0057868958,
+    0.05731201,
+    0.033325195,
+    -0.00687027,
+    -0.06347656,
+    0.09020996,
+    0.016937256,
+    0.008476257,
+    0.024261475,
+    0.033325195,
+    0.015182495,
+    0.0027179718,
+    0.039886475,
+    -0.03970337,
+    -0.03933716,
+    0.012062073,
+    0.036468506,
+    -0.0024757385,
+    0.00415802,
+    0.0018062592,
+    -0.012245178,
+    0.017303467,
+    -0.015068054,
+    0.02330017,
+    0.018859863,
+    -0.019607544,
+    0.009124756,
+    -0.036865234,
+    0.018081665,
+    -0.0007247925,
+    0.011642456,
+    0.022018433,
+    -0.0051460266,
+    0.04385376,
+    -0.031829834,
+    -0.005836487,
+    0.021972656,
+    0.004558563,
+    -0.02507019,
+    0.028717041,
+    0.034973145,
+    0.0059928894,
+    0.029922485,
+    -0.005432129,
+    0.035461426,
+    0.013427734,
+    0.011474609,
+    -0.046417236,
+    0.0067329407,
+    -0.01134491,
+    0.031204224,
+    0.032318115,
+    0.044921875,
+    0.010505676,
+    0.03050232,
+    -0.030899048,
+    0.0001039505,
+    -0.013038635,
+    -0.0043754578,
+    0.04257202,
+    -0.020736694,
+    -0.02519226,
+    0.015129089,
+    0.016067505,
+    0.014411926,
+    0.013145447,
+    -0.052612305,
+    0.0016975403,
+    0.003168106,
+    -0.015068054,
+    0.05532837,
+    0.027801514,
+    0.041259766,
+    0.011245728,
+    -0.029830933,
+    -0.009223938,
+    -0.01550293,
+    -0.017745972,
+    -0.024978638,
+    -0.01473999,
+    0.00094795227,
+    -0.021347046,
+    0.014823914,
+    0.033233643,
+    0.030059814,
+    -0.046051025,
+    0.020965576,
+    -0.0029659271,
+    -0.09307861,
+    0.02330017,
+    -0.043548584,
+    0.035217285,
+    -0.05316162,
+    -0.029541016,
+    0.057769775,
+    -0.0132751465,
+    0.007881165,
+    -0.0041236877,
+    0.01940918,
+    0.04763794,
+    0.032684326,
+    -0.021865845,
+    0.039764404,
+    0.03756714,
+    -0.058441162,
+    -0.024765015,
+    0.038085938,
+    0.044403076,
+    -0.013977051,
+    0.028335571,
+    0.00037169456,
+    0.0042152405,
+    0.030059814,
+    -0.057678223,
+    -0.03250122,
+    -0.024414062,
+    -0.05291748,
+    -0.029693604,
+    0.047576904,
+    0.07232666,
+    -0.035827637,
+    0.006549835,
+    0.051086426,
+    -0.046722412,
+    -0.03933716,
+    -0.038116455,
+    0.018936157,
+    -0.014533997,
+    -0.0051994324,
+    -0.00283432,
+    0.02180481,
+    -0.041809082,
+    -0.034454346,
+    0.0619812,
+    -0.02810669,
+    -0.018997192,
+    0.029891968,
+    0.029510498,
+    0.0038890839,
+    -0.018218994,
+    -0.050109863,
+    0.007659912,
+    -0.0011329651,
+    0.07775879,
+    -0.020004272,
+    -0.07489014,
+    -0.05419922,
+    0.02267456,
+    -0.044891357,
+    -0.045074463,
+    -0.087890625,
+    0.0024986267,
+    -0.015899658,
+    0.021621704,
+    0.021575928,
+    -0.0066871643,
+    0.0395813,
+    -0.025680542,
+    0.005870819,
+    0.0085372925,
+    -0.00356102,
+    0.05532837,
+    -1.4424324e-05,
+    -0.05947876,
+    0.00060510635,
+    0.016540527,
+    -0.009841919,
+    -0.03289795,
+    0.012527466,
+    0.02633667,
+    0.029922485,
+    0.019378662,
+    -0.0211792,
+    0.03842163,
+    0.011688232,
+    0.008605957,
+    0.001581192,
+    0.004837036,
+    -0.0076141357,
+    0.0063056946,
+    0.0034160614,
+    -0.043426514,
+    0.013397217,
+    0.014831543,
+    -0.08319092,
+    0.0046577454,
+    0.025680542,
+    0.0095825195,
+    0.008125305,
+    -0.0067481995,
+    0.011383057,
+    -0.016159058,
+    0.024490356,
+    -0.020004272,
+    0.005004883,
+    -0.01424408,
+    -0.010688782,
+    0.014282227,
+    0.025405884,
+    -0.04046631,
+    0.007358551,
+    0.046325684,
+    -0.002626419,
+    -0.025268555,
+    -0.028182983,
+    -0.0014915466,
+    -0.005039215,
+    -0.0028381348,
+    0.032348633,
+    -0.0056114197,
+    0.01675415,
+    -0.043426514,
+    -0.0010290146,
+    -0.04144287,
+    0.019897461,
+    -0.0309906,
+    -0.0151901245,
+    -0.009925842,
+    -0.0070648193,
+    -0.0016727448,
+    -0.003162384,
+    0.06524658,
+    -0.022369385,
+    0.016448975,
+    0.025558472,
+    -0.048065186,
+    0.019729614,
+    -0.023376465,
+    0.04574585,
+    -0.025665283,
+    0.016479492,
+    -0.019515991,
+    0.013450623,
+    -0.016937256,
+    0.06237793,
+    -0.068603516,
+    -0.07696533,
+    -0.0018634796,
+    0.026809692,
+    -0.027542114,
+    0.019119263,
+    0.051696777,
+    0.034942627,
+    -0.0026397705,
+    0.06567383,
+    -0.004055023,
+    0.009048462,
+    -0.00762558,
+    -0.03982544,
+    -0.0019550323,
+    -0.013053894,
+    0.030975342,
+    -0.035095215,
+    -0.07897949,
+    0.01864624,
+    0.0039100647,
+    0.03414917,
+    0.051940918,
+    0.06008911,
+    0.014038086,
+    0.026229858,
+    -0.024139404,
+    -0.03656006,
+    0.020751953,
+    0.033691406,
+    -0.068237305,
+    0.07836914,
+    0.0013437271,
+    -0.010597229,
+    0.033172607,
+    0.017562866,
+    0.0052757263,
+    0.030014038,
+    -0.062194824,
+    -0.007972717,
+    0.036956787,
+    -0.016555786,
+    -0.049743652,
+    0.012413025,
+    -0.026992798,
+    0.018493652,
+    0.046020508,
+    0.011871338,
+    -0.02154541,
+    0.022399902,
+    -0.04333496,
+    -0.006416321,
+    0.02078247,
+    0.009414673,
+    0.0077705383,
+    0.010749817,
+    0.058135986,
+    0.0680542,
+    -0.013313293,
+    0.039367676,
+    -0.0035476685,
+    -0.019104004,
+    0.020507812,
+    -0.009391785,
+    -0.0035858154,
+    -0.020492554,
+    -0.016326904,
+    0.0007519722,
+    0.03125,
+    0.02558899,
+    0.019134521,
+    -0.0011978149,
+    0.0052833557,
+    0.03668213,
+    -0.009567261,
+    -0.046325684,
+    -0.030593872,
+    0.021499634,
+    -0.032928467,
+    0.009521484,
+    0.022644043,
+    -0.0032978058,
+    -0.019104004,
+    -0.007411957,
+    -0.0038394928,
+    -0.011001587,
+    -0.049102783,
+    -0.0124053955,
+    -0.04522705,
+    0.017089844,
+    0.007270813,
+    0.02420044,
+    -0.004787445,
+    0.003967285,
+    -0.03918457,
+    -0.021331787,
+    -0.041015625,
+    -0.060272217,
+    0.015098572,
+    -0.042999268,
+    -0.06402588,
+    -0.004261017,
+    0.00057935715,
+    0.01436615,
+    -0.03060913,
+    -0.04373169,
+    0.066101074,
+    -0.024307251,
+    -0.017440796,
+    -7.8737736e-05,
+    -0.012268066,
+    -0.067871094,
+    0.011436462,
+    -0.028945923,
+    -0.060455322,
+    -0.06970215,
+    0.023468018,
+    -0.022827148,
+    -0.022064209,
+    -0.032928467,
+    0.015914917,
+    0.004776001,
+    0.0026073456,
+    -0.022491455,
+    0.011543274,
+    0.035369873,
+    -0.032836914,
+    0.035064697,
+    -0.026626587,
+    -0.0077438354,
+    -0.0074424744,
+    -0.005554199,
+    0.04977417,
+    -0.03125,
+    0.0052337646,
+    0.023162842,
+    -0.0074768066,
+    0.018066406,
+    -0.011375427,
+    0.0118637085,
+    0.024993896,
+    0.005203247,
+    -0.020187378,
+    0.024307251,
+    0.0082473755,
+    0.004322052,
+    -0.0008535385,
+    -0.01285553,
+    -0.03717041,
+    -0.022384644,
+    0.019439697,
+    0.004333496,
+    -0.0021820068,
+    0.020004272,
+    -0.037628174,
+    -0.023452759,
+    -0.0848999,
+    -0.005722046,
+    -0.003698349,
+    -0.037139893,
+    0.017791748,
+    -0.042175293,
+    -0.016235352,
+    -0.045776367,
+    0.033172607,
+    0.07128906,
+    -0.020187378,
+    0.021331787,
+    -0.004573822,
+    0.024139404,
+    -0.022644043,
+    0.018737793,
+    0.030960083,
+    0.014312744,
+    -0.026504517,
+    -0.023452759,
+    0.027526855,
+    -0.012763977,
+    -0.0025482178,
+    -0.012283325,
+    -0.012062073,
+    0.0143585205,
+    0.026031494,
+    0.058410645,
+    -0.0030384064,
+    -0.06323242,
+    0.00070667267,
+    -0.07324219,
+    0.03012085,
+    0.03137207,
+    -0.04837036,
+    0.040649414,
+    -0.015129089,
+    -0.005077362,
+    0.03503418,
+    -0.060791016,
+    0.0003414154,
+    0.010719299,
+    0.057159424,
+    0.021499634,
+    0.012535095,
+    -0.0023841858,
+    0.008972168,
+    0.023147583,
+    0.0088272095,
+    -0.0013837814,
+    0.011054993,
+    -0.010986328,
+    0.026626587,
+    0.014701843,
+    -0.005619049,
+    0.049438477,
+    -0.004966736,
+    -0.004219055,
+    -0.0020122528,
+    -0.00030851364,
+    -0.018814087,
+    0.015235901,
+    -0.026412964,
+    -0.027404785,
+    -0.011138916,
+    -0.027557373,
+    0.010192871,
+    0.008880615,
+    0.02418518,
+    -0.006690979,
+    -0.014335632,
+    0.060455322,
+    -0.03933716,
+    -0.026947021,
+    0.0041885376,
+    -0.035858154,
+    0.006164551,
+    -0.018127441,
+    0.051849365,
+    -0.007610321,
+    -0.07324219,
+    0.021408081,
+    0.017089844,
+    0.044921875,
+    0.005542755,
+    0.023483276,
+    0.07647705,
+    0.044006348,
+    -0.0019283295,
+    0.002714157,
+    0.019866943,
+    -0.034606934,
+    0.034576416,
+    -0.0069999695,
+    -0.028701782,
+    -0.003036499,
+    0.0049819946,
+    0.0006837845,
+    -0.019363403,
+    -0.014045715,
+    -0.054718018,
+    -0.0049705505,
+    -0.0047950745,
+    0.020629883,
+    -0.03756714,
+    -0.016784668,
+    -0.008232117,
+    0.0039138794,
+    0.036346436,
+    -0.010147095,
+    -0.0184021,
+    0.007183075,
+    -0.007926941,
+    0.038208008,
+    -0.047027588,
+    0.045532227,
+    -0.01977539,
+    -0.0002194643,
+    -0.0096588135,
+    -0.0017414093,
+    -0.008140564,
+    -0.0062446594,
+    0.04840088,
+    0.026153564,
+    -0.027679443,
+    -0.016281128,
+    0.03781128,
+    0.008285522,
+    -0.03286743,
+    -0.018630981,
+    0.023864746,
+    0.04446411,
+    0.014945984,
+    -0.016998291,
+    0.018432617,
+    -0.013076782,
+    -0.021316528,
+    -0.0020198822,
+    0.022964478,
+    0.012054443,
+    -0.00016605854,
+    0.004295349,
+    -0.008079529,
+    0.016021729,
+    0.01083374,
+    0.0236969,
+    -0.013328552,
+    0.014427185,
+    -0.055419922,
+    -0.005996704,
+    -0.024459839,
+    -0.0084991455,
+    -0.0082092285,
+    -0.056152344,
+    -0.03363037,
+    0.061920166,
+    0.03668213,
+    -0.03552246,
+    -0.015357971,
+    0.022094727,
+    -0.012390137,
+    -0.04660034,
+    -0.013702393,
+    0.031707764,
+    -0.002954483,
+    0.048736572,
+    -0.048034668,
+    -0.04852295,
+    0.03161621,
+    -0.005256653,
+    -0.012962341,
+    -0.039093018,
+    0.074157715,
+    -0.0029239655,
+    -0.013458252,
+    -0.024856567,
+    0.025970459,
+    0.037017822,
+    -0.010894775,
+    -0.028030396,
+    0.01612854,
+    -0.02420044,
+    -0.019317627,
+    0.028167725,
+    -0.029083252,
+    0.020828247,
+    -0.02420044,
+    0.0021781921,
+    -0.047973633,
+    -0.04208374,
+    0.03967285,
+    -0.0010299683,
+    0.012794495,
+    -0.007587433,
+    -0.004760742,
+    -0.0030326843,
+    -0.049682617,
+    -0.041412354,
+    0.0022964478,
+    0.0038700104,
+    -0.013504028,
+    0.0041618347,
+    0.0039749146,
+    -0.026184082,
+    0.034454346,
+    0.024536133,
+    0.025848389,
+    -0.012687683,
+    0.033203125,
+    0.019607544,
+    0.024505615,
+    -0.00680542,
+    -0.05206299,
+    0.057281494,
+    -0.035095215,
+    -0.03289795,
+    -0.018035889,
+    0.024139404,
+    0.045074463,
+    0.0013961792,
+    0.054779053,
+    -0.012718201,
+    0.038909912,
+    0.02029419,
+    0.023498535,
+    0.045806885,
+    -0.07836914,
+    0.011329651,
+    0.0049819946,
+    -0.007537842,
+    0.026977539,
+    -0.028686523,
+    -0.03390503,
+    0.01184082,
+    -0.004890442,
+    -0.015792847,
+    -0.02331543,
+    -0.01701355,
+    0.01689148,
+    0.0028953552,
+    -0.041778564,
+    -0.014808655,
+    -0.028823853,
+    0.033447266,
+    0.015022278,
+    -0.03289795,
+    0.0023174286,
+    0.013000488,
+    -0.016830444,
+    0.0014629364,
+    -0.039276123,
+    0.006828308,
+    -0.040771484,
+    0.020599365,
+    0.025848389,
+    -0.00020110607,
+    0.0066070557,
+    0.011703491,
+    0.018325806,
+    -0.04498291,
+    -0.07141113,
+    0.00025606155,
+    -0.008125305,
+    -0.04751587,
+    -0.052612305,
+    0.004863739,
+    0.025909424,
+    -0.0056762695,
+    0.009086609,
+    -0.052978516,
+    -0.013320923,
+    -0.023620605,
+    0.050476074,
+    -0.043884277,
+    -0.0054626465,
+    0.014045715,
+    0.0059509277,
+    0.009208679,
+    0.038604736,
+    -0.041046143,
+    0.028167725,
+    0.019302368,
+    0.004776001,
+    -0.021408081,
+    -0.03201294,
+    0.0049324036,
+    -0.04473877,
+    0.029830933,
+    -0.038238525,
+    -0.0793457,
+    -0.01725769,
+    0.028900146,
+    -0.05609131,
+    -0.013702393,
+    0.050109863,
+    -0.04284668,
+    -0.00806427,
+    0.006832123,
+    -0.004261017,
+    -0.024230957,
+    -0.010276794,
+    0.011390686,
+    0.024856567,
+    -0.0014619827,
+    0.0046043396,
+    -0.008087158,
+    0.006832123,
+    0.034820557,
+    -0.0024929047,
+    -0.02357483,
+    0.01739502,
+    0.076660156,
+    -0.04272461,
+    -0.013885498,
+    0.009208679,
+    0.01939392,
+    0.033355713,
+    0.014022827,
+    0.0077171326,
+    0.010002136,
+    -0.009422302,
+    -0.004886627,
+    -0.0029659271,
+    -0.01586914,
+    0.0340271,
+    -0.035217285,
+    -0.046813965,
+    0.020187378,
+    0.0010108948,
+    0.0007457733,
+    0.012458801,
+    -0.053649902,
+    0.055908203,
+    -0.019699097,
+    -0.057647705,
+    -0.003780365,
+    -0.010192871,
+    0.061523438,
+    0.04348755,
+    -0.07147217,
+    -0.085632324,
+    -0.024307251,
+    0.027709961,
+    -0.011054993,
+    -0.01096344,
+    -0.005092621,
+    0.027191162,
+    -0.10083008,
+    -0.00504303,
+    -0.0037937164,
+    0.05441284,
+    -0.085998535,
+    -0.037353516,
+    -0.0058174133,
+    -0.0039253235,
+    -0.018539429,
+    0.025985718,
+    0.021499634,
+    -0.033416748,
+    -0.012710571,
+    -0.016906738,
+    0.006565094,
+    0.026290894,
+    0.03579712,
+    -0.024642944,
+    0.041992188,
+    -0.04220581,
+    0.00053215027,
+    0.010047913,
+    -0.020996094,
+    -0.034240723,
+    -0.016525269,
+    -0.0063972473,
+    0.0051651,
+    0.066467285,
+    -0.02407837,
+    0.006954193,
+    -0.035247803,
+    -0.005241394,
+    0.003578186,
+    0.019226074,
+    0.0025024414,
+    -0.013114929,
+    0.0017023087,
+    -0.007850647,
+    0.03656006,
+    -0.027282715,
+    0.032287598,
+    0.0030212402,
+    0.00459671,
+    -0.035705566,
+    0.020324707,
+    0.023620605,
+    -0.039978027,
+    -0.00018846989,
+    -0.009483337,
+    -0.029800415,
+    -0.00730896,
+    -0.046051025,
+    -0.01751709,
+    0.0262146,
+    -0.0007748604,
+    0.01033783,
+    0.015731812,
+    -0.030715942,
+    -0.0496521,
+    -0.0031375885,
+    0.063964844,
+    0.032470703,
+    -0.061553955,
+    0.01864624,
+    -0.03967285,
+    0.061279297,
+    0.0026874542,
+    0.017425537,
+    0.038146973,
+    -0.043182373,
+    -0.015464783,
+    -0.011779785,
+    0.02696228,
+    0.0051841736,
+    0.025024414,
+    0.017120361,
+    0.013008118,
+    0.0152282715,
+    0.0023593903,
+    -0.021270752,
+    0.020095825,
+    0.007144928,
+    -0.013183594,
+    0.027359009,
+    0.0062561035,
+    0.0022182465,
+    0.016204834,
+    -0.01158905,
+    0.0088272095,
+    0.034362793,
+    0.02104187,
+    -0.011779785,
+    0.027145386,
+    -0.008125305,
+    0.0065345764,
+    -0.039276123,
+    -0.008010864,
+    -0.008674622,
+    -0.02053833,
+    0.004043579,
+    0.006225586,
+    -0.020095825,
+    0.057403564,
+    0.0033836365,
+    0.03010559,
+    0.039642334,
+    -0.0317688,
+    0.018951416,
+    0.04437256,
+    0.020202637,
+    -0.01210022,
+    -0.01309967,
+    0.018035889,
+    0.01373291,
+    0.03164673,
+    -0.0017852783,
+    -0.039764404,
+    -0.014839172,
+    0.044006348,
+    -0.029418945,
+    0.03463745,
+    0.008255005,
+    0.064941406,
+    0.022064209,
+    -0.0077438354,
+    -0.10638428,
+    -0.022628784,
+    -0.013763428,
+    -0.03277588,
+    -0.007106781,
+    0.09106445,
+    -0.05041504,
+    0.026565552,
+    -0.09020996,
+    -0.06347656,
+    -0.0067596436,
+    0.025802612,
+    0.009536743,
+    -0.084350586,
+    -0.018981934,
+    -0.03186035,
+    0.06347656,
+    0.029800415,
+    0.020812988,
+    -0.00806427,
+    -0.023986816,
+    0.057159424,
+    0.035186768,
+    0.11016846,
+    -0.016220093,
+    0.009506226,
+    -0.058258057,
+    0.03552246,
+    -0.039093018,
+    -0.05343628,
+    0.01600647,
+    -0.054351807,
+    0.022964478,
+    -0.0048599243,
+    0.0143585205,
+    -0.013870239,
+    -0.054595947,
+    -0.014213562,
+    0.084106445,
+    0.00982666,
+    -0.022369385,
+    0.006134033,
+    0.007358551,
+    0.0118637085,
+    -0.007587433,
+    -0.01096344,
+    0.04473877,
+    -0.07904053,
+    -0.041259766,
+    0.007511139,
+    0.0057029724,
+    0.020767212,
+    0.027511597,
+    -0.019470215,
+    0.053588867,
+    -0.0115737915,
+    -0.023223877,
+    0.017196655,
+    0.009719849,
+    -0.0006079674,
+    0.05606079,
+    -0.10614014,
+    0.04925537,
+    -0.019378662,
+    -0.00749588,
+    -0.021697998,
+    -0.010772705,
+    0.05114746,
+    0.010650635,
+    -0.028396606,
+    -0.038909912,
+    0.012252808,
+    -0.00289917,
+    -0.016647339,
+    0.041168213,
+    -0.015457153,
+    -0.06488037,
+    -0.022827148,
+    -0.026412964,
+    -0.008331299,
+    -0.017105103,
+    0.017562866,
+    0.004802704,
+    0.04196167,
+    -0.00995636,
+    -0.028869629,
+    -0.009544373,
+    -0.06567383,
+    0.009437561,
+    -0.034820557,
+    0.019210815,
+    -0.017730713,
+    -0.0004887581,
+    0.0041885376,
+    -0.0018835068,
+    -0.013977051,
+    -0.011253357,
+    -0.0028305054,
+    0.00919342,
+    -0.0042877197,
+    -0.005569458,
+    -0.0019044876,
+    0.008872986,
+    -0.035583496,
+    -0.0118255615,
+    0.015151978,
+    0.0023174286,
+    -0.014846802,
+    -0.0031204224,
+    -0.025222778,
+    -0.06536865,
+    0.021347046,
+    0.03793335,
+    -0.039642334,
+    0.009117126,
+    -0.0016393661,
+    -0.00982666,
+    -0.013374329,
+    -0.026611328,
+    0.01991272,
+    0.009361267,
+    -0.0014648438,
+    0.0002720356,
+    0.01159668,
+    0.02772522,
+    -0.030212402,
+    0.0069999695,
+    -0.02067566,
+    -0.03387451,
+    -0.027526855,
+    0.05895996,
+    -0.026351929,
+    -0.028335571,
+    -0.06939697,
+    0.0034885406,
+    -0.06762695,
+    -0.012878418,
+    -0.027770996,
+    -0.021362305,
+    0.0036029816,
+    0.016952515,
+    -0.0037555695,
+    0.061828613,
+    -0.019088745,
+    0.02003479,
+    -0.00039172173,
+    0.0335083,
+    0.023422241,
+    -0.008178711,
+    0.012481689,
+    0.013183594,
+    -0.00680542
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101227.md",
+    "file_name": "101227.md",
+    "file_size": 10212,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Cessna 172 Aircraft Accident in Fresno, California",
+      "The accident occurred in Fresno, California.",
+      "The accident occurred on May 2, 2020, at 09:30 Local time.",
+      "The aircraft involved was a Cessna 172.",
+      "The defining event was loss of engine power (partial).",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was WPR20LA136.",
+      "The aircraft registration was N734NW.",
+      "The aircraft sustained substantial damage.",
+      "The accident resulted in 1 minor injury.",
+      "Shortly after takeoff on runway 30, the airplane reached about 300 to 400 ft above ground level.",
+      "The engine lost partial power at 300 to 400 ft above ground level.",
+      "The pilot prepared for a downwind landing to runway 12.",
+      "The pilot realized the airplane had excess energy.",
+      "The pilot deployed the flaps.",
+      "The pilot performed a forward slip maneuver.",
+      "The airplane touched down about halfway down the runway.",
+      "The airplane continued off the end of the runway.",
+      "The airplane went through a fence.",
+      "The airplane passed over two westbound lanes of a road.",
+      "The airplane nosed over in the median.",
+      "Examination of the engine revealed low compression on two of the six cylinders.",
+      "Cylinder number 3 had approximately 25 to 75 percent compression loss.",
+      "Cylinder number 5 had approximately 25 to 75 percent compression loss.",
+      "The valve rocker arms were tapped with a rubber mallet.",
+      "Compression recovered to approximately 25 percent loss in cylinder number 3.",
+      "Compression recovered to approximately 15 percent loss in cylinder number 5.",
+      "An internal borescope examination of the engine cylinders was conducted.",
+      "The piston tops appeared normal.",
+      "The cylinder sidewalls appeared normal.",
+      "No evidence of foreign object ingestion was observed.",
+      "No other pre-impact mechanical anomalies were identified during the examination.",
+      "The reason for the low compression could not be determined.",
+      "The engine was disassembled 1.9 hours before the accident flight.",
+      "The National Transportation Safety Board determined the probable cause of this accident."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Cessna 172 Aircraft Accident in Fresno, California",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Fresno, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna 172",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N734NW",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of engine power",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR20LA136",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Probablecause"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "runway 30",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "runway 12",
+              "classification": "Airport"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Fresno, California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Fresno, California",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on May 2, 2020, at 0930 Local time.",
+              "details": [
+                "accident DATE May 2, 2020",
+                "accident TIME 09:30 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 2, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "09:30 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Cessna 172.",
+              "details": [
+                "accident INVOLVED Cessna 172"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of engine power (partial).",
+              "details": [
+                "accident DEFINING EVENT loss of engine power (partial)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power (partial)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR20LA136.",
+              "details": [
+                "accident NUMBER WPR20LA136"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR20LA136",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N734NW.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N734NW",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in 1 minor injury.",
+              "details": [
+                "accident RESULTED IN 1 minor injury"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1 minor injury",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Shortly after takeoff on runway 30, the airplane reached about 300 to 400 ft above ground level.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TAKEOFF LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 30",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REACHED ALTITUDE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "300 to 400 ft above ground level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine lost partial power at 300 to 400 ft above ground level.",
+              "details": [
+                "engine LOST POWER AT 300 to 400 ft above ground level",
+                "engine POWER LOSS TYPE partial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOST POWER AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "300 to 400 ft above ground level",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "POWER LOSS TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "partial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot prepared for a downwind landing to runway 12.",
+              "details": [
+                "pilot PREPARED FOR downwind landing to runway 12"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PREPARED FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "downwind landing to runway 12",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot realized the airplane had excess energy.",
+              "details": [
+                "pilot REALIZED excess energy"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "excess energy",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REALIZED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "excess energy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot deployed the flaps.",
+              "details": [
+                "pilot DEPLOYED flaps"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPLOYED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flaps",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot performed a forward slip maneuver.",
+              "details": [
+                "pilot PERFORMED forward slip maneuver"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forward slip maneuver",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane touched down about halfway down the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TOUCHED DOWN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "halfway down the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane continued off the end of the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CONTINUED OFF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "end of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane went through a fence.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "WENT THROUGH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane passed over two westbound lanes of a road.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PASSED OVER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two westbound lanes of a road",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane nosed over in the median.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 172",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "NOSED OVER IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "median",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the engine revealed low compression on two of the six cylinders.",
+              "details": [
+                "engine HAD low compression on two of the six cylinders"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low compression on two of the six cylinders",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cylinder number 3 had approximately 25 to 75 percent compression loss.",
+              "details": [
+                "Cylinder number 3 HAD approximately 25 to 75 percent compression loss"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cylinder number 3",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 25 to 75 percent compression loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cylinder number 5 had approximately 25 to 75 percent compression loss.",
+              "details": [
+                "Cylinder number 5 HAD approximately 25 to 75 percent compression loss"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cylinder number 5",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 25 to 75 percent compression loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The valve rocker arms were tapped with a rubber mallet.",
+              "details": [
+                "valve rocker arms TAPPED WITH rubber mallet"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "valve rocker arms",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TAPPED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rubber mallet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Compression recovered to approximately 25 percent loss in cylinder number 3.",
+              "details": [
+                "Cylinder number 3 COMPRESSION RECOVERED TO approximately 25 percent loss"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cylinder number 3",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COMPRESSION RECOVERED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 25 percent loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Compression recovered to approximately 15 percent loss in cylinder number 5.",
+              "details": [
+                "Cylinder number 5 COMPRESSION RECOVERED TO approximately 15 percent loss"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cylinder number 5",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COMPRESSION RECOVERED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 15 percent loss",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An internal borescope examination of the engine cylinders was conducted.",
+              "details": [
+                "engine cylinders EXAMINATION TYPE internal borescope examination"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine cylinders",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internal borescope examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The piston tops appeared normal.",
+              "details": [
+                "piston tops APPEARED normal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "piston tops",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "APPEARED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cylinder sidewalls appeared normal.",
+              "details": [
+                "cylinder sidewalls APPEARED normal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cylinder sidewalls",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "APPEARED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "normal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No evidence of foreign object ingestion was observed.",
+              "details": [
+                "foreign object ingestion EVIDENCE none observed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "foreign object ingestion",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EVIDENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none observed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No other pre-impact mechanical anomalies were identified during the examination.",
+              "details": [
+                "pre-impact mechanical anomalies IDENTIFIED none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pre-impact mechanical anomalies",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The reason for the low compression could not be determined.",
+              "details": [
+                "low compression REASON could not be determined"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low compression",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could not be determined",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine was disassembled 1.9 hours before the accident flight.",
+              "details": [
+                "engine DISASSEMBLED 1.9 hours before the accident flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DISASSEMBLED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1.9 hours before the accident flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of this accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Probablecause"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause of this accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::0e5b2cd9:3e8e",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101227.md",
+        "file_name": "101227.md",
+        "file_size": 10212,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "501f6de4434ff01f08ce7261b564afadc3765ec1d29b05d257cb0ed996af1562",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::0e5b2cd9:3e8e:f9bfff6e",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101227.md",
+        "file_name": "101227.md",
+        "file_size": 10212,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "f6a85c133e1ea95bb937fb6c96c373e1c316068b17697c49ac686ee893a4c980",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nFresno, California\n\n## Date & Time: \nMay 2, 2020, 09:30 Local\n\n## Aircraft:\nCessna 172\n\n## Defining Event:\nLoss of engine power (partial)\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nWPR20LA136\n\n## Registration:\nN734NW\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 Minor\n\n## Analysis\n\nShortly after takeoff on runway 30, as the airplane reached about 300 to 400 ft above ground level, the engine lost partial power. The pilot prepared for a downwind landing to runway 12 and when he realized the airplane had excess energy, he deployed the flaps and performed a forward slip maneuver. The airplane touched down about halfway down the runway and continued off the end and through a fence. The airplane then passed over the two westbound lanes of a road and nosed over in the median.\n\nExamination of the engine revealed low compression on two of the six cylinders (around 25 to 75 percent compression loss on cylinder numbers 3 and 5). The valve rocker arms were tapped with a rubber mallet and compression recovered to approximately 25 percent loss in the number 3 cylinder and 15 percent loss in the number 5 cylinder. An internal borescope examination of the engine cylinders revealed the piston tops and cylinder sidewalls appeared normal and no evidence of foreign object ingestion was observed. No other pre-impact mechanical anomalies were identified during the examination.\n\nAlthough the reason for the low compression could not be determined, it was noted that the engine was disassembled 1.9 hours before the accident flight.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1765,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

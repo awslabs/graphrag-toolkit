@@ -1,0 +1,2553 @@
+{
+  "id_": "aws::523de954:f17e:ee198ff2",
+  "embedding": [
+    0.013450623,
+    -0.010002136,
+    0.023086548,
+    -0.03289795,
+    -0.019042969,
+    0.0057678223,
+    -0.003686905,
+    -0.00207901,
+    -0.059020996,
+    0.014976501,
+    0.02217102,
+    0.04083252,
+    -0.024902344,
+    -0.046325684,
+    0.045959473,
+    -0.022979736,
+    0.010414124,
+    0.028076172,
+    0.027404785,
+    -0.00712204,
+    -0.010917664,
+    0.003479004,
+    -0.009346008,
+    -0.024673462,
+    -0.025985718,
+    0.10998535,
+    -0.027877808,
+    -0.021270752,
+    -0.024368286,
+    -0.00983429,
+    -0.0015134811,
+    -0.016845703,
+    0.045684814,
+    0.024307251,
+    -0.08190918,
+    -0.039611816,
+    -0.022537231,
+    0.0060577393,
+    -0.05731201,
+    0.026123047,
+    0.02859497,
+    -0.014205933,
+    0.060913086,
+    0.0027675629,
+    -0.006793976,
+    -0.036376953,
+    0.06347656,
+    -0.009216309,
+    0.05557251,
+    0.061767578,
+    0.0014953613,
+    0.022735596,
+    -0.015625,
+    0.046203613,
+    -0.017028809,
+    -0.012008667,
+    -0.019378662,
+    0.017456055,
+    0.012275696,
+    0.0418396,
+    0.008583069,
+    0.0211792,
+    -0.009498596,
+    -0.028823853,
+    -0.0038528442,
+    -0.01109314,
+    0.06237793,
+    0.013008118,
+    -0.008232117,
+    -0.003780365,
+    -0.0006098747,
+    -0.0012054443,
+    0.008995056,
+    -0.0036773682,
+    0.018463135,
+    -0.043060303,
+    -0.003921509,
+    -0.0066108704,
+    -0.0002553463,
+    0.04437256,
+    -0.0039100647,
+    0.013832092,
+    0.006832123,
+    -0.02798462,
+    -0.0065841675,
+    -0.021347046,
+    -0.01576233,
+    0.005279541,
+    0.0112838745,
+    0.01751709,
+    -5.1915646e-05,
+    0.04498291,
+    0.013252258,
+    0.044830322,
+    -0.021209717,
+    -0.00051403046,
+    0.010253906,
+    -0.047668457,
+    -0.0209198,
+    -0.03845215,
+    0.018844604,
+    -0.038513184,
+    -0.029403687,
+    0.03945923,
+    -0.0007171631,
+    -0.010902405,
+    -0.0077590942,
+    -0.048950195,
+    0.023742676,
+    0.02809143,
+    -0.038635254,
+    0.037719727,
+    -0.038391113,
+    -0.027267456,
+    -0.032562256,
+    0.07702637,
+    -0.006969452,
+    -0.015823364,
+    0.0020484924,
+    0.034240723,
+    -0.0022239685,
+    0.031829834,
+    -0.03591919,
+    -0.039520264,
+    0.01737976,
+    -0.024871826,
+    -0.020507812,
+    0.030227661,
+    0.036224365,
+    -0.015144348,
+    -0.016815186,
+    0.045013428,
+    -0.028289795,
+    -0.04437256,
+    -0.028137207,
+    0.0035037994,
+    0.011543274,
+    -0.041107178,
+    -0.015960693,
+    0.006362915,
+    -0.02722168,
+    0.015274048,
+    0.07977295,
+    -0.04119873,
+    0.032073975,
+    -0.021102905,
+    0.015419006,
+    0.04827881,
+    0.030761719,
+    0.031173706,
+    0.00094747543,
+    0.02432251,
+    0.031021118,
+    -0.008338928,
+    0.030670166,
+    -0.05697632,
+    0.04864502,
+    -0.052459717,
+    0.021911621,
+    -0.04699707,
+    -0.035125732,
+    -0.033355713,
+    -0.0038795471,
+    -0.03817749,
+    -0.03869629,
+    0.047088623,
+    -0.0027885437,
+    0.007827759,
+    0.019989014,
+    0.003982544,
+    0.033081055,
+    -0.020111084,
+    -0.027786255,
+    0.020431519,
+    0.013298035,
+    0.028579712,
+    0.010147095,
+    0.018997192,
+    0.036956787,
+    -0.01928711,
+    -0.018692017,
+    -0.03866577,
+    0.057861328,
+    -0.015777588,
+    -0.03768921,
+    0.057525635,
+    0.01675415,
+    0.05117798,
+    -0.019577026,
+    0.0051994324,
+    0.033569336,
+    0.038726807,
+    -0.022903442,
+    -0.097229004,
+    -0.010093689,
+    0.009559631,
+    0.015655518,
+    -0.014717102,
+    0.010879517,
+    0.081604004,
+    -0.018096924,
+    0.033294678,
+    -0.03845215,
+    0.010772705,
+    -0.018676758,
+    -0.015083313,
+    0.0020122528,
+    0.030715942,
+    -0.017944336,
+    -0.0045166016,
+    0.033569336,
+    -0.039001465,
+    -0.0146484375,
+    0.010269165,
+    -0.010917664,
+    -0.012466431,
+    -0.0149383545,
+    0.022949219,
+    0.033294678,
+    0.010345459,
+    0.011955261,
+    0.03378296,
+    0.011947632,
+    -0.02407837,
+    -0.004425049,
+    0.032287598,
+    -0.004070282,
+    0.03564453,
+    0.05996704,
+    0.042053223,
+    0.07745361,
+    -0.07885742,
+    0.0018568039,
+    -0.010566711,
+    -0.04748535,
+    0.04324341,
+    0.011245728,
+    0.037750244,
+    -0.039367676,
+    0.0023002625,
+    -0.002779007,
+    -0.026046753,
+    -0.031402588,
+    0.037353516,
+    -0.027374268,
+    -0.025482178,
+    -0.0041007996,
+    0.033294678,
+    -0.054870605,
+    -0.01687622,
+    0.078430176,
+    0.021240234,
+    0.006324768,
+    0.103515625,
+    -0.022079468,
+    -0.0045700073,
+    -0.06689453,
+    -0.048034668,
+    0.011245728,
+    -0.006965637,
+    0.021575928,
+    -0.06008911,
+    -0.011238098,
+    -0.025421143,
+    0.028945923,
+    -0.0066375732,
+    0.013198853,
+    0.0065841675,
+    -0.02998352,
+    0.005493164,
+    0.01600647,
+    -0.04522705,
+    0.008224487,
+    0.007965088,
+    -0.0053520203,
+    0.006275177,
+    -0.021133423,
+    -0.0051193237,
+    0.03289795,
+    -0.005256653,
+    0.0047912598,
+    0.06750488,
+    -0.015457153,
+    -0.027633667,
+    0.003545761,
+    -0.0002925396,
+    -0.03265381,
+    -0.028244019,
+    0.008125305,
+    0.02708435,
+    0.05038452,
+    0.022155762,
+    -0.02418518,
+    0.04269409,
+    -0.021514893,
+    -0.014289856,
+    0.012908936,
+    0.04788208,
+    0.000415802,
+    0.005908966,
+    -0.0345459,
+    0.019927979,
+    -0.0065574646,
+    -0.008392334,
+    -0.029174805,
+    0.048309326,
+    0.00033593178,
+    -0.018447876,
+    -0.012420654,
+    -0.0010919571,
+    -0.017059326,
+    0.0029850006,
+    0.03857422,
+    -0.017044067,
+    0.018554688,
+    -0.01020813,
+    -0.035369873,
+    0.00831604,
+    -0.04937744,
+    -0.021316528,
+    0.06347656,
+    0.0287323,
+    -0.022094727,
+    0.015563965,
+    0.019851685,
+    -0.043548584,
+    0.0019664764,
+    -0.0135650635,
+    0.014137268,
+    0.012023926,
+    -0.033416748,
+    0.027008057,
+    -0.03640747,
+    0.018417358,
+    -0.0064430237,
+    -0.0006122589,
+    0.0102005005,
+    -0.07739258,
+    -0.023727417,
+    0.050842285,
+    0.031677246,
+    -0.04083252,
+    0.006210327,
+    -0.051757812,
+    -0.076538086,
+    -0.018844604,
+    0.03866577,
+    -0.012611389,
+    -0.0090408325,
+    -0.015945435,
+    0.062561035,
+    -0.00737381,
+    -0.0067443848,
+    -0.025421143,
+    -0.0017728806,
+    0.006755829,
+    -0.006149292,
+    -0.02558899,
+    0.011245728,
+    -0.053527832,
+    0.05505371,
+    -0.027313232,
+    -0.014808655,
+    -0.029678345,
+    -0.029556274,
+    0.016952515,
+    0.006263733,
+    -0.023406982,
+    -0.010971069,
+    0.020355225,
+    -0.035858154,
+    0.029556274,
+    -0.006175995,
+    -0.015213013,
+    -0.024551392,
+    0.008430481,
+    0.017074585,
+    -0.045196533,
+    -0.03479004,
+    -0.013870239,
+    -0.019454956,
+    0.004711151,
+    -0.030822754,
+    0.019165039,
+    0.017700195,
+    0.0023460388,
+    -0.008926392,
+    -0.033935547,
+    0.0413208,
+    0.010025024,
+    0.0135650635,
+    -0.024002075,
+    0.012336731,
+    -0.030426025,
+    -0.017593384,
+    0.009902954,
+    0.008514404,
+    0.0034046173,
+    0.015731812,
+    -0.013938904,
+    -0.07293701,
+    0.005001068,
+    0.002609253,
+    -0.05279541,
+    0.016189575,
+    -0.04537964,
+    -0.01235199,
+    -0.041534424,
+    0.038513184,
+    0.008125305,
+    -0.04257202,
+    0.048797607,
+    -0.03074646,
+    0.0062942505,
+    -0.0231781,
+    -0.009475708,
+    -0.049591064,
+    0.00472641,
+    -0.016342163,
+    0.017120361,
+    0.013290405,
+    -0.003522873,
+    -0.008514404,
+    0.025802612,
+    -0.021987915,
+    -0.001408577,
+    -0.028503418,
+    -0.0036468506,
+    0.00054883957,
+    0.044311523,
+    -0.028198242,
+    0.016967773,
+    -0.018966675,
+    -0.016647339,
+    -0.037841797,
+    0.03173828,
+    0.011772156,
+    0.013923645,
+    0.025314331,
+    -0.018585205,
+    0.0059127808,
+    0.026306152,
+    0.045043945,
+    0.052581787,
+    -0.008155823,
+    0.014945984,
+    0.009689331,
+    -0.0070991516,
+    -0.025619507,
+    -0.024246216,
+    -0.015808105,
+    -0.0048942566,
+    -0.0066184998,
+    0.022460938,
+    -0.0042648315,
+    0.07421875,
+    0.011100769,
+    0.01448822,
+    0.01436615,
+    -0.009216309,
+    -0.02331543,
+    -0.010070801,
+    0.0056037903,
+    -0.02508545,
+    0.023117065,
+    -0.014450073,
+    0.011009216,
+    0.0033683777,
+    0.00818634,
+    0.017807007,
+    0.027252197,
+    -0.0019626617,
+    -0.04989624,
+    -0.02330017,
+    0.02217102,
+    0.01134491,
+    -0.018692017,
+    -0.041412354,
+    0.064331055,
+    0.03878784,
+    -0.0026054382,
+    0.0050239563,
+    0.029922485,
+    0.012649536,
+    0.01600647,
+    0.024917603,
+    -0.036895752,
+    0.0101623535,
+    -0.004272461,
+    -0.044311523,
+    -0.027008057,
+    -0.028686523,
+    0.012763977,
+    -0.021240234,
+    -0.017608643,
+    -0.020767212,
+    -0.005001068,
+    -0.017562866,
+    0.025283813,
+    -0.009857178,
+    -0.028167725,
+    0.0044517517,
+    0.008651733,
+    -0.04208374,
+    -0.0345459,
+    0.007648468,
+    -0.0005187988,
+    0.03970337,
+    0.035736084,
+    -0.068603516,
+    0.02583313,
+    0.007980347,
+    0.0047302246,
+    0.055664062,
+    -0.036071777,
+    0.03564453,
+    -0.019805908,
+    -0.0037021637,
+    -0.016601562,
+    -0.0011854172,
+    -0.059906006,
+    -0.030181885,
+    0.01675415,
+    0.046447754,
+    -0.013412476,
+    0.0019836426,
+    -0.03060913,
+    0.062683105,
+    -0.057769775,
+    -0.01864624,
+    0.02406311,
+    0.032836914,
+    -0.010177612,
+    -0.032714844,
+    0.054016113,
+    0.01361084,
+    0.0012712479,
+    0.01399231,
+    -0.027389526,
+    -0.052368164,
+    0.0029029846,
+    0.023468018,
+    -0.013710022,
+    -0.05114746,
+    0.00032615662,
+    -0.031158447,
+    -0.014419556,
+    0.02861023,
+    -0.053100586,
+    -0.0010938644,
+    0.008110046,
+    0.014785767,
+    0.06124878,
+    -0.03250122,
+    -0.04675293,
+    0.008110046,
+    0.017227173,
+    -0.033111572,
+    0.0107421875,
+    0.070129395,
+    -0.022232056,
+    0.020828247,
+    -0.024734497,
+    0.0107421875,
+    -0.031799316,
+    0.03878784,
+    -0.02558899,
+    -0.023406982,
+    -0.038757324,
+    0.0024719238,
+    0.015602112,
+    0.0013694763,
+    0.08081055,
+    -0.013893127,
+    -0.013038635,
+    -0.06744385,
+    -0.0070381165,
+    0.013931274,
+    0.000667572,
+    0.015457153,
+    0.015792847,
+    0.013259888,
+    -0.011680603,
+    0.0013103485,
+    -0.054107666,
+    0.05142212,
+    0.0052871704,
+    -0.043792725,
+    -0.04928589,
+    0.011398315,
+    0.046447754,
+    0.031234741,
+    0.023361206,
+    0.029708862,
+    -0.002981186,
+    -0.03765869,
+    -0.00015449524,
+    -0.052337646,
+    0.03616333,
+    -0.008705139,
+    -0.0075683594,
+    -0.0005879402,
+    0.009979248,
+    -0.007801056,
+    0.036621094,
+    0.029510498,
+    0.0018472672,
+    0.015808105,
+    0.018966675,
+    0.038970947,
+    0.0054969788,
+    0.011207581,
+    -0.050842285,
+    0.018859863,
+    -0.017471313,
+    0.00013077259,
+    -0.042755127,
+    0.058258057,
+    0.095825195,
+    0.0061149597,
+    0.026046753,
+    0.019683838,
+    -0.0016384125,
+    -0.023956299,
+    0.032714844,
+    -0.03366089,
+    -0.03302002,
+    0.02305603,
+    0.015167236,
+    -0.011016846,
+    0.041809082,
+    -0.018188477,
+    -0.056427002,
+    -0.03048706,
+    -0.065979004,
+    0.016647339,
+    -0.024520874,
+    -0.069885254,
+    0.020492554,
+    0.03387451,
+    0.035003662,
+    -0.040222168,
+    -0.036224365,
+    0.017349243,
+    -0.05795288,
+    0.00068616867,
+    0.02470398,
+    0.0022258759,
+    -0.015823364,
+    0.011894226,
+    0.00724411,
+    0.009735107,
+    0.027404785,
+    -0.073913574,
+    -0.009880066,
+    -0.039733887,
+    0.008880615,
+    -0.008255005,
+    0.021697998,
+    -0.04916382,
+    -0.08013916,
+    -0.01184845,
+    -0.007331848,
+    -0.0423584,
+    -0.06774902,
+    -0.008781433,
+    0.019454956,
+    -0.005065918,
+    -0.015098572,
+    -0.010856628,
+    -0.03488159,
+    0.0014247894,
+    0.011260986,
+    -0.06188965,
+    0.0050964355,
+    0.019241333,
+    -0.044433594,
+    0.025466919,
+    0.02633667,
+    -0.04031372,
+    0.017120361,
+    0.01197052,
+    0.025024414,
+    -0.0390625,
+    -0.014587402,
+    0.026824951,
+    -0.02507019,
+    0.011054993,
+    0.0044403076,
+    0.039611816,
+    -0.04171753,
+    -0.00705719,
+    0.03036499,
+    -0.012870789,
+    -0.022003174,
+    0.016159058,
+    -0.011108398,
+    -0.041168213,
+    0.008178711,
+    -0.013809204,
+    -0.019973755,
+    -0.018539429,
+    0.045684814,
+    0.0021705627,
+    -0.004837036,
+    0.051208496,
+    0.0002632141,
+    0.07116699,
+    -0.026535034,
+    -0.0317688,
+    0.04550171,
+    0.079956055,
+    0.023635864,
+    -0.024291992,
+    0.03869629,
+    0.009536743,
+    0.08514404,
+    0.0046920776,
+    -0.027282715,
+    -0.0037250519,
+    -0.026885986,
+    -0.02255249,
+    -0.011833191,
+    0.00014066696,
+    0.03274536,
+    -0.032928467,
+    -0.06384277,
+    -0.0033874512,
+    -0.025131226,
+    -0.039123535,
+    0.04006958,
+    -0.057495117,
+    0.059448242,
+    -0.012031555,
+    -0.057769775,
+    -0.026641846,
+    0.034973145,
+    -0.009841919,
+    0.013557434,
+    -0.017044067,
+    -0.028717041,
+    -0.00091695786,
+    0.028717041,
+    -0.012886047,
+    -0.04876709,
+    -0.023391724,
+    -0.0046424866,
+    -0.0993042,
+    -0.022399902,
+    -0.031463623,
+    0.045288086,
+    -0.042541504,
+    -0.06124878,
+    0.034057617,
+    0.030517578,
+    0.05105591,
+    -0.010734558,
+    -0.019683838,
+    -0.046722412,
+    0.0158844,
+    -0.030059814,
+    0.007980347,
+    0.00048351288,
+    0.008872986,
+    -0.021270752,
+    0.011924744,
+    0.014007568,
+    0.030822754,
+    -0.027893066,
+    0.012924194,
+    0.0029659271,
+    0.02281189,
+    -1.001358e-05,
+    -0.010223389,
+    -0.0022144318,
+    -0.0011072159,
+    -0.01399231,
+    -0.029663086,
+    0.022781372,
+    0.02420044,
+    0.0043258667,
+    0.017501831,
+    -0.0043640137,
+    -0.024932861,
+    -0.011894226,
+    -0.004722595,
+    0.0012712479,
+    0.026565552,
+    0.014266968,
+    0.04055786,
+    -0.035217285,
+    0.011146545,
+    -0.011680603,
+    -0.017105103,
+    0.02470398,
+    -0.0287323,
+    -0.068115234,
+    -0.02041626,
+    -0.052459717,
+    -0.051940918,
+    -0.04852295,
+    -0.020462036,
+    -0.025894165,
+    0.016433716,
+    -0.017318726,
+    0.0077819824,
+    0.027008057,
+    0.00075626373,
+    0.01876831,
+    -0.056274414,
+    0.011917114,
+    0.0024642944,
+    0.051116943,
+    -0.007080078,
+    -0.05822754,
+    0.008872986,
+    -0.02218628,
+    -0.03363037,
+    0.01234436,
+    0.049926758,
+    0.0037708282,
+    0.025878906,
+    0.010314941,
+    0.027770996,
+    -0.008422852,
+    0.028244019,
+    -0.012245178,
+    -0.06359863,
+    0.0287323,
+    0.012016296,
+    -0.0060310364,
+    0.029510498,
+    -0.02229309,
+    -0.03427124,
+    -0.00415802,
+    0.051361084,
+    0.030166626,
+    -0.010360718,
+    0.0069084167,
+    0.039123535,
+    -0.012916565,
+    -0.03753662,
+    0.043426514,
+    0.008155823,
+    -0.07067871,
+    0.02368164,
+    0.040039062,
+    0.0009241104,
+    0.038726807,
+    0.052124023,
+    0.0014829636,
+    -0.015449524,
+    0.04321289,
+    -0.05215454,
+    0.014129639,
+    -0.0022182465,
+    0.038757324,
+    -0.022415161,
+    -0.004878998,
+    0.025497437,
+    -0.005077362,
+    0.029220581,
+    0.025817871,
+    0.012130737,
+    -0.0063056946,
+    0.031829834,
+    -0.06549072,
+    0.047027588,
+    -0.028656006,
+    0.064453125,
+    0.020828247,
+    0.039123535,
+    -0.06756592,
+    0.006504059,
+    -0.008300781,
+    -0.06604004,
+    0.030822754,
+    0.06048584,
+    -0.037902832,
+    0.023101807,
+    -0.070739746,
+    -0.06707764,
+    -0.01777649,
+    -0.007911682,
+    -0.008811951,
+    -0.05783081,
+    -0.010925293,
+    -0.025894165,
+    0.022262573,
+    0.0051193237,
+    0.0015773773,
+    0.018005371,
+    -0.0016851425,
+    0.040771484,
+    0.020843506,
+    0.03768921,
+    -0.011756897,
+    0.012199402,
+    -0.054870605,
+    0.070373535,
+    -0.03982544,
+    -0.059387207,
+    -0.020233154,
+    -0.024780273,
+    -0.00047159195,
+    0.025161743,
+    0.03793335,
+    -0.03704834,
+    0.022857666,
+    -0.028564453,
+    -0.04550171,
+    -0.008255005,
+    -0.017227173,
+    0.014701843,
+    0.005874634,
+    -0.00031018257,
+    -0.044189453,
+    -0.025817871,
+    0.012763977,
+    -0.047973633,
+    -0.05368042,
+    -0.019104004,
+    -0.012458801,
+    0.044891357,
+    0.077697754,
+    -0.007255554,
+    0.06274414,
+    -0.03475952,
+    0.004852295,
+    -0.008628845,
+    0.0061836243,
+    0.005142212,
+    0.05331421,
+    0.03604126,
+    0.036132812,
+    0.003900528,
+    -0.036834717,
+    -0.02168274,
+    -0.011497498,
+    0.05871582,
+    0.004310608,
+    -0.029876709,
+    -0.034698486,
+    0.029144287,
+    0.01499176,
+    0.02619934,
+    0.011238098,
+    0.008056641,
+    -0.030960083,
+    0.028579712,
+    0.0031433105,
+    0.013168335,
+    0.0084991455,
+    0.034729004,
+    -0.00091791153,
+    0.049224854,
+    -0.027893066,
+    0.018722534,
+    -0.043395996,
+    -0.03060913,
+    -0.0040740967,
+    -0.0036582947,
+    0.016403198,
+    0.037872314,
+    0.05316162,
+    0.022445679,
+    0.0041160583,
+    -0.06072998,
+    -0.008255005,
+    0.02670288,
+    -0.0019311905,
+    -0.004814148,
+    -0.0033779144,
+    -0.028549194,
+    -0.007007599,
+    -0.035308838,
+    -0.0024738312,
+    0.024215698,
+    -0.0062828064,
+    0.0013618469,
+    0.0034999847,
+    -0.022338867,
+    -0.046203613,
+    0.013328552,
+    -0.01335144,
+    -0.0051612854,
+    -0.029220581,
+    -0.03024292,
+    -0.0066604614,
+    0.02041626,
+    -0.05557251,
+    -0.0105896,
+    0.03173828,
+    -0.027862549,
+    0.019729614,
+    0.021438599,
+    0.03488159,
+    -0.00062036514,
+    0.0010576248,
+    -0.051361084,
+    -0.028808594,
+    -0.018096924,
+    0.037231445,
+    -0.020324707,
+    -0.0077323914,
+    -0.03326416,
+    0.007083893,
+    -0.007434845,
+    -0.008140564,
+    -0.041290283,
+    -0.048950195,
+    0.039733887,
+    0.0569458,
+    -0.02671814,
+    0.08404541,
+    -0.015930176,
+    0.009353638,
+    0.038330078,
+    0.018295288,
+    -0.010177612,
+    0.024291992,
+    0.026489258,
+    0.008110046,
+    0.005126953
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85842.md",
+    "file_name": "85842.md",
+    "file_size": 7011,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Hughes 369 Helicopter in Pasadena, California",
+      "Pasadena is a city in California.",
+      "The accident occurred on December 7, 2012, at 09:30 Local time.",
+      "The aircraft involved was a Hughes 369 helicopter.",
+      "The defining event was classified as a cabin safety event.",
+      "The flight was conducted under Part 91: General aviation - Other work use.",
+      "The accident number was WPR13CA071.",
+      "The helicopter registration was N818CE.",
+      "The helicopter sustained substantial damage.",
+      "There was 1 person with no injuries.",
+      "The doors were removed from the helicopter before the flight.",
+      "The doors were removed to make it easier for passengers to board and exit the helicopter.",
+      "The pilot conducted a safety briefing.",
+      "During the safety briefing, the pilot took a headset from a pouch in the rear of the helicopter.",
+      "The pilot demonstrated how to wear the headsets during the safety briefing.",
+      "The pilot replaced the headset in the pouch after the demonstration.",
+      "The pilot did not tell passengers that headsets needed to be replaced in the pouch after landing.",
+      "The pilot did not inform passengers about dangers of loose headsets in a doors-off configuration.",
+      "The helicopter transported two passengers to a work site location.",
+      "After landing at the work site, the right rear passenger exited the helicopter.",
+      "The right rear passenger placed the headset on a hook located behind the front seats.",
+      "The helicopter departed from the work site.",
+      "Approximately 3 to 5 minutes after departing the work site, the pilot felt something strike the helicopter.",
+      "The helicopter was at an elevation of about 1,000 feet above ground level when the pilot felt something strike it.",
+      "The pilot landed the helicopter after feeling something strike it.",
+      "Upon inspection, the pilot discovered the right rear headset was missing.",
+      "The pilot discovered damage to the leading edge of the tail rotor.",
+      "The operator reported the tail rotor drive shaft was slightly egg shaped at its aft end.",
+      "The National Transportation Safety Board determined the probable cause of the accident to be an unsecured headset striking the leading edge of a tail rotor blade.",
+      "The National Transportation Safety Board determined the pilot's inadequate safety briefing was a contributing factor to the accident."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Hughes 369 Helicopter in Pasadena, California",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pasadena",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Hughes 369",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N818CE",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cabin safety event",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR13CA071",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Other work use",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "work site",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pasadena is a city in California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pasadena",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "city",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on December 7, 2012, at 0930 Local time.",
+              "details": [
+                "Aviation Accident DATE December 7, 2012",
+                "Aviation Accident TIME 09:30 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 7, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "09:30 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Hughes 369 helicopter.",
+              "details": [
+                "Aviation Accident INVOLVED Hughes 369"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was classified as a cabin safety event.",
+              "details": [
+                "Aviation Accident CLASSIFIED AS cabin safety event"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CLASSIFIED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cabin safety event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Other work use.",
+              "details": [
+                "Aviation Accident CONDUCTED UNDER Part 91: General aviation - Other work use"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Other work use",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR13CA071.",
+              "details": [
+                "Aviation Accident NUMBER WPR13CA071"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR13CA071",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter registration was N818CE.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N818CE",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was 1 person with no injuries.",
+              "details": [
+                "Aviation Accident INJURIES no injuries",
+                "Aviation Accident PERSONS INVOLVED 1"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PERSONS INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The doors were removed from the helicopter before the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CONFIGURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "doors removed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The doors were removed to make it easier for passengers to board and exit the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DOORS REMOVED REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "easier for passengers to board and exit",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot conducted a safety briefing.",
+              "details": [
+                "Pilot CONDUCTED safety briefing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "safety briefing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the safety briefing, the pilot took a headset from a pouch in the rear of the helicopter.",
+              "details": [
+                "Pilot TOOK headset",
+                "headset STORED IN pouch",
+                "pouch LOCATED IN Hughes 369",
+                "pouch LOCATION rear of the helicopter"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TOOK"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headset",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headset",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STORED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pouch",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pouch",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pouch",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rear of the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot demonstrated how to wear the headsets during the safety briefing.",
+              "details": [
+                "Pilot DEMONSTRATED headsets",
+                "demonstration CONTENT how to wear the headsets",
+                "demonstration DURING safety briefing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEMONSTRATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headsets",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "demonstration",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "how to wear the headsets",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "demonstration",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "safety briefing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot replaced the headset in the pouch after the demonstration.",
+              "details": [
+                "Pilot REPLACED headset",
+                "headset STORED IN pouch"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPLACED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headset",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headset",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STORED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pouch",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not tell passengers that headsets needed to be replaced in the pouch after landing.",
+              "details": [
+                "safety briefing OMITTED INFORMATION headsets needed to be replaced in the pouch after landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "safety briefing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OMITTED INFORMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headsets needed to be replaced in the pouch after landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not inform passengers about dangers of loose headsets in a doors-off configuration.",
+              "details": [
+                "safety briefing OMITTED INFORMATION dangers of loose headsets in a doors-off configuration"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "safety briefing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OMITTED INFORMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dangers of loose headsets in a doors-off configuration",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter transported two passengers to a work site location.",
+              "details": [
+                "passengers COUNT two"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TRANSPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passengers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passengers",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "work site",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After landing at the work site, the right rear passenger exited the helicopter.",
+              "details": [
+                "right rear passenger EXITED Hughes 369",
+                "exit LOCATION work site"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right rear passenger",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXITED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exit",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "work site",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right rear passenger placed the headset on a hook located behind the front seats.",
+              "details": [
+                "right rear passenger PLACED headset",
+                "headset PLACED ON hook",
+                "hook LOCATION behind the front seats"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right rear passenger",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PLACED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headset",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "headset",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PLACED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hook",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hook",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "behind the front seats",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter departed from the work site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "work site",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Approximately 3 to 5 minutes after departing the work site, the pilot felt something strike the helicopter.",
+              "details": [
+                "strike TIME 3 to 5 minutes after departing",
+                "Pilot FELT something strike the helicopter"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strike",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3 to 5 minutes after departing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FELT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "something strike the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was at an elevation of about 1,000 feet above ground level when the pilot felt something strike it.",
+              "details": [
+                "strike OCCURRED AT about 1,000 feet above ground level"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELEVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 1,000 feet above ground level",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strike",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 1,000 feet above ground level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot landed the helicopter after feeling something strike it.",
+              "details": [
+                "Pilot LANDED Hughes 369",
+                "landing REASON after feeling something strike it"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LANDED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hughes 369",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after feeling something strike it",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Upon inspection, the pilot discovered the right rear headset was missing.",
+              "details": [
+                "Pilot DISCOVERED right rear headset missing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DISCOVERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right rear headset missing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot discovered damage to the leading edge of the tail rotor.",
+              "details": [
+                "Pilot DISCOVERED damage",
+                "damage LOCATED ON tail rotor",
+                "damage LOCATION leading edge of the tail rotor"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DISCOVERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail rotor",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "leading edge of the tail rotor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The operator reported the tail rotor drive shaft was slightly egg shaped at its aft end.",
+              "details": [
+                "operator REPORTED tail rotor drive shaft damage",
+                "tail rotor drive shaft DAMAGE slightly egg shaped at its aft end"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail rotor drive shaft damage",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail rotor drive shaft",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "slightly egg shaped at its aft end",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident to be an unsecured headset striking the leading edge of a tail rotor blade.",
+              "details": [
+                "Aviation Accident PROBABLE CAUSE unsecured headset striking the leading edge of a tail rotor blade"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unsecured headset striking the leading edge of a tail rotor blade",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the pilot's inadequate safety briefing was a contributing factor to the accident.",
+              "details": [
+                "Aviation Accident CONTRIBUTING FACTOR pilot's inadequate safety briefing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "contributing factor",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aviation Accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTRIBUTING FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's inadequate safety briefing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::523de954:f17e",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85842.md",
+        "file_name": "85842.md",
+        "file_size": 7011,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "7cff621ed88d37368bbd7e736d6746faa7e8df9b8ab0b77dfc84e77d2d3b589d",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::523de954:f17e:1c641822",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85842.md",
+        "file_name": "85842.md",
+        "file_size": 7011,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "d48cf7e4b97ccfc919a014ba219c9d9e3973bb24abfca81694d8c79da2b7ff09",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nPasadena, California\n\n## Date & Time: \nDecember 7, 2012, 09:30 Local\n\n## Aircraft:\nHughes 369\n\n## Defining Event:\nCabin safety event\n\n## Flight Conducted Under:\nPart 91: General aviation - Other work use\n\n## Accident Number:\nWPR13CA071\n\n## Registration:\nN818CE\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nPrior to the flight, the doors were removed in order to make it easier for the passengers to board and exit the helicopter. During the safety briefing, the pilot took a headset from a pouch in the rear of the helicopter, demonstrated how to wear the headsets, and then replaced it. The pilot did not tell the passengers that the headsets needed to be replaced in the pouch after landing and before exiting the helicopter. Additionally, the pilot did not make the passengers aware of the danger associated with loose headsets in the back of the helicopter in a doors-off configuration.\n\nAfter the two passengers were transported to a work site location, the right rear passenger exited the helicopter and placed the headset on the hook located behind the front seats. After departing the site, about 3 to 5 minutes later while en route at an elevation of about 1,000 feet above ground level, the pilot felt something strike the helicopter. After landing and upon inspecting the helicopter, the pilot discovered that the right rear headset was missing and that the leading edge of the tail rotor had been damaged. Upon further inspection of the helicopter, the operator reported that the tail rotor drive shaft was found to be slightly egg shaped at its aft end.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be: An unsecured headset, which struck the leading edge of a tail rotor blade. Contributing to the accident was the pilot's inadequate safety briefing.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1925,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

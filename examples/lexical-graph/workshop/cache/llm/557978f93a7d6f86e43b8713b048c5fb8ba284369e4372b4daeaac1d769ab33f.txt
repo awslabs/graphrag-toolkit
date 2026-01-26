@@ -1,0 +1,188 @@
+topic: Neptune Database Infrastructure
+
+  entities:
+  
+    gr-1756394635-db-1|DBInstance
+    gr-1756394635-cluster|DBClusterIdentifier
+    db.r7i.2xlarge|DBInstanceClass
+    gr-1756394635-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com|Endpoint
+    8182|Endpoint
+    ZUFXD4SLT2LS7|Endpoint
+    sg-0d3ff7717958bd983|SecurityGroup
+    sg-08526dcf557ad13aa|SecurityGroup
+    neptunedbsubnetgroup-qwsd5lphpl2v|DBSubnetGroup
+    vpc-0f81e2d959d7be034|VPC
+    subnet-0693ae4ae6bc5b4c0|Subnet
+    subnet-03d920648eca5694f|Subnet
+    subnet-0e8da61218fcf7a55|Subnet
+    us-east-1c|SubnetAvailabilityZone
+    us-east-1b|SubnetAvailabilityZone
+    us-east-1a|SubnetAvailabilityZone
+  
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has DBClusterIdentifier 'gr-1756394635-cluster'
+    
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_DBCLUSTERIDENTIFIER|gr-1756394635-cluster
+    
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+      
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has DBInstanceClass 'db.r7i.2xlarge'
+  
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_DBINSTANCECLASS|db.r7i.2xlarge
+  
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has Endpoint with Address 'gr-1756394635-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com'
+  
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_ENDPOINT_WITH_ADDRESS|gr-1756394635-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com
+  
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has Endpoint with Port 8182
+  
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_ENDPOINT_WITH_PORT|8182
+  
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has Endpoint with HostedZoneId 'ZUFXD4SLT2LS7'
+  
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_ENDPOINT_WITH_HOSTEDZONEID|ZUFXD4SLT2LS7
+  
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has VpcSecurityGroups with VpcSecurityGroupId 'sg-0d3ff7717958bd983'
+  
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_VPCSECURITYGROUPS_WITH_VPCSECURITYGROUPID|sg-0d3ff7717958bd983
+  
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has VpcSecurityGroups with Status 'active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+    gr-1756394635-db-1|HAS_VPCSECURITYGROUPS_WITH_STATUS|active
+
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has VpcSecurityGroups with VpcSecurityGroupId 'sg-08526dcf557ad13aa'
+  
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_VPCSECURITYGROUPS_WITH_VPCSECURITYGROUPID|sg-08526dcf557ad13aa
+  
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+
+  proposition: The DBInstance with DBInstanceIdentifier 'gr-1756394635-db-1' has DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-qwsd5lphpl2v'
+  
+    entity-entity relationships:
+    gr-1756394635-db-1|HAS_DBSUBNETGROUP_WITH_DBSUBNETGROUPNAME|neptunedbsubnetgroup-qwsd5lphpl2v
+  
+    entity-attributes:
+    gr-1756394635-db-1|HAS_DBINSTANCEIDENTIFIER|gr-1756394635-db-1
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-qwsd5lphpl2v' has DBSubnetGroupDescription 'Neptune DB subnet group'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_DBSUBNETGROUPNAME|neptunedbsubnetgroup-qwsd5lphpl2v
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_DBSUBNETGROUPDESCRIPTION|Neptune DB subnet group
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-qwsd5lphpl2v' has VpcId 'vpc-0f81e2d959d7be034'
+  
+    entity-entity relationships:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_VPCID|vpc-0f81e2d959d7be034
+  
+    entity-attributes:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_DBSUBNETGROUPNAME|neptunedbsubnetgroup-qwsd5lphpl2v
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-qwsd5lphpl2v' has SubnetGroupStatus 'Complete'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_DBSUBNETGROUPNAME|neptunedbsubnetgroup-qwsd5lphpl2v
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_SUBNETGROUPSTATUS|Complete
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-qwsd5lphpl2v' has Subnet with SubnetIdentifier 'subnet-0693ae4ae6bc5b4c0'
+  
+    entity-entity relationships:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_SUBNET_WITH_SUBNETIDENTIFIER|subnet-0693ae4ae6bc5b4c0
+  
+    entity-attributes:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_DBSUBNETGROUPNAME|neptunedbsubnetgroup-qwsd5lphpl2v
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0693ae4ae6bc5b4c0' has SubnetAvailabilityZone with Name 'us-east-1c'
+  
+    entity-entity relationships:
+    subnet-0693ae4ae6bc5b4c0|HAS_SUBNETAVAILABILITYZONE_WITH_NAME|us-east-1c
+  
+    entity-attributes:
+    subnet-0693ae4ae6bc5b4c0|HAS_SUBNETIDENTIFIER|subnet-0693ae4ae6bc5b4c0
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0693ae4ae6bc5b4c0' has SubnetStatus 'Active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    subnet-0693ae4ae6bc5b4c0|HAS_SUBNETIDENTIFIER|subnet-0693ae4ae6bc5b4c0
+    subnet-0693ae4ae6bc5b4c0|HAS_SUBNETSTATUS|Active
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-qwsd5lphpl2v' has Subnet with SubnetIdentifier 'subnet-03d920648eca5694f'
+  
+    entity-entity relationships:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_SUBNET_WITH_SUBNETIDENTIFIER|subnet-03d920648eca5694f
+  
+    entity-attributes:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_DBSUBNETGROUPNAME|neptunedbsubnetgroup-qwsd5lphpl2v
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-03d920648eca5694f' has SubnetAvailabilityZone with Name 'us-east-1b'
+  
+    entity-entity relationships:
+    subnet-03d920648eca5694f|HAS_SUBNETAVAILABILITYZONE_WITH_NAME|us-east-1b
+  
+    entity-attributes:
+    subnet-03d920648eca5694f|HAS_SUBNETIDENTIFIER|subnet-03d920648eca5694f
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-03d920648eca5694f' has SubnetStatus 'Active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    subnet-03d920648eca5694f|HAS_SUBNETIDENTIFIER|subnet-03d920648eca5694f
+    subnet-03d920648eca5694f|HAS_SUBNETSTATUS|Active
+
+  proposition: The DBSubnetGroup with DBSubnetGroupName 'neptunedbsubnetgroup-qwsd5lphpl2v' has Subnet with SubnetIdentifier 'subnet-0e8da61218fcf7a55'
+  
+    entity-entity relationships:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_SUBNET_WITH_SUBNETIDENTIFIER|subnet-0e8da61218fcf7a55
+  
+    entity-attributes:
+    neptunedbsubnetgroup-qwsd5lphpl2v|HAS_DBSUBNETGROUPNAME|neptunedbsubnetgroup-qwsd5lphpl2v
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0e8da61218fcf7a55' has SubnetAvailabilityZone with Name 'us-east-1a'
+  
+    entity-entity relationships:
+    subnet-0e8da61218fcf7a55|HAS_SUBNETAVAILABILITYZONE_WITH_NAME|us-east-1a
+  
+    entity-attributes:
+    subnet-0e8da61218fcf7a55|HAS_SUBNETIDENTIFIER|subnet-0e8da61218fcf7a55
+
+  proposition: The Subnet with SubnetIdentifier 'subnet-0e8da61218fcf7a55' has SubnetStatus 'Active'
+  
+    entity-entity relationships:
+    
+    entity-attributes:
+    subnet-0e8da61218fcf7a55|HAS_SUBNETIDENTIFIER|subnet-0e8da61218fcf7a55
+    subnet-0e8da61218fcf7a55|HAS_SUBNETSTATUS|Active

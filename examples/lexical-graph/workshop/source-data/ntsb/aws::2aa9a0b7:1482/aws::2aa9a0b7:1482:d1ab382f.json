@@ -1,0 +1,2543 @@
+{
+  "id_": "aws::2aa9a0b7:1482:d1ab382f",
+  "embedding": [
+    0.04324341,
+    -0.0076293945,
+    0.0107803345,
+    -0.04071045,
+    -0.00907135,
+    -0.003704071,
+    -0.025222778,
+    -0.019485474,
+    -0.044036865,
+    0.0061569214,
+    -0.027374268,
+    0.039489746,
+    -0.04498291,
+    -0.01576233,
+    0.033111572,
+    -0.041870117,
+    0.008605957,
+    0.0079574585,
+    -0.005077362,
+    -0.031951904,
+    -0.010505676,
+    -0.022369385,
+    -0.017608643,
+    0.016189575,
+    0.012168884,
+    0.077941895,
+    -0.041625977,
+    0.01763916,
+    -0.009986877,
+    -0.0028877258,
+    0.0020122528,
+    -0.023925781,
+    0.002029419,
+    0.049194336,
+    -0.06866455,
+    -0.0960083,
+    -0.045196533,
+    0.029006958,
+    -0.046661377,
+    0.045013428,
+    0.01499176,
+    -0.013061523,
+    0.022781372,
+    -0.009178162,
+    -0.016174316,
+    0.0005598068,
+    0.021606445,
+    -0.01133728,
+    0.03375244,
+    0.03656006,
+    0.037872314,
+    -0.012435913,
+    0.01687622,
+    0.07678223,
+    -0.012962341,
+    0.0032215118,
+    -0.021835327,
+    0.026901245,
+    0.02519226,
+    0.01966858,
+    -0.015556335,
+    0.0033550262,
+    0.017364502,
+    -0.018661499,
+    -0.03387451,
+    0.002866745,
+    0.0116119385,
+    -0.004310608,
+    0.046081543,
+    -0.0019893646,
+    -0.0019569397,
+    0.00055122375,
+    -0.03503418,
+    0.012245178,
+    -0.005027771,
+    0.0056419373,
+    -0.029830933,
+    -0.028671265,
+    0.00072813034,
+    0.05795288,
+    0.0035362244,
+    0.0027103424,
+    0.031799316,
+    -0.033111572,
+    -0.010368347,
+    -0.030944824,
+    0.0010957718,
+    0.008972168,
+    -0.03265381,
+    -0.01689148,
+    -0.028366089,
+    -0.04626465,
+    -0.030197144,
+    0.04248047,
+    -0.0027542114,
+    -0.014266968,
+    -0.044311523,
+    -0.0496521,
+    0.012741089,
+    0.000121593475,
+    -0.02319336,
+    -0.0070152283,
+    -0.054992676,
+    0.020477295,
+    -0.009941101,
+    0.048675537,
+    0.015266418,
+    -0.017959595,
+    0.01789856,
+    -0.010749817,
+    -0.0052261353,
+    0.020050049,
+    -0.03466797,
+    0.008666992,
+    -0.074645996,
+    0.03652954,
+    -0.052459717,
+    -0.030914307,
+    -0.015586853,
+    0.044189453,
+    -0.011657715,
+    0.018661499,
+    -0.0345459,
+    0.026885986,
+    -0.035491943,
+    -0.032928467,
+    0.004573822,
+    0.025390625,
+    0.009094238,
+    -0.0064888,
+    0.009613037,
+    0.043701172,
+    -0.05126953,
+    -0.051116943,
+    -0.050079346,
+    0.018554688,
+    0.0068626404,
+    -0.02168274,
+    0.0107421875,
+    -0.00957489,
+    0.039215088,
+    -0.003019333,
+    0.017654419,
+    0.008132935,
+    -0.0077590942,
+    0.037139893,
+    0.0009198189,
+    -0.010551453,
+    0.0042266846,
+    -0.057769775,
+    0.026397705,
+    -0.074035645,
+    0.029403687,
+    0.0134887695,
+    0.037994385,
+    -0.06085205,
+    0.0748291,
+    -0.07141113,
+    0.0020389557,
+    -0.07373047,
+    -0.013374329,
+    -0.009475708,
+    0.028244019,
+    -0.03845215,
+    -0.068481445,
+    0.03213501,
+    -0.045318604,
+    -0.0029697418,
+    0.01335907,
+    0.031204224,
+    0.028060913,
+    -0.030792236,
+    -0.068359375,
+    -0.043151855,
+    -0.005088806,
+    -0.008338928,
+    0.031951904,
+    0.010856628,
+    0.005569458,
+    0.052612305,
+    -0.01121521,
+    -0.0519104,
+    0.016815186,
+    -0.021881104,
+    -0.020339966,
+    0.049468994,
+    0.034606934,
+    0.007843018,
+    -0.03933716,
+    0.0011577606,
+    0.043060303,
+    0.05871582,
+    0.00592041,
+    -0.03363037,
+    0.0062828064,
+    -0.00041770935,
+    -0.047668457,
+    0.0017166138,
+    -0.026748657,
+    -0.0067634583,
+    -0.053222656,
+    0.029205322,
+    -0.011062622,
+    0.050872803,
+    -0.008888245,
+    0.018493652,
+    -0.015792847,
+    0.024353027,
+    0.04055786,
+    0.027923584,
+    0.012298584,
+    0.036102295,
+    -0.02784729,
+    -0.03366089,
+    -0.0446167,
+    -0.010520935,
+    -0.0126571655,
+    0.01109314,
+    0.0066223145,
+    -0.0030136108,
+    0.0034389496,
+    0.013305664,
+    -0.019302368,
+    -0.00015676022,
+    -0.02619934,
+    0.0051345825,
+    0.0023994446,
+    0.023376465,
+    0.03277588,
+    0.03552246,
+    0.058013916,
+    -0.05960083,
+    -0.0025138855,
+    -0.00111866,
+    -0.010475159,
+    0.027572632,
+    0.030838013,
+    -0.024169922,
+    -0.00674057,
+    0.019622803,
+    -0.017654419,
+    0.0069007874,
+    -0.015808105,
+    0.061676025,
+    -0.026733398,
+    -0.03387451,
+    -0.009407043,
+    0.03567505,
+    -0.023223877,
+    0.015213013,
+    0.013572693,
+    0.031173706,
+    0.024429321,
+    0.06689453,
+    0.025436401,
+    0.025283813,
+    -0.03552246,
+    -0.054382324,
+    0.0048599243,
+    0.009033203,
+    0.0062332153,
+    -0.055389404,
+    -0.025939941,
+    -0.024749756,
+    0.023223877,
+    -0.0090789795,
+    0.037261963,
+    0.039855957,
+    -0.014503479,
+    -0.035217285,
+    0.012458801,
+    0.023666382,
+    -0.0028018951,
+    -0.019241333,
+    -0.04550171,
+    0.040924072,
+    -0.022460938,
+    0.032348633,
+    -0.003835678,
+    -0.045837402,
+    0.0042877197,
+    0.044830322,
+    -0.025726318,
+    -0.021102905,
+    0.016174316,
+    -0.02671814,
+    -0.048065186,
+    -0.02128601,
+    -0.008102417,
+    0.0121536255,
+    0.02911377,
+    0.023635864,
+    -0.011741638,
+    0.013946533,
+    0.024673462,
+    -0.019515991,
+    0.018630981,
+    0.023239136,
+    0.0055618286,
+    -0.0033454895,
+    -0.012794495,
+    0.015823364,
+    -0.023864746,
+    0.0009636879,
+    -0.013450623,
+    -0.005657196,
+    -0.0056648254,
+    0.005317688,
+    -0.015068054,
+    -0.005592346,
+    -0.055389404,
+    -0.009391785,
+    0.018981934,
+    0.019180298,
+    0.0046043396,
+    -0.017364502,
+    -0.007221222,
+    0.014297485,
+    -0.037872314,
+    -0.029556274,
+    0.022537231,
+    0.0132369995,
+    0.029556274,
+    -0.016693115,
+    0.021774292,
+    -0.055114746,
+    -0.018493652,
+    0.0116119385,
+    -0.027420044,
+    0.0024795532,
+    -0.053710938,
+    -0.041381836,
+    -0.0418396,
+    0.046417236,
+    -0.004016876,
+    0.025405884,
+    0.019592285,
+    -0.06665039,
+    0.007820129,
+    0.039123535,
+    0.05114746,
+    0.047027588,
+    0.015510559,
+    -0.035369873,
+    -0.09246826,
+    -0.008155823,
+    -0.008735657,
+    -0.015007019,
+    -0.05822754,
+    -0.024032593,
+    0.08013916,
+    0.022781372,
+    -0.014442444,
+    -0.019454956,
+    -0.006034851,
+    -0.040039062,
+    -0.0048179626,
+    -0.0015888214,
+    -0.015319824,
+    -0.04751587,
+    0.049621582,
+    -0.028213501,
+    -0.02017212,
+    -0.0032691956,
+    -0.018936157,
+    0.019714355,
+    0.018814087,
+    -0.012107849,
+    -0.030761719,
+    -0.010063171,
+    -0.04776001,
+    -0.0033435822,
+    0.017578125,
+    -0.015777588,
+    0.00017178059,
+    0.0385437,
+    0.0070266724,
+    -0.023880005,
+    -0.025985718,
+    -0.01260376,
+    -0.0035686493,
+    -0.012451172,
+    0.024032593,
+    -0.0061798096,
+    -0.017486572,
+    0.019760132,
+    -0.0034370422,
+    -0.014846802,
+    0.037506104,
+    -0.0077285767,
+    0.039733887,
+    0.025634766,
+    -0.016845703,
+    -0.017837524,
+    -0.014305115,
+    0.012458801,
+    -0.054779053,
+    -0.023239136,
+    -0.025344849,
+    0.00982666,
+    -0.12023926,
+    0.020767212,
+    0.019927979,
+    -0.01600647,
+    -0.0017204285,
+    0.020553589,
+    -0.03152466,
+    -0.04989624,
+    0.017959595,
+    0.026275635,
+    -0.011199951,
+    0.040008545,
+    -0.019073486,
+    0.036712646,
+    0.0034122467,
+    -0.020965576,
+    -0.0871582,
+    -0.000813961,
+    -0.006385803,
+    0.041137695,
+    -0.028503418,
+    0.012634277,
+    -0.02394104,
+    0.05517578,
+    -0.0357666,
+    0.039489746,
+    -0.043060303,
+    0.00036096573,
+    -0.032684326,
+    0.064208984,
+    -0.023971558,
+    0.021331787,
+    -0.014312744,
+    -0.017791748,
+    -0.03753662,
+    -0.00019168854,
+    0.016937256,
+    -0.0029773712,
+    0.036102295,
+    -0.027328491,
+    0.016983032,
+    0.04534912,
+    0.0058517456,
+    0.04348755,
+    -0.04449463,
+    0.022079468,
+    0.019577026,
+    0.0049362183,
+    -0.0625,
+    -0.049591064,
+    -0.022247314,
+    0.046722412,
+    0.0143966675,
+    0.0154800415,
+    0.030960083,
+    -0.017166138,
+    -0.03591919,
+    0.014892578,
+    -0.0057258606,
+    -0.0018873215,
+    -0.0029335022,
+    -0.0034618378,
+    -0.03274536,
+    -0.029144287,
+    0.0035247803,
+    0.044158936,
+    -0.0059432983,
+    0.028930664,
+    -0.00011366606,
+    0.001247406,
+    0.046051025,
+    -0.04437256,
+    -0.013679504,
+    -0.033966064,
+    0.012062073,
+    -0.041748047,
+    0.010826111,
+    -0.038208008,
+    0.1026001,
+    -0.008422852,
+    -0.06750488,
+    0.021972656,
+    -0.031188965,
+    0.033111572,
+    0.042236328,
+    -0.006137848,
+    0.07055664,
+    0.060455322,
+    0.024871826,
+    -0.03555298,
+    -0.009338379,
+    -0.005290985,
+    0.02520752,
+    0.012916565,
+    0.01777649,
+    -0.04071045,
+    -0.0002567768,
+    -0.02078247,
+    0.016555786,
+    -0.01033783,
+    -0.03314209,
+    0.021743774,
+    -0.051208496,
+    -0.05307007,
+    0.025161743,
+    0.017425537,
+    -0.01889038,
+    0.03466797,
+    0.008605957,
+    -0.035308838,
+    0.011390686,
+    -0.00076436996,
+    -0.017486572,
+    0.035491943,
+    -0.02670288,
+    0.06222534,
+    0.00037050247,
+    0.020721436,
+    -0.0057868958,
+    -0.029190063,
+    0.006916046,
+    -0.032073975,
+    0.034484863,
+    0.036376953,
+    -0.030059814,
+    0.004562378,
+    -0.0049324036,
+    -0.009780884,
+    -0.035949707,
+    -0.030380249,
+    -0.043701172,
+    0.036376953,
+    -0.010551453,
+    -0.0030059814,
+    0.06652832,
+    -0.014221191,
+    -0.02696228,
+    0.053619385,
+    0.0026435852,
+    -0.064941406,
+    -0.015457153,
+    0.0129470825,
+    0.021408081,
+    -0.041534424,
+    0.005207062,
+    -0.029830933,
+    0.012359619,
+    0.0597229,
+    -0.04937744,
+    0.029968262,
+    -0.010192871,
+    -0.004322052,
+    0.023757935,
+    -0.044891357,
+    -0.052764893,
+    0.08312988,
+    0.035491943,
+    -0.025772095,
+    -0.016860962,
+    0.056030273,
+    -0.037750244,
+    0.0016326904,
+    0.012016296,
+    -0.0054130554,
+    0.006778717,
+    0.041412354,
+    0.0055732727,
+    -0.007701874,
+    0.014289856,
+    -0.03112793,
+    -0.010429382,
+    -0.027313232,
+    0.10821533,
+    0.0022182465,
+    0.025131226,
+    -0.03503418,
+    0.011634827,
+    0.010665894,
+    -0.016937256,
+    -0.024978638,
+    0.0039978027,
+    0.0015010834,
+    0.0040245056,
+    -0.032318115,
+    -0.053344727,
+    0.02897644,
+    0.012687683,
+    0.0040779114,
+    -0.004638672,
+    0.042236328,
+    0.06976318,
+    -0.041381836,
+    -0.024307251,
+    -0.048706055,
+    -0.0030059814,
+    0.04486084,
+    -0.036010742,
+    -0.016784668,
+    -0.005832672,
+    0.0047721863,
+    0.000995636,
+    0.00033783913,
+    -0.0039634705,
+    -0.0048217773,
+    -0.0067100525,
+    0.025390625,
+    -0.013084412,
+    0.007358551,
+    0.0008134842,
+    0.017150879,
+    0.030319214,
+    0.03955078,
+    -0.040161133,
+    -0.007434845,
+    -0.04321289,
+    0.018554688,
+    -0.0413208,
+    0.026519775,
+    0.0814209,
+    0.026245117,
+    0.052947998,
+    -0.01737976,
+    0.022949219,
+    0.0062408447,
+    0.030014038,
+    0.0021705627,
+    -0.04095459,
+    0.010009766,
+    0.0062408447,
+    -0.0317688,
+    0.01776123,
+    -0.030059814,
+    -0.04675293,
+    -0.042938232,
+    -0.025466919,
+    0.012489319,
+    -0.016860962,
+    -0.024520874,
+    0.04055786,
+    -0.0034809113,
+    -0.005710602,
+    -0.010383606,
+    -0.0065994263,
+    -0.044677734,
+    0.0104599,
+    -0.045654297,
+    -0.028762817,
+    0.018554688,
+    -0.023895264,
+    -0.004737854,
+    0.008285522,
+    0.0178833,
+    -0.0055160522,
+    -0.010902405,
+    -0.013725281,
+    0.014945984,
+    0.021118164,
+    0.011230469,
+    -0.012588501,
+    -0.06970215,
+    -0.06124878,
+    -0.040863037,
+    0.005050659,
+    -0.05545044,
+    -0.055389404,
+    0.01586914,
+    0.008621216,
+    0.019073486,
+    -0.0023155212,
+    -0.017440796,
+    -0.015090942,
+    0.016693115,
+    0.02758789,
+    -0.036865234,
+    -0.005870819,
+    0.059631348,
+    -0.01486969,
+    0.017562866,
+    0.025909424,
+    -0.013809204,
+    0.016693115,
+    -0.014839172,
+    -0.00699234,
+    -0.031158447,
+    -0.021759033,
+    0.020736694,
+    -0.029647827,
+    0.013198853,
+    0.029846191,
+    0.034118652,
+    0.006313324,
+    0.026275635,
+    0.018814087,
+    -0.00819397,
+    -0.020767212,
+    0.017288208,
+    -0.027770996,
+    -0.020996094,
+    0.0073013306,
+    -0.0085372925,
+    -0.0151901245,
+    -0.022720337,
+    0.045410156,
+    -0.01576233,
+    -0.02796936,
+    0.055786133,
+    0.04324341,
+    0.05606079,
+    -0.037994385,
+    -0.026733398,
+    0.029067993,
+    0.050231934,
+    -0.005542755,
+    -0.017456055,
+    0.043823242,
+    0.043884277,
+    0.08654785,
+    0.0046691895,
+    -0.018051147,
+    -0.029067993,
+    0.003791809,
+    0.030273438,
+    -0.010185242,
+    -0.033813477,
+    0.019348145,
+    -0.020446777,
+    -0.026367188,
+    0.037506104,
+    -0.004459381,
+    -0.013130188,
+    -0.015472412,
+    -0.023086548,
+    0.059661865,
+    -0.031982422,
+    -0.058013916,
+    -0.010520935,
+    -0.0030765533,
+    -0.00969696,
+    -0.03945923,
+    0.012359619,
+    0.027526855,
+    -0.013671875,
+    0.0085372925,
+    -0.009536743,
+    -0.01878357,
+    -0.021713257,
+    0.016082764,
+    -0.046844482,
+    -0.032287598,
+    -0.02330017,
+    0.041656494,
+    -0.036956787,
+    -0.079833984,
+    0.0008883476,
+    0.01247406,
+    -0.009788513,
+    0.003967285,
+    0.015686035,
+    -0.0670166,
+    0.021392822,
+    -0.0095825195,
+    -0.003818512,
+    0.0005016327,
+    0.025878906,
+    -0.03125,
+    0.025436401,
+    -0.023101807,
+    -0.015609741,
+    -0.0027160645,
+    -0.022277832,
+    -0.0118255615,
+    -0.00063991547,
+    0.020751953,
+    -0.00040841103,
+    0.050323486,
+    -0.039489746,
+    0.016204834,
+    -0.044433594,
+    0.0055503845,
+    -0.003753662,
+    0.016845703,
+    -0.019699097,
+    -0.010444641,
+    -0.011985779,
+    -0.00844574,
+    -0.00053453445,
+    -0.009468079,
+    0.010093689,
+    -0.0030536652,
+    0.028182983,
+    -0.02670288,
+    0.0289917,
+    0.0013160706,
+    -0.0037765503,
+    0.02758789,
+    0.008773804,
+    -0.01826477,
+    -0.009086609,
+    -0.029876709,
+    -0.02520752,
+    -0.046905518,
+    -0.03591919,
+    -0.023666382,
+    0.014633179,
+    -0.008911133,
+    0.018341064,
+    -0.03201294,
+    0.017944336,
+    -0.0031013489,
+    -0.051605225,
+    0.0066604614,
+    -0.053466797,
+    0.018554688,
+    -0.01625061,
+    -0.0124053955,
+    -0.0079422,
+    -0.07727051,
+    -0.040222168,
+    0.016723633,
+    0.016784668,
+    0.023361206,
+    0.04663086,
+    0.008575439,
+    0.004688263,
+    -0.022262573,
+    0.022628784,
+    0.0090408325,
+    -0.03375244,
+    0.013557434,
+    0.038604736,
+    0.0063171387,
+    0.011199951,
+    -0.04824829,
+    -0.03475952,
+    -0.021102905,
+    0.021636963,
+    0.024047852,
+    0.012329102,
+    0.018432617,
+    0.023269653,
+    -0.024353027,
+    -0.05657959,
+    0.030441284,
+    0.0095825195,
+    -0.036224365,
+    0.006275177,
+    -0.00011587143,
+    -0.011543274,
+    0.03567505,
+    0.07183838,
+    0.0019445419,
+    0.017791748,
+    0.03869629,
+    -0.035064697,
+    0.0029506683,
+    0.02420044,
+    0.0519104,
+    -0.019104004,
+    -0.024978638,
+    -0.00365448,
+    0.004962921,
+    0.04788208,
+    0.050750732,
+    -0.02619934,
+    -0.007167816,
+    0.017318726,
+    -0.0847168,
+    0.03753662,
+    -0.019546509,
+    0.05581665,
+    0.043823242,
+    0.03189087,
+    -0.062805176,
+    -0.014839172,
+    -0.009315491,
+    -0.03878784,
+    0.009773254,
+    0.016098022,
+    -0.022842407,
+    -0.029663086,
+    -0.07183838,
+    -0.04827881,
+    -0.0079422,
+    -0.027740479,
+    -0.016571045,
+    -0.040618896,
+    -0.0047950745,
+    -0.03479004,
+    0.024307251,
+    0.018325806,
+    -0.023529053,
+    0.013381958,
+    0.0126953125,
+    0.03363037,
+    0.06555176,
+    0.072021484,
+    0.0077209473,
+    -0.043701172,
+    -0.07745361,
+    0.081726074,
+    -0.020950317,
+    -0.060577393,
+    -0.03793335,
+    -0.06121826,
+    0.06652832,
+    0.017456055,
+    0.053985596,
+    -0.076416016,
+    0.016647339,
+    0.02330017,
+    -0.011482239,
+    -0.0028934479,
+    -0.014160156,
+    0.025772095,
+    -0.003572464,
+    0.023513794,
+    -0.04458618,
+    -0.01777649,
+    0.018997192,
+    -0.06762695,
+    -0.06335449,
+    -0.018371582,
+    -0.013618469,
+    0.049316406,
+    0.05908203,
+    -0.012565613,
+    0.058563232,
+    -0.04208374,
+    -0.023712158,
+    -0.0025997162,
+    -0.00056791306,
+    -0.009117126,
+    0.044799805,
+    0.045532227,
+    0.028076172,
+    0.0044517517,
+    -0.04260254,
+    0.027694702,
+    0.0013790131,
+    0.027801514,
+    0.0049591064,
+    -0.035614014,
+    -0.03842163,
+    0.0006079674,
+    0.00030183792,
+    -0.011154175,
+    0.022476196,
+    -0.031219482,
+    -0.017074585,
+    0.01108551,
+    0.022476196,
+    -0.015731812,
+    0.04788208,
+    0.0027885437,
+    0.021621704,
+    0.04248047,
+    -0.03213501,
+    0.024795532,
+    -0.03378296,
+    -0.03475952,
+    0.012619019,
+    -0.017791748,
+    -0.037475586,
+    -0.0093307495,
+    0.05633545,
+    0.058502197,
+    0.027297974,
+    -0.04788208,
+    -0.02229309,
+    0.0050621033,
+    0.0395813,
+    0.0015068054,
+    -0.021972656,
+    -0.01626587,
+    0.018539429,
+    -0.031158447,
+    0.016494751,
+    0.021835327,
+    0.0010509491,
+    0.0032176971,
+    -0.004798889,
+    0.047088623,
+    0.006793976,
+    -0.052734375,
+    -0.022277832,
+    0.040008545,
+    -0.028808594,
+    0.0015888214,
+    0.004135132,
+    0.024734497,
+    -0.0051612854,
+    0.008033752,
+    0.027954102,
+    -0.01914978,
+    0.0016756058,
+    0.009780884,
+    0.014282227,
+    0.022216797,
+    0.0069236755,
+    -0.049194336,
+    -0.025131226,
+    0.006679535,
+    0.021636963,
+    0.020217896,
+    0.031051636,
+    -0.031829834,
+    0.008575439,
+    -0.032440186,
+    -0.029907227,
+    -0.023330688,
+    -0.04989624,
+    0.044830322,
+    0.021896362,
+    -0.010894775,
+    0.075805664,
+    -0.025848389,
+    0.02784729,
+    -0.011566162,
+    0.056396484,
+    0.013534546,
+    -0.00831604,
+    0.0037784576,
+    0.0004901886,
+    -0.0017557144
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+    "file_name": "85615.md",
+    "file_size": 49115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Helicopter Collision at Altadena Heliport",
+      "Bell OH-58A helicopter with registration N96BM was involved in an accident in Altadena, California on November 17, 2012 at 15:58 local time.",
+      "The accident was classified as a low altitude operation/event.",
+      "The Bell OH-58A helicopter sustained substantial damage in the accident.",
+      "The accident resulted in 2 minor injuries.",
+      "The flight was conducted under public aircraft regulations.",
+      "The accident number was WPR13GA044.",
+      "The commercial pilot had conducted traffic evaluation flights earlier in the day.",
+      "The commercial pilot conferred with her lieutenant before attempting another flight.",
+      "The commercial pilot agreed to return if the weather was not good.",
+      "The commercial pilot departed the heliport.",
+      "The commercial pilot returned to the heliport after a few minutes due to deteriorating weather.",
+      "Another pilot had moved a helicopter out of the hangar while the Bell OH-58A was airborne.",
+      "The other pilot parked his helicopter outside of the marked parking pad area designated as \"Pad 1.\"",
+      "The other pilot stated he parked outside the pad because of drainage issues.",
+      "The other pilot was not on the radio communications.",
+      "The other pilot did not believe there would be a conflict.",
+      "The other pilot had started the engine of his helicopter.",
+      "The other pilot had begun the start-up sequence.",
+      "The commercial pilot of the Bell OH-58A scouted the landing area to ensure it was clear.",
+      "The commercial pilot observed the other helicopter parked near the parking pad.",
+      "Rain on the windshield prevented the commercial pilot from determining whether the other helicopter was inside or outside of the marked box.",
+      "Rain on the windshield prevented the commercial pilot from determining if the main rotor blades of the other helicopter were turning.",
+      "The commercial pilot was looking straight ahead due to rain on her windscreen and side windows.",
+      "The commercial pilot was using the chin window and her periphery to land inside the box.",
+      "The commercial pilot radioed her intention to land.",
+      "The commercial pilot received no response to her radio communication.",
+      "The commercial pilot made an approach to the main pad.",
+      "The commercial pilot assumed the other helicopter was inside the box for Pad 1.",
+      "The commercial pilot hover-taxied toward the adjacent parking pad (Pad 2).",
+      "The commercial pilot focused on her landing pad area.",
+      "The commercial pilot lowered the collective to land on Pad 2.",
+      "The commercial pilot did not confirm adequate clearance before landing.",
+      "The main rotor blades of the landing Bell OH-58A helicopter contacted the main rotor blades of the parked helicopter."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Helicopter Collision at Altadena Heliport",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell OH-58A helicopter",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N96BM",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Altadena",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Altadena Heliport",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR13GA044",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "commercial pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "lieutenant",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "another pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pad 1",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pad 2",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Bell OH-58A helicopter with registration N96BM was involved in an accident in Altadena, California on November 17, 2012 at 1558 local time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Altadena, California",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 17, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "15:58 local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident was classified as a low altitude operation/event.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low altitude operation/event",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Bell OH-58A helicopter sustained substantial damage in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in 2 minor injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INJURIES COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2 minor injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under public aircraft regulations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT REGULATIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "public aircraft regulations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR13GA044.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR13GA044",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot had conducted traffic evaluation flights earlier in the day.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PREVIOUS ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "traffic evaluation flights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot conferred with her lieutenant before attempting another flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONFERRED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot agreed to return if the weather was not good.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "AGREEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "return if the weather was not good",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot departed the heliport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Altadena Heliport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot returned to the heliport after a few minutes due to deteriorating weather.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RETURNED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Altadena Heliport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RETURN REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deteriorating weather",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RETURN TIMEFRAME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "after a few minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Another pilot had moved a helicopter out of the hangar while the Bell OH-58A was airborne.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airborne",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The other pilot parked his helicopter outside of the marked parking pad area designated as \"Pad 1.\"",
+              "details": [
+                "helicopter PARKING LOCATION outside of the marked parking pad area designated as \"Pad 1\""
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PARKED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PARKING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "outside of the marked parking pad area designated as \"Pad 1\"",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The other pilot stated he parked outside the pad because of drainage issues.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PARKING REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "drainage issues",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The other pilot was not on the radio communications.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RADIO STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not on the radio communications",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The other pilot did not believe there would be a conflict.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "BELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not believe there would be a conflict",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The other pilot had started the engine of his helicopter.",
+              "details": [
+                "helicopter ENGINE STATUS started"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENGINE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "started",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The other pilot had begun the start-up sequence.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "another pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "begun the start-up sequence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot of the Bell OH-58A scouted the landing area to ensure it was clear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "scouted the landing area",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "to ensure it was clear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot observed the other helicopter parked near the parking pad.",
+              "details": [
+                "helicopter OBSERVED LOCATION near the parking pad"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near the parking pad",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Rain on the windshield prevented the commercial pilot from determining whether the other helicopter was inside or outside of the marked box.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rain on the windshield",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "UNABLE TO DETERMINE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "whether the other helicopter was inside or outside of the marked box",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Rain on the windshield prevented the commercial pilot from determining if the main rotor blades of the other helicopter were turning.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rain on the windshield",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "UNABLE TO DETERMINE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "if the main rotor blades of the other helicopter were turning",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot was looking straight ahead due to rain on her windscreen and side windows.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LOOKING DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "straight ahead",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LOOKING REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rain on her windscreen and side windows",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot was using the chin window and her periphery to land inside the box.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "using the chin window and her periphery",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING TARGET"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inside the box",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot radioed her intention to land.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COMMUNICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "radioed her intention to land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot received no response to her radio communication.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RADIO RESPONSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no response",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot made an approach to the main pad.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "APPROACH TARGET"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main pad",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot assumed the other helicopter was inside the box for Pad 1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ASSUMPTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "the other helicopter was inside the box for Pad 1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot hover-taxied toward the adjacent parking pad (Pad 2).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVED TOWARD"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 2",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hover-taxied",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot focused on her landing pad area.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FOCUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing pad area",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot lowered the collective to land on Pad 2.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lowered the collective",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING TARGET"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 2",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot did not confirm adequate clearance before landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SAFETY CHECK"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not confirm adequate clearance before landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main rotor blades of the landing Bell OH-58A helicopter contacted the main rotor blades of the parked helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell OH-58A helicopter",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLISION DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor blades contacted the main rotor blades of the parked helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2aa9a0b7:1482",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a45c36e0d4254ce290d515a8c90431d59411a5f52134b921e4be9debc05a3ddf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::2aa9a0b7:1482:64695d8e",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "71d76c97dbe74fb723679c0281568a92b7be3dadebc8985cbf0cb7131b16436f",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2aa9a0b7:1482:f3815aff",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "2a5131cf148af4e43bd87b7fb29c816c4de102da1f8cff2fbfbbccdc1e7f7968",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nAltadena, California\n\n## Date & Time: \nNovember 17, 2012, 15:58 Local\n\n## Aircraft:\nBell OH-58A\n\n## Defining Event:\nLow altitude operation/event\n\n## Flight Conducted Under:\nPublic aircraft\n\n## Accident Number:\nWPR13GA044\n\n## Registration:\nN96BM\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 Minor\n\n## Analysis\n\nThe commercial pilot had conducted traffic evaluation flights earlier in the day. After conferring with her lieutenant, she decided to attempt another flight with the understanding that she would return if the weather was not good. She departed, and after a few minutes, returned to the heliport to land due to deteriorating weather. While the helicopter was airborne, another pilot had moved a helicopter out of the hangar and parked outside of the marked parking pad area designated as \"Pad 1.\" He later stated that he parked outside the pad because of drainage issues and that he was not on the radios because he would be off the ground in a couple of minutes and he did not believe there would be a conflict. The pilot had started the engine and begun the start-up sequence.\n\nUpon return to the heliport, the pilot of the landing helicopter scouted the landing area to make sure it was clear. The pilot observed the other helicopter parked near the parking pad, but due to rain on the windshield, she was not able to determine whether the helicopter was inside or outside of the marked box or if the main rotor blades were turning. The landing pilot stated that, as a result of the rain on her windscreen and side windows, she was looking straight ahead and using the chin window and her periphery to land inside the box. She radioed her intention to land and received no response. She then made the approach to the main pad, assuming that the other helicopter was inside the box for Pad 1, and then hover-taxied toward the adjacent parking pad (Pad 2). She was focused on her landing pad area, and as she lowered the collective to land on Pad 2, the pilot did not confirm adequate clearance, and the main rotor blades of the landing helicopter contacted the main rotor blades of the parked helicopter.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2172,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

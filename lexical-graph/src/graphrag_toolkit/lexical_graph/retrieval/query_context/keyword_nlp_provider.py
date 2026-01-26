@@ -1,7 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import spacy
 from typing import List
 
 from graphrag_toolkit.lexical_graph import ModelError
@@ -14,6 +13,13 @@ class KeywordNLPProvider(KeywordProviderBase):
 
     def __init__(self, args:ProcessorArgs):
         super().__init__(args)
+
+        try:
+            import spacy
+        except ImportError as e:
+            raise ImportError(
+                "spacy package not found, install with 'pip install spacy'"
+            ) from e
         
         try:
             self.nlp = spacy.load('en_core_web_sm')   

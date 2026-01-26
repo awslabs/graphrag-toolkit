@@ -1,0 +1,2271 @@
+{
+  "id_": "aws::7330ac80:071c:f69796f9",
+  "embedding": [
+    0.0033912659,
+    0.0056495667,
+    0.021850586,
+    0.010444641,
+    -0.009132385,
+    0.0025119781,
+    -0.010437012,
+    -0.05621338,
+    -0.021911621,
+    0.023910522,
+    -0.019439697,
+    0.022201538,
+    -0.0060691833,
+    -0.019897461,
+    0.0021476746,
+    -0.031036377,
+    0.014274597,
+    0.03918457,
+    0.045837402,
+    -0.009635925,
+    0.012199402,
+    -0.011100769,
+    0.027908325,
+    0.03869629,
+    0.07092285,
+    -0.027145386,
+    -0.109375,
+    0.02772522,
+    0.025848389,
+    0.039733887,
+    0.024780273,
+    -0.032348633,
+    0.040039062,
+    -0.024017334,
+    -0.0012989044,
+    -0.029174805,
+    -0.0009250641,
+    -0.023071289,
+    -0.04611206,
+    0.030685425,
+    -0.003145218,
+    0.009216309,
+    0.039642334,
+    -0.04550171,
+    -0.003452301,
+    -0.0043258667,
+    0.011169434,
+    -0.021820068,
+    0.023757935,
+    0.025375366,
+    0.004009247,
+    0.0012311935,
+    -0.0045928955,
+    0.016494751,
+    -0.011558533,
+    -0.0067749023,
+    0.017501831,
+    -0.04916382,
+    0.0234375,
+    -0.04260254,
+    -0.016326904,
+    -0.02796936,
+    0.047302246,
+    0.0423584,
+    -0.0005168915,
+    -0.02116394,
+    0.043701172,
+    0.010475159,
+    -0.022827148,
+    -0.0021762848,
+    0.04711914,
+    0.0008840561,
+    -0.0065727234,
+    0.025375366,
+    0.008285522,
+    -0.04977417,
+    -0.0064888,
+    -0.004070282,
+    0.01939392,
+    0.05419922,
+    0.0018100739,
+    -0.005458832,
+    0.03756714,
+    -0.052886963,
+    -0.0072669983,
+    -0.06060791,
+    -0.013755798,
+    0.020004272,
+    -0.030944824,
+    -0.0048561096,
+    -0.026519775,
+    -0.013755798,
+    -0.047698975,
+    0.026748657,
+    -0.012306213,
+    0.0007624626,
+    -0.020736694,
+    -0.046020508,
+    0.02003479,
+    0.019226074,
+    0.02128601,
+    -0.033111572,
+    0.05404663,
+    -0.0022354126,
+    -0.0054740906,
+    0.0647583,
+    0.03692627,
+    -0.017471313,
+    -0.01260376,
+    -0.02368164,
+    -0.007904053,
+    -0.02027893,
+    -0.0014190674,
+    -0.022918701,
+    -0.015380859,
+    0.019210815,
+    -0.029541016,
+    0.0038070679,
+    0.01777649,
+    0.015327454,
+    -0.012893677,
+    -0.014579773,
+    0.004184723,
+    0.07922363,
+    0.041625977,
+    0.044128418,
+    -0.014930725,
+    0.010292053,
+    0.033935547,
+    0.011421204,
+    -0.024337769,
+    0.015975952,
+    -0.015686035,
+    -0.029541016,
+    -0.022399902,
+    -0.0028514862,
+    0.026672363,
+    0.02998352,
+    0.017196655,
+    -0.042266846,
+    0.061157227,
+    -0.0049476624,
+    -0.023605347,
+    0.060302734,
+    -0.050811768,
+    -0.07470703,
+    0.016540527,
+    0.074645996,
+    -0.008277893,
+    0.018066406,
+    -0.014801025,
+    0.05517578,
+    -0.039398193,
+    0.030044556,
+    0.09832764,
+    -0.024215698,
+    0.034484863,
+    -0.024139404,
+    0.0713501,
+    0.019851685,
+    0.044952393,
+    -0.0033245087,
+    -0.021240234,
+    0.0043258667,
+    -0.037109375,
+    0.016799927,
+    -0.0036888123,
+    -0.0020942688,
+    0.009552002,
+    -0.068847656,
+    -0.0095825195,
+    0.0020999908,
+    0.078186035,
+    -0.011627197,
+    0.0040779114,
+    0.017929077,
+    -0.033416748,
+    0.015655518,
+    0.04232788,
+    -0.055755615,
+    -0.03390503,
+    -0.024658203,
+    0.07293701,
+    -0.00630188,
+    -0.0029964447,
+    0.0036373138,
+    0.00029611588,
+    0.044555664,
+    0.041137695,
+    0.021713257,
+    -0.0569458,
+    -0.019638062,
+    -0.005443573,
+    0.026977539,
+    0.031585693,
+    -0.025772095,
+    -0.02784729,
+    -0.0029354095,
+    0.0040512085,
+    -0.04498291,
+    -0.05255127,
+    0.016983032,
+    0.006931305,
+    0.032104492,
+    0.01828003,
+    -0.024780273,
+    -0.005393982,
+    0.0051994324,
+    -0.04046631,
+    -0.011100769,
+    0.0115356445,
+    -0.07531738,
+    0.027130127,
+    -0.033966064,
+    0.006187439,
+    0.0030593872,
+    0.024215698,
+    -0.0037841797,
+    0.029174805,
+    -0.024963379,
+    0.05545044,
+    0.034454346,
+    0.022262573,
+    0.05090332,
+    0.030151367,
+    0.04336548,
+    -0.015304565,
+    0.015365601,
+    0.12719727,
+    0.0128479,
+    0.10437012,
+    -0.0152282715,
+    0.004760742,
+    -0.01461792,
+    -0.050109863,
+    -0.017547607,
+    0.013618469,
+    -0.053375244,
+    0.030883789,
+    0.055908203,
+    -0.016311646,
+    -0.011634827,
+    -0.05822754,
+    0.020690918,
+    -0.013259888,
+    0.016159058,
+    0.00050258636,
+    0.024368286,
+    -0.039001465,
+    0.02557373,
+    0.039489746,
+    0.045440674,
+    -0.0005764961,
+    0.012191772,
+    -0.009109497,
+    0.03866577,
+    -0.032562256,
+    0.018798828,
+    -0.0044784546,
+    -0.018737793,
+    -0.00434494,
+    -0.014915466,
+    0.0005607605,
+    -0.018310547,
+    -0.011924744,
+    0.014060974,
+    -0.0007429123,
+    0.02810669,
+    -0.05545044,
+    -0.0068740845,
+    0.041137695,
+    0.07537842,
+    -0.018539429,
+    0.016540527,
+    -0.023651123,
+    -0.077819824,
+    0.003791809,
+    0.021438599,
+    -0.043823242,
+    -0.030792236,
+    0.006576538,
+    0.041900635,
+    -0.017028809,
+    -0.01725769,
+    0.015533447,
+    0.0079422,
+    -0.024291992,
+    0.010368347,
+    -0.0121154785,
+    0.012710571,
+    0.027069092,
+    0.034484863,
+    -0.013633728,
+    0.0236969,
+    0.0068626404,
+    -0.020584106,
+    -0.031143188,
+    -0.0037956238,
+    0.032714844,
+    -0.05883789,
+    -0.04144287,
+    0.025268555,
+    -0.03201294,
+    -0.00017046928,
+    0.0011539459,
+    -0.005748749,
+    0.03503418,
+    -0.027450562,
+    -0.024032593,
+    0.010406494,
+    -0.052124023,
+    -0.004016876,
+    -0.0016841888,
+    0.022537231,
+    -0.03100586,
+    -0.030700684,
+    -0.04171753,
+    0.012779236,
+    -0.038085938,
+    -0.016143799,
+    0.031311035,
+    0.045166016,
+    -0.0014810562,
+    0.03842163,
+    0.02658081,
+    -0.052642822,
+    0.04083252,
+    -0.0075149536,
+    -0.047424316,
+    0.008880615,
+    -0.014595032,
+    -0.012145996,
+    -0.005794525,
+    0.060058594,
+    -0.0027046204,
+    0.015113831,
+    0.0146484375,
+    0.04220581,
+    -0.0023174286,
+    -0.07678223,
+    0.016098022,
+    0.009086609,
+    -0.028121948,
+    0.059173584,
+    0.00032114983,
+    -0.018875122,
+    0.008956909,
+    0.014678955,
+    -0.012519836,
+    0.017501831,
+    -0.01701355,
+    -0.02230835,
+    -0.020523071,
+    0.015319824,
+    -0.017288208,
+    -0.058166504,
+    0.027114868,
+    -0.030151367,
+    -0.08380127,
+    -0.06121826,
+    0.0063209534,
+    -0.011802673,
+    -0.03237915,
+    -0.0637207,
+    0.041015625,
+    -0.010757446,
+    -0.02949524,
+    -0.013572693,
+    0.015396118,
+    0.0032138824,
+    -0.01789856,
+    -0.014793396,
+    -0.07281494,
+    0.008277893,
+    0.018936157,
+    0.041015625,
+    -0.011657715,
+    -0.01991272,
+    0.02281189,
+    -0.011482239,
+    0.024765015,
+    0.013381958,
+    0.0063476562,
+    -0.00856781,
+    0.03717041,
+    0.00894928,
+    0.027664185,
+    0.004535675,
+    0.061187744,
+    -0.007331848,
+    0.041931152,
+    -0.00082206726,
+    -0.0025196075,
+    -0.009735107,
+    0.012428284,
+    -0.000790596,
+    -0.046203613,
+    -0.0013914108,
+    -0.053771973,
+    0.018753052,
+    0.009643555,
+    -0.0052986145,
+    -0.009002686,
+    -0.0027370453,
+    -0.016143799,
+    -0.00085544586,
+    -0.011512756,
+    -0.009796143,
+    0.018737793,
+    -0.00078201294,
+    -0.0013446808,
+    -0.011642456,
+    -0.0340271,
+    0.011238098,
+    -0.0036087036,
+    -0.030380249,
+    0.00843811,
+    0.0014095306,
+    0.040527344,
+    -0.05810547,
+    -0.04019165,
+    0.055847168,
+    -0.037597656,
+    -0.016784668,
+    -0.023040771,
+    0.03439331,
+    -0.022659302,
+    0.01638794,
+    0.011543274,
+    -0.009124756,
+    -0.013450623,
+    -0.009391785,
+    0.004070282,
+    0.011802673,
+    -0.026992798,
+    -0.011016846,
+    -0.0052719116,
+    -0.043792725,
+    0.055267334,
+    -0.051757812,
+    0.010276794,
+    -0.05718994,
+    -0.06604004,
+    -0.0077400208,
+    -0.036621094,
+    -0.011558533,
+    -0.054779053,
+    -0.0066184998,
+    0.019515991,
+    -0.07965088,
+    0.021820068,
+    0.0048446655,
+    0.101745605,
+    0.007270813,
+    0.01399231,
+    0.055511475,
+    -0.033843994,
+    0.029571533,
+    0.053985596,
+    0.020492554,
+    0.045959473,
+    -0.004497528,
+    -0.021575928,
+    0.036468506,
+    0.0037193298,
+    -0.024841309,
+    0.03250122,
+    -0.01234436,
+    0.00037026405,
+    -0.010345459,
+    -0.032928467,
+    0.053222656,
+    -0.0090789795,
+    -0.056488037,
+    -0.036895752,
+    -0.08673096,
+    0.07434082,
+    -0.011581421,
+    0.093322754,
+    -0.06378174,
+    -0.028533936,
+    0.008087158,
+    -0.06652832,
+    -0.004940033,
+    0.019332886,
+    -0.007980347,
+    -0.021362305,
+    -0.019317627,
+    -0.003917694,
+    -0.032196045,
+    -0.0037441254,
+    -0.03881836,
+    -0.014404297,
+    0.017410278,
+    -0.046875,
+    0.019577026,
+    0.027389526,
+    -0.039794922,
+    0.010643005,
+    -0.03567505,
+    -0.039154053,
+    0.030090332,
+    0.005710602,
+    -0.016952515,
+    0.004966736,
+    0.046539307,
+    0.02330017,
+    0.008308411,
+    -0.013618469,
+    -0.045715332,
+    0.048919678,
+    -0.05105591,
+    -0.041229248,
+    0.020019531,
+    -0.036712646,
+    0.018798828,
+    -0.03451538,
+    -0.012779236,
+    -0.009284973,
+    0.008956909,
+    0.04849243,
+    0.046203613,
+    -0.036315918,
+    0.0040130615,
+    0.09295654,
+    -0.037506104,
+    -0.019165039,
+    -0.04058838,
+    -0.02355957,
+    0.009185791,
+    -0.003982544,
+    0.014579773,
+    0.0087890625,
+    -0.0022087097,
+    0.03186035,
+    -0.0061798096,
+    0.020050049,
+    -0.026031494,
+    0.019332886,
+    0.020523071,
+    0.0003285408,
+    -0.018112183,
+    -0.0033874512,
+    -0.0007801056,
+    0.02168274,
+    0.020309448,
+    0.031463623,
+    0.043273926,
+    -0.021453857,
+    0.0062828064,
+    -0.02003479,
+    -0.00054979324,
+    0.0037250519,
+    -0.018127441,
+    -0.021224976,
+    -0.019744873,
+    -0.0043678284,
+    -0.020950317,
+    -0.0051841736,
+    0.0541687,
+    -0.009506226,
+    -0.037200928,
+    -0.027023315,
+    0.03149414,
+    -0.07312012,
+    0.023162842,
+    -0.027999878,
+    -0.061309814,
+    0.0006580353,
+    -0.013748169,
+    -0.06518555,
+    -0.04449463,
+    -0.06549072,
+    -0.009162903,
+    -0.05001831,
+    0.01927185,
+    -0.032806396,
+    0.026550293,
+    0.0001488924,
+    0.044647217,
+    0.031829834,
+    0.009918213,
+    -0.060394287,
+    0.015716553,
+    0.02999878,
+    0.0014209747,
+    -0.016464233,
+    0.03274536,
+    0.0143585205,
+    -0.029968262,
+    -0.056396484,
+    -0.011878967,
+    -0.037261963,
+    -0.02822876,
+    0.028076172,
+    0.0046157837,
+    0.035461426,
+    0.038116455,
+    0.06225586,
+    0.022735596,
+    0.017303467,
+    -0.012496948,
+    0.007965088,
+    -0.0022201538,
+    -0.014503479,
+    0.0066566467,
+    0.031951904,
+    -0.0057678223,
+    0.009689331,
+    -0.013153076,
+    -0.01550293,
+    -0.034484863,
+    -0.009017944,
+    0.03274536,
+    -0.022705078,
+    0.020553589,
+    0.04373169,
+    0.012313843,
+    0.038146973,
+    -0.03778076,
+    0.023391724,
+    0.04547119,
+    0.00969696,
+    -0.0047454834,
+    0.028717041,
+    -0.018463135,
+    -0.020507812,
+    -0.0051460266,
+    -0.017974854,
+    0.017181396,
+    -0.01763916,
+    0.009033203,
+    -0.0692749,
+    -0.013717651,
+    -0.05255127,
+    0.011314392,
+    -0.014274597,
+    -0.027526855,
+    0.020217896,
+    -0.042388916,
+    -0.028503418,
+    0.0053710938,
+    -0.032409668,
+    0.0087509155,
+    0.036254883,
+    -0.018508911,
+    -0.022399902,
+    -0.010368347,
+    0.00014281273,
+    -0.016723633,
+    -0.013664246,
+    0.004962921,
+    -0.022644043,
+    -0.0061187744,
+    0.023773193,
+    -0.023010254,
+    -0.01826477,
+    -0.005821228,
+    0.000644207,
+    -0.029220581,
+    -0.054626465,
+    -0.0135650635,
+    -0.041992188,
+    0.011787415,
+    0.04220581,
+    -0.00894165,
+    -0.019500732,
+    0.020263672,
+    -0.027389526,
+    0.029464722,
+    -0.013893127,
+    -0.046966553,
+    0.03152466,
+    -0.01675415,
+    -0.012992859,
+    0.04650879,
+    0.016067505,
+    -0.0022907257,
+    0.016448975,
+    -0.0035076141,
+    0.0004131794,
+    0.00573349,
+    0.045776367,
+    0.022766113,
+    -0.056793213,
+    0.04248047,
+    -0.05307007,
+    -0.023925781,
+    0.0042648315,
+    0.002790451,
+    -0.044006348,
+    -0.0042381287,
+    0.0013475418,
+    -0.011306763,
+    -0.0058555603,
+    0.0152282715,
+    -0.006500244,
+    0.027404785,
+    0.014289856,
+    -0.023864746,
+    -0.017593384,
+    0.04171753,
+    -0.0044059753,
+    0.022567749,
+    0.00037956238,
+    -0.0064201355,
+    0.014167786,
+    -0.06561279,
+    -0.009925842,
+    0.017532349,
+    -0.0513916,
+    0.005054474,
+    -0.015686035,
+    -0.008224487,
+    -0.052886963,
+    -0.0067634583,
+    0.014678955,
+    0.0059432983,
+    0.022155762,
+    0.0513916,
+    -0.005718231,
+    0.0064964294,
+    0.016830444,
+    -0.073791504,
+    -0.015403748,
+    -0.0029411316,
+    0.025894165,
+    0.011703491,
+    -0.028945923,
+    -0.033599854,
+    0.045684814,
+    0.005340576,
+    0.050811768,
+    -0.0036067963,
+    -0.014518738,
+    -0.07623291,
+    0.008430481,
+    0.013633728,
+    -0.003452301,
+    -0.04107666,
+    0.038970947,
+    -0.030822754,
+    0.029342651,
+    -0.006629944,
+    -0.032928467,
+    0.0021705627,
+    0.02670288,
+    0.019607544,
+    -0.06384277,
+    -0.03970337,
+    0.0026245117,
+    -0.016418457,
+    -0.088134766,
+    -0.023208618,
+    0.025161743,
+    0.0021076202,
+    0.024719238,
+    -0.053222656,
+    -0.107788086,
+    0.010414124,
+    -0.038269043,
+    0.002746582,
+    -0.00083589554,
+    0.016311646,
+    -0.010284424,
+    0.020507812,
+    -0.0335083,
+    0.0029506683,
+    0.007007599,
+    -0.012840271,
+    0.0077819824,
+    -0.013587952,
+    0.0231781,
+    0.052825928,
+    0.0084991455,
+    3.695488e-05,
+    -0.026504517,
+    0.01864624,
+    0.011528015,
+    0.027618408,
+    0.004386902,
+    0.041625977,
+    -0.009727478,
+    0.004333496,
+    -0.029876709,
+    0.041656494,
+    0.020095825,
+    0.02609253,
+    0.037139893,
+    0.03918457,
+    -0.0064468384,
+    -0.014083862,
+    0.009223938,
+    -0.020935059,
+    0.028320312,
+    0.012557983,
+    -0.01889038,
+    -0.008049011,
+    -0.053253174,
+    -0.030639648,
+    -0.061065674,
+    -0.020355225,
+    -0.12402344,
+    -0.041900635,
+    -0.027893066,
+    0.02545166,
+    0.0051498413,
+    -0.042419434,
+    -0.029388428,
+    0.027282715,
+    0.007896423,
+    -0.015335083,
+    -0.017669678,
+    0.00079250336,
+    -0.008659363,
+    -0.0024871826,
+    -0.030654907,
+    -0.03665161,
+    -0.009735107,
+    0.024032593,
+    0.030410767,
+    0.05319214,
+    0.0071525574,
+    -0.0073242188,
+    0.019012451,
+    0.0012750626,
+    0.01739502,
+    -0.012489319,
+    -0.023971558,
+    -0.037017822,
+    0.005180359,
+    -0.026611328,
+    0.049835205,
+    0.03704834,
+    0.068115234,
+    -0.0051574707,
+    0.008262634,
+    0.01399231,
+    -0.009941101,
+    -0.016204834,
+    -0.014915466,
+    -0.017730713,
+    -0.0035076141,
+    -0.02053833,
+    0.041259766,
+    0.009338379,
+    0.002456665,
+    -0.020721436,
+    0.0073165894,
+    -0.0007367134,
+    0.029556274,
+    -0.07354736,
+    -0.016357422,
+    0.010810852,
+    0.00806427,
+    -0.052734375,
+    0.022872925,
+    -0.05038452,
+    -0.060150146,
+    -0.04031372,
+    0.016281128,
+    -0.04336548,
+    -0.042144775,
+    -0.017913818,
+    0.015853882,
+    0.010375977,
+    0.020828247,
+    0.0007724762,
+    0.038757324,
+    0.005443573,
+    0.019760132,
+    -0.06591797,
+    -0.0077590942,
+    0.023330688,
+    -0.00025510788,
+    0.018859863,
+    0.021118164,
+    0.02217102,
+    0.045043945,
+    0.04638672,
+    0.004020691,
+    0.025878906,
+    0.03378296,
+    -0.03152466,
+    0.022003174,
+    0.026931763,
+    -0.0026721954,
+    0.04156494,
+    0.0018720627,
+    -0.005783081,
+    -0.0067367554,
+    -0.0038261414,
+    0.01701355,
+    0.0025100708,
+    0.009757996,
+    0.00037693977,
+    0.020935059,
+    0.008468628,
+    -0.010948181,
+    -0.0050086975,
+    -0.003396988,
+    -0.02078247,
+    0.01940918,
+    -0.016021729,
+    -0.026351929,
+    0.014701843,
+    -0.014411926,
+    -0.03390503,
+    0.03616333,
+    -0.008415222,
+    -0.03201294,
+    0.041259766,
+    -0.024032593,
+    -0.016860962,
+    -0.039520264,
+    -0.0061149597,
+    -0.043670654,
+    0.060638428,
+    -0.03173828,
+    0.13098145,
+    -0.008232117,
+    0.01965332,
+    -0.00894928,
+    -0.037750244,
+    -0.0041618347,
+    0.028427124,
+    0.0015153885,
+    -0.057281494,
+    -0.028015137,
+    -0.008522034,
+    -0.0052337646,
+    -0.0418396,
+    -0.038360596,
+    0.0048217773,
+    0.018432617,
+    -0.023040771,
+    0.03466797,
+    -0.044921875,
+    -0.03741455,
+    0.0036792755,
+    -0.013259888,
+    0.013175964,
+    0.0054092407,
+    0.05630493,
+    0.016433716,
+    0.019332886,
+    0.039276123,
+    0.026138306,
+    -0.016143799,
+    0.023986816,
+    -0.00073719025,
+    -0.0093307495,
+    0.021270752,
+    -0.014060974,
+    0.026657104,
+    0.0006403923,
+    -0.05557251,
+    0.005138397,
+    -0.014472961,
+    0.0036354065,
+    -0.0028629303,
+    0.037200928,
+    0.018539429,
+    0.0057411194,
+    -0.01889038,
+    0.025939941,
+    -0.015106201,
+    -0.013328552,
+    -0.010910034,
+    -0.0071640015,
+    0.0010194778,
+    0.0050582886,
+    -0.0061302185,
+    -0.023849487,
+    0.020599365,
+    -0.019180298,
+    -0.029907227,
+    -0.0098724365,
+    0.010948181,
+    -0.025344849,
+    0.020309448,
+    0.039245605,
+    -0.040985107,
+    0.045654297,
+    0.039276123,
+    0.032440186,
+    -0.0289917,
+    0.0128479,
+    -0.0446167,
+    0.010620117,
+    0.021469116,
+    -0.042510986,
+    -0.050689697,
+    0.00484848,
+    0.0033397675,
+    0.020187378,
+    -0.015541077,
+    0.022476196,
+    -0.023788452,
+    0.033599854,
+    -0.0062942505,
+    0.01574707,
+    0.017349243,
+    0.004524231,
+    -0.0552063,
+    0.06304932,
+    0.032409668,
+    -0.012634277,
+    -0.032318115,
+    -0.035736084,
+    -0.03375244,
+    0.0076828003,
+    -0.01965332,
+    0.029953003,
+    0.0014390945,
+    0.03338623,
+    0.017929077,
+    -0.00083208084,
+    0.0082473755,
+    0.019638062,
+    -0.0077400208,
+    0.03717041,
+    -0.015365601,
+    0.0038757324
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/agricultural_technology_revolution.md",
+    "file_name": "agricultural_technology_revolution.md",
+    "file_size": 3521,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-22",
+    "header_path": "/Amazon Revolutionizes Agriculture with AI-Powered Farming Platform/",
+    "aws::graph::propositions": [
+      "# AgriCore's Agricultural Technology Platform Features",
+      "AgriCore's platform includes autonomous farming systems.",
+      "Autonomous farming systems include self-driving tractors.",
+      "Autonomous farming systems include precision planting equipment.",
+      "Autonomous farming systems include robotic harvesters.",
+      "The autonomous farming systems can operate 24 hours a day.",
+      "The autonomous farming systems require minimal human supervision.",
+      "The autonomous machines use computer vision.",
+      "The autonomous machines use machine learning.",
+      "The autonomous machines identify pest infestations.",
+      "The autonomous machines address pest infestations.",
+      "The autonomous machines identify nutrient deficiencies.",
+      "The autonomous machines address nutrient deficiencies.",
+      "The autonomous machines identify irrigation problems.",
+      "The autonomous machines address irrigation problems.",
+      "The autonomous machines address issues before they impact crop yields.",
+      "AgriCore has \"Smart Greenhouse\" technology.",
+      "\"Smart Greenhouse\" technology creates controlled growing environments.",
+      "Controlled growing environments can produce crops year-round.",
+      "Controlled growing environments can produce crops regardless of climate conditions.",
+      "\"Smart Greenhouse\" facilities use 90% less water than traditional farming.",
+      "\"Smart Greenhouse\" facilities produce 10 times more food per square foot than traditional farming.",
+      "\"Smart Greenhouse\" facilities use advanced LED lighting systems.",
+      "\"Smart Greenhouse\" facilities use atmospheric controls.",
+      "LED lighting systems and atmospheric controls create optimal growing conditions.",
+      "Optimal growing conditions are created for each specific crop variety.",
+      "AgriCore's platform includes a direct-to-consumer marketplace.",
+      "The direct-to-consumer marketplace connects farmers with customers.",
+      "The direct-to-consumer marketplace eliminates intermediaries.",
+      "The direct-to-consumer marketplace ensures fresher produce reaches consumers faster.",
+      "Amazon's logistics network enables farm-to-table delivery.",
+      "Farm-to-table delivery occurs within 24 hours.",
+      "AgriCore's platform uses blockchain technology.",
+      "Blockchain technology provides complete traceability.",
+      "Complete traceability extends from seed to plate."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "AgriCore's Agricultural Technology Platform Features",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "AgriCore",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "autonomous farming systems",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "self-driving tractors",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "precision planting equipment",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "robotic harvesters",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "computer vision",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "machine learning",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Smart Greenhouse technology",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "controlled growing environments",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "LED lighting systems",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "atmospheric controls",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "direct-to-consumer marketplace",
+              "classification": "Service"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "blockchain technology",
+              "classification": "Technology"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AgriCore's platform includes autonomous farming systems.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AgriCore",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Autonomous farming systems include self-driving tractors.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "self-driving tractors",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Autonomous farming systems include precision planting equipment.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precision planting equipment",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Autonomous farming systems include robotic harvesters.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "robotic harvesters",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous farming systems can operate 24 hours a day.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "OPERATION DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "24 hours a day",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous farming systems require minimal human supervision.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "SUPERVISION LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minimal human",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines use computer vision.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "computer vision",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines use machine learning.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "machine learning",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines identify pest infestations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "identify pest infestations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines address pest infestations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "address pest infestations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines identify nutrient deficiencies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "identify nutrient deficiencies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines address nutrient deficiencies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "address nutrient deficiencies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines identify irrigation problems.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "identify irrigation problems",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines address irrigation problems.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "address irrigation problems",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autonomous machines address issues before they impact crop yields.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autonomous farming systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "address issues before they impact crop yields",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AgriCore has \"Smart Greenhouse\" technology.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AgriCore",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Smart Greenhouse technology",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Smart Greenhouse\" technology creates controlled growing environments.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Smart Greenhouse technology",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CREATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "controlled growing environments",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Controlled growing environments can produce crops year-round.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "controlled growing environments",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "produce crops year-round",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Controlled growing environments can produce crops regardless of climate conditions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "controlled growing environments",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "produce crops regardless of climate conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Smart Greenhouse\" facilities use 90% less water than traditional farming.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Smart Greenhouse technology",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "WATER EFFICIENCY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "90% less water than traditional farming",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Smart Greenhouse\" facilities produce 10 times more food per square foot than traditional farming.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Smart Greenhouse technology",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "PRODUCTION EFFICIENCY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 times more food per square foot than traditional farming",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Smart Greenhouse\" facilities use advanced LED lighting systems.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Smart Greenhouse technology",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "LED lighting systems",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "\"Smart Greenhouse\" facilities use atmospheric controls.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Smart Greenhouse technology",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "atmospheric controls",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "LED lighting systems and atmospheric controls create optimal growing conditions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "LED lighting systems",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CREATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "optimal growing conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "atmospheric controls",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CREATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "optimal growing conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Optimal growing conditions are created for each specific crop variety.",
+              "details": [
+                "optimal growing conditions PURPOSE for each specific crop variety"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "optimal growing conditions",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "for each specific crop variety",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AgriCore's platform includes a direct-to-consumer marketplace.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AgriCore",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct-to-consumer marketplace",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The direct-to-consumer marketplace connects farmers with customers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct-to-consumer marketplace",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "FUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "connects farmers with customers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The direct-to-consumer marketplace eliminates intermediaries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct-to-consumer marketplace",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "BENEFIT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "eliminates intermediaries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The direct-to-consumer marketplace ensures fresher produce reaches consumers faster.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct-to-consumer marketplace",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "BENEFIT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ensures fresher produce reaches consumers faster",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's logistics network enables farm-to-table delivery.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ENABLES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "farm-to-table delivery",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS ASSET"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "logistics network",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Farm-to-table delivery occurs within 24 hours.",
+              "details": [
+                "farm-to-table delivery TIMEFRAME within 24 hours"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "farm-to-table delivery",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIMEFRAME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "within 24 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "AgriCore's platform uses blockchain technology.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AgriCore",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blockchain technology",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Blockchain technology provides complete traceability.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "blockchain technology",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "complete traceability",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Complete traceability extends from seed to plate.",
+              "details": [
+                "complete traceability SCOPE from seed to plate"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "complete traceability",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SCOPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "from seed to plate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::7330ac80:071c",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/agricultural_technology_revolution.md",
+        "file_name": "agricultural_technology_revolution.md",
+        "file_size": 3521,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22"
+      },
+      "hash": "6323aab8a5188304a02fd5fb9fe325b645b491b7967af974e8c7f42e3deb2ac3",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::7330ac80:071c:6bc0470b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/agricultural_technology_revolution.md",
+        "file_name": "agricultural_technology_revolution.md",
+        "file_size": 3521,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Revolutionizes Agriculture with AI-Powered Farming Platform/"
+      },
+      "hash": "fd8444665cf36482ff19450de20b385d1f8b93c28318d9f08d755a549d56840d",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::7330ac80:071c:f89eaba9",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/agricultural_technology_revolution.md",
+        "file_name": "agricultural_technology_revolution.md",
+        "file_size": 3521,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Revolutionizes Agriculture with AI-Powered Farming Platform/"
+      },
+      "hash": "315f7b86b7605badcf3124b6fdcffcbc8ca5a837583b6b38111f5bf30ed35bdb",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The platform's autonomous farming systems include self-driving tractors, precision planting equipment, and robotic harvesters that can operate 24 hours a day with minimal human supervision. These machines use computer vision and machine learning to identify and address issues such as pest infestations, nutrient deficiencies, and irrigation problems before they impact crop yields.\n\nAgriCore's \"Smart Greenhouse\" technology creates controlled growing environments that can produce crops year-round regardless of climate conditions. These facilities use 90% less water than traditional farming while producing 10 times more food per square foot. Advanced LED lighting systems and atmospheric controls create optimal growing conditions for each specific crop variety.\n\nThe platform includes a direct-to-consumer marketplace that connects farmers with customers, eliminating intermediaries and ensuring fresher produce reaches consumers faster. Amazon's logistics network enables farm-to-table delivery within 24 hours, while blockchain technology provides complete traceability from seed to plate.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1254,
+  "end_char_idx": 2350,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2345 @@
+{
+  "id_": "aws::34a831b4:2a89:72a323f7",
+  "embedding": [
+    0.032196045,
+    0.008003235,
+    -0.032165527,
+    -0.037719727,
+    -0.0018501282,
+    -0.038208008,
+    -0.008422852,
+    0.008529663,
+    -0.0029830933,
+    0.017059326,
+    -0.05795288,
+    0.003540039,
+    0.043945312,
+    -0.014404297,
+    0.018432617,
+    -0.027862549,
+    0.02734375,
+    2.4318695e-05,
+    0.017044067,
+    -0.014350891,
+    -0.036102295,
+    0.015113831,
+    0.07208252,
+    0.03640747,
+    -0.031036377,
+    0.06518555,
+    0.012619019,
+    -0.0016860962,
+    -0.018341064,
+    -0.018051147,
+    0.0021152496,
+    -0.0038757324,
+    0.034698486,
+    0.0076408386,
+    -0.028549194,
+    -0.006450653,
+    0.0074920654,
+    0.0010528564,
+    -0.023483276,
+    0.033721924,
+    0.018356323,
+    -0.022659302,
+    0.051116943,
+    -0.052978516,
+    0.014022827,
+    0.007217407,
+    0.021240234,
+    -0.014328003,
+    0.021026611,
+    0.03857422,
+    0.042510986,
+    -0.011566162,
+    0.026275635,
+    0.0126571655,
+    -0.009155273,
+    -0.018295288,
+    0.023834229,
+    -0.017227173,
+    -0.0001552105,
+    -0.032928467,
+    -0.003238678,
+    0.033813477,
+    0.02482605,
+    0.04736328,
+    -0.015510559,
+    0.0044555664,
+    0.036621094,
+    -0.0093307495,
+    0.035461426,
+    -0.013938904,
+    -0.0049934387,
+    0.01436615,
+    -0.01071167,
+    0.05407715,
+    0.0016584396,
+    -0.05722046,
+    0.036132812,
+    -0.013961792,
+    -0.021835327,
+    0.06878662,
+    -0.027832031,
+    0.024856567,
+    -0.028335571,
+    -0.061035156,
+    0.038513184,
+    -0.01386261,
+    -0.023345947,
+    -0.0024528503,
+    -0.014656067,
+    0.019821167,
+    -0.033081055,
+    0.0068244934,
+    -0.0231781,
+    0.052612305,
+    -0.014625549,
+    0.023788452,
+    -0.052581787,
+    -0.082092285,
+    0.016479492,
+    0.008399963,
+    -0.0031356812,
+    -0.03555298,
+    0.00012612343,
+    0.0016708374,
+    -0.016494751,
+    0.02947998,
+    0.020050049,
+    0.0715332,
+    0.024139404,
+    0.022445679,
+    0.0011940002,
+    -0.013092041,
+    -0.021240234,
+    0.0006804466,
+    -0.030914307,
+    0.010925293,
+    -0.021911621,
+    -0.0068588257,
+    -0.0018291473,
+    0.0019102097,
+    0.018203735,
+    0.042388916,
+    0.013465881,
+    0.00071287155,
+    0.007259369,
+    0.019454956,
+    -0.009002686,
+    -0.035980225,
+    -0.017150879,
+    0.013511658,
+    0.010108948,
+    0.035583496,
+    -0.038909912,
+    -0.04434204,
+    -0.059539795,
+    0.0057678223,
+    -0.05053711,
+    -0.00027513504,
+    -0.033477783,
+    0.021835327,
+    -0.023452759,
+    -0.03265381,
+    0.061553955,
+    -0.030303955,
+    -0.07489014,
+    0.062408447,
+    0.006439209,
+    -0.038330078,
+    -0.017059326,
+    -0.06262207,
+    -0.060699463,
+    -0.031280518,
+    0.061553955,
+    -0.0044555664,
+    -0.053588867,
+    -0.04977417,
+    0.0006465912,
+    -0.04562378,
+    -0.0016288757,
+    -0.05923462,
+    -0.023635864,
+    0.006175995,
+    0.031463623,
+    -0.051116943,
+    -0.052703857,
+    -0.014801025,
+    -0.028793335,
+    -0.021316528,
+    0.0141067505,
+    0.05847168,
+    -0.011039734,
+    0.0042877197,
+    -0.06536865,
+    -0.025909424,
+    -0.01713562,
+    -0.020233154,
+    0.0012311935,
+    -0.0041885376,
+    0.012413025,
+    -0.0016899109,
+    0.0025138855,
+    -0.016433716,
+    0.014465332,
+    0.0075683594,
+    -0.0087509155,
+    -0.0010242462,
+    0.01789856,
+    -0.0008444786,
+    -0.018234253,
+    0.012481689,
+    0.021316528,
+    0.037597656,
+    0.034362793,
+    -0.018157959,
+    0.0057144165,
+    -0.065979004,
+    -0.018005371,
+    -0.031311035,
+    -0.023498535,
+    0.032409668,
+    -0.085754395,
+    -0.010643005,
+    0.02330017,
+    0.020385742,
+    0.046203613,
+    -0.016647339,
+    0.013916016,
+    0.02810669,
+    0.007419586,
+    -0.008621216,
+    0.0178833,
+    -0.019348145,
+    0.0071868896,
+    -0.018554688,
+    -0.036346436,
+    0.0155181885,
+    -0.010238647,
+    0.013381958,
+    0.008056641,
+    -0.025909424,
+    0.026016235,
+    0.010726929,
+    0.022460938,
+    0.012008667,
+    -0.0206604,
+    -0.0036144257,
+    -0.009727478,
+    0.006450653,
+    -0.026290894,
+    0.018692017,
+    0.014663696,
+    -0.018356323,
+    -0.030426025,
+    0.01109314,
+    -0.013023376,
+    0.0519104,
+    0.046905518,
+    0.05050659,
+    -0.009277344,
+    -0.030319214,
+    0.006160736,
+    -0.017196655,
+    -0.0082092285,
+    0.027023315,
+    0.0103302,
+    -0.016540527,
+    0.016403198,
+    0.0085372925,
+    -0.0047836304,
+    0.02192688,
+    -0.034698486,
+    -0.0036849976,
+    0.021087646,
+    -0.051940918,
+    -0.0051193237,
+    0.029846191,
+    -0.033935547,
+    -0.022125244,
+    0.026428223,
+    -0.018600464,
+    -0.0021343231,
+    0.018432617,
+    0.011802673,
+    0.0071144104,
+    0.021408081,
+    -0.014595032,
+    0.043518066,
+    0.03692627,
+    0.013839722,
+    -0.020004272,
+    -0.0015182495,
+    -0.008735657,
+    -0.009468079,
+    -0.0032043457,
+    -0.0524292,
+    -0.04736328,
+    -0.005241394,
+    0.03237915,
+    -0.00995636,
+    -0.0552063,
+    0.031463623,
+    0.06329346,
+    -0.034484863,
+    -0.011177063,
+    0.028289795,
+    0.05545044,
+    -0.045959473,
+    0.034820557,
+    -0.035247803,
+    0.019424438,
+    0.051208496,
+    -0.008598328,
+    0.0067825317,
+    -0.02079773,
+    -0.0050315857,
+    -0.006023407,
+    0.050628662,
+    -0.004699707,
+    0.009140015,
+    -0.012191772,
+    0.024002075,
+    0.04901123,
+    -0.020141602,
+    -0.004207611,
+    0.0035572052,
+    -0.0002887249,
+    -0.014381409,
+    0.000289917,
+    0.0016918182,
+    -0.016418457,
+    -0.012023926,
+    0.009635925,
+    0.018234253,
+    -0.034973145,
+    0.019927979,
+    0.018707275,
+    -0.025787354,
+    0.014663696,
+    -0.01499939,
+    0.044891357,
+    -0.046936035,
+    0.00919342,
+    -0.014457703,
+    0.022415161,
+    0.011260986,
+    -0.00083494186,
+    -0.012321472,
+    0.005908966,
+    -0.009094238,
+    0.03677368,
+    -0.014221191,
+    0.0071029663,
+    -0.04208374,
+    -0.022567749,
+    0.0031223297,
+    0.015434265,
+    -0.009498596,
+    0.001045227,
+    -0.03881836,
+    -0.048431396,
+    -0.066833496,
+    -0.010444641,
+    0.014854431,
+    -0.051879883,
+    -0.049468994,
+    0.020126343,
+    0.008430481,
+    0.005622864,
+    -0.064575195,
+    -0.013832092,
+    0.039916992,
+    -0.044952393,
+    -0.04547119,
+    0.03744507,
+    -0.026412964,
+    -0.0368042,
+    0.05960083,
+    0.006778717,
+    -0.0463562,
+    -0.04812622,
+    -0.044433594,
+    -0.005531311,
+    -0.05581665,
+    0.013145447,
+    0.055236816,
+    -0.004814148,
+    -0.04260254,
+    0.032165527,
+    -0.076660156,
+    -0.035827637,
+    0.021697998,
+    -0.068725586,
+    -0.0115737915,
+    -0.023468018,
+    -0.045166016,
+    0.0309906,
+    0.019088745,
+    0.004234314,
+    0.040374756,
+    0.026046753,
+    0.054870605,
+    -0.008377075,
+    0.056793213,
+    -0.04586792,
+    0.0101623535,
+    0.021987915,
+    -0.020141602,
+    0.023010254,
+    -0.02960205,
+    -0.015182495,
+    -0.0088272095,
+    0.05883789,
+    0.036895752,
+    -0.036468506,
+    -2.4914742e-05,
+    0.036010742,
+    -0.050079346,
+    -0.0501709,
+    0.021316528,
+    -0.021759033,
+    -0.13537598,
+    -0.0019111633,
+    0.0027580261,
+    -0.05996704,
+    -0.006450653,
+    -0.050689697,
+    -0.066101074,
+    -0.05065918,
+    0.032287598,
+    0.070495605,
+    -0.008613586,
+    0.024307251,
+    -0.0005879402,
+    0.031143188,
+    -0.02180481,
+    0.02168274,
+    -0.036132812,
+    -0.028213501,
+    0.08477783,
+    0.0058250427,
+    -0.03237915,
+    -0.02507019,
+    0.0040245056,
+    0.049835205,
+    -0.021911621,
+    -0.015777588,
+    -0.010169983,
+    0.0024414062,
+    -0.040527344,
+    0.060668945,
+    -0.015411377,
+    0.0022602081,
+    0.03591919,
+    -0.012794495,
+    -0.10089111,
+    -0.02947998,
+    -0.027542114,
+    0.005695343,
+    0.025802612,
+    -0.06390381,
+    0.04776001,
+    -0.0024108887,
+    -0.038116455,
+    0.02243042,
+    -0.03463745,
+    -0.019744873,
+    0.009811401,
+    0.033691406,
+    0.018615723,
+    -0.02734375,
+    -0.020568848,
+    0.020965576,
+    0.070617676,
+    0.009849548,
+    0.00749588,
+    -0.0042686462,
+    0.047424316,
+    0.012969971,
+    -0.023086548,
+    0.019226074,
+    -0.023498535,
+    0.0009622574,
+    0.010910034,
+    -0.0368042,
+    -0.021392822,
+    -0.011947632,
+    0.013946533,
+    -0.007030487,
+    -0.011451721,
+    -0.023788452,
+    -0.030349731,
+    0.0715332,
+    0.015007019,
+    -0.009559631,
+    -0.010147095,
+    0.0006828308,
+    0.040771484,
+    0.0021533966,
+    0.005760193,
+    -0.050598145,
+    -0.037322998,
+    0.00983429,
+    -0.061523438,
+    0.044006348,
+    -0.0006117821,
+    -0.00025844574,
+    0.021438599,
+    0.015594482,
+    -0.006641388,
+    0.03326416,
+    0.049987793,
+    0.011146545,
+    0.016189575,
+    0.03640747,
+    -0.012817383,
+    -0.022094727,
+    -0.023422241,
+    0.07824707,
+    0.014862061,
+    -0.05102539,
+    0.08288574,
+    -0.025787354,
+    0.0060310364,
+    0.035858154,
+    -0.013381958,
+    0.022094727,
+    0.04486084,
+    0.020446777,
+    -0.0023384094,
+    -0.036102295,
+    0.04071045,
+    -0.01852417,
+    -0.04751587,
+    0.012489319,
+    -0.045806885,
+    -0.006839752,
+    -0.006801605,
+    0.016815186,
+    -0.033325195,
+    0.0060920715,
+    -0.00039839745,
+    -0.035614014,
+    0.048583984,
+    0.02319336,
+    -0.034301758,
+    0.012374878,
+    0.0035114288,
+    0.015235901,
+    -0.004535675,
+    -0.041748047,
+    -0.0035305023,
+    -0.009399414,
+    -0.009376526,
+    0.04220581,
+    0.02154541,
+    0.041809082,
+    -0.06262207,
+    0.026733398,
+    0.02130127,
+    -0.024261475,
+    -0.041809082,
+    -0.028076172,
+    -0.005382538,
+    0.027526855,
+    0.01826477,
+    -0.040008545,
+    -0.027679443,
+    0.051940918,
+    -0.061553955,
+    0.056610107,
+    -0.024108887,
+    -0.043151855,
+    -0.008033752,
+    -0.049926758,
+    -0.032684326,
+    -0.0023212433,
+    0.01197052,
+    -0.009010315,
+    0.0013399124,
+    0.008087158,
+    0.0357666,
+    -0.022415161,
+    -0.032318115,
+    0.0068969727,
+    0.008857727,
+    0.0016088486,
+    -0.015083313,
+    -0.074645996,
+    0.023956299,
+    -0.043304443,
+    -0.004180908,
+    -0.04449463,
+    0.04272461,
+    0.002216339,
+    -0.0015048981,
+    -0.02532959,
+    -0.036071777,
+    0.0071411133,
+    0.0033779144,
+    0.016601562,
+    -0.017623901,
+    0.0008234978,
+    -0.0030879974,
+    -0.018295288,
+    -0.040496826,
+    0.015701294,
+    0.010856628,
+    -0.026550293,
+    -0.04647827,
+    -0.037200928,
+    0.025344849,
+    0.020751953,
+    0.01713562,
+    0.03186035,
+    -0.013206482,
+    -0.009819031,
+    0.007850647,
+    -0.062316895,
+    0.00623703,
+    -0.012588501,
+    0.03842163,
+    0.027908325,
+    0.029037476,
+    -0.011917114,
+    -0.08117676,
+    0.006198883,
+    0.033721924,
+    0.0362854,
+    0.0057907104,
+    0.040618896,
+    -0.014945984,
+    -0.026855469,
+    0.039215088,
+    -0.0010595322,
+    0.02633667,
+    0.016601562,
+    -0.041381836,
+    0.04385376,
+    0.06829834,
+    -0.008377075,
+    0.0368042,
+    0.016204834,
+    0.0051841736,
+    0.034179688,
+    0.013031006,
+    0.0004930496,
+    -0.046142578,
+    0.009017944,
+    0.0063056946,
+    -0.0010261536,
+    0.022766113,
+    -0.021072388,
+    -0.031433105,
+    0.03111267,
+    0.005596161,
+    -0.052581787,
+    -0.014297485,
+    -0.032684326,
+    -0.015975952,
+    -0.012435913,
+    0.022521973,
+    0.010299683,
+    0.010955811,
+    -0.04849243,
+    -0.0038833618,
+    -0.020080566,
+    -0.009101868,
+    0.011688232,
+    0.0065841675,
+    -0.032104492,
+    -0.012840271,
+    -0.004962921,
+    0.00030350685,
+    -0.051574707,
+    0.024230957,
+    -0.026428223,
+    -0.020431519,
+    -0.019943237,
+    -0.031433105,
+    -0.026870728,
+    -0.08618164,
+    -0.06304932,
+    -0.02458191,
+    -0.004219055,
+    -0.054595947,
+    0.023605347,
+    0.07702637,
+    0.031707764,
+    0.019866943,
+    -0.051635742,
+    0.001364708,
+    0.02583313,
+    0.03967285,
+    -0.01550293,
+    -0.0023059845,
+    0.021102905,
+    -0.036468506,
+    -0.0042915344,
+    -0.0104522705,
+    0.013923645,
+    0.006965637,
+    0.0063438416,
+    0.027252197,
+    -0.022872925,
+    -0.025436401,
+    0.022094727,
+    -0.0022850037,
+    0.022399902,
+    -0.033691406,
+    0.019592285,
+    -0.014251709,
+    0.030212402,
+    -0.010932922,
+    0.02557373,
+    -0.0066184998,
+    -0.019119263,
+    -0.012428284,
+    0.008224487,
+    -0.047088623,
+    -0.03677368,
+    -0.020812988,
+    0.028121948,
+    0.052825928,
+    0.03378296,
+    -0.025650024,
+    0.054840088,
+    0.01537323,
+    0.034057617,
+    -0.034423828,
+    0.014289856,
+    0.019104004,
+    -0.008995056,
+    0.008514404,
+    -0.025756836,
+    0.039611816,
+    0.014213562,
+    0.07116699,
+    0.024734497,
+    -0.008979797,
+    -0.01600647,
+    0.008644104,
+    -0.039154053,
+    -0.007106781,
+    0.02796936,
+    0.026626587,
+    -0.030426025,
+    -0.016677856,
+    0.013366699,
+    -0.017288208,
+    -0.038085938,
+    0.009651184,
+    0.022033691,
+    -0.0052490234,
+    -0.014930725,
+    -0.006839752,
+    -0.028274536,
+    0.009246826,
+    0.0059394836,
+    -0.012268066,
+    0.029968262,
+    -0.013061523,
+    0.005203247,
+    0.032409668,
+    -0.014724731,
+    -0.08227539,
+    0.0018224716,
+    -0.010604858,
+    -0.0791626,
+    0.004798889,
+    -0.030883789,
+    0.02407837,
+    0.0368042,
+    -0.048614502,
+    -0.030212402,
+    -0.021224976,
+    -0.019210815,
+    0.060668945,
+    -0.03062439,
+    -0.07318115,
+    -0.006099701,
+    -0.04598999,
+    0.006843567,
+    -0.026763916,
+    -0.002401352,
+    0.00075912476,
+    -0.028686523,
+    -0.06756592,
+    -0.030014038,
+    -0.040405273,
+    0.042022705,
+    0.023971558,
+    -0.0017614365,
+    -0.0135650635,
+    -0.02760315,
+    -0.029220581,
+    0.060638428,
+    0.018829346,
+    -0.03729248,
+    -0.0345459,
+    -0.010612488,
+    0.0209198,
+    -0.014343262,
+    -0.00422287,
+    -0.002521515,
+    -0.0065994263,
+    0.0027122498,
+    -0.02243042,
+    -0.013214111,
+    0.039093018,
+    0.012397766,
+    -0.040252686,
+    -0.00079393387,
+    0.026733398,
+    -0.06854248,
+    0.02758789,
+    -0.016723633,
+    -0.07611084,
+    -0.017211914,
+    -0.077819824,
+    -0.035461426,
+    -0.023269653,
+    -0.0043411255,
+    -0.006767273,
+    0.01802063,
+    0.002954483,
+    0.00945282,
+    0.03665161,
+    0.005329132,
+    -0.015563965,
+    0.015090942,
+    -0.001241684,
+    -0.013824463,
+    0.03237915,
+    -0.039611816,
+    0.015419006,
+    -0.008583069,
+    -0.040130615,
+    -0.017700195,
+    0.010253906,
+    0.033477783,
+    -0.0066452026,
+    0.022842407,
+    0.022384644,
+    0.008796692,
+    -0.018417358,
+    -0.009460449,
+    -0.003643036,
+    0.0074920654,
+    0.0099487305,
+    -0.0024433136,
+    -0.010551453,
+    0.0003631115,
+    -0.0074653625,
+    -0.035461426,
+    -0.037139893,
+    0.062347412,
+    0.0059051514,
+    0.09838867,
+    -0.05731201,
+    0.05545044,
+    -0.02217102,
+    -0.020263672,
+    -0.0063209534,
+    -0.01826477,
+    -0.012802124,
+    0.025756836,
+    0.0062065125,
+    0.009277344,
+    0.0027427673,
+    0.02973938,
+    0.03640747,
+    -0.010322571,
+    0.023529053,
+    -0.021560669,
+    0.007297516,
+    -0.025405884,
+    -0.008956909,
+    -0.03161621,
+    -0.03967285,
+    0.033599854,
+    0.025375366,
+    -0.03189087,
+    -0.0019235611,
+    0.012748718,
+    0.026260376,
+    0.061645508,
+    0.034484863,
+    0.0030059814,
+    0.029388428,
+    0.035217285,
+    0.03552246,
+    -0.034729004,
+    -0.068237305,
+    -0.042144775,
+    -0.016174316,
+    -0.03161621,
+    0.005115509,
+    0.03756714,
+    -0.016830444,
+    0.004501343,
+    -0.051605225,
+    -0.05557251,
+    -0.038238525,
+    -0.030044556,
+    -0.033233643,
+    -0.0075035095,
+    -0.0146865845,
+    -0.027801514,
+    0.0129776,
+    -0.012481689,
+    -0.0078125,
+    0.004676819,
+    0.0032081604,
+    0.0015697479,
+    0.0022392273,
+    -0.016036987,
+    -0.018951416,
+    -0.007850647,
+    -0.07336426,
+    0.09075928,
+    -0.07928467,
+    -0.05218506,
+    -0.01701355,
+    -0.064941406,
+    0.015716553,
+    0.003314972,
+    -0.003004074,
+    -0.04031372,
+    -0.055725098,
+    -0.008468628,
+    0.0803833,
+    -3.5881996e-05,
+    -0.01638794,
+    0.015274048,
+    0.0032348633,
+    -0.031585693,
+    -0.055847168,
+    -0.035827637,
+    0.0011301041,
+    -0.05886841,
+    -0.033813477,
+    0.047973633,
+    0.0024490356,
+    0.012191772,
+    -0.0039253235,
+    -0.051208496,
+    0.08929443,
+    0.043884277,
+    0.019683838,
+    -0.04373169,
+    -0.040924072,
+    -0.03970337,
+    -0.0034694672,
+    -0.02670288,
+    0.038360596,
+    -0.03579712,
+    0.044799805,
+    0.0006155968,
+    0.027069092,
+    0.00068569183,
+    0.011726379,
+    -0.012008667,
+    -0.045532227,
+    -0.043792725,
+    -0.009757996,
+    -0.04812622,
+    0.029937744,
+    -0.057800293,
+    -0.041656494,
+    -0.0009946823,
+    0.023483276,
+    -0.037872314,
+    -0.009963989,
+    -0.016937256,
+    0.024276733,
+    0.025375366,
+    -0.029708862,
+    -0.03050232,
+    0.0135650635,
+    0.006511688,
+    0.013008118,
+    -0.008811951,
+    0.0025234222,
+    0.011146545,
+    -0.006828308,
+    0.050201416,
+    0.010536194,
+    -0.04611206,
+    -0.0011529922,
+    -0.006965637,
+    0.008224487,
+    -0.013397217,
+    -0.02330017,
+    -0.015823364,
+    -0.0049324036,
+    -0.022750854,
+    0.002603531,
+    0.014709473,
+    -0.012176514,
+    -0.001750946,
+    0.006198883,
+    0.023345947,
+    0.009468079,
+    -0.0087509155,
+    0.041748047,
+    0.026245117,
+    -0.016418457,
+    0.015388489,
+    0.012123108,
+    -0.035247803,
+    0.020080566,
+    0.036895752,
+    -0.025177002,
+    0.015571594,
+    -0.017440796,
+    0.024932861,
+    0.005012512,
+    0.031204224,
+    -0.018814087,
+    0.0053138733,
+    -0.005935669,
+    -0.0073890686,
+    0.029632568,
+    0.014640808,
+    -0.009613037,
+    -0.017623901,
+    -0.006969452,
+    -0.036071777,
+    -0.023071289,
+    -0.007003784,
+    -0.049194336,
+    0.064086914,
+    6.8962574e-05,
+    -0.006916046,
+    0.030929565,
+    -0.01737976,
+    0.020874023,
+    0.03010559,
+    -0.0018663406,
+    0.02935791,
+    -0.0357666,
+    0.0099487305,
+    0.0068092346,
+    -0.031066895
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+    "file_name": "89406.md",
+    "file_size": 13499,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Meteorological Information and Flight Plan for Newport Airport Accident",
+      "The accident site had Visual Meteorological Conditions (VMC).",
+      "The condition of light at the accident site was Day.",
+      "The observation facility was Newport State Airport (EFK).",
+      "Newport State Airport (EFK) has an elevation of 930 feet mean sea level.",
+      "The distance from the accident site to the observation facility was 0 Nautical Miles.",
+      "The observation time was 16:55 Local.",
+      "The direction from the accident site to the observation facility was 0 degrees.",
+      "The lowest cloud condition was Scattered clouds at 7500 feet Above Ground Level.",
+      "The visibility at the accident site was 10 miles.",
+      "No lowest ceiling was reported.",
+      "No Runway Visual Range (RVR) visibility was reported.",
+      "The wind speed was 7 knots.",
+      "No wind gusts were reported.",
+      "No turbulence was forecast.",
+      "No actual turbulence was reported.",
+      "The wind direction was 300 degrees.",
+      "No turbulence severity was forecast.",
+      "Turbulence severity actual was Not Applicable.",
+      "The altimeter setting was 29.95 inches of mercury.",
+      "The temperature was 24 degrees Celsius.",
+      "The dew point was 10 degrees Celsius.",
+      "There was no obscuration at the accident site.",
+      "There was no precipitation at the accident site.",
+      "The departure point was Newport, Vermont (EFK).",
+      "No flight plan was filed.",
+      "The destination was Newport, Vermont (EFK).",
+      "No clearance was issued.",
+      "The type of airspace was Class G.",
+      "At 2055, the recorded weather at Newport State Airport (EFK) included wind from 300 degrees at 7 knots.",
+      "At 2055, the recorded visibility at Newport State Airport (EFK) was 10 statute miles.",
+      "At 2055, Newport State Airport (EFK) had scattered clouds at 7,500 feet.",
+      "At 2055, the temperature at Newport State Airport (EFK) was 24 degrees Celsius.",
+      "At 2055, the dewpoint at Newport State Airport (EFK) was 10 degrees Celsius.",
+      "At 2055, the altimeter setting at Newport State Airport (EFK) was 29.95 inches of mercury."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Meteorological Information and Flight Plan for Newport Airport Accident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Newport State Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Newport, Vermont",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident site had Visual Meteorological Conditions (VMC).",
+              "details": [
+                "accident site HAS CONDITION Visual Meteorological Conditions (VMC)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual Meteorological Conditions (VMC)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The condition of light at the accident site was Day.",
+              "details": [
+                "accident site LIGHT CONDITION Day"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LIGHT CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Day",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The observation facility was Newport State Airport (EFK).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "SERVES AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "observation facility",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Newport State Airport (EFK) has an elevation of 930 feet mean sea level.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "HAS ELEVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "930 feet mean sea level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The distance from the accident site to the observation facility was 0 Nautical Miles.",
+              "details": [
+                "accident site DISTANCE TO FACILITY 0 Nautical Miles"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE TO FACILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0 Nautical Miles",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The observation time was 1655 Local.",
+              "details": [
+                "observation TIME 16:55 Local"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "observation",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "16:55 Local",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The direction from the accident site to the observation facility was 0 degrees.",
+              "details": [
+                "accident site DIRECTION TO FACILITY 0 degrees"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DIRECTION TO FACILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0 degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The lowest cloud condition was Scattered clouds at 7500 feet Above Ground Level.",
+              "details": [
+                "cloud condition LOWEST TYPE Scattered clouds at 7500 feet Above Ground Level"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cloud condition",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOWEST TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Scattered clouds at 7500 feet Above Ground Level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The visibility at the accident site was 10 miles.",
+              "details": [
+                "accident site VISIBILITY 10 miles"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 miles",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No lowest ceiling was reported.",
+              "details": [
+                "ceiling LOWEST REPORTED none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ceiling",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOWEST REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No Runway Visual Range (RVR) visibility was reported.",
+              "details": [
+                "Runway Visual Range (RVR) VISIBILITY REPORTED none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Runway Visual Range (RVR)",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wind speed was 7 knots.",
+              "details": [
+                "wind SPEED 7 knots"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wind",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No wind gusts were reported.",
+              "details": [
+                "wind GUSTS REPORTED none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wind",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "GUSTS REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No turbulence was forecast.",
+              "details": [
+                "turbulence FORECAST none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turbulence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FORECAST"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No actual turbulence was reported.",
+              "details": [
+                "turbulence ACTUAL REPORTED none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turbulence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTUAL REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wind direction was 300 degrees.",
+              "details": [
+                "wind DIRECTION 300 degrees"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wind",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "300 degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No turbulence severity was forecast.",
+              "details": [
+                "turbulence SEVERITY FORECAST none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turbulence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEVERITY FORECAST"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Turbulence severity actual was Not Applicable.",
+              "details": [
+                "turbulence SEVERITY ACTUAL Not Applicable"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turbulence",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SEVERITY ACTUAL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Not Applicable",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The altimeter setting was 29.95 inches of mercury.",
+              "details": [
+                "altimeter SETTING 29.95 inches of mercury"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "altimeter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SETTING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "29.95 inches of mercury",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The temperature was 24 degrees Celsius.",
+              "details": [
+                "weather TEMPERATURE 24 degrees Celsius"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TEMPERATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "24 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The dew point was 10 degrees Celsius.",
+              "details": [
+                "weather DEW POINT 10 degrees Celsius"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEW POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no obscuration at the accident site.",
+              "details": [
+                "accident site HAS OBSCURATION none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS OBSCURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no precipitation at the accident site.",
+              "details": [
+                "accident site HAS PRECIPITATION none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS PRECIPITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The departure point was Newport, Vermont (EFK).",
+              "details": [
+                "flight DEPARTURE POINT Newport, Vermont (EFK)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport, Vermont (EFK)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan was filed.",
+              "details": [
+                "flight PLAN FILED none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PLAN FILED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The destination was Newport, Vermont (EFK).",
+              "details": [
+                "flight DESTINATION Newport, Vermont (EFK)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport, Vermont (EFK)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No clearance was issued.",
+              "details": [
+                "flight CLEARANCE ISSUED none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CLEARANCE ISSUED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The type of airspace was Class G.",
+              "details": [
+                "airspace TYPE Class G"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airspace",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class G",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 2055, the recorded weather at Newport State Airport (EFK) included wind from 300 degrees at 7 knots.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "300 degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WEATHER TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2055",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 2055, the recorded visibility at Newport State Airport (EFK) was 10 statute miles.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 statute miles",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2055",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 2055, Newport State Airport (EFK) had scattered clouds at 7,500 feet.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "CLOUD CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "scattered clouds at 7,500 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "CLOUD CONDITION TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2055",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 2055, the temperature at Newport State Airport (EFK) was 24 degrees Celsius.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TEMPERATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "24 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TEMPERATURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2055",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 2055, the dewpoint at Newport State Airport (EFK) was 10 degrees Celsius.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DEW POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DEW POINT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2055",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 2055, the altimeter setting at Newport State Airport (EFK) was 29.95 inches of mercury.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "ALTIMETER SETTING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "29.95 inches of mercury",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Newport State Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "ALTIMETER TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2055",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::34a831b4:2a89",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "f3cbca4afb4dfb60992ac552a6bd720c2b025a1fc53f7bc611c6130893bfd274",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::34a831b4:2a89:437d9fa3",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "c8069e209918138e367e2394cbeeab14a70e55df3a6b08769b5b96979695e0af",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::34a831b4:2a89:595cf3ea",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89406.md",
+        "file_name": "89406.md",
+        "file_size": 13499,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "a68b2742ee063d25b1d138244c72e438c5a244e3d4f990fff0980285f88b75e7",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Meteorological Information and Flight Plan\n\n## Conditions at Accident Site:\n| Condition | Value |\n| --- | --- |\n| Visual (VMC) | - |\n| Condition of Light | Day |\n| Observation Facility, Elevation | EFK,930 ft msl |\n| Distance from Accident Site | 0 Nautical Miles |\n| Observation Time | 16:55 Local |\n| Direction from Accident Site | 0° |\n| Lowest Cloud Condition | Scattered / 7500 ft AGL |\n| Visibility | 10 miles |\n| Lowest Ceiling | - |\n| Visibility (RVR) | - |\n| Wind Speed/Gusts | 7 knots / |\n| Turbulence Type Forecast/Actual | / None |\n| Wind Direction | 300° |\n| Turbulence Severity Forecast/Actual | / N/A |\n| Altimeter Setting | 29.95 inches Hg |\n| Temperature/Dew Point | 24°C / 10°C |\n| Precipitation and Obscuration | No Obscuration; No Precipitation |\n| Departure Point | Newport, VT (EFK ) |\n| Type of Flight Plan Filed | None |\n| Destination | Newport, VT (EFK ) |\n| Type of Clearance | None |\n| Departure Time | Type of Airspace: Class G |\n\nAt 2055 the ecorded weather at EFK included, wind 300 degrees at 7 knots, visibility 10 statute miles, scattered clouds at 7,500 feet, temperature 24 C, dewpoint 10 C, and altimeter setting of 29.95 inches of mercury.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1178,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

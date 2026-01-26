@@ -237,6 +237,10 @@ class RerankStatements(ProcessorBase):
                 for statement in topic.statements:
                     statement_str = statement.statement_str
                     values_to_score.append(self._format_statement_context(source_str, topic_str, statement_str))
+
+        if not values_to_score:
+            logger.debug('No statements to rerank - returning (empty) search results')
+            return search_results
         
         start = time.time()
 

@@ -1,0 +1,2555 @@
+{
+  "id_": "aws::a663f122:e904:a38907dd",
+  "embedding": [
+    0.011528015,
+    0.0046310425,
+    0.015617371,
+    0.033569336,
+    -0.0289917,
+    -0.007209778,
+    0.022857666,
+    -0.04626465,
+    0.027801514,
+    0.020477295,
+    0.0025367737,
+    -0.052947998,
+    0.061279297,
+    -0.04663086,
+    -0.0041885376,
+    0.00090408325,
+    0.017791748,
+    0.06137085,
+    0.07043457,
+    0.012290955,
+    -0.006717682,
+    0.02859497,
+    0.011642456,
+    -0.088256836,
+    0.029266357,
+    -0.00095176697,
+    -0.018829346,
+    0.006046295,
+    0.009162903,
+    -0.015609741,
+    0.02645874,
+    -1.847744e-05,
+    -0.016555786,
+    0.04284668,
+    0.0026893616,
+    -0.014572144,
+    -0.0074920654,
+    0.036834717,
+    0.034332275,
+    -0.0027503967,
+    0.025283813,
+    -0.013961792,
+    -0.0037517548,
+    0.005207062,
+    -0.021484375,
+    -0.009643555,
+    0.024520874,
+    -0.016830444,
+    0.0030727386,
+    0.05355835,
+    -0.018539429,
+    -0.023757935,
+    -0.040222168,
+    0.0473938,
+    -0.014823914,
+    -0.033996582,
+    -0.06903076,
+    -0.016067505,
+    0.016952515,
+    0.104003906,
+    0.042663574,
+    -0.037322998,
+    -0.016189575,
+    -0.07458496,
+    -0.010559082,
+    -0.04574585,
+    -0.002653122,
+    0.030288696,
+    0.073913574,
+    0.005306244,
+    0.0077209473,
+    0.058563232,
+    0.01259613,
+    0.0041275024,
+    0.03427124,
+    -0.07501221,
+    0.0340271,
+    -0.006576538,
+    -0.013252258,
+    0.03829956,
+    0.03970337,
+    0.06298828,
+    0.0025920868,
+    -0.0090408325,
+    0.030044556,
+    0.037109375,
+    -0.017089844,
+    -0.06161499,
+    -0.017181396,
+    0.033996582,
+    -0.017501831,
+    0.024215698,
+    0.014572144,
+    0.019180298,
+    -0.02168274,
+    0.026931763,
+    -0.0010480881,
+    -0.048980713,
+    0.053497314,
+    0.0049057007,
+    0.030303955,
+    -0.06384277,
+    0.0418396,
+    -0.003030777,
+    -0.01727295,
+    -0.01663208,
+    0.0035629272,
+    -0.050964355,
+    -0.011505127,
+    0.015319824,
+    -0.048095703,
+    -0.0074005127,
+    -0.05847168,
+    -0.062347412,
+    -0.023971558,
+    0.06933594,
+    -0.02935791,
+    -0.029678345,
+    0.031677246,
+    0.004173279,
+    -0.038330078,
+    -0.012168884,
+    -0.057922363,
+    0.016998291,
+    0.027160645,
+    -0.0011634827,
+    -0.005142212,
+    0.06726074,
+    0.033721924,
+    -0.039245605,
+    0.014663696,
+    0.030441284,
+    0.0013275146,
+    0.030349731,
+    -0.008628845,
+    0.024047852,
+    -0.036834717,
+    0.015510559,
+    0.040008545,
+    -0.016647339,
+    -0.013000488,
+    -0.027313232,
+    0.0713501,
+    0.014709473,
+    -0.031707764,
+    0.033081055,
+    0.020584106,
+    -0.0042533875,
+    -0.02293396,
+    -0.028930664,
+    -0.02357483,
+    -0.032073975,
+    0.02709961,
+    -0.004463196,
+    -0.021255493,
+    -0.04650879,
+    -0.0011663437,
+    -0.024139404,
+    0.030761719,
+    -0.038513184,
+    0.03161621,
+    -0.029281616,
+    -0.05593872,
+    -0.013320923,
+    -0.07977295,
+    0.04067993,
+    0.028076172,
+    -0.004421234,
+    0.0024318695,
+    0.027923584,
+    0.010696411,
+    0.005558014,
+    -0.06048584,
+    -0.025848389,
+    0.0017242432,
+    -0.02432251,
+    -0.024505615,
+    0.032562256,
+    0.04598999,
+    -0.05331421,
+    -0.0053215027,
+    -0.020523071,
+    0.081848145,
+    0.0113220215,
+    -0.00774765,
+    -0.03930664,
+    0.012252808,
+    -0.024002075,
+    0.025894165,
+    0.015197754,
+    0.012550354,
+    0.005016327,
+    0.042663574,
+    -0.045135498,
+    0.013259888,
+    -0.0390625,
+    -0.020812988,
+    -0.018157959,
+    -0.004798889,
+    0.015281677,
+    0.0063476562,
+    0.02017212,
+    -0.011482239,
+    0.013336182,
+    -0.020599365,
+    -0.017166138,
+    0.011039734,
+    0.008956909,
+    -0.027282715,
+    0.045837402,
+    0.030578613,
+    0.024337769,
+    -0.05078125,
+    0.07470703,
+    0.064697266,
+    0.025512695,
+    -0.030273438,
+    -0.0061912537,
+    -0.0008840561,
+    0.0074386597,
+    -0.0149002075,
+    -0.0031814575,
+    -0.02897644,
+    0.028182983,
+    0.005027771,
+    0.025039673,
+    -0.017608643,
+    0.017288208,
+    0.012763977,
+    0.028289795,
+    0.007575989,
+    -0.010635376,
+    -0.0021190643,
+    0.012001038,
+    -0.037322998,
+    -0.01776123,
+    -0.006713867,
+    -0.015464783,
+    0.023986816,
+    0.041381836,
+    0.025360107,
+    0.005290985,
+    0.0027179718,
+    0.037994385,
+    -0.050964355,
+    -0.078063965,
+    0.0054969788,
+    0.008323669,
+    -0.031585693,
+    0.08087158,
+    0.057800293,
+    0.0579834,
+    -0.03967285,
+    0.07312012,
+    -0.060668945,
+    0.0209198,
+    -0.021011353,
+    -0.015975952,
+    -0.02720642,
+    -0.029647827,
+    0.019943237,
+    -0.08074951,
+    -0.06640625,
+    -0.013259888,
+    0.026535034,
+    0.010223389,
+    0.039001465,
+    0.041168213,
+    -0.00957489,
+    0.0073776245,
+    0.0013189316,
+    -0.011291504,
+    -0.0060424805,
+    0.079833984,
+    -0.0026416779,
+    0.023086548,
+    -0.03466797,
+    -0.015159607,
+    -0.026275635,
+    0.028533936,
+    -0.008621216,
+    0.024002075,
+    0.0029392242,
+    -0.029464722,
+    0.027526855,
+    0.059173584,
+    -0.00057029724,
+    -0.045837402,
+    0.013557434,
+    0.047790527,
+    0.048431396,
+    0.03765869,
+    0.0058937073,
+    0.040496826,
+    -0.059265137,
+    0.017929077,
+    0.0032081604,
+    0.03286743,
+    -0.013366699,
+    0.022125244,
+    0.0181427,
+    0.048339844,
+    0.016281128,
+    -0.014320374,
+    0.008155823,
+    0.014953613,
+    0.02482605,
+    -0.0070762634,
+    0.0044898987,
+    0.011627197,
+    -0.018814087,
+    0.024597168,
+    0.026275635,
+    0.016662598,
+    0.02470398,
+    -0.0064468384,
+    0.02796936,
+    0.016525269,
+    0.020889282,
+    0.027145386,
+    -0.058624268,
+    -0.013153076,
+    -0.042236328,
+    0.010734558,
+    -0.008110046,
+    0.02909851,
+    0.0052719116,
+    0.003118515,
+    -0.039367676,
+    -0.016937256,
+    -0.0178833,
+    -0.04449463,
+    -0.039154053,
+    0.071899414,
+    0.01285553,
+    0.0463562,
+    0.0076828003,
+    0.039154053,
+    -0.0075912476,
+    -0.03338623,
+    -0.010314941,
+    -0.02859497,
+    -0.019104004,
+    -0.027420044,
+    -0.019439697,
+    0.017166138,
+    0.038269043,
+    0.013038635,
+    -0.03781128,
+    0.01739502,
+    -0.00040340424,
+    -0.032196045,
+    -0.0013360977,
+    -0.033569336,
+    0.052490234,
+    -0.038848877,
+    -0.041046143,
+    -0.010475159,
+    0.021759033,
+    -0.04815674,
+    0.03515625,
+    0.020248413,
+    0.013053894,
+    -0.052886963,
+    -0.034210205,
+    -0.011810303,
+    -0.0020446777,
+    -0.003358841,
+    0.021636963,
+    0.033813477,
+    -0.00072956085,
+    0.033477783,
+    -0.02368164,
+    -0.02923584,
+    -0.011894226,
+    -0.016082764,
+    0.018798828,
+    -0.03010559,
+    0.04510498,
+    0.010009766,
+    0.00705719,
+    -0.023208618,
+    0.0597229,
+    -0.019836426,
+    0.015960693,
+    -0.00058460236,
+    0.02519226,
+    0.0022640228,
+    0.037384033,
+    0.0018424988,
+    0.027130127,
+    0.011390686,
+    -0.014884949,
+    -0.03793335,
+    -0.021331787,
+    0.009407043,
+    0.027618408,
+    0.007911682,
+    0.021697998,
+    -0.031555176,
+    -0.09942627,
+    0.0075683594,
+    0.00434494,
+    -0.03768921,
+    0.0010414124,
+    -0.05218506,
+    -0.0524292,
+    -0.044677734,
+    0.030319214,
+    0.0046653748,
+    -0.0079574585,
+    0.0027675629,
+    -0.019424438,
+    -0.008781433,
+    -0.016860962,
+    -0.010231018,
+    -0.049224854,
+    -0.016571045,
+    -0.020812988,
+    0.052490234,
+    0.0026607513,
+    0.018356323,
+    -0.033233643,
+    0.029556274,
+    0.0026054382,
+    0.0036945343,
+    0.00022053719,
+    -0.015396118,
+    0.028945923,
+    0.033111572,
+    -0.01763916,
+    0.0070762634,
+    0.0016975403,
+    0.018997192,
+    5.9187412e-05,
+    0.019088745,
+    -0.019058228,
+    -0.038513184,
+    0.031921387,
+    -0.044525146,
+    -0.03656006,
+    -0.0005979538,
+    -0.005657196,
+    0.008270264,
+    0.008628845,
+    -0.030059814,
+    -0.0028209686,
+    -0.027923584,
+    -0.0019683838,
+    -0.016220093,
+    0.027175903,
+    -0.0082092285,
+    0.045776367,
+    0.02670288,
+    0.0070228577,
+    0.07409668,
+    -0.008407593,
+    0.005130768,
+    0.021942139,
+    0.007461548,
+    0.0038928986,
+    0.0067214966,
+    -0.0541687,
+    -0.020980835,
+    -0.017532349,
+    0.0024662018,
+    -0.025604248,
+    0.017944336,
+    -0.0014600754,
+    -0.014808655,
+    0.013458252,
+    0.0385437,
+    -0.010574341,
+    -0.031402588,
+    0.018630981,
+    -0.009025574,
+    0.022888184,
+    -0.023864746,
+    0.042053223,
+    -0.014892578,
+    -0.030151367,
+    0.009986877,
+    0.013938904,
+    0.03930664,
+    0.033050537,
+    0.0032863617,
+    0.019622803,
+    0.029876709,
+    -0.016693115,
+    0.026306152,
+    0.0031318665,
+    -0.008865356,
+    0.012519836,
+    -0.00078868866,
+    -0.044006348,
+    0.0231781,
+    0.018005371,
+    -0.031677246,
+    -0.011177063,
+    -0.029159546,
+    -0.070739746,
+    0.01737976,
+    0.023330688,
+    -0.0008773804,
+    -0.0043182373,
+    0.031036377,
+    0.00018131733,
+    -0.017547607,
+    -0.01335907,
+    -0.008995056,
+    -0.03967285,
+    -0.049743652,
+    0.035583496,
+    0.043518066,
+    -0.034240723,
+    0.03186035,
+    0.00019407272,
+    0.03591919,
+    -0.013465881,
+    -0.024047852,
+    -0.033081055,
+    -0.022521973,
+    0.02720642,
+    0.048461914,
+    -0.042755127,
+    0.0016326904,
+    0.011444092,
+    0.022766113,
+    -0.017425537,
+    0.0099105835,
+    0.013290405,
+    -0.03152466,
+    0.01889038,
+    -0.005756378,
+    0.043426514,
+    0.039794922,
+    -0.026809692,
+    0.06036377,
+    -0.0065231323,
+    -0.060424805,
+    -0.043060303,
+    0.0087509155,
+    0.048736572,
+    -0.0155181885,
+    0.003255844,
+    -0.026275635,
+    -0.024246216,
+    -0.012489319,
+    -0.00022947788,
+    -0.026397705,
+    0.0005707741,
+    0.004989624,
+    0.026367188,
+    0.0045204163,
+    -0.010650635,
+    -0.018493652,
+    -0.023849487,
+    -0.017303467,
+    0.013404846,
+    0.07220459,
+    -0.048583984,
+    -0.05456543,
+    -0.030517578,
+    0.071899414,
+    -0.05090332,
+    0.032318115,
+    -0.005241394,
+    -0.0049972534,
+    0.008926392,
+    -0.024536133,
+    0.0058517456,
+    -0.021209717,
+    0.09875488,
+    0.008766174,
+    0.016342163,
+    -0.029647827,
+    -0.010894775,
+    0.011566162,
+    0.014831543,
+    0.045440674,
+    0.031311035,
+    0.05078125,
+    -0.024398804,
+    0.043426514,
+    -0.046203613,
+    0.09106445,
+    0.023376465,
+    0.0713501,
+    -0.013542175,
+    0.021881104,
+    0.00919342,
+    -0.012680054,
+    0.00868988,
+    0.036071777,
+    -0.008987427,
+    -0.013069153,
+    0.013969421,
+    -0.05444336,
+    0.02319336,
+    -0.002046585,
+    -0.0335083,
+    0.0015668869,
+    0.0019779205,
+    -0.0065345764,
+    0.04663086,
+    0.031707764,
+    -0.01448822,
+    0.018234253,
+    0.016036987,
+    0.028167725,
+    -0.010437012,
+    -0.01574707,
+    -0.044158936,
+    0.024810791,
+    -0.019851685,
+    -0.016555786,
+    -0.062194824,
+    0.07366943,
+    0.025146484,
+    -0.006958008,
+    0.013389587,
+    -0.0021533966,
+    0.0069847107,
+    -0.018417358,
+    0.023605347,
+    0.017227173,
+    -0.00248909,
+    0.0131073,
+    -0.02331543,
+    -0.008529663,
+    -0.02458191,
+    -0.015052795,
+    -0.059265137,
+    -0.034698486,
+    -0.034576416,
+    0.02355957,
+    -0.0022449493,
+    -0.0131073,
+    0.0158844,
+    -0.008140564,
+    -0.0060539246,
+    0.010574341,
+    -0.056243896,
+    0.028381348,
+    -0.0035858154,
+    6.455183e-05,
+    0.0041046143,
+    -0.04574585,
+    0.013328552,
+    -0.016921997,
+    0.013160706,
+    -0.013328552,
+    -0.004383087,
+    -0.03881836,
+    0.020263672,
+    -0.012557983,
+    -0.04812622,
+    -0.025909424,
+    0.029449463,
+    -0.051879883,
+    -0.076416016,
+    0.018569946,
+    0.00459671,
+    -0.007095337,
+    -0.045166016,
+    0.043548584,
+    0.045288086,
+    -0.010681152,
+    0.041625977,
+    -0.07611084,
+    -0.01210022,
+    0.014961243,
+    -0.07684326,
+    -0.04714966,
+    0.018615723,
+    0.03878784,
+    -0.015991211,
+    0.050811768,
+    0.026977539,
+    -0.06201172,
+    0.020858765,
+    0.03866577,
+    0.057739258,
+    -0.03250122,
+    -0.026931763,
+    0.0284729,
+    -0.037902832,
+    -0.00831604,
+    0.0009121895,
+    -0.022216797,
+    -0.0011949539,
+    0.049865723,
+    -0.026382446,
+    -0.0012350082,
+    0.0064735413,
+    -0.0121536255,
+    -0.0128479,
+    -0.016937256,
+    -0.010002136,
+    -0.024032593,
+    -0.014266968,
+    -0.00856781,
+    0.025863647,
+    0.0065574646,
+    -0.021774292,
+    0.034698486,
+    -0.022445679,
+    0.049865723,
+    0.00017499924,
+    0.012535095,
+    0.05883789,
+    -0.008171082,
+    -0.005882263,
+    -0.027816772,
+    0.035949707,
+    0.01638794,
+    0.0927124,
+    0.0491333,
+    0.02281189,
+    -0.03805542,
+    -0.0075531006,
+    -0.006767273,
+    -0.00623703,
+    -0.04006958,
+    -0.0012407303,
+    -0.03289795,
+    -0.017456055,
+    0.023284912,
+    -0.019454956,
+    -0.041259766,
+    -0.0027713776,
+    -0.025009155,
+    -0.009567261,
+    -0.0050849915,
+    -0.013458252,
+    -0.00712204,
+    0.0015878677,
+    -0.002614975,
+    -0.039916992,
+    0.020568848,
+    -0.023452759,
+    0.00060129166,
+    0.020965576,
+    -0.0033893585,
+    -0.030715942,
+    -0.0061531067,
+    0.01626587,
+    -0.08282471,
+    -0.034423828,
+    -0.025802612,
+    0.01890564,
+    -0.04663086,
+    -0.11450195,
+    0.027786255,
+    0.04019165,
+    0.059417725,
+    0.021484375,
+    0.030807495,
+    -0.09387207,
+    0.02859497,
+    -0.049560547,
+    -0.016448975,
+    -0.012687683,
+    0.044677734,
+    -0.014434814,
+    0.03982544,
+    -0.021697998,
+    -0.02557373,
+    -0.007331848,
+    -0.0023670197,
+    -0.001543045,
+    -0.01675415,
+    0.0062942505,
+    0.020111084,
+    0.021530151,
+    0.026550293,
+    -0.0012950897,
+    0.017715454,
+    0.011917114,
+    0.014579773,
+    -0.046173096,
+    0.07727051,
+    -0.047973633,
+    -0.0004632473,
+    -0.033416748,
+    0.048034668,
+    -0.06335449,
+    0.07086182,
+    -0.072265625,
+    -0.054748535,
+    -0.047210693,
+    0.04849243,
+    0.058044434,
+    -0.019470215,
+    -0.022033691,
+    -0.024276733,
+    0.021591187,
+    0.016311646,
+    -0.029266357,
+    -0.01486969,
+    -0.029953003,
+    -0.032836914,
+    -0.0038871765,
+    0.0058174133,
+    -0.0008921623,
+    -0.009681702,
+    0.024795532,
+    -0.0035591125,
+    0.022506714,
+    0.0061531067,
+    0.01234436,
+    -0.011238098,
+    -0.0019330978,
+    -0.010482788,
+    -0.009506226,
+    0.032348633,
+    -0.0075149536,
+    -0.018829346,
+    0.020584106,
+    0.0015115738,
+    -0.017974854,
+    0.021942139,
+    0.0126571655,
+    -0.00067043304,
+    -0.03186035,
+    -0.03942871,
+    0.009086609,
+    0.009056091,
+    0.019058228,
+    -0.0014181137,
+    -0.0152282715,
+    -0.027999878,
+    0.04260254,
+    0.036132812,
+    0.04486084,
+    0.0068511963,
+    0.017486572,
+    -0.030929565,
+    0.009857178,
+    0.017822266,
+    -0.014907837,
+    -0.023544312,
+    0.034210205,
+    0.0053710938,
+    -0.024719238,
+    0.044403076,
+    0.013626099,
+    -0.0115737915,
+    0.022338867,
+    0.09118652,
+    0.024932861,
+    0.010375977,
+    0.054138184,
+    0.0055656433,
+    -0.012931824,
+    -0.00844574,
+    0.029449463,
+    -0.0052223206,
+    0.015487671,
+    0.07330322,
+    0.029876709,
+    0.010925293,
+    0.025802612,
+    -0.0007300377,
+    -0.013717651,
+    -0.04095459,
+    -0.013664246,
+    0.010665894,
+    -0.0034713745,
+    -0.00157547,
+    0.01939392,
+    -0.058746338,
+    -0.004917145,
+    -0.052703857,
+    -0.007904053,
+    -0.05154419,
+    0.038757324,
+    -0.06976318,
+    -0.016723633,
+    0.0093307495,
+    -0.032073975,
+    -0.0007958412,
+    0.008514404,
+    -0.014274597,
+    0.0012617111,
+    -0.015525818,
+    -0.011634827,
+    0.035491943,
+    0.019805908,
+    -0.009246826,
+    -0.0075912476,
+    -0.016067505,
+    -0.0070877075,
+    0.017669678,
+    -0.02104187,
+    0.031829834,
+    0.00299263,
+    -0.021392822,
+    -0.05331421,
+    0.04360962,
+    -0.022415161,
+    -0.048858643,
+    0.006755829,
+    -0.056243896,
+    0.057800293,
+    -0.00573349,
+    0.008857727,
+    -0.02381897,
+    0.028381348,
+    0.012794495,
+    0.012077332,
+    0.06896973,
+    -0.02017212,
+    -0.018981934,
+    0.0043258667,
+    0.022125244,
+    -0.02079773,
+    -0.019500732,
+    0.02848816,
+    -0.006668091,
+    -0.03363037,
+    -0.034301758,
+    -0.0020427704,
+    0.037261963,
+    0.028030396,
+    0.012001038,
+    0.015655518,
+    -0.08319092,
+    -0.038391113,
+    -0.0052375793,
+    -0.020828247,
+    -0.0184021,
+    0.041107178,
+    -0.03062439,
+    0.0435791,
+    0.0008234978,
+    0.030715942,
+    -0.0473938,
+    -0.04333496,
+    0.005924225,
+    0.0041160583,
+    -0.0013465881,
+    0.0028438568,
+    0.04901123,
+    -0.0012865067,
+    0.0014629364,
+    -0.002035141,
+    0.006439209,
+    -0.03237915,
+    0.037506104,
+    0.02418518,
+    -0.009895325,
+    0.012237549,
+    -0.004463196,
+    -0.010108948,
+    0.0057296753,
+    -0.053222656,
+    -0.060180664,
+    -0.01864624,
+    0.004711151,
+    0.004283905,
+    0.005241394,
+    0.04837036,
+    0.04019165,
+    -0.04019165,
+    0.00497818,
+    -0.021591187,
+    -0.048309326,
+    -0.006137848,
+    0.02848816,
+    0.010215759,
+    -0.0034751892,
+    -0.011497498,
+    -0.0049057007,
+    -0.010864258,
+    -0.07159424,
+    -0.0043754578,
+    0.025436401,
+    0.014411926,
+    -0.014785767,
+    -0.0014467239,
+    0.021194458,
+    -0.02255249,
+    -0.026397705,
+    -0.030578613,
+    0.007610321,
+    -0.023483276,
+    -0.02128601,
+    -0.0015611649,
+    0.027267456,
+    -0.02279663,
+    0.03277588,
+    0.02532959,
+    -0.0061798096,
+    -0.043762207,
+    0.030670166,
+    -0.014152527,
+    0.026901245,
+    -0.02684021,
+    -0.020233154,
+    -0.0054893494,
+    -0.011634827,
+    0.009162903,
+    -0.012519836,
+    -0.008529663,
+    0.0011062622,
+    -0.0096588135,
+    0.028930664,
+    -0.031036377,
+    0.027420044,
+    -0.05859375,
+    0.0463562,
+    0.021759033,
+    0.0033416748,
+    0.015914917,
+    0.03302002,
+    0.020004272,
+    0.018554688,
+    -0.005153656,
+    0.03741455,
+    -0.019882202,
+    -0.018218994,
+    -0.02168274,
+    -0.022476196
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+    "file_name": "90419.md",
+    "file_size": 25711,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Umbra Cusinetti Examination of Rudder Gust Lock Actuator",
+      "Umbra Cusinetti conducted an examination of a rudder gust lock actuator.",
+      "The actuator cover was removed during examination.",
+      "The solenoid/locking system was exposed when the actuator cover was removed.",
+      "The electrical board was moved to the side during examination.",
+      "The electrical board remained connected when moved to the side.",
+      "The cam that operates the microswitch was observed close to the microswitch actuating lever.",
+      "The cam did not operate the microswitch actuating lever.",
+      "The solenoid was not disassembled during examination.",
+      "The solenoid/locking system was observed locked in the extended position.",
+      "The Pin was observed close to the full extended position.",
+      "Measurement of the exact Pin position was prevented by Pin misalignment.",
+      "Pin misalignment was due to distortion of the solenoid plastic reel.",
+      "Functionality of the microswitch was checked during examination.",
+      "The microswitch functionality check yielded positive results.",
+      "The cap was removed during examination.",
+      "The ballscrew moved freely when the cap was removed.",
+      "The cap did not show any signs of interference with closed items.",
+      "Resistance of the three windings were acceptable.",
+      "The motor brushes were not checked during examination.",
+      "The rotor OD showed signs of possible interference with the stator.",
+      "The bearings were found operative during examination.",
+      "The bearings had no axial play.",
+      "The solenoid/locking system was found seized at approximately the full extended position.",
+      "The electronic circuit board within the actuator was examined by Umbra Cusinetti.",
+      "The electronic circuit board examination occurred on October 14, 2015.",
+      "The electronic circuit board examination was conducted in the presence of an Italian ASNV representative.",
+      "Umbra Cusinetti issued a Failure Analysis Report dated November 11, 2015.",
+      "The Failure Analysis Report revealed no evidence of mechanical failure on components and PCB.",
+      "Surface coatings on the circuit board were found damaged.",
+      "Embraer provided comments relative to the Umbra Cusinetti examination.",
+      "Embraer determined that the rudder gust lock actuator dimensional information revealed the bellcrank would be in contact with the rudder quadrant.",
+      "The bellcrank could engage in the slots on the rudder quadrant with the screwshaft in the \"as found\" position."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Umbra Cusinetti Examination of Rudder Gust Lock Actuator",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Umbra Cusinetti",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "rudder gust lock actuator",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "actuator cover",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "solenoid/locking system",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "electrical board",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cam",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "microswitch actuating lever",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "microswitch",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "solenoid",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pin",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ballscrew",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "cap",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "windings",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "motor brushes",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "rotor OD",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "stator",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "bearings",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "electronic circuit board",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Italian ASNV representative",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Failure Analysis Report",
+              "classification": "Document"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "PCB",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "bellcrank",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "rudder quadrant",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "screwshaft",
+              "classification": "Component"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Umbra Cusinetti conducted an examination of a rudder gust lock actuator.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Umbra Cusinetti",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder gust lock actuator",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The actuator cover was removed during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator cover",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed during examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The solenoid/locking system was exposed when the actuator cover was removed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator cover",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "COVERS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid/locking system",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid/locking system",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exposed when cover removed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electrical board was moved to the side during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electrical board",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moved to the side during examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electrical board remained connected when moved to the side.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electrical board",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "remained connected when moved",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cam that operates the microswitch was observed close to the microswitch actuating lever.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cam",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "microswitch",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cam",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "POSITIONED NEAR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "microswitch actuating lever",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cam did not operate the microswitch actuating lever.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cam",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "NOT OPERATING"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "microswitch actuating lever",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The solenoid was not disassembled during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not disassembled during examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The solenoid/locking system was observed locked in the extended position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid/locking system",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "locked in extended position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Pin was observed close to the full extended position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pin",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "close to full extended position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Measurement of the exact Pin position was prevented by Pin misalignment.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pin",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "misalignment",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pin",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MEASUREMENT STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prevented due to misalignment",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pin misalignment was due to distortion of the solenoid plastic reel.",
+              "details": [
+                "solenoid plastic reel CONDITION distorted"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid plastic reel",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid plastic reel",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "distorted",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pin",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MISALIGNMENT CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "distortion of solenoid plastic reel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Functionality of the microswitch was checked during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "microswitch",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "functionality checked during examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The microswitch functionality check yielded positive results.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "microswitch",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "FUNCTIONALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "positive results",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cap was removed during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cap",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removed during examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The ballscrew moved freely when the cap was removed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ballscrew",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "freely when cap removed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cap did not show any signs of interference with closed items.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cap",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no signs of interference with closed items",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Resistance of the three windings were acceptable.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "windings",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "QUANTITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "three",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "windings",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "RESISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "acceptable",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The motor brushes were not checked during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "motor brushes",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not checked during examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The rotor OD showed signs of possible interference with the stator.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rotor OD",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "INTERFERES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "stator",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rotor OD",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "signs of possible interference",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The bearings were found operative during examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bearings",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operative",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The bearings had no axial play.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bearings",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "AXIAL PLAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The solenoid/locking system was found seized at approximately the full extended position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solenoid/locking system",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "seized at approximately full extended position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electronic circuit board within the actuator was examined by Umbra Cusinetti.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Umbra Cusinetti",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic circuit board",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic circuit board",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder gust lock actuator",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electronic circuit board examination occurred on October 14, 2015.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic circuit board",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "October 14, 2015",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electronic circuit board examination was conducted in the presence of an Italian ASNV representative.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Italian ASNV representative",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "WITNESSED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic circuit board examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Umbra Cusinetti issued a Failure Analysis Report dated November 11, 2015.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Umbra Cusinetti",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Failure Analysis Report",
+                    "classification": "Document"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Failure Analysis Report",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 11, 2015",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Failure Analysis Report revealed no evidence of mechanical failure on components and PCB.",
+              "details": [
+                "components MECHANICAL FAILURE no evidence"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Failure Analysis Report",
+                    "classification": "Document"
+                  },
+                  "predicate": {
+                    "value": "REFERENCES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PCB",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "components",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MECHANICAL FAILURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PCB",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MECHANICAL FAILURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Surface coatings on the circuit board were found damaged.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic circuit board",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "SURFACE COATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Embraer provided comments relative to the Umbra Cusinetti examination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "COMMENTED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Umbra Cusinetti examination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Embraer determined that the rudder gust lock actuator dimensional information revealed the bellcrank would be in contact with the rudder quadrant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bellcrank contact with rudder quadrant",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bellcrank",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "CONTACTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder quadrant",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder gust lock actuator",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS DIMENSIONAL INFORMATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "revealed bellcrank contact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The bellcrank could engage in the slots on the rudder quadrant with the screwshaft in the \"as found\" position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bellcrank",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "ENGAGES WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder quadrant",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rudder quadrant",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS FEATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "slots",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "screwshaft",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "\"as found\"",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bellcrank",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "ENGAGEMENT POSSIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could engage in slots with screwshaft in \"as found\" position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::a663f122:e904",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "bfc6677b9ecbf9c8a8b56916090e9e00d927333974d70462562d251fb4439169",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::a663f122:e904:6a66146b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "8a1506f0666607a8716812c26962fdac511e523d6fc2970671bb7d3ad5b891a0",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::a663f122:e904:43ec2016",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "02514e01fef684e83006a43b24047a1954558ec937b8b925eef4254d31d5f14a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Umbra Cusinetti Examination\n\n## Findings\n\n* when the actuator cover was removed the solenoid/locking system was exposed.\n* the electrical board was moved to the side but remained connected.\n* the cam that operates the microswitch was observed closed to the microswitch actuating lever, but did not operate it.\n* the solenoid was not disassembled.\n* the solenoid/locking system was observed locked in the extended position.\n* the Pin position was observed close to the full extended position. Measurement of the exact position was prevented by Pin misalignment due to the distortion of the solenoid plastic reel.\n* functionality of the microswitch was checked, with positive results.\n* when the cap was removed it was observed that the ballscrew moved freely. The cap did not show any signs of interference with closed items.\n* resistance of the three windings were acceptable.\n* the motor brushes were not checked.\n* the rotor OD showed signs of possible interference with the stator.\n* the bearings were found operative with no axial play.\n\n## Conclusion\nThe solenoid/locking system was found seized at approximately the full extended position\n\n## Rudder Gust Lock Circuit Board Examination\nThe electronic circuit board within the actuator was examined by the manufacturer, Umbra Cusinetti, on October 14, 2015, in the presence of an Italian ASNV representative. According to the Umbra Failure Analysis Report, dated November 11, 2015, the results of the examination revealed that no evidence of a mechanical failure on components and PCB. Surface coatings have been found damaged.\n\nAccording to the NTSB Systems Group Chairman's Factual Report, Embraer provided the following comments relative to the Umbra Cusinetti examination:\n\n### Rudder Gust Lock Actuator Position Determination\nEmbraer determined that the rudder gust lock actuator dimensional information gathered during the Umbra Cusinetti examination revealed that with the screwshaft in the \"as found\" position, the bellcrank would be in contact with the rudder quadrant. It could also engage in the slots on the rudder quadrant.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2098,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

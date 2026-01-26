@@ -1,0 +1,28 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me search more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specifically for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Piper PA-30 Twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Comanche information"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system issues"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_6bDPTpFZT9-2tR5c72z1Rw", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Piper"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " PA-30 Tw"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "in Comanche "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fuel sta"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rvation acci"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "dent"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s fuel sy"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "st"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "em design i"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ss"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ues\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 2701, "outputTokens": 96, "totalTokens": 2797}, "metrics": {"latencyMs": 3189}}}

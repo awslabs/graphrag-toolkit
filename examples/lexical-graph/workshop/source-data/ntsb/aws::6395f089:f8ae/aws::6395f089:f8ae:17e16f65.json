@@ -1,0 +1,1980 @@
+{
+  "id_": "aws::6395f089:f8ae:17e16f65",
+  "embedding": [
+    -0.015609741,
+    -0.042236328,
+    0.02229309,
+    -0.039794922,
+    -0.037628174,
+    0.018310547,
+    0.004047394,
+    0.029403687,
+    -0.03567505,
+    0.03475952,
+    -0.0008263588,
+    0.0309906,
+    -0.039031982,
+    -0.01991272,
+    0.0025081635,
+    -0.022659302,
+    -0.024215698,
+    0.06890869,
+    0.025009155,
+    -0.033172607,
+    0.028060913,
+    -0.034301758,
+    -0.047729492,
+    0.023590088,
+    -0.018554688,
+    0.03540039,
+    -0.031982422,
+    -0.0067329407,
+    -0.035583496,
+    -0.015991211,
+    -0.0031223297,
+    0.034698486,
+    0.021743774,
+    9.673834e-05,
+    -0.005794525,
+    -0.028518677,
+    -0.0020523071,
+    -0.011833191,
+    -0.016830444,
+    0.017318726,
+    -0.0026168823,
+    0.018295288,
+    0.06695557,
+    0.00065517426,
+    -0.027572632,
+    -0.03100586,
+    0.045959473,
+    0.010284424,
+    0.042144775,
+    0.04421997,
+    -0.02027893,
+    0.013687134,
+    -0.025375366,
+    0.0063438416,
+    0.004776001,
+    -0.01737976,
+    -0.05444336,
+    0.011520386,
+    -0.015083313,
+    0.06567383,
+    0.034088135,
+    0.04837036,
+    -0.004627228,
+    -0.006980896,
+    -0.03390503,
+    -0.035308838,
+    0.004600525,
+    -0.007461548,
+    0.045288086,
+    0.001168251,
+    0.014015198,
+    0.06060791,
+    0.009025574,
+    0.05117798,
+    -0.021438599,
+    -0.07836914,
+    0.02229309,
+    -0.006843567,
+    -0.0016202927,
+    0.049835205,
+    0.047454834,
+    0.009796143,
+    0.019073486,
+    -0.0048332214,
+    0.022521973,
+    0.04647827,
+    -0.0036945343,
+    -0.037506104,
+    -0.009567261,
+    -0.05899048,
+    -0.012878418,
+    -0.026657104,
+    0.013061523,
+    -0.014007568,
+    -0.048309326,
+    -0.031219482,
+    0.00042319298,
+    -0.07232666,
+    0.010498047,
+    -0.04034424,
+    0.042236328,
+    -0.070007324,
+    -0.0070381165,
+    0.027038574,
+    -0.020111084,
+    0.016647339,
+    0.042297363,
+    -0.054656982,
+    -0.031433105,
+    -0.02079773,
+    -0.05053711,
+    0.023147583,
+    -0.021392822,
+    -0.052368164,
+    -0.0015516281,
+    0.07714844,
+    0.008934021,
+    -0.00028586388,
+    0.007865906,
+    0.029525757,
+    -0.037719727,
+    0.007843018,
+    -0.044677734,
+    -0.022445679,
+    0.068115234,
+    0.004108429,
+    -0.0035934448,
+    0.05545044,
+    0.06384277,
+    0.037384033,
+    -0.0058135986,
+    0.028152466,
+    -0.08135986,
+    -0.105285645,
+    -0.07647705,
+    0.002670288,
+    -0.015731812,
+    0.031707764,
+    -0.016052246,
+    0.025604248,
+    -0.046661377,
+    -0.01424408,
+    0.068115234,
+    -0.022262573,
+    -0.01108551,
+    0.012489319,
+    0.028244019,
+    0.018173218,
+    -0.015625,
+    -0.01776123,
+    -0.003255844,
+    0.0028209686,
+    0.06951904,
+    -0.0074768066,
+    -0.08306885,
+    -0.05697632,
+    0.033721924,
+    -0.054870605,
+    -0.014022827,
+    -0.10192871,
+    0.010948181,
+    -0.029891968,
+    -0.025177002,
+    -0.016143799,
+    -0.042938232,
+    0.034423828,
+    -0.008842468,
+    0.010261536,
+    0.012901306,
+    0.017333984,
+    0.0015211105,
+    -0.011817932,
+    -0.019714355,
+    -0.0026683807,
+    -0.012229919,
+    0.00945282,
+    0.012199402,
+    0.049224854,
+    0.0018081665,
+    0.040802002,
+    0.04324341,
+    -0.015792847,
+    0.068603516,
+    -0.0049438477,
+    0.002040863,
+    -0.0022563934,
+    0.012794495,
+    0.02999878,
+    0.0070343018,
+    0.0154953,
+    -0.016098022,
+    0.0011091232,
+    -0.022232056,
+    -0.012359619,
+    0.017440796,
+    -0.008110046,
+    -0.02368164,
+    -0.016571045,
+    0.0062332153,
+    0.008636475,
+    -0.042785645,
+    0.0541687,
+    -0.014411926,
+    0.027374268,
+    0.0068893433,
+    0.01889038,
+    0.019012451,
+    0.03970337,
+    -0.040618896,
+    -0.0035934448,
+    0.037841797,
+    -0.013626099,
+    -0.023498535,
+    0.039215088,
+    -0.009979248,
+    0.009353638,
+    -0.016479492,
+    -0.0014982224,
+    0.01876831,
+    0.022781372,
+    -0.024139404,
+    0.029342651,
+    -0.035583496,
+    -0.016220093,
+    -0.039733887,
+    -0.021636963,
+    -0.010681152,
+    0.011528015,
+    -0.006767273,
+    0.019577026,
+    0.04196167,
+    -0.044067383,
+    -0.02571106,
+    -0.037139893,
+    -0.05316162,
+    0.029693604,
+    0.012016296,
+    0.089660645,
+    -0.008346558,
+    -0.016021729,
+    -0.02041626,
+    -0.029815674,
+    -0.011695862,
+    0.08178711,
+    -0.08996582,
+    -0.051879883,
+    0.0016527176,
+    0.041534424,
+    -0.0042266846,
+    0.029571533,
+    0.026809692,
+    0.021591187,
+    0.0059432983,
+    0.059143066,
+    0.013252258,
+    0.01689148,
+    -0.044158936,
+    -0.010353088,
+    -0.004108429,
+    -0.004196167,
+    0.020385742,
+    -0.018035889,
+    -0.018966675,
+    0.0011234283,
+    0.010406494,
+    0.028182983,
+    0.018234253,
+    0.023910522,
+    -0.0149002075,
+    0.03857422,
+    -0.00043559074,
+    -0.06744385,
+    0.025421143,
+    0.05645752,
+    -0.07269287,
+    0.08477783,
+    -0.008865356,
+    -0.0093307495,
+    0.018325806,
+    0.03353882,
+    -0.013534546,
+    0.016052246,
+    0.015731812,
+    -0.014472961,
+    0.023254395,
+    -0.05895996,
+    -0.0066719055,
+    -0.04537964,
+    -0.009811401,
+    0.032836914,
+    0.05810547,
+    0.026351929,
+    0.026275635,
+    0.0053863525,
+    -0.026885986,
+    0.020568848,
+    0.07928467,
+    0.0043029785,
+    0.021240234,
+    -0.008407593,
+    0.0019168854,
+    0.03491211,
+    -0.016342163,
+    -0.007827759,
+    -0.0050735474,
+    0.010063171,
+    0.021530151,
+    -0.023742676,
+    -0.013587952,
+    0.02218628,
+    -0.014625549,
+    0.017486572,
+    0.006160736,
+    0.0067367554,
+    0.009605408,
+    -0.004673004,
+    0.013046265,
+    0.010879517,
+    -0.00617218,
+    -0.012031555,
+    -0.00077056885,
+    0.02204895,
+    -0.020507812,
+    0.01928711,
+    0.03262329,
+    -0.020095825,
+    -0.0016851425,
+    -0.011810303,
+    -0.02128601,
+    -0.014923096,
+    -0.0574646,
+    -0.03012085,
+    -0.043182373,
+    0.06994629,
+    -0.0053596497,
+    0.020874023,
+    -0.010437012,
+    0.010192871,
+    -0.032440186,
+    0.0044937134,
+    -0.0029773712,
+    -0.042022705,
+    0.025466919,
+    -0.0256958,
+    -0.062438965,
+    0.0067710876,
+    0.008460999,
+    0.00919342,
+    -0.01235199,
+    -0.023620605,
+    0.048706055,
+    -0.027709961,
+    -0.037506104,
+    -0.021469116,
+    -0.03579712,
+    -0.03729248,
+    0.05154419,
+    -0.007408142,
+    -0.017150879,
+    -0.025436401,
+    -0.04321289,
+    0.03604126,
+    -0.03945923,
+    -0.059570312,
+    -0.020095825,
+    0.00831604,
+    0.011581421,
+    0.005344391,
+    0.013725281,
+    0.037261963,
+    -0.022460938,
+    0.024993896,
+    -0.021530151,
+    -0.020324707,
+    -0.020614624,
+    -0.019012451,
+    0.028381348,
+    -0.04147339,
+    -0.020553589,
+    -0.009262085,
+    -0.016296387,
+    -0.021118164,
+    0.017608643,
+    -0.01965332,
+    -0.0020809174,
+    0.01335907,
+    -0.0154800415,
+    0.011222839,
+    0.028015137,
+    -0.0002708435,
+    0.01966858,
+    0.03262329,
+    0.0051651,
+    -0.0035552979,
+    -0.027526855,
+    -0.016586304,
+    0.020111084,
+    0.013786316,
+    -0.02168274,
+    -0.012527466,
+    -0.08618164,
+    0.0017499924,
+    -0.010498047,
+    -0.037322998,
+    -0.0020828247,
+    -0.06866455,
+    -0.025863647,
+    -0.05517578,
+    0.036987305,
+    0.06347656,
+    -0.02368164,
+    0.033203125,
+    -0.027786255,
+    0.033569336,
+    -0.026931763,
+    0.036499023,
+    -0.040100098,
+    -0.011016846,
+    -0.012664795,
+    0.036621094,
+    0.044952393,
+    -0.044311523,
+    -0.0015745163,
+    0.041809082,
+    0.030914307,
+    0.008514404,
+    -0.00038599968,
+    -0.024902344,
+    0.05404663,
+    -0.013130188,
+    -0.025604248,
+    -0.010650635,
+    6.2286854e-05,
+    0.0005531311,
+    -0.031219482,
+    0.00598526,
+    -0.007358551,
+    -0.0009765625,
+    0.03930664,
+    -0.05508423,
+    0.02809143,
+    0.047302246,
+    0.019165039,
+    0.021743774,
+    0.010910034,
+    -0.018737793,
+    0.04626465,
+    0.007972717,
+    0.02368164,
+    -0.031433105,
+    -0.016357422,
+    0.010101318,
+    0.057250977,
+    0.011940002,
+    0.009292603,
+    -0.023788452,
+    0.0057411194,
+    0.036376953,
+    0.027618408,
+    -0.020553589,
+    0.0105896,
+    -0.016326904,
+    -0.060913086,
+    0.020233154,
+    0.024612427,
+    0.0018358231,
+    0.02381897,
+    0.0030460358,
+    0.005744934,
+    0.010383606,
+    0.011795044,
+    -0.032470703,
+    -0.052581787,
+    -0.021438599,
+    0.010551453,
+    -0.010543823,
+    2.7060509e-05,
+    -0.019210815,
+    0.06524658,
+    0.021850586,
+    -0.022247314,
+    0.020965576,
+    0.035247803,
+    0.011672974,
+    0.0033874512,
+    0.023071289,
+    -0.0031108856,
+    0.013473511,
+    -0.021453857,
+    -0.019424438,
+    -0.022964478,
+    -0.0061035156,
+    0.0095825195,
+    -0.004135132,
+    -0.020614624,
+    -0.014152527,
+    -0.011184692,
+    0.02923584,
+    -0.021194458,
+    -0.04034424,
+    -0.023361206,
+    -0.017166138,
+    0.016113281,
+    0.020950317,
+    -0.013160706,
+    0.016113281,
+    -0.006713867,
+    -0.0047073364,
+    0.0061187744,
+    0.008140564,
+    -0.039764404,
+    -0.027374268,
+    0.03515625,
+    0.046783447,
+    -0.042297363,
+    0.06149292,
+    -0.037322998,
+    0.031433105,
+    -0.020767212,
+    -0.016983032,
+    -0.029876709,
+    -0.033599854,
+    0.049438477,
+    0.013053894,
+    -0.024475098,
+    0.0033111572,
+    0.03768921,
+    0.042510986,
+    -0.011489868,
+    -0.0121154785,
+    -0.0033798218,
+    0.024627686,
+    -0.02619934,
+    -0.0056266785,
+    0.031585693,
+    -0.002735138,
+    -0.025375366,
+    0.063964844,
+    -0.050750732,
+    -0.05630493,
+    -0.05996704,
+    -0.039123535,
+    0.051513672,
+    -0.035705566,
+    -0.016235352,
+    -0.013954163,
+    -0.041137695,
+    0.011390686,
+    -0.04135132,
+    -0.0073051453,
+    0.0158844,
+    0.015037537,
+    0.012199402,
+    -0.037475586,
+    -0.044769287,
+    0.034851074,
+    -0.0048942566,
+    -0.005203247,
+    0.0054397583,
+    0.025115967,
+    -0.010879517,
+    -0.023712158,
+    -0.006511688,
+    0.016555786,
+    0.01373291,
+    0.02645874,
+    0.006996155,
+    -0.025238037,
+    0.008491516,
+    -0.028411865,
+    -0.0016937256,
+    -0.02885437,
+    0.084228516,
+    0.0012178421,
+    0.026290894,
+    -0.023986816,
+    0.034606934,
+    0.02267456,
+    0.00078105927,
+    -0.051086426,
+    -0.029693604,
+    0.012031555,
+    0.044921875,
+    0.046569824,
+    -0.049316406,
+    0.03967285,
+    8.636713e-05,
+    -0.009239197,
+    -0.041870117,
+    -0.0048980713,
+    0.029953003,
+    0.010482788,
+    0.002122879,
+    -0.025360107,
+    0.003545761,
+    0.03213501,
+    -0.046966553,
+    -0.040924072,
+    0.0066337585,
+    -0.0016231537,
+    -0.004562378,
+    -0.035217285,
+    -0.006877899,
+    -0.008605957,
+    0.10021973,
+    0.0047721863,
+    -0.0025997162,
+    0.06567383,
+    0.012161255,
+    -0.0021381378,
+    0.01374054,
+    0.012634277,
+    -0.041381836,
+    0.026855469,
+    -0.01675415,
+    -0.014404297,
+    -0.021728516,
+    0.03137207,
+    0.051574707,
+    -0.016403198,
+    0.045959473,
+    0.025619507,
+    0.020690918,
+    0.032684326,
+    0.012687683,
+    -0.0017223358,
+    -0.011260986,
+    0.014228821,
+    -0.013908386,
+    -0.034576416,
+    -0.017120361,
+    -0.026290894,
+    -0.061950684,
+    0.014450073,
+    -0.029327393,
+    -0.01663208,
+    -0.04031372,
+    -0.04425049,
+    0.013839722,
+    -0.042633057,
+    0.004787445,
+    0.039855957,
+    0.016784668,
+    -0.00756073,
+    -0.026138306,
+    -0.022232056,
+    0.0038700104,
+    -0.042541504,
+    -0.015930176,
+    -0.026519775,
+    -0.017150879,
+    0.015670776,
+    -0.0050621033,
+    0.03253174,
+    0.009468079,
+    0.016433716,
+    0.002254486,
+    0.016921997,
+    0.0014266968,
+    -0.033996582,
+    -0.09753418,
+    -0.048461914,
+    -0.013557434,
+    -0.05899048,
+    -0.07348633,
+    -0.019363403,
+    0.06286621,
+    -0.030807495,
+    0.015716553,
+    -0.052734375,
+    -0.04296875,
+    0.03451538,
+    -0.011711121,
+    -0.008056641,
+    0.022384644,
+    -0.018814087,
+    0.016738892,
+    0.01499176,
+    0.0087890625,
+    -0.053710938,
+    -0.008544922,
+    -0.03186035,
+    0.012802124,
+    -0.03152466,
+    -0.00223732,
+    0.011077881,
+    0.022415161,
+    0.013374329,
+    -0.008399963,
+    0.0008997917,
+    -0.008850098,
+    0.009712219,
+    -0.019821167,
+    -0.048706055,
+    -0.015365601,
+    -0.047576904,
+    0.014404297,
+    0.01878357,
+    -0.021728516,
+    -0.029769897,
+    -0.0012140274,
+    0.020385742,
+    0.030700684,
+    0.034484863,
+    -0.01876831,
+    0.018005371,
+    0.024139404,
+    0.02960205,
+    -0.015960693,
+    -0.0056266785,
+    0.0025424957,
+    0.0513916,
+    -0.008010864,
+    -0.025146484,
+    -0.0070381165,
+    0.0012817383,
+    0.06616211,
+    0.036224365,
+    0.022033691,
+    0.013916016,
+    -0.0044174194,
+    0.03427124,
+    -0.016647339,
+    0.0011615753,
+    0.029968262,
+    0.016235352,
+    -0.08972168,
+    0.04055786,
+    -0.035888672,
+    -0.05053711,
+    -0.0003271103,
+    -0.0143585205,
+    -0.005634308,
+    -0.0059547424,
+    -0.029891968,
+    0.013664246,
+    0.0076026917,
+    0.028717041,
+    0.032989502,
+    -0.006351471,
+    -0.047943115,
+    0.0016651154,
+    0.033813477,
+    0.01991272,
+    -0.045288086,
+    -0.03781128,
+    0.0158844,
+    -0.08874512,
+    -0.0151901245,
+    -0.02330017,
+    0.057861328,
+    -0.06021118,
+    -0.085998535,
+    -0.004295349,
+    -0.002204895,
+    0.0019378662,
+    -0.032989502,
+    0.012969971,
+    -0.058929443,
+    0.023223877,
+    -0.0066070557,
+    -0.007133484,
+    -0.0019426346,
+    0.017807007,
+    -0.055908203,
+    -0.015838623,
+    -0.0050239563,
+    -0.016433716,
+    -0.047729492,
+    0.008308411,
+    -0.006881714,
+    -0.01108551,
+    -0.023468018,
+    -0.034088135,
+    0.04534912,
+    0.003791809,
+    0.03048706,
+    -0.03314209,
+    -0.014129639,
+    -0.01008606,
+    0.0014333725,
+    0.002620697,
+    -0.03074646,
+    0.0067825317,
+    -0.00995636,
+    -0.019866943,
+    -0.005290985,
+    0.00869751,
+    -0.0045204163,
+    0.0036678314,
+    0.006538391,
+    0.032714844,
+    -0.008102417,
+    -0.0010795593,
+    0.04168701,
+    0.021972656,
+    -0.035095215,
+    -0.022277832,
+    0.00048184395,
+    -0.026351929,
+    -0.014877319,
+    -0.030288696,
+    -0.0074653625,
+    -0.0008249283,
+    -0.015930176,
+    -0.020843506,
+    -0.007751465,
+    0.038085938,
+    0.044067383,
+    -0.029876709,
+    0.026855469,
+    -0.025024414,
+    0.033569336,
+    0.008392334,
+    0.00712204,
+    0.051483154,
+    -0.07501221,
+    -0.032714844,
+    -0.01424408,
+    -0.024108887,
+    0.022583008,
+    0.047729492,
+    0.034423828,
+    -0.014816284,
+    0.060699463,
+    0.032196045,
+    -0.02835083,
+    -0.018936157,
+    -0.00043654442,
+    -0.008674622,
+    0.06695557,
+    0.03704834,
+    -0.003698349,
+    -0.0026245117,
+    -0.0009584427,
+    0.034118652,
+    0.033843994,
+    0.048919678,
+    -0.004310608,
+    0.033569336,
+    0.001531601,
+    0.013206482,
+    -0.007221222,
+    -0.0019197464,
+    -0.03552246,
+    0.018035889,
+    0.041046143,
+    -0.0042266846,
+    0.027557373,
+    0.04925537,
+    0.030288696,
+    0.0006504059,
+    0.052124023,
+    -0.045074463,
+    0.0019273758,
+    -0.02154541,
+    0.004096985,
+    -0.0019025803,
+    0.008773804,
+    0.061157227,
+    0.004016876,
+    0.032684326,
+    0.032104492,
+    0.013923645,
+    -0.024749756,
+    0.019882202,
+    -0.04324341,
+    0.015586853,
+    0.027389526,
+    0.021652222,
+    0.021469116,
+    0.008384705,
+    -0.08355713,
+    -0.0009417534,
+    -0.016326904,
+    0.0063438416,
+    -0.0131073,
+    0.11352539,
+    -0.028015137,
+    0.030349731,
+    -0.030471802,
+    -0.005630493,
+    0.027450562,
+    0.0031738281,
+    0.021774292,
+    -0.048339844,
+    -0.011116028,
+    0.054504395,
+    0.029815674,
+    0.030303955,
+    0.013145447,
+    0.0007176399,
+    0.012611389,
+    0.04660034,
+    0.07165527,
+    0.0541687,
+    0.017730713,
+    -0.006000519,
+    -0.060943604,
+    0.033233643,
+    -0.037872314,
+    -0.059173584,
+    0.05999756,
+    -0.078552246,
+    0.020568848,
+    0.024551392,
+    0.03555298,
+    -0.0748291,
+    0.0034866333,
+    -0.0062713623,
+    -0.009719849,
+    -0.00440979,
+    -0.006614685,
+    -0.0079422,
+    -0.0030288696,
+    0.0395813,
+    0.020767212,
+    0.012794495,
+    0.054626465,
+    -0.030075073,
+    -0.03540039,
+    -0.008430481,
+    0.0046844482,
+    0.02458191,
+    0.033294678,
+    -0.014663696,
+    0.0552063,
+    -0.03390503,
+    -0.010520935,
+    0.041046143,
+    0.043884277,
+    0.0126953125,
+    0.031433105,
+    -0.05996704,
+    0.030670166,
+    -0.01525116,
+    -0.02178955,
+    0.015159607,
+    -0.015274048,
+    0.028137207,
+    -0.004501343,
+    -0.0056495667,
+    0.009651184,
+    0.013061523,
+    0.0066184998,
+    0.029251099,
+    0.018188477,
+    -2.9206276e-05,
+    -0.025054932,
+    0.014251709,
+    0.0064926147,
+    0.004737854,
+    0.03753662,
+    -0.029052734,
+    0.043884277,
+    0.036621094,
+    -0.04196167,
+    0.0035209656,
+    -0.030563354,
+    -0.05697632,
+    -0.013664246,
+    -0.023742676,
+    0.04537964,
+    0.02720642,
+    0.011260986,
+    -0.035186768,
+    -0.009757996,
+    -0.03439331,
+    -0.019454956,
+    -0.0015258789,
+    0.030395508,
+    0.004585266,
+    -0.012527466,
+    -0.020187378,
+    -0.0048828125,
+    -0.012229919,
+    -0.026245117,
+    -0.02470398,
+    0.026809692,
+    -0.06329346,
+    0.0074882507,
+    0.011787415,
+    0.023208618,
+    -0.08868408,
+    0.035980225,
+    -0.028411865,
+    -0.0013713837,
+    0.022598267,
+    -0.052093506,
+    0.005466461,
+    -0.011421204,
+    -0.017578125,
+    0.0017633438,
+    0.0016841888,
+    0.012512207,
+    0.0044174194,
+    0.029800415,
+    0.029525757,
+    0.00983429,
+    -0.0070228577,
+    0.027740479,
+    -0.0049743652,
+    -0.016723633,
+    -0.008895874,
+    0.041900635,
+    -0.0019083023,
+    -0.04522705,
+    0.009727478,
+    -0.0068626404,
+    -0.029571533,
+    -0.0095825195,
+    0.022888184,
+    -0.02998352,
+    0.0076408386,
+    -0.011688232,
+    -0.03704834,
+    0.03567505,
+    0.040618896,
+    0.028656006,
+    0.06488037,
+    -0.017837524,
+    0.009552002,
+    -0.0036411285,
+    -0.031173706
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100118.md",
+    "file_name": "100118.md",
+    "file_size": 9522,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report - Cessna 310 Landing Gear Failure in Tampa",
+      "The accident occurred in Tampa, Florida.",
+      "The accident occurred on August 21, 2019, at 12:35 Local time.",
+      "The aircraft involved was a Cessna 310.",
+      "The defining event was a system/component malfunction/failure (non-power).",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was ERA19LA255.",
+      "The aircraft registration was N2299F.",
+      "The aircraft sustained substantial damage.",
+      "There were no injuries to the sole occupant.",
+      "During the landing approach, the pilot noted that the right main landing gear would not extend into the down and locked position.",
+      "During touchdown, the right main landing gear began to collapse.",
+      "The pilot performed a go-around after the gear began to collapse.",
+      "The pilot climbed to altitude after the go-around.",
+      "The pilot attempted emergency procedures to extend the right main landing gear.",
+      "The pilot attempted g-loading maneuvers to extend the right main landing gear.",
+      "The pilot was unable to extend the right main landing gear into the down and locked position.",
+      "The pilot chose to land with the landing gear retracted.",
+      "Maintenance personnel were unable to extend and lock the right main landing gear during recovery of the airplane.",
+      "Maintenance personnel were able to extend and lock the nose gear into position.",
+      "Maintenance personnel were able to extend and lock the left main landing gear into position.",
+      "The right main landing gear was manually extended and braced.",
+      "The aircraft was towed to the ramp after the right main landing gear was manually extended and braced.",
+      "The pilot/operator reported that the damage to the aircraft was substantial.",
+      "A complete examination of the right main landing gear was not performed.",
+      "The reason for the right main landing gear anomaly could not be determined.",
+      "The National Transportation Safety Board determined the probable cause of this accident to be the failure of the right main landing gear to fully extend and lock."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report - Cessna 310 Landing Gear Failure in Tampa",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Tampa, Florida",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna 310",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N2299F",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ERA19LA255",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Tampa, Florida.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tampa, Florida",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on August 21, 2019, at 1235 Local time.",
+              "details": [
+                "accident DATE August 21, 2019",
+                "accident TIME 12:35 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 21, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "12:35 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Cessna 310.",
+              "details": [
+                "accident INVOLVED Cessna 310"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 310",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was a system/component malfunction/failure (non-power).",
+              "details": [
+                "accident DEFINING EVENT system/component malfunction/failure (non-power)"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "system/component malfunction/failure (non-power)",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was ERA19LA255.",
+              "details": [
+                "accident NUMBER ERA19LA255"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ERA19LA255",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N2299F.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 310",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N2299F",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 310",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no injuries to the sole occupant.",
+              "details": [
+                "accident INJURIES no injuries to the sole occupant"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no injuries to the sole occupant",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the landing approach, the pilot noted that the right main landing gear would not extend into the down and locked position.",
+              "details": [
+                "right main landing gear MALFUNCTION would not extend into the down and locked position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MALFUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "would not extend into the down and locked position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During touchdown, the right main landing gear began to collapse.",
+              "details": [
+                "right main landing gear CONDITION began to collapse during touchdown"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "began to collapse during touchdown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot performed a go-around after the gear began to collapse.",
+              "details": [
+                "pilot ACTION performed a go-around after the gear began to collapse"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "performed a go-around after the gear began to collapse",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot climbed to altitude after the go-around.",
+              "details": [
+                "pilot ACTION climbed to altitude after the go-around"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "climbed to altitude after the go-around",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attempted emergency procedures to extend the right main landing gear.",
+              "details": [
+                "pilot ACTION attempted emergency procedures to extend the right main landing gear"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted emergency procedures to extend the right main landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attempted g-loading maneuvers to extend the right main landing gear.",
+              "details": [
+                "pilot ACTION attempted g-loading maneuvers to extend the right main landing gear"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted g-loading maneuvers to extend the right main landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was unable to extend the right main landing gear into the down and locked position.",
+              "details": [
+                "pilot OUTCOME unable to extend the right main landing gear into the down and locked position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unable to extend the right main landing gear into the down and locked position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot chose to land with the landing gear retracted.",
+              "details": [
+                "pilot DECISION chose to land with the landing gear retracted"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DECISION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "chose to land with the landing gear retracted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Maintenance personnel were unable to extend and lock the right main landing gear during recovery of the airplane.",
+              "details": [
+                "maintenance personnel OUTCOME unable to extend and lock the right main landing gear during recovery"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maintenance personnel",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unable to extend and lock the right main landing gear during recovery",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Maintenance personnel were able to extend and lock the nose gear into position.",
+              "details": [
+                "maintenance personnel OUTCOME able to extend and lock the nose gear into position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maintenance personnel",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "able to extend and lock the nose gear into position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Maintenance personnel were able to extend and lock the left main landing gear into position.",
+              "details": [
+                "maintenance personnel OUTCOME able to extend and lock the left main landing gear into position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maintenance personnel",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "able to extend and lock the left main landing gear into position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right main landing gear was manually extended and braced.",
+              "details": [
+                "right main landing gear ACTION TAKEN manually extended and braced"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manually extended and braced",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was towed to the ramp after the right main landing gear was manually extended and braced.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 310",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "towed to the ramp after the right main landing gear was manually extended and braced",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot/operator reported that the damage to the aircraft was substantial.",
+              "details": [
+                "pilot REPORTED damage to the aircraft was substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage to the aircraft was substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A complete examination of the right main landing gear was not performed.",
+              "details": [
+                "right main landing gear EXAMINATION STATUS complete examination not performed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "complete examination not performed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The reason for the right main landing gear anomaly could not be determined.",
+              "details": [
+                "right main landing gear ANOMALY CAUSE could not be determined"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ANOMALY CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could not be determined",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of this accident to be the failure of the right main landing gear to fully extend and lock.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure of the right main landing gear to fully extend and lock",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::6395f089:f8ae",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100118.md",
+        "file_name": "100118.md",
+        "file_size": 9522,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "21d5dd2a64e9454280e3d7cc27e3ca37b18466fe4f0bd5ed42b79637dafc79d0",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::6395f089:f8ae:f944b281",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100118.md",
+        "file_name": "100118.md",
+        "file_size": 9522,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "c22a321e40c87e543db4545fd8636e17d2c7286abc0a6fa01758b7919a7c7ca2",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nTampa, Florida\n\n## Date & Time: \nAugust 21, 2019, 12:35 Local\n\n## Aircraft:\nCessna 310\n\n## Defining Event:\nSys/Comp malf/fail (non-power)\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nERA19LA255\n\n## Registration:\nN2299F\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nDuring the landing approach, the pilot noted that the right main landing gear would not extend into the down and locked position, and, during touchdown, the gear began to collapse. He performed a go-around, climbed to altitude, and attempted emergency procedures and g-loading maneuvers but was unable to extend the right main landing gear into the down and locked position. Ultimately, the pilot chose to land with the landing gear retracted. During recovery of the airplane from the runway, maintenance personnel were unable to extend and lock the right main landing gear, but they were able to extend and lock the nose and left main landing gears into position. The right main landing gear was manually extended and braced, then towed to the ramp. The pilot/operator of the aircraft reported that the damage to the aircraft was substantial.\n\nA complete examination of the right main landing gear was not performed; therefore, the reason for the right main landing gear anomaly could not be determined.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\nThe failure of the right main landing gear to fully extend and lock for reasons that could not be determined.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1631,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

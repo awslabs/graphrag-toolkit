@@ -11,6 +11,6 @@ Querying supports [metadata filtering](./metadata-filtering.md) and [multi-tenan
 See also:
 
   - [Traversal-Based Search](./traversal-based-search.md)
-  - [Configuring and Tuning Traversal-Based Search](./configuring-and-tuning-traversal-based-search.md)
+  - [Configuring and Tuning Traversal-Based Search](./traversal-based-search-configuration.md)
   - [Metadata Filtering](./metadata-filtering.md)
   - [Multi-Tenancy](./multi-tenancy.md)

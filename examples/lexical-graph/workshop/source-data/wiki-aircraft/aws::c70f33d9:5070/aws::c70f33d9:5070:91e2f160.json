@@ -1,0 +1,2333 @@
+{
+  "id_": "aws::c70f33d9:5070:91e2f160",
+  "embedding": [
+    0.0052986145,
+    0.027893066,
+    0.018203735,
+    -0.018463135,
+    0.017791748,
+    0.026397705,
+    -0.03338623,
+    -0.055725098,
+    -0.018722534,
+    0.016708374,
+    -0.011184692,
+    0.026733398,
+    0.006252289,
+    -0.030426025,
+    0.023498535,
+    -0.009735107,
+    0.016998291,
+    0.010437012,
+    0.040618896,
+    -0.022857666,
+    0.005882263,
+    0.009925842,
+    0.0036506653,
+    -0.0044441223,
+    0.0058784485,
+    -0.0059165955,
+    -0.0104522705,
+    0.014511108,
+    -0.0074005127,
+    -0.017318726,
+    0.01586914,
+    0.02973938,
+    0.02041626,
+    0.009544373,
+    -0.010757446,
+    -0.030975342,
+    -0.005973816,
+    0.007827759,
+    -0.0023174286,
+    -0.010726929,
+    0.02078247,
+    -0.019210815,
+    0.061523438,
+    -0.03466797,
+    0.02619934,
+    0.00970459,
+    0.03250122,
+    -0.046783447,
+    0.02935791,
+    0.062927246,
+    0.005203247,
+    0.027877808,
+    0.010009766,
+    0.013801575,
+    -0.018249512,
+    -0.05218506,
+    -0.02267456,
+    0.00029969215,
+    -0.016479492,
+    0.045074463,
+    0.02520752,
+    0.061462402,
+    -0.0051956177,
+    0.0041389465,
+    -0.011871338,
+    -0.0052719116,
+    0.03338623,
+    0.007423401,
+    0.02456665,
+    -0.010971069,
+    0.0042648315,
+    0.02658081,
+    -0.009773254,
+    0.028808594,
+    -0.0071792603,
+    -0.035186768,
+    0.034973145,
+    0.013206482,
+    -0.026870728,
+    0.045715332,
+    -0.001783371,
+    0.017028809,
+    -0.03555298,
+    -0.008514404,
+    -0.02017212,
+    -0.00166893,
+    -0.034606934,
+    -0.01461792,
+    -0.04257202,
+    0.0027923584,
+    -0.02796936,
+    -0.04663086,
+    -0.012878418,
+    0.017623901,
+    -0.015823364,
+    0.021087646,
+    0.017791748,
+    -0.08404541,
+    0.047943115,
+    -0.04425049,
+    0.06512451,
+    -0.061157227,
+    -0.0357666,
+    0.06222534,
+    -0.0026378632,
+    0.020187378,
+    0.025146484,
+    0.020065308,
+    0.025894165,
+    -0.016601562,
+    -0.00035858154,
+    0.04425049,
+    0.034698486,
+    -0.015541077,
+    -0.023101807,
+    -0.005470276,
+    0.016113281,
+    -0.013671875,
+    -0.005428314,
+    -0.04888916,
+    0.039978027,
+    0.074279785,
+    -0.023605347,
+    -0.024459839,
+    -0.01689148,
+    -0.004508972,
+    0.0058517456,
+    -0.048065186,
+    -0.008621216,
+    -0.011978149,
+    -0.0017108917,
+    0.04309082,
+    -0.04220581,
+    -0.031036377,
+    -0.05291748,
+    0.012863159,
+    -0.02368164,
+    0.02368164,
+    -0.014472961,
+    0.029220581,
+    -0.015945435,
+    -0.045410156,
+    0.04626465,
+    -0.008056641,
+    -0.04562378,
+    0.03387451,
+    0.01499939,
+    0.010803223,
+    -0.033569336,
+    -0.03704834,
+    -0.008384705,
+    -0.029556274,
+    0.028518677,
+    0.024871826,
+    0.034729004,
+    -0.040161133,
+    0.036712646,
+    -0.04574585,
+    0.03225708,
+    -0.041992188,
+    0.0012226105,
+    -0.00554657,
+    -0.014305115,
+    0.013153076,
+    -0.03741455,
+    0.024887085,
+    0.041778564,
+    -0.0055351257,
+    0.016479492,
+    0.020385742,
+    0.025131226,
+    -0.020446777,
+    -0.07385254,
+    0.026306152,
+    0.035858154,
+    0.038330078,
+    -0.05142212,
+    -0.04031372,
+    0.038909912,
+    -0.0020370483,
+    -0.015625,
+    -0.01852417,
+    -0.004501343,
+    0.015945435,
+    -0.03756714,
+    0.016204834,
+    0.0029640198,
+    0.0012207031,
+    0.018798828,
+    -0.016098022,
+    0.05810547,
+    0.018173218,
+    -0.014427185,
+    0.007873535,
+    -0.05645752,
+    -0.015342712,
+    -0.0043182373,
+    0.029724121,
+    -0.042510986,
+    0.021728516,
+    -0.015586853,
+    0.012008667,
+    0.02458191,
+    0.018341064,
+    0.09423828,
+    -0.0035896301,
+    0.03189087,
+    0.014007568,
+    -0.039154053,
+    -0.0040740967,
+    -0.0035171509,
+    -0.06817627,
+    0.022735596,
+    -0.005470276,
+    -0.010681152,
+    -0.01838684,
+    0.0013160706,
+    -0.009735107,
+    -0.0025081635,
+    0.045684814,
+    -0.022262573,
+    0.0028686523,
+    -0.027053833,
+    0.037017822,
+    -0.053497314,
+    0.055511475,
+    -0.07861328,
+    0.050933838,
+    -0.10253906,
+    0.04510498,
+    -0.0038490295,
+    0.022323608,
+    0.019378662,
+    0.050720215,
+    -0.05432129,
+    -0.007873535,
+    -0.042297363,
+    0.034698486,
+    -0.014816284,
+    0.025802612,
+    0.022094727,
+    0.013679504,
+    0.022338867,
+    0.029556274,
+    -0.044189453,
+    -0.06335449,
+    0.027938843,
+    -0.020629883,
+    0.008361816,
+    0.020736694,
+    0.027114868,
+    0.0071029663,
+    0.020492554,
+    0.031585693,
+    0.012062073,
+    0.009170532,
+    -0.017410278,
+    -0.047424316,
+    0.018966675,
+    0.005252838,
+    0.018157959,
+    0.028671265,
+    -0.0046043396,
+    0.010055542,
+    0.087524414,
+    -0.008422852,
+    0.08654785,
+    0.051361084,
+    -0.005531311,
+    -0.015487671,
+    -0.01979065,
+    -0.021148682,
+    -0.0028190613,
+    0.0657959,
+    0.03286743,
+    0.019882202,
+    -0.026855469,
+    -0.03894043,
+    0.019699097,
+    0.02734375,
+    0.009544373,
+    -0.030303955,
+    0.031097412,
+    0.013908386,
+    0.05065918,
+    -0.0032043457,
+    0.03164673,
+    0.037506104,
+    -0.032714844,
+    -0.007972717,
+    0.015930176,
+    0.030181885,
+    0.016174316,
+    -0.011955261,
+    0.020721436,
+    0.0002861023,
+    0.01852417,
+    -0.0057640076,
+    0.022766113,
+    -0.03829956,
+    0.024841309,
+    0.03540039,
+    -0.08404541,
+    0.06304932,
+    0.010093689,
+    0.0057754517,
+    -0.0024795532,
+    0.007583618,
+    0.013458252,
+    0.00064086914,
+    -0.01272583,
+    0.037322998,
+    0.011962891,
+    -0.024414062,
+    0.015670776,
+    0.00064849854,
+    -0.021194458,
+    0.02305603,
+    -0.011383057,
+    0.047973633,
+    -0.011421204,
+    0.010063171,
+    -0.021881104,
+    0.0035114288,
+    0.013633728,
+    0.006126404,
+    -0.026931763,
+    0.007293701,
+    -0.020507812,
+    -0.021377563,
+    -0.036315918,
+    -0.039367676,
+    -0.068237305,
+    0.0096206665,
+    0.0061950684,
+    0.020019531,
+    0.005630493,
+    -0.00025558472,
+    0.0047683716,
+    -0.027893066,
+    0.003627777,
+    0.047821045,
+    -0.0033721924,
+    -0.031204224,
+    -0.052490234,
+    -0.056610107,
+    0.020141602,
+    -0.019226074,
+    0.08850098,
+    -0.009109497,
+    0.030044556,
+    0.038085938,
+    0.057617188,
+    0.026168823,
+    0.053222656,
+    -0.05670166,
+    -0.07800293,
+    0.037628174,
+    0.019989014,
+    -0.016952515,
+    -0.009994507,
+    0.014129639,
+    -0.030761719,
+    -0.0030937195,
+    0.034942627,
+    -0.030395508,
+    -0.012466431,
+    0.002412796,
+    -0.006866455,
+    0.00015258789,
+    0.025360107,
+    -0.0075798035,
+    -0.03955078,
+    0.0036697388,
+    -0.0068588257,
+    -0.0023994446,
+    0.0013866425,
+    -0.03817749,
+    -0.004108429,
+    -0.016967773,
+    -0.022735596,
+    -0.038513184,
+    0.019546509,
+    -0.03451538,
+    -0.08666992,
+    0.059936523,
+    0.0013046265,
+    -0.023956299,
+    0.014694214,
+    -0.02696228,
+    0.039367676,
+    0.064331055,
+    0.0385437,
+    -0.031982422,
+    2.2888184e-05,
+    0.0067977905,
+    -0.0129470825,
+    -0.0018043518,
+    -0.0053977966,
+    -0.008781433,
+    -0.077819824,
+    0.0027770996,
+    -0.032104492,
+    -0.026321411,
+    0.007835388,
+    -0.047943115,
+    -0.025527954,
+    -0.061950684,
+    0.008758545,
+    0.008766174,
+    -0.030578613,
+    0.011619568,
+    -0.021896362,
+    -0.019714355,
+    0.015716553,
+    -0.020828247,
+    -0.040649414,
+    -0.009689331,
+    -0.041931152,
+    0.05480957,
+    0.041870117,
+    -0.054748535,
+    -0.012954712,
+    0.012641907,
+    -0.00095939636,
+    0.009887695,
+    0.01586914,
+    0.0035495758,
+    -0.01083374,
+    0.022964478,
+    0.014434814,
+    -0.017593384,
+    0.004257202,
+    0.0038547516,
+    -0.030334473,
+    0.0259552,
+    0.0038414001,
+    0.017974854,
+    0.043304443,
+    -0.04434204,
+    0.0047721863,
+    -0.017562866,
+    -0.038848877,
+    -0.03186035,
+    -0.02355957,
+    -0.045959473,
+    0.014457703,
+    0.024551392,
+    -0.019714355,
+    0.02255249,
+    -0.008407593,
+    0.026107788,
+    0.034973145,
+    0.024597168,
+    -0.0066184998,
+    -0.017578125,
+    0.026763916,
+    0.02444458,
+    0.015098572,
+    0.012229919,
+    -0.008018494,
+    -0.023849487,
+    -0.0059165955,
+    0.00920105,
+    0.020446777,
+    -0.05117798,
+    -0.0052108765,
+    0.014663696,
+    0.010314941,
+    0.0011777878,
+    -0.01424408,
+    0.094177246,
+    0.014190674,
+    0.019348145,
+    -0.04144287,
+    -0.0033721924,
+    0.02760315,
+    0.0006875992,
+    0.02444458,
+    -0.030822754,
+    -0.0022850037,
+    -0.0041656494,
+    0.037719727,
+    0.048034668,
+    -0.0024528503,
+    0.024291992,
+    0.007041931,
+    0.062347412,
+    0.008850098,
+    0.005847931,
+    0.062408447,
+    -0.0128479,
+    0.01965332,
+    0.0072517395,
+    -0.015991211,
+    -0.037200928,
+    0.02319336,
+    -0.04257202,
+    -0.045562744,
+    -0.043884277,
+    -0.07128906,
+    0.027557373,
+    0.0025100708,
+    0.059783936,
+    -0.024002075,
+    0.0013170242,
+    0.00016784668,
+    0.045715332,
+    0.022033691,
+    -0.038513184,
+    0.019683838,
+    -0.00044345856,
+    -0.004585266,
+    -0.009246826,
+    -0.028381348,
+    -0.046691895,
+    -0.010681152,
+    -0.0029296875,
+    -0.042419434,
+    0.016998291,
+    0.04473877,
+    0.030303955,
+    0.004966736,
+    0.014221191,
+    0.02670288,
+    -0.014335632,
+    -0.0206604,
+    -0.009140015,
+    -0.019226074,
+    0.037841797,
+    0.0011787415,
+    -0.002708435,
+    0.04156494,
+    -0.012588501,
+    0.039245605,
+    -0.010391235,
+    -0.0038757324,
+    0.03567505,
+    0.011932373,
+    -0.05041504,
+    -0.00048446655,
+    0.009033203,
+    0.012466431,
+    -0.036590576,
+    0.008468628,
+    -0.066711426,
+    -0.02330017,
+    -0.061035156,
+    0.025604248,
+    -0.06591797,
+    -0.013282776,
+    -0.002122879,
+    0.0035991669,
+    -0.08325195,
+    -0.056854248,
+    0.016723633,
+    0.03555298,
+    -0.0206604,
+    0.014968872,
+    -0.0107803345,
+    0.0055351257,
+    -0.037078857,
+    -0.015716553,
+    0.03125,
+    0.03366089,
+    0.013168335,
+    -0.022659302,
+    -0.08087158,
+    0.040893555,
+    -0.032196045,
+    -0.029174805,
+    -0.04473877,
+    0.07989502,
+    0.059143066,
+    -0.017791748,
+    -0.01625061,
+    0.032287598,
+    0.03967285,
+    -0.022918701,
+    -0.043029785,
+    -0.030471802,
+    -0.017669678,
+    0.0178833,
+    0.064941406,
+    0.03302002,
+    0.025970459,
+    -0.067993164,
+    0.059570312,
+    -0.013900757,
+    0.036102295,
+    0.009017944,
+    -0.040771484,
+    0.009254456,
+    -0.0113220215,
+    -0.008224487,
+    -0.0030403137,
+    0.03036499,
+    -0.058044434,
+    -0.050689697,
+    0.0030765533,
+    -0.002981186,
+    -0.025924683,
+    -0.0036888123,
+    -0.015914917,
+    0.0993042,
+    -0.01927185,
+    -0.019470215,
+    0.042907715,
+    -0.030136108,
+    -0.0015516281,
+    0.037017822,
+    0.0050849915,
+    0.036102295,
+    -0.03314209,
+    0.03050232,
+    0.012298584,
+    -0.010864258,
+    0.0101623535,
+    0.04736328,
+    -0.008399963,
+    0.04925537,
+    0.046722412,
+    0.037231445,
+    0.06591797,
+    0.005744934,
+    0.05621338,
+    0.009689331,
+    0.0552063,
+    -0.00868988,
+    -0.013206482,
+    0.015655518,
+    -0.03704834,
+    -0.032836914,
+    -0.038635254,
+    -0.014328003,
+    0.048858643,
+    -0.025650024,
+    -0.028137207,
+    -0.03567505,
+    -0.0087509155,
+    0.0073165894,
+    -0.012634277,
+    -0.06060791,
+    0.008880615,
+    0.007850647,
+    0.0031909943,
+    -0.017288208,
+    -0.021636963,
+    0.019607544,
+    0.0070762634,
+    0.010826111,
+    0.0033302307,
+    -0.024795532,
+    -0.06201172,
+    0.028686523,
+    -0.00869751,
+    0.016952515,
+    0.02470398,
+    0.023727417,
+    -0.05380249,
+    -0.040039062,
+    0.038879395,
+    0.0064201355,
+    -0.03591919,
+    -0.025009155,
+    0.018096924,
+    0.053131104,
+    -0.0033493042,
+    0.030273438,
+    -0.083984375,
+    -0.010421753,
+    0.011314392,
+    0.02748108,
+    -0.026977539,
+    -0.015945435,
+    -0.0017976761,
+    0.0044784546,
+    0.015960693,
+    0.009338379,
+    -0.024902344,
+    0.024520874,
+    0.03857422,
+    -0.018707275,
+    0.022735596,
+    -0.031311035,
+    0.054870605,
+    -0.06323242,
+    -0.0047798157,
+    0.022232056,
+    0.041534424,
+    -0.041259766,
+    0.0020275116,
+    0.020904541,
+    -0.00085926056,
+    0.011917114,
+    0.01574707,
+    0.00843811,
+    0.016204834,
+    -0.03845215,
+    -0.028244019,
+    0.0037994385,
+    0.016799927,
+    0.029266357,
+    0.021377563,
+    -0.007949829,
+    0.019088745,
+    0.006095886,
+    -0.0018844604,
+    0.03366089,
+    0.010536194,
+    0.011398315,
+    -0.007926941,
+    0.072509766,
+    -0.012527466,
+    0.025924683,
+    -0.0006637573,
+    0.11462402,
+    0.10003662,
+    0.030776978,
+    -0.04626465,
+    -0.014587402,
+    0.04888916,
+    -0.008422852,
+    -0.061431885,
+    0.014083862,
+    -0.03491211,
+    -0.03137207,
+    -0.0059547424,
+    -0.010070801,
+    0.0053634644,
+    0.04135132,
+    -0.01979065,
+    0.050964355,
+    -0.013931274,
+    -0.038085938,
+    -0.06365967,
+    -0.02229309,
+    -0.0070343018,
+    -0.053344727,
+    0.03213501,
+    0.0053520203,
+    -0.0045433044,
+    0.008735657,
+    0.007926941,
+    0.011001587,
+    0.009887695,
+    0.022979736,
+    0.0021972656,
+    -0.036468506,
+    0.019042969,
+    0.015045166,
+    -0.064453125,
+    -0.024368286,
+    -0.03149414,
+    -0.032928467,
+    -0.05343628,
+    0.0038223267,
+    0.012062073,
+    -0.017562866,
+    -0.01234436,
+    0.0035858154,
+    0.010536194,
+    0.010025024,
+    0.011726379,
+    -0.029663086,
+    0.018127441,
+    0.008743286,
+    -0.0023956299,
+    -0.06500244,
+    -0.0105896,
+    0.00037169456,
+    0.076416016,
+    -0.017028809,
+    -0.020721436,
+    -0.018737793,
+    -0.10662842,
+    0.012237549,
+    -0.0077285767,
+    -0.06689453,
+    -0.0067367554,
+    0.034423828,
+    -0.013946533,
+    -0.02999878,
+    0.010551453,
+    -0.013946533,
+    -0.011428833,
+    0.037353516,
+    -0.009750366,
+    0.022766113,
+    0.016983032,
+    0.048309326,
+    0.024780273,
+    -0.013916016,
+    -0.049743652,
+    -0.02670288,
+    -0.030380249,
+    -0.023895264,
+    -0.027755737,
+    -0.01499939,
+    -0.02394104,
+    -0.0079574585,
+    -0.0021743774,
+    -0.021911621,
+    0.026489258,
+    -0.011512756,
+    0.012512207,
+    0.029266357,
+    0.0026893616,
+    0.008743286,
+    0.05340576,
+    -0.0063934326,
+    -0.024002075,
+    -0.02557373,
+    -0.048828125,
+    0.023971558,
+    -0.005809784,
+    -0.04034424,
+    -0.037597656,
+    0.038208008,
+    0.0044288635,
+    -0.006008148,
+    0.018798828,
+    0.009803772,
+    0.012954712,
+    0.015686035,
+    0.016418457,
+    -0.024856567,
+    0.026275635,
+    -0.0063591003,
+    -0.011245728,
+    0.053100586,
+    -8.010864e-05,
+    -0.008888245,
+    -0.007041931,
+    0.018966675,
+    -0.0015487671,
+    0.015449524,
+    0.00869751,
+    0.012466431,
+    0.010848999,
+    -0.06060791,
+    -0.0027770996,
+    -0.072387695,
+    -0.041931152,
+    -0.026611328,
+    0.0050582886,
+    -0.006664276,
+    0.03390503,
+    0.007827759,
+    0.029785156,
+    0.033233643,
+    -0.029266357,
+    0.07354736,
+    -0.04663086,
+    -0.012084961,
+    -0.087646484,
+    -0.0058403015,
+    -0.011734009,
+    -0.074157715,
+    0.01550293,
+    0.057617188,
+    -0.024871826,
+    0.054534912,
+    -0.016937256,
+    -0.025390625,
+    0.03643799,
+    -0.0062294006,
+    0.002231598,
+    0.04888916,
+    0.023117065,
+    0.01725769,
+    -0.014503479,
+    0.0027313232,
+    -0.019500732,
+    -0.026672363,
+    -0.00064086914,
+    -0.00687027,
+    0.010604858,
+    -0.019058228,
+    0.023117065,
+    -0.0340271,
+    -0.0008869171,
+    0.0101623535,
+    -0.024978638,
+    0.011688232,
+    -0.029815674,
+    -0.032714844,
+    0.019622803,
+    -0.010528564,
+    -0.011856079,
+    -0.040039062,
+    0.00843811,
+    0.022384644,
+    0.00258255,
+    0.046844482,
+    0.044799805,
+    0.008338928,
+    -0.023345947,
+    -0.04333496,
+    0.0418396,
+    -0.008300781,
+    -0.025558472,
+    -0.010360718,
+    -0.05230713,
+    -0.025146484,
+    0.013534546,
+    0.030975342,
+    0.01234436,
+    0.0073242188,
+    -0.021331787,
+    0.02017212,
+    0.0064849854,
+    -0.041290283,
+    -0.03125,
+    0.0023422241,
+    0.017074585,
+    -0.03277588,
+    -0.01687622,
+    0.012016296,
+    0.016708374,
+    -0.044555664,
+    0.034057617,
+    -0.047851562,
+    0.004119873,
+    0.0124053955,
+    -0.008575439,
+    -0.031799316,
+    -0.007980347,
+    -0.03060913,
+    -0.0030059814,
+    -0.006629944,
+    -0.0034713745,
+    0.053619385,
+    -0.0059051514,
+    0.03314209,
+    -0.0062217712,
+    0.0088272095,
+    -0.023712158,
+    -0.016998291,
+    0.03768921,
+    0.0016708374,
+    -0.014678955,
+    -0.019561768,
+    0.014160156,
+    0.0063591003,
+    0.03451538,
+    0.0036964417,
+    -0.0015850067,
+    -0.01096344,
+    0.014381409,
+    0.0073432922,
+    -0.00036239624,
+    0.019195557,
+    -0.0056762695,
+    0.0044937134,
+    0.0625,
+    -0.019012451,
+    -0.058685303,
+    -0.023635864,
+    -0.034088135,
+    -0.013061523,
+    -0.046081543,
+    0.026916504,
+    -0.023895264,
+    -0.038848877,
+    -0.02835083,
+    -0.017242432,
+    -0.013809204,
+    0.057800293,
+    -0.0256958,
+    -0.009407043,
+    0.008163452,
+    -0.035858154,
+    0.016601562,
+    0.0014972687,
+    0.018066406,
+    0.0074691772,
+    0.00484848,
+    -0.032928467,
+    0.010040283,
+    -0.016998291,
+    0.036468506,
+    -0.006084442,
+    0.042633057,
+    0.03479004,
+    -0.015014648,
+    -0.016921997,
+    -0.009384155,
+    -0.0076942444,
+    -0.0054473877,
+    -0.032592773,
+    0.006313324,
+    0.024291992,
+    0.008590698,
+    0.015342712,
+    0.010314941,
+    0.05633545,
+    -0.04135132,
+    0.037597656,
+    -0.005115509,
+    -0.044433594,
+    0.006454468,
+    0.05496216,
+    0.014984131,
+    -0.050323486,
+    -0.024978638,
+    0.03173828,
+    -0.022888184,
+    0.0031967163,
+    -0.0423584,
+    -0.024856567,
+    0.02017212,
+    0.01473999,
+    -0.017089844,
+    0.066101074,
+    -0.039367676,
+    6.3955784e-05,
+    0.02897644,
+    0.03503418,
+    -0.030914307,
+    0.03540039,
+    0.06854248,
+    0.04660034,
+    0.021377563
+  ],
+  "metadata": {
+    "title": "Boeing-Stearman Model 75",
+    "original_title": "Boeing-Stearman Model 75",
+    "wikipedia_id": "969930",
+    "url": "https://en.wikipedia.org/wiki/Boeing-Stearman_Model_75",
+    "header_path": "/Surviving aircraft/",
+    "aws::graph::propositions": [
+      "Boeing-Stearman Model 75 Aircraft in New Zealand",
+      "Boeing-Stearman Model 75 with serial number 75-647 is a PT-17 variant.",
+      "Boeing-Stearman Model 75 with serial number 75-647 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-647 is owned by R. J. S. Jenkins.",
+      "R. J. S. Jenkins is located in Ardmore, Auckland.",
+      "Boeing-Stearman Model 75 with serial number 75-2055 is a PT-17 variant.",
+      "Boeing-Stearman Model 75 with serial number 75-2055 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-2055 is owned by R. B. Mackley.",
+      "R. B. Mackley is located in Milford.",
+      "Boeing-Stearman Model 75 with serial number 75-2100 is a PT-17 variant.",
+      "Boeing-Stearman Model 75 with serial number 75-2100 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-2100 is owned by Classic Aircraft Sales Limited.",
+      "Classic Aircraft Sales Limited is located in Blenheim.",
+      "Boeing-Stearman Model 75 with serial number 75-2724 is a PT-17 variant.",
+      "Boeing-Stearman Model 75 with serial number 75-2724 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-2724 is owned by B. L. Govenlock.",
+      "B. L. Govenlock is located in Hastings.",
+      "Boeing-Stearman Model 75 with serial number 75-3132 is a PT-17 variant.",
+      "Boeing-Stearman Model 75 with serial number 75-3132 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-3132 is owned by the Antonievich Family Trust.",
+      "The Antonievich Family Trust is located in Pukekohe.",
+      "Boeing-Stearman Model 75 with serial number 75-3655 is a PT-17 variant.",
+      "Boeing-Stearman Model 75 with serial number 75-3655 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-3655 is owned by M. P. Cantlon.",
+      "M. P. Cantlon is located in Mount Maunganui.",
+      "Boeing-Stearman Model 75 with serial number 75-4245 is a PT-17 variant.",
+      "Boeing-Stearman Model 75 with serial number 75-4245 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-4245 is owned by the Strome Farm Trust.",
+      "The Strome Farm Trust is located in Drury.",
+      "Boeing-Stearman Model 75 with serial number 75-5064 is a PT-13D variant.",
+      "Boeing-Stearman Model 75 with serial number 75-5064 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-5064 is owned by the Stearman Syndicate.",
+      "The Stearman Syndicate is located in Drury.",
+      "Boeing-Stearman Model 75 with serial number 75-5907 is a PT-13D variant.",
+      "Boeing-Stearman Model 75 with serial number 75-5907 is airworthy.",
+      "Boeing-Stearman Model 75 with serial number 75-5907 is owned by Stearman 03 Limited.",
+      "Stearman 03 Limited is located in Mount Maunganui."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Boeing-Stearman Model 75 Aircraft in New Zealand",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-647",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2055",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2100",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2724",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3132",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3655",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-4245",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5064",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5907",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "R. J. S. Jenkins",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "R. B. Mackley",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Classic Aircraft Sales Limited",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "B. L. Govenlock",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Antonievich Family Trust",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "M. P. Cantlon",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Strome Farm Trust",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Stearman Syndicate",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Stearman 03 Limited",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Ardmore, Auckland",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Milford",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Blenheim",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Hastings",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pukekohe",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Mount Maunganui",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Drury",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-647 is a PT-17 variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-647",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-647 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-647",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-647 is owned by R. J. S. Jenkins.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "R. J. S. Jenkins",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-647",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "R. J. S. Jenkins is located in Ardmore, Auckland.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "R. J. S. Jenkins",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Ardmore, Auckland",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2055 is a PT-17 variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2055",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2055 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2055",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2055 is owned by R. B. Mackley.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "R. B. Mackley",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2055",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "R. B. Mackley is located in Milford.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "R. B. Mackley",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Milford",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2100 is a PT-17 variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2100",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2100 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2100",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2100 is owned by Classic Aircraft Sales Limited.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Classic Aircraft Sales Limited",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2100",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Classic Aircraft Sales Limited is located in Blenheim.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Classic Aircraft Sales Limited",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Blenheim",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2724 is a PT-17 variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2724",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2724 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2724",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-2724 is owned by B. L. Govenlock.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "B. L. Govenlock",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-2724",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "B. L. Govenlock is located in Hastings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "B. L. Govenlock",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hastings",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3132 is a PT-17 variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-3132",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3132 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-3132",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3132 is owned by the Antonievich Family Trust.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Antonievich Family Trust",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-3132",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Antonievich Family Trust is located in Pukekohe.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Antonievich Family Trust",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pukekohe",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3655 is a PT-17 variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-3655",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3655 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-3655",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-3655 is owned by M. P. Cantlon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M. P. Cantlon",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-3655",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "M. P. Cantlon is located in Mount Maunganui.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M. P. Cantlon",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mount Maunganui",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-4245 is a PT-17 variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-4245",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-17",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-4245 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-4245",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-4245 is owned by the Strome Farm Trust.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Strome Farm Trust",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-4245",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Strome Farm Trust is located in Drury.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Strome Farm Trust",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Drury",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5064 is a PT-13D variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-5064",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-13D",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5064 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-5064",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5064 is owned by the Stearman Syndicate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stearman Syndicate",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-5064",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Stearman Syndicate is located in Drury.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stearman Syndicate",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Drury",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5907 is a PT-13D variant.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-5907",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS VARIANT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "PT-13D",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5907 is airworthy.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-5907",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "AIRWORTHINESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airworthy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Boeing-Stearman Model 75 with serial number 75-5907 is owned by Stearman 03 Limited.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stearman 03 Limited",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing-Stearman Model 75 with serial number 75-5907",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Stearman 03 Limited is located in Mount Maunganui.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stearman 03 Limited",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Mount Maunganui",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::c70f33d9:5070",
+      "node_type": "4",
+      "metadata": {
+        "title": "Boeing-Stearman Model 75",
+        "original_title": "Boeing-Stearman Model 75",
+        "wikipedia_id": "969930",
+        "url": "https://en.wikipedia.org/wiki/Boeing-Stearman_Model_75"
+      },
+      "hash": "8f22175886f050eba705cecb9be196c2d0de9dd60e789fd9b6a0ccda88b862c2",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::c70f33d9:5070:91eff05c",
+      "node_type": "1",
+      "metadata": {
+        "title": "Boeing-Stearman Model 75",
+        "original_title": "Boeing-Stearman Model 75",
+        "wikipedia_id": "969930",
+        "url": "https://en.wikipedia.org/wiki/Boeing-Stearman_Model_75",
+        "header_path": "/Surviving aircraft/"
+      },
+      "hash": "533dbde817b13fe7c71e3a34ecfcfac8ac75990ba05c9117fd4f5c8ee3dd2ed0",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::c70f33d9:5070:62a446e8",
+      "node_type": "1",
+      "metadata": {
+        "title": "Boeing-Stearman Model 75",
+        "original_title": "Boeing-Stearman Model 75",
+        "wikipedia_id": "969930",
+        "url": "https://en.wikipedia.org/wiki/Boeing-Stearman_Model_75",
+        "header_path": "/Surviving aircraft/"
+      },
+      "hash": "0552876431daad7d716622e29daf6b52a741ffa7e2a82d9008f263ab585fa332",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "### New Zealand\n75-647 – PT-17 airworthy with R. J. S. Jenkins in Ardmore, Auckland.\n75-2055 – PT-17 airworthy with R. B. Mackley in Milford.\n75-2100 – PT-17 airworthy with Classic Aircraft Sales Limited in Blenheim.\n75-2724 – PT-17 airworthy with B. L. Govenlock in Hastings.\n75-3132 – PT-17 airworthy with the Antonievich Family Trust in Pukekohe.\n75-3655 – PT-17 airworthy with M. P. Cantlon in Mount Maunganui.\n75-4245 – PT-17 airworthy with the Strome Farm Trust in Drury.\n75-5064 – PT-13D airworthy with the Stearman Syndicate in Drury.\n75-5907 – PT-13D airworthy with Stearman 03 Limited in Mount Maunganui.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 614,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

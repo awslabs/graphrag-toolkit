@@ -9,7 +9,7 @@ from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId, TenantIdType, DEFAULT_TENANT_ID, to_tenant_id
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, SourceMetadataFormatter, DefaultSourceMetadataFormatter, MetadataFiltersType
 from graphrag_toolkit.lexical_graph.metadata import to_metadata_filter
-from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, VERSIONING_METADATA_KEYS, VERSION_INDEPENDENT_ID_FIELDS, TIMESTAMP_UPPER_BOUND, TIMESTAMP_LOWER_BOUND
+from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, VALID_FROM, VALID_TO, EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, VERSIONING_METADATA_KEYS, VERSION_INDEPENDENT_ID_FIELDS, TIMESTAMP_LOWER_BOUND, PREV_VERSIONS
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, GraphStoreType
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory, VectorStoreType
 from graphrag_toolkit.lexical_graph.storage.graph import MultiTenantGraphStore
@@ -32,6 +32,7 @@ from graphrag_toolkit.lexical_graph.indexing.build import VersionManager
 from graphrag_toolkit.lexical_graph.indexing.build import Checkpoint
 from graphrag_toolkit.lexical_graph.indexing.build import BuildFilters
 from graphrag_toolkit.lexical_graph.indexing.build.null_builder import NullBuilder
+from graphrag_toolkit.lexical_graph.indexing.build.delete_sources import DeleteSources
 
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
@@ -173,8 +174,11 @@ class IndexingConfig():
             batch_config (Optional[BatchConfig]): Configuration for batch inference
                 operations. If None, batch inference is not used.
         """
-        if chunking is not None and len(chunking) == 0:
-            chunking.append(SentenceSplitter(chunk_size=256, chunk_overlap=25))
+        if chunking is not None:
+            if isinstance(chunking, NodeParser):
+                chunking = [chunking]
+            if isinstance(chunking, list) and  len(chunking) == 0:
+                chunking.append(SentenceSplitter(chunk_size=256, chunk_overlap=25))
 
         self.chunking = chunking  # None = no chunking
         self.extraction = extraction or ExtractionConfig()
@@ -589,46 +593,117 @@ class LexicalGraphIndex():
         sink_fn = sink if not handler else Pipe(handler)
         nodes | extraction_pipeline | build_pipeline | sink_fn
 
+    def get_stats(self) -> Dict[str, Any]:
+
+        stats = {}
+
+        labels = ['Source', 'Chunk', 'Topic', 'Statement', 'Fact', 'Entity']
+
+        for label in labels:
+            cypher = f'MATCH (n:`__{label}__`) RETURN count(n) AS count'
+            results = self.graph_store.execute_query(cypher)
+            stats[label.lower()] = results[0]['count']
+        
+        cypher = """MATCH (t:`__Topic__`)-[r:`__MENTIONED_IN__`]->()
+        WITH t, count(r) AS connectingNumChunks WHERE connectingNumChunks > 1
+        RETURN count(t) AS numTopics, connectingNumChunks ORDER BY connectingNumChunks DESC"""
+
+        results = self.graph_store.execute_query(cypher)
+
+        stats['numChunksPerTopic'] = results
+
+        cypher = """MATCH (f:`__Fact__`)-[r:`__SUPPORTS__`]->()
+        WITH f, count(r) AS connectingNumStatements WHERE connectingNumStatements > 1
+        RETURN count(f) AS numFacts, connectingNumStatements ORDER BY connectingNumStatements DESC"""
+
+        results = self.graph_store.execute_query(cypher)
+
+        stats['numStatementsPerFact'] = results
+
+        localConnectivity = round(sum([i['connectingNumChunks'] * i['numTopics'] for i in stats['numChunksPerTopic']]) / stats['topic'], 5)
+        globalConnectivity = round(sum([i['connectingNumStatements'] * i['numFacts'] for i in stats['numStatementsPerFact']]) / stats['fact'], 5)
+
+        stats['localConnectivity'] = localConnectivity
+        stats['globalConnectivity'] = globalConnectivity
+
+
+        return stats
+
     @overload
-    def get_sources(self, source_id:str=None, order_by:str=None) -> Dict[str, Any]:
+    def get_sources(self, 
+                    source_id:str=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
         ...
     
     @overload
-    def get_sources(self, source_ids:List[str]=[]) -> Dict[str, Any]:
+    def get_sources(self, 
+                    source_ids:List[str]=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
         ...
 
     @overload
-    def get_sources(self, filter:FilterConfig=None) -> Dict[str, Any]:
+    def get_sources(self, 
+                    filter:FilterConfig=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
         ...
 
     @overload
-    def get_sources(self, filter:Dict[str, Any]={}) -> Dict[str, Any]:
+    def get_sources(self, 
+                    filter:Dict[str, Any]=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
         ...
 
     @overload
-    def get_sources(self, filter:List[Dict[str, Any]]=[]) -> Dict[str, Any]:
+    def get_sources(self, 
+                    filter:List[Dict[str, Any]]=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
         ...
 
-    def get_sources(self, source_info=None, order_by=None) -> Dict[str, Any]:
+    def get_sources(self,
+                    source_id:str=None,
+                    source_ids:List[str]=None,
+                    filter:Union[FilterConfig, Dict[str, Any], List[Dict[str, Any]]]=None,
+                    versioning_config:VersioningConfig=None,
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
 
-        where_clause = ''
+        source_where_clause = None
+        metadata_where_clause = None
+        order_by_clause = ''
         parameters = {}
 
-        order_by_clause = f'result.metadata.{order_by},' if order_by else ''
+        if order_by:
+            order_by = [order_by] if isinstance(order_by, str) else order_by
+            order_by_clause = ' '.join([f'result.metadata.{o},' for o in order_by])
+
         order_by_clause = f'ORDER BY {order_by_clause} result.versioning.valid_from ASC'
 
-        if source_info:
+        source_ids = source_id or source_ids
+        
+        if source_ids is not None:
+            source_ids = [source_ids] if isinstance(source_ids, str) else source_ids
+            source_where_clause = f'({self.graph_store.node_id("source.sourceId")} in $sourceIds)'
+            parameters['sourceIds'] = source_ids
 
-            if isinstance(source_info, str):
-                source_info = [source_info]
+        filter = filter or FilterConfig()
+        versioning_config = versioning_config or VersioningConfig()
+        
+        filter_config = to_metadata_filter(filter)
+        filter_config = versioning_config.apply(filter_config)
+        
+        metadata_where_clause = filter_config_to_opencypher_filters(filter_config)
 
-            if isinstance(source_info, list) and isinstance(source_info[0], str):
-                where_clause = f'WHERE {self.graph_store.node_id("source.sourceId")} in $sourceIds'
-                parameters['sourceIds'] = source_info
-            else:
-                source_info = to_metadata_filter(source_info)
-                where_clause =  filter_config_to_opencypher_filters(source_info)
-                where_clause = f'WHERE {where_clause}' if where_clause else ''
+        where_clause = ''
+        if source_where_clause and metadata_where_clause:
+            where_clause = f'WHERE {source_where_clause} AND {metadata_where_clause}'
+        elif source_where_clause:
+            where_clause = f'WHERE {source_where_clause}'
+        elif metadata_where_clause:
+            where_clause = f'WHERE {metadata_where_clause}'
 
         cypher = f'''// get source info from source ids
         MATCH (source:`__Source__`)
@@ -641,7 +716,8 @@ class LexicalGraphIndex():
                 valid_to: coalesce(source.{VALID_TO}, {TIMESTAMP_LOWER_BOUND}),
                 extract_timestamp: coalesce(source.{EXTRACT_TIMESTAMP}, {TIMESTAMP_LOWER_BOUND}),
                 build_timestamp: coalesce(source.{BUILD_TIMESTAMP}, {TIMESTAMP_LOWER_BOUND}),
-                id_fields: split(coalesce(s.{VERSION_INDEPENDENT_ID_FIELDS}, ""), ";")
+                id_fields: split(coalesce(source.{VERSION_INDEPENDENT_ID_FIELDS}, ""), ";"),
+                prev_versions: split(coalesce(source.{PREV_VERSIONS}, ""), ";")
             }}  
         }} AS result {order_by_clause}
         '''
@@ -657,3 +733,53 @@ class LexicalGraphIndex():
             return source
 
         return [reformat(result['result']) for result in results]
+    
+    @overload
+    def delete_sources(self, 
+                    source_id:str=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
+        ...
+    
+    @overload
+    def delete_sources(self, 
+                    source_ids:List[str]=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
+        ...
+
+    @overload
+    def delete_sources(self, 
+                    filter:FilterConfig=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
+        ...
+
+    @overload
+    def delete_sources(self, 
+                    filter:Dict[str, Any]=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
+        ...
+
+    @overload
+    def delete_sources(self, 
+                    filter:List[Dict[str, Any]]=None, 
+                    versioning_config:VersioningConfig=None, 
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
+        ...
+
+    def delete_sources(self,
+                    source_id:str=None,
+                    source_ids:List[str]=None,
+                    filter:Union[FilterConfig, Dict[str, Any], List[Dict[str, Any]]]=None,
+                    versioning_config:VersioningConfig=None,
+                    order_by:Union[str, List[str]]=None) -> List[Dict[str, Any]]:
+        
+        sources = self.get_sources(source_id, source_ids, filter, versioning_config)
+        source_ids = [s['sourceId'] for s in sources]
+
+        delete_sources = DeleteSources(graph_store=self.graph_store, vector_store=self.vector_store)
+
+        return delete_sources.delete_source_documents(source_ids)
+

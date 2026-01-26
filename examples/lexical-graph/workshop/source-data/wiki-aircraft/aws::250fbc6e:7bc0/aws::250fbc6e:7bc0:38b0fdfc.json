@@ -1,0 +1,2679 @@
+{
+  "id_": "aws::250fbc6e:7bc0:38b0fdfc",
+  "embedding": [
+    -0.025375366,
+    0.022521973,
+    -0.05368042,
+    -0.017288208,
+    0.018493652,
+    -0.019515991,
+    -0.021255493,
+    -0.007255554,
+    -0.083618164,
+    0.034423828,
+    0.047790527,
+    0.058502197,
+    -0.009132385,
+    -0.042144775,
+    0.056915283,
+    -0.008583069,
+    0.0395813,
+    -0.0103302,
+    -0.0049095154,
+    -0.017166138,
+    -0.01184845,
+    -0.0107421875,
+    0.006134033,
+    0.08123779,
+    0.010421753,
+    -0.013450623,
+    -0.03842163,
+    0.0035362244,
+    -0.036010742,
+    -0.02960205,
+    -0.0071105957,
+    0.055633545,
+    0.021820068,
+    0.048828125,
+    -0.04446411,
+    0.0262146,
+    0.029815674,
+    -0.00573349,
+    0.00014686584,
+    0.027679443,
+    0.056030273,
+    -0.037902832,
+    0.050964355,
+    -0.06286621,
+    0.04168701,
+    0.0048713684,
+    0.06274414,
+    -0.04434204,
+    0.049621582,
+    -0.012763977,
+    -0.0014533997,
+    0.02041626,
+    -0.015289307,
+    -0.008590698,
+    -0.029144287,
+    -0.012290955,
+    -0.013298035,
+    0.012176514,
+    0.033599854,
+    -0.044433594,
+    -0.026977539,
+    -0.011940002,
+    0.047576904,
+    0.027862549,
+    -0.044433594,
+    0.0042152405,
+    0.026412964,
+    -0.008773804,
+    0.023895264,
+    -0.04345703,
+    -0.020324707,
+    0.043273926,
+    0.012283325,
+    0.035369873,
+    -0.050598145,
+    -0.06201172,
+    0.046875,
+    -0.00056648254,
+    0.009262085,
+    0.011077881,
+    0.025787354,
+    0.0014305115,
+    0.055603027,
+    -0.042236328,
+    0.026885986,
+    -0.0053901672,
+    -0.016311646,
+    -0.007751465,
+    0.030395508,
+    -0.019607544,
+    0.0045318604,
+    -0.05557251,
+    0.011520386,
+    0.07019043,
+    0.009094238,
+    -0.018554688,
+    -0.0154418945,
+    -0.105651855,
+    0.042785645,
+    0.009780884,
+    0.08282471,
+    -0.079711914,
+    0.05996704,
+    0.0047912598,
+    0.013175964,
+    -0.01979065,
+    -0.011856079,
+    -0.0061187744,
+    0.060180664,
+    0.029846191,
+    -0.01876831,
+    0.069885254,
+    0.012916565,
+    -0.0061569214,
+    -0.031951904,
+    0.022277832,
+    0.006843567,
+    -0.023986816,
+    -0.0027999878,
+    -0.007499695,
+    0.024261475,
+    0.020874023,
+    0.015945435,
+    -0.015625,
+    0.0026130676,
+    -0.0026988983,
+    -0.03414917,
+    -0.02482605,
+    -0.016403198,
+    0.03353882,
+    -0.0064964294,
+    0.014770508,
+    -0.034057617,
+    0.0077705383,
+    -0.017486572,
+    -0.02192688,
+    0.01739502,
+    -0.0010528564,
+    -0.018127441,
+    0.012062073,
+    -0.034240723,
+    -0.010467529,
+    0.041229248,
+    -0.028564453,
+    -0.035705566,
+    -0.0036468506,
+    0.015716553,
+    0.022888184,
+    -0.0016670227,
+    -0.037231445,
+    0.019348145,
+    -0.010650635,
+    0.024856567,
+    0.009765625,
+    -0.045318604,
+    0.019470215,
+    0.0019664764,
+    0.0010128021,
+    -0.048431396,
+    -0.038024902,
+    -0.015052795,
+    -0.03741455,
+    -0.01663208,
+    -0.016235352,
+    -0.04788208,
+    0.054626465,
+    -0.005180359,
+    -0.0053863525,
+    0.015533447,
+    0.029418945,
+    0.019348145,
+    0.0024700165,
+    0.009628296,
+    -0.019973755,
+    -0.026824951,
+    -0.028869629,
+    -0.028564453,
+    0.058776855,
+    0.018478394,
+    -0.034576416,
+    -0.02861023,
+    -0.0579834,
+    0.020980835,
+    0.006755829,
+    -0.01637268,
+    -0.038238525,
+    0.016326904,
+    -0.0116119385,
+    0.02659607,
+    0.0015773773,
+    0.047943115,
+    -0.0041503906,
+    -0.0042648315,
+    -0.025009155,
+    -0.022232056,
+    0.0014228821,
+    0.020141602,
+    0.028152466,
+    -0.017730713,
+    0.02381897,
+    -0.08654785,
+    0.03970337,
+    -0.029556274,
+    0.07885742,
+    0.025772095,
+    -0.0045547485,
+    0.0058059692,
+    0.02142334,
+    -0.034484863,
+    0.020339966,
+    0.01184082,
+    -0.03540039,
+    -0.0041389465,
+    -0.012588501,
+    0.010040283,
+    -0.025360107,
+    0.017730713,
+    0.02230835,
+    0.046051025,
+    0.009552002,
+    0.030380249,
+    0.032806396,
+    0.016326904,
+    0.0068969727,
+    -0.0075683594,
+    0.018981934,
+    -0.044189453,
+    -0.00116539,
+    -0.04260254,
+    0.036132812,
+    -0.03665161,
+    0.0073623657,
+    0.041778564,
+    0.038848877,
+    -0.026931763,
+    0.010925293,
+    -0.014595032,
+    -0.019012451,
+    -0.015014648,
+    0.024932861,
+    0.026000977,
+    -0.007095337,
+    -0.0006828308,
+    0.038391113,
+    -0.041534424,
+    -0.062805176,
+    0.009178162,
+    0.007286072,
+    -0.017852783,
+    0.018005371,
+    0.035125732,
+    0.015525818,
+    0.015464783,
+    0.06335449,
+    -0.0054359436,
+    0.0049705505,
+    0.018798828,
+    0.01576233,
+    -0.03213501,
+    0.049926758,
+    -0.007965088,
+    0.052001953,
+    0.005493164,
+    0.018325806,
+    0.03086853,
+    0.035339355,
+    0.063964844,
+    0.051757812,
+    -0.021240234,
+    0.0028152466,
+    -0.007484436,
+    0.02142334,
+    -0.017852783,
+    -0.0032978058,
+    -0.052093506,
+    0.011459351,
+    -0.05291748,
+    0.03338623,
+    -0.008384705,
+    -0.028427124,
+    0.025024414,
+    0.051635742,
+    0.023239136,
+    -0.007247925,
+    0.0065956116,
+    -0.011253357,
+    0.0037002563,
+    0.017852783,
+    -0.01209259,
+    -0.015655518,
+    0.016525269,
+    -0.017959595,
+    -0.044311523,
+    0.02670288,
+    0.01689148,
+    -0.033996582,
+    0.030593872,
+    -0.004837036,
+    0.007797241,
+    -0.004722595,
+    0.032836914,
+    0.058654785,
+    0.029144287,
+    -0.015411377,
+    0.03149414,
+    -0.034576416,
+    0.0032691956,
+    0.037597656,
+    0.035583496,
+    0.014717102,
+    -0.025177002,
+    0.06414795,
+    0.024902344,
+    0.033081055,
+    0.012924194,
+    0.012123108,
+    0.010810852,
+    0.046142578,
+    0.056884766,
+    0.07104492,
+    -0.04309082,
+    -0.021530151,
+    -0.0004711151,
+    -0.0018501282,
+    0.007987976,
+    0.020324707,
+    -0.014259338,
+    0.009651184,
+    0.0284729,
+    -0.03314209,
+    -0.050872803,
+    -0.029907227,
+    -0.057861328,
+    0.0284729,
+    0.0011730194,
+    0.008918762,
+    -0.012397766,
+    0.0077400208,
+    -0.042175293,
+    -0.032562256,
+    -0.036376953,
+    -0.0055732727,
+    0.034332275,
+    -0.01448822,
+    -0.020599365,
+    -0.043060303,
+    0.04296875,
+    -0.0124053955,
+    0.05682373,
+    0.03189087,
+    -0.00066947937,
+    0.012611389,
+    -0.0033721924,
+    0.029037476,
+    -0.022766113,
+    -0.032409668,
+    0.04449463,
+    0.00022888184,
+    -0.07446289,
+    -0.053253174,
+    0.0115737915,
+    0.024932861,
+    -0.034851074,
+    -0.088256836,
+    0.03173828,
+    -0.023468018,
+    -0.031433105,
+    -0.04650879,
+    0.050598145,
+    0.035705566,
+    -0.008041382,
+    0.024154663,
+    -0.03048706,
+    0.005508423,
+    0.02406311,
+    -0.02758789,
+    -0.0105896,
+    -0.029937744,
+    0.012496948,
+    -0.0065460205,
+    0.0038757324,
+    0.0050354004,
+    0.029083252,
+    0.010620117,
+    -0.01360321,
+    0.015220642,
+    -0.026245117,
+    0.03741455,
+    -0.035858154,
+    -0.011131287,
+    -0.010391235,
+    0.055541992,
+    -0.05633545,
+    -0.020401001,
+    0.035491943,
+    0.008071899,
+    0.0014877319,
+    -0.00415802,
+    -0.05215454,
+    -0.04244995,
+    -0.047973633,
+    0.012413025,
+    -0.013671875,
+    -0.010093689,
+    -0.021347046,
+    -0.043029785,
+    -0.020690918,
+    -0.031097412,
+    0.017288208,
+    0.07171631,
+    -0.03567505,
+    0.01158905,
+    -0.049926758,
+    0.029418945,
+    -0.00566864,
+    0.02243042,
+    0.008926392,
+    -0.015533447,
+    0.007575989,
+    0.0066108704,
+    0.044891357,
+    -0.08911133,
+    0.024551392,
+    0.012321472,
+    -0.023529053,
+    -0.03277588,
+    -0.019561768,
+    0.009902954,
+    -0.02670288,
+    0.002632141,
+    -0.03277588,
+    -0.014022827,
+    0.0056991577,
+    -0.015174866,
+    -0.045776367,
+    -0.014282227,
+    -0.011230469,
+    -0.020202637,
+    0.015823364,
+    -0.039154053,
+    0.017562866,
+    -0.045410156,
+    -0.03378296,
+    0.028396606,
+    -0.015274048,
+    -0.0019512177,
+    -0.061279297,
+    0.015136719,
+    0.022277832,
+    -0.004383087,
+    0.028717041,
+    0.0017089844,
+    0.06951904,
+    0.013786316,
+    -0.018203735,
+    0.044403076,
+    0.002029419,
+    0.008239746,
+    0.010971069,
+    -0.023147583,
+    -0.04324341,
+    -0.0057258606,
+    -0.023651123,
+    -0.038391113,
+    -0.017410278,
+    -0.0034179688,
+    0.015388489,
+    0.0074768066,
+    7.247925e-05,
+    -0.0152282715,
+    -0.02130127,
+    0.058166504,
+    -0.02848816,
+    -0.037628174,
+    0.017028809,
+    -0.024810791,
+    0.019042969,
+    -0.0038452148,
+    0.036834717,
+    -0.018737793,
+    -0.03274536,
+    0.021331787,
+    0.013015747,
+    0.0005187988,
+    -0.0026054382,
+    0.010375977,
+    -0.02532959,
+    0.007511139,
+    0.039520264,
+    -0.019821167,
+    -0.012031555,
+    -0.009391785,
+    0.028823853,
+    0.024429321,
+    0.018600464,
+    0.0029182434,
+    0.029418945,
+    -0.048461914,
+    0.027114868,
+    0.008804321,
+    -0.083862305,
+    0.03100586,
+    0.039001465,
+    -0.040771484,
+    0.0118255615,
+    0.0107421875,
+    -0.01777649,
+    0.010421753,
+    0.0007019043,
+    -0.0062713623,
+    -0.033416748,
+    -0.01586914,
+    -0.032592773,
+    -0.013824463,
+    -0.012413025,
+    0.06628418,
+    -0.03869629,
+    -0.0016002655,
+    -0.008239746,
+    -0.022476196,
+    0.010894775,
+    0.006778717,
+    -0.0016202927,
+    0.014381409,
+    0.022109985,
+    0.027191162,
+    -0.041992188,
+    0.010665894,
+    -0.008377075,
+    -0.00020980835,
+    -0.012176514,
+    0.0065231323,
+    0.007080078,
+    0.01399231,
+    -0.004261017,
+    -0.00356102,
+    0.013191223,
+    0.04510498,
+    -0.05429077,
+    -0.082214355,
+    -0.012229919,
+    -0.019104004,
+    0.008453369,
+    -0.08117676,
+    -0.035217285,
+    0.015716553,
+    -0.030181885,
+    0.021697998,
+    0.033447266,
+    -0.045410156,
+    0.012817383,
+    0.028823853,
+    -0.037719727,
+    -0.020004272,
+    -0.04486084,
+    0.024032593,
+    -0.028335571,
+    0.024154663,
+    0.0020446777,
+    0.009994507,
+    -0.017211914,
+    -0.009490967,
+    0.017974854,
+    0.0034980774,
+    0.05355835,
+    0.036590576,
+    -0.028305054,
+    -0.047729492,
+    -0.014526367,
+    -0.013397217,
+    -0.02722168,
+    -0.023452759,
+    0.007255554,
+    -0.009849548,
+    -0.032226562,
+    -0.0104522705,
+    0.03765869,
+    0.023208618,
+    0.001739502,
+    -0.064086914,
+    0.008369446,
+    0.009475708,
+    0.03564453,
+    0.031280518,
+    -0.037902832,
+    -0.036865234,
+    0.0019130707,
+    -0.0418396,
+    -0.05001831,
+    -0.052246094,
+    0.053588867,
+    -0.0007362366,
+    0.0062065125,
+    -0.021499634,
+    -0.012542725,
+    0.030181885,
+    -0.042785645,
+    -0.028869629,
+    0.0057029724,
+    -0.013648987,
+    -0.039611816,
+    -0.03363037,
+    -0.0023059845,
+    -0.03704834,
+    0.057006836,
+    -0.036193848,
+    -0.03527832,
+    -0.05609131,
+    0.045715332,
+    0.015258789,
+    -0.058502197,
+    -0.051086426,
+    -0.026535034,
+    0.05142212,
+    -0.0072250366,
+    -0.010978699,
+    -0.05218506,
+    0.06341553,
+    0.042907715,
+    -0.020309448,
+    0.039916992,
+    0.000872612,
+    0.0109939575,
+    0.003698349,
+    -0.0098724365,
+    -0.020202637,
+    -0.015342712,
+    0.005935669,
+    -0.013587952,
+    -0.019638062,
+    0.008171082,
+    -0.0105896,
+    -0.047027588,
+    -0.0011367798,
+    -0.012886047,
+    0.025924683,
+    -0.027664185,
+    -0.008605957,
+    0.008491516,
+    -0.0009288788,
+    0.009216309,
+    -0.028335571,
+    -0.042816162,
+    0.0019359589,
+    -0.030212402,
+    -0.01663208,
+    -0.009292603,
+    -0.0061950684,
+    -0.0010604858,
+    -0.015396118,
+    -0.02267456,
+    -0.003955841,
+    -0.032562256,
+    -0.012557983,
+    0.023513794,
+    -0.035583496,
+    -0.02798462,
+    0.031341553,
+    -0.004219055,
+    -0.06530762,
+    -0.08856201,
+    -0.030685425,
+    0.06567383,
+    -0.0592041,
+    -0.021453857,
+    -0.019683838,
+    -0.003112793,
+    0.0057907104,
+    -0.021942139,
+    -0.0234375,
+    -0.028121948,
+    -0.014465332,
+    0.018951416,
+    -0.041137695,
+    -0.015655518,
+    -0.0051574707,
+    0.030776978,
+    0.007904053,
+    0.022705078,
+    -0.06427002,
+    0.021514893,
+    -0.027359009,
+    0.012893677,
+    -0.024230957,
+    -0.012741089,
+    0.023147583,
+    -0.06072998,
+    0.003768921,
+    0.02041626,
+    -0.013473511,
+    -0.045532227,
+    -0.040252686,
+    -0.012557983,
+    -0.064819336,
+    0.0395813,
+    -0.0060043335,
+    -0.0077285767,
+    0.038391113,
+    0.04144287,
+    -0.049041748,
+    0.011550903,
+    0.03387451,
+    -0.04220581,
+    0.010696411,
+    -0.0010299683,
+    -0.0026359558,
+    -0.032806396,
+    -0.0018577576,
+    -0.035186768,
+    0.0037078857,
+    -0.021331787,
+    0.03692627,
+    0.0016784668,
+    -0.024536133,
+    0.056793213,
+    0.016448975,
+    0.094177246,
+    0.017089844,
+    -0.006793976,
+    -0.031066895,
+    -0.019821167,
+    0.016494751,
+    -0.022399902,
+    -0.042114258,
+    0.029632568,
+    -0.07318115,
+    -0.04284668,
+    0.0052108765,
+    -0.0055618286,
+    0.011444092,
+    0.0030136108,
+    0.041107178,
+    0.014762878,
+    -0.012680054,
+    0.008926392,
+    -0.060333252,
+    0.043029785,
+    -0.022232056,
+    -0.023422241,
+    0.030883789,
+    -0.00035476685,
+    0.0054244995,
+    0.01676941,
+    -0.0098724365,
+    -0.009880066,
+    -0.008850098,
+    0.011749268,
+    -0.00843811,
+    -0.025939941,
+    -0.026824951,
+    0.032318115,
+    -0.029571533,
+    -0.010421753,
+    0.0070495605,
+    0.029022217,
+    0.007850647,
+    0.0154418945,
+    0.0022335052,
+    -0.028778076,
+    0.004142761,
+    -0.018615723,
+    0.011581421,
+    -0.0010795593,
+    0.004058838,
+    -0.026123047,
+    -0.0035896301,
+    -0.03881836,
+    -0.03010559,
+    -0.038330078,
+    0.007369995,
+    0.0035476685,
+    -0.0057678223,
+    -0.024505615,
+    -0.067871094,
+    0.051208496,
+    0.019546509,
+    0.013298035,
+    -0.042816162,
+    -0.012161255,
+    0.00699234,
+    0.025558472,
+    0.013504028,
+    0.011169434,
+    -0.0017738342,
+    0.01676941,
+    -0.0035266876,
+    0.032714844,
+    -0.039123535,
+    0.015899658,
+    -0.0021572113,
+    0.014816284,
+    0.01449585,
+    0.024719238,
+    -0.030303955,
+    0.032348633,
+    0.025878906,
+    -0.028335571,
+    -0.025421143,
+    -0.039642334,
+    -0.017990112,
+    0.02746582,
+    -0.03552246,
+    0.022842407,
+    0.0112838745,
+    -0.021713257,
+    0.0018749237,
+    -0.02911377,
+    0.070495605,
+    0.029678345,
+    -0.023376465,
+    0.01965332,
+    -0.048706055,
+    0.0463562,
+    0.0034255981,
+    0.050933838,
+    0.04598999,
+    -0.08654785,
+    -0.03942871,
+    0.005756378,
+    -0.034210205,
+    0.044647217,
+    0.045837402,
+    -0.017456055,
+    0.013427734,
+    -0.0045700073,
+    0.003112793,
+    -0.010536194,
+    -0.021835327,
+    0.011154175,
+    -0.01965332,
+    0.0042915344,
+    -0.0073127747,
+    -0.09802246,
+    -0.061828613,
+    -0.03640747,
+    0.045654297,
+    -0.0002822876,
+    -0.013442993,
+    0.036621094,
+    0.03616333,
+    0.00409317,
+    -0.023529053,
+    0.024398804,
+    -0.0011291504,
+    0.020889282,
+    0.023483276,
+    -0.014175415,
+    -0.017944336,
+    -0.03704834,
+    0.06896973,
+    0.015235901,
+    0.0066223145,
+    0.08404541,
+    -0.035949707,
+    -0.012107849,
+    -0.036224365,
+    -0.028427124,
+    -0.018005371,
+    -0.023117065,
+    0.025222778,
+    0.015068054,
+    0.0041160583,
+    0.013839722,
+    -0.014808655,
+    -0.021209717,
+    0.04486084,
+    -0.01537323,
+    0.021484375,
+    0.013244629,
+    0.06866455,
+    0.035949707,
+    -0.020355225,
+    -0.09088135,
+    0.038360596,
+    -0.0023269653,
+    -0.009567261,
+    0.0007376671,
+    0.10028076,
+    0.03543091,
+    -0.05444336,
+    -0.05255127,
+    0.005420685,
+    0.03213501,
+    0.009605408,
+    0.012542725,
+    -0.03842163,
+    -0.012184143,
+    0.014595032,
+    0.019058228,
+    0.0040359497,
+    0.0113220215,
+    -0.049041748,
+    0.01423645,
+    -0.03265381,
+    -0.0137786865,
+    -0.048309326,
+    0.029510498,
+    0.0234375,
+    -0.032470703,
+    -0.009902954,
+    0.004371643,
+    -0.037841797,
+    0.045043945,
+    -0.029037476,
+    -0.024978638,
+    -0.005970001,
+    -0.0021076202,
+    -0.022384644,
+    -0.028427124,
+    -0.039978027,
+    0.020462036,
+    -0.0047836304,
+    0.008010864,
+    0.014312744,
+    -0.031082153,
+    -0.021011353,
+    0.018829346,
+    0.022369385,
+    0.056243896,
+    0.049835205,
+    -0.023986816,
+    -0.0060653687,
+    0.022857666,
+    0.026901245,
+    0.013130188,
+    -0.036254883,
+    0.06506348,
+    -0.010696411,
+    0.029922485,
+    -0.019195557,
+    -0.0020275116,
+    0.004421234,
+    0.009216309,
+    0.024856567,
+    0.033721924,
+    -0.011177063,
+    0.0020599365,
+    -0.009628296,
+    -0.026489258,
+    0.062927246,
+    0.00831604,
+    -0.012809753,
+    -0.02407837,
+    0.0005187988,
+    0.017440796,
+    -0.0050621033,
+    0.058380127,
+    0.0085372925,
+    -0.0126571655,
+    0.0025520325,
+    -0.013305664,
+    -0.009963989,
+    -0.025817871,
+    0.020233154,
+    -0.0026283264,
+    0.022247314,
+    -0.012313843,
+    -0.030654907,
+    0.004890442,
+    -0.05633545,
+    0.0046539307,
+    -0.0059661865,
+    0.046325684,
+    0.016906738,
+    -0.0067443848,
+    -0.02407837,
+    -0.01309967,
+    -0.023254395,
+    0.038330078,
+    0.030044556,
+    0.0054512024,
+    0.021728516,
+    -0.0211792,
+    0.014381409,
+    -0.009628296,
+    -0.032043457,
+    -0.019241333,
+    -0.01007843,
+    -0.029586792,
+    -0.011917114,
+    0.007408142,
+    -0.010620117,
+    -0.008911133,
+    0.03781128,
+    0.012496948,
+    0.0013618469,
+    -0.013145447,
+    -0.016357422,
+    -0.008880615,
+    0.0051994324,
+    -0.034484863,
+    0.0015544891,
+    -0.026763916,
+    0.00082588196,
+    0.00091171265,
+    0.04525757,
+    -0.0058937073,
+    0.045959473,
+    -0.04333496,
+    0.021331787,
+    -0.0637207,
+    0.07330322,
+    0.04107666,
+    0.092041016,
+    -0.061645508,
+    0.054748535,
+    0.072387695,
+    0.03717041,
+    -0.01260376,
+    -0.05291748,
+    -0.043823242,
+    0.023529053,
+    0.027679443,
+    -0.027786255,
+    0.06518555,
+    -0.012924194,
+    0.0335083,
+    0.0061531067,
+    0.024810791,
+    0.03930664,
+    -0.012268066,
+    0.03817749,
+    -0.03048706,
+    -0.008552551
+  ],
+  "metadata": {
+    "title": "Piper PA-18 Super Cub",
+    "original_title": "Piper PA-18 Super Cub",
+    "wikipedia_id": "1562655",
+    "url": "https://en.wikipedia.org/wiki/Piper_PA-18_Super_Cub",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "Piper PA-18 Super Cub Modifications",
+      "Piper PA-18 Super Cub modifications include removal of header tanks.",
+      "Piper PA-18 Super Cub modifications include larger 24 gallon wing fuel tanks.",
+      "Piper PA-18 Super Cub modifications include larger 30 gallon wing fuel tanks.",
+      "Piper PA-18 Super Cub modifications include extended main landing gear for better ground clearance of the propeller.",
+      "Piper PA-18 Super Cub modifications include strengthened tailwheel springs.",
+      "Piper PA-18 Super Cub modifications include addition of a small third passenger seat in the luggage area.",
+      "Piper PA-18 Super Cub modifications include lightweight generators.",
+      "Piper PA-18 Super Cub modifications include lightweight starters.",
+      "Piper PA-18 Super Cub modifications include various different mount areas for the battery.",
+      "Battery repositioning helps move the weight forward.",
+      "Battery repositioning helps reduce tail weight.",
+      "Reduced tail weight shortens takeoff distance.",
+      "Piper PA-18 Super Cub modifications include various vertical stabilizer shapes to increase surface area.",
+      "Piper PA-18 Super Cub modifications include lengthened flaps.",
+      "Piper PA-18 Super Cub modifications include various wingtip designs.",
+      "Piper PA-18 Super Cub modifications include vortex generators on the leading edge of the wings.",
+      "Piper PA-18 Super Cub modifications include movement of the electrical panel from the right wing root to the dashboard.",
+      "Moving the electrical panel to the dashboard reduces fire hazard during a crash.",
+      "Piper PA-18 Super Cub modifications include addition of a constant-speed propeller."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Piper PA-18 Super Cub Modifications",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-18 Super Cub",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "header tanks",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "wing fuel tanks",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main landing gear",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "propeller",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tailwheel springs",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "third passenger seat",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "luggage area",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "generators",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "starters",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "battery",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tail",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "vertical stabilizer",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "flaps",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "wingtip",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "vortex generators",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "wings",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "electrical panel",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "right wing root",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "dashboard",
+              "classification": "Component"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "constant-speed propeller",
+              "classification": "Component"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include removal of header tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "header tanks",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "removal of header tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include larger 24 gallon wing fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing fuel tanks",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing fuel tanks",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "24 gallon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing fuel tanks",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "larger",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "larger 24 gallon wing fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include larger 30 gallon wing fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing fuel tanks",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing fuel tanks",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30 gallon",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wing fuel tanks",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "larger",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "larger 30 gallon wing fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include extended main landing gear for better ground clearance of the propeller.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main landing gear",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main landing gear",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extended",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extended main landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main landing gear",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "better ground clearance of the propeller",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include strengthened tailwheel springs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailwheel springs",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailwheel springs",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strengthened",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strengthened tailwheel springs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include addition of a small third passenger seat in the luggage area.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger seat",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "luggage area",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger seat",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "luggage area",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third passenger seat",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "small",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "addition of a small third passenger seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include lightweight generators.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "generators",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "generators",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lightweight",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lightweight generators",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include lightweight starters.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "starters",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "starters",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lightweight",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lightweight starters",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include various different mount areas for the battery.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "battery",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "various different mount areas for the battery",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Battery repositioning helps move the weight forward.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "battery",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "repositioning",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "battery",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "move the weight forward",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Battery repositioning helps reduce tail weight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "battery",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "repositioning",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "battery",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reduce tail weight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Reduced tail weight shortens takeoff distance.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS ATTRIBUTE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reduced weight",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shortens takeoff distance",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include various vertical stabilizer shapes to increase surface area.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vertical stabilizer",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vertical stabilizer",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "various shapes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vertical stabilizer",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "increase surface area",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "various vertical stabilizer shapes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include lengthened flaps.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flaps",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flaps",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lengthened",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lengthened flaps",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include various wingtip designs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wingtip",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wingtip",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "various designs",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "various wingtip designs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include vortex generators on the leading edge of the wings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vortex generators",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vortex generators",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "LOCATED ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vortex generators",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "leading edge",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vortex generators on the leading edge of the wings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include movement of the electrical panel from the right wing root to the dashboard.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electrical panel",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing root",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dashboard",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electrical panel",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MOVED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing root",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electrical panel",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MOVED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dashboard",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "movement of the electrical panel from the right wing root to the dashboard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Moving the electrical panel to the dashboard reduces fire hazard during a crash.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electrical panel",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "MOVED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dashboard",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electrical panel",
+                    "classification": "Component"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reduces fire hazard during a crash",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piper PA-18 Super Cub modifications include addition of a constant-speed propeller.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS COMPONENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "constant-speed propeller",
+                    "classification": "Component"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18 Super Cub",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "HAS MODIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "addition of a constant-speed propeller",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::250fbc6e:7bc0",
+      "node_type": "4",
+      "metadata": {
+        "title": "Piper PA-18 Super Cub",
+        "original_title": "Piper PA-18 Super Cub",
+        "wikipedia_id": "1562655",
+        "url": "https://en.wikipedia.org/wiki/Piper_PA-18_Super_Cub"
+      },
+      "hash": "3de5a5124ac88fdb3ec8be1be20ac4714391f8f188ff46cecbdcb67d582789ba",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::250fbc6e:7bc0:890e0625",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper PA-18 Super Cub",
+        "original_title": "Piper PA-18 Super Cub",
+        "wikipedia_id": "1562655",
+        "url": "https://en.wikipedia.org/wiki/Piper_PA-18_Super_Cub",
+        "header_path": "/"
+      },
+      "hash": "8dbb0a48506f182b1639e5ecae0abb608616033967bc67d021454cb1bc74976c",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::250fbc6e:7bc0:17c5432b",
+      "node_type": "1",
+      "metadata": {
+        "title": "Piper PA-18 Super Cub",
+        "original_title": "Piper PA-18 Super Cub",
+        "wikipedia_id": "1562655",
+        "url": "https://en.wikipedia.org/wiki/Piper_PA-18_Super_Cub",
+        "header_path": "/"
+      },
+      "hash": "df6d344fb0f6bb7c04831ea6a2c00edc9f8dfd62d1f64136d83e34c95fa5965c",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "Also the removal of header tanks, larger 24 or even 30 gallon wing fuel tanks, extended main landing gear for better ground clearance of the propeller, strengthened tailwheel springs, the addition of a small third passenger seat in the luggage area and lightweight generators and starters. Also various different mount areas for the battery (to move the weight forward, and reduce tail weight to shorten takeoff distance), various vertical stabilizer shapes to increase surface area, lengthened flaps, various wingtip designs, vortex generators on the leading edge of the wings, movement of the electrical panel from the right wing root to the dashboard to reduce fire hazard during a crash, and even the addition of a constant-speed propeller.",
+  "mimetype": "text/plain",
+  "start_char_idx": 2426,
+  "end_char_idx": 3170,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

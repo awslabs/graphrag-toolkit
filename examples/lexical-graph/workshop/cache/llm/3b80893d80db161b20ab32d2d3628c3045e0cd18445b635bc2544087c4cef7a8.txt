@@ -1,0 +1,125 @@
+topic: r8g Family Instance Types Features and Capabilities
+
+  entities:
+  
+    r8g family|Product
+    AWS Graviton4 processors|Product
+    r8g instances|Product
+    r7g instances|Product
+    r8g.large|Product
+    r8g.16xlarge|Product
+    
+  proposition: The r8g family is a family of instance types.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    r8g family|IS_TYPE_OF|family of instance types
+      
+  proposition: The r8g family contains memory-optimized instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|CONTAINS|memory-optimized instance types
+    
+  proposition: The r8g family instance types are powered by AWS Graviton4 processors.
+  
+    entity-entity relationships:
+    r8g family|POWERED_BY|AWS Graviton4 processors
+  
+    entity-attributes:
+    
+  proposition: AWS Graviton4 processors are ARM-based processors.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    AWS Graviton4 processors|IS_TYPE_OF|ARM-based processors
+    
+  proposition: The r8g family instances offer significant performance improvements over previous generations.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|HAS_FEATURE|significant performance improvements over previous generations
+    
+  proposition: The r8g family instances are well-suited for memory-intensive graph workloads.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|SUITED_FOR|memory-intensive graph workloads
+    
+  proposition: The r8g instances provide approximately 15-20% better performance for graph queries compared to r7g instances.
+  
+    entity-entity relationships:
+    r8g instances|COMPARED_TO|r7g instances
+  
+    entity-attributes:
+    r8g instances|HAS_PERFORMANCE|approximately 15-20% better performance for graph queries
+    
+  proposition: The r8g family has a single-socket architecture.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|HAS_ARCHITECTURE|single-socket architecture
+    
+  proposition: The r8g family single-socket architecture means that performance scales linearly with compute capacity from an r8g.large to an r8g.16xlarge.
+  
+    entity-entity relationships:
+    r8g.large|SCALES_TO|r8g.16xlarge
+  
+    entity-attributes:
+    r8g family|HAS_SCALING|linear performance scaling with compute capacity
+    
+  proposition: The r8g.16xlarge is the largest type in the r8g family.
+  
+    entity-entity relationships:
+    r8g.16xlarge|PART_OF|r8g family
+  
+    entity-attributes:
+    r8g.16xlarge|IS_SIZE|largest type
+    
+  proposition: The r8g family is powered by AWS Graviton4 ARM-based processors.
+  
+    entity-entity relationships:
+    r8g family|POWERED_BY|AWS Graviton4 processors
+  
+    entity-attributes:
+    
+  proposition: The r8g family has higher memory bandwidth per vCPU compared to previous generations.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|HAS_FEATURE|higher memory bandwidth per vCPU compared to previous generations
+    
+  proposition: The r8g family has excellent price/performance ratio for both OLTP-style (constrained) graph queries and OLAP-style analytical workloads.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|HAS_RATIO|excellent price/performance ratio for both OLTP-style (constrained) graph queries and OLAP-style analytical workloads
+    
+  proposition: The r8g family has improved memory management capabilities that benefit complex graph traversals.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|HAS_CAPABILITIES|improved memory management capabilities that benefit complex graph traversals
+    
+  proposition: The r8g family is ideal for production workloads that require high memory capacity and consistent performance.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|IDEAL_FOR|production workloads that require high memory capacity and consistent performance
+    
+  proposition: The r8g family is particularly effective for applications with high query concurrency requirements.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r8g family|EFFECTIVE_FOR|applications with high query concurrency requirements

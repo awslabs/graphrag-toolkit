@@ -1,0 +1,2089 @@
+{
+  "id_": "aws::faaadcc2:38d6:1961dcf0",
+  "embedding": [
+    0.005973816,
+    -0.022857666,
+    -0.00036883354,
+    0.0022296906,
+    -0.009437561,
+    -0.0036964417,
+    0.045928955,
+    -0.012908936,
+    -0.008140564,
+    0.06088257,
+    0.00074100494,
+    0.00091552734,
+    0.02394104,
+    -0.019470215,
+    -0.009643555,
+    -0.009460449,
+    0.017669678,
+    0.004207611,
+    0.026290894,
+    0.008918762,
+    0.015235901,
+    0.016540527,
+    0.025421143,
+    -0.06378174,
+    0.026947021,
+    -0.029800415,
+    -0.0063095093,
+    -0.028839111,
+    0.015007019,
+    -0.0072746277,
+    0.010169983,
+    0.00856781,
+    0.04156494,
+    -0.004447937,
+    -0.054779053,
+    -0.08959961,
+    -0.05899048,
+    0.0039978027,
+    -0.04840088,
+    0.0049438477,
+    0.030227661,
+    -0.014373779,
+    0.089416504,
+    -0.015182495,
+    0.021835327,
+    -0.0045166016,
+    0.044067383,
+    -0.037872314,
+    0.0007586479,
+    -0.0026626587,
+    -0.017471313,
+    0.008621216,
+    -0.011528015,
+    0.05581665,
+    -0.020812988,
+    -0.004508972,
+    -0.003610611,
+    -0.001288414,
+    0.021911621,
+    0.0023212433,
+    -0.008613586,
+    0.0058784485,
+    0.022979736,
+    0.002855301,
+    -0.027511597,
+    0.0078048706,
+    0.042541504,
+    0.02444458,
+    0.004207611,
+    -0.03475952,
+    0.0046463013,
+    0.019805908,
+    -0.012550354,
+    -0.0002913475,
+    0.011779785,
+    -0.03567505,
+    0.034240723,
+    -0.027435303,
+    -0.007987976,
+    0.053649902,
+    0.011688232,
+    -0.0005631447,
+    0.008590698,
+    -0.04949951,
+    0.039001465,
+    -0.024856567,
+    -0.0011043549,
+    0.0003900528,
+    -0.034240723,
+    0.009475708,
+    0.0044670105,
+    -0.06414795,
+    -0.0446167,
+    0.029907227,
+    0.05291748,
+    -0.04928589,
+    -0.0023765564,
+    0.03488159,
+    -0.022781372,
+    0.009284973,
+    -0.011390686,
+    -0.006969452,
+    -0.014877319,
+    -0.017913818,
+    -0.008071899,
+    -0.02935791,
+    0.04550171,
+    -0.03955078,
+    -0.00097608566,
+    0.007835388,
+    -0.057922363,
+    0.08807373,
+    0.0026893616,
+    0.0047340393,
+    -0.04473877,
+    0.018035889,
+    0.0069274902,
+    -0.0047569275,
+    -0.007881165,
+    0.039733887,
+    -0.023040771,
+    -0.0037937164,
+    -0.029586792,
+    0.014450073,
+    0.01411438,
+    0.004562378,
+    -0.0033779144,
+    0.036071777,
+    -0.03765869,
+    0.048095703,
+    -0.002702713,
+    0.010894775,
+    -0.028518677,
+    -0.0049591064,
+    -0.027908325,
+    -0.0051460266,
+    0.015083313,
+    0.022644043,
+    0.030075073,
+    -0.019882202,
+    0.02418518,
+    -0.0076446533,
+    0.0010328293,
+    0.029846191,
+    -0.008514404,
+    -0.019424438,
+    0.009712219,
+    0.043670654,
+    -0.0030937195,
+    0.006713867,
+    -0.0013599396,
+    1.579523e-05,
+    0.01008606,
+    0.017196655,
+    0.028884888,
+    -0.020370483,
+    0.068603516,
+    -0.050628662,
+    0.0020828247,
+    -0.033691406,
+    -0.02230835,
+    -0.011726379,
+    0.010902405,
+    -0.0012645721,
+    -0.0031166077,
+    0.03604126,
+    0.031066895,
+    0.015014648,
+    0.014335632,
+    0.08465576,
+    -0.06732178,
+    -0.00749588,
+    0.014816284,
+    -0.0077552795,
+    -0.03451538,
+    0.008522034,
+    0.007484436,
+    -0.016937256,
+    0.038604736,
+    -0.043518066,
+    -0.03479004,
+    -0.026000977,
+    0.04510498,
+    -0.013977051,
+    -0.024398804,
+    0.010765076,
+    0.024475098,
+    0.060638428,
+    -0.0061035156,
+    0.02458191,
+    0.045959473,
+    0.009170532,
+    -0.02999878,
+    0.085632324,
+    -0.011619568,
+    -0.04559326,
+    -0.017852783,
+    0.0054626465,
+    -0.02470398,
+    -0.03189087,
+    -0.044555664,
+    0.028045654,
+    -0.022003174,
+    0.028701782,
+    0.0036907196,
+    -0.0051231384,
+    0.008834839,
+    0.03564453,
+    -0.043762207,
+    0.052703857,
+    0.03173828,
+    0.017684937,
+    -0.027252197,
+    -0.022872925,
+    0.038909912,
+    -0.021987915,
+    0.012496948,
+    0.038909912,
+    0.022583008,
+    0.0068206787,
+    0.054473877,
+    -0.0042915344,
+    0.04257202,
+    0.019927979,
+    -0.05429077,
+    0.0028381348,
+    0.0051345825,
+    0.02116394,
+    -0.0069274902,
+    0.013458252,
+    0.09088135,
+    -0.033233643,
+    0.06542969,
+    0.089904785,
+    -0.0014295578,
+    0.0030555725,
+    0.01864624,
+    -0.020477295,
+    -0.01966858,
+    0.011413574,
+    0.035125732,
+    -0.022598267,
+    -0.003622055,
+    0.008811951,
+    -0.003967285,
+    -0.036193848,
+    0.015083313,
+    -0.014526367,
+    0.006149292,
+    0.037231445,
+    0.06524658,
+    -0.0069885254,
+    -0.018737793,
+    0.018035889,
+    0.02067566,
+    -0.012207031,
+    -0.030929565,
+    -0.017684937,
+    -0.018722534,
+    0.020141602,
+    -0.006626129,
+    0.016799927,
+    0.040252686,
+    -0.016937256,
+    0.040008545,
+    -0.011299133,
+    -0.007583618,
+    -0.008560181,
+    -0.03387451,
+    0.0078125,
+    0.036224365,
+    -0.037719727,
+    -0.004890442,
+    -0.02281189,
+    0.041259766,
+    0.0008444786,
+    -0.034942627,
+    -0.007835388,
+    0.024459839,
+    -0.009689331,
+    -0.01322937,
+    -0.00014197826,
+    -0.03894043,
+    -0.018707275,
+    0.04119873,
+    -0.009864807,
+    -0.02772522,
+    -0.03149414,
+    -0.041229248,
+    -0.00042319298,
+    0.025634766,
+    0.016677856,
+    0.0006608963,
+    -0.0413208,
+    0.0395813,
+    -0.000895977,
+    -0.03111267,
+    -0.018936157,
+    0.030029297,
+    -0.06048584,
+    -0.050750732,
+    0.01083374,
+    -0.04260254,
+    0.0012817383,
+    -0.012542725,
+    0.03024292,
+    0.01991272,
+    -0.03366089,
+    -0.024963379,
+    -0.030654907,
+    -0.023864746,
+    -0.01020813,
+    0.020462036,
+    -0.07080078,
+    0.042114258,
+    0.011924744,
+    -0.020706177,
+    0.00015509129,
+    -0.058563232,
+    -0.023803711,
+    0.092285156,
+    7.176399e-05,
+    0.032470703,
+    0.006088257,
+    -0.0057411194,
+    -0.06072998,
+    0.038238525,
+    -0.013618469,
+    -0.0002439022,
+    0.02166748,
+    -0.009239197,
+    0.014152527,
+    -0.04714966,
+    0.033721924,
+    -0.008453369,
+    0.02848816,
+    0.0072364807,
+    0.049743652,
+    -0.00069761276,
+    -0.08227539,
+    -0.052337646,
+    0.026138306,
+    -0.024978638,
+    -0.0009407997,
+    0.009536743,
+    -0.007835388,
+    -0.038238525,
+    0.0209198,
+    -0.05230713,
+    -0.017242432,
+    0.023345947,
+    -0.03579712,
+    0.011566162,
+    -0.029174805,
+    0.026641846,
+    0.005001068,
+    -0.026794434,
+    -0.013977051,
+    0.03201294,
+    -0.05609131,
+    0.09436035,
+    0.042236328,
+    0.05340576,
+    -0.017150879,
+    -0.046539307,
+    -0.07928467,
+    0.05142212,
+    -0.05117798,
+    0.027297974,
+    0.023101807,
+    -0.028060913,
+    0.010772705,
+    -0.024612427,
+    0.0014619827,
+    0.02748108,
+    0.019805908,
+    -0.031829834,
+    -0.055419922,
+    0.023651123,
+    -0.033355713,
+    -0.0027580261,
+    0.003824234,
+    -0.024169922,
+    0.0051498413,
+    0.021133423,
+    -0.010696411,
+    -0.032226562,
+    -0.008590698,
+    0.03668213,
+    0.01675415,
+    0.027389526,
+    0.0035381317,
+    0.029220581,
+    -0.040374756,
+    -0.0073432922,
+    -0.0059814453,
+    -0.0056495667,
+    0.01612854,
+    0.002166748,
+    -0.015579224,
+    0.079711914,
+    -0.031982422,
+    -0.0231781,
+    0.0021381378,
+    0.015213013,
+    -0.084106445,
+    0.06390381,
+    0.007144928,
+    0.04006958,
+    -0.04156494,
+    0.037719727,
+    0.044067383,
+    0.041778564,
+    0.021728516,
+    -0.023376465,
+    -0.02796936,
+    -0.066833496,
+    -0.014953613,
+    -0.018814087,
+    0.05630493,
+    0.012161255,
+    -0.0015993118,
+    -0.028366089,
+    0.040740967,
+    -0.026611328,
+    -0.023986816,
+    0.0018863678,
+    0.0052719116,
+    0.016235352,
+    0.07537842,
+    -0.016342163,
+    0.018463135,
+    -0.022583008,
+    -0.016647339,
+    -0.03857422,
+    -0.004085541,
+    0.008613586,
+    -0.018661499,
+    0.03375244,
+    -0.026535034,
+    -0.020187378,
+    0.008010864,
+    0.050842285,
+    0.0037059784,
+    -0.0027942657,
+    0.01826477,
+    0.045135498,
+    0.027999878,
+    0.014480591,
+    0.018539429,
+    -0.0013856888,
+    -0.014389038,
+    0.0076942444,
+    0.029052734,
+    -0.03567505,
+    0.042816162,
+    -0.018356323,
+    0.0126953125,
+    0.038238525,
+    -0.023101807,
+    -0.018829346,
+    -0.0049476624,
+    -0.027069092,
+    -0.02949524,
+    0.027526855,
+    0.05758667,
+    -0.043762207,
+    0.012710571,
+    -0.04611206,
+    0.02909851,
+    0.044311523,
+    -0.06298828,
+    -0.05078125,
+    -0.031204224,
+    0.01626587,
+    -0.03918457,
+    -0.016052246,
+    0.01763916,
+    0.026275635,
+    0.011741638,
+    -0.03164673,
+    0.009773254,
+    -0.045684814,
+    0.024673462,
+    -0.011260986,
+    0.0055007935,
+    -0.01550293,
+    -0.013015747,
+    0.027008057,
+    -0.039093018,
+    -0.031799316,
+    -0.0435791,
+    0.033203125,
+    -0.030593872,
+    0.0005774498,
+    0.00793457,
+    -0.001786232,
+    -0.05859375,
+    -0.00078201294,
+    -0.03778076,
+    -0.0034294128,
+    0.03515625,
+    0.032958984,
+    -0.012359619,
+    -0.015571594,
+    0.0037002563,
+    -0.003944397,
+    0.011421204,
+    0.031829834,
+    -0.02960205,
+    -0.0067214966,
+    -0.010856628,
+    -0.0007686615,
+    -0.0011501312,
+    -0.026138306,
+    0.022842407,
+    -0.03741455,
+    -0.0031871796,
+    -0.029403687,
+    0.0013999939,
+    0.023864746,
+    -0.00062036514,
+    0.06317139,
+    0.020202637,
+    -0.024383545,
+    -0.03866577,
+    0.06298828,
+    -0.02027893,
+    0.0068473816,
+    0.008522034,
+    -0.028564453,
+    -0.01852417,
+    -0.00831604,
+    0.013824463,
+    0.035308838,
+    -0.0009422302,
+    -0.023254395,
+    -0.046295166,
+    0.02935791,
+    0.07232666,
+    0.0056114197,
+    -0.025436401,
+    -0.044921875,
+    0.08288574,
+    0.02368164,
+    -0.055267334,
+    -0.017288208,
+    0.0030460358,
+    -0.041046143,
+    0.030776978,
+    -0.021606445,
+    -0.027923584,
+    -0.009803772,
+    0.00063705444,
+    0.0084991455,
+    -0.10461426,
+    -0.055511475,
+    0.014595032,
+    0.009300232,
+    0.02909851,
+    -0.009063721,
+    -0.047912598,
+    0.0005879402,
+    0.021240234,
+    -0.00598526,
+    0.0067977905,
+    0.02420044,
+    -0.011604309,
+    0.0020618439,
+    -0.003124237,
+    -0.03274536,
+    -0.010375977,
+    0.03967285,
+    -0.013259888,
+    -0.0061454773,
+    -0.043121338,
+    0.004169464,
+    0.0017023087,
+    -0.011726379,
+    -0.02798462,
+    -0.01637268,
+    0.018203735,
+    0.025939941,
+    -0.0010147095,
+    -0.015808105,
+    0.00036382675,
+    -0.0059165955,
+    -0.003353119,
+    -0.0044517517,
+    -0.017532349,
+    0.02468872,
+    -0.0026416779,
+    -0.043426514,
+    -0.076538086,
+    0.012001038,
+    0.039398193,
+    -0.0010213852,
+    0.03704834,
+    0.01939392,
+    0.028274536,
+    0.019348145,
+    0.0007901192,
+    0.0020275116,
+    -0.016693115,
+    0.015296936,
+    0.0011444092,
+    0.041931152,
+    -0.009124756,
+    -0.06451416,
+    -0.014274597,
+    0.0390625,
+    0.033081055,
+    0.018722534,
+    -0.050567627,
+    0.012588501,
+    0.05432129,
+    0.049438477,
+    -0.010383606,
+    0.007511139,
+    -0.043945312,
+    0.008079529,
+    0.034698486,
+    -0.008232117,
+    0.038024902,
+    -0.006008148,
+    -0.022354126,
+    -0.00048685074,
+    0.054992676,
+    0.007068634,
+    -0.02027893,
+    0.06365967,
+    -0.024124146,
+    -0.031341553,
+    0.0066719055,
+    0.033843994,
+    0.0063476562,
+    -0.02116394,
+    0.0015611649,
+    -0.027160645,
+    -0.043518066,
+    -0.012428284,
+    -0.002506256,
+    -0.05508423,
+    0.022628784,
+    0.014968872,
+    -0.014305115,
+    -0.014839172,
+    -0.017318726,
+    -0.015548706,
+    0.017852783,
+    -0.02394104,
+    -0.0090789795,
+    -0.05795288,
+    -0.012199402,
+    0.023483276,
+    -0.035461426,
+    -0.005680084,
+    0.032196045,
+    0.0022621155,
+    0.0055885315,
+    -0.0015802383,
+    0.043426514,
+    -0.018371582,
+    0.0007586479,
+    0.0011062622,
+    -0.015975952,
+    -0.047088623,
+    0.031433105,
+    -0.068115234,
+    0.036987305,
+    0.012054443,
+    -0.055145264,
+    0.02684021,
+    0.046020508,
+    0.01121521,
+    -0.006500244,
+    -0.05441284,
+    -0.004234314,
+    -0.07678223,
+    0.068725586,
+    0.012489319,
+    -0.015213013,
+    -0.006504059,
+    0.039886475,
+    -0.022262573,
+    0.039733887,
+    -0.022155762,
+    -0.008346558,
+    0.0076675415,
+    -0.03552246,
+    0.0013637543,
+    0.038360596,
+    -0.013183594,
+    0.0101623535,
+    0.027908325,
+    0.031280518,
+    0.010040283,
+    -0.051879883,
+    -0.04296875,
+    -0.017852783,
+    0.048706055,
+    -0.02684021,
+    0.012145996,
+    -0.028335571,
+    0.021743774,
+    -0.03982544,
+    0.0054855347,
+    -0.071777344,
+    0.076049805,
+    0.02180481,
+    -0.022109985,
+    -0.022323608,
+    -0.04043579,
+    -0.007980347,
+    -0.041778564,
+    -0.015716553,
+    -0.018218994,
+    0.020858765,
+    0.015312195,
+    0.048583984,
+    -0.0078086853,
+    -0.02709961,
+    0.00289917,
+    -0.0062217712,
+    0.033111572,
+    -0.051818848,
+    -0.0154800415,
+    0.0058174133,
+    0.012290955,
+    0.03010559,
+    0.013023376,
+    -0.00072336197,
+    0.07525635,
+    -0.016601562,
+    -0.04095459,
+    -0.01739502,
+    0.009742737,
+    0.018203735,
+    0.0017223358,
+    -0.048461914,
+    -0.023513794,
+    -0.023284912,
+    0.042053223,
+    -0.014587402,
+    -0.0015621185,
+    0.001080513,
+    0.011268616,
+    -0.05230713,
+    0.052368164,
+    0.004032135,
+    0.051605225,
+    -0.010665894,
+    0.036468506,
+    -0.019317627,
+    0.008712769,
+    -0.051239014,
+    -0.021331787,
+    -0.025421143,
+    0.027755737,
+    -0.028182983,
+    -0.07867432,
+    0.006095886,
+    -0.026351929,
+    0.015640259,
+    -0.006881714,
+    -0.04373169,
+    -0.062347412,
+    -0.0053863525,
+    -0.0030288696,
+    -0.01512146,
+    -0.003917694,
+    0.002029419,
+    0.006690979,
+    0.02128601,
+    0.005706787,
+    -0.0064964294,
+    0.008773804,
+    -0.018829346,
+    -0.00085783005,
+    0.0050621033,
+    0.026809692,
+    -0.00078105927,
+    -0.03201294,
+    0.0018529892,
+    -0.055511475,
+    0.056732178,
+    0.024154663,
+    0.04486084,
+    -0.053863525,
+    -0.026290894,
+    0.020233154,
+    0.03741455,
+    -0.012268066,
+    -0.008056641,
+    -0.028457642,
+    -0.050720215,
+    -0.011039734,
+    -0.0001758337,
+    0.015609741,
+    -0.036254883,
+    -0.028152466,
+    -0.016311646,
+    -0.028915405,
+    -0.009239197,
+    -0.019119263,
+    0.014793396,
+    0.009979248,
+    -0.023834229,
+    -0.00869751,
+    0.028503418,
+    0.008079529,
+    0.003074646,
+    0.0063056946,
+    -0.029449463,
+    -0.021011353,
+    -0.0048942566,
+    0.044921875,
+    0.0033187866,
+    0.016525269,
+    -0.03451538,
+    0.01902771,
+    0.052978516,
+    0.04360962,
+    -0.046783447,
+    0.06695557,
+    -0.036865234,
+    -0.003753662,
+    0.047790527,
+    0.009025574,
+    -0.014045715,
+    0.019104004,
+    -0.008598328,
+    0.028717041,
+    0.0062713623,
+    0.030166626,
+    0.022766113,
+    0.031158447,
+    -0.041656494,
+    0.020126343,
+    0.02482605,
+    0.0050697327,
+    -0.0390625,
+    0.018981934,
+    0.0070648193,
+    0.016784668,
+    0.0018463135,
+    -0.018035889,
+    -0.009185791,
+    -0.093933105,
+    0.025878906,
+    0.008026123,
+    0.008415222,
+    0.05392456,
+    -0.007194519,
+    0.00080776215,
+    -0.017456055,
+    0.009422302,
+    -0.00749588,
+    0.04095459,
+    0.09729004,
+    -0.004295349,
+    0.026046753,
+    0.013427734,
+    0.038360596,
+    -0.009712219,
+    0.018829346,
+    -0.0017642975,
+    0.011169434,
+    0.030014038,
+    0.016204834,
+    0.010009766,
+    0.010719299,
+    -0.017913818,
+    -0.04119873,
+    -0.031188965,
+    0.010681152,
+    -0.0010023117,
+    0.007095337,
+    -0.021469116,
+    0.04724121,
+    -0.003080368,
+    -4.4226646e-05,
+    0.0005121231,
+    -0.046173096,
+    -0.027496338,
+    0.021759033,
+    -0.013397217,
+    0.0057640076,
+    0.0014591217,
+    -0.003522873,
+    -0.0345459,
+    0.003944397,
+    0.041870117,
+    -0.01928711,
+    0.02583313,
+    -0.050872803,
+    0.056427002,
+    0.0009469986,
+    0.0018005371,
+    -0.07678223,
+    0.07366943,
+    -0.01360321,
+    0.05404663,
+    -0.031585693,
+    0.013076782,
+    -0.018661499,
+    -0.02659607,
+    -0.019302368,
+    -0.014808655,
+    -0.013504028,
+    0.047424316,
+    0.03894043,
+    0.04360962,
+    0.039367676,
+    -0.034484863,
+    0.015777588,
+    0.028884888,
+    0.03173828,
+    0.066589355,
+    0.0011377335,
+    -0.031066895,
+    -0.0021953583,
+    -0.003206253,
+    0.01146698,
+    0.03387451,
+    -0.0032615662,
+    0.020553589,
+    -0.050872803,
+    -0.019805908,
+    0.013175964,
+    0.041503906,
+    0.0055503845,
+    0.045532227,
+    -0.078308105,
+    0.034362793,
+    -0.019485474,
+    0.0206604,
+    -0.014282227,
+    -0.007156372,
+    -0.018432617,
+    -0.006084442,
+    0.027008057,
+    -0.0061035156,
+    0.00541687,
+    0.020126343,
+    0.023101807,
+    0.040374756,
+    0.0135650635,
+    -0.039001465,
+    0.023376465,
+    -0.0038490295,
+    0.0395813,
+    -0.08557129,
+    0.07324219,
+    -0.039764404,
+    0.0284729,
+    0.034118652,
+    -0.0079956055,
+    0.030075073,
+    -0.029541016,
+    0.041870117,
+    0.011528015,
+    -0.039855957,
+    0.0074157715,
+    -0.027923584,
+    0.058898926,
+    0.013877869,
+    -0.03591919,
+    -0.020645142,
+    -0.07086182,
+    0.0158844,
+    0.0027389526,
+    -0.010818481,
+    -0.031143188,
+    0.020980835,
+    0.007827759,
+    -0.01940918,
+    -0.072021484,
+    0.021438599,
+    -0.051757812,
+    -0.023239136,
+    -0.025680542,
+    -0.020874023,
+    0.028930664,
+    -0.009849548,
+    0.015571594,
+    -0.035736084,
+    -0.043395996,
+    -0.04156494,
+    0.025848389,
+    -0.03213501,
+    -0.06347656,
+    0.025024414,
+    -0.07116699,
+    0.06707764,
+    0.019226074,
+    0.04598999,
+    0.009048462,
+    0.051849365,
+    -0.06768799,
+    -0.0071029663,
+    0.009788513,
+    -0.0020427704,
+    0.0132751465,
+    -0.026153564,
+    0.0513916,
+    0.01033783,
+    0.0131073,
+    -0.0046043396,
+    -0.022735596,
+    -0.018310547,
+    0.015182495,
+    0.02331543,
+    -0.006942749,
+    0.025360107,
+    -0.010063171,
+    0.023254395,
+    0.030944824,
+    -0.023132324,
+    0.042236328,
+    -0.045776367,
+    0.040039062,
+    -0.0473938,
+    -0.03048706
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part II/Item 8 - Financial Statements and Supplementary Data/NOTES TO CONSOLIDATED FINANCIAL STATEMENTS/Note 7 — COMMITMENTS AND CONTINGENCIES/",
+    "aws::graph::propositions": [
+      "# Nokia Patent Infringement Complaints Against Amazon",
+      "Nokia Technologies Oy and related entities filed complaints against Amazon.com, Inc. and related entities beginning in October 2023.",
+      "The complaints allege infringement of patents related to video-related technologies.",
+      "The complaints were filed in multiple courts in the United States.",
+      "The complaints were filed in courts in India.",
+      "The complaints were filed in courts in the United Kingdom.",
+      "The complaints were filed in courts in Germany.",
+      "The complaints were filed in courts in Brazil.",
+      "The complaints were filed in the Unified Patent Court of the European Union.",
+      "The complaints were filed in the United States International Trade Commission.",
+      "Nokia Technologies Oy is a technology company.",
+      "Amazon.com, Inc. is an e-commerce and technology company.",
+      "The complaints allege that certain Amazon Prime Video services infringe Nokia's patents.",
+      "The complaints allege that features of Amazon devices carrying the Prime Video app infringe Nokia's patents.",
+      "Some of the complaints additionally allege infringement by Freevee.",
+      "Some of the complaints additionally allege infringement by Twitch.",
+      "Some of the complaints additionally allege infringement by Amazon voice assistants.",
+      "Freevee is an Amazon streaming service.",
+      "Twitch is an Amazon streaming platform.",
+      "The complaints seek injunctive relief.",
+      "Some complaints seek unspecified money damages.",
+      "Some complaints seek enhanced damages.",
+      "Some complaints seek attorneys' fees.",
+      "Some complaints seek costs.",
+      "Some complaints seek interest.",
+      "Some complaints seek declaratory relief."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Nokia Patent Infringement Complaints Against Amazon",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Nokia Technologies Oy",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon.com, Inc.",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon Prime Video",
+              "classification": "Service"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Freevee",
+              "classification": "Service"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Twitch",
+              "classification": "Service"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon voice assistants",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United States",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "India",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United Kingdom",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Germany",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Brazil",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Unified Patent Court of the European Union",
+              "classification": "Legal Entity"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "United States International Trade Commission",
+              "classification": "Legal Entity"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Nokia Technologies Oy and related entities filed complaints against Amazon.com, Inc. and related entities beginning in October 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED COMPLAINTS AGAINST"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS FILING DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "October 2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints allege infringement of patents related to video-related technologies.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS PATENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "video-related technologies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints were filed in multiple courts in the United States.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United States",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints were filed in courts in India.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "India",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints were filed in courts in the United Kingdom.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United Kingdom",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints were filed in courts in Germany.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Germany",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints were filed in courts in Brazil.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Brazil",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints were filed in the Unified Patent Court of the European Union.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Unified Patent Court of the European Union",
+                    "classification": "Legal Entity"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints were filed in the United States International Trade Commission.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FILED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "United States International Trade Commission",
+                    "classification": "Legal Entity"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Nokia Technologies Oy is a technology company.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INDUSTRY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon.com, Inc. is an e-commerce and technology company.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INDUSTRY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "e-commerce and technology",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints allege that certain Amazon Prime Video services infringe Nokia's patents.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon Prime Video",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "ALLEGED INFRINGER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon Prime Video",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints allege that features of Amazon devices carrying the Prime Video app infringe Nokia's patents.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ALLEGED INFRINGER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some of the complaints additionally allege infringement by Freevee.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Freevee",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "ALLEGED INFRINGER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Freevee",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some of the complaints additionally allege infringement by Twitch.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Twitch",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "ALLEGED INFRINGER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Twitch",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some of the complaints additionally allege infringement by Amazon voice assistants.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon voice assistants",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "ALLEGED INFRINGER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon voice assistants",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Freevee is an Amazon streaming service.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Freevee",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Freevee",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "SERVICE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "streaming service",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Twitch is an Amazon streaming platform.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon.com, Inc.",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OWNS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Twitch",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Twitch",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "SERVICE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "streaming platform",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The complaints seek injunctive relief.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS RELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "injunctive relief",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some complaints seek unspecified money damages.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS RELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unspecified money damages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some complaints seek enhanced damages.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS RELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "enhanced damages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some complaints seek attorneys' fees.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS RELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attorneys' fees",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some complaints seek costs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS RELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "costs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some complaints seek interest.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS RELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "interest",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Some complaints seek declaratory relief.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nokia Technologies Oy",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SEEKS RELIEF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "declaratory relief",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:dd5f3d45",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part II/Item 8 - Financial Statements and Supplementary Data/NOTES TO CONSOLIDATED FINANCIAL STATEMENTS/Note 7 — COMMITMENTS AND CONTINGENCIES/"
+      },
+      "hash": "eec9a6e0b14ce15a91501349c0176d9b4947b143d7e7cbed79a2af16c8c6d72f",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:975cee1a",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part II/Item 8 - Financial Statements and Supplementary Data/NOTES TO CONSOLIDATED FINANCIAL STATEMENTS/Note 7 — COMMITMENTS AND CONTINGENCIES/"
+      },
+      "hash": "8649f1691870bfea14905d4fcfc6ab35500caba09afe604711a770d354a4ecc4",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "Beginning in October 2023, Nokia Technologies Oy and related entities filed complaints alleging infringement of patents related to video-related technologies against Amazon.com, Inc. and related entities in multiple courts in the United States, India, the United Kingdom, Germany, and Brazil, the Unified Patent Court of the European Union, and the United States International Trade Commission. The complaints allege, among other things, that certain Amazon Prime Video services and features of Amazon devices carrying the Prime Video app infringe Nokia’s patents; some of the complaints additionally allege infringement by Freevee, Twitch, and Amazon voice assistants. The complaints seek, among other things, injunctive relief and, in some cases, unspecified money damages, enhanced damages, attorneys’ fees, costs, interest, and declaratory relief.",
+  "mimetype": "text/plain",
+  "start_char_idx": 8730,
+  "end_char_idx": 9581,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2122 @@
+{
+  "id_": "aws::2fe2dbb9:593b:1cca7293",
+  "embedding": [
+    0.019485474,
+    0.0029525757,
+    0.003894806,
+    -0.050109863,
+    0.0028495789,
+    0.010932922,
+    -0.025863647,
+    -0.002298355,
+    -0.0110321045,
+    -0.0060653687,
+    0.017471313,
+    -0.008781433,
+    -0.035949707,
+    -0.052124023,
+    0.027999878,
+    -0.030197144,
+    0.0021266937,
+    -0.016174316,
+    -0.0066566467,
+    -0.020614624,
+    0.00881958,
+    -0.009651184,
+    -0.0010633469,
+    -0.041625977,
+    -0.0040893555,
+    0.11541748,
+    -0.05657959,
+    -0.038269043,
+    -0.0054244995,
+    -0.012374878,
+    -0.0014791489,
+    0.0023021698,
+    0.009498596,
+    0.08416748,
+    -0.10272217,
+    -0.06945801,
+    -0.062683105,
+    0.05770874,
+    -0.035064697,
+    0.018447876,
+    0.013313293,
+    -0.020812988,
+    0.050323486,
+    0.012832642,
+    -0.010322571,
+    0.017990112,
+    0.003255844,
+    -0.027053833,
+    0.030883789,
+    0.044067383,
+    0.007472992,
+    0.053741455,
+    -0.013366699,
+    0.087524414,
+    0.01725769,
+    0.019805908,
+    -0.052612305,
+    0.08355713,
+    0.00774765,
+    0.02204895,
+    0.0022525787,
+    0.032470703,
+    -0.022857666,
+    0.0033054352,
+    -0.025756836,
+    -0.024520874,
+    -0.019607544,
+    0.0102005005,
+    0.05532837,
+    -0.01374054,
+    -0.017303467,
+    0.026275635,
+    -0.03237915,
+    0.03289795,
+    -0.039276123,
+    -0.0076026917,
+    -0.0044136047,
+    0.005340576,
+    -0.0044403076,
+    0.038391113,
+    -0.008911133,
+    0.015640259,
+    0.025375366,
+    -0.032470703,
+    -0.009750366,
+    -0.023742676,
+    -0.023483276,
+    0.003124237,
+    -0.011680603,
+    -0.033813477,
+    -0.011993408,
+    0.018844604,
+    0.0012626648,
+    -0.0060920715,
+    -0.033569336,
+    -0.02130127,
+    0.027282715,
+    -0.031829834,
+    0.02166748,
+    -0.023986816,
+    0.0473938,
+    -0.061584473,
+    -0.003227234,
+    0.011062622,
+    -0.019622803,
+    0.034332275,
+    0.03933716,
+    0.03729248,
+    0.02116394,
+    -0.00042819977,
+    -0.015563965,
+    0.014633179,
+    -0.019256592,
+    -0.023666382,
+    -0.04525757,
+    0.041107178,
+    -0.012535095,
+    -0.025527954,
+    0.018066406,
+    0.007549286,
+    -0.014503479,
+    0.0013904572,
+    -0.00015580654,
+    0.0067214966,
+    -0.0003569126,
+    -0.009460449,
+    -0.01965332,
+    0.01777649,
+    0.05960083,
+    0.026138306,
+    -0.012741089,
+    0.027908325,
+    -0.031402588,
+    -0.056854248,
+    -0.048431396,
+    -0.00015497208,
+    0.0042419434,
+    -0.015182495,
+    -0.013969421,
+    0.009925842,
+    -0.057434082,
+    0.002521515,
+    0.07244873,
+    -0.046905518,
+    0.003686905,
+    0.03552246,
+    0.0076522827,
+    0.00024867058,
+    0.0016889572,
+    -0.022109985,
+    0.007751465,
+    -0.019699097,
+    0.06768799,
+    -0.011375427,
+    -0.029693604,
+    -0.05480957,
+    0.02645874,
+    -0.037994385,
+    -0.0018148422,
+    -0.060577393,
+    -0.0034980774,
+    0.0039482117,
+    0.016616821,
+    -0.011428833,
+    -0.036224365,
+    0.0017604828,
+    0.0050582886,
+    0.0044021606,
+    0.016159058,
+    -0.0041275024,
+    0.014755249,
+    0.0033054352,
+    -0.052734375,
+    0.0021038055,
+    0.016418457,
+    0.010177612,
+    0.010383606,
+    0.018371582,
+    0.020019531,
+    0.027420044,
+    0.00022351742,
+    -0.041931152,
+    0.046783447,
+    -0.02015686,
+    0.03591919,
+    -0.011116028,
+    0.031021118,
+    -0.009132385,
+    -0.031402588,
+    0.033111572,
+    -0.014656067,
+    0.050079346,
+    -0.013916016,
+    -0.019042969,
+    -0.009971619,
+    -0.004043579,
+    0.0021686554,
+    -0.0041923523,
+    -0.009277344,
+    0.022842407,
+    -0.056671143,
+    0.034088135,
+    -0.032440186,
+    0.0435791,
+    -0.05419922,
+    0.016616821,
+    -0.020385742,
+    0.027175903,
+    0.020462036,
+    0.032714844,
+    0.016830444,
+    -0.009033203,
+    -0.029953003,
+    0.02456665,
+    -0.016281128,
+    0.010681152,
+    -0.03805542,
+    -0.040649414,
+    0.016662598,
+    0.0038471222,
+    0.024124146,
+    0.034576416,
+    -0.0042304993,
+    -0.008285522,
+    -0.01663208,
+    -0.019317627,
+    0.005554199,
+    0.0104599,
+    0.014434814,
+    0.03161621,
+    0.0357666,
+    -0.059631348,
+    -0.004524231,
+    -0.008056641,
+    -0.04486084,
+    0.03265381,
+    -0.0028896332,
+    0.028823853,
+    -0.014907837,
+    0.007522583,
+    -0.017547607,
+    -0.0061912537,
+    -0.03817749,
+    0.035247803,
+    -0.042663574,
+    -0.019363403,
+    -0.00049591064,
+    0.024780273,
+    -0.025390625,
+    0.0013103485,
+    0.04525757,
+    0.025009155,
+    0.017501831,
+    0.06970215,
+    0.011001587,
+    0.0013685226,
+    -0.04260254,
+    -0.036743164,
+    0.035003662,
+    -0.018600464,
+    0.037231445,
+    -0.039093018,
+    -0.034454346,
+    -0.017913818,
+    -0.0039711,
+    -0.0059280396,
+    0.015312195,
+    0.015571594,
+    -0.007659912,
+    -0.0032043457,
+    0.011802673,
+    -0.0049057007,
+    0.009498596,
+    0.010688782,
+    -0.024139404,
+    -0.022277832,
+    0.003665924,
+    -0.0033988953,
+    0.007926941,
+    -0.023101807,
+    -0.018310547,
+    0.0546875,
+    -0.009765625,
+    -0.019439697,
+    -0.012298584,
+    -0.013755798,
+    -0.022659302,
+    -0.04714966,
+    -0.007949829,
+    0.010757446,
+    0.04043579,
+    0.0074653625,
+    -0.025543213,
+    0.02268982,
+    0.00021231174,
+    -0.021102905,
+    0.06958008,
+    0.03353882,
+    0.00022137165,
+    -0.0045776367,
+    0.0064353943,
+    0.011772156,
+    -0.050964355,
+    0.017913818,
+    -0.008834839,
+    -0.0031223297,
+    -0.016540527,
+    0.0008845329,
+    -0.012268066,
+    -0.001876831,
+    -0.03125,
+    -0.0003914833,
+    0.019851685,
+    0.030059814,
+    0.009162903,
+    -0.0031280518,
+    -0.008239746,
+    0.053985596,
+    0.02709961,
+    0.019760132,
+    0.015342712,
+    0.033294678,
+    -0.017211914,
+    0.014808655,
+    0.030700684,
+    -0.028198242,
+    -0.0046577454,
+    -0.011726379,
+    0.03652954,
+    -0.016189575,
+    -0.028533936,
+    -0.00090789795,
+    -0.051757812,
+    0.025619507,
+    0.026641846,
+    0.011810303,
+    0.0151901245,
+    -0.048431396,
+    -0.0004849434,
+    0.02909851,
+    0.051513672,
+    0.013206482,
+    0.012367249,
+    -0.023742676,
+    -0.029647827,
+    -0.030883789,
+    -0.016693115,
+    0.009101868,
+    -0.016860962,
+    -0.029037476,
+    0.043395996,
+    -0.011367798,
+    -0.015975952,
+    0.008041382,
+    0.011581421,
+    -0.1227417,
+    -0.018035889,
+    0.030685425,
+    -0.044952393,
+    -0.029373169,
+    0.02027893,
+    -0.010368347,
+    -0.02999878,
+    -0.004802704,
+    0.005001068,
+    0.0010967255,
+    0.00048661232,
+    -0.0209198,
+    0.00198555,
+    0.008720398,
+    -0.03933716,
+    0.0005464554,
+    -0.010002136,
+    0.009773254,
+    0.0037727356,
+    0.030044556,
+    0.022415161,
+    -0.014411926,
+    0.0078086853,
+    0.006160736,
+    0.04373169,
+    0.020996094,
+    0.022537231,
+    0.018722534,
+    0.038085938,
+    -0.029403687,
+    -0.04046631,
+    -0.009605408,
+    0.0635376,
+    0.039520264,
+    0.036834717,
+    -0.047576904,
+    -0.021606445,
+    -0.010856628,
+    -0.017578125,
+    0.0065460205,
+    -0.020858765,
+    -0.05142212,
+    -0.015235901,
+    -0.015151978,
+    -0.09564209,
+    -0.00630188,
+    -0.016784668,
+    -0.04196167,
+    0.008781433,
+    -0.07110596,
+    -0.02758789,
+    -0.047088623,
+    0.047943115,
+    0.029205322,
+    -0.006164551,
+    0.05102539,
+    0.012588501,
+    0.039245605,
+    -0.049682617,
+    0.020721436,
+    -0.0793457,
+    -0.014595032,
+    -0.021850586,
+    0.06161499,
+    0.04055786,
+    -0.06173706,
+    0.0020580292,
+    0.049316406,
+    -0.012710571,
+    -0.0039596558,
+    -0.03591919,
+    -0.026901245,
+    0.007801056,
+    0.085754395,
+    -0.026123047,
+    0.03970337,
+    -0.0056762695,
+    -0.0021324158,
+    -0.009216309,
+    0.022903442,
+    0.009155273,
+    0.029067993,
+    0.043792725,
+    -0.028244019,
+    -0.0027446747,
+    0.00554657,
+    -0.014976501,
+    0.010848999,
+    -0.018081665,
+    -0.0036640167,
+    -0.0009536743,
+    -0.0077705383,
+    -0.012382507,
+    -0.06652832,
+    0.024337769,
+    0.01373291,
+    0.056854248,
+    0.008430481,
+    0.023254395,
+    0.019073486,
+    0.0124435425,
+    0.02810669,
+    -0.017959595,
+    -0.005847931,
+    0.0023956299,
+    -0.0058555603,
+    -0.032348633,
+    -0.020812988,
+    0.024215698,
+    -0.013786316,
+    0.022491455,
+    -0.010902405,
+    -0.006439209,
+    0.026290894,
+    -0.002872467,
+    -0.0287323,
+    -0.019241333,
+    -0.013320923,
+    0.027389526,
+    -0.00856781,
+    -0.035461426,
+    -0.021774292,
+    0.04788208,
+    0.038269043,
+    -0.01826477,
+    0.0030517578,
+    0.03137207,
+    0.029006958,
+    -0.0024642944,
+    0.026107788,
+    0.003768921,
+    0.032409668,
+    0.020324707,
+    -0.011016846,
+    0.0064430237,
+    -0.01374054,
+    0.038146973,
+    -0.016952515,
+    0.013168335,
+    -0.01789856,
+    0.0023937225,
+    0.03616333,
+    0.020736694,
+    -0.0018262863,
+    -0.0435791,
+    -0.0061569214,
+    -0.001001358,
+    -0.045318604,
+    -0.011238098,
+    0.048065186,
+    -0.006111145,
+    -0.004547119,
+    -0.007171631,
+    -0.07824707,
+    0.021514893,
+    -0.050750732,
+    0.0034751892,
+    0.0435791,
+    -0.041381836,
+    0.04586792,
+    -0.037628174,
+    0.08691406,
+    -0.05886841,
+    -0.03930664,
+    -0.08392334,
+    -0.05307007,
+    0.009788513,
+    0.055786133,
+    -0.026351929,
+    0.0116119385,
+    -0.02520752,
+    0.080200195,
+    -0.038238525,
+    0.0008735657,
+    0.008964539,
+    0.044799805,
+    -0.02507019,
+    -0.042755127,
+    0.04623413,
+    -0.03564453,
+    -0.04345703,
+    -0.0031051636,
+    -0.012939453,
+    -0.01374054,
+    -0.0129776,
+    0.016952515,
+    0.011688232,
+    0.025680542,
+    0.016159058,
+    -0.023864746,
+    -0.0029029846,
+    0.042297363,
+    -0.020980835,
+    0.03540039,
+    -0.00051403046,
+    -0.012718201,
+    0.026382446,
+    -0.021865845,
+    -0.04940796,
+    0.025283813,
+    0.0047569275,
+    -0.01713562,
+    0.0010957718,
+    0.05340576,
+    -0.02067566,
+    0.018936157,
+    -0.026885986,
+    0.009880066,
+    -0.0010890961,
+    0.021743774,
+    0.033569336,
+    0.012420654,
+    0.005382538,
+    -0.0074005127,
+    -0.01449585,
+    -0.022842407,
+    0.078186035,
+    -0.022750854,
+    -0.00068330765,
+    -0.05343628,
+    -0.005203247,
+    0.024276733,
+    0.007987976,
+    -0.0066184998,
+    -0.015197754,
+    -0.004070282,
+    0.0018100739,
+    -0.012023926,
+    -0.05609131,
+    0.03173828,
+    0.0032653809,
+    -0.035369873,
+    -0.04711914,
+    -0.015159607,
+    0.040618896,
+    0.018569946,
+    0.016906738,
+    -0.026931763,
+    -0.029083252,
+    0.015151978,
+    -0.02444458,
+    -0.03668213,
+    -0.034118652,
+    -0.0015907288,
+    -0.02418518,
+    0.0010299683,
+    -0.009773254,
+    -0.022537231,
+    0.006088257,
+    0.035186768,
+    -0.0031261444,
+    -0.01777649,
+    0.0068893433,
+    0.056793213,
+    0.025665283,
+    0.0211792,
+    -0.048431396,
+    -0.002538681,
+    -0.016952515,
+    0.023223877,
+    -0.058410645,
+    0.057525635,
+    0.09991455,
+    0.03302002,
+    0.052368164,
+    0.03277588,
+    0.024932861,
+    -0.02508545,
+    0.04876709,
+    0.0009045601,
+    -0.053466797,
+    -0.0013246536,
+    -0.0024032593,
+    -0.02583313,
+    -0.011627197,
+    -0.035308838,
+    -0.070007324,
+    0.0027675629,
+    -0.046691895,
+    -0.010108948,
+    -0.03414917,
+    -0.041778564,
+    0.015945435,
+    -0.03704834,
+    -0.00762558,
+    -0.00642395,
+    0.01687622,
+    0.04724121,
+    -0.043304443,
+    -0.037231445,
+    0.031066895,
+    -0.012809753,
+    -0.013053894,
+    -0.016189575,
+    0.000100016594,
+    -0.006084442,
+    -0.0052757263,
+    -0.023452759,
+    -0.0049209595,
+    -0.03640747,
+    -0.007789612,
+    0.022094727,
+    0.008079529,
+    -0.04168701,
+    -0.070251465,
+    0.0019760132,
+    0.016082764,
+    -0.034576416,
+    -0.012306213,
+    -0.0075912476,
+    0.04385376,
+    -0.025726318,
+    0.02633667,
+    -0.035980225,
+    -0.043426514,
+    -0.005279541,
+    0.047943115,
+    -0.033721924,
+    -0.0008997917,
+    0.0758667,
+    -0.017745972,
+    0.027359009,
+    0.041503906,
+    -0.0046920776,
+    0.008300781,
+    -0.048553467,
+    -0.012062073,
+    -0.01838684,
+    -0.014846802,
+    0.032562256,
+    -0.032318115,
+    0.0077056885,
+    -0.032714844,
+    0.042785645,
+    -0.02923584,
+    0.015426636,
+    0.007698059,
+    8.7976456e-05,
+    -0.024963379,
+    -0.042022705,
+    -0.0019397736,
+    -0.031829834,
+    -0.024108887,
+    -0.026168823,
+    -0.0025730133,
+    -0.0069503784,
+    0.039520264,
+    0.010101318,
+    -0.0051956177,
+    0.056762695,
+    0.015609741,
+    0.044403076,
+    0.017868042,
+    -0.001964569,
+    0.046051025,
+    0.053649902,
+    -0.022384644,
+    -0.010345459,
+    0.011054993,
+    0.03540039,
+    0.04296875,
+    -0.017593384,
+    -0.024124146,
+    0.04171753,
+    -0.015266418,
+    0.02720642,
+    -0.002796173,
+    -0.0116119385,
+    0.03427124,
+    -0.028656006,
+    -0.07556152,
+    0.012535095,
+    -0.0052490234,
+    -0.02571106,
+    -0.004096985,
+    -0.033966064,
+    0.02935791,
+    -0.01109314,
+    -0.0524292,
+    0.036712646,
+    0.022872925,
+    0.0051460266,
+    -0.016204834,
+    0.018508911,
+    -0.023040771,
+    0.010810852,
+    0.008964539,
+    -0.030685425,
+    -0.026412964,
+    0.0013837814,
+    0.0022468567,
+    -0.07775879,
+    -0.014953613,
+    -0.010131836,
+    0.010879517,
+    -0.03427124,
+    -0.06890869,
+    0.023788452,
+    0.0078125,
+    4.7504902e-05,
+    0.011940002,
+    0.01727295,
+    -0.042938232,
+    0.00028514862,
+    -0.039031982,
+    0.0058174133,
+    -0.009819031,
+    0.021118164,
+    0.01033783,
+    0.034729004,
+    -0.03164673,
+    -0.020553589,
+    -0.023880005,
+    -0.016723633,
+    0.0016355515,
+    0.001709938,
+    -0.0026741028,
+    -0.012367249,
+    0.06536865,
+    -0.04446411,
+    0.012611389,
+    -0.040161133,
+    0.008613586,
+    -0.0032081604,
+    -0.013442993,
+    0.032836914,
+    0.014221191,
+    0.008773804,
+    -0.010795593,
+    -0.004524231,
+    -0.043640137,
+    0.030349731,
+    -0.025100708,
+    -0.0015907288,
+    -0.051757812,
+    0.039123535,
+    -0.020904541,
+    -0.03302002,
+    0.01222229,
+    -0.0031280518,
+    -0.062805176,
+    -0.03225708,
+    -0.024597168,
+    -0.04144287,
+    0.00016486645,
+    -0.018127441,
+    -0.009681702,
+    -0.009170532,
+    -0.023132324,
+    -0.017684937,
+    0.046020508,
+    0.0007176399,
+    -0.009346008,
+    -0.03652954,
+    0.016204834,
+    -0.04034424,
+    0.06384277,
+    -0.0048675537,
+    0.0031738281,
+    -0.0014410019,
+    -0.045928955,
+    -0.022766113,
+    -0.00091934204,
+    -0.033599854,
+    0.012001038,
+    0.046661377,
+    0.010475159,
+    -0.004650116,
+    -0.049194336,
+    0.03866577,
+    0.012023926,
+    -0.06604004,
+    0.0014162064,
+    0.0053596497,
+    0.012062073,
+    -0.0065612793,
+    -0.027282715,
+    -0.0018606186,
+    0.0006465912,
+    0.016662598,
+    0.034606934,
+    0.015777588,
+    -0.0008058548,
+    0.03060913,
+    0.010314941,
+    -0.055541992,
+    0.053497314,
+    0.027267456,
+    -0.0597229,
+    0.026000977,
+    0.03375244,
+    -0.01638794,
+    0.0035381317,
+    0.086242676,
+    0.017654419,
+    0.01991272,
+    0.07965088,
+    -0.030151367,
+    -0.011245728,
+    -0.011276245,
+    0.03225708,
+    -0.015823364,
+    -0.055145264,
+    -0.033050537,
+    0.008651733,
+    0.033966064,
+    0.039733887,
+    -0.033203125,
+    -0.031311035,
+    -0.012245178,
+    -0.050231934,
+    0.007801056,
+    0.016418457,
+    0.00016593933,
+    0.018508911,
+    0.0034599304,
+    -0.053894043,
+    -0.011787415,
+    -0.02331543,
+    -0.026885986,
+    -0.007583618,
+    0.042022705,
+    -0.014801025,
+    -0.01878357,
+    -0.045684814,
+    -0.08605957,
+    -0.0011873245,
+    -0.008163452,
+    -0.011428833,
+    -0.087524414,
+    0.02734375,
+    0.015327454,
+    0.06384277,
+    0.029678345,
+    0.031433105,
+    -0.020233154,
+    -0.027023315,
+    0.062683105,
+    0.0075912476,
+    0.07611084,
+    0.010772705,
+    0.0014629364,
+    -0.057403564,
+    0.041290283,
+    -0.046447754,
+    -0.06323242,
+    0.010818481,
+    -0.03668213,
+    0.008575439,
+    0.029220581,
+    -0.009353638,
+    -0.057006836,
+    0.048583984,
+    -0.0073890686,
+    -0.03100586,
+    0.045288086,
+    -0.011222839,
+    0.025100708,
+    0.00056266785,
+    -0.018203735,
+    -0.05807495,
+    -0.021484375,
+    0.0014514923,
+    -0.0519104,
+    -0.061706543,
+    -0.018707275,
+    0.015342712,
+    0.061950684,
+    0.05041504,
+    -0.031219482,
+    0.07537842,
+    0.020401001,
+    -0.011108398,
+    -0.0007967949,
+    -0.0026493073,
+    0.0028705597,
+    0.05596924,
+    -0.042663574,
+    0.042175293,
+    -0.016830444,
+    -0.01876831,
+    -0.006626129,
+    -0.02468872,
+    0.08502197,
+    0.030899048,
+    -0.07019043,
+    -0.0017910004,
+    0.016448975,
+    0.0015611649,
+    0.02684021,
+    0.009971619,
+    -0.0004954338,
+    -0.092285156,
+    -0.016357422,
+    -0.05001831,
+    0.027770996,
+    0.019134521,
+    -0.0099487305,
+    0.008201599,
+    0.049926758,
+    -0.022781372,
+    -0.059448242,
+    -0.034698486,
+    -0.035827637,
+    -0.019134521,
+    -0.017913818,
+    0.010292053,
+    0.032073975,
+    0.03768921,
+    0.039398193,
+    0.0017356873,
+    -0.043823242,
+    -0.0062942505,
+    0.031158447,
+    -0.013160706,
+    -0.014793396,
+    0.015640259,
+    -0.050720215,
+    -0.019378662,
+    -0.03137207,
+    0.0048179626,
+    0.030059814,
+    0.012466431,
+    -0.0011043549,
+    -0.017456055,
+    -0.021118164,
+    -0.045684814,
+    -0.006095886,
+    -0.006565094,
+    0.016113281,
+    -0.012458801,
+    -0.028366089,
+    0.0064849854,
+    0.016815186,
+    -0.04071045,
+    0.009918213,
+    0.03112793,
+    -0.009346008,
+    -0.029968262,
+    0.0057296753,
+    0.010681152,
+    0.0031909943,
+    -0.029449463,
+    -0.045532227,
+    -0.031280518,
+    0.0074806213,
+    0.04888916,
+    0.013923645,
+    -0.028167725,
+    -0.030822754,
+    0.021957397,
+    -0.048706055,
+    -0.028656006,
+    -0.038024902,
+    -0.052001953,
+    0.040405273,
+    0.011634827,
+    -0.0063095093,
+    0.07989502,
+    -0.040252686,
+    0.025421143,
+    0.01876831,
+    0.029876709,
+    0.0032463074,
+    0.019058228,
+    0.056243896,
+    0.02178955,
+    0.0016860962
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86705.md",
+    "file_name": "86705.md",
+    "file_size": 8387,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Bell Helicopter Textron 206L-1 in Grand Canyon",
+      "The accident occurred in Grand Canyon, Arizona.",
+      "The accident occurred on April 23, 2013, at 14:45 Local time.",
+      "The aircraft involved was a Bell Helicopter Textron 206L-1.",
+      "The defining event of the accident was a tailstrike.",
+      "The flight was conducted under Part 91: General aviation - Instructional.",
+      "The accident number was WPR13CA206.",
+      "The aircraft registration was N2072M.",
+      "The aircraft sustained substantial damage.",
+      "There were 2 occupants in the aircraft.",
+      "No injuries were reported in the accident.",
+      "The flight instructor and pilot receiving instruction were practicing autorotations.",
+      "The practice included an autorotation involving a right 180-degree turn.",
+      "The flight instructor announced that the throttle was coming on during the maneuver.",
+      "The flight instructor announced when full throttle was on.",
+      "The pilot started to level the helicopter after the throttle announcements.",
+      "The wind shifted to a tailwind during the maneuver.",
+      "The tailwind forced the pilot to flare harder than expected.",
+      "The tailwind forced the pilot to use more cyclic control than expected.",
+      "The flight instructor realized completing a power recovery would result in an overtorque condition.",
+      "The flight instructor took over control of the helicopter.",
+      "The flight instructor landed the helicopter.",
+      "The tailboom was substantially damaged during the landing.",
+      "The flight instructor reported no preimpact mechanical malfunctions with the airframe.",
+      "The flight instructor reported no preimpact mechanical failures with the airframe.",
+      "The flight instructor reported no preimpact mechanical malfunctions with the engine.",
+      "The flight instructor reported no preimpact mechanical failures with the engine.",
+      "The National Transportation Safety Board determined the probable cause of the accident.",
+      "The probable cause was the failure of both pilots to recognize the wind had shifted to a tailwind before entering the flare.",
+      "The probable cause included the failure to terminate the practice autorotation."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Bell Helicopter Textron 206L-1 in Grand Canyon",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Grand Canyon, Arizona",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bell Helicopter Textron 206L-1",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tailstrike",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Instructional",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR13CA206",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N2072M",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "flight instructor",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot receiving instruction",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Aircraftowner"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Grand Canyon, Arizona.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Canyon, Arizona",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on April 23, 2013, at 1445 Local time.",
+              "details": [
+                "accident DATE April 23, 2013",
+                "accident TIME 14:45 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 23, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14:45 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Bell Helicopter Textron 206L-1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bell Helicopter Textron 206L-1",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TYPE OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was a tailstrike.",
+              "details": [
+                "accident DEFINING EVENT tailstrike"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailstrike",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Instructional.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Instructional"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Instructional",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR13CA206.",
+              "details": [
+                "accident NUMBER WPR13CA206"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR13CA206",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N2072M.",
+              "details": [
+                "aircraft REGISTRATION N2072M"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N2072M",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [
+                "aircraft DAMAGE substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 2 occupants in the aircraft.",
+              "details": [
+                "aircraft OCCUPANT COUNT 2"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No injuries were reported in the accident.",
+              "details": [
+                "accident INJURIES none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor and pilot receiving instruction were practicing autorotations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INSTRUCTING"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot receiving instruction",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "practicing autorotations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot receiving instruction",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "practicing autorotations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The practice included an autorotation involving a right 180-degree turn.",
+              "details": [
+                "practice INCLUDED autorotation involving a right 180-degree turn"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "practice",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autorotation involving a right 180-degree turn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor announced that the throttle was coming on during the maneuver.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ANNOUNCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "throttle was coming on",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor announced when full throttle was on.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ANNOUNCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "full throttle was on",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot started to level the helicopter after the throttle announcements.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot receiving instruction",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "started to level the helicopter after throttle announcements",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wind shifted to a tailwind during the maneuver.",
+              "details": [
+                "wind SHIFTED TO tailwind during the maneuver"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wind",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SHIFTED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailwind during the maneuver",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tailwind forced the pilot to flare harder than expected.",
+              "details": [
+                "tailwind FORCED pilot to flare harder than expected"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailwind",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FORCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot to flare harder than expected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tailwind forced the pilot to use more cyclic control than expected.",
+              "details": [
+                "tailwind FORCED pilot to use more cyclic control than expected"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailwind",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FORCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot to use more cyclic control than expected",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor realized completing a power recovery would result in an overtorque condition.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REALIZED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "completing a power recovery would result in an overtorque condition",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor took over control of the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "took over control of the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor landed the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landed the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tailboom was substantially damaged during the landing.",
+              "details": [
+                "tailboom DAMAGE substantially damaged during the landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tailboom",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged during the landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor reported no preimpact mechanical malfunctions with the airframe.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact mechanical malfunctions with the airframe",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor reported no preimpact mechanical failures with the airframe.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact mechanical failures with the airframe",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor reported no preimpact mechanical malfunctions with the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact mechanical malfunctions with the engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight instructor reported no preimpact mechanical failures with the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight instructor",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact mechanical failures with the engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause of the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause was the failure of both pilots to recognize the wind had shifted to a tailwind before entering the flare.",
+              "details": [
+                "probable cause DESCRIBED AS failure of both pilots to recognize the wind had shifted to a tailwind before entering the flare"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DESCRIBED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure of both pilots to recognize the wind had shifted to a tailwind before entering the flare",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause included the failure to terminate the practice autorotation.",
+              "details": [
+                "probable cause INCLUDED failure to terminate the practice autorotation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INCLUDED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure to terminate the practice autorotation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2fe2dbb9:593b",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86705.md",
+        "file_name": "86705.md",
+        "file_size": 8387,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "835c28a5f7c74c8fc564bc7d1f82223c0ad8f176e095b531e895339393fbdbb0",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2fe2dbb9:593b:23d15260",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86705.md",
+        "file_name": "86705.md",
+        "file_size": 8387,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "5625acd571318010d03e5354ff00897b71fe835473c9e5fc4a02dfdd47ea4c4b",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nGrand Canyon, Arizona\n\n## Date & Time: \nApril 23, 2013, 14:45 Local\n\n## Aircraft:\nBELL HELICOPTER TEXTRON 206L-1\n\n## Defining Event:\nTailstrike\n\n## Flight Conducted Under:\nPart 91: General aviation - Instructional\n\n## Accident Number:\nWPR13CA206\n\n## Registration:\nN2072M\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 None\n\n## Analysis\nThe flight instructor reported that she and the pilot receiving instruction were practicing autorotations. During an autorotation involving a right 180-degree turn, the flight instructor announced that the throttle was coming on, and then announced when full throttle was on. The pilot then started to level the helicopter. Because the wind had shifted to a tailwind during the maneuver, the pilot was forced to flare harder and use more cyclic control than expected. The flight instructor realized that completing a power recovery from the autorotation was going to result in an overtorque condition, took over control, and landed the helicopter. During the landing, the tailboom was substantially damaged. The flight instructor reported no preimpact mechanical malfunctions or failures with the airframe or engine that would have precluded normal operation.\n\n## Probable Cause and Findings\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:The failure of the flight instructor and the pilot receiving instruction to recognize before entering the flare that the wind had shifted to a tailwind and terminate the practice autorotation.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1576,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

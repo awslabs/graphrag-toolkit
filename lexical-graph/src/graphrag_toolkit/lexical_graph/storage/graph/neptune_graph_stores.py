@@ -6,6 +6,9 @@ import json
 import logging
 import time
 import uuid
+import boto3
+import re
+import sys
 from botocore.config import Config
 from typing import Optional, Any, Callable
 from importlib.metadata import version, PackageNotFoundError
@@ -21,6 +24,65 @@ NEPTUNE_DATABASE = 'neptune-db://'
 NEPTUNE_DB_DNS = 'neptune.amazonaws.com'
 
 logger = logging.getLogger(__name__)
+
+REGISTER_FIRST = object()
+
+def intercept_before_parse(operation_model, response_dict, **kwargs):
+    # We only need to check reponses that are initially looking successful because the response is streaming
+    # and the query might fail while Neptune has already returned partial results.
+    if response_dict['status_code'] != 200:
+        return
+
+    # Engine versions before 1.4.5.0 do not attach an error message to the response body if the query evaluation
+    # fails after results are already streamed to the client. The only way to detect the error is checking for
+    # invalid JSON.
+    body = response_dict['body'].decode('utf-8')
+
+    try:
+        parsed_response = json.loads(body)
+        # No error means the response is complete, and HTTP code 200 is fine.
+        # Add dummy response to save the regular JSON parsing that happens after before-parse
+        response_dict['body'] = '{"results":[]}'.encode('utf-8')
+        # Add parsed JSON to the response: in Endpoint::_do_get_response (python/3.12/lib/python3.12/site-packages/botocore/endpoint.py), 
+        # the elements in customized_response_dict are used to overwrite the parsed response: parsed_response.update(customized_response_dict).
+        # So the dummy response gets parsed (cheap) but the actual response is returned to the client.
+        kwargs['customized_response_dict']['results'] = parsed_response['results']
+    except json.JSONDecodeError:
+        # Changing the response enabled the client to observe the error message.
+
+        # Search for the error message instead of trying to parse the body as JSON in order to detect errors.
+        pattern = r'\{(?=.*"code"\s*:\s*"[^"]*")(?=.*"detailedMessage"\s*:\s*"[^"]*")(?=.*"requestId"\s*:\s*"[^"]*")(?=.*"message"\s*:\s*"[^"]*")[^}]*\}$'
+        body = response_dict['body'].decode('utf-8')
+        match = re.search(pattern, body)
+
+        if match:
+            # For Neptune 1.4.5.0 and newer
+            error_message = match.group()
+            print(error_message)
+            # Sanity check: the error message must be a valid JSON string
+            try:
+                error = json.loads(error_message)
+                # Changing the response enabled the client to observe the error message.
+                response_dict['status_code'] = 500
+                response_dict['body'] = error_message.encode('utf-8')
+
+                # Throwing the exception from the neptunedata client makes the experience on the client side
+                # similar to a query execution that fails immediately without receiving a partial response.
+                # Raising the error similar to Pyhton 3.12 botocore/client.py at line 1023. 
+                error_class = boto3.client('neptunedata', region_name='us-east-1').exceptions.from_code('InternalFailureException')
+                raise error_class({'Error': {'Code':error.get('code'), 'Message': error.get('message')}}, operation_model.name)
+            except json.JSONDecodeError:
+                logging.error(f"An error message that is an invalid JSON string was matched: {error_message}")
+                raise Exception(f"Result processing failed: invalid JSON error message encoding received: {error_message}")
+        else:
+            # For Neptune engine versions before 1.4.5.0, we can only supply a generic error message
+            response_dict['status_code'] = 500
+            response_dict['body'] = '{"detailedMessage":"Detected interrupted response in neptunedata client.","code":"InternalFailureException","requestId":"<unknown>","message":"Detected interrupted response in neptunedata client."}'.encode('utf-8')
+            # Throwing the exception from the neptunedata client makes the experience on the client side
+            # similar to a query execution that fails immediately without receiving a partial response.
+            # Raising the error similar to Python 3.12 botocore/client.py at line 1023. 
+            error_class = boto3.client('neptunedata', region_name='us-east-1').exceptions.from_code('InternalFailureException')
+            raise error_class({'Error': {'Code':'InternalFailureException', 'Message': 'Detected interrupted response in neptunedata client.'}}, operation_model.name)
 
 def format_id_for_neptune(id_name:str):
     """
@@ -378,6 +440,8 @@ class NeptuneDatabaseClient(GraphStore):
                 endpoint_url=self.endpoint_url,
                 config=create_config(self.config)
             )
+            self._client.meta.events.register('before-parse.neptunedata.ExecuteOpenCypherQuery', intercept_before_parse, REGISTER_FIRST)
+
         return self._client
 
     def node_id(self, id_name:str) -> NodeId:

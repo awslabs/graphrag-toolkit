@@ -1,0 +1,2413 @@
+{
+  "id_": "aws::b9542f82:400c:c03e6736",
+  "embedding": [
+    0.025527954,
+    0.021560669,
+    0.019500732,
+    -0.047607422,
+    0.007106781,
+    0.011367798,
+    -0.003479004,
+    -0.0049591064,
+    -0.05706787,
+    0.0146484375,
+    0.023986816,
+    0.014343262,
+    0.0010585785,
+    -0.041137695,
+    0.05911255,
+    -0.021331787,
+    -0.016738892,
+    0.09649658,
+    0.061798096,
+    -0.016540527,
+    0.025604248,
+    -0.017913818,
+    -0.03540039,
+    0.000603199,
+    -0.013633728,
+    0.061584473,
+    -0.010551453,
+    -0.012069702,
+    -0.024780273,
+    -0.035736084,
+    -0.00573349,
+    0.027404785,
+    0.032226562,
+    0.025253296,
+    -0.01574707,
+    0.0076065063,
+    0.002325058,
+    0.00415802,
+    -0.014465332,
+    0.035491943,
+    0.030654907,
+    -0.032226562,
+    0.038330078,
+    -0.08581543,
+    -0.0060310364,
+    0.04055786,
+    0.008262634,
+    -0.010368347,
+    0.0033130646,
+    0.030136108,
+    0.0067863464,
+    0.019119263,
+    -0.0069847107,
+    0.07659912,
+    0.016616821,
+    0.013305664,
+    -0.0385437,
+    0.018753052,
+    -0.005054474,
+    0.026611328,
+    0.021392822,
+    0.052734375,
+    0.003545761,
+    0.028015137,
+    -0.0524292,
+    -0.0069999695,
+    -0.005844116,
+    -0.015235901,
+    0.06536865,
+    -0.03475952,
+    -0.038146973,
+    0.03982544,
+    -0.009521484,
+    0.0063667297,
+    -0.0069999695,
+    -0.03515625,
+    0.011451721,
+    -0.016159058,
+    -0.018936157,
+    0.041381836,
+    -0.007549286,
+    0.080444336,
+    -0.0072669983,
+    -0.026321411,
+    -0.033050537,
+    -0.021148682,
+    -0.032836914,
+    -0.012168884,
+    -0.0020713806,
+    -0.019348145,
+    -0.01197052,
+    0.017959595,
+    0.013114929,
+    -0.008148193,
+    -0.033081055,
+    -0.0107803345,
+    -0.0074920654,
+    -0.07110596,
+    0.046173096,
+    -0.011978149,
+    0.035858154,
+    -0.048736572,
+    -0.029785156,
+    0.02229309,
+    -0.010681152,
+    0.020050049,
+    -0.003129959,
+    -0.011787415,
+    0.026382446,
+    0.01838684,
+    -0.0066223145,
+    0.030929565,
+    -0.014274597,
+    -0.060546875,
+    -0.015960693,
+    0.08807373,
+    0.028579712,
+    -0.0032901764,
+    0.030548096,
+    0.031051636,
+    0.029312134,
+    0.035705566,
+    -0.042053223,
+    -0.037475586,
+    -0.010391235,
+    -0.05621338,
+    -0.04736328,
+    0.05227661,
+    0.06982422,
+    -0.025100708,
+    -0.0031032562,
+    0.03164673,
+    -0.023330688,
+    -0.030685425,
+    -0.01763916,
+    0.008728027,
+    0.001909256,
+    -0.015106201,
+    0.017410278,
+    0.00091695786,
+    -0.0071411133,
+    0.0076179504,
+    0.07244873,
+    0.0033874512,
+    -0.0053367615,
+    0.039764404,
+    0.0062332153,
+    0.0044555664,
+    0.006416321,
+    -0.026107788,
+    -0.019088745,
+    -0.023223877,
+    0.05709839,
+    -0.006965637,
+    -0.0178833,
+    -0.06933594,
+    0.02645874,
+    -0.058166504,
+    -0.010772705,
+    -0.06817627,
+    0.007896423,
+    -0.011886597,
+    -0.014251709,
+    0.0017719269,
+    -0.0038337708,
+    -0.0022964478,
+    -0.011436462,
+    0.012878418,
+    0.01348114,
+    0.036376953,
+    0.013755798,
+    0.0014648438,
+    -0.031433105,
+    -0.012199402,
+    -0.02217102,
+    -0.020584106,
+    0.007247925,
+    0.060333252,
+    0.024459839,
+    -0.00019145012,
+    -0.008918762,
+    -0.046173096,
+    0.04058838,
+    -0.0021381378,
+    -0.018844604,
+    0.007873535,
+    -0.0042877197,
+    -0.0058250427,
+    0.02456665,
+    -0.010360718,
+    0.005302429,
+    0.017822266,
+    -0.030456543,
+    -0.028366089,
+    -0.010093689,
+    0.015144348,
+    0.0041656494,
+    0.018096924,
+    -1.5437603e-05,
+    0.009506226,
+    -0.077819824,
+    0.027145386,
+    -0.021850586,
+    0.054595947,
+    -0.03933716,
+    0.020751953,
+    -0.0140686035,
+    0.03302002,
+    -0.0006427765,
+    0.021987915,
+    0.017684937,
+    -0.03189087,
+    -0.014953613,
+    0.018447876,
+    -0.0045051575,
+    -0.008285522,
+    -0.0023097992,
+    0.042266846,
+    0.024169922,
+    -0.007575989,
+    -0.007621765,
+    0.0010414124,
+    0.014793396,
+    0.006832123,
+    -0.048217773,
+    0.0036010742,
+    -0.034057617,
+    0.00504303,
+    -0.03793335,
+    -0.0046081543,
+    0.08068848,
+    0.017318726,
+    0.017196655,
+    0.023132324,
+    -0.027496338,
+    0.0008416176,
+    0.01600647,
+    0.0031337738,
+    0.017425537,
+    0.025970459,
+    -0.0060768127,
+    -0.050323486,
+    -0.028198242,
+    0.050109863,
+    -0.08569336,
+    -0.031463623,
+    0.01890564,
+    0.008850098,
+    -0.009529114,
+    0.04095459,
+    -0.015098572,
+    0.048950195,
+    0.01399231,
+    0.088134766,
+    -0.0055770874,
+    0.028198242,
+    0.012191772,
+    -0.010154724,
+    -0.02017212,
+    0.008621216,
+    0.03451538,
+    0.002576828,
+    -0.07122803,
+    0.020019531,
+    -0.018081665,
+    0.05392456,
+    0.046020508,
+    0.052642822,
+    -0.02545166,
+    6.66976e-05,
+    0.005302429,
+    0.053527832,
+    0.011642456,
+    0.028213501,
+    -0.033111572,
+    0.025939941,
+    -0.015289307,
+    -0.013793945,
+    0.02619934,
+    0.003993988,
+    -0.016418457,
+    0.003736496,
+    -0.028640747,
+    -0.0033626556,
+    0.030517578,
+    0.011833191,
+    -0.008766174,
+    -0.014030457,
+    -0.01939392,
+    -0.009155273,
+    0.043304443,
+    -0.035308838,
+    -0.04425049,
+    0.009674072,
+    -0.02772522,
+    -0.03866577,
+    0.01777649,
+    0.013153076,
+    -0.00274086,
+    0.014129639,
+    0.04168701,
+    0.058380127,
+    0.014503479,
+    -0.008766174,
+    -0.012031555,
+    -0.035186768,
+    -0.042633057,
+    -0.003025055,
+    -0.0010480881,
+    0.009849548,
+    -0.027938843,
+    0.080078125,
+    0.017333984,
+    0.019744873,
+    0.017028809,
+    -0.014038086,
+    0.01852417,
+    0.035858154,
+    0.00579834,
+    -0.013442993,
+    -0.038909912,
+    -0.020385742,
+    -0.016067505,
+    0.01902771,
+    -0.0071907043,
+    -0.009803772,
+    0.029556274,
+    0.008460999,
+    0.0006451607,
+    0.013397217,
+    -0.010948181,
+    0.012588501,
+    -0.031280518,
+    0.003566742,
+    -0.00242424,
+    0.011672974,
+    -0.014732361,
+    0.044281006,
+    -0.03515625,
+    -0.0491333,
+    -0.0413208,
+    -0.05633545,
+    0.023788452,
+    -0.012382507,
+    -0.07965088,
+    0.009391785,
+    0.022201538,
+    0.024368286,
+    -0.012954712,
+    -0.031707764,
+    0.06222534,
+    -0.011871338,
+    0.0047302246,
+    0.010368347,
+    -0.04425049,
+    -0.028747559,
+    0.018920898,
+    -0.0051574707,
+    -0.05429077,
+    -0.048187256,
+    -0.004940033,
+    -0.021972656,
+    -0.057495117,
+    -0.054595947,
+    0.044006348,
+    0.0099487305,
+    -0.03479004,
+    -0.017593384,
+    -0.008346558,
+    0.015426636,
+    -0.01411438,
+    -0.011184692,
+    0.0135269165,
+    -0.008171082,
+    -0.01713562,
+    -0.012313843,
+    0.033172607,
+    -0.01008606,
+    0.017059326,
+    0.02684021,
+    0.021270752,
+    0.0037002563,
+    0.0025978088,
+    -0.008979797,
+    0.022018433,
+    -0.010223389,
+    -0.01159668,
+    0.021377563,
+    0.020004272,
+    0.021133423,
+    -0.007572174,
+    -0.007167816,
+    -0.024597168,
+    -0.013473511,
+    -0.00258255,
+    0.0018224716,
+    -0.006427765,
+    -0.0025177002,
+    -0.03479004,
+    -0.011253357,
+    -0.08917236,
+    -0.02142334,
+    -0.035949707,
+    -0.042907715,
+    0.032714844,
+    -0.103149414,
+    -0.007255554,
+    -0.06109619,
+    0.018630981,
+    0.070129395,
+    -0.035888672,
+    0.03338623,
+    -0.016021729,
+    0.024734497,
+    -0.0009937286,
+    0.015563965,
+    -0.0087890625,
+    -0.012039185,
+    -0.0074501038,
+    0.02986145,
+    0.024749756,
+    -0.025650024,
+    0.011528015,
+    0.04458618,
+    -0.012123108,
+    -0.041229248,
+    -0.0101623535,
+    0.016967773,
+    -0.0010652542,
+    0.0072784424,
+    -0.02835083,
+    -0.009269714,
+    0.02243042,
+    -0.0023117065,
+    -0.054718018,
+    0.03591919,
+    -0.0067443848,
+    0.056793213,
+    0.0049972534,
+    -0.04751587,
+    0.047302246,
+    0.002878189,
+    -0.021652222,
+    0.03466797,
+    -0.014167786,
+    -0.0064849854,
+    -0.025543213,
+    0.011444092,
+    -0.011360168,
+    -0.0051879883,
+    -0.008232117,
+    -0.012336731,
+    0.07122803,
+    0.042663574,
+    -0.003955841,
+    0.082458496,
+    -0.017059326,
+    0.027709961,
+    0.020980835,
+    -0.044311523,
+    -0.029953003,
+    -0.026657104,
+    -0.042785645,
+    0.0039749146,
+    0.0051994324,
+    -0.049835205,
+    0.024124146,
+    0.03656006,
+    0.057281494,
+    -0.024765015,
+    0.014595032,
+    0.052337646,
+    0.007106781,
+    -0.019210815,
+    -0.008880615,
+    -0.017242432,
+    0.006034851,
+    -0.042114258,
+    0.078063965,
+    0.017486572,
+    -0.04937744,
+    0.014793396,
+    -0.012435913,
+    0.048065186,
+    0.02859497,
+    0.0035629272,
+    0.050567627,
+    0.032409668,
+    0.04928589,
+    -0.008018494,
+    0.030838013,
+    -0.029769897,
+    0.06304932,
+    -0.0022602081,
+    0.03149414,
+    -0.026046753,
+    0.012672424,
+    -0.041168213,
+    -0.022384644,
+    -0.013893127,
+    -0.07244873,
+    -0.0034885406,
+    -0.0038585663,
+    -0.0054397583,
+    0.021408081,
+    0.011756897,
+    -0.033966064,
+    0.013473511,
+    0.026748657,
+    -0.008125305,
+    -0.026290894,
+    -0.0027694702,
+    0.022750854,
+    0.027664185,
+    -0.040222168,
+    0.045013428,
+    -0.056671143,
+    -0.030578613,
+    -0.021209717,
+    0.015068054,
+    -0.022445679,
+    -0.0062561035,
+    0.056915283,
+    0.034851074,
+    -0.06689453,
+    -0.0054016113,
+    0.055664062,
+    0.029129028,
+    -0.024841309,
+    -0.017456055,
+    0.015014648,
+    0.039733887,
+    -0.032440186,
+    -0.021484375,
+    0.033233643,
+    -0.023986816,
+    -0.012535095,
+    0.06549072,
+    0.025054932,
+    -0.03152466,
+    -0.03186035,
+    -0.024734497,
+    0.031219482,
+    -0.01777649,
+    0.017318726,
+    -0.005847931,
+    0.010787964,
+    0.019485474,
+    -0.034362793,
+    -0.013450623,
+    -0.023361206,
+    0.00472641,
+    0.034729004,
+    -0.06903076,
+    -0.0736084,
+    0.08673096,
+    0.07348633,
+    -0.029953003,
+    -0.023788452,
+    0.006374359,
+    -0.009132385,
+    -0.013633728,
+    -0.009468079,
+    0.0003848076,
+    -0.005584717,
+    0.024749756,
+    -0.0093307495,
+    -0.03668213,
+    -0.022415161,
+    -0.004348755,
+    -0.012702942,
+    -0.017562866,
+    0.08642578,
+    0.023834229,
+    -0.046783447,
+    -0.027389526,
+    0.022109985,
+    0.048431396,
+    -0.013267517,
+    -0.030792236,
+    0.015975952,
+    -0.017471313,
+    0.001077652,
+    0.056762695,
+    -0.043121338,
+    0.031082153,
+    0.0035209656,
+    -0.0030708313,
+    -0.02520752,
+    0.011810303,
+    0.056121826,
+    -0.012084961,
+    0.019454956,
+    0.029083252,
+    -0.008850098,
+    -0.014328003,
+    -0.019546509,
+    -0.0647583,
+    0.021362305,
+    -0.01864624,
+    -0.0155181885,
+    -0.015045166,
+    0.00434494,
+    -0.025283813,
+    0.042663574,
+    0.022766113,
+    -7.8976154e-05,
+    -0.010345459,
+    0.0049095154,
+    0.049957275,
+    0.0045433044,
+    0.03387451,
+    -0.039611816,
+    0.003967285,
+    -0.002855301,
+    -0.005569458,
+    -0.035858154,
+    0.005428314,
+    0.026031494,
+    0.0030574799,
+    0.043151855,
+    -0.0032596588,
+    0.026306152,
+    0.020523071,
+    0.010063171,
+    -0.006462097,
+    -0.016311646,
+    -0.010238647,
+    -0.0009264946,
+    -0.015777588,
+    -0.010139465,
+    -0.019927979,
+    -0.050445557,
+    0.0132369995,
+    -0.023376465,
+    -0.02407837,
+    -0.002161026,
+    -0.020629883,
+    0.016189575,
+    -0.02180481,
+    -0.011177063,
+    0.015151978,
+    -0.02330017,
+    -0.0027275085,
+    0.021560669,
+    -0.030792236,
+    -0.01499939,
+    -0.006099701,
+    0.011795044,
+    -0.0112838745,
+    -0.004611969,
+    0.010765076,
+    -0.06689453,
+    0.0107421875,
+    0.05154419,
+    -0.009246826,
+    0.024215698,
+    0.011505127,
+    7.390976e-06,
+    -0.054260254,
+    -0.0847168,
+    -0.0513916,
+    -0.01322937,
+    -0.06689453,
+    -0.066467285,
+    -0.03463745,
+    0.023223877,
+    0.0095825195,
+    -0.0178833,
+    -0.028961182,
+    0.0022525787,
+    -0.010047913,
+    -0.016693115,
+    -0.04159546,
+    -0.023971558,
+    -0.008544922,
+    0.10223389,
+    0.018463135,
+    0.06341553,
+    -0.08605957,
+    0.00623703,
+    -0.008415222,
+    -0.024353027,
+    0.009239197,
+    -0.010925293,
+    0.034484863,
+    -0.013343811,
+    0.0045700073,
+    0.019042969,
+    -0.03503418,
+    -0.00019061565,
+    0.007987976,
+    -0.022842407,
+    -0.03173828,
+    0.047546387,
+    -0.0067710876,
+    -0.031921387,
+    0.02796936,
+    0.013244629,
+    -0.040740967,
+    -0.022750854,
+    0.035705566,
+    -0.0066947937,
+    0.010284424,
+    -0.04168701,
+    0.03164673,
+    0.011108398,
+    0.043304443,
+    -0.072753906,
+    -0.01499176,
+    -0.006542206,
+    0.034851074,
+    -0.014060974,
+    -0.007144928,
+    0.009643555,
+    0.018707275,
+    0.018112183,
+    0.008460999,
+    -0.017807007,
+    0.001572609,
+    -0.0061149597,
+    -0.0082473755,
+    0.018951416,
+    -0.030426025,
+    0.018676758,
+    -0.031951904,
+    -0.015838623,
+    0.018325806,
+    -0.03274536,
+    -0.032196045,
+    0.012817383,
+    -0.049316406,
+    0.059448242,
+    -0.022735596,
+    -0.075805664,
+    0.034210205,
+    0.019927979,
+    0.021102905,
+    0.02279663,
+    -0.026641846,
+    -0.04724121,
+    -0.013847351,
+    0.030685425,
+    0.0005283356,
+    -0.008972168,
+    -0.055847168,
+    0.0018987656,
+    -0.064208984,
+    -0.04107666,
+    -0.017105103,
+    0.05517578,
+    -0.07159424,
+    -0.057647705,
+    0.020401001,
+    0.027023315,
+    0.040008545,
+    0.0054130554,
+    0.0018863678,
+    -0.05267334,
+    0.002922058,
+    -0.043670654,
+    0.009765625,
+    0.015083313,
+    0.018615723,
+    0.025314331,
+    0.023483276,
+    -0.02885437,
+    -0.0021572113,
+    -0.022949219,
+    0.00029063225,
+    -0.029678345,
+    -0.024627686,
+    -0.014541626,
+    -0.020812988,
+    0.07183838,
+    -0.0016784668,
+    0.03225708,
+    -0.027252197,
+    0.013442993,
+    -0.023910522,
+    -0.027679443,
+    0.010925293,
+    -0.013763428,
+    0.019683838,
+    -0.033203125,
+    0.019882202,
+    -0.02558899,
+    0.046936035,
+    -0.022537231,
+    0.011070251,
+    -0.03970337,
+    0.039276123,
+    0.0099105835,
+    -0.036132812,
+    -0.018432617,
+    0.0017318726,
+    0.018035889,
+    -0.019454956,
+    -0.015945435,
+    -0.0067481995,
+    -0.011802673,
+    0.0035324097,
+    -0.07312012,
+    -0.0037956238,
+    -0.045776367,
+    -0.010520935,
+    -0.0103302,
+    0.019256592,
+    0.051727295,
+    -0.041656494,
+    0.026687622,
+    -0.032318115,
+    0.03753662,
+    0.016616821,
+    0.024871826,
+    0.059448242,
+    -0.066223145,
+    -0.0309906,
+    0.012168884,
+    -0.015419006,
+    0.022949219,
+    0.041412354,
+    0.010368347,
+    -0.0054969788,
+    -0.008323669,
+    0.038238525,
+    -0.015686035,
+    -0.07745361,
+    0.034301758,
+    -0.0045051575,
+    0.0020942688,
+    0.02722168,
+    -0.047821045,
+    -0.03616333,
+    -0.024993896,
+    0.055725098,
+    0.0071372986,
+    0.016143799,
+    -0.007335663,
+    0.040130615,
+    0.02658081,
+    0.0032348633,
+    -0.030349731,
+    0.00094747543,
+    0.0019817352,
+    -0.024642944,
+    0.027282715,
+    -0.0066108704,
+    0.015899658,
+    0.046051025,
+    0.014411926,
+    -0.01361084,
+    0.008735657,
+    -0.008003235,
+    0.0024814606,
+    0.034576416,
+    0.06088257,
+    -0.02357483,
+    0.0012741089,
+    -0.022415161,
+    -0.029190063,
+    0.03970337,
+    0.016723633,
+    -0.0011415482,
+    -0.006187439,
+    0.022415161,
+    0.0068626404,
+    0.013244629,
+    0.049682617,
+    -0.005420685,
+    0.010597229,
+    -0.013702393,
+    -0.13195801,
+    -0.014709473,
+    -0.004863739,
+    -0.061187744,
+    0.0024490356,
+    0.07965088,
+    -0.017547607,
+    -0.0012626648,
+    -0.011627197,
+    -0.052764893,
+    0.014839172,
+    0.011764526,
+    -0.013648987,
+    -0.052978516,
+    0.022064209,
+    0.001868248,
+    0.040527344,
+    0.0158844,
+    0.00333786,
+    -0.02822876,
+    -0.025726318,
+    0.03302002,
+    -0.031921387,
+    0.053100586,
+    0.00039482117,
+    0.013122559,
+    -0.027542114,
+    -0.013771057,
+    -0.015975952,
+    -0.034423828,
+    0.058807373,
+    -0.036315918,
+    0.0104599,
+    -0.011154175,
+    -0.008369446,
+    -0.074523926,
+    -0.010025024,
+    -0.032928467,
+    0.0012865067,
+    -0.0001604557,
+    -0.009536743,
+    0.014137268,
+    0.0008468628,
+    -0.0007314682,
+    -0.023513794,
+    -0.013511658,
+    0.046661377,
+    -0.040740967,
+    -0.0289917,
+    -0.022338867,
+    0.009269714,
+    0.014259338,
+    0.017211914,
+    0.003917694,
+    0.017425537,
+    -0.043151855,
+    -0.011634827,
+    -0.004009247,
+    -0.004749298,
+    0.0033073425,
+    0.061767578,
+    0.0084991455,
+    0.039367676,
+    -0.004421234,
+    -0.01108551,
+    0.015426636,
+    -0.02178955,
+    0.0881958,
+    0.03805542,
+    -0.06591797,
+    0.01033783,
+    0.0060043335,
+    0.0076179504,
+    0.018356323,
+    0.015655518,
+    -0.020980835,
+    -0.01574707,
+    0.012397766,
+    -0.0039405823,
+    -0.006038666,
+    0.009262085,
+    0.018798828,
+    0.044281006,
+    0.052703857,
+    -0.009979248,
+    0.046844482,
+    -0.008079529,
+    -0.058166504,
+    -0.008621216,
+    -0.058166504,
+    0.03942871,
+    -0.010116577,
+    0.039398193,
+    -0.04360962,
+    -0.0055656433,
+    -0.013847351,
+    0.008125305,
+    -0.031799316,
+    0.017852783,
+    -0.028533936,
+    -0.00730896,
+    -0.04586792,
+    -0.03161621,
+    0.0039863586,
+    -0.0047416687,
+    -0.001613617,
+    -0.034210205,
+    -0.019088745,
+    -0.00041890144,
+    -0.013755798,
+    -0.0038223267,
+    0.020812988,
+    0.00078582764,
+    -0.03338623,
+    0.010971069,
+    -0.026321411,
+    0.0018177032,
+    0.011657715,
+    -0.051361084,
+    0.024017334,
+    0.002073288,
+    0.002128601,
+    -0.010192871,
+    0.010238647,
+    0.015296936,
+    -0.018249512,
+    0.01928711,
+    -0.011123657,
+    -0.03552246,
+    0.0035648346,
+    0.034301758,
+    -0.0068969727,
+    0.0082473755,
+    -0.053771973,
+    0.014289856,
+    -0.02482605,
+    -0.050231934,
+    -0.045532227,
+    -0.043151855,
+    0.017608643,
+    0.031585693,
+    -0.0015964508,
+    0.085998535,
+    -0.02658081,
+    0.02746582,
+    0.04598999,
+    0.03201294,
+    0.06781006,
+    -0.030517578,
+    -0.0035934448,
+    0.007701874,
+    -0.027877808
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86546.md",
+    "file_name": "86546.md",
+    "file_size": 9122,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Piper PA-38-112 Engine Power Loss During Takeoff",
+      "A Piper PA-38-112 with registration N99DM was substantially damaged during a forced landing on March 16, 2013.",
+      "The forced landing occurred at 1330 Pacific daylight time near Byron, California.",
+      "The forced landing followed a loss of engine power during takeoff initial climb.",
+      "The private pilot was the sole occupant of the aircraft.",
+      "The private pilot was not injured in the accident.",
+      "The pilot was also the owner of the aircraft.",
+      "The flight was operating under the provisions of 14 Code of Federal Regulations Part 91.",
+      "No flight plan had been filed for the cross-country flight.",
+      "The intended destination of the flight was Livermore, California.",
+      "The flight was originating from Byron Airport at the time of the accident.",
+      "Visual meteorological conditions prevailed during the flight.",
+      "The airplane's engine began to sputter when the end of the runway was passing underneath the aircraft.",
+      "The engine lost power after sputtering.",
+      "The pilot declared an emergency on the radio after the engine lost power.",
+      "The pilot set up a glide after the engine lost power.",
+      "The pilot changed fuel tanks after the engine lost power.",
+      "The pilot turned on the electric fuel boost pump after the engine lost power.",
+      "The pilot flared for landing in a field immediately next to airport property.",
+      "During the landing roll in the grass field, the right main landing gear encountered several gopher holes.",
+      "The encounter with gopher holes bent the right wing of the aircraft.",
+      "The encounter with gopher holes bent the right side of the fuselage.",
+      "A Federal Aviation Administration inspector examined the airplane at the accident site.",
+      "The Federal Aviation Administration inspector reported that 5 gallons of fuel were drained from the left wing tank.",
+      "The Federal Aviation Administration inspector reported that 6 gallons of fuel were drained from the right wing tank.",
+      "A visual examination of the fuel revealed no indication of contamination.",
+      "The wings were removed from the airplane after the accident.",
+      "The airplane was transported to a salvage yard after the wings were removed.",
+      "On April 16, 2013, the Federal Aviation Administration inspector attempted to perform an engine run at the salvage yard.",
+      "Difficulty was encountered in energizing the airplane's electrical system during the attempted engine run.",
+      "The airplane's electric fuel boost pump could not be used to supply fuel to the engine due to electrical system issues.",
+      "A leak was found at the gascolator while manually priming the fuel system.",
+      "The gascolator was disassembled after the leak was discovered.",
+      "A crack was found in the upper flange of the metal bowl of the gascolator.",
+      "The crack in the gascolator extended around about a third of the bowl's circumference.",
+      "The gascolator was bypassed to supply fuel directly to the carburetor."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Piper PA-38-112 Engine Power Loss During Takeoff",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-38-112",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N99DM",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Byron, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "private pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Byron Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Livermore, California",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration inspector",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Piper PA-38-112 with registration N99DM was substantially damaged during a forced landing on March 16, 2013.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N99DM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "March 16, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing occurred at 1330 Pacific daylight time near Byron, California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1330 Pacific daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near Byron, California",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forced landing followed a loss of engine power during takeoff initial climb.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power during takeoff initial climb",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot was the sole occupant of the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sole occupant",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot was not injured in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was also the owner of the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OWNER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was operating under the provisions of 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATING UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan had been filed for the cross-country flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No flight plan filed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cross-country flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The intended destination of the flight was Livermore, California.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Livermore, California",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was originating from Byron Airport at the time of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE POINT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Byron Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed during the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane's engine began to sputter when the end of the runway was passing underneath the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "began to sputter at end of runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine lost power after sputtering.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lost power after sputtering",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot declared an emergency on the radio after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "declared an emergency on the radio",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot set up a glide after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "set up a glide",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot changed fuel tanks after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changed fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot turned on the electric fuel boost pump after the engine lost power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turned on the electric fuel boost pump",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot flared for landing in a field immediately next to airport property.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flared for landing in a field",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "field immediately next to airport property",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the landing roll in the grass field, the right main landing gear encountered several gopher holes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING SURFACE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "grass field",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main landing gear encountered gopher holes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The encounter with gopher holes bent the right wing of the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bent right wing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The encounter with gopher holes bent the right side of the fuselage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bent right side of fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Federal Aviation Administration inspector examined the airplane at the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXAMINATION LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration inspector reported that 5 gallons of fuel were drained from the left wing tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL AMOUNT LEFT TANK"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration inspector reported that 6 gallons of fuel were drained from the right wing tank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL AMOUNT RIGHT TANK"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 gallons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A visual examination of the fuel revealed no indication of contamination.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL QUALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no indication of contamination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wings were removed from the airplane after the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POST ACCIDENT ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings removed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was transported to a salvage yard after the wings were removed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POST ACCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "salvage yard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On April 16, 2013, the Federal Aviation Administration inspector attempted to perform an engine run at the salvage yard.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 16, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted engine run",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "salvage yard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Difficulty was encountered in energizing the airplane's electrical system during the attempted engine run.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ELECTRICAL SYSTEM STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "difficulty energizing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane's electric fuel boost pump could not be used to supply fuel to the engine due to electrical system issues.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL BOOST PUMP STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could not be used due to electrical system issues",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A leak was found at the gascolator while manually priming the fuel system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FUEL SYSTEM ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "leak at gascolator",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The gascolator was disassembled after the leak was discovered.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gascolator disassembled",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A crack was found in the upper flange of the metal bowl of the gascolator.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "GASCOLATOR ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crack in upper flange of metal bowl",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The crack in the gascolator extended around about a third of the bowl's circumference.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "GASCOLATOR DAMAGE EXTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crack extended around about a third of bowl's circumference",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The gascolator was bypassed to supply fuel directly to the carburetor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-38-112",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gascolator bypassed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::b9542f82:400c",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86546.md",
+        "file_name": "86546.md",
+        "file_size": 9122,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "6fdc7907c4b5b93e01dcc50cc8deb3608a53d42a255392c3be1c4ee390ae35bc",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::b9542f82:400c:b55f6aa5",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86546.md",
+        "file_name": "86546.md",
+        "file_size": 9122,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "9699c5e8d3b793977dc232148af9f67bf445aa2351220c47a660d3dec914eede",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::b9542f82:400c:cabb6d05",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86546.md",
+        "file_name": "86546.md",
+        "file_size": 9122,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0ed6f845766331eb9f34596a0d655de6f0a3829c4c13ce6bf3f601f1c11aec27",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Initial climb | Loss of engine power (total) (Defining event) |\n\nOn March 16, 2013, at 1330 Pacific daylight time, a Piper PA-38-112, N99DM, was substantially damaged during a forced landing following a loss of engine power on takeoff initial climb near Byron, California. The private pilot, the sole occupant, was not injured. The pilot/owner was operating the airplane under the provisions of 14 Code of Federal Regulations Part 91. No flight plan had been filed for the cross-country flight to Livermore, California. The flight was originating from the Byron Airport at the time of the accident, and visual meteorological conditions prevailed.\n\nThe pilot reported that he had just taken off, and the end of the runway was passing underneath him when the airplane's engine began to sputter and then lost power. He declared an emergency on the radio, set up a glide, changed fuel tanks, turned on the electric fuel boost pump, and flared for landing. He landed in a field immediately next to airport property. During the landing roll in the grass field, the right main landing gear encountered several gopher holes, bending the right wing and right side of the fuselage.\n\nA Federal Aviation Administration (FAA) inspector examined the airplane at the accident site, and he reported that 5 and 6 gallons of fuel were drained from the left and right wing tanks, respectively. A visual examination of the fuel revealed no indication of contamination. The wings were removed from the airplane, and the airplane was transported to a salvage yard.\n\nOn April 16, 2013, the Federal Aviation Administration (FAA) inspector attempted to perform an engine run at the salvage yard. Difficulty was encountered in energizing the airplane's electrical system, and therefore, the airplane's electric fuel boost pump could not be used to supply fuel to the engine. While manually priming the fuel system, a leak was found at the gascolator. The gascolator was disassembled, and a crack in the upper flange of the metal bowl extending around about a third of its circumference was found. The gascolator was bypassed in order to supply fuel directly to the carburetor.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2197,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

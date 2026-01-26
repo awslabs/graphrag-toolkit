@@ -1,0 +1,2043 @@
+{
+  "id_": "aws::d9656505:f2d0:6d791064",
+  "embedding": [
+    -0.0023021698,
+    0.005859375,
+    4.4703484e-06,
+    -0.039276123,
+    0.004108429,
+    0.01448822,
+    0.017242432,
+    0.01966858,
+    -0.034423828,
+    0.031433105,
+    0.0015707016,
+    0.027191162,
+    -0.021881104,
+    -0.01701355,
+    0.02204895,
+    -0.006881714,
+    -0.0015611649,
+    0.055999756,
+    0.03845215,
+    -0.02130127,
+    -0.0001757145,
+    -0.010604858,
+    -0.03314209,
+    0.05380249,
+    0.01966858,
+    0.029464722,
+    -0.032958984,
+    -0.013763428,
+    -0.00023078918,
+    -0.016815186,
+    0.004802704,
+    0.021774292,
+    0.0137786865,
+    0.055877686,
+    -0.04675293,
+    0.023895264,
+    0.012161255,
+    0.015975952,
+    -0.023376465,
+    0.054229736,
+    0.007259369,
+    0.0015087128,
+    0.040252686,
+    -0.04336548,
+    -0.00061655045,
+    -0.019577026,
+    0.02154541,
+    -0.010215759,
+    0.06719971,
+    0.00957489,
+    0.002193451,
+    0.024398804,
+    -0.004501343,
+    0.027359009,
+    0.0024147034,
+    0.033355713,
+    -0.004058838,
+    0.037231445,
+    -0.008918762,
+    0.03427124,
+    0.0031909943,
+    0.06109619,
+    -0.0011806488,
+    0.012901306,
+    0.018341064,
+    -0.011070251,
+    -0.00242424,
+    0.008125305,
+    0.06561279,
+    0.018981934,
+    -0.014640808,
+    0.031311035,
+    -0.03704834,
+    0.017562866,
+    -0.038604736,
+    -0.012649536,
+    0.020370483,
+    -0.01134491,
+    -0.023956299,
+    0.040008545,
+    -0.026748657,
+    0.0076179504,
+    0.010139465,
+    -0.06329346,
+    0.011222839,
+    -0.03692627,
+    -0.02911377,
+    0.018005371,
+    0.02168274,
+    -0.021377563,
+    -0.008666992,
+    -0.019226074,
+    0.033447266,
+    0.02305603,
+    -0.04046631,
+    -0.017974854,
+    -6.4611435e-05,
+    -0.059539795,
+    0.016983032,
+    -0.008865356,
+    0.007369995,
+    -0.027816772,
+    -0.01626587,
+    0.015449524,
+    -0.005382538,
+    0.059448242,
+    0.025894165,
+    -0.03277588,
+    -0.00037956238,
+    -0.019332886,
+    -0.010856628,
+    0.0043640137,
+    0.014724731,
+    -0.00598526,
+    -0.0524292,
+    0.008018494,
+    0.0075645447,
+    -0.03503418,
+    0.01525116,
+    -0.008087158,
+    0.008972168,
+    0.02798462,
+    -0.039642334,
+    0.029968262,
+    -0.025558472,
+    -0.018630981,
+    0.0015954971,
+    -0.001121521,
+    -0.006137848,
+    0.012901306,
+    0.007858276,
+    0.06323242,
+    -0.07849121,
+    -0.09863281,
+    -0.084472656,
+    0.004585266,
+    -0.03237915,
+    0.020111084,
+    -0.0045661926,
+    0.0015764236,
+    -0.019805908,
+    -0.0070266724,
+    0.07397461,
+    0.013946533,
+    0.016281128,
+    0.03161621,
+    0.0027809143,
+    -0.011749268,
+    0.0082473755,
+    -0.035461426,
+    0.02949524,
+    -0.089416504,
+    0.021316528,
+    0.002565384,
+    -0.012916565,
+    -0.040008545,
+    0.009666443,
+    -0.029434204,
+    0.02305603,
+    -0.04559326,
+    0.041259766,
+    0.011352539,
+    -0.0037059784,
+    -0.01914978,
+    -0.028381348,
+    -0.042175293,
+    -0.0017318726,
+    0.0024299622,
+    0.008476257,
+    -0.020217896,
+    0.04788208,
+    -0.008705139,
+    -0.041107178,
+    -0.04321289,
+    -0.0012273788,
+    -0.007167816,
+    0.0053634644,
+    0.03237915,
+    0.01737976,
+    0.01751709,
+    0.004447937,
+    -0.04824829,
+    0.03463745,
+    -0.022155762,
+    -0.04309082,
+    0.038116455,
+    -0.0020065308,
+    0.01247406,
+    0.03466797,
+    -0.010696411,
+    0.014015198,
+    0.038513184,
+    0.04425049,
+    -0.021759033,
+    -0.0016460419,
+    -0.011421204,
+    -0.022750854,
+    0.007572174,
+    -0.030670166,
+    -0.00258255,
+    -0.0859375,
+    0.046417236,
+    -0.0063056946,
+    0.026168823,
+    0.034454346,
+    0.022415161,
+    0.008987427,
+    0.04736328,
+    -0.039398193,
+    0.0041503906,
+    0.038970947,
+    0.0034275055,
+    -0.03475952,
+    -0.02696228,
+    -0.00374794,
+    0.00039982796,
+    -0.007335663,
+    0.0067100525,
+    -0.0041046143,
+    0.0031661987,
+    -0.048217773,
+    0.017913818,
+    -0.03479004,
+    0.0022239685,
+    -0.062469482,
+    -0.026031494,
+    -0.028656006,
+    0.008522034,
+    -0.040771484,
+    0.018936157,
+    0.06427002,
+    -0.005279541,
+    -0.014411926,
+    0.0053215027,
+    -0.0181427,
+    0.02027893,
+    -0.0023670197,
+    0.0036315918,
+    -0.008888245,
+    0.015426636,
+    -0.0061454773,
+    -0.025024414,
+    -0.018005371,
+    0.038208008,
+    -0.057556152,
+    -0.019470215,
+    0.007621765,
+    0.013893127,
+    -0.0023765564,
+    0.0009803772,
+    0.11206055,
+    0.026931763,
+    0.008102417,
+    0.04434204,
+    0.09423828,
+    -0.02130127,
+    -0.016418457,
+    -0.053253174,
+    0.022094727,
+    -0.00459671,
+    0.041748047,
+    -0.04269409,
+    -0.07635498,
+    0.005458832,
+    0.05657959,
+    -0.016952515,
+    0.076293945,
+    0.04269409,
+    -0.014968872,
+    -0.01966858,
+    -0.008369446,
+    0.025512695,
+    0.0044822693,
+    -0.019348145,
+    -0.050994873,
+    0.0016527176,
+    -0.01260376,
+    0.013961792,
+    0.033721924,
+    -0.029144287,
+    -0.030151367,
+    0.006259918,
+    -0.023345947,
+    -0.008613586,
+    -0.0027256012,
+    -0.018829346,
+    0.01777649,
+    0.017700195,
+    0.010604858,
+    0.046142578,
+    0.07684326,
+    -0.017028809,
+    0.0041542053,
+    -0.019226074,
+    0.03881836,
+    -0.018692017,
+    -0.00198555,
+    -0.011238098,
+    0.007926941,
+    0.009422302,
+    -0.018356323,
+    0.0546875,
+    0.027038574,
+    -0.024551392,
+    0.0016202927,
+    -0.0017642975,
+    0.014259338,
+    -0.0016956329,
+    0.0057144165,
+    0.015464783,
+    -0.045654297,
+    0.019500732,
+    0.017562866,
+    0.023513794,
+    0.0034618378,
+    -0.006290436,
+    0.004058838,
+    0.0418396,
+    0.01625061,
+    0.023040771,
+    -0.030578613,
+    -0.02571106,
+    -0.020889282,
+    0.014877319,
+    -0.0050354004,
+    0.007724762,
+    0.01461792,
+    -0.0012540817,
+    -0.036834717,
+    -0.029159546,
+    -0.029006958,
+    -0.08868408,
+    -0.033325195,
+    0.02029419,
+    -0.0071640015,
+    0.010604858,
+    -0.009773254,
+    -0.039123535,
+    -0.03326416,
+    0.008422852,
+    -0.035461426,
+    -0.01576233,
+    0.013473511,
+    -0.09301758,
+    -0.07788086,
+    -0.034973145,
+    0.039031982,
+    -0.003932953,
+    -0.03805542,
+    -0.029174805,
+    0.07537842,
+    -0.00014412403,
+    -0.025222778,
+    0.05154419,
+    -0.0034427643,
+    -0.04547119,
+    0.012573242,
+    0.034362793,
+    -0.014213562,
+    -0.016693115,
+    0.013648987,
+    0.018249512,
+    -0.012504578,
+    -0.089538574,
+    -0.012413025,
+    0.008605957,
+    -0.022781372,
+    -0.007881165,
+    -0.028961182,
+    -0.032348633,
+    0.04699707,
+    -0.013046265,
+    -0.04940796,
+    -0.0362854,
+    -0.045074463,
+    -0.015579224,
+    0.0625,
+    -0.009780884,
+    -0.023529053,
+    0.0345459,
+    -0.024307251,
+    -0.024856567,
+    0.023147583,
+    -0.01676941,
+    0.046966553,
+    0.03225708,
+    0.007671356,
+    0.00699234,
+    0.0129852295,
+    0.00484848,
+    -0.008293152,
+    -0.014160156,
+    -0.04284668,
+    -0.026000977,
+    -0.018295288,
+    -0.0011367798,
+    0.023361206,
+    0.002445221,
+    0.0019664764,
+    -0.026016235,
+    -0.091430664,
+    0.036499023,
+    -0.012954712,
+    -0.0003464222,
+    0.011634827,
+    -0.05508423,
+    -0.004283905,
+    -0.06958008,
+    0.00970459,
+    0.050750732,
+    0.023986816,
+    0.007144928,
+    0.0018701553,
+    0.041534424,
+    0.0124435425,
+    -0.023712158,
+    -0.037017822,
+    -0.018875122,
+    0.041534424,
+    0.015434265,
+    -0.036193848,
+    0.0129852295,
+    -0.02142334,
+    0.050079346,
+    -0.012710571,
+    0.008621216,
+    -0.04083252,
+    -0.025787354,
+    -0.023727417,
+    0.035980225,
+    -0.04714966,
+    0.010192871,
+    0.017120361,
+    -0.0024547577,
+    -0.029037476,
+    -0.026672363,
+    -0.021377563,
+    -0.05343628,
+    0.027526855,
+    -0.03768921,
+    0.03378296,
+    -0.0011644363,
+    -0.0035037994,
+    0.05291748,
+    -0.03265381,
+    0.008926392,
+    -0.018859863,
+    0.023269653,
+    -0.022338867,
+    -0.003921509,
+    -0.01701355,
+    0.004573822,
+    0.07525635,
+    0.024353027,
+    0.0038394928,
+    0.014320374,
+    0.00957489,
+    0.024093628,
+    0.01713562,
+    -0.01576233,
+    -0.024139404,
+    -0.013954163,
+    -0.0062026978,
+    -0.023239136,
+    0.03656006,
+    -0.01260376,
+    0.01600647,
+    -0.020706177,
+    0.0037708282,
+    0.011207581,
+    -0.011444092,
+    0.01512146,
+    -0.0076179504,
+    -0.010116577,
+    -0.033233643,
+    -0.021972656,
+    0.032287598,
+    -0.017562866,
+    0.070373535,
+    -0.009353638,
+    -0.034423828,
+    0.00061655045,
+    0.015556335,
+    0.06359863,
+    0.04260254,
+    0.01146698,
+    0.05505371,
+    0.07531738,
+    0.025543213,
+    -0.019424438,
+    -0.054260254,
+    -0.017532349,
+    0.01361084,
+    0.0118255615,
+    0.014656067,
+    0.01259613,
+    0.0067329407,
+    -0.03262329,
+    0.0099487305,
+    -0.0023174286,
+    -0.030349731,
+    0.005935669,
+    -0.07751465,
+    -0.0129852295,
+    0.00027370453,
+    0.0029563904,
+    0.04135132,
+    0.040496826,
+    0.0154418945,
+    0.026153564,
+    0.018951416,
+    0.014083862,
+    0.020584106,
+    0.04135132,
+    -0.03439331,
+    0.016342163,
+    -0.03616333,
+    0.049102783,
+    -0.054107666,
+    -0.009979248,
+    -0.019256592,
+    -0.02748108,
+    0.07788086,
+    0.030151367,
+    -0.0657959,
+    -0.003528595,
+    0.060943604,
+    0.0024681091,
+    -0.06921387,
+    -0.06994629,
+    -0.0015077591,
+    0.056732178,
+    -0.023391724,
+    -0.0098724365,
+    0.052337646,
+    0.029891968,
+    -0.01499939,
+    -0.021560669,
+    -0.014251709,
+    0.0047683716,
+    -0.0058021545,
+    -0.04006958,
+    -0.023513794,
+    0.006427765,
+    -0.0021877289,
+    -0.019058228,
+    -0.0015583038,
+    0.04373169,
+    -0.060943604,
+    0.015281677,
+    0.0047912598,
+    -0.0018596649,
+    -0.008659363,
+    -0.042877197,
+    -0.055511475,
+    0.09197998,
+    0.033721924,
+    -0.02722168,
+    -0.027664185,
+    0.05142212,
+    -0.013999939,
+    -0.019836426,
+    -0.03643799,
+    0.026809692,
+    0.034423828,
+    0.01058197,
+    0.02204895,
+    -0.019760132,
+    0.015403748,
+    -0.011367798,
+    -0.03765869,
+    -0.03955078,
+    0.072631836,
+    -0.010566711,
+    -0.001748085,
+    -0.041748047,
+    -0.030288696,
+    0.016159058,
+    -0.031707764,
+    0.0018396378,
+    -0.014778137,
+    -0.0003607273,
+    -0.021896362,
+    -0.010292053,
+    -0.032409668,
+    0.015403748,
+    0.019699097,
+    -0.008666992,
+    -0.008285522,
+    -0.010177612,
+    0.0032234192,
+    0.003604889,
+    -0.0074806213,
+    -0.046875,
+    -0.004108429,
+    0.007835388,
+    -0.08013916,
+    -0.0029392242,
+    0.024291992,
+    0.0007715225,
+    0.00052309036,
+    -0.0138549805,
+    0.0020389557,
+    -0.01499939,
+    0.03845215,
+    0.003250122,
+    -0.050109863,
+    0.044677734,
+    0.020828247,
+    0.0031204224,
+    0.0440979,
+    -0.003189087,
+    -0.024139404,
+    0.036071777,
+    0.0021476746,
+    -0.036071777,
+    0.015579224,
+    0.0016384125,
+    0.004764557,
+    -0.020507812,
+    0.014801025,
+    0.014091492,
+    0.024230957,
+    0.0019159317,
+    0.02407837,
+    -0.03955078,
+    -0.02999878,
+    -0.035369873,
+    -0.011108398,
+    -0.028335571,
+    -0.052124023,
+    -0.010978699,
+    -0.030776978,
+    0.04232788,
+    -0.03338623,
+    -0.036743164,
+    -0.026473999,
+    -0.065979004,
+    -0.029846191,
+    -0.01309967,
+    0.010574341,
+    0.026687622,
+    0.035186768,
+    -0.07788086,
+    0.0024337769,
+    -0.03152466,
+    -0.037506104,
+    -0.0008907318,
+    -0.0039100647,
+    0.010070801,
+    0.003545761,
+    -0.015464783,
+    -0.023101807,
+    -0.03930664,
+    -0.006504059,
+    0.007068634,
+    0.029830933,
+    0.05050659,
+    -0.076538086,
+    -0.035705566,
+    0.008651733,
+    -0.047698975,
+    -0.004219055,
+    -0.04458618,
+    -0.053466797,
+    -0.007835388,
+    -0.016799927,
+    0.028686523,
+    -0.029876709,
+    -0.00036263466,
+    -0.0026435852,
+    0.001914978,
+    0.078063965,
+    -0.016174316,
+    0.0035095215,
+    -0.0065727234,
+    -0.0075149536,
+    -0.0060691833,
+    0.015052795,
+    -0.022247314,
+    0.010734558,
+    -0.04534912,
+    0.009521484,
+    -0.04537964,
+    0.0017404556,
+    0.015792847,
+    -0.013908386,
+    0.02168274,
+    0.002822876,
+    0.0051002502,
+    -0.047698975,
+    -0.016052246,
+    -0.010322571,
+    -0.0345459,
+    -0.011909485,
+    -0.014160156,
+    0.01751709,
+    -0.045135498,
+    0.03704834,
+    -0.036346436,
+    0.03466797,
+    -0.024810791,
+    -0.034729004,
+    -0.041412354,
+    -0.019851685,
+    0.036071777,
+    0.045135498,
+    0.0059432983,
+    -0.059570312,
+    -0.03765869,
+    -0.004085541,
+    0.085998535,
+    -0.013587952,
+    0.006916046,
+    -0.02520752,
+    -0.01234436,
+    -0.0029182434,
+    0.030197144,
+    -0.0011663437,
+    0.01499176,
+    -0.0022525787,
+    0.03253174,
+    0.007160187,
+    -0.042907715,
+    0.013374329,
+    -0.034698486,
+    -0.017913818,
+    0.017669678,
+    0.015701294,
+    0.024154663,
+    0.02268982,
+    -0.008293152,
+    0.006336212,
+    0.0073127747,
+    -0.018188477,
+    -0.005130768,
+    -0.009017944,
+    0.0395813,
+    0.035827637,
+    0.00737381,
+    0.03012085,
+    -0.023880005,
+    0.04208374,
+    0.01965332,
+    -0.003124237,
+    -0.024169922,
+    0.003686905,
+    -0.0597229,
+    0.059326172,
+    0.0037193298,
+    0.061920166,
+    -0.028274536,
+    -0.06829834,
+    0.00749588,
+    0.004878998,
+    -0.02218628,
+    -0.01448822,
+    0.020889282,
+    -0.04699707,
+    0.017227173,
+    -0.017044067,
+    -0.0012435913,
+    -0.0069465637,
+    0.02519226,
+    -0.0065727234,
+    0.028259277,
+    -0.0037994385,
+    -0.030548096,
+    0.042114258,
+    -0.026443481,
+    -0.042633057,
+    -0.0028648376,
+    0.023498535,
+    0.017181396,
+    0.06518555,
+    -0.049957275,
+    0.020614624,
+    -0.02330017,
+    -0.027908325,
+    0.000893116,
+    0.025238037,
+    -0.03479004,
+    -0.010902405,
+    -0.0016117096,
+    0.01247406,
+    0.047576904,
+    0.025772095,
+    -0.040771484,
+    0.017852783,
+    0.0115737915,
+    -0.064819336,
+    -0.009651184,
+    0.04043579,
+    -0.0067710876,
+    0.0024795532,
+    0.0014457703,
+    0.035827637,
+    -0.012680054,
+    0.012283325,
+    -0.0042037964,
+    -0.074279785,
+    -0.02859497,
+    -0.024765015,
+    0.056732178,
+    0.021102905,
+    0.020217896,
+    0.0206604,
+    0.028366089,
+    0.028305054,
+    -0.027252197,
+    0.010063171,
+    -0.032165527,
+    0.032684326,
+    -0.023712158,
+    0.027114868,
+    0.03253174,
+    -0.06567383,
+    -0.023971558,
+    -0.012069702,
+    0.019210815,
+    -0.0070610046,
+    0.031707764,
+    0.024459839,
+    0.006259918,
+    0.024169922,
+    -0.012031555,
+    -0.019851685,
+    0.006576538,
+    0.017166138,
+    -0.00655365,
+    0.004016876,
+    0.003124237,
+    -0.058624268,
+    -0.040649414,
+    -0.0021419525,
+    -0.0026378632,
+    -0.017654419,
+    0.038604736,
+    0.007827759,
+    -4.7385693e-05,
+    -0.008865356,
+    -0.017150879,
+    -0.034698486,
+    -0.013702393,
+    -0.032104492,
+    -0.04534912,
+    0.018539429,
+    0.023452759,
+    0.02758789,
+    0.03994751,
+    0.025619507,
+    0.008079529,
+    0.0037117004,
+    -0.024017334,
+    0.012184143,
+    0.019363403,
+    0.04107666,
+    -0.012046814,
+    -0.021697998,
+    -0.006729126,
+    0.028427124,
+    0.025604248,
+    0.026504517,
+    -0.020141602,
+    0.0065460205,
+    0.036132812,
+    0.012275696,
+    0.06161499,
+    -0.0002503395,
+    0.099609375,
+    0.018081665,
+    -0.046661377,
+    -0.07446289,
+    -0.02532959,
+    -0.023132324,
+    -0.029342651,
+    -0.0061035156,
+    0.03945923,
+    -0.026916504,
+    -0.043548584,
+    -0.0637207,
+    -0.033416748,
+    -0.00010663271,
+    -0.00027680397,
+    0.010467529,
+    -0.04852295,
+    9.49502e-05,
+    -0.007297516,
+    0.04336548,
+    0.025009155,
+    0.007785797,
+    -0.027496338,
+    -0.027435303,
+    0.042663574,
+    0.016921997,
+    0.101623535,
+    -0.027572632,
+    -0.041412354,
+    -0.044525146,
+    0.010032654,
+    -0.024490356,
+    -0.035125732,
+    -0.0031871796,
+    -0.07684326,
+    0.035827637,
+    0.009468079,
+    0.03439331,
+    -0.03945923,
+    -0.0143966675,
+    -0.00982666,
+    0.018814087,
+    0.009170532,
+    -0.024963379,
+    0.002407074,
+    0.018371582,
+    0.001449585,
+    -0.029769897,
+    -0.02420044,
+    0.008636475,
+    -0.042297363,
+    -0.055633545,
+    -0.03604126,
+    0.05291748,
+    0.015052795,
+    0.053253174,
+    -0.01977539,
+    0.13391113,
+    0.005645752,
+    -0.046783447,
+    -0.014190674,
+    -0.026351929,
+    -0.03378296,
+    0.047210693,
+    -0.07434082,
+    0.04989624,
+    -0.02217102,
+    0.025054932,
+    -0.04336548,
+    -0.014518738,
+    0.010810852,
+    0.019439697,
+    -0.043945312,
+    -0.041748047,
+    0.016357422,
+    0.002565384,
+    0.032348633,
+    0.014343262,
+    -0.01928711,
+    0.010848999,
+    0.014923096,
+    0.028518677,
+    0.009223938,
+    0.004463196,
+    -0.005645752,
+    0.02760315,
+    0.02281189,
+    -0.005493164,
+    0.01979065,
+    0.005180359,
+    -0.03527832,
+    0.0129776,
+    -0.041046143,
+    0.0062828064,
+    0.027114868,
+    0.03024292,
+    0.037231445,
+    0.0054512024,
+    -0.0574646,
+    -0.001750946,
+    -0.044952393,
+    -0.0011663437,
+    0.00016951561,
+    -0.006778717,
+    -0.011543274,
+    0.017715454,
+    -0.0037155151,
+    0.014785767,
+    -0.03463745,
+    -0.00774765,
+    -0.020614624,
+    -0.024856567,
+    0.0071105957,
+    0.0042877197,
+    0.0015478134,
+    0.043640137,
+    -0.016296387,
+    -0.0034713745,
+    0.008628845,
+    -0.02204895,
+    -0.010116577,
+    -0.022644043,
+    0.010551453,
+    0.04849243,
+    0.01675415,
+    -0.031188965,
+    0.008415222,
+    0.032348633,
+    0.068603516,
+    -0.016677856,
+    -0.049591064,
+    -0.03213501,
+    -0.0037345886,
+    0.018997192,
+    -0.012481689,
+    0.01739502,
+    -0.0602417,
+    -0.017059326,
+    0.043792725,
+    -0.021881104,
+    -0.014839172,
+    -0.047424316,
+    0.04940796,
+    0.011245728,
+    -0.02230835,
+    0.026184082,
+    -0.008743286,
+    0.0049362183,
+    0.020645142,
+    -0.01890564,
+    -0.009895325,
+    0.018310547,
+    0.09020996,
+    0.0022888184,
+    0.004814148
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/88790.md",
+    "file_name": "88790.md",
+    "file_size": 9740,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Pitts S2C Aircraft Collision with Trees During Landing Approach",
+      "A Pitts S2C aircraft with registration number N102ZT collided with trees during the turn to final approach to runway 34 at Roseburg, Oregon.",
+      "The collision occurred on January 26, 2014, at approximately 1530 Pacific standard time.",
+      "The pilot was operating the airplane under the provisions of 14 Code of Federal Regulations (CFR) Part 91.",
+      "The commercial pilot was not injured in the collision.",
+      "The airplane sustained substantial damage to the upper and lower wings.",
+      "The local personal flight departed Roseburg at approximately 1500.",
+      "Visual meteorological conditions (VMC) prevailed during the flight.",
+      "No flight plan had been filed for the flight.",
+      "The pilot returned from a local flight and entered the traffic pattern behind a much slower airplane.",
+      "The pilot observed a second high-wing airplane crossing from west to east on an apparent base about 1 mile south of the airport.",
+      "The pilot made a right 360-degree turn on downwind for spacing.",
+      "Hilly terrain surrounded the Roseburg airport.",
+      "After reestablishing his position on downwind, the pilot requested position reports from Roseburg area traffic.",
+      "The first airplane reported clear of the runway.",
+      "The pilot heard no other position reports.",
+      "The pilot made a normal approach to the runway.",
+      "Immediately prior to the turn to final, an unknown airplane transmitted that they were on final for runway 34.",
+      "The pilot rolled wings level and checked the final approach path for traffic.",
+      "The pilot observed no traffic on the final approach path.",
+      "The pilot rolled back into a left turn to final with a shallow left forward slip.",
+      "As the airplane rolled onto short final, it collided with the upper portion of a tall tree.",
+      "The pilot landed the airplane successfully despite the collision.",
+      "The pilot egressed from the airplane with no difficulties.",
+      "The pilot reported that the tree was about 60 feet higher than a utility pole near it.",
+      "The pilot reported that the tree encroached into the approach flight path for landing.",
+      "The pilot reported that the tree was not lighted.",
+      "The Federal Aviation Administration Digital Airport/Facility Directory indicated that runway 34 was 4,602 feet long.",
+      "Runway 34 was 100 feet wide.",
+      "The runway surface of runway 34 was asphalt.",
+      "The Federal Aviation Administration Digital Airport/Facility Directory noted a displaced threshold of 371 feet for runway 34 due to a tree.",
+      "The tree was depicted on the airport diagram."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Pitts S2C Aircraft Collision with Trees During Landing Approach",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pitts S2C",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N102ZT",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Roseburg, Oregon",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Roseburg",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "runway 34",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration Digital Airport/Facility Directory",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Pitts S2C aircraft with registration number N102ZT collided with trees during the turn to final approach to runway 34 at Roseburg, Oregon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trees",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N102ZT",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The collision occurred on January 26, 2014, at approximately 1530 Pacific standard time.",
+              "details": [
+                "collision OCCURRED ON January 26, 2014",
+                "collision OCCURRED AT approximately 1530 Pacific standard time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 26, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1530 Pacific standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was operating the airplane under the provisions of 14 Code of Federal Regulations (CFR) Part 91.",
+              "details": [
+                "pilot OPERATES Pitts S2C",
+                "pilot OPERATING UNDER provisions of 14 Code of Federal Regulations Part 91"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OPERATING UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "provisions of 14 Code of Federal Regulations Part 91",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot was not injured in the collision.",
+              "details": [
+                "pilot LICENSE TYPE commercial",
+                "pilot INJURY STATUS not injured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LICENSE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane sustained substantial damage to the upper and lower wings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper and lower wings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The local personal flight departed Roseburg at approximately 1500.",
+              "details": [
+                "flight TYPE local personal",
+                "flight DEPARTED FROM Roseburg",
+                "flight DEPARTURE TIME approximately 1500"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local personal",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Roseburg",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 1500",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions (VMC) prevailed during the flight.",
+              "details": [
+                "flight WEATHER CONDITIONS Visual meteorological conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan had been filed for the flight.",
+              "details": [
+                "flight FLIGHT PLAN STATUS No flight plan filed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No flight plan filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot returned from a local flight and entered the traffic pattern behind a much slower airplane.",
+              "details": [
+                "pilot PILOTED Pitts S2C"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PILOTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Hilly terrain surrounded the Roseburg airport.",
+              "details": [
+                "hilly terrain SURROUNDS Roseburg"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hilly terrain",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SURROUNDS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Roseburg",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Immediately prior to the turn to final, an unknown airplane transmitted that they were on final for runway 34.",
+              "details": [
+                "unknown airplane APPROACHED runway 34"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unknown airplane",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "APPROACHED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 34",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "As the airplane rolled onto short final, it collided with the upper portion of a tall tree.",
+              "details": [
+                "collision LOCATION upper portion of a tall tree"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pitts S2C",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLIDED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tall tree",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collision",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "upper portion of a tall tree",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot landed the airplane successfully despite the collision.",
+              "details": [
+                "landing STATUS successful"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "successful",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot egressed from the airplane with no difficulties.",
+              "details": [
+                "pilot EGRESS STATUS no difficulties"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "EGRESS STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no difficulties",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported that the tree was about 60 feet higher than a utility pole near it.",
+              "details": [
+                "tall tree HEIGHT about 60 feet higher than a utility pole"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tall tree",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 60 feet higher than a utility pole",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported that the tree encroached into the approach flight path for landing.",
+              "details": [
+                "tall tree ENCROACHED INTO approach flight path"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tall tree",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENCROACHED INTO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approach flight path",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported that the tree was not lighted.",
+              "details": [
+                "tall tree LIGHTING STATUS not lighted"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tall tree",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LIGHTING STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not lighted",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration Digital Airport/Facility Directory indicated that runway 34 was 4,602 feet long.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 34",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LENGTH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4,602 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Runway 34 was 100 feet wide.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 34",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIDTH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "100 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The runway surface of runway 34 was asphalt.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 34",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "SURFACE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "asphalt",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration Digital Airport/Facility Directory noted a displaced threshold of 371 feet for runway 34 due to a tree.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 34",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DISPLACED THRESHOLD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "371 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 34",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "THRESHOLD DISPLACEMENT REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tree",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tree was depicted on the airport diagram.",
+              "details": [
+                "tall tree DEPICTED ON airport diagram"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tall tree",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPICTED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airport diagram",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::d9656505:f2d0",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/88790.md",
+        "file_name": "88790.md",
+        "file_size": 9740,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "4f347452c6bb90a17ea43471fcfc2483c2b0c9d7eb9cd5d5c5705c71827d9ae8",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::d9656505:f2d0:33eddc6e",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/88790.md",
+        "file_name": "88790.md",
+        "file_size": 9740,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "a80ee4d6059601f2d3ec0372c2ec82e9d16e75d2e265b80d0ab29269a1b4bcbb",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::d9656505:f2d0:df0f3445",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/88790.md",
+        "file_name": "88790.md",
+        "file_size": 9740,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "46fd54a3eed9fe65e84e733a1e24278825e63723781254946d8596f40eaa12d7",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Landing | Collision during takeoff/land (Defining event) |\n\nOn January 26, 2014, about 1530 Pacific standard time, a Pitts S2C, N102ZT, collided with trees during the turn to final approach to runway 34 at Roseburg, Oregon. The pilot was operating the airplane under the provisions of 14 Code of Federal Regulations (CFR) Part 91. The commercial pilot was not injured. The airplane sustained substantial damage to the upper and lower wings. The local personal flight departed Roseburg about 1500. Visual meteorological conditions (VMC) prevailed, and no flight plan had been filed.\n\nThe pilot reported that he returned from a local flight, and entered the traffic pattern behind a much slower airplane. He observed a second (high-wing) airplane crossing from west to east on an apparent base about 1 mile south of the airport. The pilot made a right 360-degree turn on downwind for spacing. He noted that hilly terrain surrounded the airport. After reestablishing his position on downwind, he requested position reports from Roseburg area traffic. The first airplane reported clear of the runway; he heard no other position reports.\n\nThe pilot stated that he made a normal approach to the runway. Immediately prior to the turn to final, an unknown airplane transmitted that they were on final for runway 34. The pilot rolled wings level, and checked the final approach path for traffic. He observed none, and rolled back into a left turn to final with a shallow left forward slip. As the airplane rolled onto short final, it collided with the upper portion of a tall tree. The pilot landed the airplane successfully, and egressed from the airplane with no difficulties.\n\nThe pilot reported that the tree was about 60 feet higher than a utility pole near it, and encroached into the approach flight path for landing. He also reported that the tree was not lighted.\n\nThe FAA Digital Airport/Facility Directory indicated that runway 34 was 4,602 feet long and 100 feet wide. The runway surface was asphalt, and noted a displaced threshold of 371 feet for a tree, which was also depicted on the airport diagram.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2159,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2158 @@
+{
+  "id_": "aws::bba50a32:278e:9498757a",
+  "embedding": [
+    0.015960693,
+    0.0009794235,
+    0.023605347,
+    -0.0335083,
+    -0.0026950836,
+    0.003648758,
+    0.024246216,
+    0.013626099,
+    -0.03781128,
+    -0.015380859,
+    0.024856567,
+    0.04269409,
+    -0.04449463,
+    -0.05633545,
+    0.08081055,
+    -0.006313324,
+    -0.014984131,
+    0.0635376,
+    0.033569336,
+    -0.0013141632,
+    0.0017547607,
+    0.025436401,
+    -0.029373169,
+    -0.051818848,
+    -0.032287598,
+    0.083984375,
+    -0.04486084,
+    0.0023918152,
+    -0.01272583,
+    -0.006259918,
+    -0.016052246,
+    -0.0087890625,
+    0.008384705,
+    0.027282715,
+    -0.03201294,
+    -0.025344849,
+    -0.020202637,
+    0.0069007874,
+    -0.027770996,
+    0.0068206787,
+    0.03753662,
+    0.0093307495,
+    0.036346436,
+    -0.016174316,
+    -0.004611969,
+    -0.01876831,
+    0.0496521,
+    0.007297516,
+    0.027893066,
+    0.030273438,
+    0.017105103,
+    -0.016113281,
+    -0.00029730797,
+    0.07208252,
+    0.009651184,
+    0.011314392,
+    -0.026412964,
+    0.016174316,
+    -0.0015573502,
+    0.013549805,
+    -0.005264282,
+    0.006198883,
+    0.020141602,
+    -0.00944519,
+    0.0047683716,
+    -0.0051460266,
+    -0.01184845,
+    0.012886047,
+    0.061035156,
+    0.011192322,
+    -0.03643799,
+    0.02255249,
+    -0.02218628,
+    -0.00038862228,
+    -0.055114746,
+    -0.006011963,
+    -0.018066406,
+    -0.020751953,
+    0.010749817,
+    0.016830444,
+    0.015914917,
+    -0.023071289,
+    0.010421753,
+    -0.0029087067,
+    -0.015945435,
+    0.020111084,
+    0.00085783005,
+    0.0011510849,
+    -0.033355713,
+    -0.041503906,
+    -0.022842407,
+    0.011512756,
+    -0.01864624,
+    -0.016067505,
+    -0.047851562,
+    -0.011024475,
+    0.03881836,
+    -0.042907715,
+    0.03111267,
+    -0.040374756,
+    0.02456665,
+    -0.05834961,
+    -0.045196533,
+    0.035614014,
+    0.0016002655,
+    0.029937744,
+    0.022750854,
+    0.011581421,
+    0.018737793,
+    -0.008766174,
+    -0.021438599,
+    0.034729004,
+    -0.0066604614,
+    -0.032165527,
+    -0.015380859,
+    0.014892578,
+    -0.023452759,
+    0.009086609,
+    0.010375977,
+    -0.0063476562,
+    -0.005683899,
+    0.01802063,
+    -0.04776001,
+    -0.0003244877,
+    -0.010223389,
+    -0.0078086853,
+    0.021469116,
+    0.0058021545,
+    0.082214355,
+    0.015411377,
+    -0.025970459,
+    0.062805176,
+    -0.02229309,
+    -0.1060791,
+    -0.0670166,
+    0.001824379,
+    -0.047027588,
+    -0.008705139,
+    -0.025039673,
+    0.016189575,
+    -0.062469482,
+    0.0003888607,
+    0.10784912,
+    -0.05029297,
+    -0.016937256,
+    0.02772522,
+    0.0041389465,
+    -0.002948761,
+    -0.015792847,
+    -0.044128418,
+    -0.003730774,
+    -0.050476074,
+    0.07696533,
+    -0.016647339,
+    -0.019546509,
+    -0.08337402,
+    0.037872314,
+    -0.07989502,
+    0.009841919,
+    -0.090026855,
+    0.011512756,
+    -0.021957397,
+    0.019836426,
+    -0.0037002563,
+    -0.0552063,
+    0.04055786,
+    -0.060302734,
+    -0.022872925,
+    0.021652222,
+    -0.008415222,
+    0.040985107,
+    -0.03793335,
+    -0.043518066,
+    -0.051361084,
+    -0.0046463013,
+    0.0031108856,
+    -0.004447937,
+    0.03488159,
+    0.0046043396,
+    0.052337646,
+    0.04788208,
+    -0.015197754,
+    0.01473999,
+    0.016021729,
+    0.011077881,
+    -0.0049095154,
+    0.0134887695,
+    -0.0044403076,
+    0.0024738312,
+    0.007217407,
+    0.0076560974,
+    0.00062036514,
+    -0.0065841675,
+    -0.027069092,
+    -0.02079773,
+    4.7028065e-05,
+    -0.011756897,
+    -0.011734009,
+    -0.022323608,
+    0.049072266,
+    -0.03060913,
+    0.018844604,
+    0.008666992,
+    0.019622803,
+    0.070739746,
+    -0.039398193,
+    0.036010742,
+    -0.0070991516,
+    -0.017333984,
+    -0.0038604736,
+    0.02128601,
+    -0.025253296,
+    -0.009727478,
+    -0.0035190582,
+    -0.025375366,
+    0.031234741,
+    0.0082473755,
+    0.0042419434,
+    9.894371e-05,
+    -0.00090551376,
+    -0.026000977,
+    0.029174805,
+    -0.021835327,
+    0.020507812,
+    -0.012863159,
+    -0.037994385,
+    0.022201538,
+    0.0041503906,
+    0.030563354,
+    -0.009086609,
+    0.08453369,
+    -0.040924072,
+    -0.0317688,
+    -0.0037574768,
+    -0.026901245,
+    0.015899658,
+    -0.004508972,
+    0.012031555,
+    0.01776123,
+    0.008705139,
+    -0.039855957,
+    0.01159668,
+    -0.032196045,
+    0.07922363,
+    -0.039093018,
+    -0.056549072,
+    -0.025680542,
+    0.07171631,
+    -0.041381836,
+    0.013748169,
+    0.0703125,
+    0.069885254,
+    0.01109314,
+    0.0413208,
+    0.012710571,
+    0.028076172,
+    -0.04071045,
+    -0.06524658,
+    -0.015090942,
+    0.019302368,
+    0.012397766,
+    -0.064575195,
+    -0.0287323,
+    -0.010940552,
+    0.019989014,
+    0.028961182,
+    0.033203125,
+    0.025680542,
+    -0.009857178,
+    0.038330078,
+    -0.0065956116,
+    -0.06762695,
+    0.004928589,
+    0.020446777,
+    -0.06210327,
+    0.054229736,
+    -0.02180481,
+    0.008613586,
+    0.039886475,
+    -0.002614975,
+    -0.025650024,
+    0.023773193,
+    -0.04257202,
+    -0.011146545,
+    -0.0073890686,
+    0.0137786865,
+    -0.009178162,
+    -0.009422302,
+    -0.034057617,
+    0.025161743,
+    0.07525635,
+    -0.011886597,
+    0.009231567,
+    -0.033691406,
+    -0.006958008,
+    -4.9054623e-05,
+    0.034088135,
+    0.0021972656,
+    0.0076026917,
+    -0.014724731,
+    0.04095459,
+    0.049316406,
+    -0.038391113,
+    0.012863159,
+    -0.01436615,
+    -0.00048303604,
+    -0.00283432,
+    0.009132385,
+    -0.0008301735,
+    0.0048332214,
+    -0.068847656,
+    -0.030426025,
+    0.021194458,
+    -0.010360718,
+    -0.010864258,
+    -0.017440796,
+    -0.024978638,
+    0.023376465,
+    -0.05303955,
+    -0.022201538,
+    -0.020462036,
+    0.00881958,
+    -0.008430481,
+    0.016143799,
+    0.021972656,
+    -0.014801025,
+    -0.005378723,
+    -0.0038604736,
+    0.0039978027,
+    -0.03668213,
+    -0.009216309,
+    -0.041656494,
+    -0.048339844,
+    -0.0040130615,
+    0.009857178,
+    -0.0013360977,
+    0.0028266907,
+    -0.058441162,
+    -0.02368164,
+    0.028564453,
+    0.018737793,
+    -0.0076179504,
+    0.026977539,
+    -0.04309082,
+    -0.08508301,
+    -0.036499023,
+    0.00983429,
+    -0.007217407,
+    -0.019699097,
+    -0.051818848,
+    0.08282471,
+    0.002439499,
+    -0.035736084,
+    0.00025963783,
+    -0.01789856,
+    -0.06756592,
+    0.014656067,
+    -0.0065193176,
+    -0.040893555,
+    -0.04284668,
+    -0.014564514,
+    -0.0041770935,
+    -0.03363037,
+    -0.03656006,
+    -0.0014715195,
+    0.032714844,
+    -0.012908936,
+    0.0030441284,
+    -0.012535095,
+    0.02166748,
+    -0.022323608,
+    0.0052223206,
+    0.0025806427,
+    -0.0024604797,
+    -0.005508423,
+    0.004924774,
+    -0.015792847,
+    -0.038116455,
+    0.00047445297,
+    -0.01737976,
+    0.009117126,
+    -0.00054216385,
+    0.013893127,
+    0.010299683,
+    -0.0093307495,
+    0.0129470825,
+    -0.024658203,
+    -0.032287598,
+    0.056243896,
+    0.007461548,
+    0.056549072,
+    0.02420044,
+    -0.023254395,
+    -0.018737793,
+    0.023132324,
+    0.0067443848,
+    -0.04324341,
+    0.033477783,
+    -0.06665039,
+    -0.00074005127,
+    -0.09777832,
+    -0.0034294128,
+    -0.009162903,
+    -0.033294678,
+    0.008094788,
+    -0.033172607,
+    -0.023269653,
+    -0.062286377,
+    0.018936157,
+    0.041778564,
+    -0.04827881,
+    0.054107666,
+    -0.058685303,
+    0.060424805,
+    -0.009674072,
+    -0.001783371,
+    0.009895325,
+    0.0012922287,
+    -0.0038280487,
+    -0.013153076,
+    0.024246216,
+    -0.021560669,
+    0.003780365,
+    0.012260437,
+    -0.021148682,
+    -0.021774292,
+    -0.008682251,
+    0.0045204163,
+    -0.0059776306,
+    0.02960205,
+    -0.022018433,
+    -0.0149383545,
+    -0.016403198,
+    0.0041656494,
+    -0.011566162,
+    0.03945923,
+    0.0064353943,
+    -0.0010681152,
+    0.027648926,
+    -0.040252686,
+    0.02468872,
+    0.040771484,
+    0.02027893,
+    0.012763977,
+    -0.009933472,
+    -0.007221222,
+    0.034332275,
+    0.023361206,
+    -0.014770508,
+    -0.045196533,
+    -0.0032844543,
+    -0.0078125,
+    0.0287323,
+    0.027938843,
+    0.00598526,
+    0.08911133,
+    0.00019562244,
+    0.010948181,
+    -0.0129776,
+    -0.011398315,
+    -0.03604126,
+    -0.009155273,
+    -0.0063095093,
+    -0.050689697,
+    -0.0031909943,
+    -0.01890564,
+    0.029708862,
+    0.019302368,
+    -0.0055351257,
+    -0.001991272,
+    0.02015686,
+    0.009757996,
+    -0.026184082,
+    -0.023132324,
+    0.027938843,
+    -0.016189575,
+    -0.01675415,
+    0.0058517456,
+    0.039489746,
+    0.0029697418,
+    -0.078186035,
+    0.03677368,
+    0.0019836426,
+    -0.0011501312,
+    -0.00066900253,
+    0.0039787292,
+    0.023010254,
+    0.005012512,
+    -0.0034217834,
+    -0.019607544,
+    -0.050323486,
+    0.025558472,
+    0.024902344,
+    0.010528564,
+    0.027404785,
+    -0.011100769,
+    8.761883e-06,
+    0.03540039,
+    0.012825012,
+    -0.007987976,
+    -0.0035495758,
+    -0.030014038,
+    -0.07977295,
+    -0.020477295,
+    -0.05709839,
+    0.028564453,
+    0.027023315,
+    -0.009841919,
+    0.030029297,
+    -0.06347656,
+    0.0019283295,
+    -0.018127441,
+    0.04650879,
+    0.038146973,
+    -0.021438599,
+    0.056549072,
+    -0.0014925003,
+    0.06335449,
+    -0.004119873,
+    -0.030929565,
+    -0.053649902,
+    -0.03262329,
+    0.022598267,
+    0.038391113,
+    -0.014137268,
+    -0.008010864,
+    0.0024986267,
+    0.06072998,
+    -0.026641846,
+    -0.003660202,
+    -0.022842407,
+    0.047821045,
+    -0.03527832,
+    -0.029464722,
+    0.057739258,
+    -0.037109375,
+    -0.014694214,
+    0.03942871,
+    0.002790451,
+    -0.022354126,
+    -0.009422302,
+    -0.011199951,
+    0.019577026,
+    -0.02999878,
+    0.042266846,
+    -0.006008148,
+    0.03793335,
+    0.053009033,
+    -0.05819702,
+    0.017868042,
+    -0.018951416,
+    -0.012069702,
+    -0.0018577576,
+    -0.05734253,
+    -0.051635742,
+    -0.0023384094,
+    -0.002281189,
+    -0.0042686462,
+    0.024368286,
+    0.0154418945,
+    -0.026504517,
+    -0.03286743,
+    -0.01071167,
+    0.036834717,
+    0.008010864,
+    0.027420044,
+    0.008880615,
+    -0.017868042,
+    0.00054740906,
+    -0.007572174,
+    -0.037872314,
+    -0.02784729,
+    0.046691895,
+    -0.016204834,
+    0.012374878,
+    -0.018829346,
+    -0.027160645,
+    0.016784668,
+    0.0151901245,
+    0.030731201,
+    0.0066337585,
+    -0.0016431808,
+    -0.029632568,
+    -0.017654419,
+    -0.049194336,
+    0.032470703,
+    0.016784668,
+    -0.059692383,
+    -0.024597168,
+    0.026733398,
+    0.05307007,
+    0.011077881,
+    0.012573242,
+    -0.033721924,
+    -0.05593872,
+    0.0018510818,
+    -0.06665039,
+    -0.015960693,
+    0.017745972,
+    -0.021606445,
+    0.0010318756,
+    0.008491516,
+    -0.0024776459,
+    -0.012123108,
+    0.037750244,
+    0.014968872,
+    -0.009613037,
+    0.03982544,
+    0.014007568,
+    -0.0029907227,
+    0.041503906,
+    0.06210327,
+    -0.08099365,
+    0.030563354,
+    -0.05001831,
+    -0.024536133,
+    -0.0063095093,
+    0.047546387,
+    0.064086914,
+    -0.011138916,
+    0.04147339,
+    0.037231445,
+    0.018463135,
+    0.0017127991,
+    0.02784729,
+    -0.008659363,
+    -0.014770508,
+    0.021575928,
+    0.0073661804,
+    -0.044036865,
+    -0.011688232,
+    -0.042419434,
+    -0.05340576,
+    0.002702713,
+    -0.03881836,
+    0.00067186356,
+    -0.018630981,
+    -0.022384644,
+    0.031021118,
+    -0.0028057098,
+    -0.0158844,
+    0.026382446,
+    0.00724411,
+    -0.036743164,
+    0.005695343,
+    -0.027755737,
+    -0.025375366,
+    -0.023880005,
+    0.010025024,
+    -0.02532959,
+    -0.008804321,
+    -0.004322052,
+    -0.037719727,
+    -0.023925781,
+    0.0178833,
+    -0.018829346,
+    -0.032684326,
+    0.009902954,
+    -0.027053833,
+    -0.03982544,
+    -0.07672119,
+    -0.049072266,
+    -0.006801605,
+    -0.0014104843,
+    -0.03579712,
+    -0.006717682,
+    -0.0030059814,
+    -0.024490356,
+    -0.002729416,
+    -0.023254395,
+    -0.05328369,
+    0.01966858,
+    0.020935059,
+    -0.057739258,
+    0.019989014,
+    0.01789856,
+    -0.054107666,
+    0.015670776,
+    0.02960205,
+    -0.041870117,
+    0.050048828,
+    0.038360596,
+    -0.025634766,
+    -0.061309814,
+    -0.008277893,
+    0.02017212,
+    -0.07147217,
+    0.057250977,
+    -0.023880005,
+    0.011657715,
+    -0.029769897,
+    -0.007549286,
+    -0.017868042,
+    -0.026351929,
+    0.0028381348,
+    -0.050323486,
+    0.007133484,
+    -0.0074310303,
+    -0.035095215,
+    -0.049926758,
+    -0.006752014,
+    0.018661499,
+    0.032806396,
+    0.019760132,
+    0.014762878,
+    0.07836914,
+    -0.015090942,
+    0.0496521,
+    -0.036956787,
+    -0.019226074,
+    0.0496521,
+    0.07324219,
+    -0.02230835,
+    -0.025222778,
+    0.04937744,
+    -0.0015335083,
+    0.031402588,
+    0.0056877136,
+    -0.008361816,
+    -0.01927185,
+    0.0036811829,
+    0.058013916,
+    -0.0054092407,
+    -0.039398193,
+    0.024139404,
+    -0.04345703,
+    -0.05706787,
+    0.037261963,
+    -0.026672363,
+    -0.05026245,
+    -0.0038070679,
+    -0.054992676,
+    0.019760132,
+    -0.022567749,
+    -0.031173706,
+    -0.009468079,
+    -0.02520752,
+    0.03427124,
+    -0.011482239,
+    -0.025360107,
+    -0.018630981,
+    -0.025680542,
+    0.030059814,
+    -0.008636475,
+    -0.00022757053,
+    -0.024246216,
+    0.009857178,
+    -0.058380127,
+    -0.01777649,
+    -0.006126404,
+    0.035308838,
+    -0.04421997,
+    -0.09039307,
+    0.009819031,
+    -0.010009766,
+    -0.0027008057,
+    -0.011779785,
+    0.025741577,
+    -0.05154419,
+    0.018951416,
+    -0.005393982,
+    0.012779236,
+    0.043304443,
+    0.0051078796,
+    -0.011695862,
+    -0.0032081604,
+    -0.012557983,
+    0.03253174,
+    -0.028823853,
+    -0.0118255615,
+    -0.00013077259,
+    -0.013626099,
+    0.0018320084,
+    -0.03857422,
+    0.05859375,
+    -0.0031223297,
+    0.02355957,
+    -0.051696777,
+    -0.022994995,
+    -0.010246277,
+    0.035980225,
+    -0.012207031,
+    0.0032615662,
+    0.0039253235,
+    0.009086609,
+    0.0059928894,
+    -0.0362854,
+    -0.015403748,
+    -0.010673523,
+    -0.046936035,
+    -0.032562256,
+    0.04537964,
+    0.030334473,
+    -0.036621094,
+    0.011474609,
+    -0.03274536,
+    -0.04623413,
+    0.0027923584,
+    -0.029434204,
+    -0.043518066,
+    -0.026657104,
+    -0.005012512,
+    -0.016815186,
+    0.023544312,
+    -0.016067505,
+    -0.022216797,
+    0.004840851,
+    0.03881836,
+    -0.0077590942,
+    -0.03704834,
+    0.010047913,
+    -0.045654297,
+    0.052124023,
+    -0.008651733,
+    0.0013036728,
+    0.010353088,
+    -0.036743164,
+    -0.039794922,
+    0.014663696,
+    0.026565552,
+    0.011703491,
+    0.035125732,
+    0.033416748,
+    -0.017562866,
+    0.025741577,
+    -0.0011043549,
+    -0.009048462,
+    0.0062942505,
+    0.019119263,
+    0.014633179,
+    0.019119263,
+    0.0070114136,
+    0.019470215,
+    0.009170532,
+    -0.014091492,
+    0.042053223,
+    0.033172607,
+    0.010673523,
+    -0.011543274,
+    0.05166626,
+    0.019866943,
+    -0.014335632,
+    0.004673004,
+    0.00491333,
+    -0.030807495,
+    -0.026168823,
+    0.031555176,
+    0.014892578,
+    0.07116699,
+    0.06365967,
+    0.036346436,
+    0.015777588,
+    0.01411438,
+    0.003414154,
+    0.00017666817,
+    0.0027217865,
+    0.025405884,
+    -0.023208618,
+    -0.032287598,
+    0.03451538,
+    0.020339966,
+    0.015609741,
+    0.027755737,
+    0.0053863525,
+    0.030410767,
+    0.044891357,
+    -0.019317627,
+    0.032958984,
+    -0.01828003,
+    0.05505371,
+    0.020385742,
+    0.019882202,
+    -0.0569458,
+    -0.033233643,
+    -0.011947632,
+    -0.016647339,
+    -0.0005784035,
+    0.028701782,
+    -0.027008057,
+    -0.042236328,
+    -0.070373535,
+    -0.08288574,
+    -0.026763916,
+    -0.004562378,
+    -0.013183594,
+    -0.07720947,
+    0.007499695,
+    0.012413025,
+    0.04248047,
+    0.03427124,
+    0.03152466,
+    -0.030166626,
+    -0.025421143,
+    0.044525146,
+    0.011955261,
+    0.10217285,
+    -0.005367279,
+    0.0015277863,
+    -0.032043457,
+    0.013832092,
+    -0.019485474,
+    -0.04547119,
+    -0.0056610107,
+    -0.03805542,
+    -0.016342163,
+    0.0496521,
+    0.040802002,
+    -0.08312988,
+    0.010986328,
+    -0.0020542145,
+    -0.053253174,
+    0.011909485,
+    -0.030715942,
+    -0.021224976,
+    0.005973816,
+    0.00289917,
+    -0.016921997,
+    -0.023406982,
+    0.03414917,
+    -0.033966064,
+    -0.032928467,
+    0.0072288513,
+    -0.03491211,
+    0.038513184,
+    0.03765869,
+    -0.016815186,
+    0.05050659,
+    -0.028289795,
+    0.023605347,
+    -0.0014734268,
+    0.018508911,
+    0.0053749084,
+    0.072143555,
+    -0.02243042,
+    0.0569458,
+    -0.016555786,
+    0.03314209,
+    -0.023513794,
+    -0.015823364,
+    0.024734497,
+    0.033416748,
+    -0.04522705,
+    -0.015327454,
+    0.0069274902,
+    -0.0021762848,
+    0.0056114197,
+    -0.0062408447,
+    -0.001657486,
+    -0.07385254,
+    0.03829956,
+    0.02281189,
+    0.007411957,
+    0.018829346,
+    -0.004928589,
+    0.023971558,
+    0.013877869,
+    -0.048828125,
+    -0.006465912,
+    -0.02482605,
+    -0.011428833,
+    -0.0067329407,
+    -0.010917664,
+    0.01146698,
+    -0.005428314,
+    0.01902771,
+    -0.003704071,
+    0.004508972,
+    -0.021499634,
+    0.02192688,
+    -0.014091492,
+    0.004589081,
+    -0.028198242,
+    -0.00062036514,
+    -0.011894226,
+    -0.007972717,
+    -0.016082764,
+    -0.015670776,
+    -0.037017822,
+    0.033599854,
+    -0.034454346,
+    0.0029888153,
+    0.03466797,
+    0.008628845,
+    -0.023239136,
+    0.04144287,
+    -0.044281006,
+    0.014595032,
+    0.032592773,
+    -0.009033203,
+    -0.013710022,
+    -0.020690918,
+    0.044006348,
+    -0.015197754,
+    0.009346008,
+    0.011398315,
+    0.0357666,
+    0.012649536,
+    0.03579712,
+    -0.014595032,
+    -0.005355835,
+    -0.020721436,
+    0.0070877075,
+    0.009902954,
+    0.02935791,
+    0.014633179,
+    -0.07196045,
+    -0.0118637085,
+    -0.03225708,
+    -0.025177002,
+    -0.005367279,
+    -0.034729004,
+    0.04067993,
+    0.028213501,
+    -0.01928711,
+    0.06518555,
+    -0.022903442,
+    0.0022125244,
+    0.006008148,
+    0.017044067,
+    -0.018600464,
+    0.03237915,
+    0.025375366,
+    0.01966858,
+    0.021514893
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87764.md",
+    "file_name": "87764.md",
+    "file_size": 7267,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident in Hermleigh, Texas",
+      "The accident occurred in Hermleigh, Texas.",
+      "The accident occurred on August 4, 2013, at 17:00 Local time.",
+      "The aircraft involved was a Cessna 150D.",
+      "The defining event was loss of control on ground.",
+      "The flight was conducted under Part 91: General aviation - Instructional.",
+      "The accident number was CEN13CA485.",
+      "The aircraft registration was N4281U.",
+      "The aircraft sustained substantial damage.",
+      "There were no injuries in the accident.",
+      "The pilot held a helicopter rating.",
+      "The pilot was receiving flight instruction to add an airplane single engine land rating to his private pilot certificate.",
+      "The pilot was on a solo cross country flight.",
+      "The pilot had been inflight for about three hours when he became disoriented.",
+      "The pilot was unable to find an airport.",
+      "The pilot had a low fuel situation.",
+      "The pilot elected to make a precautionary off field landing to an unpaved road.",
+      "After touchdown, directional control of the aircraft was lost.",
+      "The aircraft impacted an embankment on the side of the road.",
+      "The impact resulted in substantial damage to the fuselage.",
+      "The impact resulted in substantial damage to both wings.",
+      "The pilot reported no preaccident mechanical malfunctions with the airplane.",
+      "The pilot reported no preaccident mechanical failures with the airplane.",
+      "The National Transportation Safety Board determined the probable cause of the accident to be the pilot's improper positional awareness.",
+      "The pilot's improper positional awareness resulted in an off airport landing.",
+      "The pilot's improper positional awareness resulted in impact with terrain.",
+      "The National Transportation Safety Board identified \"lack of action\" by the pilot as a finding.",
+      "The National Transportation Safety Board identified \"directional control - not attained/maintained\" related to the aircraft as a finding."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident in Hermleigh, Texas",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Hermleigh, Texas",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna 150D",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N4281U",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CEN13CA485",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Hermleigh, Texas.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Hermleigh, Texas",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on August 4, 2013, at 1700 Local time.",
+              "details": [
+                "accident DATE August 4, 2013",
+                "accident TIME 17:00 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 4, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "17:00 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Cessna 150D.",
+              "details": [
+                "accident INVOLVED Cessna 150D"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of control on ground.",
+              "details": [
+                "accident DEFINING EVENT loss of control on ground"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control on ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Instructional.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Instructional"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Instructional",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was CEN13CA485.",
+              "details": [
+                "accident NUMBER CEN13CA485"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN13CA485",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N4281U.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N4281U",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no injuries in the accident.",
+              "details": [
+                "accident INJURIES none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a helicopter rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was receiving flight instruction to add an airplane single engine land rating to his private pilot certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECEIVING INSTRUCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane single engine land rating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was on a solo cross country flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "solo cross country",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had been inflight for about three hours when he became disoriented.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT DURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about three hours",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "disoriented",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was unable to find an airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "UNABLE TO FIND"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airport",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had a low fuel situation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FUEL SITUATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot elected to make a precautionary off field landing to an unpaved road.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "precautionary off field",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unpaved road",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "After touchdown, directional control of the aircraft was lost.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LOST CONTROL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "directional control after touchdown",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft impacted an embankment on the side of the road.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "embankment on the side of the road",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The impact resulted in substantial damage to the fuselage.",
+              "details": [
+                "impact CAUSED DAMAGE TO fuselage",
+                "fuselage DAMAGE LEVEL substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impact",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSED DAMAGE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The impact resulted in substantial damage to both wings.",
+              "details": [
+                "impact CAUSED DAMAGE TO wings",
+                "wings DAMAGE LEVEL substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impact",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSED DAMAGE TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no preaccident mechanical malfunctions with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PREACCIDENT MECHANICAL MALFUNCTIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no preaccident mechanical failures with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PREACCIDENT MECHANICAL FAILURES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident to be the pilot's improper positional awareness.",
+              "details": [
+                "accident PROBABLE CAUSE pilot's improper positional awareness"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's improper positional awareness",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's improper positional awareness",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's improper positional awareness resulted in an off airport landing.",
+              "details": [
+                "pilot's improper positional awareness RESULTED IN off airport landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's improper positional awareness",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "off airport landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's improper positional awareness resulted in impact with terrain.",
+              "details": [
+                "pilot's improper positional awareness RESULTED IN impact with terrain"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's improper positional awareness",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "impact with terrain",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board identified \"lack of action\" by the pilot as a finding.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lack of action by the pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lack of action",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board identified \"directional control - not attained/maintained\" related to the aircraft as a finding.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIED FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "directional control - not attained/maintained",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna 150D",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "directional control - not attained/maintained",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::bba50a32:278e",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87764.md",
+        "file_name": "87764.md",
+        "file_size": 7267,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "2ce9afd89fe1b32bd40fbac0a5d42e13f37a5434900ff3f31e6de43355159ecc",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::bba50a32:278e:2a1d4736",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87764.md",
+        "file_name": "87764.md",
+        "file_size": 7267,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "340ad56b80a70e73a1d0b56931583ef029b798740c2e4c8058d1eff094c4fb3a",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nHermleigh, Texas\n\n## Date & Time: \nAugust 4, 2013, 17:00 Local\n\n## Aircraft:\nCessna 150D\n\n## Defining Event:\nLoss of control on ground\n\n## Flight Conducted Under:\nPart 91: General aviation - Instructional\n\n## Accident Number:\nCEN13CA485\n\n## Registration:\nN4281U\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nThe pilot reported that he held a helicopter rating and he was receiving flight instruction to add an airplane single engine land rating to his private pilot certificate. He was on a solo cross country flight and had been inflight for about three hours when he became disoriented and was unable to find an airport. Because of his low fuel situation the pilot elected to make a precautionary off field landing to an unpaved road. After touchdown, directional control was lost and the airplane impacted an embankment on the side of the road resulting in substantial damage to the fuselage and both wings. The pilot reported no preaccident mechanical malfunctions or failures with the airplane that would have precluded normal operation.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\nThe pilot's improper positional awareness, which resulted in an off airport landing and impact with terrain.\n\n## Findings\n\n| | |\n|-|-|\n| Personnel issues | Lack of action - Pilot |\n| Aircraft | Directional control - Not attained/maintained |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1495,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

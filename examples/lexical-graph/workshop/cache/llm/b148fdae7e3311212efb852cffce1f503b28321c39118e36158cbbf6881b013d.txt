@@ -1,0 +1,45 @@
+Amazon Neptune Instance Resource Allocation
+
+Amazon EC2 instance types are used in Neptune.
+Amazon EC2 instance sizes are used in Neptune.
+Each Amazon EC2 instance type used in Neptune offers a defined amount of compute (vCPUs).
+Each Amazon EC2 instance size used in Neptune offers a defined amount of compute (vCPUs).
+Each Amazon EC2 instance type used in Neptune offers a defined amount of system memory.
+Each Amazon EC2 instance size used in Neptune offers a defined amount of system memory.
+The primary storage for Neptune is external to the DB instances in a cluster.
+The external primary storage lets compute and storage capacity scale independently of each other.
+Compute resources can be scaled in Neptune.
+Instance families have differences between each other.
+In all instance families, vCPU resources are allocated to support two (2) query execution threads per vCPU.
+The support for two query execution threads per vCPU is dictated by the instance size.
+When determining the proper size of a given Neptune DB instance, you need to consider the possible concurrency of your application.
+When determining the proper size of a given Neptune DB instance, you need to consider the average latency of your queries.
+You can estimate the number of vCPUs needed using the formula vCPUs=(latencyxconcurrency)/2.
+In the vCPU estimation formula, latency is measured as the average query latency in seconds.
+In the vCPU estimation formula, concurrency is measured as the target number of queries per second.
+SPARQL queries can use more than one execution thread per query under certain circumstances when using the DFE query engine.
+openCypher queries can use more than one execution thread per query under certain circumstances when using the DFE query engine.
+Gremlin read queries can use more than one execution thread per query under certain circumstances when using the DFE query engine.
+When initially sizing your DB cluster, start with the assumption that each query will consume a single execution thread per execution.
+You should scale up if you observe back pressure into query queue.
+Back pressure into query queue can be observed by using the `/gremlin/status` API.
+Back pressure into query queue can be observed by using the `/oc/status` API.
+Back pressure into query queue can be observed by using the `/sparql/status` API.
+Back pressure into query queue can be observed using the `MainRequestsPendingRequestsQueue` CloudWatch metric.
+System memory on each instance is divided into two primary allocations: buffer pool cache and query execution thread memory.
+Approximately two thirds of the available memory in an instance is allocated for buffer-pool cache.
+Buffer-pool cache is used to cache the most recently used components of the graph for faster access on queries that repeatedly access those components.
+Instances with a larger amount of system memory have larger buffer pool caches.
+Larger buffer pool caches can store more of the graph locally.
+A user can tune for the appropriate amount of buffer-pool cache by monitoring the buffer cache hit and miss metrics available in CloudWatch.
+You may want to increase the size of your instance if the cache hit rate drops below 99.9% for a consistent period of time.
+A cache hit rate dropping below 99.9% for a consistent period suggests that the buffer pool is not big enough.
+When the buffer pool is not big enough, the engine is having to fetch data from the underlying storage volume more often than is efficient.
+The remaining third of system memory is distributed evenly across query execution threads.
+Some memory remains for the operating system after distributing memory across query execution threads.
+Some memory remains for a small dynamic pool for threads to use as needed after distributing memory across query execution threads.
+The memory available for each thread increases slightly from one instance size to the next up to an `8xl` instance type.
+At `8xl` instance type size, the memory allocated per thread reaches a maximum.
+The time to add more thread memory is when you encounter an `OutOfMemoryException` (OOM).
+OOM exceptions occur when one thread needs more than the maximum memory allocated to it.
+An OOM exception is not the same as the entire instance running out of memory.

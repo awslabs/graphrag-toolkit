@@ -221,6 +221,28 @@ def get_entities_query(tenant_id):
 
     return cypher
 
+class GraphHolder():
+    
+    def __init__(self, g, original_oc_results_df):
+        self.g = g
+        self.original_oc_results_df = original_oc_results_df
+
+    def oc(self, line, cell=None, local_ns=None):
+        self.g.oc(line, cell=cell, local_ns=local_ns)
+
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exception_type, exception_value, traceback):
+        try:
+            import graph_notebook.magics.graph_magic
+        except ImportError as e:
+            raise ImportError(
+                "graph_notebook package not found, install with 'pip install graph_notebook'"
+            ) from e
+        graph_notebook.magics.graph_magic.oc_results_df = self.original_oc_results_df
+        return False
+
 class GraphNotebookVisualisation():
 
     def __init__(self, display_edge_labels=False, formatting_config=None, nb_classic=False):
@@ -325,14 +347,14 @@ class GraphNotebookVisualisation():
                 print(json.dumps(self.graph_notebook_vis_options, indent=2))
     
         
-        
+        original_oc_results_df =  graph_notebook.magics.graph_magic.oc_results_df
         graph_notebook.magics.graph_magic.oc_results_df = oc_results_df
         setattr(Graph, '_graph_notebook_vis_options', _graph_notebook_vis_options)
 
         g = Graph(None) 
         g._graph_notebook_vis_options('reset', cell=formatting_config, local_ns={})
 
-        return g
+        return GraphHolder(g, original_oc_results_df)
 
     def _display(self, cypher, edge_display_property:str=None):
         
@@ -435,15 +457,15 @@ class GraphNotebookVisualisation():
         }}
         '''
 
-        g = self._get_graph(formatting_config)
+        with self._get_graph(formatting_config) as g:
 
-        if edge_display_property:
-            line = f'query -d value -l 25 -rel 25 --edge-display-property {edge_display_property}'
-        else:
-            edge_label_length = 25 if self.display_edge_labels else 0
-            line = f'query -d value -l 25 -rel {edge_label_length}'
-        
-        g.oc(line, cell=cypher, local_ns={}) 
+          if edge_display_property:
+              line = f'query -d value -l 25 -rel 25 --edge-display-property {edge_display_property}'
+          else:
+              edge_label_length = 25 if self.display_edge_labels else 0
+              line = f'query -d value -l 25 -rel {edge_label_length}'
+          
+          g.oc(line, cell=cypher, local_ns={}) 
     
     def display_results(self, response, include_sources=True):
 

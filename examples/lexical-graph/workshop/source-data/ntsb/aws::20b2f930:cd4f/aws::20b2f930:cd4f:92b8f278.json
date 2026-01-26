@@ -1,0 +1,2367 @@
+{
+  "id_": "aws::20b2f930:cd4f:92b8f278",
+  "embedding": [
+    0.02027893,
+    0.0067634583,
+    -0.0036201477,
+    -0.07305908,
+    0.012161255,
+    0.010002136,
+    -0.017974854,
+    0.024398804,
+    -0.04925537,
+    0.017486572,
+    0.022705078,
+    0.02670288,
+    -0.007820129,
+    -0.04812622,
+    0.0670166,
+    -0.0061302185,
+    -0.017349243,
+    0.0635376,
+    0.010116577,
+    -0.011695862,
+    0.003250122,
+    -0.009437561,
+    -0.043151855,
+    -0.029891968,
+    -0.016036987,
+    0.080322266,
+    -0.066223145,
+    -0.0016813278,
+    -0.022583008,
+    -0.0076904297,
+    -0.010574341,
+    -0.00067806244,
+    0.016799927,
+    0.032928467,
+    -0.033233643,
+    -0.031021118,
+    -0.019104004,
+    0.017562866,
+    -0.003944397,
+    0.009300232,
+    0.023956299,
+    -0.009742737,
+    0.041809082,
+    -0.0446167,
+    0.0057868958,
+    -0.01158905,
+    0.036987305,
+    -0.004180908,
+    0.038146973,
+    0.020721436,
+    0.0010719299,
+    -0.005859375,
+    0.0073127747,
+    0.0103302,
+    0.0037879944,
+    0.0044517517,
+    -0.003967285,
+    -0.014183044,
+    -0.013557434,
+    0.021530151,
+    0.03074646,
+    0.05090332,
+    0.012313843,
+    0.021957397,
+    -0.018569946,
+    0.00024843216,
+    -0.07159424,
+    -0.0006980896,
+    0.07092285,
+    -0.0062179565,
+    -0.028411865,
+    0.010864258,
+    -0.013153076,
+    0.022064209,
+    -0.03933716,
+    -0.041259766,
+    0.043640137,
+    -0.006378174,
+    -0.019851685,
+    0.01966858,
+    0.035095215,
+    0.031066895,
+    -0.0496521,
+    0.006427765,
+    0.023635864,
+    0.04812622,
+    -0.014465332,
+    -0.058929443,
+    -0.030197144,
+    -0.066711426,
+    -0.014984131,
+    -0.050750732,
+    -0.033843994,
+    0.00920105,
+    -0.023742676,
+    -0.006591797,
+    0.044433594,
+    -0.054901123,
+    0.037231445,
+    -0.035095215,
+    0.064208984,
+    -0.08416748,
+    0.012107849,
+    0.025756836,
+    -0.032958984,
+    -0.009811401,
+    0.04473877,
+    0.013442993,
+    0.010063171,
+    0.021514893,
+    -0.03427124,
+    0.06616211,
+    -0.044677734,
+    -0.09106445,
+    -0.01977539,
+    0.06591797,
+    -0.010826111,
+    -0.023361206,
+    0.040161133,
+    -0.050872803,
+    -0.025131226,
+    0.00793457,
+    -0.02999878,
+    -0.0040397644,
+    0.012908936,
+    -0.010726929,
+    -0.0027656555,
+    0.027160645,
+    0.1161499,
+    -0.027511597,
+    -0.019470215,
+    0.025115967,
+    -0.024139404,
+    -0.044281006,
+    -0.024276733,
+    0.016677856,
+    -0.017044067,
+    -0.013092041,
+    -0.0090408325,
+    -0.0015850067,
+    -0.02470398,
+    -0.026031494,
+    0.054656982,
+    -0.023468018,
+    -0.0039100647,
+    0.0022068024,
+    0.023513794,
+    0.011123657,
+    -0.022583008,
+    0.012634277,
+    0.011428833,
+    -0.029556274,
+    0.0647583,
+    -0.0023517609,
+    -0.03390503,
+    -0.01902771,
+    0.029525757,
+    -0.04171753,
+    -0.038024902,
+    -0.04724121,
+    0.0072784424,
+    -0.0029411316,
+    0.035003662,
+    -0.01838684,
+    -0.03338623,
+    0.013191223,
+    -0.076538086,
+    -0.015312195,
+    0.016555786,
+    0.03805542,
+    0.025421143,
+    -0.0043144226,
+    -0.035736084,
+    0.019042969,
+    0.0051460266,
+    0.008575439,
+    -0.00894165,
+    0.035491943,
+    0.001830101,
+    0.0034694672,
+    0.023895264,
+    -0.03567505,
+    0.007499695,
+    0.024536133,
+    0.015716553,
+    -0.034179688,
+    0.023773193,
+    -0.020355225,
+    -0.013008118,
+    0.034454346,
+    -0.0023269653,
+    0.035583496,
+    0.017166138,
+    -0.07446289,
+    -0.014823914,
+    0.0010156631,
+    -0.012672424,
+    -0.010177612,
+    -0.023422241,
+    0.04800415,
+    -0.057525635,
+    0.061401367,
+    -0.012748718,
+    0.025405884,
+    0.02406311,
+    0.02494812,
+    0.0068473816,
+    0.060180664,
+    0.0107803345,
+    0.050048828,
+    0.015838623,
+    0.0054969788,
+    -0.03338623,
+    0.041046143,
+    0.0053901672,
+    0.012382507,
+    -0.00042963028,
+    -0.031280518,
+    0.0044021606,
+    -0.011505127,
+    -0.04333496,
+    0.048065186,
+    -0.044311523,
+    0.012779236,
+    -0.014839172,
+    -0.03579712,
+    -0.0058670044,
+    -0.020462036,
+    0.017166138,
+    0.0038528442,
+    0.04324341,
+    -0.010375977,
+    -0.02671814,
+    -0.0027236938,
+    -0.023590088,
+    0.038879395,
+    -0.030532837,
+    -0.029449463,
+    -0.0050964355,
+    0.02027893,
+    -0.0019111633,
+    -0.0038700104,
+    0.017990112,
+    0.099975586,
+    -0.034606934,
+    -0.04837036,
+    0.007347107,
+    0.03326416,
+    -0.041503906,
+    0.008430481,
+    0.026504517,
+    0.03829956,
+    0.012496948,
+    0.060760498,
+    -0.04244995,
+    0.029815674,
+    -0.050567627,
+    -0.07293701,
+    0.039215088,
+    -0.023986816,
+    0.03100586,
+    -0.006832123,
+    -0.03793335,
+    0.01335907,
+    0.0018596649,
+    0.034698486,
+    0.009994507,
+    0.024871826,
+    -0.015487671,
+    0.030288696,
+    0.012680054,
+    -0.021316528,
+    0.00029945374,
+    0.05267334,
+    -0.012123108,
+    0.046295166,
+    -0.011001587,
+    -0.0154953,
+    -0.032806396,
+    0.023147583,
+    1.1384487e-05,
+    0.0748291,
+    -0.021728516,
+    -0.017074585,
+    -0.002626419,
+    0.025054932,
+    -0.025115967,
+    -0.0014505386,
+    -0.07879639,
+    -0.018722534,
+    0.04586792,
+    -0.014778137,
+    -0.02041626,
+    -0.026107788,
+    -0.035247803,
+    -0.007434845,
+    0.05331421,
+    0.015548706,
+    0.005771637,
+    0.0077705383,
+    0.023880005,
+    0.03918457,
+    -0.032165527,
+    0.03414917,
+    -0.0058250427,
+    -0.012756348,
+    -0.003780365,
+    0.0004208088,
+    -0.010925293,
+    -0.001660347,
+    -0.07635498,
+    -0.031066895,
+    -0.0048828125,
+    -0.018493652,
+    -0.0048828125,
+    -0.0071144104,
+    -0.022140503,
+    -0.005340576,
+    -0.019302368,
+    0.0010986328,
+    -0.026229858,
+    -0.0021800995,
+    -0.03186035,
+    -0.015419006,
+    -0.0099105835,
+    0.015548706,
+    -0.034423828,
+    -0.0023403168,
+    0.03112793,
+    -0.008369446,
+    -0.043060303,
+    -0.013290405,
+    -0.059417725,
+    0.022415161,
+    0.010803223,
+    0.025817871,
+    -0.0013933182,
+    -0.041809082,
+    -0.035308838,
+    0.02381897,
+    -0.0076828003,
+    -0.05154419,
+    0.013946533,
+    -0.07043457,
+    -0.07836914,
+    -0.023101807,
+    0.042114258,
+    0.006259918,
+    -0.03338623,
+    -0.053009033,
+    0.09661865,
+    -0.022842407,
+    -0.029312134,
+    0.0077323914,
+    -0.01713562,
+    -0.083984375,
+    0.026321411,
+    0.023254395,
+    -0.045288086,
+    -0.037353516,
+    0.020065308,
+    -0.008010864,
+    -0.018249512,
+    -0.05822754,
+    -0.022125244,
+    0.010528564,
+    -0.016174316,
+    -0.008422852,
+    -0.0037612915,
+    0.0040283203,
+    -0.0027256012,
+    0.005706787,
+    0.003194809,
+    -0.02281189,
+    -0.04260254,
+    -0.012931824,
+    0.059814453,
+    -0.015571594,
+    0.0017633438,
+    0.028182983,
+    0.021102905,
+    0.0043411255,
+    0.03125,
+    -0.011451721,
+    0.05731201,
+    0.00047421455,
+    0.0014457703,
+    -0.021560669,
+    0.0647583,
+    0.013336182,
+    0.03717041,
+    -0.04171753,
+    -0.044433594,
+    -0.020477295,
+    0.0063819885,
+    -0.005584717,
+    0.018417358,
+    0.019836426,
+    -0.029510498,
+    -0.029830933,
+    -0.103637695,
+    0.0034618378,
+    -0.010231018,
+    -0.03414917,
+    -0.0016345978,
+    -0.0335083,
+    -0.047943115,
+    -0.05517578,
+    0.033203125,
+    0.07159424,
+    -0.040649414,
+    0.047821045,
+    -0.014167786,
+    0.031677246,
+    -0.022109985,
+    0.027938843,
+    0.05545044,
+    -0.00894928,
+    0.0022087097,
+    -0.013954163,
+    0.0473938,
+    -0.030090332,
+    0.018066406,
+    0.0066566467,
+    -0.012489319,
+    -0.018218994,
+    -0.009025574,
+    0.01134491,
+    0.0056648254,
+    0.026275635,
+    -0.04034424,
+    0.0052490234,
+    0.0054092407,
+    0.01776123,
+    -0.03543091,
+    -8.791685e-05,
+    0.003868103,
+    -0.00466156,
+    0.06384277,
+    -0.04257202,
+    0.011688232,
+    0.009880066,
+    -0.010513306,
+    0.0154418945,
+    -0.029785156,
+    0.020309448,
+    0.011207581,
+    0.0067100525,
+    0.0004916191,
+    -0.012458801,
+    -0.004787445,
+    -0.004261017,
+    0.07147217,
+    0.031341553,
+    0.008522034,
+    0.0524292,
+    0.01285553,
+    0.026062012,
+    -0.010253906,
+    -0.0026683807,
+    -0.035705566,
+    -0.018295288,
+    0.02027893,
+    -0.02734375,
+    0.007003784,
+    -0.01663208,
+    0.00995636,
+    0.022888184,
+    0.025024414,
+    -0.038238525,
+    0.003036499,
+    0.055603027,
+    -0.014091492,
+    -0.016937256,
+    0.014343262,
+    0.0079574585,
+    0.012001038,
+    -0.005065918,
+    0.00793457,
+    -0.022659302,
+    -0.04574585,
+    0.017471313,
+    0.037963867,
+    0.035491943,
+    0.010383606,
+    0.017868042,
+    0.02973938,
+    0.030593872,
+    0.009086609,
+    -0.020431519,
+    0.0012712479,
+    0.010696411,
+    -0.0027675629,
+    0.04449463,
+    0.009613037,
+    -0.03050232,
+    -0.0056533813,
+    0.0019550323,
+    -0.0025253296,
+    -0.041015625,
+    -0.010864258,
+    -0.027160645,
+    0.009384155,
+    -0.0065994263,
+    -0.024383545,
+    -0.0019102097,
+    0.016296387,
+    0.034576416,
+    0.02861023,
+    -0.0074501038,
+    0.022277832,
+    0.011398315,
+    0.06591797,
+    0.020996094,
+    -0.0070533752,
+    0.030654907,
+    0.015365601,
+    0.060821533,
+    -0.014328003,
+    -0.03933716,
+    -0.058563232,
+    -0.04144287,
+    0.025497437,
+    0.044067383,
+    -0.021011353,
+    0.017654419,
+    0.002199173,
+    0.06555176,
+    -0.022598267,
+    -0.04421997,
+    -0.0016078949,
+    0.05316162,
+    -0.040161133,
+    -0.0051345825,
+    0.0287323,
+    -0.022979736,
+    -0.04586792,
+    0.010726929,
+    0.007419586,
+    -0.011314392,
+    -0.02268982,
+    -0.035858154,
+    -0.019729614,
+    0.01374054,
+    -0.0051879883,
+    0.021209717,
+    -0.011436462,
+    0.031433105,
+    -0.025527954,
+    0.00021743774,
+    0.0044288635,
+    0.0107421875,
+    0.018859863,
+    -0.036102295,
+    -0.048919678,
+    0.032958984,
+    0.011985779,
+    -0.019073486,
+    0.00365448,
+    0.01576233,
+    -0.004261017,
+    -0.020095825,
+    -0.029937744,
+    0.020217896,
+    0.013298035,
+    0.018112183,
+    -0.0046806335,
+    -0.030853271,
+    0.015151978,
+    -0.034851074,
+    0.002275467,
+    -0.021652222,
+    0.06616211,
+    -0.010787964,
+    0.030853271,
+    -0.026489258,
+    0.025619507,
+    -0.004634857,
+    0.011360168,
+    -0.021316528,
+    -0.024902344,
+    0.035491943,
+    0.049316406,
+    0.021972656,
+    -0.025253296,
+    0.039855957,
+    -0.024414062,
+    -0.019454956,
+    -0.042755127,
+    0.011962891,
+    0.06347656,
+    0.0016212463,
+    -0.013206482,
+    -0.044769287,
+    0.0020751953,
+    0.017547607,
+    -0.04840088,
+    -0.0036735535,
+    0.017181396,
+    -0.0010957718,
+    -0.014480591,
+    0.007820129,
+    0.0012779236,
+    -0.03149414,
+    0.026367188,
+    0.013908386,
+    0.010055542,
+    -0.00881958,
+    0.023742676,
+    0.05230713,
+    0.0012693405,
+    0.0015144348,
+    -0.039611816,
+    0.023147583,
+    -0.003929138,
+    -0.016525269,
+    -0.034851074,
+    0.029556274,
+    0.06732178,
+    -0.0004451275,
+    0.04815674,
+    0.026153564,
+    0.02973938,
+    0.0107421875,
+    0.04547119,
+    -0.017608643,
+    0.005718231,
+    -0.0027332306,
+    -0.005001068,
+    -0.008033752,
+    -0.024032593,
+    -0.019470215,
+    -0.047088623,
+    -0.016662598,
+    -0.025024414,
+    0.015945435,
+    -0.020477295,
+    -0.028900146,
+    0.021087646,
+    -0.026885986,
+    0.0107803345,
+    0.024902344,
+    -0.034301758,
+    -0.010848999,
+    -0.014709473,
+    -0.0061149597,
+    0.00086450577,
+    -0.046295166,
+    0.00011104345,
+    -0.012313843,
+    -0.0362854,
+    -0.02809143,
+    -0.06225586,
+    -0.016189575,
+    0.012397766,
+    -0.05947876,
+    -0.002614975,
+    -0.004924774,
+    -0.013076782,
+    -0.05508423,
+    -0.074035645,
+    -0.023773193,
+    0.0048217773,
+    -0.035827637,
+    -0.06817627,
+    0.032440186,
+    0.042785645,
+    -0.02420044,
+    0.020690918,
+    -0.05630493,
+    -0.05706787,
+    0.070739746,
+    0.008148193,
+    -0.020843506,
+    -0.001244545,
+    0.049682617,
+    -0.004421234,
+    0.013656616,
+    0.020950317,
+    0.0060310364,
+    0.004825592,
+    -0.03286743,
+    0.00029969215,
+    -0.019104004,
+    -0.006832123,
+    0.02848816,
+    -0.034942627,
+    0.004142761,
+    -0.043914795,
+    -0.012519836,
+    -0.04324341,
+    -0.005092621,
+    -0.023086548,
+    -0.02798462,
+    -0.0181427,
+    -0.050048828,
+    0.001698494,
+    -0.015296936,
+    -0.03378296,
+    -0.03289795,
+    0.0020637512,
+    -0.003540039,
+    0.036590576,
+    0.0024909973,
+    0.009185791,
+    0.050964355,
+    0.0039024353,
+    0.05996704,
+    -0.030258179,
+    -0.036224365,
+    0.04928589,
+    0.10571289,
+    0.029022217,
+    -0.0033340454,
+    0.020553589,
+    -0.0073051453,
+    0.022460938,
+    0.03111267,
+    -0.015167236,
+    0.0062217712,
+    -0.020767212,
+    0.04788208,
+    0.02456665,
+    -0.025482178,
+    0.029693604,
+    0.013755798,
+    -0.064697266,
+    0.025054932,
+    -0.012062073,
+    -0.015090942,
+    0.030380249,
+    -0.04638672,
+    0.020767212,
+    0.0047721863,
+    -0.03237915,
+    0.01210022,
+    -0.018417358,
+    0.029159546,
+    0.014930725,
+    -0.06549072,
+    -0.048217773,
+    -0.015716553,
+    0.024337769,
+    -0.014717102,
+    -0.03277588,
+    -0.037017822,
+    0.009475708,
+    -0.08972168,
+    -0.019195557,
+    -0.026931763,
+    0.052093506,
+    -0.06591797,
+    -0.0814209,
+    0.042419434,
+    0.0067253113,
+    0.03744507,
+    0.017471313,
+    0.017654419,
+    -0.0625,
+    0.007183075,
+    0.005683899,
+    0.0069770813,
+    0.016036987,
+    0.0030994415,
+    -0.04071045,
+    -0.0033473969,
+    -0.06011963,
+    -0.016799927,
+    -0.03692627,
+    -0.0014696121,
+    0.0067634583,
+    0.012802124,
+    -0.022125244,
+    -0.03753662,
+    0.03604126,
+    -0.013908386,
+    0.025421143,
+    -0.03414917,
+    -0.032470703,
+    -0.0030155182,
+    0.008239746,
+    0.0039711,
+    -0.0181427,
+    -0.0020942688,
+    -0.0043029785,
+    -0.003124237,
+    0.031402588,
+    -0.012268066,
+    0.03302002,
+    0.045532227,
+    -0.015289307,
+    -0.00944519,
+    0.003709793,
+    0.010910034,
+    -0.011222839,
+    0.0010929108,
+    0.015464783,
+    -0.0056991577,
+    -0.066467285,
+    -0.037963867,
+    -0.018035889,
+    -0.01838684,
+    -0.008033752,
+    0.018600464,
+    -0.019210815,
+    0.0055160522,
+    0.02748108,
+    0.019805908,
+    0.023208618,
+    -0.019515991,
+    0.014175415,
+    -0.029174805,
+    0.014350891,
+    -0.000521183,
+    0.01574707,
+    0.03652954,
+    -0.015533447,
+    -0.010528564,
+    0.0037593842,
+    -0.016220093,
+    -0.008346558,
+    0.029205322,
+    0.0059280396,
+    0.0010957718,
+    0.0007328987,
+    -0.013793945,
+    -0.037078857,
+    0.014701843,
+    0.015853882,
+    -0.03793335,
+    -0.00088882446,
+    -0.020706177,
+    0.00737381,
+    0.011077881,
+    -0.029464722,
+    0.04421997,
+    0.035583496,
+    0.015670776,
+    -0.028411865,
+    0.06121826,
+    0.0014915466,
+    -0.02357483,
+    -0.00031971931,
+    -0.0014429092,
+    -0.02809143,
+    0.008300781,
+    0.005554199,
+    -0.00044083595,
+    0.034423828,
+    0.017700195,
+    0.049194336,
+    -0.021713257,
+    -0.00023472309,
+    -0.011016846,
+    0.008384705,
+    -0.039031982,
+    -0.0037937164,
+    -0.036499023,
+    -0.023834229,
+    -0.025131226,
+    -0.020080566,
+    0.037109375,
+    0.012275696,
+    0.009735107,
+    -0.031585693,
+    0.012413025,
+    -0.038909912,
+    0.011634827,
+    0.024108887,
+    -0.007118225,
+    0.0071258545,
+    0.04574585,
+    -0.046844482,
+    -0.023162842,
+    -0.019485474,
+    0.0046424866,
+    -0.014846802,
+    0.05633545,
+    -0.028015137,
+    0.0002913475,
+    -0.04196167,
+    -0.08306885,
+    -0.0047302246,
+    -0.027572632,
+    0.00016701221,
+    -0.0690918,
+    0.045074463,
+    0.016937256,
+    0.032104492,
+    0.025039673,
+    0.0053138733,
+    -0.016906738,
+    -0.016235352,
+    0.020355225,
+    0.009140015,
+    0.06964111,
+    0.00078725815,
+    -0.009254456,
+    -0.06008911,
+    0.034973145,
+    -0.007797241,
+    -0.076538086,
+    -0.0079574585,
+    -0.079711914,
+    0.010467529,
+    0.03274536,
+    -0.002708435,
+    -0.0736084,
+    0.006587982,
+    0.0063476562,
+    0.0078125,
+    0.053588867,
+    -0.034332275,
+    0.012672424,
+    0.03213501,
+    -0.01902771,
+    -0.03768921,
+    -0.060638428,
+    0.014549255,
+    -0.041534424,
+    0.0018072128,
+    0.036621094,
+    0.037719727,
+    -0.004589081,
+    -0.03286743,
+    -0.04800415,
+    0.1071167,
+    0.046051025,
+    0.027618408,
+    -0.026641846,
+    -0.02458191,
+    -0.0070152283,
+    0.03466797,
+    0.00207901,
+    0.050994873,
+    -0.016220093,
+    0.024887085,
+    0.0037879944,
+    -0.027954102,
+    0.048858643,
+    0.035583496,
+    -0.045196533,
+    0.009590149,
+    0.0014162064,
+    0.003692627,
+    -0.028900146,
+    0.030517578,
+    0.005329132,
+    -0.047454834,
+    0.028366089,
+    0.02029419,
+    -0.012908936,
+    0.03164673,
+    -0.037475586,
+    0.045043945,
+    0.043029785,
+    -0.044677734,
+    -0.05203247,
+    -0.010871887,
+    -0.019546509,
+    0.0025463104,
+    -0.02659607,
+    0.03414917,
+    0.049865723,
+    0.036193848,
+    0.015335083,
+    -0.0016040802,
+    -0.048950195,
+    -0.053497314,
+    -0.008811951,
+    -0.020004272,
+    -0.005695343,
+    0.010063171,
+    -0.020233154,
+    0.03111267,
+    -0.033691406,
+    -0.00036168098,
+    0.016860962,
+    0.010665894,
+    -0.01965332,
+    -0.010818481,
+    0.0053215027,
+    -0.007171631,
+    -0.044433594,
+    0.01737976,
+    -0.025482178,
+    -0.014892578,
+    -0.040130615,
+    0.0031719208,
+    -0.012329102,
+    -0.052490234,
+    0.0072746277,
+    -0.008102417,
+    -0.0034294128,
+    -0.02470398,
+    0.020706177,
+    0.005947113,
+    0.046325684,
+    -0.020385742,
+    -0.014434814,
+    -0.032043457,
+    0.00019288063,
+    0.02267456,
+    0.026168823,
+    0.057373047,
+    -0.07885742,
+    -0.00010108948,
+    -0.0070381165,
+    -0.014022827,
+    0.037597656,
+    -0.024780273,
+    0.061279297,
+    0.029632568,
+    -0.024902344,
+    0.07373047,
+    -0.04083252,
+    -0.0009822845,
+    0.022979736,
+    -0.015098572,
+    -0.0029449463,
+    -0.020370483,
+    0.0033512115,
+    0.016647339,
+    -0.0131073
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100945.md",
+    "file_name": "100945.md",
+    "file_size": 8706,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Analysis of Piaggio P180 Runway Excursion in Broomfield, Colorado",
+      "The accident occurred in Broomfield, Colorado.",
+      "The accident occurred on February 12, 2020, at 21:15 local time.",
+      "The accident involved a Piaggio P180 aircraft.",
+      "The defining event was a runway excursion.",
+      "The flight was conducted under Part 91: General aviation regulations.",
+      "The accident number was CEN20LA083.",
+      "The aircraft registration was N677P.",
+      "The Piaggio P180 aircraft sustained substantial damage.",
+      "Four people were on board the aircraft.",
+      "No injuries occurred in the accident.",
+      "The private pilot was making an instrument approach at night.",
+      "The approach was conducted in instrument meteorological conditions.",
+      "The control tower advised that packed snow was reported on the runway.",
+      "The control tower advised that moderate braking conditions were reported on the runway.",
+      "The pilot reported the approach was on speed.",
+      "The airplane initially touched down smoothly.",
+      "When the nosewheel touched down, the airplane yawed to the left.",
+      "The pilot's efforts to maintain directional control were not successful.",
+      "The airplane slid on the runway surface.",
+      "The airplane departed the left side of the runway.",
+      "The airplane spun around after departing the runway.",
+      "The right wing tip contacted the ground.",
+      "The canard contacted the ground.",
+      "The accident resulted in substantial damage to the right wing.",
+      "The accident resulted in substantial damage to the canard.",
+      "The accident resulted in substantial damage to the aileron.",
+      "Postaccident examination revealed both nose gear tires were deflated.",
+      "Postaccident examination revealed the right main tire had low air pressure.",
+      "The pilot did not report any pre-accident mechanical malfunction with the airplane.",
+      "The pilot did not report any pre-accident anomaly with the airplane that may have precluded normal operation.",
+      "The National Transportation Safety Board determined the probable cause of this accident to be the pilot's loss of directional control on the snow-covered runway.",
+      "The loss of directional control resulted in a runway excursion."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Analysis of Piaggio P180 Runway Excursion in Broomfield, Colorado",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Broomfield, Colorado",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piaggio P180",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N677P",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "runway excursion",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CEN20LA083",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Aircraftowner"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Broomfield, Colorado.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Broomfield, Colorado",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on February 12, 2020, at 2115 local time.",
+              "details": [
+                "accident DATE February 12, 2020",
+                "accident TIME 21:15 local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "February 12, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "21:15 local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved a Piaggio P180 aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was a runway excursion.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway excursion",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation regulations.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was CEN20LA083.",
+              "details": [
+                "accident NUMBER CEN20LA083"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN20LA083",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N677P.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N677P",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Piaggio P180 aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Four people were on board the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PEOPLE ONBOARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "four",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No injuries occurred in the accident.",
+              "details": [
+                "accident INJURIES none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot was making an instrument approach at night.",
+              "details": [
+                "pilot TYPE private",
+                "approach TYPE instrument",
+                "approach TIME OF DAY night"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approach",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instrument",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approach",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME OF DAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "night",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The approach was conducted in instrument meteorological conditions.",
+              "details": [
+                "approach CONDITIONS instrument meteorological conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approach",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instrument meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The control tower advised that packed snow was reported on the runway.",
+              "details": [
+                "runway CONDITION packed snow",
+                "control tower ADVISED packed snow on runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "packed snow",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "control tower",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ADVISED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "packed snow on runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The control tower advised that moderate braking conditions were reported on the runway.",
+              "details": [
+                "runway BRAKING CONDITION moderate",
+                "control tower ADVISED moderate braking conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "BRAKING CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moderate",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "control tower",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ADVISED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "moderate braking conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported the approach was on speed.",
+              "details": [
+                "approach SPEED STATUS on speed",
+                "pilot REPORTED approach was on speed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approach",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "SPEED STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on speed",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approach was on speed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane initially touched down smoothly.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TOUCHDOWN QUALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smooth",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "When the nosewheel touched down, the airplane yawed to the left.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "YAW DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "YAW TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "when nosewheel touched down",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's efforts to maintain directional control were not successful.",
+              "details": [
+                "pilot CONTROL EFFORTS not successful"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTROL EFFORTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not successful",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane slid on the runway surface.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT ON RUNWAY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "slid",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane departed the left side of the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RUNWAY DEPARTURE DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left side",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane spun around after departing the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "POST DEPARTURE MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spun around",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right wing tip contacted the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "GROUND CONTACT PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing tip",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The canard contacted the ground.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "GROUND CONTACT PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "canard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in substantial damage to the right wing.",
+              "details": [
+                "right wing DAMAGE LEVEL substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGED PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right wing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in substantial damage to the canard.",
+              "details": [
+                "canard DAMAGE LEVEL substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGED PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "canard",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "canard",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in substantial damage to the aileron.",
+              "details": [
+                "aileron DAMAGE LEVEL substantial"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGED PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aileron",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aileron",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed both nose gear tires were deflated.",
+              "details": [
+                "nose gear tires CONDITION deflated"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nose gear tires",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deflated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed the right main tire had low air pressure.",
+              "details": [
+                "right main tire CONDITION low air pressure"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main tire",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low air pressure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not report any pre-accident mechanical malfunction with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PRE ACCIDENT MECHANICAL MALFUNCTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none reported",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not report any pre-accident anomaly with the airplane that may have precluded normal operation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piaggio P180",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PRE ACCIDENT ANOMALY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none reported",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of this accident to be the pilot's loss of directional control on the snow-covered runway.",
+              "details": [
+                "accident PROBABLE CAUSE pilot's loss of directional control on the snow-covered runway"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED CAUSE OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's loss of directional control on the snow-covered runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The loss of directional control resulted in a runway excursion.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway excursion",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "CAUSED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of directional control",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::20b2f930:cd4f",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100945.md",
+        "file_name": "100945.md",
+        "file_size": 8706,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "d37aff7fefd4c0de092b073813064daaa5df19c75f52820d32df5c88b6fd0105",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::20b2f930:cd4f:9fdebfea",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100945.md",
+        "file_name": "100945.md",
+        "file_size": 8706,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "6190cd010bf05f15b6a053a8c4cad4a68fa2ad8cbd006029e6716ee71b0cf0c4",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nBroomfield, Colorado\n\n## Date & Time: \nFebruary 12, 2020, 21:15 Local\n\n## Aircraft:\nPiaggio P180\n\n## Defining Event:\nRunway excursion\n\n## Flight Conducted Under:\nPart 91: General aviation\n\n## Accident Number:\nCEN20LA083\n\n## Registration:\nN677P\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n4 None\n\n## Analysis\n\nThe private pilot was making an instrument approach at night in instrument meteorological conditions. The control tower advised that packed snow and moderate braking were reported on the runway. The pilot reported that the approach was on speed and the airplane initially touched down smoothly. When the nosewheel touched down, the airplane yawed to the left, and the pilot's efforts to maintain directional control were not successful. The airplane slid on the surface, departed the left side of the runway, and spun around, then the right wing tip and canard contacted the ground, resulting in substantial damage to the right wing, canard, and aileron.\n\nPostaccident examination revealed both nose gear tires were deflated, and the right main tire had low air pressure. However, the pilot did not report any pre-accident mechanical malfunction or anomaly with the airplane that may have precluded normal operation.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\nThe pilot's loss of directional control on the snow-covered runway, which resulted in a runway excursion.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1523,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

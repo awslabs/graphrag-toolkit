@@ -1,0 +1,2297 @@
+{
+  "id_": "aws::b67a5959:e423:205a7226",
+  "embedding": [
+    0.022247314,
+    -0.0032863617,
+    0.011154175,
+    -0.058380127,
+    -0.020599365,
+    0.002199173,
+    -0.062805176,
+    0.002632141,
+    -0.086364746,
+    -0.0020809174,
+    0.015617371,
+    0.041778564,
+    -0.01663208,
+    -0.053710938,
+    0.097473145,
+    -0.0025577545,
+    0.020065308,
+    0.0012550354,
+    0.046661377,
+    -0.015914917,
+    0.024993896,
+    0.00024342537,
+    0.019546509,
+    -0.0016765594,
+    -0.011306763,
+    0.019561768,
+    -0.08178711,
+    0.025939941,
+    -0.04727173,
+    -0.011894226,
+    -0.016647339,
+    0.037384033,
+    0.024002075,
+    0.038604736,
+    -0.045166016,
+    -0.0024738312,
+    -0.025405884,
+    0.015014648,
+    -0.022567749,
+    0.032562256,
+    0.02305603,
+    -0.015289307,
+    0.043151855,
+    -0.04525757,
+    -0.0041007996,
+    0.0022792816,
+    0.017654419,
+    -0.010498047,
+    0.05279541,
+    0.002067566,
+    -0.001411438,
+    0.024810791,
+    -0.018310547,
+    0.036499023,
+    -0.008117676,
+    0.025161743,
+    -0.009803772,
+    -0.016281128,
+    0.008544922,
+    0.0010242462,
+    -0.006134033,
+    0.022918701,
+    0.03970337,
+    0.021072388,
+    -0.03894043,
+    -0.018295288,
+    0.012084961,
+    0.0040626526,
+    0.050323486,
+    -0.028411865,
+    0.0035381317,
+    0.048919678,
+    -0.009216309,
+    -0.0010271072,
+    -0.008613586,
+    -0.025619507,
+    0.01121521,
+    -0.005138397,
+    -0.013748169,
+    0.030685425,
+    0.044158936,
+    0.013145447,
+    -0.008346558,
+    -0.017852783,
+    0.013015747,
+    0.01411438,
+    -0.000100791454,
+    -0.031707764,
+    -0.00289917,
+    0.013221741,
+    -0.0057868958,
+    -0.02166748,
+    0.030563354,
+    0.031402588,
+    -0.03845215,
+    0.00217247,
+    0.020721436,
+    -0.00060129166,
+    -0.010070801,
+    -0.06573486,
+    0.016479492,
+    -0.037384033,
+    -0.062561035,
+    0.0034809113,
+    0.020568848,
+    0.055358887,
+    -0.008705139,
+    -0.0690918,
+    0.022018433,
+    -0.012123108,
+    -0.008972168,
+    0.015602112,
+    0.008872986,
+    -0.044647217,
+    -0.012359619,
+    0.015823364,
+    -0.018630981,
+    0.019546509,
+    0.03717041,
+    -0.012954712,
+    0.0044403076,
+    0.04925537,
+    -0.072509766,
+    -0.008735657,
+    0.00983429,
+    -0.0017147064,
+    0.013961792,
+    0.033050537,
+    0.051971436,
+    0.014060974,
+    0.01600647,
+    0.03970337,
+    -0.09991455,
+    -0.099121094,
+    -0.08770752,
+    0.021560669,
+    -0.043426514,
+    -0.02406311,
+    -0.00039458275,
+    0.040893555,
+    -0.09118652,
+    -0.06744385,
+    0.0836792,
+    -0.027450562,
+    -0.008110046,
+    0.049072266,
+    0.012145996,
+    -0.0138549805,
+    -0.013252258,
+    -0.059020996,
+    0.023284912,
+    -0.07342529,
+    0.04586792,
+    -0.008979797,
+    -0.083862305,
+    -0.01398468,
+    -0.07446289,
+    0.0053138733,
+    -5.865097e-05,
+    -0.030853271,
+    0.02432251,
+    -0.011764526,
+    0.0014915466,
+    0.00894928,
+    -0.037994385,
+    0.029266357,
+    -0.020523071,
+    -0.021209717,
+    0.014709473,
+    0.018753052,
+    0.035308838,
+    -0.019348145,
+    -0.04473877,
+    -0.014198303,
+    -0.004497528,
+    0.005065918,
+    0.0059394836,
+    0.016906738,
+    0.01373291,
+    0.019561768,
+    0.012275696,
+    -0.034362793,
+    0.0345459,
+    -0.005718231,
+    0.008369446,
+    -0.035217285,
+    0.014823914,
+    -0.03970337,
+    0.0038166046,
+    0.01939392,
+    0.023330688,
+    0.019973755,
+    0.0049476624,
+    0.020706177,
+    -0.0067863464,
+    -0.015159607,
+    -0.024002075,
+    0.009483337,
+    -0.032836914,
+    -0.025848389,
+    -0.037902832,
+    0.020645142,
+    0.016235352,
+    0.024993896,
+    0.04498291,
+    0.013641357,
+    0.020843506,
+    0.008491516,
+    0.0059280396,
+    -0.012359619,
+    0.017837524,
+    -0.012123108,
+    -0.036865234,
+    0.04348755,
+    -0.034973145,
+    -0.004360199,
+    0.008262634,
+    -0.0309906,
+    0.021591187,
+    -0.012939453,
+    0.025527954,
+    0.04324341,
+    0.0023403168,
+    0.046203613,
+    -0.013168335,
+    -0.020217896,
+    0.023971558,
+    -0.012275696,
+    0.05633545,
+    0.005657196,
+    0.09240723,
+    -0.054656982,
+    0.052520752,
+    0.03274536,
+    -0.022872925,
+    0.031158447,
+    0.003036499,
+    -0.008171082,
+    -0.032958984,
+    0.02418518,
+    -0.012565613,
+    -0.0018854141,
+    -0.0052490234,
+    0.081604004,
+    -0.049438477,
+    -0.053741455,
+    0.0013027191,
+    0.04559326,
+    -0.022964478,
+    0.05038452,
+    -0.015701294,
+    0.03994751,
+    -0.006587982,
+    0.041107178,
+    -0.016967773,
+    0.020217896,
+    -0.032409668,
+    -0.027389526,
+    0.01134491,
+    0.0015954971,
+    0.021011353,
+    -0.047210693,
+    -0.02003479,
+    -0.01890564,
+    -0.019592285,
+    0.02267456,
+    0.014167786,
+    0.01852417,
+    -0.021560669,
+    0.0038108826,
+    0.004096985,
+    0.0036964417,
+    -0.0016002655,
+    0.044830322,
+    -0.025314331,
+    0.020568848,
+    -0.06036377,
+    0.023376465,
+    -0.0209198,
+    0.0049972534,
+    0.016098022,
+    0.08654785,
+    0.0011949539,
+    -0.020568848,
+    -0.009284973,
+    0.0018129349,
+    -0.03869629,
+    0.0009765625,
+    0.034423828,
+    0.0491333,
+    0.07922363,
+    -0.017028809,
+    0.0011520386,
+    -0.0206604,
+    0.032928467,
+    -0.021072388,
+    -0.016967773,
+    0.0032157898,
+    0.0011405945,
+    -0.03817749,
+    0.00806427,
+    0.04244995,
+    -0.03527832,
+    0.008850098,
+    -0.021499634,
+    -0.030517578,
+    -0.017303467,
+    -0.025039673,
+    -0.007167816,
+    -0.035095215,
+    0.0066566467,
+    0.065979004,
+    0.0018148422,
+    -0.0003786087,
+    -0.051239014,
+    -0.05267334,
+    -0.023254395,
+    -0.02583313,
+    -0.06878662,
+    0.014297485,
+    -0.0025482178,
+    0.0039367676,
+    -0.026565552,
+    0.0066947937,
+    0.0032539368,
+    -0.0010824203,
+    -0.006954193,
+    -0.008979797,
+    0.022460938,
+    0.015899658,
+    -0.037841797,
+    0.009376526,
+    -0.04071045,
+    0.008300781,
+    -0.019485474,
+    0.014732361,
+    -0.0005335808,
+    0.013381958,
+    -0.021148682,
+    -0.041412354,
+    -0.04348755,
+    -0.03616333,
+    -0.0099487305,
+    -0.027435303,
+    -0.08703613,
+    -0.006603241,
+    0.022720337,
+    0.0008111,
+    -0.015029907,
+    -0.035888672,
+    0.06933594,
+    -0.007713318,
+    -0.009765625,
+    0.042907715,
+    0.016220093,
+    -0.05102539,
+    0.011047363,
+    0.06677246,
+    0.008422852,
+    -0.0050086975,
+    0.020477295,
+    0.032928467,
+    0.009086609,
+    -0.11578369,
+    -0.017349243,
+    -0.025497437,
+    -0.048553467,
+    0.0056877136,
+    -0.016494751,
+    -0.0071029663,
+    -0.028366089,
+    -0.0132369995,
+    0.018539429,
+    -0.005748749,
+    -0.018112183,
+    0.0047721863,
+    6.788969e-05,
+    -0.032287598,
+    -0.016540527,
+    -0.021102905,
+    0.011642456,
+    -0.012496948,
+    0.026657104,
+    -0.020462036,
+    -0.041900635,
+    0.029907227,
+    -0.056427002,
+    0.020065308,
+    -0.04837036,
+    -0.016555786,
+    0.0019102097,
+    0.11602783,
+    0.017547607,
+    -0.011451721,
+    -0.016784668,
+    0.00484848,
+    -0.039031982,
+    -0.042144775,
+    -0.042510986,
+    0.014427185,
+    -0.17773438,
+    0.01197052,
+    0.0020122528,
+    -0.047210693,
+    0.00844574,
+    -0.08166504,
+    -0.092163086,
+    -0.0803833,
+    0.020141602,
+    0.12731934,
+    -0.018356323,
+    0.0071983337,
+    -0.027557373,
+    0.055664062,
+    -0.015388489,
+    0.034606934,
+    0.007030487,
+    0.0010824203,
+    -0.0110321045,
+    0.008934021,
+    0.034820557,
+    -0.029693604,
+    0.023483276,
+    0.014343262,
+    0.02909851,
+    0.030303955,
+    -0.016494751,
+    -0.042297363,
+    0.016601562,
+    0.03060913,
+    -0.012374878,
+    0.014846802,
+    0.0023899078,
+    -0.034210205,
+    -0.007751465,
+    0.018829346,
+    -0.038970947,
+    -0.007713318,
+    -0.031463623,
+    -0.024719238,
+    0.013465881,
+    0.00065135956,
+    0.024230957,
+    0.028259277,
+    0.026687622,
+    -0.026443481,
+    -0.014892578,
+    0.030929565,
+    -0.006061554,
+    -0.004550934,
+    -0.01878357,
+    0.013084412,
+    0.022537231,
+    0.03125,
+    -0.012214661,
+    0.021697998,
+    0.015060425,
+    0.02432251,
+    -0.0101623535,
+    0.012825012,
+    -0.0077590942,
+    -0.008460999,
+    0.0045928955,
+    -0.026733398,
+    -0.018463135,
+    -0.008766174,
+    -0.0009608269,
+    -0.008544922,
+    -0.024139404,
+    0.014030457,
+    -0.028945923,
+    0.050354004,
+    -0.010070801,
+    -0.018203735,
+    0.004070282,
+    -0.024383545,
+    0.019180298,
+    -0.0138549805,
+    0.04638672,
+    0.0015907288,
+    -0.00831604,
+    0.00026154518,
+    -0.001832962,
+    0.076538086,
+    0.03439331,
+    0.0124053955,
+    0.004337311,
+    0.04446411,
+    -0.02305603,
+    -0.0020523071,
+    -0.018493652,
+    0.017044067,
+    0.015403748,
+    -0.015335083,
+    -0.0129470825,
+    -0.012039185,
+    0.0065574646,
+    0.031402588,
+    -0.03805542,
+    -0.044677734,
+    -0.045654297,
+    -0.01979065,
+    0.008277893,
+    0.03918457,
+    0.031585693,
+    -0.0024642944,
+    0.021743774,
+    0.004486084,
+    -0.014816284,
+    0.023666382,
+    0.049072266,
+    -0.020645142,
+    0.013504028,
+    -0.012008667,
+    -0.027023315,
+    0.005039215,
+    0.030197144,
+    -0.026901245,
+    0.007850647,
+    0.010322571,
+    -0.018569946,
+    0.005458832,
+    0.03845215,
+    0.055114746,
+    -0.05834961,
+    0.018508911,
+    -0.008850098,
+    0.014411926,
+    -0.017913818,
+    -0.031036377,
+    0.019897461,
+    0.024459839,
+    0.031799316,
+    0.0206604,
+    -0.0031776428,
+    0.021972656,
+    -0.022491455,
+    -0.0035877228,
+    -0.033813477,
+    -0.02760315,
+    -0.0051193237,
+    0.008476257,
+    0.012275696,
+    -0.0024700165,
+    0.00919342,
+    0.0034866333,
+    0.035461426,
+    0.074035645,
+    -0.056671143,
+    0.03555298,
+    -0.007408142,
+    0.002866745,
+    -0.035736084,
+    -0.051361084,
+    -0.053649902,
+    0.040222168,
+    0.0129776,
+    0.014472961,
+    -0.013793945,
+    -0.026870728,
+    -0.00084495544,
+    -0.0029678345,
+    -0.009513855,
+    -0.011039734,
+    0.029785156,
+    0.011985779,
+    0.015098572,
+    -0.027694702,
+    0.04421997,
+    -0.011726379,
+    -0.010238647,
+    -0.029067993,
+    0.055267334,
+    0.011054993,
+    -0.0013084412,
+    -0.025283813,
+    -0.028030396,
+    0.024139404,
+    -0.0027332306,
+    0.025436401,
+    -0.026443481,
+    -0.025527954,
+    -0.020690918,
+    -0.015853882,
+    -0.057434082,
+    0.021774292,
+    0.0284729,
+    -0.039978027,
+    -0.024780273,
+    0.018325806,
+    0.07537842,
+    0.0011301041,
+    0.011657715,
+    -0.0010051727,
+    -0.01184845,
+    -0.009559631,
+    -0.022888184,
+    -0.046722412,
+    0.0068626404,
+    -0.011192322,
+    -0.03164673,
+    -0.0059776306,
+    -0.014808655,
+    -0.01739502,
+    0.045013428,
+    0.0059776306,
+    -0.02720642,
+    0.005847931,
+    0.007144928,
+    0.021865845,
+    0.0038661957,
+    -0.0030078888,
+    -0.053375244,
+    0.021347046,
+    -0.029830933,
+    0.021469116,
+    0.00573349,
+    0.007598877,
+    0.054595947,
+    -0.014755249,
+    0.009613037,
+    0.033996582,
+    -0.0038986206,
+    -0.018585205,
+    0.059051514,
+    0.009391785,
+    -0.050628662,
+    0.02128601,
+    -0.00242424,
+    -0.026351929,
+    0.00056886673,
+    -0.020812988,
+    -0.03677368,
+    -0.008117676,
+    -0.008911133,
+    -0.00030994415,
+    -0.0070152283,
+    -0.009994507,
+    0.02381897,
+    -0.004600525,
+    -0.006801605,
+    0.041809082,
+    0.0049552917,
+    -0.0069847107,
+    0.0082092285,
+    -0.024520874,
+    -0.02835083,
+    -0.050811768,
+    -0.013725281,
+    -0.009666443,
+    0.005004883,
+    -0.0027828217,
+    -0.043670654,
+    -0.017364502,
+    -0.0010328293,
+    -0.012611389,
+    -0.028182983,
+    0.025909424,
+    0.01473999,
+    -0.026306152,
+    -0.04434204,
+    0.0317688,
+    0.020950317,
+    -0.028320312,
+    -0.068115234,
+    0.03970337,
+    0.030700684,
+    0.018539429,
+    0.012924194,
+    -0.06536865,
+    0.0005478859,
+    0.025497437,
+    -0.007598877,
+    -0.0040359497,
+    -0.0095825195,
+    0.030670166,
+    0.060455322,
+    -0.0005340576,
+    0.02810669,
+    -0.036224365,
+    0.007461548,
+    -0.014953613,
+    0.012931824,
+    -0.04446411,
+    0.0017871857,
+    0.02192688,
+    -0.031158447,
+    0.019302368,
+    -0.009780884,
+    0.0077285767,
+    -0.048034668,
+    -0.0049362183,
+    0.009513855,
+    -0.030136108,
+    -0.029144287,
+    0.003419876,
+    -0.011444092,
+    0.022857666,
+    -0.010032654,
+    -0.012519836,
+    0.024719238,
+    0.014801025,
+    0.004322052,
+    0.0009860992,
+    0.0045433044,
+    0.020584106,
+    0.024749756,
+    -0.026229858,
+    -0.0029830933,
+    -0.015602112,
+    -0.004688263,
+    0.043182373,
+    -0.07458496,
+    -0.03186035,
+    0.029907227,
+    -0.016723633,
+    -0.013916016,
+    0.0181427,
+    0.013328552,
+    -0.022399902,
+    -0.0024642944,
+    0.030258179,
+    0.002658844,
+    -0.026367188,
+    0.028015137,
+    -0.036071777,
+    -0.035003662,
+    0.033599854,
+    -0.012359619,
+    -0.012161255,
+    -0.03567505,
+    -0.012626648,
+    0.00919342,
+    -0.02079773,
+    -0.02142334,
+    -0.0032615662,
+    0.014099121,
+    0.0289917,
+    0.021591187,
+    -0.0036525726,
+    -0.011795044,
+    -0.0074768066,
+    0.032989502,
+    -0.00970459,
+    -0.026046753,
+    -0.03692627,
+    -0.003921509,
+    -0.05456543,
+    -0.008583069,
+    -0.026062012,
+    0.048797607,
+    -0.035736084,
+    -0.09625244,
+    -0.041778564,
+    -0.009666443,
+    -0.00041747093,
+    0.04220581,
+    -0.0045928955,
+    -0.09399414,
+    0.0051116943,
+    -0.020965576,
+    0.009651184,
+    -0.001077652,
+    0.022018433,
+    -0.040222168,
+    -0.011276245,
+    -0.045806885,
+    -0.04333496,
+    0.045806885,
+    -0.024505615,
+    0.0012559891,
+    -0.03164673,
+    0.03375244,
+    0.038482666,
+    0.03640747,
+    -0.0036010742,
+    -0.00044441223,
+    -0.013023376,
+    -0.018722534,
+    -0.031829834,
+    0.0074157715,
+    0.016021729,
+    0.05178833,
+    0.013420105,
+    0.048461914,
+    0.003982544,
+    -0.0040130615,
+    -0.05215454,
+    0.02293396,
+    -0.03488159,
+    -0.047698975,
+    0.026748657,
+    -0.014671326,
+    -0.017822266,
+    -0.031082153,
+    0.012901306,
+    0.040802002,
+    -0.020111084,
+    -0.013397217,
+    -0.013977051,
+    -0.0107803345,
+    -0.02508545,
+    -0.0006670952,
+    0.0061683655,
+    -0.011680603,
+    -0.009353638,
+    0.02368164,
+    0.0065841675,
+    0.00409317,
+    -0.0077934265,
+    -0.010894775,
+    -0.039245605,
+    0.07312012,
+    -0.074645996,
+    0.05102539,
+    -0.01335144,
+    -0.003118515,
+    -0.01687622,
+    0.0009627342,
+    -0.021896362,
+    -0.0070152283,
+    0.02659607,
+    -0.015266418,
+    0.03427124,
+    -0.01576233,
+    -0.003643036,
+    0.0009570122,
+    0.023468018,
+    -0.025726318,
+    -0.0042762756,
+    0.041656494,
+    -0.024551392,
+    -0.05911255,
+    -0.01600647,
+    -0.027374268,
+    0.023910522,
+    0.06518555,
+    -0.05621338,
+    0.050689697,
+    0.057281494,
+    -0.0074424744,
+    0.007205963,
+    -0.026306152,
+    0.0020332336,
+    -0.047576904,
+    -0.017913818,
+    0.028259277,
+    0.02067566,
+    -0.009300232,
+    0.059265137,
+    0.0065727234,
+    -0.019897461,
+    0.045318604,
+    0.00033211708,
+    -0.019500732,
+    -0.026184082,
+    -0.007457733,
+    -0.031799316,
+    -0.019012451,
+    0.016571045,
+    -0.0036144257,
+    -0.0048294067,
+    -0.02557373,
+    -0.008743286,
+    0.008766174,
+    0.006427765,
+    0.021881104,
+    -0.00831604,
+    0.03112793,
+    0.009033203,
+    0.0143966675,
+    -0.03753662,
+    -0.057647705,
+    -0.036590576,
+    -0.028625488,
+    -0.03652954,
+    0.0001013875,
+    0.03744507,
+    -0.022079468,
+    0.020050049,
+    -0.07116699,
+    -0.043884277,
+    0.007789612,
+    -0.0385437,
+    0.009185791,
+    -0.045654297,
+    0.023971558,
+    0.032989502,
+    0.07110596,
+    0.008094788,
+    -0.020706177,
+    0.019744873,
+    0.005832672,
+    0.041870117,
+    0.08050537,
+    0.05444336,
+    0.0047721863,
+    -0.014892578,
+    -0.023239136,
+    0.023742676,
+    -0.020401001,
+    -0.036865234,
+    -0.027008057,
+    -0.009986877,
+    0.027191162,
+    0.007850647,
+    0.009292603,
+    -0.062561035,
+    0.0021343231,
+    -0.010864258,
+    0.0067367554,
+    0.009002686,
+    -0.046875,
+    -0.054656982,
+    0.032409668,
+    0.047668457,
+    -0.05166626,
+    -0.037109375,
+    -0.0027618408,
+    -0.027282715,
+    -0.018966675,
+    -0.019836426,
+    0.029510498,
+    0.00869751,
+    0.023834229,
+    -0.012954712,
+    0.083740234,
+    -0.049926758,
+    0.004032135,
+    0.00047278404,
+    -0.0063591003,
+    -0.00868988,
+    0.020980835,
+    0.030181885,
+    0.018737793,
+    -0.017227173,
+    -0.044403076,
+    0.028518677,
+    -0.018417358,
+    0.029663086,
+    -0.015701294,
+    -0.0055274963,
+    0.018844604,
+    0.029205322,
+    0.016662598,
+    -0.02180481,
+    0.011917114,
+    -0.0078125,
+    -0.024108887,
+    0.011878967,
+    0.044281006,
+    -0.008964539,
+    0.032684326,
+    -0.01423645,
+    0.04510498,
+    0.052337646,
+    -0.023620605,
+    0.021972656,
+    -0.017333984,
+    -0.042388916,
+    -0.0020008087,
+    -0.03555298,
+    -0.017089844,
+    -0.020645142,
+    0.025680542,
+    0.0021076202,
+    0.007282257,
+    -0.010238647,
+    -0.017608643,
+    0.0033912659,
+    0.026382446,
+    -0.018310547,
+    -0.023910522,
+    -0.0077400208,
+    0.007843018,
+    -0.06335449,
+    0.007911682,
+    0.01727295,
+    -0.007724762,
+    0.0048675537,
+    -0.002231598,
+    0.02734375,
+    0.005344391,
+    -0.032196045,
+    0.041656494,
+    -0.045288086,
+    -0.0066986084,
+    0.006023407,
+    -0.008331299,
+    -0.017227173,
+    -0.02708435,
+    0.03717041,
+    0.011833191,
+    0.010246277,
+    -0.008178711,
+    0.020553589,
+    0.032165527,
+    -0.04321289,
+    0.011276245,
+    -0.013038635,
+    -0.021072388,
+    -0.02810669,
+    0.03475952,
+    -0.037353516,
+    -0.011985779,
+    -0.050964355,
+    -0.00089120865,
+    -0.05871582,
+    -0.027633667,
+    0.023529053,
+    -0.05218506,
+    0.06402588,
+    0.039154053,
+    -0.021270752,
+    0.08984375,
+    -0.038238525,
+    0.005886078,
+    -0.000749588,
+    -0.019012451,
+    -0.008277893,
+    -0.0019836426,
+    0.0073547363,
+    -0.014213562,
+    -0.0015745163
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100793.md",
+    "file_name": "100793.md",
+    "file_size": 7346,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Flight Incident Information",
+      "The incident involved a landing-flare/touchdown with landing area undershoot.",
+      "The incident involved a landing-flare/touchdown with hard landing as the defining event.",
+      "The pilot held an airline transport certificate.",
+      "The pilot had single-engine land airplane rating.",
+      "The pilot had multi-engine land airplane rating.",
+      "The pilot occupied the left seat.",
+      "The pilot had no other aircraft ratings.",
+      "The pilot used a 5-point restraint.",
+      "The pilot had an airplane instrument rating.",
+      "A second pilot was present during the incident.",
+      "The pilot had no instructor ratings.",
+      "No toxicology was performed on the pilot.",
+      "The pilot held a Class 2 medical certification with waivers/limitations.",
+      "The pilot's last FAA medical exam was on December 19, 2019.",
+      "The pilot was an occupational pilot.",
+      "The pilot's last flight review or equivalent was on October 17, 2019.",
+      "The pilot had 33245 total flight hours across all aircraft.",
+      "The pilot had 1800 total flight hours in this make and model.",
+      "The pilot had 40 flight hours in the last 90 days across all aircraft.",
+      "The pilot had 18 flight hours in the last 30 days across all aircraft.",
+      "The co-pilot held an airline transport certificate.",
+      "The co-pilot had single-engine land airplane rating.",
+      "The co-pilot had multi-engine land airplane rating.",
+      "The co-pilot occupied the right seat.",
+      "The co-pilot had no other aircraft ratings.",
+      "The co-pilot used a 5-point restraint.",
+      "The co-pilot had an airplane instrument rating.",
+      "The co-pilot had no instructor ratings.",
+      "No toxicology was performed on the co-pilot.",
+      "The co-pilot held a Class 2 medical certification with waivers/limitations.",
+      "The co-pilot's last FAA medical exam was on November 26, 2019.",
+      "The co-pilot was an occupational pilot.",
+      "The co-pilot's last flight review or equivalent was on December 23, 2019.",
+      "The co-pilot had 16185 total flight hours across all aircraft.",
+      "The co-pilot had 10122 pilot-in-command hours across all aircraft.",
+      "The co-pilot had 60 flight hours in the last 90 days across all aircraft.",
+      "The co-pilot had 20 flight hours in the last 30 days across all aircraft.",
+      "The co-pilot had 4.8 flight hours in the last 24 hours across all aircraft."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Flight Incident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "co-pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident involved a landing-flare/touchdown with landing area undershoot.",
+              "details": [
+                "incident DEFINING EVENT landing-flare/touchdown with landing area undershoot"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing-flare/touchdown with landing area undershoot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident involved a landing-flare/touchdown with hard landing as the defining event.",
+              "details": [
+                "incident DEFINING EVENT landing-flare/touchdown with hard landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing-flare/touchdown with hard landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held an airline transport certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport certificate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had single-engine land airplane rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "single-engine land airplane rating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had multi-engine land airplane rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multi-engine land airplane rating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot occupied the left seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no other aircraft ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS OTHER RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot used a 5-point restraint.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED RESTRAINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5-point restraint",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had an airplane instrument rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane instrument rating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A second pilot was present during the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PRESENT WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PRESENT DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had no instructor ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a Class 2 medical certification with waivers/limitations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class 2 with waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last FAA medical exam was on December 19, 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST MEDICAL EXAM DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 19, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was an occupational pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "occupational pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last flight review or equivalent was on October 17, 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "October 17, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 33245 total flight hours across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "33245",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 1800 total flight hours in this make and model.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS IN MAKE MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1800",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 40 flight hours in the last 90 days across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 90 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "40",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 18 flight hours in the last 30 days across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 30 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "18",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot held an airline transport certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airline transport certificate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had single-engine land airplane rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "single-engine land airplane rating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had multi-engine land airplane rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multi-engine land airplane rating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot occupied the right seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had no other aircraft ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS OTHER RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot used a 5-point restraint.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED RESTRAINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5-point restraint",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had an airplane instrument rating.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS RATING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane instrument rating",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had no instructor ratings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS INSTRUCTOR RATINGS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No toxicology was performed on the co-pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOXICOLOGY PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot held a Class 2 medical certification with waivers/limitations.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS MEDICAL CERTIFICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class 2 with waivers/limitations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot's last FAA medical exam was on November 26, 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST MEDICAL EXAM DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 26, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot was an occupational pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPATION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "occupational pilot",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot's last flight review or equivalent was on December 23, 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST FLIGHT REVIEW DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 23, 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had 16185 total flight hours across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "16185",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had 10122 pilot-in-command hours across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PILOT IN COMMAND HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10122",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had 60 flight hours in the last 90 days across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 90 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "60",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had 20 flight hours in the last 30 days across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 30 DAYS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "20",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The co-pilot had 4.8 flight hours in the last 24 hours across all aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "co-pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS LAST 24 HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4.8",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::b67a5959:e423",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100793.md",
+        "file_name": "100793.md",
+        "file_size": 7346,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "9ab5970a10884d914b3f6bc02cf368442a594d307f9e8dd8691a2a653587e014",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::b67a5959:e423:9916eb5f",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100793.md",
+        "file_name": "100793.md",
+        "file_size": 7346,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "8019bcf02b6c583929228cd9c56ac70722401d5f934bcca6edef54483855e11c",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::b67a5959:e423:8efad843",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100793.md",
+        "file_name": "100793.md",
+        "file_size": 7346,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "3dc61298834d5b8f5f3b5a67b115cf8f2f7085efa9629af161e3773f30276769",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\nLanding-flare/touchdown | Landing area undershoot\n--- | ---\nLanding-flare/touchdown | Hard landing (Defining event)\n\n## Pilot Information\nCertificate: | Airline transport\n--- | ---\nAirplane Rating(s): | Single-engine land; Multi-engine land\nSeat Occupied: | Left\nOther Aircraft Rating(s): | None\nRestraint Used: | 5-point\nInstrument Rating(s): | Airplane\nSecond Pilot Present: | Yes\nInstructor Rating(s): | None\nToxicology Performed: | No\nMedical Certification: | Class 2 With waivers/limitations\nLast FAA Medical Exam: | December 19, 2019\nOccupational Pilot: | Yes\nLast Flight Review or Equivalent: | October 17, 2019\nFlight Time: | 33245 hours (Total, all aircraft), 1800 hours (Total, this make and model), 40 hours (Last 90 days, all aircraft), 18 hours (Last 30 days, all aircraft)\n\n## Co-pilot Information\nCertificate: | Airline transport\n--- | ---\nAirplane Rating(s): | Single-engine land; Multi-engine land\nSeat Occupied: | Right\nOther Aircraft Rating(s): | None\nRestraint Used: | 5-point\nInstrument Rating(s): | Airplane\nSecond Pilot Present: | Yes\nInstructor Rating(s): | None\nToxicology Performed: | No\nMedical Certification: | Class 2 With waivers/limitations\nLast FAA Medical Exam: | November 26, 2019\nOccupational Pilot: | Yes\nLast Flight Review or Equivalent: | December 23, 2019\nFlight Time: | 16185 hours (Total, all aircraft), 10122 hours (Pilot In Command, all aircraft), 60 hours (Last 90 days, all aircraft), 20 hours (Last 30 days, all aircraft), 4.8 hours (Last 24 hours, all aircraft)\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1557,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,1961 @@
+{
+  "id_": "aws::8f8beaa0:46e9:9c4b774b",
+  "embedding": [
+    -0.0050811768,
+    0.024536133,
+    -0.02508545,
+    -0.060791016,
+    0.01474762,
+    0.005344391,
+    -0.050079346,
+    0.023086548,
+    -0.029922485,
+    0.025009155,
+    0.024124146,
+    0.027740479,
+    0.014007568,
+    -0.0647583,
+    0.021484375,
+    0.0074539185,
+    0.021972656,
+    -0.0044517517,
+    -0.015388489,
+    -0.016860962,
+    -0.04385376,
+    0.0068855286,
+    0.032989502,
+    -0.0067825317,
+    -0.016525269,
+    0.039916992,
+    -0.021240234,
+    0.018295288,
+    -0.051757812,
+    -0.05657959,
+    -0.008590698,
+    0.05206299,
+    0.038085938,
+    0.014633179,
+    -0.028701782,
+    0.030349731,
+    0.024490356,
+    -0.008338928,
+    0.00022518635,
+    0.02571106,
+    0.02659607,
+    -0.020065308,
+    0.01689148,
+    -0.025009155,
+    -0.013442993,
+    0.025421143,
+    0.005630493,
+    -0.011711121,
+    0.01838684,
+    0.05078125,
+    0.05834961,
+    -0.029006958,
+    0.054840088,
+    0.0124435425,
+    -0.0079422,
+    -0.00069856644,
+    -0.050445557,
+    0.03829956,
+    0.0019989014,
+    -0.029708862,
+    0.011726379,
+    0.011329651,
+    0.030166626,
+    0.07458496,
+    -0.049102783,
+    -0.0024795532,
+    0.03945923,
+    -0.0009813309,
+    0.05166626,
+    -0.030426025,
+    -0.020690918,
+    0.06311035,
+    0.0042800903,
+    0.0206604,
+    -0.0029716492,
+    -0.05630493,
+    0.02267456,
+    -0.01979065,
+    -0.015274048,
+    0.04837036,
+    0.01096344,
+    0.035186768,
+    -0.02986145,
+    -0.03717041,
+    0.03543091,
+    0.019729614,
+    -0.012428284,
+    -0.008583069,
+    -0.01638794,
+    -0.011810303,
+    -0.026901245,
+    -0.01713562,
+    -0.0028686523,
+    0.0006070137,
+    -0.0035037994,
+    -0.017547607,
+    -0.049591064,
+    -0.06323242,
+    -0.02130127,
+    -0.0051002502,
+    -0.03527832,
+    -0.0096588135,
+    -0.014778137,
+    -0.0077819824,
+    -0.017547607,
+    0.08673096,
+    0.04208374,
+    0.054534912,
+    0.014533997,
+    -0.020614624,
+    0.025314331,
+    -0.023788452,
+    -0.011940002,
+    0.0010871887,
+    -0.035614014,
+    -0.019042969,
+    -0.031188965,
+    -0.033569336,
+    -0.010948181,
+    -0.04006958,
+    -0.0059318542,
+    0.014801025,
+    -0.015556335,
+    -0.024429321,
+    0.01625061,
+    -0.009841919,
+    -0.02041626,
+    0.0061912537,
+    0.025909424,
+    -0.0054969788,
+    0.013877869,
+    0.045043945,
+    -0.039123535,
+    -0.06896973,
+    -0.04751587,
+    0.012527466,
+    -0.032043457,
+    0.014419556,
+    -0.017791748,
+    0.016021729,
+    -0.018112183,
+    -0.029266357,
+    0.05429077,
+    -0.011680603,
+    -0.044677734,
+    0.021728516,
+    -0.0012693405,
+    0.0053977966,
+    -0.010063171,
+    -0.06121826,
+    -0.012237549,
+    -0.01939392,
+    0.070007324,
+    -0.030654907,
+    -0.061431885,
+    -0.072509766,
+    -0.01676941,
+    -0.047943115,
+    0.0088272095,
+    -0.05340576,
+    0.044677734,
+    0.020736694,
+    0.037750244,
+    0.00072050095,
+    -0.031951904,
+    -0.017852783,
+    -0.050689697,
+    -0.028503418,
+    0.0138549805,
+    0.024597168,
+    0.03768921,
+    -0.0020008087,
+    -0.03894043,
+    -0.031677246,
+    -0.0026855469,
+    -0.021743774,
+    -0.05340576,
+    -0.020111084,
+    0.04949951,
+    0.005016327,
+    0.00038051605,
+    -0.016021729,
+    0.0013189316,
+    0.027694702,
+    -0.024368286,
+    -0.023468018,
+    -0.013168335,
+    -0.026321411,
+    0.05126953,
+    0.0033740997,
+    0.0029201508,
+    -0.020721436,
+    0.08660889,
+    0.016540527,
+    -0.0052719116,
+    -0.06982422,
+    -0.028579712,
+    0.010673523,
+    -0.062164307,
+    -0.016479492,
+    -0.06939697,
+    0.018493652,
+    0.003162384,
+    0.031188965,
+    0.048339844,
+    -0.02407837,
+    0.016921997,
+    0.029449463,
+    -0.0056152344,
+    0.004878998,
+    0.015609741,
+    -0.014442444,
+    -0.010307312,
+    0.012527466,
+    -0.018356323,
+    0.012763977,
+    -0.0043563843,
+    0.009094238,
+    -0.0023174286,
+    -0.025299072,
+    0.012382507,
+    0.031158447,
+    0.008422852,
+    0.024459839,
+    -0.016281128,
+    -0.016799927,
+    0.0036792755,
+    0.0050086975,
+    0.028701782,
+    -0.017150879,
+    0.076660156,
+    -0.008857727,
+    -0.021499634,
+    0.01776123,
+    -0.000682354,
+    0.064697266,
+    0.05834961,
+    0.041656494,
+    -0.020568848,
+    -0.01574707,
+    -0.005924225,
+    -0.0006427765,
+    0.004875183,
+    0.0692749,
+    -0.00680542,
+    -0.026672363,
+    0.0065841675,
+    0.031433105,
+    0.014793396,
+    0.07232666,
+    0.03881836,
+    0.014701843,
+    0.0058555603,
+    -0.016662598,
+    -0.027542114,
+    0.026977539,
+    -0.047058105,
+    -0.0058403015,
+    0.0065460205,
+    -0.0345459,
+    0.016296387,
+    0.010360718,
+    0.011741638,
+    0.0062713623,
+    0.009300232,
+    -0.026321411,
+    0.023788452,
+    0.025360107,
+    -0.0124435425,
+    -0.018585205,
+    0.02230835,
+    -0.014770508,
+    -0.008346558,
+    0.014793396,
+    -0.059570312,
+    -0.020889282,
+    -0.01638794,
+    0.029891968,
+    -0.0049057007,
+    -0.04019165,
+    -0.013015747,
+    0.04449463,
+    -0.029174805,
+    -0.018875122,
+    -0.020309448,
+    -0.006149292,
+    -0.033081055,
+    0.003408432,
+    -0.035003662,
+    0.062347412,
+    0.08325195,
+    -0.00223732,
+    -0.015144348,
+    -0.014984131,
+    0.0007619858,
+    0.020233154,
+    -0.002948761,
+    0.018066406,
+    -0.009651184,
+    -0.0074272156,
+    0.033996582,
+    0.04272461,
+    -0.01638794,
+    0.026992798,
+    0.0066604614,
+    0.06652832,
+    -0.008796692,
+    0.0024795532,
+    0.011528015,
+    0.002023697,
+    0.00011211634,
+    0.026046753,
+    0.01802063,
+    -0.041168213,
+    0.015777588,
+    -0.0044517517,
+    -0.03604126,
+    0.017211914,
+    -0.011260986,
+    0.06665039,
+    -0.02166748,
+    0.002248764,
+    0.0032596588,
+    -0.00248909,
+    0.028411865,
+    -0.0034694672,
+    -0.04248047,
+    -0.0027427673,
+    -0.0067443848,
+    -0.005012512,
+    -0.051208496,
+    -0.053344727,
+    -0.05307007,
+    0.01663208,
+    0.0054779053,
+    0.020339966,
+    0.004211426,
+    0.0036773682,
+    -0.0090408325,
+    -0.0017852783,
+    0.007007599,
+    -0.029800415,
+    0.017150879,
+    -0.017410278,
+    -0.050842285,
+    -0.00894165,
+    -0.005958557,
+    -0.0019273758,
+    0.003320694,
+    0.009292603,
+    0.029647827,
+    -0.0048942566,
+    -0.055999756,
+    -0.0135650635,
+    -0.018569946,
+    -0.096069336,
+    0.046020508,
+    0.007331848,
+    -0.029266357,
+    -0.045043945,
+    -0.037597656,
+    0.026351929,
+    -0.07373047,
+    -0.04574585,
+    0.04168701,
+    -0.007751465,
+    -0.025787354,
+    -0.007896423,
+    -0.01663208,
+    0.009994507,
+    -0.002998352,
+    0.01071167,
+    -0.04058838,
+    -0.00983429,
+    -0.02470398,
+    0.007675171,
+    -0.0317688,
+    -0.04864502,
+    0.05368042,
+    -0.0082092285,
+    0.012077332,
+    -0.0031700134,
+    0.048217773,
+    -0.0021152496,
+    0.021194458,
+    -0.0062294006,
+    -0.047058105,
+    -0.032104492,
+    0.013946533,
+    0.028442383,
+    0.017593384,
+    0.0013828278,
+    0.01576233,
+    -0.03451538,
+    0.0011959076,
+    0.03326416,
+    -0.05130005,
+    -0.034851074,
+    0.0006122589,
+    -0.021438599,
+    -0.15063477,
+    0.01272583,
+    0.0074043274,
+    -0.052124023,
+    -0.0057792664,
+    -0.07348633,
+    -0.07354736,
+    -0.04598999,
+    0.049194336,
+    0.078063965,
+    -0.015090942,
+    0.027526855,
+    -0.023757935,
+    0.0725708,
+    -0.036254883,
+    0.035186768,
+    -0.033843994,
+    -0.030960083,
+    0.04333496,
+    0.02192688,
+    0.008041382,
+    -0.03668213,
+    0.032226562,
+    0.0619812,
+    -0.029144287,
+    0.0385437,
+    -0.017532349,
+    0.022491455,
+    0.00091314316,
+    0.016845703,
+    -0.024337769,
+    -0.005207062,
+    -0.017929077,
+    -0.039855957,
+    -0.052612305,
+    0.013328552,
+    0.022003174,
+    0.029220581,
+    0.030929565,
+    -0.01776123,
+    0.014862061,
+    0.04928589,
+    0.014053345,
+    0.025115967,
+    -0.020370483,
+    -0.0069351196,
+    0.054229736,
+    0.01473999,
+    0.02507019,
+    0.004043579,
+    -0.03338623,
+    0.023345947,
+    0.05117798,
+    0.010826111,
+    -0.011169434,
+    -0.047790527,
+    0.06768799,
+    0.046020508,
+    -0.001420021,
+    0.031921387,
+    0.028564453,
+    -0.011398315,
+    -0.01108551,
+    0.0033779144,
+    -0.016967773,
+    0.020217896,
+    0.00749588,
+    -0.01914978,
+    -0.032562256,
+    0.014892578,
+    -0.028457642,
+    0.032470703,
+    0.011871338,
+    -0.005065918,
+    -0.0090789795,
+    -0.00043153763,
+    0.022460938,
+    -0.018478394,
+    0.033691406,
+    -0.014732361,
+    -0.03591919,
+    0.016937256,
+    -0.011306763,
+    0.03665161,
+    0.003967285,
+    0.009094238,
+    0.009605408,
+    0.00605011,
+    -0.011375427,
+    0.020858765,
+    0.008293152,
+    0.04397583,
+    0.022338867,
+    0.035247803,
+    0.0065612793,
+    -0.015487671,
+    0.0046958923,
+    0.038238525,
+    -0.0069084167,
+    -0.028320312,
+    -0.018951416,
+    -0.024353027,
+    -0.001947403,
+    0.030456543,
+    -0.01197052,
+    0.013587952,
+    0.042877197,
+    0.017425537,
+    -0.0029716492,
+    -0.042022705,
+    0.052093506,
+    -0.00995636,
+    -0.0146865845,
+    0.022842407,
+    -0.023376465,
+    0.06262207,
+    0.007247925,
+    0.015609741,
+    0.013053894,
+    -0.017028809,
+    -0.022659302,
+    -0.052093506,
+    0.06365967,
+    0.019241333,
+    -0.022949219,
+    0.004940033,
+    0.004585266,
+    0.023666382,
+    0.028564453,
+    -0.019607544,
+    0.009017944,
+    -0.049621582,
+    -0.017089844,
+    0.015289307,
+    0.04043579,
+    0.045654297,
+    -0.046539307,
+    -0.01272583,
+    0.019195557,
+    -0.004714966,
+    0.002609253,
+    0.032684326,
+    -0.000620842,
+    0.02720642,
+    0.025146484,
+    0.051361084,
+    0.018218994,
+    0.06915283,
+    -0.005458832,
+    0.023254395,
+    -0.036712646,
+    -0.022247314,
+    -0.0045700073,
+    -0.054870605,
+    -0.05053711,
+    0.06427002,
+    0.05557251,
+    -0.030960083,
+    -0.015098572,
+    0.016235352,
+    -0.016586304,
+    -0.06173706,
+    -0.011253357,
+    0.0637207,
+    0.013137817,
+    0.035827637,
+    -0.027420044,
+    -0.07067871,
+    0.018203735,
+    -0.016174316,
+    0.030822754,
+    -0.02758789,
+    0.029815674,
+    0.009246826,
+    0.0055007935,
+    -0.012191772,
+    -0.03189087,
+    -0.022766113,
+    0.027755737,
+    0.037475586,
+    -0.019424438,
+    0.027679443,
+    -0.0044136047,
+    -0.044281006,
+    -0.026107788,
+    0.060028076,
+    -0.03375244,
+    -0.01928711,
+    -0.044433594,
+    0.005908966,
+    0.007068634,
+    0.022033691,
+    0.051818848,
+    0.0069503784,
+    -0.068115234,
+    -0.024490356,
+    -0.06640625,
+    -0.02748108,
+    0.045806885,
+    -0.027542114,
+    -0.0029773712,
+    -0.00023818016,
+    0.009529114,
+    -0.030700684,
+    -0.020324707,
+    -0.023590088,
+    -0.016860962,
+    0.01751709,
+    0.046539307,
+    0.056915283,
+    -0.021133423,
+    -0.02128601,
+    -0.023880005,
+    0.03213501,
+    0.00051784515,
+    -0.010971069,
+    -0.07281494,
+    0.04559326,
+    0.064575195,
+    -0.00579834,
+    0.037231445,
+    -0.0016269684,
+    0.013389587,
+    0.008239746,
+    0.0259552,
+    -0.00018715858,
+    -0.045837402,
+    -0.010826111,
+    -0.0019607544,
+    0.035217285,
+    0.028305054,
+    0.004070282,
+    -0.057373047,
+    0.028457642,
+    0.011993408,
+    -0.0017757416,
+    -0.040740967,
+    0.006752014,
+    -0.0138549805,
+    -0.059692383,
+    -0.0078048706,
+    0.0234375,
+    0.008338928,
+    -0.030715942,
+    0.0060539246,
+    -0.020477295,
+    -0.0115737915,
+    -0.009605408,
+    -0.014083862,
+    -0.05444336,
+    -0.02368164,
+    0.0063705444,
+    -0.01979065,
+    0.0065231323,
+    0.04159546,
+    -0.020141602,
+    -0.028045654,
+    0.004436493,
+    -0.030136108,
+    -0.03982544,
+    -0.074645996,
+    -0.031555176,
+    0.002105713,
+    -0.02519226,
+    -0.0619812,
+    0.012832642,
+    0.05831909,
+    0.052856445,
+    -0.014526367,
+    -0.02130127,
+    0.024658203,
+    0.022216797,
+    0.08526611,
+    -0.0040740967,
+    -0.0033836365,
+    7.31349e-05,
+    -0.017196655,
+    -0.020507812,
+    -0.0022335052,
+    -0.017532349,
+    0.0067596436,
+    -0.021484375,
+    0.007358551,
+    -0.012611389,
+    -0.022003174,
+    0.024230957,
+    -0.049987793,
+    0.0093688965,
+    -0.0026187897,
+    0.02507019,
+    -0.010597229,
+    0.03643799,
+    0.01927185,
+    0.029541016,
+    -0.0016555786,
+    0.024154663,
+    -0.0013713837,
+    -0.02609253,
+    -0.024627686,
+    -0.029174805,
+    0.0069084167,
+    -0.0056495667,
+    0.032073975,
+    -0.0023765564,
+    -0.031219482,
+    0.045837402,
+    0.03378296,
+    0.052764893,
+    -0.058441162,
+    -0.022918701,
+    0.01777649,
+    0.04949951,
+    0.012817383,
+    -0.011619568,
+    0.0057868958,
+    -0.005306244,
+    0.05142212,
+    0.043548584,
+    0.011856079,
+    -0.013954163,
+    -0.008522034,
+    -0.0001872778,
+    -0.005176544,
+    -0.0070266724,
+    0.032226562,
+    -0.027313232,
+    -0.015563965,
+    0.0073547363,
+    -0.01335144,
+    -0.017227173,
+    -0.0052833557,
+    0.03527832,
+    0.05102539,
+    -0.028457642,
+    -0.032440186,
+    -0.044555664,
+    0.016555786,
+    -0.00340271,
+    0.0036144257,
+    -0.010169983,
+    0.006198883,
+    0.0057029724,
+    0.036865234,
+    0.0022773743,
+    -0.014457703,
+    0.014518738,
+    0.0067100525,
+    -0.07891846,
+    -0.017288208,
+    0.0046844482,
+    0.013069153,
+    -0.031341553,
+    -0.058746338,
+    -0.005329132,
+    -0.009536743,
+    0.005378723,
+    0.03149414,
+    -0.030380249,
+    -0.06768799,
+    0.0011711121,
+    0.01007843,
+    0.023803711,
+    0.024459839,
+    0.010574341,
+    -0.0031929016,
+    0.03125,
+    -0.012863159,
+    -0.022338867,
+    -0.008422852,
+    0.01586914,
+    0.05999756,
+    0.014755249,
+    0.004573822,
+    -0.037628174,
+    -0.03567505,
+    0.0012054443,
+    0.03137207,
+    -0.069885254,
+    -0.041534424,
+    0.012939453,
+    0.03945923,
+    0.00573349,
+    -0.04055786,
+    -0.024749756,
+    0.012184143,
+    0.0256958,
+    0.025970459,
+    -0.034454346,
+    0.042175293,
+    0.006149292,
+    -0.03262329,
+    -0.002462387,
+    0.02243042,
+    -0.06768799,
+    0.003955841,
+    -0.03616333,
+    -0.07531738,
+    -0.0031318665,
+    -0.068603516,
+    -0.039093018,
+    0.0022907257,
+    -0.03555298,
+    0.039093018,
+    0.0020141602,
+    -0.010345459,
+    0.014915466,
+    0.011146545,
+    0.02861023,
+    -0.014526367,
+    -5.096197e-05,
+    -0.0013599396,
+    -0.042877197,
+    0.017791748,
+    -0.01612854,
+    0.0236969,
+    -0.010169983,
+    -0.044891357,
+    -0.015571594,
+    0.0135269165,
+    0.029922485,
+    -0.032348633,
+    0.00029063225,
+    0.015914917,
+    0.007320404,
+    0.027038574,
+    0.0021781921,
+    0.011177063,
+    -0.008125305,
+    -0.00082826614,
+    -0.021499634,
+    0.010757446,
+    -0.0036239624,
+    -0.026107788,
+    -0.023269653,
+    -0.03741455,
+    0.045928955,
+    -0.0044288635,
+    0.08679199,
+    -0.039794922,
+    0.039123535,
+    -0.011756897,
+    0.0027198792,
+    -0.010429382,
+    -0.0062789917,
+    0.0102005005,
+    0.01737976,
+    0.016403198,
+    -0.0022277832,
+    0.027114868,
+    0.0748291,
+    0.0082092285,
+    -0.017974854,
+    0.04373169,
+    -0.022644043,
+    -0.024017334,
+    0.007255554,
+    0.00415802,
+    -0.02897644,
+    -0.04083252,
+    0.029708862,
+    0.017501831,
+    -0.012649536,
+    0.024047852,
+    0.027236938,
+    0.029434204,
+    0.045776367,
+    0.007633209,
+    0.014930725,
+    -0.0015850067,
+    0.04135132,
+    0.030899048,
+    -0.010017395,
+    -0.008140564,
+    -0.034820557,
+    -0.024093628,
+    0.01638794,
+    -0.013519287,
+    0.035095215,
+    -0.020706177,
+    0.024154663,
+    -0.036468506,
+    -0.04309082,
+    0.0027885437,
+    -0.04638672,
+    0.00037550926,
+    -0.0058784485,
+    0.028411865,
+    0.018875122,
+    0.051483154,
+    0.012176514,
+    0.0116119385,
+    -0.016662598,
+    -0.011726379,
+    0.016601562,
+    0.005897522,
+    0.0007100105,
+    -0.020431519,
+    0.010612488,
+    -0.0501709,
+    0.06719971,
+    -0.087646484,
+    -0.030441284,
+    -0.011779785,
+    -0.011566162,
+    0.051696777,
+    0.010719299,
+    0.012886047,
+    -0.065979004,
+    -0.059509277,
+    -0.0051460266,
+    0.0625,
+    -0.016998291,
+    -0.023849487,
+    -0.015411377,
+    0.02319336,
+    0.0010213852,
+    -0.051849365,
+    -0.064575195,
+    0.009902954,
+    -0.061187744,
+    -0.046936035,
+    0.021194458,
+    -0.011894226,
+    0.048187256,
+    0.036956787,
+    -0.02859497,
+    0.07702637,
+    -0.017745972,
+    0.03265381,
+    0.006259918,
+    0.0259552,
+    -0.006690979,
+    -0.020202637,
+    -0.029159546,
+    0.025909424,
+    -0.040527344,
+    0.014320374,
+    0.003856659,
+    -0.0025596619,
+    0.0069274902,
+    -0.004573822,
+    -0.0259552,
+    -0.03656006,
+    -0.019348145,
+    0.022766113,
+    -0.034851074,
+    0.0181427,
+    0.011192322,
+    -0.061645508,
+    0.020431519,
+    0.0071907043,
+    -0.02406311,
+    0.038208008,
+    -0.036102295,
+    0.04623413,
+    0.05984497,
+    -0.023147583,
+    -0.012001038,
+    -0.02154541,
+    -0.04928589,
+    -0.0052757263,
+    0.02330017,
+    -0.016220093,
+    0.022109985,
+    0.02998352,
+    0.07501221,
+    0.027770996,
+    -0.067993164,
+    0.017593384,
+    0.0027446747,
+    0.0105896,
+    -0.0059165955,
+    -0.017486572,
+    -0.021026611,
+    0.002368927,
+    0.0006132126,
+    -0.015464783,
+    0.0034694672,
+    0.004585266,
+    -0.008148193,
+    -0.0046539307,
+    0.016723633,
+    -0.012123108,
+    -0.00045275688,
+    -0.013412476,
+    0.018295288,
+    -0.010253906,
+    0.054779053,
+    -0.0060310364,
+    0.02015686,
+    0.022598267,
+    0.043304443,
+    -0.042236328,
+    -0.003452301,
+    0.010734558,
+    0.022155762,
+    -0.0049819946,
+    0.0010871887,
+    -0.009269714,
+    0.0049743652,
+    -0.0054740906,
+    0.008415222,
+    0.024780273,
+    0.05203247,
+    -0.0068244934,
+    -0.01776123,
+    0.0022697449,
+    -0.051452637,
+    -0.03842163,
+    -0.033203125,
+    -0.019836426,
+    0.022140503,
+    0.011238098,
+    0.008918762,
+    0.08123779,
+    -0.050872803,
+    0.025390625,
+    0.05911255,
+    0.03604126,
+    0.04650879,
+    -0.026031494,
+    -0.05429077,
+    0.031143188,
+    -0.053009033
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100619.md",
+    "file_name": "100619.md",
+    "file_size": 6649,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Meteorological Information and Flight Plan for Accident",
+      "The conditions at the accident site were Visual Meteorological Conditions (VMC).",
+      "The condition of light at the accident site was day.",
+      "The observation facility was KLEE at an elevation of 77 feet mean sea level.",
+      "The observation facility was 14 Nautical Miles from the accident site.",
+      "The observation time was 13:53 Local.",
+      "The observation facility was 300° from the accident site.",
+      "The lowest cloud condition was clear.",
+      "The visibility was 10 miles.",
+      "There was no ceiling at the accident site.",
+      "No wind speed/gusts were reported.",
+      "No wind direction was reported.",
+      "The forecast turbulence type was None.",
+      "The actual turbulence type was None.",
+      "The forecast turbulence severity was Not Applicable.",
+      "The actual turbulence severity was Not Applicable.",
+      "The altimeter setting was 30.12 inches of mercury.",
+      "The temperature was 27 degrees Celsius.",
+      "The dew point was 21 degrees Celsius.",
+      "There was no obscuration at the accident site.",
+      "There was no precipitation at the accident site.",
+      "The departure point was Apopka, Florida (X04).",
+      "The destination was Apopka, Florida (X04).",
+      "No flight plan was filed.",
+      "No clearance was issued.",
+      "The departure time was 08:45 Local.",
+      "The airspace was Class G."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Meteorological Information and Flight Plan for Accident",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Visual Meteorological Conditions",
+              "classification": "Accidentcondition"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "KLEE",
+              "classification": "Observationfacility"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Apopka, Florida",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Class G",
+              "classification": "Airspace"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The conditions at the accident site were Visual Meteorological Conditions (VMC).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual Meteorological Conditions",
+                    "classification": "Accidentcondition"
+                  },
+                  "predicate": {
+                    "value": "CONDITION AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The condition of light at the accident site was day.",
+              "details": [
+                "accident site LIGHT CONDITION day"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LIGHT CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "day",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The observation facility was KLEE at an elevation of 77 feet mean sea level.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KLEE",
+                    "classification": "Observationfacility"
+                  },
+                  "predicate": {
+                    "value": "ELEVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "77 feet mean sea level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The observation facility was 14 Nautical Miles from the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KLEE",
+                    "classification": "Observationfacility"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Nautical Miles from the accident site",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The observation time was 1353 Local.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KLEE",
+                    "classification": "Observationfacility"
+                  },
+                  "predicate": {
+                    "value": "OBSERVATION TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "13:53 Local",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The observation facility was 300° from the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KLEE",
+                    "classification": "Observationfacility"
+                  },
+                  "predicate": {
+                    "value": "DIRECTION FROM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "300° from the accident site",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The lowest cloud condition was clear.",
+              "details": [
+                "accident site CLOUD CONDITION clear"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CLOUD CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "clear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The visibility was 10 miles.",
+              "details": [
+                "accident site VISIBILITY 10 miles"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "VISIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 miles",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no ceiling at the accident site.",
+              "details": [
+                "accident site CEILING none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CEILING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No wind speed/gusts were reported.",
+              "details": [
+                "accident site WIND SPEED none reported"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WIND SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none reported",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No wind direction was reported.",
+              "details": [
+                "accident site WIND DIRECTION none reported"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WIND DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none reported",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forecast turbulence type was None.",
+              "details": [
+                "accident site FORECAST TURBULENCE TYPE None"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FORECAST TURBULENCE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "None",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The actual turbulence type was None.",
+              "details": [
+                "accident site ACTUAL TURBULENCE TYPE None"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTUAL TURBULENCE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "None",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The forecast turbulence severity was Not Applicable.",
+              "details": [
+                "accident site FORECAST TURBULENCE SEVERITY Not Applicable"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FORECAST TURBULENCE SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Not Applicable",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The actual turbulence severity was Not Applicable.",
+              "details": [
+                "accident site ACTUAL TURBULENCE SEVERITY Not Applicable"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTUAL TURBULENCE SEVERITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Not Applicable",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The altimeter setting was 30.12 inches of mercury.",
+              "details": [
+                "accident site ALTIMETER SETTING 30.12 inches of mercury"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ALTIMETER SETTING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "30.12 inches of mercury",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The temperature was 27 degrees Celsius.",
+              "details": [
+                "accident site TEMPERATURE 27 degrees Celsius"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TEMPERATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "27 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The dew point was 21 degrees Celsius.",
+              "details": [
+                "accident site DEW POINT 21 degrees Celsius"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEW POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "21 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no obscuration at the accident site.",
+              "details": [
+                "accident site OBSCURATION none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OBSCURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There was no precipitation at the accident site.",
+              "details": [
+                "accident site PRECIPITATION none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident site",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PRECIPITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The departure point was Apopka, Florida (X04).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Apopka, Florida",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "SERVED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "departure point",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The destination was Apopka, Florida (X04).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Apopka, Florida",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "SERVED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "destination",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan was filed.",
+              "details": [
+                "accident FLIGHT PLAN none filed"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No clearance was issued.",
+              "details": [
+                "accident CLEARANCE none issued"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CLEARANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none issued",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The departure time was 0845 Local.",
+              "details": [
+                "accident DEPARTURE TIME 08:45 Local"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "08:45 Local",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airspace was Class G.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Class G",
+                    "classification": "Airspace"
+                  },
+                  "predicate": {
+                    "value": "AIRSPACE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident location",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::8f8beaa0:46e9",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100619.md",
+        "file_name": "100619.md",
+        "file_size": 6649,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "9cae83c8e74a911ca8d8eda6d248043a3b4baaa1fcf3fb4e97a076fb54b92e65",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::8f8beaa0:46e9:28e9c352",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100619.md",
+        "file_name": "100619.md",
+        "file_size": 6649,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "01766f30a4ffaf10704506eff4506495fc3e18887c510777b2cb6ddd1d33ab7f",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::8f8beaa0:46e9:a8b8b95a",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/100619.md",
+        "file_name": "100619.md",
+        "file_size": 6649,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "45449ffa7639bda11d22719f0f258b9386be195cda9fe21817cb42ed8ec1ac08",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Meteorological Information and Flight Plan\n\n| Conditions at Accident Site: | Visual (VMC) | Condition of Light: | Day |\n| --- | --- | --- | --- |\n| Observation Facility, Elevation: | KLEE,77 ft msl | Distance from Accident Site: | 14 Nautical Miles |\n| Observation Time: | 13:53 Local | Direction from Accident Site: | 300° |\n| Lowest Cloud Condition: | Clear | Visibility | 10 miles |\n| Lowest Ceiling: | None | Visibility (RVR): |  |\n| Wind Speed/Gusts: |  / | Turbulence Type Forecast/Actual: | None / None |\n| Wind Direction: |  | Turbulence Severity Forecast/Actual: | N/A / N/A |\n| Altimeter Setting: | 30.12 inches Hg | Temperature/Dew Point: | 27°C / 21°C |\n| Precipitation and Obscuration: | No Obscuration; No Precipitation |  |  |\n| Departure Point: | Apopka, FL (X04 ) | Type of Flight Plan Filed: | None |\n| Destination: | Apopka, FL (X04 ) | Type of Clearance: | None |\n| Departure Time: | 08:45 Local | Type of Airspace: | Class G |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 954,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2124 @@
+{
+  "id_": "aws::0435fc58:7faf:479fe32d",
+  "embedding": [
+    0.01828003,
+    0.010116577,
+    0.0010509491,
+    -0.051513672,
+    0.02835083,
+    0.0034770966,
+    0.016738892,
+    0.014602661,
+    -0.038269043,
+    0.0075683594,
+    0.008743286,
+    0.04800415,
+    -0.032836914,
+    -0.021911621,
+    0.05569458,
+    -0.016967773,
+    -0.004585266,
+    0.027648926,
+    0.030273438,
+    0.0062294006,
+    -7.4625015e-05,
+    0.01889038,
+    -0.01878357,
+    -0.05731201,
+    -0.0039024353,
+    0.037994385,
+    -0.08325195,
+    -0.007789612,
+    -0.022216797,
+    -0.025161743,
+    -0.014076233,
+    0.038085938,
+    -0.006340027,
+    0.043670654,
+    -0.020446777,
+    -0.05886841,
+    0.006828308,
+    0.009857178,
+    -0.009979248,
+    0.014022827,
+    0.028915405,
+    -0.0016536713,
+    0.033599854,
+    -0.03086853,
+    -0.0063667297,
+    -0.01675415,
+    0.04058838,
+    0.011520386,
+    0.016204834,
+    0.05065918,
+    0.028625488,
+    -0.022384644,
+    0.025390625,
+    0.07165527,
+    0.015090942,
+    0.003025055,
+    -0.016830444,
+    0.004951477,
+    -0.019561768,
+    0.012031555,
+    0.02166748,
+    0.070373535,
+    0.012374878,
+    0.05706787,
+    -0.012619019,
+    -0.027908325,
+    -0.010276794,
+    0.008575439,
+    0.07232666,
+    0.01235199,
+    -0.016799927,
+    0.053619385,
+    -0.009757996,
+    0.034729004,
+    -0.012710571,
+    -0.039093018,
+    0.0044517517,
+    -0.009162903,
+    -0.017074585,
+    0.052825928,
+    0.03414917,
+    0.006034851,
+    -0.0034561157,
+    -0.010612488,
+    -0.015350342,
+    0.0039405823,
+    -0.009880066,
+    -0.010757446,
+    0.0018100739,
+    -0.035186768,
+    -0.009880066,
+    -0.010726929,
+    -0.027191162,
+    0.023147583,
+    -0.008483887,
+    -0.029876709,
+    0.020858765,
+    -0.09863281,
+    0.020812988,
+    -0.06347656,
+    0.056732178,
+    -0.074645996,
+    -0.045288086,
+    0.06750488,
+    0.0057640076,
+    0.0030002594,
+    0.031921387,
+    -0.024307251,
+    0.02154541,
+    -0.014549255,
+    -0.032714844,
+    0.09277344,
+    -0.05316162,
+    -0.035736084,
+    -0.044128418,
+    0.07366943,
+    -0.009002686,
+    -0.047973633,
+    0.00630188,
+    0.010475159,
+    0.010215759,
+    0.023910522,
+    -0.038513184,
+    0.0014381409,
+    -0.0005083084,
+    -0.01928711,
+    -0.02519226,
+    0.021820068,
+    0.058776855,
+    -0.008125305,
+    -0.018096924,
+    0.038482666,
+    -0.02432251,
+    -0.054534912,
+    -0.030014038,
+    0.0020923615,
+    -0.07324219,
+    0.0151901245,
+    0.0017557144,
+    -0.020996094,
+    -0.056915283,
+    -0.018096924,
+    0.09527588,
+    -0.008903503,
+    0.0019664764,
+    0.03012085,
+    0.013748169,
+    0.004421234,
+    -0.030136108,
+    -0.04650879,
+    0.03857422,
+    -0.03829956,
+    0.044433594,
+    -0.0048103333,
+    -0.016448975,
+    -0.050354004,
+    0.027862549,
+    -0.058166504,
+    0.010803223,
+    -0.05722046,
+    0.020996094,
+    -0.021881104,
+    -0.0113220215,
+    -0.058502197,
+    -0.07702637,
+    0.024978638,
+    -0.067871094,
+    -0.01398468,
+    0.015113831,
+    0.047973633,
+    0.05783081,
+    -0.028137207,
+    -0.084472656,
+    -0.024536133,
+    -0.008964539,
+    -0.015426636,
+    6.2823296e-05,
+    0.049987793,
+    -0.022354126,
+    0.033935547,
+    0.021530151,
+    -0.058685303,
+    -0.0042762756,
+    -0.008666992,
+    0.03289795,
+    -0.04534912,
+    0.022613525,
+    -0.012107849,
+    -0.0030822754,
+    0.032562256,
+    -0.02255249,
+    0.0075950623,
+    0.011268616,
+    -0.045776367,
+    -0.016052246,
+    -0.006916046,
+    0.0070266724,
+    -0.012420654,
+    -0.025512695,
+    0.0637207,
+    -0.03466797,
+    0.026184082,
+    0.0019025803,
+    0.04949951,
+    0.026107788,
+    -0.0032901764,
+    0.017501831,
+    0.013252258,
+    -0.016738892,
+    -0.004322052,
+    0.020385742,
+    -0.03213501,
+    -0.01171875,
+    0.030029297,
+    -0.04345703,
+    -0.010696411,
+    0.020080566,
+    -0.019470215,
+    0.006214142,
+    -0.044158936,
+    -0.011634827,
+    0.018829346,
+    -0.020828247,
+    0.023544312,
+    0.008049011,
+    -0.0023841858,
+    -0.00945282,
+    -0.0024719238,
+    0.027877808,
+    0.0066604614,
+    0.052734375,
+    -0.020492554,
+    -0.0061073303,
+    -0.04244995,
+    -0.040496826,
+    0.040496826,
+    -0.008125305,
+    0.00014913082,
+    -0.0121536255,
+    0.0143585205,
+    -0.02746582,
+    -0.02545166,
+    -0.010360718,
+    0.10107422,
+    -0.10455322,
+    -0.040374756,
+    -0.0022640228,
+    0.061645508,
+    -0.0093688965,
+    0.043670654,
+    0.034118652,
+    0.0030536652,
+    -0.017166138,
+    0.0041122437,
+    -0.00013124943,
+    -0.0025348663,
+    -0.0037021637,
+    -0.0256958,
+    0.014007568,
+    0.0047340393,
+    0.015396118,
+    -0.006011963,
+    -0.031097412,
+    0.02619934,
+    -0.024536133,
+    -0.010414124,
+    -0.0012636185,
+    -0.0015478134,
+    0.03201294,
+    -0.024307251,
+    -0.013320923,
+    -0.034179688,
+    0.0038452148,
+    0.026550293,
+    -0.058654785,
+    0.03616333,
+    0.00019109249,
+    -0.012924194,
+    0.017913818,
+    0.00831604,
+    -0.017471313,
+    0.01713562,
+    -0.007411957,
+    -0.0134887695,
+    0.01637268,
+    0.003276825,
+    -0.011856079,
+    -0.036132812,
+    -0.013595581,
+    0.010025024,
+    0.05908203,
+    -0.01259613,
+    -0.0068893433,
+    0.0038986206,
+    0.016555786,
+    -0.019302368,
+    0.006477356,
+    0.026779175,
+    -0.006904602,
+    0.005695343,
+    0.017745972,
+    0.047790527,
+    0.004951477,
+    -0.010749817,
+    0.008392334,
+    -0.009757996,
+    0.0074691772,
+    0.019226074,
+    0.024505615,
+    0.018371582,
+    -0.031982422,
+    0.010528564,
+    0.022506714,
+    0.042175293,
+    0.012893677,
+    0.003929138,
+    0.03111267,
+    0.048828125,
+    0.018478394,
+    -0.008270264,
+    -0.051239014,
+    -0.03756714,
+    0.010345459,
+    -0.0079956055,
+    0.010803223,
+    -0.01411438,
+    -0.0050354004,
+    0.009178162,
+    0.0070877075,
+    0.030426025,
+    0.0029449463,
+    -0.0012397766,
+    -0.040924072,
+    0.0041389465,
+    -0.0028438568,
+    0.02142334,
+    0.012794495,
+    -0.024536133,
+    -0.024871826,
+    -0.009407043,
+    -0.013267517,
+    -0.015464783,
+    0.005531311,
+    -0.042022705,
+    -0.07659912,
+    0.016921997,
+    0.039764404,
+    0.012161255,
+    -0.03466797,
+    -0.013587952,
+    0.047088623,
+    -0.026153564,
+    -0.014328003,
+    0.038848877,
+    -0.020828247,
+    -0.025634766,
+    0.011047363,
+    0.020492554,
+    -0.0340271,
+    -0.038879395,
+    0.012184143,
+    -0.0016584396,
+    -0.037261963,
+    -0.06677246,
+    0.010231018,
+    0.012969971,
+    -0.042907715,
+    -0.007843018,
+    0.014167786,
+    0.0067634583,
+    -0.006729126,
+    -0.0077400208,
+    0.0016813278,
+    0.014709473,
+    -0.0006952286,
+    -0.008705139,
+    0.027114868,
+    -0.031829834,
+    0.029129028,
+    0.014305115,
+    0.009094238,
+    0.005012512,
+    0.03665161,
+    0.02545166,
+    0.02633667,
+    0.0073661804,
+    0.009086609,
+    -0.02720642,
+    0.0713501,
+    0.0151901245,
+    0.055633545,
+    -0.015655518,
+    -0.048797607,
+    -0.003107071,
+    0.019638062,
+    0.0015525818,
+    -0.034820557,
+    0.004108429,
+    -0.07507324,
+    -0.011291504,
+    -0.081970215,
+    -0.0028266907,
+    -0.025527954,
+    -0.023071289,
+    0.008049011,
+    -0.08538818,
+    -0.010848999,
+    -0.0463562,
+    0.03756714,
+    0.05770874,
+    -0.042999268,
+    0.056365967,
+    -0.012939453,
+    0.05505371,
+    -0.0137786865,
+    0.016082764,
+    0.03753662,
+    0.0009937286,
+    -0.0016441345,
+    -0.030136108,
+    0.03878784,
+    -0.052734375,
+    0.025283813,
+    0.026275635,
+    -0.019927979,
+    -0.05606079,
+    -0.0050811768,
+    0.008239746,
+    -0.026809692,
+    0.025650024,
+    -0.046875,
+    -0.011695862,
+    -0.013282776,
+    0.005584717,
+    0.01158905,
+    0.0076408386,
+    -0.0038414001,
+    -0.057037354,
+    0.010719299,
+    -0.02923584,
+    0.027435303,
+    0.004749298,
+    0.024124146,
+    0.005744934,
+    0.009315491,
+    -0.0047035217,
+    0.0010700226,
+    0.042510986,
+    -0.027297974,
+    -0.042816162,
+    0.013923645,
+    -0.0042877197,
+    0.04309082,
+    0.01638794,
+    0.018554688,
+    0.0670166,
+    0.019836426,
+    0.026550293,
+    0.0075950623,
+    -0.008850098,
+    -0.014892578,
+    -0.0056610107,
+    -0.0121536255,
+    -0.028045654,
+    0.00076532364,
+    -0.020477295,
+    0.011558533,
+    0.011405945,
+    -0.00012791157,
+    0.006668091,
+    -0.0016155243,
+    0.044799805,
+    -0.02180481,
+    -0.007858276,
+    0.026000977,
+    0.007873535,
+    -0.040618896,
+    -0.0073623657,
+    0.015327454,
+    0.04119873,
+    -0.040283203,
+    0.015571594,
+    0.00082206726,
+    0.018569946,
+    -0.016952515,
+    0.025985718,
+    0.0004196167,
+    0.042266846,
+    0.012588501,
+    -0.05496216,
+    -0.05886841,
+    -0.014289856,
+    0.02760315,
+    -0.041992188,
+    0.0073547363,
+    -0.014778137,
+    0.012260437,
+    -0.013160706,
+    -0.0046539307,
+    -0.029556274,
+    -0.012390137,
+    -0.009208679,
+    -0.075805664,
+    0.01058197,
+    -0.038238525,
+    0.021530151,
+    0.02709961,
+    -0.022994995,
+    0.024169922,
+    0.0018548965,
+    -0.048858643,
+    -0.018463135,
+    0.06616211,
+    0.021072388,
+    -0.005168915,
+    0.022918701,
+    0.0028972626,
+    0.040161133,
+    -0.015266418,
+    -0.023269653,
+    -0.041503906,
+    -0.050872803,
+    0.04434204,
+    0.037506104,
+    -0.023147583,
+    0.008628845,
+    0.020248413,
+    0.041809082,
+    -0.03262329,
+    -0.023757935,
+    -0.013542175,
+    0.054595947,
+    -0.016983032,
+    -0.023513794,
+    0.049987793,
+    -0.020767212,
+    -0.012931824,
+    0.047790527,
+    0.0012769699,
+    -0.041778564,
+    -0.008560181,
+    0.008880615,
+    0.020584106,
+    -0.03829956,
+    0.015090942,
+    -0.055999756,
+    -0.009735107,
+    0.00092077255,
+    -0.042144775,
+    -0.015525818,
+    -0.00062799454,
+    0.016586304,
+    0.017333984,
+    -0.035888672,
+    -0.07434082,
+    0.035614014,
+    -0.0049362183,
+    -0.022277832,
+    0.009994507,
+    0.068725586,
+    -0.027328491,
+    -0.03970337,
+    -0.008674622,
+    0.04397583,
+    -0.02659607,
+    0.04119873,
+    -0.012329102,
+    -0.021606445,
+    0.012229919,
+    -0.012237549,
+    -0.008522034,
+    -0.005104065,
+    0.07977295,
+    -0.03277588,
+    0.03173828,
+    -0.037017822,
+    0.011779785,
+    0.0138549805,
+    0.014846802,
+    0.003293991,
+    -0.005290985,
+    0.010932922,
+    -0.0013313293,
+    0.013038635,
+    -0.037475586,
+    0.03765869,
+    -0.012840271,
+    -0.0073547363,
+    -0.023406982,
+    0.01663208,
+    0.054901123,
+    0.0005750656,
+    0.027999878,
+    -0.030349731,
+    -0.04458618,
+    -0.010360718,
+    -0.061767578,
+    -0.0068855286,
+    0.02784729,
+    -0.019256592,
+    -0.009849548,
+    -0.01713562,
+    -0.009490967,
+    -0.024154663,
+    0.032104492,
+    -0.007881165,
+    -0.04626465,
+    0.05316162,
+    -0.009414673,
+    0.04147339,
+    0.041625977,
+    0.023727417,
+    -0.033203125,
+    -0.006668091,
+    -0.009567261,
+    0.016342163,
+    -0.06542969,
+    0.06628418,
+    0.08026123,
+    0.009597778,
+    0.068603516,
+    0.034118652,
+    0.04748535,
+    0.014152527,
+    0.04071045,
+    0.053527832,
+    -0.07385254,
+    -0.0057373047,
+    0.00018548965,
+    -0.022644043,
+    -0.013999939,
+    -0.0524292,
+    -0.026641846,
+    0.0044403076,
+    -0.009712219,
+    -0.0042419434,
+    -0.0020771027,
+    -0.0044822693,
+    0.017333984,
+    -0.008773804,
+    0.014076233,
+    -0.0012311935,
+    0.01574707,
+    -0.004196167,
+    -0.050323486,
+    -0.024765015,
+    0.003572464,
+    -0.01789856,
+    -0.01802063,
+    -0.017852783,
+    -0.025115967,
+    -0.0066833496,
+    -0.015525818,
+    -0.0038795471,
+    -0.017288208,
+    -0.032928467,
+    0.019104004,
+    0.018157959,
+    -0.022460938,
+    -0.050872803,
+    -0.033447266,
+    -0.014274597,
+    -0.008995056,
+    -0.032043457,
+    -0.055389404,
+    -0.003982544,
+    0.02520752,
+    -0.011619568,
+    -0.0063972473,
+    -0.012519836,
+    -0.036987305,
+    0.0069274902,
+    -0.03451538,
+    -0.045440674,
+    -0.010902405,
+    0.016784668,
+    0.0030784607,
+    0.036224365,
+    0.007911682,
+    -0.03930664,
+    0.008003235,
+    0.0005354881,
+    0.025146484,
+    -0.007987976,
+    -0.027923584,
+    0.032470703,
+    -0.044281006,
+    0.011550903,
+    -0.027404785,
+    0.020202637,
+    -0.0635376,
+    -0.03253174,
+    -0.006980896,
+    -0.051605225,
+    -0.016494751,
+    -0.06665039,
+    0.01096344,
+    -0.047821045,
+    -0.022018433,
+    -0.054626465,
+    0.00041651726,
+    -0.010566711,
+    0.018966675,
+    -0.010383606,
+    -0.03652954,
+    0.036621094,
+    0.01399231,
+    0.053466797,
+    -0.036071777,
+    -0.022735596,
+    0.02178955,
+    0.07312012,
+    -0.03074646,
+    -0.022201538,
+    0.05166626,
+    0.030426025,
+    0.032196045,
+    0.0051956177,
+    -0.023498535,
+    -0.02015686,
+    -0.008964539,
+    0.016738892,
+    -0.034454346,
+    -0.027755737,
+    0.023406982,
+    -0.04360962,
+    -0.05029297,
+    0.03543091,
+    0.009170532,
+    0.0035095215,
+    0.01121521,
+    -0.033721924,
+    -0.0043525696,
+    0.006011963,
+    -0.019088745,
+    0.021774292,
+    0.000746727,
+    0.05166626,
+    0.0473938,
+    -0.049346924,
+    -0.033843994,
+    -0.015205383,
+    0.040618896,
+    -0.0029335022,
+    -0.019378662,
+    0.0025920868,
+    0.017486572,
+    -0.07611084,
+    -0.023986816,
+    -0.0031356812,
+    0.042388916,
+    -0.06616211,
+    -0.08654785,
+    0.027694702,
+    0.0034999847,
+    0.006374359,
+    -0.009681702,
+    0.022659302,
+    -0.05493164,
+    0.016464233,
+    -0.051879883,
+    0.0015230179,
+    -0.003484726,
+    0.02720642,
+    0.026321411,
+    0.013313293,
+    -0.04156494,
+    -0.009147644,
+    -0.032836914,
+    -0.006767273,
+    -0.0059165955,
+    0.019302368,
+    -0.028701782,
+    -0.08282471,
+    0.057556152,
+    -0.031463623,
+    0.046936035,
+    -0.043640137,
+    -0.02696228,
+    -0.024673462,
+    -0.004840851,
+    0.009757996,
+    -0.013061523,
+    0.0024261475,
+    0.018417358,
+    -0.002073288,
+    -0.032562256,
+    -0.03186035,
+    -0.01512146,
+    -0.030853271,
+    -0.048095703,
+    0.033081055,
+    0.0033473969,
+    0.010124207,
+    0.0071144104,
+    0.0010919571,
+    0.020446777,
+    -0.009269714,
+    -0.030197144,
+    -0.016983032,
+    0.00932312,
+    0.014137268,
+    -0.016967773,
+    9.149313e-05,
+    -0.043792725,
+    -0.047912598,
+    0.027038574,
+    0.02319336,
+    -0.008529663,
+    -0.020996094,
+    0.003993988,
+    -0.023406982,
+    0.061798096,
+    0.008056641,
+    -0.016525269,
+    0.0074653625,
+    -0.033416748,
+    -0.026977539,
+    0.004142761,
+    -0.0046653748,
+    0.022888184,
+    0.047821045,
+    0.03414917,
+    -0.030822754,
+    -0.008522034,
+    -0.008766174,
+    0.0039749146,
+    -0.022567749,
+    0.025848389,
+    0.0065460205,
+    -0.020767212,
+    -0.010307312,
+    0.011207581,
+    -0.016983032,
+    -0.039886475,
+    0.07635498,
+    0.055908203,
+    0.0010595322,
+    -0.030441284,
+    0.06652832,
+    0.002943039,
+    0.025787354,
+    -0.023208618,
+    -0.0045394897,
+    0.0053367615,
+    0.009544373,
+    0.042755127,
+    5.507469e-05,
+    0.016296387,
+    0.07659912,
+    0.0096588135,
+    0.018630981,
+    0.039001465,
+    -0.002664566,
+    -0.009735107,
+    -0.0012025833,
+    0.055419922,
+    -0.007095337,
+    -0.0018415451,
+    0.038085938,
+    0.008850098,
+    0.05545044,
+    0.05581665,
+    -0.020233154,
+    -0.0047721863,
+    0.05102539,
+    -0.017150879,
+    0.026473999,
+    0.006843567,
+    0.05606079,
+    0.031341553,
+    -0.0031528473,
+    -0.054595947,
+    -0.027389526,
+    -0.012039185,
+    0.0053634644,
+    -0.01448822,
+    0.059783936,
+    -0.015594482,
+    -0.0057640076,
+    -0.062286377,
+    -0.07366943,
+    -0.006679535,
+    -0.024536133,
+    -0.0005903244,
+    -0.050476074,
+    0.024246216,
+    -0.003112793,
+    0.04751587,
+    0.039215088,
+    -0.017059326,
+    -0.026428223,
+    -0.035583496,
+    0.019348145,
+    0.016677856,
+    0.099121094,
+    -0.015823364,
+    0.045532227,
+    -0.047790527,
+    0.024505615,
+    -0.04736328,
+    -0.077819824,
+    -0.0067863464,
+    -0.020492554,
+    -0.002155304,
+    0.03955078,
+    0.0181427,
+    -0.04675293,
+    0.018035889,
+    0.009262085,
+    -0.0236969,
+    0.03894043,
+    -0.021942139,
+    -0.01876831,
+    0.0031375885,
+    0.014472961,
+    -0.04046631,
+    -0.021972656,
+    0.010734558,
+    -0.0020980835,
+    -0.043121338,
+    0.032989502,
+    -0.017822266,
+    0.03387451,
+    0.020614624,
+    -0.037506104,
+    0.0552063,
+    0.021072388,
+    -0.011955261,
+    -0.024383545,
+    -0.019104004,
+    -0.0076560974,
+    0.059448242,
+    -0.037597656,
+    0.046539307,
+    -0.022781372,
+    -0.030288696,
+    -0.008865356,
+    0.0068092346,
+    0.0037956238,
+    0.005241394,
+    -0.059753418,
+    -0.031677246,
+    0.018325806,
+    0.015716553,
+    0.014678955,
+    0.003063202,
+    0.0041885376,
+    -0.05178833,
+    0.023727417,
+    -0.0082092285,
+    -0.0005979538,
+    0.0309906,
+    -0.00022816658,
+    0.039245605,
+    0.05328369,
+    -0.043792725,
+    0.005832672,
+    -0.025344849,
+    -0.031234741,
+    0.02671814,
+    -0.0181427,
+    0.019134521,
+    0.0064468384,
+    0.03970337,
+    -0.034210205,
+    0.00983429,
+    -0.021240234,
+    -0.03326416,
+    -0.019073486,
+    0.018325806,
+    -0.038909912,
+    -0.0008254051,
+    -0.036315918,
+    -0.0102005005,
+    -0.025665283,
+    0.007347107,
+    0.008171082,
+    0.0014772415,
+    -0.008934021,
+    -0.018127441,
+    -0.0001732111,
+    0.0033111572,
+    -0.035491943,
+    -0.023590088,
+    -0.035339355,
+    -0.01361084,
+    -0.045440674,
+    0.02859497,
+    0.00919342,
+    -0.08258057,
+    0.070373535,
+    -0.0011749268,
+    0.026138306,
+    -0.007041931,
+    0.006126404,
+    0.027770996,
+    0.0038604736,
+    -0.023223877,
+    0.00047659874,
+    -0.026107788,
+    -0.009399414,
+    0.017593384,
+    -0.03173828,
+    0.02142334,
+    -0.07739258,
+    -0.022750854,
+    -0.023620605,
+    0.005947113,
+    -0.008666992,
+    -0.027313232,
+    0.03387451,
+    0.024230957,
+    -0.03024292,
+    0.056793213,
+    -0.018722534,
+    0.024398804,
+    0.014816284,
+    0.023895264,
+    0.027313232,
+    -0.027297974,
+    0.011871338,
+    0.0057754517,
+    -0.001865387
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87218.md",
+    "file_name": "87218.md",
+    "file_size": 7471,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Juneau Alaska Aviation Accident Report",
+      "The accident occurred in Juneau, Alaska.",
+      "The accident occurred on June 11, 2013, at 21:00 Local time.",
+      "The aircraft involved was a Piper PA-18A 150.",
+      "The defining event was loss of control on ground.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was ANC13CA055.",
+      "The aircraft registration was N1886P.",
+      "The aircraft sustained substantial damage.",
+      "There were 2 occupants in the aircraft.",
+      "No injuries occurred in the accident.",
+      "The pilot was flying the airplane from the front seat.",
+      "The airplane owner was in the rear seat.",
+      "The airplane owner is also a pilot.",
+      "The pilot in the front seat turned final early to maintain aircraft separation.",
+      "The pilot in the front seat made a short and slightly steep final approach.",
+      "The pilot in the front seat flared the airplane a little high during landing.",
+      "The airplane bounced twice during the landing.",
+      "During the second bounce, the pilot in the rear seat applied corrective input.",
+      "The pilot in the front seat could not recall if she continued to apply control inputs.",
+      "The pilot in the front seat could not recall if the pilot in the rear seat had assumed the controls.",
+      "Positive control transfer was not accomplished between the pilots.",
+      "The airplane ground looped to the right.",
+      "The left wing tip struck the runway.",
+      "The left wing was substantially damaged when the wing tip struck the runway.",
+      "The pilot reported no preaccident mechanical malfunctions with the airplane.",
+      "The pilot reported no preaccident mechanical failures with the airplane.",
+      "The National Transportation Safety Board determined the probable cause of the accident.",
+      "The probable cause was the pilot not maintaining directional control while attempting to recover from a bounced landing.",
+      "The finding was that directional control was not attained/maintained."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Juneau Alaska Aviation Accident Report",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Juneau, Alaska",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piper PA-18A 150",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N1886P",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "ANC13CA055",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of control on ground",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "airplane owner",
+              "classification": "Aircraftowner"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Juneau, Alaska.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Juneau, Alaska",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on June 11, 2013, at 2100 Local time.",
+              "details": [
+                "accident DATE June 11, 2013",
+                "accident TIME 21:00 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "June 11, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "21:00 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Piper PA-18A 150.",
+              "details": [
+                "accident INVOLVED Piper PA-18A 150"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of control on ground.",
+              "details": [
+                "accident DEFINING EVENT loss of control on ground"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of control on ground",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was ANC13CA055.",
+              "details": [
+                "accident NUMBER ANC13CA055"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ANC13CA055",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N1886P.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N1886P",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 2 occupants in the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No injuries occurred in the accident.",
+              "details": [
+                "accident INJURIES none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was flying the airplane from the front seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLYING"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "front seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane owner was in the rear seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane owner",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rear seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane owner is also a pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane owner",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "IS ALSO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot in the front seat turned final early to maintain aircraft separation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turned final early",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maintain aircraft separation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot in the front seat made a short and slightly steep final approach.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "APPROACH TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "short and slightly steep final",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot in the front seat flared the airplane a little high during landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flared the airplane a little high",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane bounced twice during the landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING BEHAVIOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "bounced twice",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the second bounce, the pilot in the rear seat applied corrective input.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane owner",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "applied corrective input during second bounce",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot in the front seat could not recall if she continued to apply control inputs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could not recall if continued to apply control inputs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot in the front seat could not recall if the pilot in the rear seat had assumed the controls.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALL STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could not recall if rear seat pilot assumed controls",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Positive control transfer was not accomplished between the pilots.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONTROL TRANSFER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not accomplished",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane owner",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "CONTROL TRANSFER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not accomplished",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane ground looped to the right.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MOVEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ground looped to the right",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left wing tip struck the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left wing tip struck runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left wing was substantially damaged when the wing tip struck the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left wing substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no preaccident mechanical malfunctions with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PREACCIDENT CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no mechanical malfunctions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no preaccident mechanical failures with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piper PA-18A 150",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PREACCIDENT CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no mechanical failures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident.",
+              "details": [
+                "National Transportation Safety Board DETERMINED probable cause"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The probable cause was the pilot not maintaining directional control while attempting to recover from a bounced landing.",
+              "details": [
+                "accident PROBABLE CAUSE pilot not maintaining directional control while attempting to recover from a bounced landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot not maintaining directional control while attempting to recover from a bounced landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The finding was that directional control was not attained/maintained.",
+              "details": [
+                "accident FINDING directional control was not attained/maintained"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "directional control was not attained/maintained",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::0435fc58:7faf",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87218.md",
+        "file_name": "87218.md",
+        "file_size": 7471,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "0e9cf32bc2c99af6456bcdec3422df1b550181eec00e653d6fb2bba9966efd9d",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::0435fc58:7faf:7094f816",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87218.md",
+        "file_name": "87218.md",
+        "file_size": 7471,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "59807f981e3435e09309d86f1946436e02c89fd0bcfe7f078bc773f87e007def",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nJuneau, Alaska\n\n## Date & Time: \nJune 11, 2013, 21:00 Local\n\n## Aircraft:\nPiper PA-18A 150\n\n## Defining Event:\nLoss of control on ground\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nANC13CA055\n\n## Registration:\nN1886P\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 None\n\n## Analysis\n\nThe pilot stated that she was flying the airplane from the front seat, and the airplane owner (who is also a pilot) was in the rear seat. The pilot in the front seat turned final early to maintain aircraft separation and made a short and slightly steep final approach. She said that while landing she flared the airplane a little high, and it bounced twice during the landing. During the second bounce, the pilot in the rear seat assisted the recovery by applying corrective input. The pilot in the front seat could not recall if she continued to apply control inputs or if the pilot in the rear seat had assumed the controls. Positive control transfer was not accomplished. The airplane ground looped to the right, substantially damaging the left wing when the wing tip struck the runway. The pilot reported no preaccident mechanical malfunctions or failures with the airplane that would have precluded normal operation.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\nThe pilot did not maintain directional control while attempting to recover from a bounced landing.\n\n## Findings\n\n| Aircraft | Directional control - Not attained/maintained |\n| --- | --- |\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1624,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

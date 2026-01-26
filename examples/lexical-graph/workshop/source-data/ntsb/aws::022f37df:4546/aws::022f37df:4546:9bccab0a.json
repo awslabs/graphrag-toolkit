@@ -1,0 +1,2322 @@
+{
+  "id_": "aws::022f37df:4546:9bccab0a",
+  "embedding": [
+    -0.0129852295,
+    -0.011405945,
+    -0.004875183,
+    -0.0569458,
+    -0.018630981,
+    0.0018110275,
+    -0.039886475,
+    0.028366089,
+    0.019943237,
+    0.016235352,
+    -0.041015625,
+    0.026000977,
+    0.008102417,
+    -0.0056648254,
+    -0.008163452,
+    -0.0036182404,
+    0.016159058,
+    0.020202637,
+    0.021896362,
+    -0.012992859,
+    0.0035858154,
+    0.010017395,
+    -0.006790161,
+    0.021636963,
+    -0.010444641,
+    0.032989502,
+    -0.033721924,
+    0.0014638901,
+    -0.02760315,
+    -0.016830444,
+    0.0022716522,
+    0.009132385,
+    0.019088745,
+    0.032318115,
+    -0.053344727,
+    -0.04937744,
+    0.012664795,
+    -0.0019416809,
+    -0.06048584,
+    0.0657959,
+    0.025436401,
+    -0.023880005,
+    0.043518066,
+    -0.03668213,
+    -0.018661499,
+    0.025115967,
+    0.023925781,
+    0.0024738312,
+    0.022750854,
+    0.046417236,
+    0.044677734,
+    0.027267456,
+    0.03930664,
+    0.039123535,
+    -0.009628296,
+    -0.0032596588,
+    -0.021209717,
+    0.023910522,
+    0.019577026,
+    0.012626648,
+    -0.0013303757,
+    0.010498047,
+    0.008720398,
+    -0.0032138824,
+    -0.038330078,
+    -0.009887695,
+    0.02557373,
+    0.0025672913,
+    0.031585693,
+    -0.002943039,
+    0.0020637512,
+    0.026550293,
+    -0.034484863,
+    -0.011436462,
+    -0.00024700165,
+    -0.027664185,
+    0.04876709,
+    -0.03781128,
+    -0.072143555,
+    0.070007324,
+    0.027267456,
+    -0.0055885315,
+    0.023498535,
+    0.0020427704,
+    -0.0022907257,
+    0.03652954,
+    -0.020309448,
+    -0.014099121,
+    -0.0038280487,
+    -0.0063171387,
+    -0.009742737,
+    -0.017211914,
+    0.0072364807,
+    0.030731201,
+    -0.010848999,
+    -0.008026123,
+    0.004043579,
+    -0.03060913,
+    0.015090942,
+    -0.03466797,
+    0.010375977,
+    -0.037841797,
+    -0.02520752,
+    0.01210022,
+    -0.023284912,
+    0.06964111,
+    0.072021484,
+    0.015808105,
+    -0.009651184,
+    -0.02973938,
+    -0.0073890686,
+    0.02960205,
+    0.015563965,
+    0.0491333,
+    -0.082092285,
+    0.024017334,
+    0.015167236,
+    -0.04660034,
+    -0.04095459,
+    0.027709961,
+    0.02633667,
+    0.051696777,
+    0.0066719055,
+    -0.016189575,
+    -0.015380859,
+    -0.011253357,
+    -0.024093628,
+    -0.02458191,
+    0.022491455,
+    0.029296875,
+    -0.021118164,
+    0.03564453,
+    -0.01158905,
+    -0.039123535,
+    -0.042266846,
+    -0.0014295578,
+    -0.0132369995,
+    -0.013885498,
+    -0.039031982,
+    0.025177002,
+    -0.023117065,
+    -0.019134521,
+    0.02645874,
+    -0.03945923,
+    0.00093364716,
+    0.058746338,
+    0.004447937,
+    -0.025512695,
+    0.005207062,
+    -0.027435303,
+    -0.019210815,
+    -0.044128418,
+    0.036193848,
+    0.010139465,
+    -0.021972656,
+    -0.08532715,
+    0.010810852,
+    -0.06665039,
+    0.052490234,
+    -0.082092285,
+    -0.025985718,
+    -0.0107421875,
+    0.0076179504,
+    -0.046417236,
+    -0.07196045,
+    0.025283813,
+    0.009605408,
+    0.006084442,
+    0.013069153,
+    0.009269714,
+    0.008628845,
+    0.03463745,
+    -0.053710938,
+    -0.012016296,
+    0.00504303,
+    -0.0070991516,
+    -0.012336731,
+    0.025634766,
+    0.05255127,
+    -0.022598267,
+    -0.043273926,
+    -0.042541504,
+    0.036712646,
+    -0.023345947,
+    0.017196655,
+    0.031173706,
+    0.00995636,
+    0.009384155,
+    -0.008110046,
+    0.011932373,
+    -0.016998291,
+    0.027008057,
+    0.03918457,
+    -0.0044288635,
+    -0.0154418945,
+    -0.04119873,
+    -0.03289795,
+    -0.003709793,
+    -0.033081055,
+    0.0055618286,
+    -0.045288086,
+    0.02708435,
+    -0.0014944077,
+    0.030395508,
+    0.052459717,
+    -0.023239136,
+    0.022857666,
+    0.013069153,
+    -0.051239014,
+    0.02545166,
+    0.041381836,
+    -0.005996704,
+    -0.022491455,
+    -0.0055122375,
+    0.00034976006,
+    0.0053215027,
+    -0.015182495,
+    0.035461426,
+    0.0018148422,
+    -0.0013504028,
+    -0.009498596,
+    0.004043579,
+    0.0066070557,
+    0.03173828,
+    0.002620697,
+    0.03878784,
+    -0.029251099,
+    0.02571106,
+    0.06890869,
+    0.01852417,
+    0.08251953,
+    -0.039489746,
+    0.049438477,
+    0.06262207,
+    0.025924683,
+    0.043121338,
+    0.081726074,
+    -0.022323608,
+    -0.0055656433,
+    0.00089788437,
+    0.0007200241,
+    -0.0075187683,
+    0.0016517639,
+    0.060699463,
+    0.007068634,
+    -0.045196533,
+    -0.02142334,
+    0.03591919,
+    -0.02659607,
+    0.03302002,
+    0.032806396,
+    0.033111572,
+    0.010940552,
+    0.021270752,
+    0.00831604,
+    0.0178833,
+    -0.03286743,
+    -0.03515625,
+    0.0035896301,
+    0.0028953552,
+    -0.0005674362,
+    -0.028381348,
+    -0.02142334,
+    -0.013847351,
+    0.013114929,
+    0.0052719116,
+    0.05392456,
+    0.04473877,
+    -0.0082092285,
+    -0.023880005,
+    0.005290985,
+    0.012237549,
+    0.0028362274,
+    0.047454834,
+    -0.06591797,
+    -0.028717041,
+    -0.021408081,
+    0.007259369,
+    -0.0068244934,
+    -0.017166138,
+    0.0008292198,
+    0.028503418,
+    -0.0066108704,
+    -0.0107421875,
+    0.046936035,
+    0.007335663,
+    -0.019897461,
+    -0.024337769,
+    -0.028564453,
+    0.02079773,
+    0.044281006,
+    0.00504303,
+    -0.028213501,
+    -0.0059280396,
+    0.01725769,
+    -0.004688263,
+    0.020599365,
+    0.043884277,
+    -0.028320312,
+    0.01600647,
+    0.029022217,
+    0.02482605,
+    -0.016159058,
+    0.018295288,
+    0.011367798,
+    -0.018951416,
+    0.020431519,
+    0.0025978088,
+    -0.0057411194,
+    0.01259613,
+    -0.05355835,
+    0.00969696,
+    0.020507812,
+    -0.0132751465,
+    0.032226562,
+    0.0026340485,
+    -0.032043457,
+    0.028381348,
+    -0.008026123,
+    0.013381958,
+    -0.036621094,
+    0.042663574,
+    -0.021728516,
+    0.006931305,
+    0.035888672,
+    -0.00340271,
+    -0.018951416,
+    0.008705139,
+    -0.0007276535,
+    0.010383606,
+    -0.034606934,
+    0.0010700226,
+    -0.018859863,
+    0.013870239,
+    -0.007698059,
+    0.0015802383,
+    0.017852783,
+    -0.043182373,
+    0.01247406,
+    0.059173584,
+    0.050201416,
+    0.004875183,
+    0.0184021,
+    -0.05303955,
+    -0.05718994,
+    0.018127441,
+    0.0024814606,
+    0.021987915,
+    -0.07458496,
+    -0.005176544,
+    0.036865234,
+    -0.013961792,
+    -0.03274536,
+    -0.019042969,
+    -0.024932861,
+    -0.03842163,
+    0.012397766,
+    -0.048858643,
+    -0.05267334,
+    -0.074645996,
+    0.008460999,
+    -0.01626587,
+    -0.04458618,
+    0.01763916,
+    0.009399414,
+    0.014480591,
+    0.013473511,
+    -0.005054474,
+    -0.050964355,
+    -0.008583069,
+    -0.017044067,
+    0.013755798,
+    -0.051574707,
+    -0.024841309,
+    -0.042816162,
+    0.04385376,
+    0.018539429,
+    -0.02696228,
+    -0.030639648,
+    -0.023773193,
+    0.0038280487,
+    -0.0236969,
+    0.03414917,
+    -0.008926392,
+    0.0496521,
+    0.020599365,
+    0.0028648376,
+    -0.05303955,
+    0.04925537,
+    -5.5015087e-05,
+    0.024673462,
+    -0.01751709,
+    -0.017150879,
+    -0.014297485,
+    -0.017700195,
+    0.008522034,
+    -0.021560669,
+    -0.016983032,
+    -0.007045746,
+    -0.013702393,
+    -0.13708496,
+    0.036499023,
+    -0.010902405,
+    -0.02658081,
+    0.0025691986,
+    -0.04940796,
+    -0.03125,
+    -0.05496216,
+    0.030838013,
+    0.06756592,
+    -0.021438599,
+    0.070007324,
+    -0.007083893,
+    0.076293945,
+    -0.018463135,
+    -0.0004658699,
+    -0.04562378,
+    -0.020645142,
+    0.041778564,
+    0.03845215,
+    -0.016082764,
+    -0.018432617,
+    -0.005542755,
+    0.05050659,
+    -0.02154541,
+    0.04345703,
+    -0.06530762,
+    -0.010101318,
+    -0.01802063,
+    0.058380127,
+    -0.033355713,
+    0.032226562,
+    0.0078086853,
+    -0.013656616,
+    -0.04321289,
+    0.031051636,
+    0.0025348663,
+    0.05206299,
+    0.016662598,
+    -0.029464722,
+    0.005554199,
+    0.00082206726,
+    0.0052719116,
+    -0.010353088,
+    -0.02507019,
+    -5.120039e-05,
+    0.026885986,
+    0.01638794,
+    -0.022628784,
+    -0.057403564,
+    -0.02949524,
+    0.013870239,
+    0.043670654,
+    0.029266357,
+    0.01953125,
+    0.043426514,
+    0.030715942,
+    0.011169434,
+    -0.021408081,
+    -0.0072517395,
+    -0.03326416,
+    -0.0032024384,
+    -0.0043678284,
+    -0.037384033,
+    -0.017974854,
+    -0.04650879,
+    0.05444336,
+    -0.023910522,
+    -0.029159546,
+    0.037719727,
+    -0.040039062,
+    0.062072754,
+    0.026809692,
+    0.022994995,
+    -0.024963379,
+    -0.0036239624,
+    0.007843018,
+    -0.0064353943,
+    0.027755737,
+    -0.0016698837,
+    -0.09692383,
+    0.049346924,
+    -0.047729492,
+    -0.019470215,
+    -0.016479492,
+    -0.008117676,
+    0.04107666,
+    0.0087890625,
+    0.011459351,
+    0.008621216,
+    0.0016584396,
+    -0.009887695,
+    0.013519287,
+    0.009002686,
+    -0.00868988,
+    -0.016403198,
+    -0.000957489,
+    0.0034675598,
+    0.0010700226,
+    -0.02520752,
+    -0.018417358,
+    -0.0035686493,
+    -0.041229248,
+    -0.019958496,
+    -0.02027893,
+    0.044403076,
+    0.053649902,
+    0.029190063,
+    -0.0039138794,
+    -0.03427124,
+    0.034301758,
+    -0.028671265,
+    -0.0066604614,
+    0.06274414,
+    -0.05770874,
+    0.018051147,
+    -0.004497528,
+    0.056640625,
+    -0.04977417,
+    -0.026626587,
+    -0.007183075,
+    -0.036621094,
+    0.032318115,
+    0.03161621,
+    -0.029968262,
+    0.011482239,
+    0.0025157928,
+    0.008728027,
+    -0.016723633,
+    -0.051086426,
+    -0.03237915,
+    0.010345459,
+    -0.029891968,
+    0.029296875,
+    0.0715332,
+    0.011001587,
+    -0.046173096,
+    0.03753662,
+    0.043029785,
+    -0.053955078,
+    -0.011657715,
+    0.009605408,
+    -0.0075187683,
+    -0.0036315918,
+    0.03543091,
+    -0.022262573,
+    0.03982544,
+    0.06756592,
+    -0.061340332,
+    0.05355835,
+    -0.024719238,
+    -0.030807495,
+    -0.0024929047,
+    -0.048614502,
+    -0.068603516,
+    0.078430176,
+    0.051208496,
+    -0.020065308,
+    -0.033599854,
+    0.021209717,
+    -0.036376953,
+    0.008277893,
+    -0.02746582,
+    0.023483276,
+    -0.008094788,
+    0.045928955,
+    0.0018787384,
+    -0.024139404,
+    0.012481689,
+    -0.050476074,
+    -0.008888245,
+    -0.028396606,
+    0.061950684,
+    0.012748718,
+    0.019165039,
+    -0.018157959,
+    -0.018859863,
+    0.012886047,
+    0.0019741058,
+    0.0262146,
+    0.028945923,
+    0.0058670044,
+    -0.030914307,
+    -0.039398193,
+    -0.035461426,
+    0.05633545,
+    -0.01826477,
+    0.04522705,
+    -0.017730713,
+    0.009017944,
+    0.0033550262,
+    -0.022735596,
+    0.0007472038,
+    -0.008674622,
+    -0.01184845,
+    0.0015897751,
+    -0.0018892288,
+    -0.028305054,
+    0.018859863,
+    0.002161026,
+    0.013076782,
+    0.0078048706,
+    0.013404846,
+    -0.012229919,
+    -0.021011353,
+    0.011764526,
+    0.0065994263,
+    0.025299072,
+    0.0013237,
+    0.001121521,
+    0.037841797,
+    0.040039062,
+    -0.03729248,
+    0.0061149597,
+    -0.0121536255,
+    -0.028869629,
+    -0.023864746,
+    0.02810669,
+    0.038391113,
+    0.0033798218,
+    0.0024681091,
+    -0.015792847,
+    -0.006576538,
+    -0.051849365,
+    0.059448242,
+    -0.056427002,
+    -0.06088257,
+    -0.045043945,
+    -0.0019874573,
+    -0.001162529,
+    -0.039642334,
+    0.0018920898,
+    -0.10430908,
+    -0.01625061,
+    -0.036987305,
+    0.020553589,
+    -0.049987793,
+    -0.013153076,
+    0.0259552,
+    -0.04296875,
+    -0.0055122375,
+    0.015136719,
+    -0.008224487,
+    -0.045166016,
+    0.0335083,
+    -0.031707764,
+    -0.028656006,
+    0.004776001,
+    -0.007232666,
+    -0.03765869,
+    -0.008918762,
+    0.00592041,
+    0.042755127,
+    -0.046813965,
+    -0.02507019,
+    -0.018585205,
+    0.0032615662,
+    0.0138549805,
+    -0.046966553,
+    -0.030197144,
+    -0.06518555,
+    -0.055908203,
+    -0.00793457,
+    -0.026168823,
+    -0.056427002,
+    -9.602308e-05,
+    0.05001831,
+    0.030776978,
+    -0.0038871765,
+    0.0078125,
+    0.014328003,
+    0.010009766,
+    0.04522705,
+    -0.0262146,
+    0.0287323,
+    0.018875122,
+    -0.010986328,
+    0.0018138885,
+    0.012451172,
+    -0.039093018,
+    0.015197754,
+    0.008743286,
+    -0.00667572,
+    -0.00082445145,
+    -0.04006958,
+    0.028182983,
+    -0.054229736,
+    0.008605957,
+    0.005882263,
+    0.04248047,
+    -0.02558899,
+    -0.0026607513,
+    0.026153564,
+    -0.013252258,
+    -0.029067993,
+    -0.005783081,
+    -0.010604858,
+    -0.04888916,
+    -0.02178955,
+    -0.0082092285,
+    0.036743164,
+    -0.028030396,
+    0.010848999,
+    -0.034179688,
+    0.018753052,
+    0.0345459,
+    0.018173218,
+    0.0074539185,
+    -0.017547607,
+    -0.018005371,
+    0.021499634,
+    0.05834961,
+    -0.007297516,
+    -0.0024547577,
+    0.037261963,
+    0.035217285,
+    0.016235352,
+    -0.010238647,
+    -0.050323486,
+    0.009017944,
+    -0.005218506,
+    -0.013809204,
+    0.007987976,
+    -0.026809692,
+    0.020767212,
+    -0.052612305,
+    -0.0003042221,
+    0.0023422241,
+    -0.010604858,
+    -0.032287598,
+    0.024795532,
+    -0.0034561157,
+    0.04147339,
+    -0.01751709,
+    -0.021896362,
+    -0.068359375,
+    0.004573822,
+    -0.03933716,
+    -0.077941895,
+    -0.0062561035,
+    0.0143585205,
+    0.006855011,
+    0.003364563,
+    -0.02897644,
+    -0.0127334595,
+    -0.03302002,
+    0.0009636879,
+    -0.060272217,
+    0.010284424,
+    -0.004787445,
+    0.087524414,
+    -0.056549072,
+    -0.0440979,
+    -0.013328552,
+    0.006439209,
+    -0.048980713,
+    -0.009773254,
+    -0.027770996,
+    -0.018615723,
+    -0.012878418,
+    0.044677734,
+    0.022537231,
+    0.013069153,
+    -0.009597778,
+    -0.07434082,
+    0.013000488,
+    -0.014701843,
+    -0.022445679,
+    -0.005001068,
+    -0.022857666,
+    0.020019531,
+    0.030319214,
+    0.021743774,
+    0.00027275085,
+    -0.0019369125,
+    -0.062927246,
+    0.042419434,
+    -0.06561279,
+    -0.028625488,
+    0.004753113,
+    0.020858765,
+    0.027923584,
+    -0.05847168,
+    -0.013214111,
+    -0.0020599365,
+    -0.024002075,
+    -0.017303467,
+    0.009666443,
+    -0.012634277,
+    -0.007587433,
+    0.00869751,
+    0.031402588,
+    0.010231018,
+    -0.025741577,
+    0.008125305,
+    -0.0020637512,
+    -0.011100769,
+    -0.022018433,
+    -0.038146973,
+    -0.02154541,
+    -0.028747559,
+    -0.032196045,
+    -0.034576416,
+    -0.005897522,
+    -0.021606445,
+    0.013580322,
+    -0.026809692,
+    0.016799927,
+    0.015823364,
+    -0.04534912,
+    0.01637268,
+    -0.06854248,
+    0.030456543,
+    -0.005935669,
+    0.043762207,
+    0.03225708,
+    -0.034454346,
+    -0.028656006,
+    0.0058174133,
+    0.006729126,
+    0.020446777,
+    0.030029297,
+    0.019241333,
+    0.0026226044,
+    0.0090789795,
+    0.016525269,
+    0.03326416,
+    -0.038085938,
+    0.00086688995,
+    -0.0011167526,
+    0.0057525635,
+    -0.0022907257,
+    -0.025787354,
+    -0.014961243,
+    -0.010826111,
+    0.008056641,
+    -1.66893e-05,
+    0.08294678,
+    -0.027618408,
+    0.009941101,
+    -0.047210693,
+    -0.059326172,
+    0.021560669,
+    -0.005268097,
+    -0.05456543,
+    0.04812622,
+    0.028381348,
+    -0.0141067505,
+    0.052246094,
+    0.055999756,
+    0.0039749146,
+    -0.001666069,
+    0.0017852783,
+    -0.04260254,
+    0.0036201477,
+    0.028793335,
+    0.009597778,
+    -0.057647705,
+    -0.059143066,
+    0.00033211708,
+    0.009155273,
+    -0.03829956,
+    -0.05758667,
+    -0.008415222,
+    0.03314209,
+    0.02923584,
+    0.014289856,
+    0.045440674,
+    -0.003293991,
+    0.05581665,
+    0.020385742,
+    -0.03805542,
+    -0.01914978,
+    -0.053619385,
+    -0.023223877,
+    -0.033172607,
+    0.0070533752,
+    0.022018433,
+    -0.051208496,
+    0.041778564,
+    -0.05267334,
+    -0.037322998,
+    0.038635254,
+    -0.021453857,
+    -0.0006608963,
+    -0.034484863,
+    0.0072784424,
+    -0.03111267,
+    0.054504395,
+    0.012550354,
+    0.026245117,
+    -0.010269165,
+    -0.01285553,
+    0.054779053,
+    0.009483337,
+    0.050720215,
+    -0.0109939575,
+    -0.013313293,
+    -0.050994873,
+    0.068115234,
+    -0.050628662,
+    -0.02015686,
+    -0.018508911,
+    -0.026184082,
+    0.0062446594,
+    0.014015198,
+    0.059783936,
+    -0.044158936,
+    -0.009719849,
+    0.017364502,
+    -0.017852783,
+    -0.009613037,
+    -0.03314209,
+    0.012466431,
+    0.006248474,
+    0.04446411,
+    -0.09100342,
+    -0.022598267,
+    -0.033813477,
+    -0.06542969,
+    -0.0657959,
+    0.004798889,
+    -0.03060913,
+    0.020248413,
+    0.036956787,
+    -0.007850647,
+    0.030563354,
+    -0.06549072,
+    -0.0058403015,
+    -0.04663086,
+    -0.030685425,
+    -0.023864746,
+    0.04309082,
+    -0.04437256,
+    0.057769775,
+    -0.021652222,
+    0.025680542,
+    -0.024810791,
+    -0.018325806,
+    0.036346436,
+    0.035003662,
+    -0.04067993,
+    -0.041809082,
+    0.0031661987,
+    0.004180908,
+    -0.038238525,
+    0.049560547,
+    -0.032043457,
+    -0.049560547,
+    -0.026321411,
+    -0.031555176,
+    -0.022735596,
+    0.002708435,
+    -0.0022506714,
+    0.03100586,
+    0.028015137,
+    -0.016723633,
+    0.031234741,
+    0.012168884,
+    -0.04711914,
+    -0.010749817,
+    0.005718231,
+    0.0076828003,
+    0.016464233,
+    0.030792236,
+    0.042816162,
+    0.008163452,
+    -0.042144775,
+    -0.005554199,
+    -0.003829956,
+    0.0075912476,
+    0.025650024,
+    -0.008613586,
+    -0.03463745,
+    0.008575439,
+    0.019561768,
+    -0.012390137,
+    0.0129852295,
+    -0.01423645,
+    -0.02015686,
+    0.031311035,
+    0.014465332,
+    -0.011871338,
+    -0.012962341,
+    0.023590088,
+    -0.035095215,
+    0.009864807,
+    0.04840088,
+    -0.056884766,
+    0.0074157715,
+    -0.011695862,
+    0.00881958,
+    0.013877869,
+    -0.026535034,
+    0.011245728,
+    0.008041382,
+    0.029724121,
+    0.03387451,
+    0.023422241,
+    -0.051971436,
+    -0.010749817,
+    -0.015777588,
+    0.025009155,
+    0.0018625259,
+    0.033447266,
+    -0.04812622,
+    -0.010246277,
+    -0.0024757385,
+    -0.008934021,
+    -0.032836914,
+    -0.02722168,
+    0.029266357,
+    0.018295288,
+    -0.016555786,
+    0.062805176,
+    -0.023498535,
+    0.021270752,
+    0.008796692,
+    0.035614014,
+    0.0024280548,
+    0.006126404,
+    -0.027267456,
+    0.014915466,
+    0.0074043274
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84323.md",
+    "file_name": "84323.md",
+    "file_size": 8313,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Robinson Helicopter R44 II Collision with Ground-Support Vehicle",
+      "The accident involved a Robinson Helicopter Company model R44 II with registration N556MM.",
+      "The accident occurred on July 14, 2012, at 1750 central daylight time.",
+      "The accident occurred near Red Oak, Iowa.",
+      "The helicopter was substantially damaged when it impacted a ground-support vehicle while landing.",
+      "The commercial pilot was not injured in the accident.",
+      "The helicopter was registered to Johnson Helicopter Services LLC.",
+      "The helicopter was operated by Johnson Helicopter Services LLC.",
+      "The flight operated under the provisions of 14 Code of Federal Regulations Part 137.",
+      "The flight operated without a flight plan.",
+      "Day visual meteorological conditions prevailed for the flight.",
+      "The flight was a local aerial-application flight.",
+      "The flight originated from an agricultural field near Red Oak, Iowa, around 1745.",
+      "The pilot reported being unable to activate the motorized spray system after arriving at the field to be sprayed.",
+      "The pilot returned to the departure location to troubleshoot the inoperative spray system.",
+      "As the pilot maneuvered the helicopter to land next to a ground-support vehicle, the main rotor system impacted a landing platform.",
+      "The landing platform was installed on top of the ground-support vehicle.",
+      "The pilot reported a vibration throughout the helicopter after the impact.",
+      "The pilot reported elevated cyclic stick pressures after the impact.",
+      "The main rotor system was damaged during the accident sequence.",
+      "The tail boom was damaged during the accident sequence.",
+      "The fuselage was damaged during the accident sequence.",
+      "The pilot reported no preimpact mechanical malfunctions or failures that would have precluded normal operation of the helicopter.",
+      "Red Oak Municipal Airport (KRDK) was located about 5 miles south of the accident site.",
+      "At 1755, the KRDK automated surface observing system reported calm wind.",
+      "At 1755, the KRDK automated surface observing system reported visibility of 10 miles.",
+      "At 1755, the KRDK automated surface observing system reported temperature of 33 degrees Celsius.",
+      "At 1755, the KRDK automated surface observing system reported dew point of 22 degrees Celsius.",
+      "At 1755, the KRDK automated surface observing system reported altimeter setting of 29.97 inches of mercury.",
+      "The sky condition was not reported by the KRDK automated surface observing system."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Robinson Helicopter R44 II Collision with Ground-Support Vehicle",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Robinson Helicopter Company model R44 II",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N556MM",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Red Oak",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Iowa",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Johnson Helicopter Services LLC",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Red Oak Municipal Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "KRDK",
+              "classification": "Airport"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident involved a Robinson Helicopter Company model R44 II with registration N556MM.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Robinson Helicopter Company model R44 II",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N556MM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on July 14, 2012, at 1750 central daylight time.",
+              "details": [
+                "accident OCCURRED ON July 14, 2012",
+                "accident OCCURRED AT 1750 central daylight time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED ON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "July 14, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1750 central daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred near Red Oak, Iowa.",
+              "details": [
+                "accident OCCURRED NEAR Red Oak, Iowa"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED NEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Red Oak, Iowa",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was substantially damaged when it impacted a ground-support vehicle while landing.",
+              "details": [
+                "helicopter DAMAGE LEVEL substantially damaged",
+                "helicopter IMPACT WITH ground-support vehicle",
+                "helicopter PHASE OF FLIGHT landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACT WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ground-support vehicle",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PHASE OF FLIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The commercial pilot was not injured in the accident.",
+              "details": [
+                "pilot LICENSE TYPE commercial",
+                "pilot INJURY STATUS not injured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LICENSE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commercial",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not injured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was registered to Johnson Helicopter Services LLC.",
+              "details": [
+                "helicopter REGISTERED TO Johnson Helicopter Services LLC"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REGISTERED TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Johnson Helicopter Services LLC",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was operated by Johnson Helicopter Services LLC.",
+              "details": [
+                "helicopter OPERATED BY Johnson Helicopter Services LLC"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Johnson Helicopter Services LLC",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight operated under the provisions of 14 Code of Federal Regulations Part 137.",
+              "details": [
+                "flight OPERATED UNDER 14 Code of Federal Regulations Part 137"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 137",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight operated without a flight plan.",
+              "details": [
+                "flight FLIGHT PLAN STATUS without a flight plan"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "without a flight plan",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Day visual meteorological conditions prevailed for the flight.",
+              "details": [
+                "flight WEATHER CONDITIONS Day visual meteorological conditions"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "WEATHER CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Day visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a local aerial-application flight.",
+              "details": [
+                "flight TYPE local aerial-application flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "local aerial-application flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight originated from an agricultural field near Red Oak, Iowa, around 1745.",
+              "details": [
+                "flight DEPARTURE LOCATION agricultural field near Red Oak, Iowa",
+                "flight DEPARTURE TIME around 1745"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "agricultural field near Red Oak, Iowa",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "around 1745",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported being unable to activate the motorized spray system after arriving at the field to be sprayed.",
+              "details": [
+                "pilot REPORTED ISSUE unable to activate the motorized spray system"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unable to activate the motorized spray system",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot returned to the departure location to troubleshoot the inoperative spray system.",
+              "details": [
+                "pilot ACTION TAKEN returned to the departure location",
+                "pilot REASON FOR ACTION troubleshoot the inoperative spray system"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "returned to the departure location",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REASON FOR ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "troubleshoot the inoperative spray system",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "As the pilot maneuvered the helicopter to land next to a ground-support vehicle, the main rotor system impacted a landing platform.",
+              "details": [
+                "pilot MANEUVER INTENT land next to a ground-support vehicle",
+                "main rotor system IMPACTED landing platform"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MANEUVER INTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "land next to a ground-support vehicle",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "IMPACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing platform",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The landing platform was installed on top of the ground-support vehicle.",
+              "details": [
+                "landing platform LOCATION on top of the ground-support vehicle"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "landing platform",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on top of the ground-support vehicle",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported a vibration throughout the helicopter after the impact.",
+              "details": [
+                "pilot REPORTED CONDITION vibration throughout the helicopter after the impact"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vibration throughout the helicopter after the impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported elevated cyclic stick pressures after the impact.",
+              "details": [
+                "pilot REPORTED CONDITION elevated cyclic stick pressures after the impact"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "elevated cyclic stick pressures after the impact",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main rotor system was damaged during the accident sequence.",
+              "details": [
+                "main rotor system DAMAGE STATUS damaged during the accident sequence"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damaged during the accident sequence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tail boom was damaged during the accident sequence.",
+              "details": [
+                "tail boom DAMAGE STATUS damaged during the accident sequence"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tail boom",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damaged during the accident sequence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuselage was damaged during the accident sequence.",
+              "details": [
+                "fuselage DAMAGE STATUS damaged during the accident sequence"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damaged during the accident sequence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no preimpact mechanical malfunctions or failures that would have precluded normal operation of the helicopter.",
+              "details": [
+                "pilot REPORTED CONDITION no preimpact mechanical malfunctions or failures"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REPORTED CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact mechanical malfunctions or failures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Red Oak Municipal Airport (KRDK) was located about 5 miles south of the accident site.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Red Oak Municipal Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "DISTANCE FROM ACCIDENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 5 miles south",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 1755, the KRDK automated surface observing system reported calm wind.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORTED WIND"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "calm",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1755",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 1755, the KRDK automated surface observing system reported visibility of 10 miles.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORTED VISIBILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 miles",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1755",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 1755, the KRDK automated surface observing system reported temperature of 33 degrees Celsius.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORTED TEMPERATURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "33 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1755",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 1755, the KRDK automated surface observing system reported dew point of 22 degrees Celsius.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORTED DEW POINT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "22 degrees Celsius",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1755",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At 1755, the KRDK automated surface observing system reported altimeter setting of 29.97 inches of mercury.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORTED ALTIMETER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "29.97 inches of mercury",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "REPORT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1755",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The sky condition was not reported by the KRDK automated surface observing system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KRDK",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "SKY CONDITION STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not reported",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::022f37df:4546",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84323.md",
+        "file_name": "84323.md",
+        "file_size": 8313,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a1399b095805f9d1bdd6ba336042524ea5c7944b97c12b181c4fe9956f694513",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::022f37df:4546:8ec82a31",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84323.md",
+        "file_name": "84323.md",
+        "file_size": 8313,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "605a0cf53b5e6ec9ee372156e060541615a435fe147bc49d21e7bf436d56d561",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::022f37df:4546:a1625b28",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84323.md",
+        "file_name": "84323.md",
+        "file_size": 8313,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "01cd26111908b5cfc8aa008383a375fc637acdfb5b1df793576afb298655cd2f",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Landing-flare/touchdown | Collision during takeoff/land (Defining event) |\n\nOn July 14, 2012, at 1750 central daylight time, a Robinson Helicopter Company model R44 II, N556MM, was substantially damaged when it impacted a ground-support vehicle while landing near Red Oak, Iowa. The commercial pilot was not injured. The helicopter was registered to and operated by Johnson Helicopter Services LLC, under the provisions of 14 Code of Federal Regulations Part 137 without a flight plan. Day visual meteorological conditions prevailed for the local aerial-application flight that originated from an agricultural field near Red Oak, Iowa, about 1745.\n\nThe pilot reported that after takeoff he was unable to activate the motorized spray system after arriving at the field to be sprayed. He returned to the departure location in order to troubleshoot the inoperative spray system. As he maneuvered the helicopter to land next to a ground-support vehicle, the main rotor system impacted a landing platform installed on top of the vehicle. The pilot reported that after the impact there was a vibration throughout the helicopter and elevated cyclic stick pressures. The main rotor system, tail boom, and fuselage were damaged during the accident sequence. The pilot reported that there were no preimpact mechanical malfunctions or failures that would have precluded normal operation of the helicopter.\n\nThe closest weather observing station was at Red Oak Municipal Airport (KRDK), located about 5 miles south of the accident site. At 1755, the KRDK automated surface observing system reported the following weather conditions: calm wind, visibility 10 miles, temperature 33 degrees Celsius, dew point 22 degrees Celsius, altimeter setting 29.97 inches of mercury. The sky condition was not reported.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1845,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

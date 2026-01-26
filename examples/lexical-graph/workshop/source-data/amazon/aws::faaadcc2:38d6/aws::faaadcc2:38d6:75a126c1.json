@@ -1,0 +1,2087 @@
+{
+  "id_": "aws::faaadcc2:38d6:75a126c1",
+  "embedding": [
+    0.0046424866,
+    -0.012916565,
+    -0.008232117,
+    0.026748657,
+    -0.02204895,
+    -0.014671326,
+    0.040527344,
+    -0.019683838,
+    -0.009147644,
+    0.021408081,
+    0.024368286,
+    0.024780273,
+    -0.010322571,
+    -0.026550293,
+    0.007904053,
+    0.00522995,
+    0.029449463,
+    0.014595032,
+    0.04434204,
+    -0.0023117065,
+    -0.0076026917,
+    0.017181396,
+    0.007713318,
+    0.045562744,
+    0.074645996,
+    -0.025512695,
+    -0.029907227,
+    0.0016078949,
+    0.06274414,
+    0.02128601,
+    0.034240723,
+    -0.052703857,
+    -0.005859375,
+    0.04345703,
+    -0.014587402,
+    0.011474609,
+    0.009506226,
+    0.0345459,
+    0.040863037,
+    -0.010345459,
+    0.012268066,
+    0.007709503,
+    0.051330566,
+    -0.059020996,
+    0.02355957,
+    -0.029800415,
+    0.021011353,
+    -0.0519104,
+    0.025436401,
+    0.021347046,
+    -0.030578613,
+    0.036376953,
+    -0.026657104,
+    0.0030612946,
+    0.010108948,
+    -0.0033855438,
+    0.05203247,
+    -0.026412964,
+    0.028808594,
+    -0.0635376,
+    -0.050720215,
+    0.0064697266,
+    0.044677734,
+    0.032989502,
+    -0.0030899048,
+    -0.017837524,
+    0.018585205,
+    0.010314941,
+    0.0018291473,
+    0.0067863464,
+    0.01247406,
+    -0.00044631958,
+    -0.0066719055,
+    0.024627686,
+    -0.04232788,
+    -0.030395508,
+    0.05960083,
+    0.010429382,
+    -0.02268982,
+    0.0211792,
+    0.0069274902,
+    0.0053596497,
+    0.03555298,
+    -0.06213379,
+    0.019485474,
+    -0.04360962,
+    -0.00166893,
+    0.011108398,
+    -0.02029419,
+    -0.051971436,
+    -0.0132369995,
+    -0.021331787,
+    -0.0647583,
+    0.03753662,
+    -0.0009255409,
+    -0.023254395,
+    0.03253174,
+    -0.015060425,
+    0.014144897,
+    -0.031585693,
+    0.024093628,
+    -0.038513184,
+    -0.04006958,
+    0.0068893433,
+    -0.022384644,
+    -0.00894928,
+    0.021911621,
+    0.020095825,
+    0.040740967,
+    0.016159058,
+    -0.027404785,
+    0.052093506,
+    -0.022094727,
+    -0.01586914,
+    -0.045043945,
+    0.027557373,
+    -0.03012085,
+    -0.005771637,
+    -0.0069007874,
+    0.03173828,
+    0.022155762,
+    0.05230713,
+    0.050872803,
+    -0.093322754,
+    -0.0049095154,
+    -0.019165039,
+    -0.045288086,
+    -0.06524658,
+    0.007873535,
+    0.05871582,
+    -0.017333984,
+    -0.016937256,
+    -0.025314331,
+    -0.016433716,
+    -0.024917603,
+    -0.031219482,
+    -0.016830444,
+    -0.011650085,
+    -0.017456055,
+    0.008422852,
+    -0.008651733,
+    -0.001241684,
+    0.043304443,
+    -0.030410767,
+    0.0021858215,
+    0.029220581,
+    0.0137786865,
+    -0.01109314,
+    -0.0010318756,
+    -0.015533447,
+    0.0010671616,
+    -0.017715454,
+    0.07196045,
+    -0.02015686,
+    -0.084472656,
+    -0.020324707,
+    -0.019042969,
+    -0.017974854,
+    -0.05517578,
+    -0.059570312,
+    0.016708374,
+    -0.03086853,
+    0.020263672,
+    0.024978638,
+    -0.0093688965,
+    0.043518066,
+    -0.009971619,
+    -0.005130768,
+    0.010093689,
+    -0.018005371,
+    0.0057144165,
+    0.006164551,
+    0.0033187866,
+    -0.0015239716,
+    0.00712204,
+    -0.0020160675,
+    -0.02658081,
+    -0.041503906,
+    0.015403748,
+    0.037994385,
+    0.019485474,
+    -0.011428833,
+    -0.05999756,
+    0.059326172,
+    -0.0013818741,
+    -0.0034332275,
+    0.01927185,
+    0.016799927,
+    -0.0023460388,
+    0.003736496,
+    -0.023452759,
+    0.0317688,
+    -0.02482605,
+    -0.048339844,
+    0.0031108856,
+    -0.0025806427,
+    -0.010696411,
+    -0.009208679,
+    -0.003063202,
+    0.010574341,
+    0.04647827,
+    -0.0077552795,
+    0.02394104,
+    -0.027999878,
+    -0.018371582,
+    -0.02696228,
+    0.006626129,
+    0.016357422,
+    -0.06390381,
+    0.032287598,
+    0.0552063,
+    0.016235352,
+    -0.047729492,
+    0.0038280487,
+    0.03652954,
+    -0.021972656,
+    0.01525116,
+    -0.0038852692,
+    0.039031982,
+    -0.03753662,
+    0.05429077,
+    0.029571533,
+    0.03366089,
+    0.012573242,
+    -0.020477295,
+    0.036071777,
+    -0.030776978,
+    0.0234375,
+    -0.015365601,
+    0.0044517517,
+    0.04385376,
+    0.013404846,
+    0.05709839,
+    0.07122803,
+    -0.012260437,
+    -0.009628296,
+    -0.0023384094,
+    -0.024749756,
+    0.0050811768,
+    0.030288696,
+    0.004337311,
+    -0.01928711,
+    -0.014579773,
+    0.047698975,
+    0.039031982,
+    0.0076789856,
+    0.0015153885,
+    0.03515625,
+    -0.0060577393,
+    0.014175415,
+    -0.00076007843,
+    -0.03149414,
+    0.011993408,
+    -0.057556152,
+    -0.018936157,
+    0.021026611,
+    -0.03326416,
+    0.013572693,
+    -0.050231934,
+    0.025253296,
+    -0.024093628,
+    0.0066490173,
+    0.04083252,
+    -0.033996582,
+    -0.03869629,
+    0.011772156,
+    -0.018539429,
+    0.0017299652,
+    0.002981186,
+    -0.01309967,
+    0.017654419,
+    -0.01789856,
+    0.00030207634,
+    0.043792725,
+    -0.017913818,
+    0.00522995,
+    -0.011230469,
+    -0.020523071,
+    -0.017044067,
+    0.016571045,
+    -0.011650085,
+    0.0031871796,
+    0.010345459,
+    -0.014801025,
+    -8.8870525e-05,
+    -0.007858276,
+    0.029220581,
+    0.005470276,
+    0.004306793,
+    -0.022140503,
+    0.024093628,
+    -0.027328491,
+    -0.031051636,
+    0.006790161,
+    0.0128479,
+    -0.048736572,
+    -0.022491455,
+    -0.025604248,
+    0.034851074,
+    -0.042114258,
+    0.017242432,
+    0.04711914,
+    -0.035827637,
+    0.029708862,
+    -0.019729614,
+    -0.019470215,
+    -0.008872986,
+    0.013168335,
+    -0.014198303,
+    -0.059417725,
+    0.022155762,
+    0.021652222,
+    0.010559082,
+    -0.05130005,
+    0.017181396,
+    -0.0007791519,
+    -0.027755737,
+    -0.023880005,
+    -0.07293701,
+    -0.026351929,
+    -0.02798462,
+    0.07434082,
+    0.029815674,
+    0.010520935,
+    0.062683105,
+    -0.030792236,
+    -0.008232117,
+    -0.0030784607,
+    0.06958008,
+    -0.055725098,
+    -0.06573486,
+    -0.066711426,
+    -0.090270996,
+    -0.07672119,
+    -0.006011963,
+    -0.017105103,
+    -0.011627197,
+    0.031143188,
+    -0.03277588,
+    -0.08557129,
+    -0.06774902,
+    -0.0019893646,
+    0.006816864,
+    -0.010467529,
+    0.022003174,
+    -0.027999878,
+    -0.013786316,
+    -0.010124207,
+    0.07330322,
+    0.031234741,
+    -0.035247803,
+    0.0096206665,
+    -0.01586914,
+    -0.055908203,
+    0.003929138,
+    0.039794922,
+    -0.01210022,
+    -0.05126953,
+    0.03326416,
+    -0.06616211,
+    0.05432129,
+    -0.0054626465,
+    -0.0011949539,
+    -0.01727295,
+    -0.008834839,
+    -0.023040771,
+    0.005607605,
+    -0.021270752,
+    0.0042686462,
+    0.008583069,
+    -0.04324341,
+    -0.01474762,
+    0.02015686,
+    -0.0067253113,
+    0.026443481,
+    0.017822266,
+    0.019073486,
+    -0.019317627,
+    0.022354126,
+    0.007713318,
+    0.015327454,
+    0.005153656,
+    0.0078125,
+    -0.020874023,
+    -0.024002075,
+    0.044952393,
+    0.0015573502,
+    -0.014022827,
+    0.009262085,
+    -0.017028809,
+    0.034606934,
+    0.05441284,
+    0.057159424,
+    -0.0395813,
+    -0.022476196,
+    -0.025360107,
+    0.01953125,
+    0.030731201,
+    0.032196045,
+    -0.029968262,
+    0.06060791,
+    -0.01184082,
+    -0.029800415,
+    0.030792236,
+    -0.040252686,
+    0.050994873,
+    0.03640747,
+    0.00089120865,
+    0.050201416,
+    0.01007843,
+    0.03161621,
+    0.002922058,
+    0.06109619,
+    -0.045318604,
+    -0.016555786,
+    0.004257202,
+    0.055786133,
+    0.022659302,
+    -0.04348755,
+    -0.06048584,
+    0.032226562,
+    0.022705078,
+    -0.02394104,
+    -0.040649414,
+    0.018676758,
+    0.010154724,
+    0.015541077,
+    -0.010520935,
+    0.051818848,
+    0.0013875961,
+    0.012016296,
+    -0.025497437,
+    -0.03012085,
+    -0.017059326,
+    -0.010597229,
+    0.01600647,
+    0.013160706,
+    0.0154800415,
+    0.039733887,
+    -0.011375427,
+    -0.05783081,
+    0.0069999695,
+    0.01713562,
+    0.001033783,
+    0.006134033,
+    -0.015823364,
+    0.016616821,
+    -0.038085938,
+    0.02229309,
+    -0.007331848,
+    -0.0036888123,
+    -2.8848648e-05,
+    0.04647827,
+    0.0012130737,
+    -0.000187397,
+    -0.0053253174,
+    -0.0017681122,
+    0.009979248,
+    -0.00920105,
+    0.02218628,
+    0.018341064,
+    -0.0046653748,
+    0.008049011,
+    -0.016296387,
+    -0.015914917,
+    -0.0031757355,
+    0.019943237,
+    0.030181885,
+    0.02609253,
+    -0.033355713,
+    0.021957397,
+    0.027328491,
+    -0.024383545,
+    -0.010971069,
+    -0.02911377,
+    -0.043945312,
+    0.031951904,
+    0.015594482,
+    0.04647827,
+    -0.027908325,
+    -0.021636963,
+    0.0043678284,
+    0.03994751,
+    0.044128418,
+    0.017822266,
+    0.0043640137,
+    0.025344849,
+    0.012664795,
+    0.0104904175,
+    -0.03692627,
+    -0.001709938,
+    -0.003643036,
+    0.031402588,
+    -0.03286743,
+    0.009742737,
+    -0.024108887,
+    -0.0030117035,
+    -0.0042304993,
+    0.018814087,
+    -0.05895996,
+    0.022613525,
+    0.012084961,
+    -0.03164673,
+    -0.0019454956,
+    -0.047607422,
+    0.0046539307,
+    0.031280518,
+    -0.016204834,
+    0.003238678,
+    -0.05230713,
+    0.00982666,
+    -0.044128418,
+    0.05331421,
+    0.026123047,
+    -0.0070724487,
+    -0.002155304,
+    -0.013946533,
+    0.05706787,
+    -0.06488037,
+    -0.0020446777,
+    -0.0049743652,
+    0.020828247,
+    0.0021324158,
+    0.03086853,
+    0.016815186,
+    0.003080368,
+    -0.03692627,
+    0.007457733,
+    -0.052093506,
+    0.006214142,
+    0.010467529,
+    0.00957489,
+    -0.030685425,
+    -0.058807373,
+    0.06298828,
+    0.013031006,
+    0.000787735,
+    -0.018188477,
+    0.007572174,
+    0.012916565,
+    0.013587952,
+    0.004371643,
+    -0.014450073,
+    0.0064430237,
+    0.014091492,
+    -0.005405426,
+    -0.009887695,
+    0.02128601,
+    -0.06298828,
+    0.032043457,
+    -0.03717041,
+    -0.03704834,
+    -0.013427734,
+    0.013587952,
+    0.009391785,
+    -0.05960083,
+    -0.07940674,
+    0.007133484,
+    0.021224976,
+    0.050231934,
+    -0.021347046,
+    -0.030670166,
+    -0.019378662,
+    0.038604736,
+    -0.0390625,
+    0.010444641,
+    -0.0052986145,
+    -0.02029419,
+    -0.045440674,
+    -0.0064811707,
+    -0.018356323,
+    -0.0119018555,
+    -0.007545471,
+    -0.024383545,
+    -0.0368042,
+    -0.009086609,
+    0.049682617,
+    0.017745972,
+    0.0031833649,
+    -0.06842041,
+    -0.039215088,
+    -0.0014533997,
+    0.06112671,
+    0.009811401,
+    -0.02973938,
+    -0.038848877,
+    0.02357483,
+    -0.02696228,
+    -0.047943115,
+    -0.051757812,
+    0.039916992,
+    0.00064086914,
+    -0.013870239,
+    -0.0368042,
+    -0.00440979,
+    0.0032405853,
+    0.0022201538,
+    0.030014038,
+    0.030380249,
+    0.008613586,
+    0.0034770966,
+    -0.008583069,
+    -0.008377075,
+    -0.025939941,
+    0.026397705,
+    0.011436462,
+    0.039398193,
+    -0.032592773,
+    0.027359009,
+    0.027801514,
+    -0.015014648,
+    -0.06555176,
+    0.01574707,
+    0.040405273,
+    0.023223877,
+    0.0019102097,
+    -0.021072388,
+    0.020339966,
+    0.04144287,
+    0.02104187,
+    0.025512695,
+    0.027679443,
+    0.024337769,
+    -0.020462036,
+    -0.03753662,
+    0.058563232,
+    0.005176544,
+    0.0013866425,
+    -0.040985107,
+    0.0042648315,
+    -0.004776001,
+    -0.011131287,
+    0.030410767,
+    0.08325195,
+    0.117614746,
+    -0.10723877,
+    -0.009132385,
+    0.055755615,
+    -0.019989014,
+    -0.0058021545,
+    0.050842285,
+    -0.0053253174,
+    -0.001367569,
+    -0.06866455,
+    -0.012321472,
+    0.0030994415,
+    0.012817383,
+    0.013023376,
+    -0.025436401,
+    -0.038330078,
+    -0.015380859,
+    0.0077209473,
+    -0.0579834,
+    0.084228516,
+    0.038238525,
+    0.033294678,
+    -0.03086853,
+    0.052612305,
+    -0.01058197,
+    -0.038604736,
+    -0.07366943,
+    -0.021636963,
+    0.049987793,
+    -0.06262207,
+    0.006477356,
+    -0.026382446,
+    0.017822266,
+    -0.008346558,
+    0.0019931793,
+    -0.016906738,
+    -0.015434265,
+    -0.05795288,
+    -0.006729126,
+    0.028427124,
+    0.046539307,
+    0.021194458,
+    -0.038726807,
+    0.018814087,
+    -0.040527344,
+    0.021392822,
+    0.010643005,
+    -0.02482605,
+    -0.014694214,
+    0.00390625,
+    -0.019439697,
+    0.00894928,
+    -0.015174866,
+    0.016204834,
+    -0.015579224,
+    -0.019607544,
+    -0.024398804,
+    0.00084638596,
+    -0.03677368,
+    -0.019714355,
+    0.031036377,
+    -0.026626587,
+    -0.026123047,
+    0.013366699,
+    -0.038604736,
+    -0.0008687973,
+    0.0037288666,
+    0.0105896,
+    0.011528015,
+    -0.007587433,
+    0.009727478,
+    0.017333984,
+    0.011108398,
+    -0.025344849,
+    0.03970337,
+    0.01576233,
+    0.001871109,
+    -0.022781372,
+    -0.0635376,
+    -0.023208618,
+    0.014961243,
+    -0.010696411,
+    -0.006385803,
+    -0.009994507,
+    -0.010322571,
+    0.016021729,
+    -0.00983429,
+    -0.012359619,
+    0.031433105,
+    -0.0037937164,
+    0.029525757,
+    -0.023666382,
+    -0.025802612,
+    0.002588272,
+    -0.011329651,
+    -0.009880066,
+    0.028442383,
+    -0.024490356,
+    0.08215332,
+    -0.016723633,
+    -0.06542969,
+    -0.027938843,
+    0.016159058,
+    0.0008006096,
+    0.046661377,
+    -0.01373291,
+    -0.037719727,
+    0.0038337708,
+    0.038726807,
+    0.047668457,
+    -0.059417725,
+    0.020019531,
+    0.0016946793,
+    0.009902954,
+    0.021728516,
+    -0.036254883,
+    0.034423828,
+    0.0335083,
+    -0.05657959,
+    -0.023971558,
+    -0.0037059784,
+    -0.023025513,
+    0.05545044,
+    0.01474762,
+    -0.045288086,
+    -0.01348114,
+    -0.009529114,
+    0.009498596,
+    -0.015274048,
+    -0.010360718,
+    -0.040252686,
+    -0.029006958,
+    -0.032287598,
+    -0.021942139,
+    -0.0039138794,
+    -0.033416748,
+    0.004940033,
+    0.0390625,
+    0.011489868,
+    0.039093018,
+    -0.012832642,
+    -0.064941406,
+    -0.05154419,
+    -0.028549194,
+    0.0042648315,
+    0.09295654,
+    0.06781006,
+    0.016708374,
+    0.0022640228,
+    -0.06021118,
+    0.03894043,
+    0.011665344,
+    0.016693115,
+    -0.050079346,
+    0.03201294,
+    -0.010375977,
+    -0.034484863,
+    -0.004589081,
+    -0.0044403076,
+    0.0017938614,
+    -0.0041656494,
+    -0.021270752,
+    0.0053901672,
+    -0.004306793,
+    -0.027420044,
+    -0.038024902,
+    -0.01461792,
+    0.001953125,
+    0.018463135,
+    0.039611816,
+    0.00182724,
+    -0.0023212433,
+    0.0368042,
+    0.06121826,
+    -0.021011353,
+    0.039398193,
+    -0.006160736,
+    -0.016082764,
+    0.022598267,
+    -0.031829834,
+    0.040771484,
+    -0.0095825195,
+    0.05340576,
+    0.023452759,
+    -0.017333984,
+    -0.052581787,
+    -0.002254486,
+    0.038330078,
+    0.010803223,
+    0.016479492,
+    -0.022766113,
+    -0.026916504,
+    0.014572144,
+    0.023025513,
+    0.0024986267,
+    0.004283905,
+    0.011360168,
+    -0.02104187,
+    0.070373535,
+    0.01727295,
+    0.078125,
+    0.029907227,
+    -0.026504517,
+    0.041809082,
+    -0.04019165,
+    -0.0048179626,
+    0.024520874,
+    -0.038513184,
+    0.039123535,
+    0.045654297,
+    -0.03982544,
+    0.0017404556,
+    0.0007710457,
+    -0.010444641,
+    0.013938904,
+    0.02558899,
+    0.006832123,
+    0.0023059845,
+    -0.00040769577,
+    -0.026016235,
+    0.011077881,
+    0.041381836,
+    0.030975342,
+    -0.0059280396,
+    0.026565552,
+    0.023330688,
+    -0.017959595,
+    0.049072266,
+    0.04547119,
+    0.011581421,
+    -0.007724762,
+    0.0020427704,
+    0.0067443848,
+    0.023773193,
+    0.026748657,
+    0.019332886,
+    0.031341553,
+    -0.055358887,
+    0.0046844482,
+    0.014083862,
+    -0.031921387,
+    0.032806396,
+    -0.00932312,
+    0.036193848,
+    -0.00699234,
+    0.023849487,
+    -0.012290955,
+    0.035247803,
+    0.026519775,
+    -0.03137207,
+    0.014381409,
+    0.04562378,
+    -0.020751953,
+    0.029541016,
+    0.024261475,
+    0.01927185,
+    0.038024902,
+    -0.029556274,
+    -0.0017585754,
+    0.04562378,
+    0.029220581,
+    0.019012451,
+    0.005382538,
+    0.037384033,
+    -0.0048065186,
+    -0.029663086,
+    -0.01701355,
+    -0.019226074,
+    0.057617188,
+    0.013511658,
+    0.0030975342,
+    -0.0014295578,
+    -0.017684937,
+    -0.018829346,
+    -0.021652222,
+    -0.019042969,
+    0.044647217,
+    0.03186035,
+    0.02204895,
+    0.017227173,
+    -0.04006958,
+    -0.012527466,
+    0.03463745,
+    0.036468506,
+    0.08959961,
+    0.04562378,
+    -0.02027893,
+    -0.00039219856,
+    0.009384155,
+    0.022598267,
+    0.057525635,
+    -0.014572144,
+    0.07531738,
+    -0.023773193,
+    -0.009513855,
+    0.020141602,
+    0.034179688,
+    -0.024902344,
+    -0.066833496,
+    0.003458023,
+    -0.0016765594,
+    -0.035095215,
+    -0.022277832,
+    -0.011497498,
+    0.011230469,
+    -0.026473999,
+    -0.027191162,
+    -0.0070991516,
+    -0.03552246,
+    0.016494751,
+    0.035369873,
+    0.039611816,
+    0.016281128,
+    0.046905518,
+    -0.042175293,
+    0.032104492,
+    -0.010131836,
+    0.035858154,
+    -0.061187744,
+    0.0064353943,
+    -0.0014162064,
+    0.0070228577,
+    -0.013938904,
+    -0.026412964,
+    0.027160645,
+    -0.0022239685,
+    -0.011505127,
+    -0.04864502,
+    0.01763916,
+    -0.022003174,
+    -0.03756714,
+    0.031982422,
+    -0.017974854,
+    -0.009994507,
+    0.06463623,
+    0.0025730133,
+    -0.027435303,
+    0.043640137,
+    -0.011566162,
+    0.034240723,
+    0.031311035,
+    -0.015136719,
+    0.0070610046,
+    -0.01222229,
+    -0.034057617,
+    -0.026794434,
+    -0.008850098,
+    -0.009307861,
+    -0.0073776245,
+    0.013313293,
+    -0.027999878,
+    -0.059753418,
+    0.008087158,
+    -0.046447754,
+    0.00484848,
+    0.0050811768,
+    -0.07128906,
+    0.05517578,
+    -0.015808105,
+    -0.0065345764,
+    -0.025177002,
+    0.029403687,
+    -0.008666992,
+    0.029510498,
+    -0.034332275,
+    -0.0056495667,
+    -0.0055274963,
+    0.02861023,
+    0.0037403107,
+    0.034484863,
+    -0.028549194,
+    0.060516357,
+    0.0028438568,
+    0.0309906,
+    0.0013942719,
+    0.11785889,
+    -0.0029315948,
+    0.03552246,
+    -0.06011963,
+    -0.013885498,
+    -0.07659912,
+    -0.013259888,
+    0.02758789,
+    -0.000702858,
+    0.028366089,
+    0.038757324,
+    -0.031097412,
+    0.033721924,
+    -0.023071289,
+    -0.013336182
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part II/Item 7 - Management’s Discussion and Analysis of Financial Condition and Results of Operations/",
+    "aws::graph::propositions": [
+      "# Factors Affecting Amazon's Effective Tax Rate",
+      "Our effective tax rate is subject to significant variation.",
+      "Variability in our pre-tax income affects our effective tax rate.",
+      "Variability in our taxable income affects our effective tax rate.",
+      "The mix of jurisdictions to which our income and loss relate affects our effective tax rate.",
+      "Intercompany transactions affect our effective tax rate.",
+      "The applicability of special tax regimes affects our effective tax rate.",
+      "Changes in how we do business affect our effective tax rate.",
+      "Acquisitions affect our effective tax rate.",
+      "Investments affect our effective tax rate.",
+      "Developments in tax controversies affect our effective tax rate.",
+      "Changes in our stock price affect our effective tax rate.",
+      "Changes in our deferred tax assets affect our effective tax rate.",
+      "Changes in our deferred tax liabilities affect our effective tax rate.",
+      "Changes in valuation of our deferred tax assets and liabilities affect our effective tax rate.",
+      "Foreign currency gains affect our effective tax rate.",
+      "Foreign currency losses affect our effective tax rate.",
+      "Changes in statutes related to tax affect our effective tax rate.",
+      "Changes in regulations related to tax affect our effective tax rate.",
+      "Changes in case law related to tax affect our effective tax rate.",
+      "Changes in administrative practices related to tax affect our effective tax rate.",
+      "Changes in principles related to tax affect our effective tax rate.",
+      "Changes in interpretations related to tax affect our effective tax rate.",
+      "Changes to the global tax framework affect our effective tax rate.",
+      "Competition laws in various jurisdictions affect our effective tax rate.",
+      "Other laws in various jurisdictions affect our effective tax rate.",
+      "Accounting rules in various jurisdictions affect our effective tax rate.",
+      "Relative changes of expenses for which tax benefits are not recognized affect our effective tax rate.",
+      "Relative changes of losses for which tax benefits are not recognized affect our effective tax rate.",
+      "Our effective tax rate can be more volatile based on the amount of pre-tax income.",
+      "Our effective tax rate can be less volatile based on the amount of pre-tax income.",
+      "Our effective tax rate can be more volatile based on the amount of pre-tax loss.",
+      "Our effective tax rate can be less volatile based on the amount of pre-tax loss."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Factors Affecting Amazon's Effective Tax Rate",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Our effective tax rate is subject to significant variation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "subject to significant variation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Variability in our pre-tax income affects our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by pre-tax income variability",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Variability in our taxable income affects our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by taxable income variability",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The mix of jurisdictions to which our income and loss relate affects our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by jurisdictional income and loss mix",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Intercompany transactions affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by intercompany transactions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The applicability of special tax regimes affects our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by special tax regimes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in how we do business affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by business practice changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Acquisitions affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by acquisitions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Investments affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by investments",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Developments in tax controversies affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by tax controversy developments",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in our stock price affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by stock price changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in our deferred tax assets affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by deferred tax asset changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in our deferred tax liabilities affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by deferred tax liability changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in valuation of our deferred tax assets and liabilities affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by deferred tax valuation changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Foreign currency gains affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by foreign currency gains",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Foreign currency losses affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by foreign currency losses",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in statutes related to tax affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by tax statute changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in regulations related to tax affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by tax regulation changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in case law related to tax affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by tax case law changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in administrative practices related to tax affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by tax administrative practice changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in principles related to tax affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by tax principle changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in interpretations related to tax affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by tax interpretation changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes to the global tax framework affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by global tax framework changes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Competition laws in various jurisdictions affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by jurisdictional competition laws",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Other laws in various jurisdictions affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by other jurisdictional laws",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Accounting rules in various jurisdictions affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by jurisdictional accounting rules",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Relative changes of expenses for which tax benefits are not recognized affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by unrecognized tax benefit expenses",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Relative changes of losses for which tax benefits are not recognized affect our effective tax rate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "affected by unrecognized tax benefit losses",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Our effective tax rate can be more volatile based on the amount of pre-tax income.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more volatile with certain pre-tax income amounts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Our effective tax rate can be less volatile based on the amount of pre-tax income.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "less volatile with certain pre-tax income amounts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Our effective tax rate can be more volatile based on the amount of pre-tax loss.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more volatile with certain pre-tax loss amounts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Our effective tax rate can be less volatile based on the amount of pre-tax loss.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS EFFECTIVE TAX RATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "less volatile with certain pre-tax loss amounts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:0bba1db2",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part II/Item 7 - Management’s Discussion and Analysis of Financial Condition and Results of Operations/"
+      },
+      "hash": "1d0ec2289abc1bc9fe5c35be2c4a37e60cf6766f7b2dc661946e9773fa09c102",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:886f2d39",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part II/Item 7 - Management’s Discussion and Analysis of Financial Condition and Results of Operations/"
+      },
+      "hash": "d4fbef0fb69285a959db6963a3b0855c08d418f025c3daa13436887706bbd035",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "#### Income Taxes\n\nOur effective tax rate is subject to significant variation due to several factors, including variability in our pre-tax and taxable income and loss and the mix of jurisdictions to which they relate, intercompany transactions, the applicability of special tax regimes, changes in how we do business, acquisitions, investments, developments in tax controversies, changes in our stock price, changes in our deferred tax assets and liabilities and their valuation, foreign currency gains (losses), changes in statutes, regulations, case law, and administrative practices, principles, and interpretations related to tax, including changes to the global tax framework, competition, and other laws and accounting rules in various jurisdictions, and relative changes of expenses or losses for which tax benefits are not recognized. Our effective tax rate can be more or less volatile based on the amount of pre-tax income or loss.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 941,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

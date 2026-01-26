@@ -1,0 +1,111 @@
+topic: x2g Family Instance Types for Graph Use Cases
+
+  entities:
+  
+    x2g family|Product
+    r5 family|Product
+    r6g family|Product
+    x2g instances|Product
+    r6g instance types|Product
+    r5 instance types|Product
+    Graviton2 processor|Product
+    Users|Role
+  
+  proposition: The x2g family is a family of instance types.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    x2g family|IS_TYPE_OF|family of instance types
+      
+  proposition: Some graph use cases see better performance when instances have larger buffer-pool caches.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+
+  proposition: The x2g family was launched to better support graph use cases that see better performance when instances have larger buffer-pool caches.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    x2g family|PURPOSE|better support graph use cases that see better performance when instances have larger buffer-pool caches
+
+  proposition: The x2g family has a larger memory-to-vCPU ratio than the r5 family.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    x2g family|HAS_CHARACTERISTIC|larger memory-to-vCPU ratio than the r5 family
+
+  proposition: The x2g family has a larger memory-to-vCPU ratio than the r6g family.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    x2g family|HAS_CHARACTERISTIC|larger memory-to-vCPU ratio than the r6g family
+
+  proposition: The r5 family is a family of instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r5 family|IS_TYPE_OF|family of instance types
+
+  proposition: The r6g family is a family of instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r6g family|IS_TYPE_OF|family of instance types
+
+  proposition: The x2g instances use the Graviton2 processor.
+  
+    entity-entity relationships:
+    x2g instances|USES|Graviton2 processor
+  
+    entity-attributes:
+
+  proposition: The Graviton2 processor is a processor.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Graviton2 processor|IS_TYPE_OF|processor
+
+  proposition: The x2g instances have many of the same performance characteristics as r6g instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    x2g instances|HAS_CHARACTERISTIC|many of the same performance characteristics as r6g instance types
+
+  proposition: The x2g instances have a larger buffer-pool cache than r6g instance types.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    x2g instances|HAS_CHARACTERISTIC|larger buffer-pool cache than r6g instance types
+
+  proposition: Users should try using the x2g family instead if they are using r5 instance types with low CPU utilization and a high buffer-pool cache miss rate.
+  
+    entity-entity relationships:
+    Users|SHOULD_USE|x2g family
+    Users|CURRENTLY_USES|r5 instance types
+  
+    entity-attributes:
+
+  proposition: Users should try using the x2g family instead if they are using r6g instance types with low CPU utilization and a high buffer-pool cache miss rate.
+  
+    entity-entity relationships:
+    Users|SHOULD_USE|x2g family
+    Users|CURRENTLY_USES|r6g instance types
+  
+    entity-attributes:
+
+  proposition: Using the x2g family provides additional memory without paying for more CPU capacity when switching from r5 or r6g instance types with low CPU utilization.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    x2g family|PROVIDES|additional memory without paying for more CPU capacity when switching from r5 or r6g instance types with low CPU utilization

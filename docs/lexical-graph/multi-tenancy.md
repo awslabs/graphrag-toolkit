@@ -59,5 +59,3 @@ If a lexical graph does not exist for the specified tenant id, the underlying re
 ### Implementation details
 
 Multi-tenancy works by using tenant-specific node labels for nodes in the graph, and tenant-specific indexes in the vector store. For example, chunk nodes in a graph belonging to tenant 'user123' will be labelled `__Chunk__user123__`, while the chunk vector index will be named `chunk_user123`.
-
-Not every graph and vector store necessarily supports multi-tenancy. Neptune Analytics, when used as a vector store, for example, does not currently support multi-tenancy.

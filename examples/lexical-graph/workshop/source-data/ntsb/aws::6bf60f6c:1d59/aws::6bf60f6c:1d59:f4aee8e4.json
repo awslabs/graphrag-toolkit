@@ -1,0 +1,2297 @@
+{
+  "id_": "aws::6bf60f6c:1d59:f4aee8e4",
+  "embedding": [
+    0.037994385,
+    -0.009490967,
+    0.02468872,
+    -0.062469482,
+    -0.018737793,
+    0.012481689,
+    -0.03338623,
+    0.008911133,
+    -0.009109497,
+    0.03164673,
+    0.005924225,
+    -0.00819397,
+    0.02784729,
+    -0.031463623,
+    0.009155273,
+    -0.012420654,
+    0.03237915,
+    0.03543091,
+    0.03463745,
+    -0.015533447,
+    -0.0033569336,
+    0.016464233,
+    0.008468628,
+    0.082092285,
+    0.0022640228,
+    0.05166626,
+    -0.074401855,
+    0.031982422,
+    -0.006603241,
+    0.03378296,
+    0.012306213,
+    -0.031585693,
+    0.026992798,
+    0.04309082,
+    -0.061065674,
+    -0.056396484,
+    -0.030334473,
+    0.021652222,
+    -0.016738892,
+    0.018432617,
+    0.0021305084,
+    0.0074653625,
+    0.058929443,
+    0.008399963,
+    -0.024978638,
+    0.018615723,
+    -0.013435364,
+    -0.017623901,
+    0.046661377,
+    0.07092285,
+    0.011230469,
+    -0.009284973,
+    -0.020233154,
+    0.07330322,
+    -0.03173828,
+    -0.042663574,
+    -0.03112793,
+    -0.0068588257,
+    0.03253174,
+    0.044433594,
+    0.009475708,
+    -0.02381897,
+    0.01789856,
+    -0.041015625,
+    -0.03353882,
+    0.011512756,
+    -0.03652954,
+    0.0060806274,
+    0.0044136047,
+    -0.04498291,
+    -0.023727417,
+    -0.0206604,
+    -0.006000519,
+    0.012519836,
+    -0.046447754,
+    -0.03955078,
+    0.028930664,
+    -0.013938904,
+    0.008369446,
+    0.013061523,
+    0.036743164,
+    0.0026931763,
+    0.023498535,
+    0.024139404,
+    -0.013160706,
+    0.03161621,
+    -0.0071105957,
+    -0.023849487,
+    0.023101807,
+    -0.022094727,
+    -0.001619339,
+    0.026977539,
+    0.040100098,
+    0.009979248,
+    -0.05618286,
+    -0.025268555,
+    -0.0008635521,
+    -0.032318115,
+    0.026168823,
+    0.032409668,
+    0.019317627,
+    -0.05709839,
+    0.05831909,
+    -0.027328491,
+    -0.0178833,
+    -0.012420654,
+    0.013999939,
+    -0.023391724,
+    0.022399902,
+    0.014984131,
+    -0.048339844,
+    0.064697266,
+    -0.0017709732,
+    -0.04321289,
+    -0.027160645,
+    0.03491211,
+    0.000869751,
+    0.004047394,
+    0.015060425,
+    -0.005241394,
+    0.017150879,
+    0.041137695,
+    -0.017547607,
+    -0.0075531006,
+    -0.028625488,
+    -0.030761719,
+    -0.01687622,
+    -0.0019741058,
+    0.05505371,
+    -0.050811768,
+    -0.027954102,
+    0.07476807,
+    0.012176514,
+    -0.04385376,
+    -0.013946533,
+    0.007247925,
+    -0.004501343,
+    -0.035064697,
+    -0.012023926,
+    0.032287598,
+    -0.03152466,
+    -0.021865845,
+    0.05947876,
+    -0.030181885,
+    -0.009147644,
+    0.03112793,
+    0.01423645,
+    0.0040664673,
+    0.011123657,
+    -0.03805542,
+    -0.018997192,
+    -0.009963989,
+    0.040130615,
+    -0.02861023,
+    -0.031433105,
+    -0.1015625,
+    -0.01928711,
+    -0.04650879,
+    0.061828613,
+    -0.06555176,
+    0.018051147,
+    -0.0446167,
+    -0.056610107,
+    -0.016311646,
+    -0.08868408,
+    0.040252686,
+    0.020858765,
+    -0.0070533752,
+    0.0128479,
+    -0.023071289,
+    0.023391724,
+    -0.011444092,
+    -0.058380127,
+    -0.008857727,
+    0.016342163,
+    0.01914978,
+    -0.013900757,
+    0.04638672,
+    0.026489258,
+    -0.047332764,
+    -0.037017822,
+    -0.04159546,
+    0.05166626,
+    -0.026519775,
+    0.008895874,
+    -0.0066490173,
+    -0.009384155,
+    -0.037902832,
+    0.013328552,
+    -0.002626419,
+    -0.010604858,
+    0.046142578,
+    0.01977539,
+    0.0011463165,
+    0.010299683,
+    -0.030471802,
+    -0.023513794,
+    0.004676819,
+    -0.014701843,
+    -0.0049591064,
+    -0.016448975,
+    -0.0158844,
+    -0.012748718,
+    0.029464722,
+    -0.016860962,
+    -0.0021076202,
+    -0.015007019,
+    -0.0052261353,
+    -0.023971558,
+    0.016143799,
+    0.029922485,
+    -0.024749756,
+    0.0030651093,
+    -0.013252258,
+    0.0023155212,
+    -0.005657196,
+    -0.009681702,
+    0.015777588,
+    0.030700684,
+    0.017150879,
+    0.010139465,
+    0.027679443,
+    -0.009414673,
+    -0.03692627,
+    -0.008979797,
+    0.01737976,
+    -0.005760193,
+    0.011978149,
+    0.064575195,
+    0.013824463,
+    0.09844971,
+    -0.046722412,
+    0.030929565,
+    0.038330078,
+    0.000992775,
+    0.011558533,
+    0.03643799,
+    -0.046936035,
+    0.007358551,
+    0.020629883,
+    -0.0066375732,
+    -0.01486969,
+    -0.010398865,
+    0.08404541,
+    -0.08905029,
+    -0.054595947,
+    0.00029873848,
+    0.04107666,
+    -0.021026611,
+    0.022766113,
+    0.051239014,
+    0.020584106,
+    -0.013801575,
+    0.02545166,
+    0.002626419,
+    0.008102417,
+    -0.044555664,
+    -0.05267334,
+    -0.011260986,
+    -0.0023536682,
+    0.021636963,
+    -0.09411621,
+    -0.027755737,
+    -0.04272461,
+    0.10021973,
+    -0.00085401535,
+    0.08514404,
+    0.05102539,
+    -0.049468994,
+    0.012420654,
+    -0.0020809174,
+    0.021636963,
+    -0.010848999,
+    0.009559631,
+    -0.066833496,
+    -0.02394104,
+    0.0028362274,
+    0.03829956,
+    -0.04272461,
+    -0.03024292,
+    -0.031188965,
+    0.0045166016,
+    -0.010620117,
+    -0.019134521,
+    0.02268982,
+    -0.0011692047,
+    -0.0030136108,
+    -0.06939697,
+    -0.031402588,
+    0.026977539,
+    0.052368164,
+    0.013832092,
+    -0.01008606,
+    0.0031280518,
+    0.018722534,
+    -0.0009646416,
+    0.02709961,
+    0.03427124,
+    -0.018814087,
+    0.003850937,
+    0.0050621033,
+    0.02658081,
+    -0.0077667236,
+    -0.004989624,
+    0.0042266846,
+    0.003917694,
+    0.0003862381,
+    -0.01763916,
+    -0.005455017,
+    0.020507812,
+    -0.03277588,
+    0.029846191,
+    4.005432e-05,
+    0.023498535,
+    -0.061676025,
+    -0.047210693,
+    -0.05404663,
+    -0.013130188,
+    -0.05355835,
+    -0.010871887,
+    0.015281677,
+    -0.02407837,
+    0.006477356,
+    0.006000519,
+    -0.006225586,
+    -0.02557373,
+    0.007282257,
+    0.008460999,
+    -0.023986816,
+    -0.010765076,
+    -0.032928467,
+    -0.02180481,
+    -0.03475952,
+    0.0546875,
+    0.00020515919,
+    0.023422241,
+    -0.014442444,
+    -0.03125,
+    -0.029556274,
+    0.01828003,
+    0.0065841675,
+    -0.014701843,
+    0.037841797,
+    -0.01776123,
+    -0.032196045,
+    -0.009895325,
+    0.027938843,
+    0.0023498535,
+    -0.006149292,
+    -0.0011177063,
+    0.035888672,
+    -0.016708374,
+    -0.013748169,
+    -0.03591919,
+    0.028808594,
+    -0.050231934,
+    -0.0048942566,
+    0.013656616,
+    0.019454956,
+    -0.03741455,
+    0.016525269,
+    -0.019378662,
+    -0.04095459,
+    -0.0066566467,
+    -0.0035171509,
+    0.0074920654,
+    -0.017120361,
+    0.002878189,
+    -0.017944336,
+    0.0087890625,
+    -0.04159546,
+    0.020263672,
+    -0.011390686,
+    -0.0146484375,
+    -0.00472641,
+    0.010398865,
+    6.687641e-05,
+    -0.027160645,
+    0.0003771782,
+    -0.008201599,
+    0.021408081,
+    -0.025527954,
+    0.035614014,
+    -0.042816162,
+    0.04437256,
+    0.0028953552,
+    0.035186768,
+    0.014671326,
+    0.07885742,
+    -0.00024843216,
+    0.052886963,
+    -0.010070801,
+    -0.031234741,
+    -0.011108398,
+    -0.009635925,
+    0.009719849,
+    -0.013626099,
+    -0.022262573,
+    -0.027618408,
+    0.0074005127,
+    -0.07562256,
+    0.009849548,
+    0.009796143,
+    -0.016921997,
+    -0.0014657974,
+    -0.0063056946,
+    -0.021820068,
+    -0.0440979,
+    0.027893066,
+    -0.0030174255,
+    -0.036865234,
+    0.008293152,
+    -0.05026245,
+    -0.015174866,
+    -0.036315918,
+    0.0035324097,
+    -0.027786255,
+    -0.0059165955,
+    -0.031097412,
+    0.026779175,
+    0.055786133,
+    -0.06121826,
+    0.016403198,
+    0.01713562,
+    0.0104599,
+    0.028396606,
+    -0.008735657,
+    -0.03488159,
+    0.031051636,
+    0.04852295,
+    -0.0076828003,
+    0.015533447,
+    -0.02659607,
+    -0.010055542,
+    0.014091492,
+    0.05343628,
+    -0.00016283989,
+    0.007980347,
+    0.021194458,
+    -0.013206482,
+    -0.03366089,
+    -0.0051612854,
+    0.033111572,
+    0.030578613,
+    0.030014038,
+    -0.034362793,
+    -0.021972656,
+    -0.0345459,
+    -0.0036125183,
+    -0.027023315,
+    -0.0010290146,
+    0.0023670197,
+    0.019577026,
+    0.018218994,
+    -0.012084961,
+    0.046295166,
+    0.004459381,
+    0.010795593,
+    -0.023803711,
+    0.016204834,
+    0.020874023,
+    0.016662598,
+    -0.0423584,
+    -0.037902832,
+    0.0087509155,
+    -0.008605957,
+    -0.03778076,
+    0.012207031,
+    -0.0056762695,
+    0.0058784485,
+    0.027313232,
+    0.026611328,
+    -0.035614014,
+    -0.039367676,
+    0.020233154,
+    -0.04196167,
+    0.020568848,
+    -0.0093307495,
+    0.071777344,
+    -0.0033931732,
+    -0.0635376,
+    0.02571106,
+    0.0065345764,
+    -0.00018656254,
+    0.028518677,
+    -0.004432678,
+    0.027801514,
+    -0.017700195,
+    0.010322571,
+    0.0023536682,
+    -0.031677246,
+    0.009750366,
+    0.0032596588,
+    0.005508423,
+    0.00920105,
+    0.014587402,
+    0.013084412,
+    -0.06222534,
+    -0.014144897,
+    -0.046783447,
+    -0.05090332,
+    0.030441284,
+    -0.00089120865,
+    -0.008010864,
+    -0.0010261536,
+    0.03451538,
+    -0.0064582825,
+    0.02204895,
+    -0.019699097,
+    -0.057128906,
+    0.009132385,
+    -0.03503418,
+    -0.0034885406,
+    0.04220581,
+    -0.053497314,
+    0.033447266,
+    -0.04949951,
+    0.03704834,
+    -0.046417236,
+    -0.020004272,
+    -0.047607422,
+    -0.007724762,
+    0.013870239,
+    0.050842285,
+    -0.00091934204,
+    -0.0138168335,
+    -0.0011310577,
+    0.03741455,
+    -0.020141602,
+    -0.053771973,
+    0.02520752,
+    0.03262329,
+    -0.00484848,
+    0.02960205,
+    0.007472992,
+    0.0262146,
+    -0.003967285,
+    0.031707764,
+    -0.026107788,
+    -0.066589355,
+    -0.022979736,
+    0.025527954,
+    0.013847351,
+    -0.04119873,
+    0.0025348663,
+    0.0013008118,
+    -0.0014781952,
+    0.055847168,
+    -0.047424316,
+    0.030792236,
+    -0.0051193237,
+    -0.0072288513,
+    -0.004611969,
+    -0.049804688,
+    -0.010856628,
+    0.0004272461,
+    0.023483276,
+    -0.034851074,
+    -0.008911133,
+    0.022903442,
+    -0.010551453,
+    -0.00374794,
+    -0.033294678,
+    0.014579773,
+    -0.04547119,
+    0.008834839,
+    0.057128906,
+    0.019332886,
+    -0.0051612854,
+    -0.009628296,
+    -0.03451538,
+    -0.011528015,
+    -0.013450623,
+    -0.03201294,
+    -0.010505676,
+    -0.0026741028,
+    0.006549835,
+    0.024505615,
+    -0.008728027,
+    -0.013793945,
+    -0.030258179,
+    0.02468872,
+    0.02017212,
+    0.050476074,
+    -0.04714966,
+    0.074401855,
+    0.007331848,
+    -0.014968872,
+    -0.01776123,
+    0.041168213,
+    0.020095825,
+    0.015312195,
+    0.006313324,
+    0.020492554,
+    0.0010080338,
+    -0.030136108,
+    0.03555298,
+    -0.039520264,
+    0.012634277,
+    0.00945282,
+    0.0018033981,
+    0.010848999,
+    -0.00065231323,
+    -0.015319824,
+    0.017852783,
+    0.04437256,
+    0.032958984,
+    0.003900528,
+    -0.008712769,
+    0.00021314621,
+    0.005832672,
+    -0.020431519,
+    -0.021102905,
+    0.017044067,
+    -0.011672974,
+    0.024719238,
+    -0.0368042,
+    0.031402588,
+    0.09075928,
+    0.01348114,
+    0.041412354,
+    0.03503418,
+    0.0021362305,
+    -0.014526367,
+    0.06048584,
+    -0.0181427,
+    -0.07269287,
+    -0.013793945,
+    0.0059509277,
+    0.010978699,
+    -0.0015859604,
+    -0.004837036,
+    -0.06854248,
+    -0.07513428,
+    -0.046325684,
+    0.060455322,
+    -0.007118225,
+    -0.008293152,
+    0.0026416779,
+    -0.07092285,
+    0.007045746,
+    -0.030807495,
+    -0.09649658,
+    0.022567749,
+    0.028915405,
+    0.001493454,
+    -0.01007843,
+    0.0033130646,
+    0.0047035217,
+    0.016540527,
+    0.015853882,
+    -0.0043792725,
+    0.024536133,
+    -0.10107422,
+    -0.008201599,
+    -0.041778564,
+    -0.019302368,
+    -0.024383545,
+    0.0134887695,
+    -0.05166626,
+    -0.116882324,
+    -0.05380249,
+    -0.030929565,
+    -0.019897461,
+    -0.040649414,
+    0.011306763,
+    0.03314209,
+    0.009002686,
+    -0.0107803345,
+    -0.014129639,
+    -0.010154724,
+    0.03463745,
+    -0.01876831,
+    -0.038330078,
+    0.010322571,
+    0.03451538,
+    0.021484375,
+    0.029129028,
+    0.023223877,
+    -0.054016113,
+    0.020614624,
+    0.0075263977,
+    -0.002418518,
+    -0.025177002,
+    -0.008415222,
+    0.02217102,
+    -0.014076233,
+    0.007537842,
+    0.006919861,
+    0.03414917,
+    -0.06695557,
+    -0.041381836,
+    0.034057617,
+    -0.05038452,
+    -0.040161133,
+    0.0026397705,
+    -0.0008649826,
+    0.047698975,
+    -0.0060310364,
+    -0.04953003,
+    0.01133728,
+    0.040771484,
+    0.015777588,
+    0.03048706,
+    -0.0054130554,
+    0.030929565,
+    0.01663208,
+    0.008117676,
+    -0.017990112,
+    -0.0046424866,
+    0.0029315948,
+    0.02128601,
+    -0.02923584,
+    -0.029281616,
+    0.033050537,
+    0.03729248,
+    0.098083496,
+    0.0049858093,
+    0.010665894,
+    0.00076293945,
+    -0.025482178,
+    0.035491943,
+    0.021087646,
+    -0.076171875,
+    0.016052246,
+    -0.010467529,
+    -0.028640747,
+    0.0058021545,
+    -0.021957397,
+    -0.047851562,
+    0.015411377,
+    -0.0041007996,
+    0.023269653,
+    -0.0066566467,
+    -0.030273438,
+    -0.031219482,
+    -0.0052757263,
+    -0.030578613,
+    -0.076049805,
+    0.029678345,
+    0.004737854,
+    -0.0110321045,
+    0.0077781677,
+    -0.016815186,
+    -0.013687134,
+    0.010391235,
+    0.017562866,
+    -0.04345703,
+    -0.03488159,
+    -0.0047302246,
+    0.0047798157,
+    -0.044433594,
+    -0.09295654,
+    0.012687683,
+    0.020965576,
+    0.05621338,
+    0.022567749,
+    -0.018417358,
+    -0.08880615,
+    0.011932373,
+    -0.0041389465,
+    1.8179417e-05,
+    0.017440796,
+    0.017562866,
+    -0.022323608,
+    0.03677368,
+    0.022994995,
+    0.016693115,
+    0.00038170815,
+    -0.013061523,
+    0.00090789795,
+    0.0021038055,
+    0.011352539,
+    0.012619019,
+    0.022705078,
+    -0.017608643,
+    0.00046730042,
+    0.011222839,
+    0.021194458,
+    -0.0005197525,
+    -0.03744507,
+    0.034729004,
+    -0.036895752,
+    0.012313843,
+    -0.023864746,
+    0.018173218,
+    -0.054504395,
+    0.06225586,
+    -0.043914795,
+    -0.027435303,
+    -0.021499634,
+    0.055877686,
+    0.0071983337,
+    -0.03173828,
+    0.0007147789,
+    -0.021484375,
+    -0.035369873,
+    -0.0030460358,
+    -0.038360596,
+    -0.031982422,
+    -0.016845703,
+    -0.018356323,
+    -0.043182373,
+    -0.026168823,
+    -0.028945923,
+    0.019836426,
+    0.020141602,
+    -0.01928711,
+    0.02128601,
+    -0.030410767,
+    0.02746582,
+    -0.015411377,
+    0.034576416,
+    -0.0093688965,
+    -0.0113220215,
+    0.028961182,
+    0.011878967,
+    -0.029418945,
+    0.03253174,
+    0.032806396,
+    -0.0027656555,
+    0.029129028,
+    0.026168823,
+    0.01638794,
+    0.01448822,
+    0.0049858093,
+    -0.0027389526,
+    -0.025421143,
+    0.017547607,
+    -0.026245117,
+    0.0046958923,
+    -0.0039482117,
+    0.009933472,
+    0.014472961,
+    0.034454346,
+    0.008964539,
+    0.026306152,
+    -0.06500244,
+    0.02935791,
+    0.00970459,
+    -0.0030879974,
+    -0.04248047,
+    0.046783447,
+    0.042907715,
+    -0.08129883,
+    0.030166626,
+    0.009613037,
+    -0.018936157,
+    0.013504028,
+    0.07873535,
+    -0.0028152466,
+    0.008239746,
+    0.05505371,
+    -0.030670166,
+    -0.0009665489,
+    0.001786232,
+    -0.021621704,
+    -0.033966064,
+    -0.012046814,
+    0.017852783,
+    0.011123657,
+    0.00074768066,
+    -0.028808594,
+    -0.021621704,
+    -0.0018539429,
+    0.030822754,
+    0.01626587,
+    -0.00025749207,
+    0.054656982,
+    0.037994385,
+    0.019165039,
+    -0.07281494,
+    -0.05203247,
+    -0.020904541,
+    -0.010925293,
+    -0.06756592,
+    0.030197144,
+    0.0035362244,
+    -0.023239136,
+    -0.002439499,
+    -0.08294678,
+    -0.0569458,
+    0.0065345764,
+    -0.0138168335,
+    0.011619568,
+    -0.115722656,
+    0.025466919,
+    0.021575928,
+    0.07116699,
+    0.024032593,
+    -0.013008118,
+    -0.017318726,
+    -0.0048980713,
+    -0.0022125244,
+    0.045562744,
+    0.025054932,
+    -0.0066184998,
+    -0.0034503937,
+    -0.035827637,
+    0.024597168,
+    -0.0009899139,
+    -0.026565552,
+    -0.016296387,
+    -0.032196045,
+    0.025741577,
+    -0.012954712,
+    0.0019226074,
+    -0.039123535,
+    3.629923e-05,
+    -0.009140015,
+    0.019638062,
+    0.038116455,
+    -0.026184082,
+    0.03112793,
+    -0.00995636,
+    -0.041656494,
+    -0.08795166,
+    -0.018569946,
+    -0.023513794,
+    -0.012039185,
+    -0.022781372,
+    0.006149292,
+    -0.006046295,
+    0.012138367,
+    -0.028625488,
+    0.0063705444,
+    -0.015380859,
+    -0.041931152,
+    -0.010734558,
+    0.004890442,
+    0.0033493042,
+    0.012763977,
+    0.07531738,
+    0.007980347,
+    0.0345459,
+    -0.0009946823,
+    -0.046295166,
+    -0.02734375,
+    -0.02331543,
+    0.05807495,
+    0.011581421,
+    -0.021636963,
+    -0.03463745,
+    0.043304443,
+    0.002544403,
+    0.023223877,
+    0.0030326843,
+    0.026016235,
+    -0.03668213,
+    0.029464722,
+    0.00034856796,
+    -0.009567261,
+    0.015533447,
+    0.030151367,
+    0.0072135925,
+    0.05307007,
+    -0.011329651,
+    -0.0020141602,
+    -0.046844482,
+    -0.08496094,
+    -0.016204834,
+    0.006034851,
+    0.007843018,
+    0.02432251,
+    0.021957397,
+    0.033203125,
+    0.007507324,
+    -0.05291748,
+    -0.006450653,
+    -0.017288208,
+    -0.026046753,
+    0.028381348,
+    0.0013618469,
+    -0.012130737,
+    0.035491943,
+    -0.01096344,
+    -0.0057754517,
+    -0.013175964,
+    -0.011695862,
+    -0.0067825317,
+    -0.0020580292,
+    0.008872986,
+    -0.025619507,
+    0.04446411,
+    0.014671326,
+    -0.06628418,
+    0.017684937,
+    -0.011459351,
+    -0.045410156,
+    0.01802063,
+    -0.06378174,
+    0.005054474,
+    0.036010742,
+    -0.012184143,
+    0.0057792664,
+    -0.0023441315,
+    0.029769897,
+    0.004589081,
+    0.02619934,
+    -0.030258179,
+    0.010444641,
+    0.0067443848,
+    0.014404297,
+    0.003736496,
+    -0.0053138733,
+    -0.004486084,
+    -0.021469116,
+    0.023864746,
+    -0.0009756088,
+    -0.024673462,
+    -0.055877686,
+    0.06707764,
+    0.011741638,
+    -0.03579712,
+    0.024215698,
+    -0.014389038,
+    0.013664246,
+    0.025863647,
+    0.045043945,
+    0.025161743,
+    -0.0039138794,
+    0.006954193,
+    0.0017633438,
+    -0.013519287
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+    "file_name": "101233.md",
+    "file_size": 17800,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Helicopter Maintenance and Hydraulic System Information",
+      "The helicopter had an ATT of 5.3 hours at the conclusion of the functional check flight.",
+      "The incident helicopter was flown to Airbus Helicopters' facility in Grand Prairie, Texas in mid-November of 2019.",
+      "Airbus Helicopters is located in Grand Prairie, Texas.",
+      "On January 30, 2020, at an ATT of 17.8 hours, the 12-month/150-flight hour inspections were performed in Grand Prairie.",
+      "The 12-month/150-flight hour inspections included the visual inspection of the hydraulic pump belt and pulley bearing.",
+      "No discrepancies were noted for the hydraulic pump belt and pulley bearing during the January 30, 2020 inspection.",
+      "Maintenance entries by Rotortech Services began on February 21, 2020 at an ATT of 32.3 hours.",
+      "Rotortech Services is located in West Palm Beach, Florida.",
+      "On April 28, 2020, at an ATT of 95.0 hours, multiple inspections were performed by Rotortech Services.",
+      "The April 28, 2020 inspections included the 12-month/150-flight hour inspections of the hydraulic pump belt and pulley bearing.",
+      "No discrepancies were noted for the hydraulic pump belt and pulley bearing during the April 28, 2020 inspection.",
+      "The last maintenance entry prior to the incident was performed by Rotortech Services on May 1, 2020 at an ATT of 103.2 hours.",
+      "The last maintenance entry was a main rotor mast retorque.",
+      "The helicopter had accumulated an ATT of about 108 hours at the time of the incident.",
+      "The AS350 B3 has a dual hydraulic system.",
+      "The AS350 B3 dual hydraulic system was designed to provide hydraulic assistance redundancy to the main rotor servo controls.",
+      "The hydraulic assistance redundancy activates when there is a fault or failure of one of the hydraulic systems.",
+      "The tail rotor servo control is powered only by HYD2.",
+      "The yaw load compensator is powered only by HYD2.",
+      "The yaw load compensator accumulator is powered only by HYD2.",
+      "There is no tail rotor servo control redundancy in HYD1.",
+      "The yaw load compensator and its accumulator comprise a closed-loop system.",
+      "The closed-loop system was designed to provide continuous hydraulic assistance to the pedals.",
+      "The continuous hydraulic assistance is specifically for the right pedal.",
+      "The right pedal is also known as the \"power pedal\" in clockwise rotating main rotors.",
+      "The yaw load compensator and accumulator provide assistance in the event of a loss of pressure in HYD2.",
+      "When HYD2 pressure is lost, the forces on the pedals are higher than during normal hydraulic assistance.",
+      "The hydraulic assistance from the yaw load compensator and its accumulator is designed to keep the right pedal forces at a manageable level."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Helicopter Maintenance and Hydraulic System Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "helicopter",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airbus Helicopters",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Grand Prairie, Texas",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Rotortech Services",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "West Palm Beach, Florida",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "AS350 B3",
+              "classification": "Aircraftmodel"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter had an ATT of 5.3 hours at the conclusion of the functional check flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS ATT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "5.3 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident helicopter was flown to Airbus Helicopters' facility in Grand Prairie, Texas in mid-November of 2019.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FLOWN TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters",
+                    "classification": "Aircraftmake"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "mid-November of 2019",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Airbus Helicopters is located in Grand Prairie, Texas.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Prairie, Texas",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On January 30, 2020, at an ATT of 17.8 hours, the 12-month/150-flight hour inspections were performed in Grand Prairie.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS ATT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "17.8 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 30, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Grand Prairie, Texas",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "12-month/150-flight hour inspections",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The 12-month/150-flight hour inspections included the visual inspection of the hydraulic pump belt and pulley bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual inspection of the hydraulic pump belt and pulley bearing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No discrepancies were noted for the hydraulic pump belt and pulley bearing during the January 30, 2020 inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No discrepancies for hydraulic pump belt and pulley bearing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 30, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Maintenance entries by Rotortech Services began on February 21, 2020 at an ATT of 32.3 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rotortech Services",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAINTAINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "February 21, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS ATT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "32.3 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Rotortech Services is located in West Palm Beach, Florida.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rotortech Services",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "West Palm Beach, Florida",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "On April 28, 2020, at an ATT of 95.0 hours, multiple inspections were performed by Rotortech Services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rotortech Services",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INSPECTED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 28, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS ATT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "95.0 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The April 28, 2020 inspections included the 12-month/150-flight hour inspections of the hydraulic pump belt and pulley bearing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 28, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "12-month/150-flight hour inspections",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hydraulic pump belt and pulley bearing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No discrepancies were noted for the hydraulic pump belt and pulley bearing during the April 28, 2020 inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No discrepancies for hydraulic pump belt and pulley bearing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "April 28, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last maintenance entry prior to the incident was performed by Rotortech Services on May 1, 2020 at an ATT of 103.2 hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Rotortech Services",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAINTAINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 1, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS ATT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "103.2 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The last maintenance entry was a main rotor mast retorque.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "MAINTENANCE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor mast retorque",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter had accumulated an ATT of about 108 hours at the time of the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "HAS ATT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 108 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT ATT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 108 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AS350 B3 has a dual hydraulic system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS SYSTEM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dual hydraulic system",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The AS350 B3 dual hydraulic system was designed to provide hydraulic assistance redundancy to the main rotor servo controls.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SYSTEM PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "provide hydraulic assistance redundancy to the main rotor servo controls",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hydraulic assistance redundancy activates when there is a fault or failure of one of the hydraulic systems.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SYSTEM ACTIVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "when there is a fault or failure of one of the hydraulic systems",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tail rotor servo control is powered only by HYD2.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TAIL ROTOR POWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HYD2 only",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The yaw load compensator is powered only by HYD2.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "YAW COMPENSATOR POWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HYD2 only",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The yaw load compensator accumulator is powered only by HYD2.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "YAW ACCUMULATOR POWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "HYD2 only",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There is no tail rotor servo control redundancy in HYD1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HYD1 CAPABILITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no tail rotor servo control redundancy",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The yaw load compensator and its accumulator comprise a closed-loop system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SYSTEM CONFIGURATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yaw load compensator and accumulator form closed-loop system",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The closed-loop system was designed to provide continuous hydraulic assistance to the pedals.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CLOSED LOOP PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "provide continuous hydraulic assistance to the pedals",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The continuous hydraulic assistance is specifically for the right pedal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HYDRAULIC ASSISTANCE TARGET"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right pedal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The right pedal is also known as the \"power pedal\" in clockwise rotating main rotors.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RIGHT PEDAL ALIAS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power pedal in clockwise rotating main rotors",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The yaw load compensator and accumulator provide assistance in the event of a loss of pressure in HYD2.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ASSISTANCE CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of pressure in HYD2",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "When HYD2 pressure is lost, the forces on the pedals are higher than during normal hydraulic assistance.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PEDAL FORCES CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "higher when HYD2 pressure is lost",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hydraulic assistance from the yaw load compensator and its accumulator is designed to keep the right pedal forces at a manageable level.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COMPENSATOR PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "keep right pedal forces at manageable level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::6bf60f6c:1d59",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+        "file_name": "101233.md",
+        "file_size": 17800,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a82ded021c35338dd6cd465a407880665dbe61569f6fb133f57edbd17c8ff585",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::6bf60f6c:1d59:682e9b5c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+        "file_name": "101233.md",
+        "file_size": 17800,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "0a83ab96039ece86ff275eff2f6c9885b0286b39ca24cf7e340141dd72a7977e",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::6bf60f6c:1d59:d59fd47c",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+        "file_name": "101233.md",
+        "file_size": 17800,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "bb2d65d412e80813c57d5258fa94c62a141ebed328771beebb69fe178023e496",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The helicopter had an ATT of 5.3 hours at the conclusion of the functional check flight.\n\nThe incident helicopter was subsequently flown to Airbus Helicopters' facility in Grand Prairie, Texas in mid-November of 2019. On January 30, 2020, at an ATT of 17.8 hours, the 12-month/150-flight hour inspections were performed in Grand Prairie, including the visual inspection of the hydraulic pump belt and pulley bearing. No discrepancies were noted for the hydraulic pump belt and pulley bearing. Maintenance entries by Rotortech Services in West Palm Beach, Florida, began on February 21, 2020 at an ATT of 32.3 hours. On April 28, 2020, at an ATT of 95.0 hours, multiple inspections were performed by Rotortech Services, including the 12-month/150-flight hour inspections of the hydraulic pump belt and pulley bearing. No discrepancies were noted for the hydraulic pump belt and pulley bearing. The last maintenance entry prior to the incident, performed by Rotortech Services on May 1, 2020 at an ATT of 103.2 hours, was a main rotor mast retorque. The helicopter had accumulated an ATT of about 108 hours at the time of the incident.\n\n## AS350 B3 Dual Hydraulic System\nThe AS350 B3 dual hydraulic system was designed to provide hydraulic assistance redundancy to the main rotor servo controls when there is a fault or failure of one of the hydraulic systems. The tail rotor servo control and the yaw load compensator and its accumulator are powered only by HYD2, i.e. there is no tail rotor servo control redundancy in HYD1. The yaw load compensator and its accumulator comprise a closed-loop system that was designed to provide continuous hydraulic assistance to the pedals, specifically the right pedal (also known as the \"power pedal\" in clockwise rotating main rotors), in the event of a loss of pressure in HYD2. In this scenario, the forces on the pedals are higher than when the tail rotor servo control provides normal hydraulic assistance, but the hydraulic assistance from the yaw load compensator and its accumulator is designed to keep the right pedal forces at a manageable level.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1765,
+  "end_char_idx": 3858,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2550 @@
+{
+  "id_": "aws::a663f122:e904:44041562",
+  "embedding": [
+    0.00818634,
+    0.00356102,
+    -0.010826111,
+    -0.052947998,
+    -0.004951477,
+    0.0077705383,
+    -0.049743652,
+    -0.0023097992,
+    -0.060058594,
+    0.002752304,
+    -0.005001068,
+    0.010925293,
+    0.014122009,
+    -0.046722412,
+    0.07305908,
+    -0.02848816,
+    0.035614014,
+    0.037261963,
+    0.091796875,
+    0.0014095306,
+    0.009422302,
+    0.03213501,
+    0.057922363,
+    0.03152466,
+    0.033355713,
+    0.008453369,
+    -0.022109985,
+    -0.0105896,
+    0.024673462,
+    -0.020523071,
+    0.03479004,
+    -0.017410278,
+    0.0032043457,
+    0.046966553,
+    -0.028884888,
+    -0.015060425,
+    -0.017181396,
+    0.025939941,
+    -0.010612488,
+    0.030960083,
+    0.03363037,
+    -0.017684937,
+    0.058288574,
+    -0.052520752,
+    0.0074043274,
+    0.002746582,
+    0.06335449,
+    0.004714966,
+    0.04260254,
+    0.043182373,
+    0.014350891,
+    -0.014450073,
+    -0.008117676,
+    -0.016571045,
+    -0.022216797,
+    -0.030288696,
+    -0.041015625,
+    -0.016494751,
+    0.008804321,
+    0.07910156,
+    0.025146484,
+    -0.015281677,
+    0.00040197372,
+    -0.050598145,
+    -0.024261475,
+    -0.041290283,
+    0.0077285767,
+    0.026321411,
+    0.08166504,
+    -0.030776978,
+    -0.03012085,
+    0.07128906,
+    0.015914917,
+    0.016052246,
+    -5.1677227e-05,
+    -0.03050232,
+    0.009727478,
+    0.013717651,
+    0.010147095,
+    0.02885437,
+    0.0569458,
+    0.07318115,
+    0.007247925,
+    0.029144287,
+    -0.024490356,
+    0.02772522,
+    -0.013618469,
+    -0.04763794,
+    -0.006511688,
+    0.007659912,
+    -0.017791748,
+    -0.011543274,
+    0.023468018,
+    0.019958496,
+    -0.017944336,
+    0.013618469,
+    -0.014816284,
+    -0.07501221,
+    0.01727295,
+    -0.035308838,
+    0.046203613,
+    -0.051208496,
+    -0.009490967,
+    0.01524353,
+    -0.01424408,
+    -0.003698349,
+    0.016540527,
+    -0.01763916,
+    -0.007194519,
+    0.008155823,
+    -0.043914795,
+    -0.009124756,
+    -0.021911621,
+    -0.026031494,
+    0.006801605,
+    -0.0066833496,
+    -0.05432129,
+    0.038726807,
+    0.021850586,
+    0.0019321442,
+    0.0107040405,
+    0.047668457,
+    -0.08428955,
+    0.015403748,
+    -0.0030574799,
+    0.0076904297,
+    0.016693115,
+    -0.00031518936,
+    0.031951904,
+    -0.04864502,
+    -0.003282547,
+    0.07470703,
+    0.04348755,
+    -0.02960205,
+    -0.026367188,
+    0.02053833,
+    0.0011196136,
+    0.06958008,
+    0.036956787,
+    -0.022140503,
+    -0.036102295,
+    -0.0006995201,
+    0.079956055,
+    0.0068626404,
+    0.000518322,
+    0.033569336,
+    0.012184143,
+    -0.0087890625,
+    0.011642456,
+    -0.014976501,
+    -0.03062439,
+    -0.015602112,
+    0.023651123,
+    0.0025634766,
+    0.012626648,
+    -0.066467285,
+    0.012954712,
+    -0.04776001,
+    0.053619385,
+    -0.043029785,
+    0.00019419193,
+    -0.04196167,
+    0.013320923,
+    0.009681702,
+    -0.047454834,
+    0.08477783,
+    -0.043823242,
+    -0.021835327,
+    0.0003900528,
+    0.06341553,
+    0.010276794,
+    0.026046753,
+    -0.023406982,
+    0.005832672,
+    -0.010131836,
+    -0.027572632,
+    -0.023544312,
+    0.036712646,
+    0.031341553,
+    -0.0061454773,
+    0.023284912,
+    -0.02810669,
+    0.07562256,
+    -0.0014352798,
+    -0.036743164,
+    -0.02053833,
+    0.03112793,
+    -0.0035915375,
+    0.016235352,
+    -0.0032291412,
+    0.08654785,
+    0.017074585,
+    0.031982422,
+    -0.05810547,
+    0.034729004,
+    -0.02835083,
+    -0.055358887,
+    -0.0602417,
+    -0.0031700134,
+    0.054229736,
+    -0.032226562,
+    -0.0014247894,
+    -0.036468506,
+    0.0065574646,
+    -0.049346924,
+    -0.052764893,
+    0.009048462,
+    0.0121536255,
+    -0.021743774,
+    0.031082153,
+    0.03793335,
+    0.041992188,
+    -0.05810547,
+    0.05355835,
+    0.03704834,
+    0.03665161,
+    -0.011749268,
+    0.030380249,
+    0.014511108,
+    0.012428284,
+    -0.015136719,
+    -0.014518738,
+    -0.0015506744,
+    0.020721436,
+    -0.018112183,
+    0.02281189,
+    -0.040863037,
+    0.0128479,
+    -0.032928467,
+    0.023742676,
+    0.0046577454,
+    0.02935791,
+    -0.047668457,
+    -0.013664246,
+    -0.039855957,
+    0.0032100677,
+    -0.0115737915,
+    0.024978638,
+    0.010925293,
+    0.019546509,
+    0.007419586,
+    -0.06414795,
+    0.0028533936,
+    0.05996704,
+    -0.11224365,
+    -0.04724121,
+    0.03869629,
+    0.0004310608,
+    -0.03253174,
+    -0.0008196831,
+    0.06359863,
+    0.04168701,
+    -0.010253906,
+    0.06213379,
+    0.0025367737,
+    0.0018854141,
+    -0.004535675,
+    -0.011512756,
+    -0.008270264,
+    0.0034618378,
+    0.014915466,
+    -0.03656006,
+    -0.04135132,
+    -0.0029392242,
+    0.039642334,
+    0.03741455,
+    0.07574463,
+    0.06286621,
+    -0.033325195,
+    0.0015563965,
+    -0.011016846,
+    0.05053711,
+    0.005783081,
+    0.07733154,
+    -0.012298584,
+    -0.0034999847,
+    -0.009109497,
+    -0.02494812,
+    -0.004878998,
+    0.025253296,
+    -0.033599854,
+    0.008232117,
+    -0.051208496,
+    -0.00982666,
+    -0.001865387,
+    0.009994507,
+    0.01071167,
+    -0.0029392242,
+    -0.027832031,
+    -0.004688263,
+    0.023391724,
+    0.014854431,
+    -0.010665894,
+    0.00982666,
+    -0.0022296906,
+    -0.009399414,
+    0.029388428,
+    -0.042144775,
+    0.017150879,
+    -0.05206299,
+    0.05999756,
+    0.040863037,
+    -0.040222168,
+    -0.0025691986,
+    -0.0046691895,
+    -0.030532837,
+    -0.023529053,
+    0.014518738,
+    0.0044174194,
+    -0.025909424,
+    0.0016908646,
+    0.06072998,
+    0.01889038,
+    -0.025161743,
+    0.033599854,
+    -0.023803711,
+    0.00064373016,
+    0.01651001,
+    -0.014373779,
+    0.054534912,
+    -0.064941406,
+    -0.009666443,
+    -0.009048462,
+    0.054595947,
+    0.0036029816,
+    -0.0020160675,
+    0.07525635,
+    0.020339966,
+    -0.011413574,
+    0.008399963,
+    0.005886078,
+    -0.02470398,
+    -0.0395813,
+    -0.0026073456,
+    0.017623901,
+    0.032958984,
+    -0.0073890686,
+    0.030807495,
+    -0.011642456,
+    -0.020523071,
+    -0.013374329,
+    -0.018600464,
+    -0.029632568,
+    -0.045043945,
+    -0.030075073,
+    -0.05154419,
+    0.0034942627,
+    0.0041656494,
+    0.026977539,
+    -0.019592285,
+    0.033843994,
+    -0.002456665,
+    0.008552551,
+    0.021957397,
+    0.01461792,
+    -0.024230957,
+    0.006340027,
+    -0.0043563843,
+    -0.028656006,
+    -0.05770874,
+    0.05456543,
+    0.018188477,
+    0.019973755,
+    -0.03213501,
+    -0.03756714,
+    -0.027191162,
+    -0.022003174,
+    0.020050049,
+    0.002840042,
+    0.014122009,
+    0.010421753,
+    0.04046631,
+    -0.030654907,
+    -0.042419434,
+    -0.05303955,
+    -0.022399902,
+    0.036254883,
+    -0.02218628,
+    0.01701355,
+    0.027877808,
+    0.018554688,
+    0.015686035,
+    0.007762909,
+    -0.009307861,
+    -0.005744934,
+    0.016555786,
+    0.02192688,
+    -0.009239197,
+    0.062927246,
+    -0.013969421,
+    0.07348633,
+    0.04623413,
+    -0.011856079,
+    -0.023773193,
+    0.0024223328,
+    0.0102005005,
+    0.040985107,
+    0.009361267,
+    0.0017566681,
+    -0.03552246,
+    -0.04360962,
+    0.007522583,
+    -0.0154418945,
+    -0.0054779053,
+    -0.009895325,
+    -0.027572632,
+    -0.01474762,
+    -0.04324341,
+    0.043914795,
+    0.03262329,
+    0.002456665,
+    -0.03375244,
+    0.015487671,
+    -0.04360962,
+    -0.03112793,
+    0.035369873,
+    -0.05392456,
+    -0.02947998,
+    0.040283203,
+    0.024337769,
+    -0.002609253,
+    -0.04043579,
+    -0.031433105,
+    0.023117065,
+    0.042175293,
+    -0.0021858215,
+    0.0154418945,
+    -0.046142578,
+    0.003944397,
+    0.041290283,
+    0.019226074,
+    -0.0041236877,
+    0.004673004,
+    0.01348114,
+    -0.024124146,
+    0.03152466,
+    0.010543823,
+    -0.011184692,
+    0.05960083,
+    -0.057525635,
+    -0.02772522,
+    -0.0011310577,
+    0.035247803,
+    0.01689148,
+    0.049682617,
+    -0.03479004,
+    -0.0085372925,
+    0.0007209778,
+    0.01373291,
+    -0.010292053,
+    0.010429382,
+    -0.0060157776,
+    0.03086853,
+    0.018096924,
+    -0.0135269165,
+    0.07525635,
+    0.012771606,
+    0.04574585,
+    0.0018815994,
+    0.0017375946,
+    0.039245605,
+    -0.019699097,
+    -0.028625488,
+    0.021224976,
+    -0.0368042,
+    -0.00598526,
+    0.005504608,
+    0.020904541,
+    -0.014419556,
+    0.0008096695,
+    -0.0041122437,
+    0.041534424,
+    -0.023101807,
+    -0.026931763,
+    0.0067443848,
+    -0.029968262,
+    0.013145447,
+    -0.0119018555,
+    0.04031372,
+    -0.0010061264,
+    -0.03842163,
+    0.0060768127,
+    0.01361084,
+    0.031188965,
+    0.029388428,
+    0.012710571,
+    0.023513794,
+    0.032348633,
+    -0.014694214,
+    0.027709961,
+    0.0002834797,
+    -0.0013227463,
+    0.020950317,
+    0.0047912598,
+    -0.021759033,
+    0.02432251,
+    0.012519836,
+    -0.06768799,
+    -0.02079773,
+    -0.017364502,
+    -0.06756592,
+    0.021133423,
+    -0.012580872,
+    -0.001080513,
+    -0.020706177,
+    0.014053345,
+    0.02720642,
+    0.020523071,
+    -0.01322937,
+    -0.030334473,
+    0.015357971,
+    -0.030822754,
+    0.015266418,
+    0.033935547,
+    -0.04284668,
+    0.021774292,
+    -0.05255127,
+    0.039398193,
+    -0.056854248,
+    -0.022033691,
+    0.022018433,
+    0.012588501,
+    0.024536133,
+    0.0154800415,
+    0.014343262,
+    -0.0056648254,
+    0.006843567,
+    0.0057144165,
+    0.008766174,
+    0.016998291,
+    0.01826477,
+    -0.012397766,
+    0.044433594,
+    0.009727478,
+    0.0104522705,
+    -0.0017299652,
+    -0.019454956,
+    0.039245605,
+    -0.0069732666,
+    -0.041931152,
+    -0.017654419,
+    0.020431519,
+    0.033203125,
+    -0.012413025,
+    0.006565094,
+    -0.025421143,
+    0.012641907,
+    0.012710571,
+    -0.055633545,
+    -0.013137817,
+    -0.012031555,
+    0.016815186,
+    0.0473938,
+    -0.016998291,
+    -0.038482666,
+    0.0015859604,
+    0.0020446777,
+    -0.0262146,
+    0.0129470825,
+    0.033294678,
+    -0.04336548,
+    -0.012237549,
+    -0.010818481,
+    0.018341064,
+    0.0020961761,
+    0.031311035,
+    0.024383545,
+    -0.0049438477,
+    0.09088135,
+    -0.06933594,
+    -0.038970947,
+    -0.049468994,
+    0.062469482,
+    0.01889038,
+    0.025161743,
+    -0.024429321,
+    -0.00983429,
+    0.0054779053,
+    0.0110321045,
+    0.023254395,
+    -0.010673523,
+    0.056610107,
+    0.00081920624,
+    0.05731201,
+    -0.048980713,
+    0.04550171,
+    0.03967285,
+    0.04345703,
+    -0.0116119385,
+    0.024276733,
+    0.046783447,
+    -0.021697998,
+    0.005596161,
+    0.013412476,
+    0.0028438568,
+    -0.045318604,
+    0.046905518,
+    -0.034606934,
+    0.018371582,
+    0.0101623535,
+    -0.008399963,
+    0.02268982,
+    0.015487671,
+    -0.0063285828,
+    0.009674072,
+    0.024765015,
+    0.017150879,
+    -0.0025939941,
+    -0.0076828003,
+    0.015899658,
+    0.022949219,
+    0.012214661,
+    -0.022445679,
+    -0.0027656555,
+    0.019485474,
+    -0.0016946793,
+    -0.085876465,
+    0.056121826,
+    0.062072754,
+    0.00705719,
+    0.015525818,
+    -0.012413025,
+    -0.012489319,
+    -0.022705078,
+    0.0073051453,
+    -0.00447464,
+    -0.004989624,
+    -0.03656006,
+    -0.024841309,
+    0.015037537,
+    -0.03451538,
+    0.0036888123,
+    -0.047210693,
+    -0.02722168,
+    -0.023834229,
+    0.0030269623,
+    0.012786865,
+    -0.017745972,
+    0.01902771,
+    -0.009033203,
+    -0.02003479,
+    -0.018875122,
+    -0.048736572,
+    0.02973938,
+    -0.0025691986,
+    -0.020385742,
+    -0.0074806213,
+    -0.0077285767,
+    0.007904053,
+    -0.0048561096,
+    0.02822876,
+    0.010475159,
+    0.020812988,
+    -0.013076782,
+    -0.043701172,
+    0.033599854,
+    -0.04559326,
+    -0.021774292,
+    0.019683838,
+    -0.057891846,
+    -0.082458496,
+    -0.004348755,
+    0.011940002,
+    -0.00699234,
+    -0.10723877,
+    0.028305054,
+    0.047058105,
+    -0.017349243,
+    0.019088745,
+    -0.10211182,
+    0.0034275055,
+    0.025299072,
+    -0.0022277832,
+    -0.0340271,
+    -0.0066947937,
+    0.034729004,
+    -0.013870239,
+    0.022964478,
+    0.021530151,
+    -0.033325195,
+    0.024475098,
+    0.01386261,
+    0.010406494,
+    0.011833191,
+    -0.044311523,
+    0.043884277,
+    -0.041107178,
+    -0.0073776245,
+    -0.029815674,
+    0.016983032,
+    -0.029434204,
+    0.015327454,
+    -0.02909851,
+    -0.018539429,
+    -0.010551453,
+    -0.06542969,
+    -0.025619507,
+    -0.0043754578,
+    -0.028045654,
+    0.010749817,
+    -0.007827759,
+    -6.4969063e-06,
+    0.030426025,
+    -0.006034851,
+    -0.021560669,
+    0.027313232,
+    -0.004535675,
+    0.07147217,
+    0.031082153,
+    0.0069618225,
+    0.07385254,
+    -0.0032234192,
+    -0.030258179,
+    -0.01902771,
+    0.0012874603,
+    0.018371582,
+    0.06817627,
+    0.020187378,
+    0.009384155,
+    0.007144928,
+    0.0021400452,
+    0.039215088,
+    0.015342712,
+    -0.0670166,
+    0.0028038025,
+    -0.021697998,
+    -0.00053453445,
+    0.037384033,
+    -0.022857666,
+    -0.03668213,
+    0.0075416565,
+    -0.014579773,
+    0.0003657341,
+    -0.024139404,
+    -0.026000977,
+    -0.038024902,
+    0.023529053,
+    0.016220093,
+    0.005382538,
+    -0.007575989,
+    -0.0181427,
+    -0.005771637,
+    0.041137695,
+    0.012313843,
+    -0.029953003,
+    0.018218994,
+    0.035369873,
+    -0.14953613,
+    -0.0063591003,
+    -0.0038852692,
+    0.039123535,
+    -0.08276367,
+    -0.056274414,
+    -0.022521973,
+    0.016433716,
+    -0.040130615,
+    -0.031036377,
+    0.039916992,
+    -0.020721436,
+    0.02507019,
+    -0.04031372,
+    0.00084400177,
+    0.003414154,
+    0.042510986,
+    -0.02180481,
+    0.018218994,
+    -0.02494812,
+    0.0073776245,
+    0.006454468,
+    -0.006942749,
+    -0.0060157776,
+    -0.009628296,
+    0.013977051,
+    0.024353027,
+    0.024230957,
+    -0.009979248,
+    0.01979065,
+    -0.01322937,
+    -0.006801605,
+    0.01121521,
+    -0.01852417,
+    0.03665161,
+    -0.0513916,
+    -0.0040359497,
+    -0.04309082,
+    0.025772095,
+    0.0023479462,
+    0.039398193,
+    -0.029937744,
+    0.008964539,
+    -0.0070533752,
+    0.024765015,
+    0.051239014,
+    -0.0385437,
+    0.017089844,
+    0.01574707,
+    0.0015974045,
+    0.0049324036,
+    -0.018096924,
+    -0.00013053417,
+    0.005329132,
+    -0.019699097,
+    -0.019165039,
+    -0.008918762,
+    -0.027145386,
+    -0.019042969,
+    0.014038086,
+    0.02420044,
+    0.010063171,
+    -0.037139893,
+    0.010246277,
+    -0.05166626,
+    0.00920105,
+    -0.047851562,
+    0.013336182,
+    0.009216309,
+    -0.059020996,
+    -0.051330566,
+    0.0592041,
+    -0.005264282,
+    -0.010154724,
+    0.041992188,
+    0.0031280518,
+    -0.0061416626,
+    -0.023269653,
+    -0.019638062,
+    0.011528015,
+    -0.0014715195,
+    -0.030288696,
+    -0.029373169,
+    0.025848389,
+    -0.043273926,
+    -0.0072517395,
+    0.012390137,
+    0.043182373,
+    0.011833191,
+    0.020004272,
+    -0.061645508,
+    0.04159546,
+    0.019378662,
+    -0.011016846,
+    -0.0072898865,
+    0.0067367554,
+    -0.006439209,
+    0.01158905,
+    0.04498291,
+    0.023590088,
+    -0.013046265,
+    0.03277588,
+    0.047576904,
+    0.026992798,
+    -0.024429321,
+    0.007911682,
+    -0.016586304,
+    0.016235352,
+    -0.0023727417,
+    0.02897644,
+    -0.00030899048,
+    0.0026016235,
+    0.048187256,
+    0.019729614,
+    0.014579773,
+    0.022994995,
+    -0.0024776459,
+    -0.04244995,
+    -0.021453857,
+    -0.042053223,
+    0.011398315,
+    0.007873535,
+    0.024749756,
+    0.014518738,
+    -0.01864624,
+    -0.06347656,
+    0.007858276,
+    0.006855011,
+    -0.04888916,
+    0.04257202,
+    0.012481689,
+    -0.0038452148,
+    0.07312012,
+    -0.023605347,
+    0.00869751,
+    -0.005722046,
+    -0.028167725,
+    0.00069475174,
+    0.02180481,
+    -0.021148682,
+    0.027160645,
+    0.027786255,
+    0.0010910034,
+    -0.03149414,
+    -0.014762878,
+    -0.020736694,
+    0.010810852,
+    0.013557434,
+    0.054504395,
+    -0.0051116943,
+    -0.02381897,
+    -0.035888672,
+    0.038635254,
+    -0.041748047,
+    -0.02859497,
+    0.003446579,
+    -0.054260254,
+    0.005847931,
+    -0.00021982193,
+    -0.0015487671,
+    -0.035217285,
+    -0.006038666,
+    0.0146484375,
+    0.0395813,
+    0.04928589,
+    -0.033599854,
+    -0.03289795,
+    0.031982422,
+    0.012069702,
+    -0.033081055,
+    -0.032928467,
+    0.0149002075,
+    -0.039886475,
+    -0.01020813,
+    0.021118164,
+    -0.016937256,
+    -0.049438477,
+    -0.00046753883,
+    0.035308838,
+    0.005104065,
+    -0.061309814,
+    0.0036144257,
+    -0.016616821,
+    -0.014305115,
+    -0.024627686,
+    0.006996155,
+    -0.0022525787,
+    0.041809082,
+    -0.025878906,
+    0.046142578,
+    -0.049316406,
+    -0.024871826,
+    -0.010185242,
+    0.005771637,
+    -0.003019333,
+    -0.004611969,
+    0.023880005,
+    0.012687683,
+    -0.008796692,
+    0.026947021,
+    -0.008033752,
+    -0.07562256,
+    -0.0052986145,
+    -0.01524353,
+    0.012680054,
+    0.000207901,
+    -0.011505127,
+    0.022369385,
+    0.039520264,
+    0.0040016174,
+    -0.01461792,
+    0.014335632,
+    -0.07635498,
+    0.019241333,
+    -0.03692627,
+    0.041625977,
+    -0.008743286,
+    -0.07531738,
+    -0.02999878,
+    -0.026123047,
+    -0.010154724,
+    0.042877197,
+    -0.0028266907,
+    -0.013053894,
+    -0.0069274902,
+    -0.015823364,
+    -0.0034542084,
+    -0.0042419434,
+    -0.017578125,
+    0.0026073456,
+    0.003522873,
+    0.024932861,
+    0.010620117,
+    0.014472961,
+    0.056427002,
+    -0.025131226,
+    -6.574392e-05,
+    -0.0068969727,
+    0.0035247803,
+    -0.024169922,
+    -0.011299133,
+    0.020339966,
+    0.010398865,
+    -0.024932861,
+    0.037078857,
+    -0.039367676,
+    -0.011627197,
+    0.0025081635,
+    0.0116119385,
+    -0.020065308,
+    0.018127441,
+    -0.0058250427,
+    0.03302002,
+    -0.033843994,
+    0.0039024353,
+    0.054107666,
+    0.0069885254,
+    -0.072509766,
+    -0.00881958,
+    0.01763916,
+    -0.012916565,
+    -0.02355957,
+    -0.0635376,
+    -0.07244873,
+    0.04876709,
+    0.058776855,
+    -0.01953125,
+    0.067993164,
+    0.0289917,
+    0.03189087,
+    0.01108551,
+    -0.0057792664,
+    0.05380249,
+    -0.02645874,
+    -0.011291504,
+    -0.0317688,
+    -0.013900757
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+    "file_name": "90419.md",
+    "file_size": 25711,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Embraer EMB-505 Aircraft Information",
+      "The aircraft involved in the incident was an Embraer EMB-505.",
+      "The Embraer EMB-505 had Canadian registration C-GJOL.",
+      "The Embraer EMB-505 had serial number 50500089.",
+      "The Embraer EMB-505 was manufactured in 2012.",
+      "The Embraer EMB-505 was categorized as an Airplane.",
+      "The Embraer EMB-505 had a Commuter airworthiness certificate.",
+      "The Embraer EMB-505 had a retractable tricycle landing gear.",
+      "The Embraer EMB-505 had 9 seats.",
+      "The Embraer EMB-505's last inspection was a continuous airworthiness inspection on October 31, 2014.",
+      "The Embraer EMB-505 had a certified maximum gross weight of 17968 pounds.",
+      "The Embraer EMB-505 had 141 hours since the last inspection.",
+      "The Embraer EMB-505 had 730 hours of airframe total time at the time of accident.",
+      "The Embraer EMB-505 had a C126 Emergency Locator Transmitter installed, which was not activated.",
+      "The Embraer EMB-505 had two turbofan engines.",
+      "The engines were manufactured by Pratt & Whitney.",
+      "The engine model/series was 535E.",
+      "The engines had rated power of 3360 pounds thrust.",
+      "The registered owner of the Embraer EMB-505 was on file.",
+      "The operator of the Embraer EMB-505 was on file.",
+      "No operating certificates were held for the Embraer EMB-505.",
+      "The Embraer EMB-505 is a twin-engine cantilever monoplane.",
+      "The Embraer EMB-505 has a low-positioned, swept wing.",
+      "The Embraer EMB-505 is equipped with two rear positioned Pratt and Whitney Canada 535E turbofan engines.",
+      "The engines on the Embraer EMB-505 are positioned one on each side of the fuselage.",
+      "The Embraer EMB-505 can accommodate 2 crewmembers and 7 passengers.",
+      "If operated single-pilot, the Embraer EMB-505 can accommodate an additional passenger.",
+      "The Embraer EMB-505 is equipped with an airstair door on the left forward side of the fuselage.",
+      "The Embraer EMB-505 is equipped with single-point refueling.",
+      "The Embraer EMB-505 is equipped with a private lavatory.",
+      "The Embraer EMB-505 was equipped with an Umbra Group gust lock actuator with serial number 00075.",
+      "The gust lock actuator was designed specifically to prevent rudder surface movement due to ground gusts.",
+      "According to documentation provided by manufacturer Umbra Cusinetti, the actuator with serial number 00075 was delivered by Umbra to Embraer on February 28, 2011.",
+      "The actuator with serial number 00075 failed during tests on aircraft with serial number 00052 at the Embraer assembly line on May 19, 2011."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Embraer EMB-505 Aircraft Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer EMB-505",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "C-GJOL",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pratt & Whitney",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pratt and Whitney Canada 535E",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Umbra Group",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Umbra Cusinetti",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Embraer",
+              "classification": "Aircraftmake"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved in the incident was an Embraer EMB-505.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had Canadian registration C-GJOL.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "C-GJOL",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "C-GJOL",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "NATIONALITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Canadian",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had serial number 50500089.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "50500089",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 was manufactured in 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURE YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 was categorized as an Airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CATEGORIZED AS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had a Commuter airworthiness certificate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS AIRWORTHINESS CERTIFICATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Commuter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had a retractable tricycle landing gear.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS LANDING GEAR TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "retractable tricycle",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had 9 seats.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS SEATS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "9",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505's last inspection was a continuous airworthiness inspection on October 31, 2014.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST INSPECTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continuous airworthiness inspection",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST INSPECTION DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "October 31, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had a certified maximum gross weight of 17968 pounds.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS MAXIMUM GROSS WEIGHT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "17968 pounds",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had 141 hours since the last inspection.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HOURS SINCE LAST INSPECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "141 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had 730 hours of airframe total time at the time of accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRFRAME TOTAL TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "730 hours",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had a C126 Emergency Locator Transmitter installed, which was not activated.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS EMERGENCY LOCATOR TRANSMITTER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "C126",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EMERGENCY LOCATOR TRANSMITTER STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not activated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 had two turbofan engines.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS ENGINE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turbofan",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engines were manufactured by Pratt & Whitney.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pratt & Whitney",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engines",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine model/series was 535E.",
+              "details": [
+                "engines HAS MODEL 535E"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engines",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS MODEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "535E",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engines had rated power of 3360 pounds thrust.",
+              "details": [
+                "engines HAS RATED POWER 3360 pounds thrust"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engines",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS RATED POWER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "3360 pounds thrust",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The registered owner of the Embraer EMB-505 was on file.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OWNER STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on file",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The operator of the Embraer EMB-505 was on file.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATOR STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on file",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No operating certificates were held for the Embraer EMB-505.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS OPERATING CERTIFICATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 is a twin-engine cantilever monoplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "twin-engine cantilever monoplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 has a low-positioned, swept wing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS WING POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "low-positioned",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS WING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "swept",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 is equipped with two rear positioned Pratt and Whitney Canada 535E turbofan engines.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pratt and Whitney Canada 535E",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "COMPONENT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pratt and Whitney Canada 535E",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "ENGINE COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pratt and Whitney Canada 535E",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "ENGINE POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rear positioned",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pratt and Whitney Canada 535E",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "ENGINE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turbofan",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engines on the Embraer EMB-505 are positioned one on each side of the fuselage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE POSITIONING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "one on each side of the fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 can accommodate 2 crewmembers and 7 passengers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CREW CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2 crewmembers",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PASSENGER CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7 passengers",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "If operated single-pilot, the Embraer EMB-505 can accommodate an additional passenger.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SINGLE PILOT PASSENGER CAPACITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "additional passenger",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 is equipped with an airstair door on the left forward side of the fuselage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS AIRSTAIR DOOR POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left forward side of the fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 is equipped with single-point refueling.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REFUELING SYSTEM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "single-point",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 is equipped with a private lavatory.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS LAVATORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Embraer EMB-505 was equipped with an Umbra Group gust lock actuator with serial number 00075.",
+              "details": [
+                "gust lock actuator HAS SERIAL NUMBER 00075"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Umbra Group",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gust lock actuator",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gust lock actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "00075",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer EMB-505",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gust lock actuator",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The gust lock actuator was designed specifically to prevent rudder surface movement due to ground gusts.",
+              "details": [
+                "gust lock actuator HAS PURPOSE prevent rudder surface movement due to ground gusts"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gust lock actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prevent rudder surface movement due to ground gusts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "According to documentation provided by manufacturer Umbra Cusinetti, the actuator with serial number 00075 was delivered by Umbra to Embraer on February 28, 2011.",
+              "details": [
+                "actuator HAS SERIAL NUMBER 00075",
+                "actuator DELIVERY DATE February 28, 2011"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Umbra Cusinetti",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Umbra Cusinetti",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "DELIVERED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer",
+                    "classification": "Aircraftmake"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "00075",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DELIVERY DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "February 28, 2011",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The actuator with serial number 00075 failed during tests on aircraft with serial number 00052 at the Embraer assembly line on May 19, 2011.",
+              "details": [
+                "actuator HAS SERIAL NUMBER 00075",
+                "actuator FAILURE DATE May 19, 2011",
+                "actuator FAILURE LOCATION Embraer assembly line",
+                "aircraft HAS SERIAL NUMBER 00052",
+                "actuator FAILURE CIRCUMSTANCE during tests on aircraft with serial number 00052"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "00075",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILURE DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 19, 2011",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILURE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Embraer assembly line",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAS SERIAL NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "00052",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "actuator",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FAILURE CIRCUMSTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "during tests on aircraft with serial number 00052",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::a663f122:e904",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "bfc6677b9ecbf9c8a8b56916090e9e00d927333974d70462562d251fb4439169",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::a663f122:e904:c881c993",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "133c3d3fb07d35fcb64d625f320026e04a44f6497820188fc7760ba25709f892",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::a663f122:e904:a7062761",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90419.md",
+        "file_name": "90419.md",
+        "file_size": 25711,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "4e22c3378c25cb0a4120cb0d29636ac0ce9b115115cfb1f95dd4f73a3ec08563",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aircraft and Owner/Operator Information\n\n## Aircraft Make: Embraer\n## Registration: C-GJOL\n## Model/Series: EMB-505\n## Aircraft Category: Airplane\n## Year of Manufacture: 2012\n## Amateur Built:\n\n## Airworthiness Certificate: Commuter\n## Serial Number: 50500089\n\n## Landing Gear Type: Retractable - Tricycle\n## Seats: 9\n\n## Date/Type of Last Inspection:\nOctober 31, 2014 Continuous airworthiness\n## Certified Max Gross Wt.: 17968 lbs\n\n## Time Since Last Inspection: 141 Hrs\n## Engines: 2 Turbo fan\n## Airframe Total Time: 730 Hrs at time of accident\n## Engine Manufacturer: Pratt & Whitney\n## ELT: C126 installed, not activated\n## Engine Model/Series: 535E\n## Registered Owner: On file\n## Rated Power: 3360 Lbs thrust\n## Operator: On file\n## Operating Certificate(s) Held: None\n\nThe airplane involved in the incident was an Embrarer EMB-505, Canadian registration C-GJOL, serial number 5050009, manufactured in 2013. The airplane is a twin-engine cantilever monoplane with a low-positioned, swept wing. It is equipped with two rear positioned Pratt and Whitney Canada 535E turbofan engines, one on each side of the fuselage. The airplane can accommodate 2 crewmembers and 7 passengers; if operated single-pilot, it can accommodate an additional passenger. The airplane is equipped with an airstair door on the left forward side of the fuselage, single-point refueling, and a private lavatory.\n\nThe EMB-505 was equipped with an Umbra Group gust lock actuator, serial number 00075. The actuator was designed specifically to prevent rudder surface movement due to ground gusts.\n\nAccording to documentation provided by the manufacturer, Umbra Cusinetti, the actuator, S/N 00075, was delivered by Umbra to Embraer on February 28, 2011. It subsequently failed during tests on aircraft S/N 00052, at the Embraer assembly line on May 19, 2011.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1836,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

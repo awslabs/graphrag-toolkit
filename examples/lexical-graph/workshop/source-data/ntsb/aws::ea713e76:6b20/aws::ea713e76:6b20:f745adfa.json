@@ -1,0 +1,2478 @@
+{
+  "id_": "aws::ea713e76:6b20:f745adfa",
+  "embedding": [
+    -8.636713e-05,
+    0.020202637,
+    0.028549194,
+    -0.0074882507,
+    -0.01133728,
+    0.0068740845,
+    -0.019439697,
+    -0.04953003,
+    -0.044952393,
+    0.039093018,
+    0.025421143,
+    0.009597778,
+    -0.0023880005,
+    -0.030349731,
+    0.008705139,
+    -0.005580902,
+    -0.003944397,
+    0.018676758,
+    -0.0010309219,
+    -0.021453857,
+    -0.015235901,
+    -0.008796692,
+    -0.018463135,
+    -0.011184692,
+    -0.005870819,
+    0.08850098,
+    -0.04296875,
+    -0.019042969,
+    -0.023040771,
+    -0.025878906,
+    -0.012893677,
+    0.029586792,
+    -0.011909485,
+    0.03881836,
+    -0.031951904,
+    -0.0713501,
+    -0.05923462,
+    0.024551392,
+    -0.0023536682,
+    -0.012054443,
+    0.035308838,
+    -0.016357422,
+    0.01210022,
+    0.018753052,
+    -0.01826477,
+    -0.032348633,
+    0.03955078,
+    -0.0064315796,
+    0.036254883,
+    0.017578125,
+    0.007965088,
+    -0.014976501,
+    0.015853882,
+    0.009048462,
+    0.00459671,
+    0.0149383545,
+    -0.05102539,
+    0.03100586,
+    -0.013801575,
+    0.10247803,
+    0.045715332,
+    0.0491333,
+    -0.023208618,
+    -0.052978516,
+    -0.03363037,
+    -0.0146102905,
+    -0.0016117096,
+    0.014160156,
+    0.093811035,
+    -0.017440796,
+    -0.045288086,
+    0.07110596,
+    -0.020065308,
+    -0.0017251968,
+    0.0072135925,
+    -0.0076560974,
+    -0.007381439,
+    -0.010978699,
+    -0.0032463074,
+    0.039031982,
+    0.0017499924,
+    -0.019500732,
+    -0.019241333,
+    -0.011016846,
+    0.00012898445,
+    0.031555176,
+    -0.015777588,
+    -0.01235199,
+    -0.023605347,
+    0.006198883,
+    -0.014175415,
+    0.003112793,
+    -0.029830933,
+    0.015930176,
+    0.010124207,
+    -0.020874023,
+    -0.013298035,
+    -0.06994629,
+    0.025985718,
+    -0.012008667,
+    0.039978027,
+    -0.05795288,
+    0.029129028,
+    0.0041503906,
+    -0.016326904,
+    0.02041626,
+    0.029632568,
+    -0.012649536,
+    0.025253296,
+    -0.015960693,
+    -0.0211792,
+    0.054229736,
+    0.009391785,
+    -0.019195557,
+    -0.035064697,
+    0.008552551,
+    0.0014715195,
+    -0.006958008,
+    0.013641357,
+    -0.037139893,
+    0.011192322,
+    0.035369873,
+    -0.021224976,
+    -0.06750488,
+    0.007583618,
+    -0.019622803,
+    -0.035980225,
+    0.00592041,
+    0.014762878,
+    0.008583069,
+    0.005584717,
+    0.013000488,
+    -0.020141602,
+    0.0019369125,
+    -0.0115356445,
+    0.016815186,
+    -0.0340271,
+    0.008262634,
+    0.0038986206,
+    0.018508911,
+    -0.038330078,
+    -0.033599854,
+    0.05834961,
+    -0.009353638,
+    -0.007030487,
+    0.029464722,
+    0.008293152,
+    0.011360168,
+    -0.0031433105,
+    -0.034576416,
+    -0.0001333952,
+    0.0040740967,
+    0.053344727,
+    -0.019470215,
+    -0.0056495667,
+    -0.08380127,
+    0.026000977,
+    -0.058502197,
+    0.016555786,
+    -0.06439209,
+    -0.0035991669,
+    -0.044311523,
+    0.0032691956,
+    0.019195557,
+    -0.027297974,
+    0.08026123,
+    -0.013870239,
+    -0.008987427,
+    0.022155762,
+    0.012878418,
+    0.034179688,
+    0.020095825,
+    0.003967285,
+    0.01864624,
+    0.005756378,
+    0.0067710876,
+    0.0064926147,
+    0.041931152,
+    0.0021190643,
+    -0.010269165,
+    0.01449585,
+    -0.038116455,
+    0.031951904,
+    -0.0033397675,
+    -0.018508911,
+    -0.010749817,
+    0.0110321045,
+    -0.0035362244,
+    0.022369385,
+    0.0019407272,
+    0.04156494,
+    0.0030117035,
+    -0.007858276,
+    -0.03967285,
+    -0.01335907,
+    -0.030700684,
+    0.022262573,
+    -0.022018433,
+    -0.011070251,
+    0.067993164,
+    -0.023788452,
+    0.02709961,
+    -0.018722534,
+    0.02746582,
+    0.009536743,
+    -0.015838623,
+    0.013328552,
+    0.016189575,
+    0.01966858,
+    -0.014945984,
+    0.016571045,
+    -0.04324341,
+    -0.018753052,
+    -0.004547119,
+    -0.062561035,
+    -0.02897644,
+    -0.011741638,
+    0.015136719,
+    0.025131226,
+    0.021331787,
+    -0.0035591125,
+    0.037872314,
+    0.017959595,
+    0.011734009,
+    0.0020618439,
+    -0.01625061,
+    -0.01348114,
+    -0.008911133,
+    0.039489746,
+    -0.00655365,
+    0.04916382,
+    0.012794495,
+    -0.038848877,
+    -0.011688232,
+    -0.0024490356,
+    0.023498535,
+    0.032165527,
+    -0.028259277,
+    0.018173218,
+    0.015396118,
+    -0.022460938,
+    -0.049743652,
+    -0.031982422,
+    0.04257202,
+    -0.09967041,
+    -0.039733887,
+    0.001376152,
+    0.021728516,
+    0.0026493073,
+    0.032806396,
+    0.019805908,
+    0.016937256,
+    0.007827759,
+    0.0033359528,
+    0.023925781,
+    0.010536194,
+    -0.050354004,
+    -0.018310547,
+    0.007858276,
+    -0.00018000603,
+    0.0029907227,
+    -0.07196045,
+    -0.016357422,
+    -0.038970947,
+    0.08123779,
+    -0.023529053,
+    0.057373047,
+    0.03475952,
+    -0.018798828,
+    -0.0152282715,
+    0.006500244,
+    -0.0096206665,
+    0.022033691,
+    -0.0070228577,
+    -0.10089111,
+    0.005039215,
+    0.029769897,
+    0.007347107,
+    -0.009284973,
+    -0.03967285,
+    -0.01939392,
+    0.032287598,
+    -0.02267456,
+    -0.0022563934,
+    0.006111145,
+    -0.05090332,
+    -0.01725769,
+    -0.026290894,
+    -0.030410767,
+    0.042144775,
+    0.05267334,
+    0.021408081,
+    0.008628845,
+    0.0074272156,
+    -0.011260986,
+    0.02357483,
+    0.003200531,
+    0.040893555,
+    0.012237549,
+    -0.0095825195,
+    0.008857727,
+    0.03729248,
+    -0.05444336,
+    0.0435791,
+    0.030014038,
+    -0.044830322,
+    0.016601562,
+    0.027908325,
+    0.033843994,
+    0.04348755,
+    -0.07904053,
+    0.03414917,
+    0.034332275,
+    0.08062744,
+    0.013137817,
+    -0.019851685,
+    0.0039482117,
+    0.08013916,
+    0.011268616,
+    0.012680054,
+    0.011672974,
+    -0.022827148,
+    0.0071907043,
+    -0.008987427,
+    -0.006641388,
+    -0.039276123,
+    -0.0020828247,
+    0.007701874,
+    -0.049682617,
+    0.02128601,
+    -0.013046265,
+    -0.019805908,
+    -0.02684021,
+    0.013343811,
+    0.0010528564,
+    0.02520752,
+    0.000849247,
+    -0.043060303,
+    -0.056640625,
+    -0.012138367,
+    -0.018707275,
+    -0.020309448,
+    0.03942871,
+    -0.015609741,
+    -0.05026245,
+    -0.016296387,
+    -0.009277344,
+    0.0206604,
+    -0.050598145,
+    -0.022064209,
+    0.044769287,
+    -0.03100586,
+    -0.020050049,
+    0.052947998,
+    -0.01876831,
+    -0.07745361,
+    0.023162842,
+    0.037384033,
+    -0.07659912,
+    -0.03878784,
+    0.01586914,
+    0.0048217773,
+    -0.019226074,
+    -0.010559082,
+    0.005432129,
+    -0.013900757,
+    -0.012489319,
+    -0.0006971359,
+    0.028045654,
+    0.048950195,
+    -0.0012598038,
+    0.016357422,
+    0.010658264,
+    0.0005187988,
+    -0.0038433075,
+    -0.047546387,
+    -0.010772705,
+    -0.037750244,
+    -0.0046424866,
+    -0.013130188,
+    0.0059509277,
+    -0.011062622,
+    0.047973633,
+    -0.0079574585,
+    0.027023315,
+    -0.00070619583,
+    -0.025756836,
+    -0.0076141357,
+    0.0076446533,
+    0.006084442,
+    0.0012550354,
+    -0.0236969,
+    -0.019042969,
+    -0.010055542,
+    -0.0158844,
+    0.00080919266,
+    -0.012908936,
+    -0.0055770874,
+    -0.03111267,
+    -0.0075035095,
+    -0.07373047,
+    0.0017690659,
+    -0.006580353,
+    -0.01914978,
+    0.015098572,
+    -0.04928589,
+    0.00041866302,
+    -0.045837402,
+    0.013519287,
+    0.057647705,
+    -0.032043457,
+    0.04486084,
+    -0.030136108,
+    0.050720215,
+    -0.00390625,
+    -0.007675171,
+    -0.021530151,
+    -0.019744873,
+    0.0055389404,
+    0.045928955,
+    0.033355713,
+    -0.035949707,
+    0.012802124,
+    0.044433594,
+    0.025253296,
+    -0.007911682,
+    0.0149002075,
+    -0.015548706,
+    0.010231018,
+    -0.018692017,
+    -0.009246826,
+    -0.032165527,
+    -0.0061950684,
+    0.020462036,
+    -0.048675537,
+    0.0072669983,
+    0.020629883,
+    0.003932953,
+    0.06726074,
+    -0.060943604,
+    0.013648987,
+    0.02809143,
+    -0.021697998,
+    -0.0047683716,
+    -0.021575928,
+    -0.019515991,
+    0.03604126,
+    0.008766174,
+    -0.0074653625,
+    -0.02519226,
+    -0.018432617,
+    0.0018453598,
+    0.036590576,
+    0.010231018,
+    -0.0043525696,
+    0.059020996,
+    0.005214691,
+    0.025878906,
+    0.03137207,
+    -0.02658081,
+    -0.046875,
+    -0.028915405,
+    0.011962891,
+    -0.014984131,
+    -0.07116699,
+    0.01977539,
+    0.04437256,
+    0.024215698,
+    -0.022766113,
+    -0.0021038055,
+    -0.029785156,
+    0.057525635,
+    -0.03237915,
+    0.0074386597,
+    -0.018829346,
+    0.00079393387,
+    0.008674622,
+    -0.0037841797,
+    0.049957275,
+    0.018951416,
+    -0.050048828,
+    0.0075302124,
+    -0.028121948,
+    0.014083862,
+    0.032440186,
+    -0.012367249,
+    0.01965332,
+    0.029815674,
+    -0.0075035095,
+    0.009231567,
+    -0.006866455,
+    0.0019330978,
+    -0.0008530617,
+    -0.0041923523,
+    -0.02507019,
+    0.005554199,
+    0.010055542,
+    0.0138168335,
+    -0.021148682,
+    -0.053955078,
+    -0.048614502,
+    -0.0010404587,
+    0.03765869,
+    0.016906738,
+    0.028579712,
+    0.022399902,
+    0.020339966,
+    0.036712646,
+    0.01184082,
+    0.02909851,
+    0.031677246,
+    -0.008872986,
+    -0.010032654,
+    0.03277588,
+    -0.053344727,
+    0.026168823,
+    -0.03652954,
+    -0.007987976,
+    -0.027999878,
+    0.022445679,
+    -0.032043457,
+    -0.016326904,
+    0.026367188,
+    0.0357666,
+    -0.020507812,
+    0.0069770813,
+    2.9563904e-05,
+    0.051879883,
+    -0.06939697,
+    -0.01927185,
+    0.04876709,
+    0.074035645,
+    0.0051727295,
+    -0.035736084,
+    0.0038528442,
+    -0.008720398,
+    -0.027450562,
+    0.0362854,
+    0.013038635,
+    -0.0362854,
+    -0.025772095,
+    0.034484863,
+    0.02720642,
+    -0.017654419,
+    -0.008895874,
+    -0.013847351,
+    -0.017852783,
+    0.041412354,
+    -0.024765015,
+    0.03173828,
+    -0.01763916,
+    -0.026916504,
+    0.016159058,
+    -0.015075684,
+    -0.024459839,
+    -0.034820557,
+    -0.018722534,
+    -0.014602661,
+    0.009986877,
+    0.049560547,
+    -0.0284729,
+    -0.013580322,
+    -0.020523071,
+    0.03286743,
+    -0.008560181,
+    0.020935059,
+    0.025878906,
+    -0.0073051453,
+    -0.0024986267,
+    -0.0031166077,
+    -0.031311035,
+    -0.02520752,
+    0.08660889,
+    0.0009975433,
+    -0.008270264,
+    -0.041381836,
+    -0.021896362,
+    0.009063721,
+    -0.01335144,
+    0.008422852,
+    -0.01966858,
+    0.02949524,
+    -0.007865906,
+    0.0077667236,
+    -0.039886475,
+    0.04019165,
+    0.0025596619,
+    -0.02558899,
+    -0.011436462,
+    0.026947021,
+    0.047912598,
+    -0.004837036,
+    0.048187256,
+    -0.026824951,
+    -0.05215454,
+    -0.037597656,
+    -0.048614502,
+    -0.03125,
+    -0.0073127747,
+    -0.021835327,
+    0.01637268,
+    -0.009262085,
+    0.005973816,
+    -0.028198242,
+    -0.007843018,
+    -0.0050582886,
+    -0.0013494492,
+    0.026947021,
+    0.0069503784,
+    0.029769897,
+    0.03024292,
+    0.043792725,
+    -0.06555176,
+    -0.011634827,
+    -0.019241333,
+    -0.0029468536,
+    -0.016342163,
+    0.0569458,
+    0.07147217,
+    0.005428314,
+    0.057769775,
+    0.038513184,
+    0.028030396,
+    -0.00459671,
+    0.036071777,
+    0.023406982,
+    -0.051086426,
+    -0.0021915436,
+    -0.007461548,
+    -0.02368164,
+    -0.020706177,
+    -0.04046631,
+    -0.020431519,
+    0.013397217,
+    0.008125305,
+    -0.015960693,
+    -0.003704071,
+    0.0113220215,
+    -0.00027823448,
+    -0.027435303,
+    -0.019256592,
+    0.037994385,
+    -0.0034313202,
+    0.0059013367,
+    -0.001750946,
+    -0.020858765,
+    -0.013664246,
+    -0.044067383,
+    -0.00068092346,
+    -0.011528015,
+    0.009140015,
+    -0.00023472309,
+    -0.008216858,
+    -0.033325195,
+    -0.015068054,
+    -0.024154663,
+    0.021469116,
+    0.02067566,
+    -0.028244019,
+    -0.032196045,
+    -0.042633057,
+    -0.04043579,
+    -0.039520264,
+    -0.03643799,
+    -0.05419922,
+    0.022613525,
+    0.030273438,
+    -0.026382446,
+    0.0074691772,
+    -0.047973633,
+    -0.05960083,
+    0.060638428,
+    0.019165039,
+    -0.01637268,
+    0.0018043518,
+    -0.041900635,
+    0.0032424927,
+    0.0038814545,
+    -0.026489258,
+    -0.033966064,
+    0.01222229,
+    -0.021270752,
+    -0.009651184,
+    -0.015686035,
+    -0.011154175,
+    0.038085938,
+    -0.026733398,
+    0.0028629303,
+    -0.05758667,
+    0.008117676,
+    -0.0473938,
+    -0.0049552917,
+    -0.02684021,
+    -0.027664185,
+    -0.04650879,
+    -0.093322754,
+    -0.0050621033,
+    0.039520264,
+    -0.020339966,
+    -0.04824829,
+    -0.032989502,
+    0.04425049,
+    0.027862549,
+    0.039855957,
+    -0.032043457,
+    0.042114258,
+    0.0054969788,
+    0.010437012,
+    -0.058532715,
+    -0.002286911,
+    -0.019134521,
+    0.029510498,
+    -0.0463562,
+    -0.023025513,
+    -0.0033988953,
+    0.024215698,
+    0.044555664,
+    0.016448975,
+    0.007030487,
+    -0.0039024353,
+    -0.012527466,
+    0.00064373016,
+    0.016418457,
+    -0.0019779205,
+    0.047058105,
+    -0.025863647,
+    -0.05142212,
+    -0.00079250336,
+    -0.021209717,
+    -0.032165527,
+    -0.0018901825,
+    -0.043640137,
+    0.003232956,
+    -0.019348145,
+    -0.01725769,
+    -0.028121948,
+    0.00028562546,
+    -0.013801575,
+    -0.016845703,
+    -0.014862061,
+    -0.044677734,
+    -8.2075596e-05,
+    0.019744873,
+    0.009101868,
+    -0.0076789856,
+    -0.052459717,
+    0.014808655,
+    -0.07556152,
+    -0.03302002,
+    4.3094158e-05,
+    0.064819336,
+    -0.09161377,
+    -0.07409668,
+    -0.028579712,
+    0.0037212372,
+    -0.029083252,
+    0.019134521,
+    -0.004585266,
+    -0.05911255,
+    -0.008354187,
+    0.0027236938,
+    0.0011959076,
+    0.031402588,
+    0.04058838,
+    -0.05218506,
+    0.037353516,
+    0.018173218,
+    0.0178833,
+    -0.031311035,
+    0.009788513,
+    0.006023407,
+    -0.0129852295,
+    -0.01335907,
+    -0.022384644,
+    0.033233643,
+    0.017730713,
+    0.0064735413,
+    -0.0070724487,
+    -0.033935547,
+    -0.009262085,
+    -0.0007457733,
+    0.02935791,
+    -0.008682251,
+    0.012832642,
+    -0.006298065,
+    0.010604858,
+    0.023468018,
+    -0.012619019,
+    0.006385803,
+    0.0032215118,
+    0.011276245,
+    0.02468872,
+    -0.027755737,
+    -0.014030457,
+    0.012634277,
+    0.027526855,
+    -0.014724731,
+    -0.036071777,
+    -0.054229736,
+    -0.037139893,
+    -0.031219482,
+    0.008361816,
+    -0.021453857,
+    0.004650116,
+    -0.0124053955,
+    -0.034332275,
+    0.072509766,
+    -0.01184845,
+    0.050750732,
+    -0.0019006729,
+    0.030715942,
+    -0.009017944,
+    -0.00548172,
+    0.025314331,
+    0.0262146,
+    0.08996582,
+    -0.04421997,
+    -0.024032593,
+    -0.018753052,
+    0.060272217,
+    -0.002855301,
+    0.0068511963,
+    0.004386902,
+    0.041503906,
+    0.011222839,
+    0.035186768,
+    -0.0031414032,
+    -0.04473877,
+    0.00894928,
+    -0.020095825,
+    0.016235352,
+    -0.0059318542,
+    0.017089844,
+    -0.014640808,
+    0.0043792725,
+    0.04763794,
+    0.054901123,
+    -0.04034424,
+    0.008850098,
+    0.049468994,
+    -0.0036945343,
+    -0.009124756,
+    -0.012626648,
+    0.004776001,
+    -0.029434204,
+    -0.012336731,
+    0.0050201416,
+    0.0049324036,
+    0.039764404,
+    0.07434082,
+    0.0054779053,
+    0.022399902,
+    0.034973145,
+    -0.04067993,
+    0.0061454773,
+    0.020004272,
+    0.037963867,
+    -0.032104492,
+    -0.028335571,
+    0.011672974,
+    0.00073575974,
+    -0.0020561218,
+    -0.024108887,
+    0.011932373,
+    -0.018966675,
+    0.026245117,
+    -0.004798889,
+    0.029922485,
+    0.037109375,
+    0.035003662,
+    0.022506714,
+    -0.02810669,
+    -0.017181396,
+    0.0016794205,
+    -0.011703491,
+    -0.020584106,
+    0.0063667297,
+    0.019866943,
+    -0.043060303,
+    0.003293991,
+    -0.04107666,
+    -0.05517578,
+    0.012107849,
+    -0.031021118,
+    0.002506256,
+    -0.04046631,
+    0.020889282,
+    0.016937256,
+    0.053222656,
+    0.014083862,
+    0.002746582,
+    0.014404297,
+    0.00025963783,
+    0.06896973,
+    0.043914795,
+    0.08227539,
+    0.0042266846,
+    0.009765625,
+    -0.022109985,
+    0.0037441254,
+    -0.01991272,
+    -0.022964478,
+    0.042053223,
+    -0.023101807,
+    0.08959961,
+    0.022354126,
+    0.015289307,
+    -0.081726074,
+    0.03414917,
+    0.0473938,
+    -0.0035762787,
+    0.05847168,
+    -0.0049209595,
+    0.030136108,
+    0.0007915497,
+    -0.018493652,
+    -0.021392822,
+    0.0014362335,
+    0.022583008,
+    -0.04711914,
+    -0.039978027,
+    0.033050537,
+    0.009025574,
+    0.021453857,
+    0.017745972,
+    -0.038482666,
+    0.11437988,
+    0.012931824,
+    0.00027394295,
+    -0.0138168335,
+    -0.011016846,
+    0.019851685,
+    0.11669922,
+    -0.099121094,
+    0.08001709,
+    -0.009376526,
+    0.017715454,
+    -0.0035572052,
+    0.008270264,
+    0.025436401,
+    0.017181396,
+    -0.034973145,
+    -0.05117798,
+    -0.032043457,
+    0.015411377,
+    0.013938904,
+    0.053375244,
+    -0.030532837,
+    -0.06311035,
+    -0.043884277,
+    -0.05142212,
+    0.021697998,
+    0.009246826,
+    0.052886963,
+    -0.026229858,
+    0.07476807,
+    0.00091838837,
+    -0.046020508,
+    -0.044158936,
+    -0.09686279,
+    -0.006374359,
+    0.033111572,
+    0.017120361,
+    0.025650024,
+    0.024124146,
+    0.004550934,
+    0.0014457703,
+    -0.035125732,
+    0.0052833557,
+    -0.01612854,
+    -0.0008921623,
+    -0.01461792,
+    -0.010650635,
+    -0.039276123,
+    -0.00018310547,
+    -0.0042037964,
+    0.003824234,
+    -0.023925781,
+    -0.031097412,
+    -0.02772522,
+    -0.018508911,
+    -0.01737976,
+    0.017822266,
+    0.017868042,
+    0.029708862,
+    0.01838684,
+    -0.033477783,
+    0.00031757355,
+    -0.00390625,
+    -0.0035762787,
+    -0.017425537,
+    0.035247803,
+    -0.021514893,
+    0.041625977,
+    -0.038970947,
+    0.016860962,
+    -9.703636e-05,
+    -0.00843811,
+    -0.021011353,
+    0.023712158,
+    0.0039482117,
+    0.023895264,
+    0.0231781,
+    0.060272217,
+    0.008224487,
+    -0.028808594,
+    0.013259888,
+    -0.11999512,
+    -0.025909424,
+    0.042510986,
+    -0.02720642,
+    0.037384033,
+    0.03781128,
+    -0.012565613,
+    0.09136963,
+    -0.027542114,
+    0.01689148,
+    0.0107421875,
+    0.018798828,
+    0.0552063,
+    -0.0501709,
+    -0.0035953522,
+    0.0047569275,
+    -0.023727417
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84476.md",
+    "file_name": "84476.md",
+    "file_size": 26050,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Mooney M20TN Aircraft Incident in Adrian, Michigan",
+      "The incident occurred in Adrian, Michigan.",
+      "The incident occurred on July 27, 2012, at 08:46 Local time.",
+      "The aircraft involved was a MOONEY AIRPLANE COMPANY, INC. M20TN.",
+      "The defining event of the incident was an inflight upset.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was CEN12FA487.",
+      "The aircraft registration was N411JL.",
+      "The aircraft sustained substantial damage.",
+      "There were no injuries to the sole occupant.",
+      "The pilot reported the airplane experienced a \"violent pitch-up\" without warning.",
+      "The violent pitch-up occurred while the airplane was climbing through flight level 180.",
+      "The autopilot was engaged when the violent pitch-up occurred.",
+      "The pilot required extreme forward yoke pressure to prevent the airplane from pitching up and stalling.",
+      "The pilot estimated between 100 and 150 pounds of force was needed on the yoke.",
+      "The pilot kept both hands on the yoke during the incident.",
+      "The Airplane Flight Manual contains emergency procedures for autopilot out-of-trim events.",
+      "The third item on the emergency checklist directs pilots to re-trim the pitch using the trim wheel if necessary.",
+      "The pilot did not attempt to use the manual trim wheel to change the airplane's pitch attitude.",
+      "Using the manual trim wheel would have required the pilot to release hand pressure on the control yoke.",
+      "The pilot was uncertain when or how the autopilot was disengaged.",
+      "The pilot declared an emergency during the incident.",
+      "The pilot made a spiraling descent to lose altitude.",
+      "The pilot encountered multiple violent pitch up and down oscillations near the bottom of the descent.",
+      "The pilot's seat broke during one of the oscillations.",
+      "The broken seat allowed the pilot to use his knees to apply forward yoke pressure.",
+      "The airplane was \"quasi-stable\" when the pilot used his knees to control the yoke.",
+      "Pitch oscillations still occurred due to the lack of precise pitch control.",
+      "The electric nose pitch trim was in the full up position.",
+      "The pilot had difficulty controlling the airplane's pitch.",
+      "The pilot prepared for an emergency landing.",
+      "The pilot used his knees to provide forward yoke pressure during landing.",
+      "The airplane landed about 450 feet short of the runway.",
+      "The airplane's nose gear collapsed during landing.",
+      "The main landing gear were sheared off during landing.",
+      "The airplane skidded about 900 feet before coming to rest.",
+      "The airplane came to rest to the left of the runway."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Mooney M20TN Aircraft Incident in Adrian, Michigan",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Adrian, Michigan",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "MOONEY AIRPLANE COMPANY, INC.",
+              "classification": "Aircraftmake"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "M20TN",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N411JL",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "inflight upset",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CEN12FA487",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airplane Flight Manual",
+              "classification": "Aircraftowner"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred in Adrian, Michigan.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Adrian, Michigan",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The incident occurred on July 27, 2012, at 0846 Local time.",
+              "details": [
+                "incident DATE July 27, 2012",
+                "incident TIME 08:46 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "July 27, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "08:46 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a MOONEY AIRPLANE COMPANY, INC. M20TN.",
+              "details": [
+                "incident INVOLVED AIRCRAFT M20TN"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MOONEY AIRPLANE COMPANY, INC.",
+                    "classification": "Aircraftmake"
+                  },
+                  "predicate": {
+                    "value": "MANUFACTURER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED AIRCRAFT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the incident was an inflight upset.",
+              "details": [
+                "incident DEFINING EVENT inflight upset"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inflight upset",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was CEN12FA487.",
+              "details": [
+                "incident ACCIDENT NUMBER CEN12FA487"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN12FA487",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N411JL.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N411JL",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no injuries to the sole occupant.",
+              "details": [
+                "incident INJURY COUNT no injuries",
+                "incident OCCUPANT COUNT sole occupant"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "incident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sole occupant",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported the airplane experienced a \"violent pitch-up\" without warning.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "violent pitch-up without warning",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The violent pitch-up occurred while the airplane was climbing through flight level 180.",
+              "details": [
+                "violent pitch-up OCCURRED DURING climbing through flight level 180"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "violent pitch-up",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "climbing through flight level 180",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The autopilot was engaged when the violent pitch-up occurred.",
+              "details": [
+                "autopilot STATUS engaged",
+                "violent pitch-up OCCURRED WHEN autopilot was engaged"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "violent pitch-up",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED WHEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "autopilot was engaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot required extreme forward yoke pressure to prevent the airplane from pitching up and stalling.",
+              "details": [
+                "pilot REQUIRED extreme forward yoke pressure",
+                "extreme forward yoke pressure PURPOSE prevent the airplane from pitching up and stalling"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extreme forward yoke pressure",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "extreme forward yoke pressure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prevent the airplane from pitching up and stalling",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot estimated between 100 and 150 pounds of force was needed on the yoke.",
+              "details": [
+                "yoke REQUIRED FORCE between 100 and 150 pounds"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "yoke",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REQUIRED FORCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "between 100 and 150 pounds",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot kept both hands on the yoke during the incident.",
+              "details": [
+                "pilot HAND POSITION both hands on the yoke"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HAND POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "both hands on the yoke",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Airplane Flight Manual contains emergency procedures for autopilot out-of-trim events.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airplane Flight Manual",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "CONTAINS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency procedures for autopilot out-of-trim events",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The third item on the emergency checklist directs pilots to re-trim the pitch using the trim wheel if necessary.",
+              "details": [
+                "emergency checklist THIRD ITEM directs pilots to re-trim the pitch using the trim wheel if necessary"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency checklist",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "THIRD ITEM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "directs pilots to re-trim the pitch using the trim wheel if necessary",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot did not attempt to use the manual trim wheel to change the airplane's pitch attitude.",
+              "details": [
+                "pilot ATTEMPTED USE OF MANUAL TRIM did not attempt"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ATTEMPTED USE OF MANUAL TRIM"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not attempt",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Using the manual trim wheel would have required the pilot to release hand pressure on the control yoke.",
+              "details": [
+                "manual trim wheel USAGE REQUIREMENT release hand pressure on the control yoke"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "manual trim wheel",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USAGE REQUIREMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "release hand pressure on the control yoke",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was uncertain when or how the autopilot was disengaged.",
+              "details": [
+                "pilot KNOWLEDGE OF AUTOPILOT DISENGAGEMENT uncertain when or how"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "KNOWLEDGE OF AUTOPILOT DISENGAGEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "uncertain when or how",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot declared an emergency during the incident.",
+              "details": [
+                "pilot DECLARED emergency"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DECLARED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot made a spiraling descent to lose altitude.",
+              "details": [
+                "pilot PERFORMED spiraling descent",
+                "spiraling descent PURPOSE lose altitude"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spiraling descent",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "spiraling descent",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lose altitude",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot encountered multiple violent pitch up and down oscillations near the bottom of the descent.",
+              "details": [
+                "pilot ENCOUNTERED multiple violent pitch up and down oscillations",
+                "oscillations LOCATION near the bottom of the descent"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENCOUNTERED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple violent pitch up and down oscillations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oscillations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near the bottom of the descent",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's seat broke during one of the oscillations.",
+              "details": [
+                "pilot's seat STATUS broke",
+                "seat breaking OCCURRED DURING one of the oscillations"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot's seat",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "broke",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "seat breaking",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED DURING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "one of the oscillations",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The broken seat allowed the pilot to use his knees to apply forward yoke pressure.",
+              "details": [
+                "broken seat ENABLED use of knees to apply forward yoke pressure"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "broken seat",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENABLED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "use of knees to apply forward yoke pressure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was \"quasi-stable\" when the pilot used his knees to control the yoke.",
+              "details": [
+                "quasi-stable status OCCURRED WHEN pilot used his knees to control the yoke"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "STABILITY STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "quasi-stable",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "quasi-stable status",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCURRED WHEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot used his knees to control the yoke",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Pitch oscillations still occurred due to the lack of precise pitch control.",
+              "details": [
+                "pitch oscillations CAUSE lack of precise pitch control"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pitch oscillations",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lack of precise pitch control",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The electric nose pitch trim was in the full up position.",
+              "details": [
+                "electric nose pitch trim POSITION full up"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electric nose pitch trim",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "full up",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had difficulty controlling the airplane's pitch.",
+              "details": [
+                "pilot DIFFICULTY controlling the airplane's pitch"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DIFFICULTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "controlling the airplane's pitch",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot prepared for an emergency landing.",
+              "details": [
+                "pilot PREPARED FOR emergency landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PREPARED FOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot used his knees to provide forward yoke pressure during landing.",
+              "details": [
+                "pilot USED knees to provide forward yoke pressure during landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "knees to provide forward yoke pressure during landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane landed about 450 feet short of the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 450 feet short of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane's nose gear collapsed during landing.",
+              "details": [
+                "M20TN's nose gear STATUS collapsed during landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN's nose gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "collapsed during landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The main landing gear were sheared off during landing.",
+              "details": [
+                "main landing gear STATUS sheared off during landing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main landing gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "sheared off during landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane skidded about 900 feet before coming to rest.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "SKIDDED DISTANCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 900 feet",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to rest to the left of the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "M20TN",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "to the left of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::ea713e76:6b20",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84476.md",
+        "file_name": "84476.md",
+        "file_size": 26050,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "d18e929fc2efd44835cb132b746da4efb2f94c011f0869c3b46834b37dd18449",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::ea713e76:6b20:5c8bd6eb",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/84476.md",
+        "file_name": "84476.md",
+        "file_size": 26050,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "1161eaa4df54ed98814624b81ced6d8ada792e913bef90de2cf5b8aa6f1f0c70",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nAdrian, Michigan\n\n## Date & Time: \nJuly 27, 2012, 08:46 Local\n\n## Aircraft:\nMOONEY AIRPLANE COMPANY, INC. M20TN\n\n## Defining Event:\nInflight upset\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nCEN12FA487\n\n## Registration:\nN411JL\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nThe pilot reported that the airplane, with its autopilot engaged, experienced a \"violent pitch-up\" without warning while it was climbing through about flight level 180. Extreme forward yoke pressure (the pilot estimated between 100 and 150 pounds force) was required to keep the airplane from pitching up and stalling, so the pilot kept both hands on the yoke.\n\nThe Airplane Flight Manual contains emergency procedures for use in the event of an autopilot out-of-trim event; the third item on the checklist directs pilots to re-trim the pitch, if necessary, using the trim wheel. The pilot noted that he did not attempt to use the manual trim wheel to change the airplane's pitch attitude because that would have required him to release hand pressure on the control yoke. He was uncertain when or how the autopilot was disengaged. He declared an emergency and made a spiraling descent to lose altitude. He reported that he encountered multiple violent pitch up and down oscillations near the bottom of the descent; the pilot's seat was broken during one of the oscillations, which allowed the pilot to use his knees to apply forward yoke pressure. He stated that by using his knees to control the yoke, the airplane was \"quasi-stable,\" pitch oscillations still occurred due to the lack of precise pitch control. While still having difficulty controlling the airplane's pitch with the electric nose pitch trim in the full up position, he prepared for an emergency landing. The pilot used his knees to provide forward yoke pressure as he landed the airplane about 450 feet short of the runway. The airplane's nose gear collapsed, the main landing gear were sheared off, and the airplane skidded about 900 feet before coming to rest to the left of the runway.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2145,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

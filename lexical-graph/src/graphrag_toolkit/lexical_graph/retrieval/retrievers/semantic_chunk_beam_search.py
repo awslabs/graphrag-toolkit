@@ -38,18 +38,32 @@ class SemanticChunkBeamGraphSearch(SemanticGuidedBaseChunkRetriever):
         self.shared_nodes = shared_nodes
 
     def get_neighbors(self, chunk_id: str) -> List[str]:
- 
+
         cypher = f"""
-        // get chunk neighbours (semantic beam search)
-        MATCH (e)-[:`__SUBJECT__`|`__OBJECT__`]->()-[:`__SUPPORTS__`]->()-[:`__BELONGS_TO__`]->()-[:`__MENTIONED_IN__`]->(c)
+        // get top entities for chunk (semantic beam search)
+        MATCH (e)-[:`__SUBJECT__`|`__OBJECT__`]->()-[:`__SUPPORTS__`]->(`__Statement__`)-[:`__MENTIONED_IN__`]->(c)
         WHERE {self.graph_store.node_id('c.chunkId')} = $chunkId
         WITH DISTINCT e AS entity
-        MATCH (entity)-[:`__SUBJECT__`|`__OBJECT__`]->()-[:`__SUPPORTS__`]->()-[:`__BELONGS_TO__`]->()-[:`__MENTIONED_IN__`]->(e_neighbors)
-        RETURN DISTINCT {self.graph_store.node_id('e_neighbors.chunkId')} as chunkId
+        MATCH (entity)-[r:`__SUBJECT__`|`__OBJECT__`]->()
+        RETURN {self.graph_store.node_id('entity.entityId')} AS entityId, count(r) AS score ORDER BY score DESC LIMIT $limit
         """
-        
-        neighbors = self.graph_store.execute_query(cypher, {'chunkId': chunk_id})
-        return [n['chunkId'] for n in neighbors]
+
+        results = self.graph_store.execute_query(cypher, {'chunkId': chunk_id, 'limit': 5})
+        entity_ids = [r['entityId'] for r in results]
+
+        cypher = f"""
+        // get neighboring chunks for common entities (semantic beam search)
+        MATCH (entity)-[:`__SUBJECT__`|`__OBJECT__`]->()-[:`__SUPPORTS__`]->(`__Statement__`)-[:`__MENTIONED_IN__`]->(e_neighbors)
+        WHERE {self.graph_store.node_id('entity.entityId')} IN $entityIds
+        AND {self.graph_store.node_id('e_neighbors.chunkId')} <> $chunkId
+        WITH DISTINCT e_neighbors AS neighbors, entity
+        RETURN {self.graph_store.node_id('neighbors.chunkId')} as chunkId, count(entity) ORDER BY count(entity) DESC LIMIT $limit
+        """
+
+        results = self.graph_store.execute_query(cypher, {'entityIds': entity_ids, 'chunkId': chunk_id, 'limit': self.beam_width * 2})
+        chunk_ids = [r['chunkId'] for r in results]
+
+        return chunk_ids
 
     def beam_search(
         self, 

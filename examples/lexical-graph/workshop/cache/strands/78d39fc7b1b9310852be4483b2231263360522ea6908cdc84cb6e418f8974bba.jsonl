@@ -1,0 +1,26 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " you analyze the safety issues and accident patterns for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Kitfox series experimental aircraft and compare them to the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design features from Denney Aerocraft."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Let me search for information"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " from both aviation safety data"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and aircraft specifications."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_5eeJxctqTfuJOtRPx6ktdg", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Kitfox"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " exp"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "erimental ai"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rcraft acci"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "den"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ts inci"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "dents safe"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty issues pa"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tterns prob"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "lems"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 1751, "outputTokens": 114, "totalTokens": 1865}, "metrics": {"latencyMs": 4719}}}

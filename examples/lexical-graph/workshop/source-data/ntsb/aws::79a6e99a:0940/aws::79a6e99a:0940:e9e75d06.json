@@ -1,0 +1,2532 @@
+{
+  "id_": "aws::79a6e99a:0940:e9e75d06",
+  "embedding": [
+    0.0045166016,
+    0.006629944,
+    0.011520386,
+    0.009727478,
+    -0.004119873,
+    -0.017623901,
+    0.02998352,
+    -0.015487671,
+    -0.0423584,
+    0.049346924,
+    0.02999878,
+    0.0034770966,
+    0.012420654,
+    -0.04434204,
+    0.010063171,
+    -0.007659912,
+    -0.032165527,
+    0.09686279,
+    0.050964355,
+    -0.02508545,
+    0.035217285,
+    -0.030975342,
+    -0.037017822,
+    -0.020477295,
+    -0.008415222,
+    0.03933716,
+    -0.018844604,
+    -0.00844574,
+    0.003370285,
+    0.00032806396,
+    -0.0011987686,
+    -0.033294678,
+    0.0030078888,
+    0.042510986,
+    -0.0113220215,
+    -0.026809692,
+    -0.008621216,
+    0.019180298,
+    -0.0066452026,
+    0.02758789,
+    0.024642944,
+    -0.017974854,
+    0.025497437,
+    -0.06335449,
+    -0.028915405,
+    0.047607422,
+    0.007659912,
+    0.025024414,
+    0.022781372,
+    0.008522034,
+    0.0062675476,
+    -0.017684937,
+    0.0031909943,
+    0.04019165,
+    -0.0048980713,
+    -0.022613525,
+    -0.041748047,
+    0.021652222,
+    -0.011253357,
+    0.05307007,
+    0.020904541,
+    0.06213379,
+    0.0012712479,
+    -0.014030457,
+    -0.02154541,
+    -0.0020713806,
+    -0.003282547,
+    0.0060272217,
+    0.051849365,
+    -0.016616821,
+    -0.040985107,
+    0.031021118,
+    -0.0074424744,
+    0.024978638,
+    -0.0059318542,
+    -0.037261963,
+    -0.028213501,
+    -0.01737976,
+    0.011062622,
+    0.047576904,
+    -0.0041503906,
+    0.008239746,
+    0.012664795,
+    -0.024856567,
+    -0.0053100586,
+    -1.3411045e-05,
+    -0.022949219,
+    -0.008087158,
+    -0.03753662,
+    -0.034820557,
+    -0.035308838,
+    -0.01725769,
+    0.01525116,
+    -0.012458801,
+    -0.052337646,
+    0.0152282715,
+    -0.0017204285,
+    -0.0847168,
+    0.026016235,
+    -0.032043457,
+    0.060760498,
+    -0.063964844,
+    -0.00030136108,
+    0.026748657,
+    -0.008552551,
+    0.032470703,
+    0.027450562,
+    -0.047851562,
+    0.009185791,
+    -0.017288208,
+    -0.030731201,
+    0.043273926,
+    0.0076065063,
+    -0.06939697,
+    0.009513855,
+    0.053741455,
+    0.018188477,
+    0.0362854,
+    0.043670654,
+    0.036590576,
+    0.0104599,
+    0.033935547,
+    -0.045196533,
+    -0.02885437,
+    -0.01939392,
+    -0.042663574,
+    -0.022445679,
+    0.024673462,
+    0.024627686,
+    0.015136719,
+    -0.029373169,
+    0.04260254,
+    -0.019210815,
+    -0.040039062,
+    -0.030929565,
+    0.0041389465,
+    -0.037750244,
+    0.02192688,
+    0.0067214966,
+    -0.0043792725,
+    -0.040863037,
+    0.0066986084,
+    0.093811035,
+    -0.030197144,
+    -0.053833008,
+    0.024017334,
+    0.015686035,
+    -0.011817932,
+    -0.015457153,
+    -0.04953003,
+    -0.03201294,
+    -0.042266846,
+    0.059692383,
+    -0.02078247,
+    -0.062805176,
+    -0.07244873,
+    -0.020477295,
+    -0.041137695,
+    0.023834229,
+    -0.055847168,
+    0.007369995,
+    -0.019256592,
+    -0.015007019,
+    5.441904e-05,
+    -0.028121948,
+    0.02911377,
+    -0.0059318542,
+    -0.0070533752,
+    -0.0024490356,
+    -0.008705139,
+    -0.011924744,
+    0.0021629333,
+    -0.019592285,
+    -0.027404785,
+    -0.018997192,
+    0.022094727,
+    0.026168823,
+    0.015930176,
+    0.0013599396,
+    0.043945312,
+    -0.006362915,
+    -0.03439331,
+    0.03253174,
+    -0.018600464,
+    -0.002796173,
+    -0.0030784607,
+    0.024658203,
+    -0.02027893,
+    -0.020095825,
+    0.0002720356,
+    0.001074791,
+    0.049682617,
+    -0.0054626465,
+    -0.02722168,
+    -0.009407043,
+    -0.019760132,
+    0.0074424744,
+    -0.0072288513,
+    -0.0113220215,
+    0.020904541,
+    -0.022399902,
+    0.002243042,
+    0.0021648407,
+    0.022583008,
+    0.005340576,
+    -0.017303467,
+    0.0023288727,
+    0.026062012,
+    -0.022125244,
+    0.0036811829,
+    0.03778076,
+    -0.0056533813,
+    -0.017578125,
+    -0.024505615,
+    -0.012023926,
+    0.026031494,
+    -0.010238647,
+    0.0033054352,
+    0.022155762,
+    -0.000467062,
+    -0.006587982,
+    0.03036499,
+    -0.011680603,
+    0.0039634705,
+    -0.05505371,
+    -0.029052734,
+    -0.00793457,
+    -0.016204834,
+    -0.01802063,
+    -0.03137207,
+    0.08618164,
+    0.0060806274,
+    0.022201538,
+    0.03265381,
+    -0.0552063,
+    0.016281128,
+    -0.02519226,
+    0.050231934,
+    -0.024917603,
+    0.008422852,
+    -0.0050468445,
+    -0.0047912598,
+    -0.010520935,
+    0.022964478,
+    -0.105041504,
+    -0.05895996,
+    0.03427124,
+    -0.011375427,
+    -0.017730713,
+    0.024307251,
+    0.04949951,
+    0.04144287,
+    -0.0040779114,
+    0.07421875,
+    0.005104065,
+    0.0060272217,
+    -0.03036499,
+    -0.018920898,
+    -0.030670166,
+    -0.0077819824,
+    0.026443481,
+    -0.0236969,
+    -0.037322998,
+    -0.0032615662,
+    0.040893555,
+    0.01751709,
+    0.07342529,
+    0.06088257,
+    0.003610611,
+    0.0012407303,
+    -0.02154541,
+    -0.0011281967,
+    0.011138916,
+    0.01776123,
+    -0.07678223,
+    0.019821167,
+    -0.02796936,
+    0.0050354004,
+    0.008056641,
+    -0.015960693,
+    -0.01838684,
+    0.022827148,
+    -0.052642822,
+    -0.016296387,
+    0.03366089,
+    0.03186035,
+    -0.04321289,
+    -0.043945312,
+    0.011016846,
+    0.017837524,
+    0.058685303,
+    -0.032714844,
+    -0.026687622,
+    0.014862061,
+    -0.031143188,
+    -0.034698486,
+    0.0635376,
+    0.027877808,
+    0.007572174,
+    -0.007965088,
+    0.017868042,
+    0.028503418,
+    -0.05630493,
+    0.028549194,
+    0.0033817291,
+    -0.057006836,
+    -0.008598328,
+    0.006248474,
+    0.013259888,
+    0.013412476,
+    -0.034698486,
+    0.08135986,
+    0.022201538,
+    0.060333252,
+    0.0029563904,
+    -0.0064468384,
+    0.007385254,
+    0.046142578,
+    0.050842285,
+    0.044647217,
+    -0.07232666,
+    -0.022857666,
+    0.020324707,
+    0.03466797,
+    0.012504578,
+    -0.02053833,
+    0.04547119,
+    0.02583313,
+    0.0023593903,
+    -0.027740479,
+    -0.014923096,
+    -0.0158844,
+    -0.012939453,
+    0.027709961,
+    0.0073890686,
+    -0.013206482,
+    -0.0017032623,
+    -0.008705139,
+    -0.027359009,
+    -0.009841919,
+    -0.05456543,
+    -0.02670288,
+    0.009033203,
+    -0.054504395,
+    -0.043670654,
+    -0.05596924,
+    0.0065689087,
+    -0.0027770996,
+    0.010826111,
+    -0.0013055801,
+    0.05206299,
+    0.012748718,
+    0.009437561,
+    0.036376953,
+    0.008918762,
+    -0.046813965,
+    -0.008453369,
+    0.010063171,
+    -0.047424316,
+    -0.055541992,
+    -0.009094238,
+    -0.011985779,
+    -0.05050659,
+    -0.030807495,
+    0.03050232,
+    0.00730896,
+    -0.018081665,
+    -0.011505127,
+    -0.017822266,
+    0.003414154,
+    0.0026855469,
+    -0.010513306,
+    -0.019470215,
+    -0.014022827,
+    -0.015777588,
+    0.014053345,
+    -0.016082764,
+    -0.05783081,
+    0.03363037,
+    0.0021705627,
+    -0.014694214,
+    0.003414154,
+    0.007106781,
+    0.025314331,
+    0.017593384,
+    -0.01864624,
+    -0.020828247,
+    0.0491333,
+    0.0110321045,
+    0.015617371,
+    0.00015509129,
+    0.0206604,
+    -0.034210205,
+    0.008583069,
+    0.009864807,
+    -0.008628845,
+    -0.0019569397,
+    -0.00016403198,
+    -0.06567383,
+    -0.021697998,
+    -0.10107422,
+    -0.011482239,
+    -0.015274048,
+    -0.033233643,
+    0.043273926,
+    -0.08001709,
+    0.0066566467,
+    -0.06604004,
+    0.026901245,
+    0.0017652512,
+    -0.025314331,
+    0.061676025,
+    -0.040039062,
+    0.04135132,
+    -0.036132812,
+    -0.002817154,
+    -0.033966064,
+    -0.0029449463,
+    0.0010948181,
+    0.02458191,
+    0.03881836,
+    -0.06738281,
+    0.0057525635,
+    0.025726318,
+    0.015052795,
+    -0.007461548,
+    -0.0066184998,
+    -0.0090408325,
+    -0.01260376,
+    0.019973755,
+    -0.0030136108,
+    -0.024932861,
+    0.018829346,
+    0.0009803772,
+    -0.018081665,
+    0.014533997,
+    -0.01486969,
+    -0.0309906,
+    0.0209198,
+    -0.047454834,
+    -0.0044059753,
+    0.036987305,
+    0.033996582,
+    0.022384644,
+    -0.0017700195,
+    -0.0033435822,
+    0.019515991,
+    0.0071640015,
+    -0.03778076,
+    -0.029174805,
+    -0.014472961,
+    0.008255005,
+    0.03225708,
+    0.024536133,
+    0.011047363,
+    0.036224365,
+    -0.0010738373,
+    0.0116119385,
+    0.028503418,
+    -0.045440674,
+    -0.048706055,
+    -0.00017392635,
+    -0.05996704,
+    -0.03793335,
+    0.007423401,
+    -0.029373169,
+    0.041778564,
+    0.0038776398,
+    0.027175903,
+    -0.008407593,
+    -0.0077781677,
+    0.022720337,
+    0.006122589,
+    -0.021194458,
+    -0.004814148,
+    -0.03930664,
+    0.011375427,
+    -0.0067481995,
+    0.043792725,
+    0.005844116,
+    -0.045898438,
+    0.019088745,
+    -5.00679e-05,
+    0.043640137,
+    0.064086914,
+    -0.015098572,
+    0.07421875,
+    0.021987915,
+    0.001991272,
+    0.012184143,
+    -0.0050582886,
+    0.036956787,
+    0.023605347,
+    0.0046043396,
+    0.0129852295,
+    -0.029846191,
+    0.0115737915,
+    -0.044830322,
+    -0.049041748,
+    -0.052703857,
+    -0.04434204,
+    0.020828247,
+    -0.013374329,
+    0.032684326,
+    0.0017080307,
+    0.021591187,
+    -0.041534424,
+    0.033325195,
+    0.016983032,
+    -0.037902832,
+    -0.021865845,
+    -0.01159668,
+    0.04147339,
+    0.027252197,
+    -0.029769897,
+    0.06604004,
+    -0.027282715,
+    0.0005130768,
+    0.0013389587,
+    -0.016235352,
+    -0.04232788,
+    -0.018096924,
+    0.04498291,
+    0.03488159,
+    -0.041168213,
+    0.0059432983,
+    0.025177002,
+    0.029693604,
+    -0.021713257,
+    -0.008476257,
+    -0.019470215,
+    0.037506104,
+    0.011428833,
+    0.010169983,
+    0.034423828,
+    -0.010467529,
+    -0.0134887695,
+    0.050048828,
+    0.0008201599,
+    -0.040100098,
+    -0.0357666,
+    -0.0035858154,
+    0.032989502,
+    -0.022567749,
+    -0.016357422,
+    -0.015068054,
+    0.005508423,
+    0.02772522,
+    -0.00078725815,
+    -0.01737976,
+    0.023361206,
+    0.023788452,
+    -0.015075684,
+    -0.03363037,
+    -0.0262146,
+    0.028198242,
+    0.0051994324,
+    -0.010139465,
+    -0.015960693,
+    0.021148682,
+    -0.02822876,
+    -0.013153076,
+    -0.005004883,
+    0.022872925,
+    -0.03866577,
+    0.03451538,
+    -0.024276733,
+    -0.02494812,
+    -0.027877808,
+    0.00919342,
+    -0.053344727,
+    -0.012550354,
+    0.034362793,
+    -0.014503479,
+    -0.013412476,
+    -0.01626587,
+    0.015914917,
+    0.015579224,
+    -0.01927185,
+    -0.011131287,
+    0.034820557,
+    0.043304443,
+    -0.0055007935,
+    0.06793213,
+    -0.03427124,
+    0.012641907,
+    -0.011741638,
+    -0.01398468,
+    -0.040100098,
+    -0.021057129,
+    0.023376465,
+    0.011688232,
+    0.014823914,
+    0.005760193,
+    -0.018356323,
+    -0.0060043335,
+    -0.019561768,
+    -0.039886475,
+    0.0090408325,
+    -0.013755798,
+    -0.012580872,
+    -0.0073432922,
+    -0.010757446,
+    -0.014335632,
+    0.038238525,
+    0.03717041,
+    0.036193848,
+    -0.0035152435,
+    0.018447876,
+    0.013717651,
+    -0.019454956,
+    0.008735657,
+    -0.022644043,
+    0.0040779114,
+    -0.0036582947,
+    -0.0049095154,
+    -0.02229309,
+    0.06286621,
+    0.080078125,
+    -0.016036987,
+    0.044769287,
+    -0.0039787292,
+    0.011116028,
+    0.008140564,
+    0.015670776,
+    0.040161133,
+    -0.013122559,
+    -0.0146484375,
+    -0.03353882,
+    -0.03137207,
+    -0.053649902,
+    -0.03656006,
+    -0.07092285,
+    0.023345947,
+    -0.01436615,
+    0.0029697418,
+    -0.054870605,
+    -0.0155181885,
+    -0.0037517548,
+    -0.045776367,
+    -0.01335144,
+    0.0063171387,
+    -0.015808105,
+    -0.0007390976,
+    0.017684937,
+    -0.028900146,
+    -0.00504303,
+    -0.015670776,
+    0.004058838,
+    -0.004108429,
+    0.01890564,
+    0.006462097,
+    -0.060394287,
+    -0.0041275024,
+    0.026275635,
+    -0.0012426376,
+    -0.012893677,
+    0.010971069,
+    -0.032836914,
+    -0.045898438,
+    -0.07305908,
+    -0.032348633,
+    0.0074691772,
+    -0.020370483,
+    -0.030944824,
+    0.03616333,
+    0.039978027,
+    0.017822266,
+    0.009315491,
+    -0.007949829,
+    -0.014144897,
+    0.041931152,
+    -0.0104599,
+    -0.040374756,
+    -0.027297974,
+    0.011627197,
+    0.03515625,
+    0.01889038,
+    0.033966064,
+    -0.050567627,
+    0.020828247,
+    -0.04373169,
+    -0.0491333,
+    -0.008033752,
+    -0.010177612,
+    0.035491943,
+    -0.04815674,
+    0.00466156,
+    -0.02659607,
+    -0.0132751465,
+    -0.011558533,
+    0.037384033,
+    -0.03729248,
+    0.0033550262,
+    -0.014335632,
+    -0.0637207,
+    -0.009521484,
+    0.028549194,
+    -0.00057554245,
+    -0.012466431,
+    0.007843018,
+    0.009300232,
+    0.016815186,
+    0.005054474,
+    -0.031982422,
+    0.034820557,
+    -0.02772522,
+    0.0501709,
+    -0.06304932,
+    -0.002412796,
+    -0.00037813187,
+    0.04067993,
+    0.0008249283,
+    -0.017074585,
+    0.016357422,
+    0.012283325,
+    0.056732178,
+    0.012016296,
+    -0.013130188,
+    -0.012634277,
+    0.012954712,
+    0.062805176,
+    0.026947021,
+    -0.02420044,
+    0.04989624,
+    -0.05633545,
+    -0.036132812,
+    0.03845215,
+    -0.0262146,
+    -0.05419922,
+    -0.02645874,
+    -0.0021209717,
+    0.00818634,
+    -0.03363037,
+    -0.052825928,
+    0.046051025,
+    0.037109375,
+    0.02128601,
+    0.026290894,
+    0.0048675537,
+    -0.057769775,
+    0.009223938,
+    0.027038574,
+    0.009346008,
+    -0.01096344,
+    -0.047973633,
+    0.0027923584,
+    -0.028060913,
+    -0.030029297,
+    -0.022491455,
+    0.06970215,
+    -0.056854248,
+    -0.06365967,
+    0.036010742,
+    0.016036987,
+    0.0390625,
+    0.008262634,
+    0.016464233,
+    -0.046447754,
+    0.0036144257,
+    -0.012077332,
+    0.016159058,
+    9.673834e-05,
+    0.0075569153,
+    -0.00013077259,
+    0.01512146,
+    -0.026687622,
+    -0.02684021,
+    -0.008224487,
+    -0.027313232,
+    -0.04586792,
+    0.010368347,
+    -0.03326416,
+    -0.06378174,
+    0.072509766,
+    -0.03375244,
+    0.083984375,
+    -0.04937744,
+    -0.011451721,
+    -0.06713867,
+    -0.04119873,
+    -0.01676941,
+    -0.0138168335,
+    0.051361084,
+    -0.037109375,
+    0.020355225,
+    -0.046051025,
+    0.06573486,
+    -0.040893555,
+    0.0006632805,
+    -0.030319214,
+    0.058654785,
+    -0.0046958923,
+    -0.047607422,
+    -0.00554657,
+    -0.022094727,
+    -0.03768921,
+    -0.016845703,
+    -0.05807495,
+    -0.023101807,
+    0.02243042,
+    -0.017623901,
+    0.025985718,
+    -0.014724731,
+    -0.012794495,
+    -0.027526855,
+    0.042755127,
+    -1.40070915e-05,
+    0.0046844482,
+    -0.005317688,
+    0.016403198,
+    -0.010650635,
+    0.040039062,
+    -0.01828003,
+    0.010292053,
+    0.018508911,
+    -0.1239624,
+    -0.06781006,
+    0.032409668,
+    0.032714844,
+    0.017028809,
+    0.051635742,
+    0.04660034,
+    -0.043426514,
+    -0.0109939575,
+    0.03866577,
+    -0.0030117035,
+    -0.055541992,
+    0.019226074,
+    0.007663727,
+    0.010688782,
+    0.016662598,
+    -0.003604889,
+    -0.011100769,
+    0.0036010742,
+    0.034423828,
+    -0.00015115738,
+    0.0030899048,
+    -0.01309967,
+    0.020248413,
+    0.023727417,
+    -0.011306763,
+    0.004360199,
+    0.014587402,
+    -0.029876709,
+    0.009765625,
+    0.03225708,
+    -0.004627228,
+    0.005420685,
+    0.101501465,
+    -0.011810303,
+    0.020935059,
+    0.0579834,
+    -0.047546387,
+    -0.0066223145,
+    0.04055786,
+    0.008583069,
+    -0.02166748,
+    -0.0206604,
+    -0.0014343262,
+    0.004058838,
+    0.03945923,
+    0.040924072,
+    -0.03237915,
+    0.021377563,
+    0.021087646,
+    -0.0085372925,
+    0.009147644,
+    0.007911682,
+    0.029769897,
+    0.04373169,
+    -0.0158844,
+    -0.095581055,
+    0.003824234,
+    -0.0064315796,
+    -0.035095215,
+    0.015106201,
+    0.06451416,
+    -0.021347046,
+    0.012359619,
+    -0.064697266,
+    -0.03591919,
+    -0.0025787354,
+    -0.013877869,
+    0.0007314682,
+    -0.031097412,
+    -0.0038223267,
+    -0.017578125,
+    0.10021973,
+    0.018798828,
+    0.03250122,
+    -0.009735107,
+    -0.04248047,
+    0.049804688,
+    -0.012268066,
+    0.05508423,
+    0.007873535,
+    0.0034255981,
+    -0.043914795,
+    0.017364502,
+    -0.030914307,
+    -0.045196533,
+    0.006629944,
+    -0.03213501,
+    0.008338928,
+    0.016708374,
+    0.024108887,
+    -0.05130005,
+    -0.010475159,
+    -0.02243042,
+    0.00806427,
+    -0.011070251,
+    -0.013626099,
+    0.011817932,
+    0.007724762,
+    -0.0023651123,
+    -0.04119873,
+    -0.019439697,
+    0.034973145,
+    -0.050109863,
+    -0.044647217,
+    0.007801056,
+    -0.0075798035,
+    0.020874023,
+    0.022827148,
+    -0.021209717,
+    0.031341553,
+    -0.01977539,
+    -0.05505371,
+    0.026138306,
+    0.005455017,
+    0.015945435,
+    0.061157227,
+    -0.024505615,
+    0.029953003,
+    -0.0003297329,
+    -0.0029392242,
+    -0.010719299,
+    -0.023284912,
+    0.060516357,
+    0.030685425,
+    -0.06121826,
+    -0.016952515,
+    0.0101623535,
+    -0.0124053955,
+    -0.0058631897,
+    0.02973938,
+    -0.060394287,
+    -0.053131104,
+    -0.04296875,
+    -0.017150879,
+    -0.017745972,
+    -0.012336731,
+    0.019195557,
+    0.0029735565,
+    0.054351807,
+    -0.016113281,
+    -0.013946533,
+    -0.010299683,
+    -0.06222534,
+    0.027755737,
+    -0.016738892,
+    0.0045166016,
+    8.106232e-05,
+    -0.016662598,
+    -0.02822876,
+    0.0029582977,
+    -0.013427734,
+    -0.012062073,
+    -0.034301758,
+    0.064819336,
+    -0.019836426,
+    -0.020446777,
+    -0.055267334,
+    -0.038238525,
+    0.030197144,
+    -0.00091457367,
+    -0.01802063,
+    0.020629883,
+    -0.037078857,
+    -0.015174866,
+    -0.045074463,
+    -0.023620605,
+    -0.008583069,
+    0.04498291,
+    -0.034576416,
+    -0.0035362244,
+    0.005630493,
+    -0.027191162,
+    -0.025512695,
+    -0.027450562,
+    0.001086235,
+    0.015686035,
+    0.013763428,
+    -0.04925537,
+    0.011650085,
+    0.0037670135,
+    -0.014213562,
+    -0.032440186,
+    -0.016174316,
+    0.0012493134,
+    -0.0151901245,
+    0.020462036,
+    -0.008621216,
+    -0.0033187866,
+    -0.03414917,
+    -0.019348145,
+    -0.049957275,
+    -0.002325058,
+    -0.0385437,
+    -0.0317688,
+    0.05291748,
+    0.034942627,
+    -0.044830322,
+    0.08648682,
+    -0.06427002,
+    0.01902771,
+    0.033966064,
+    0.023803711,
+    0.017333984,
+    0.003868103,
+    0.032318115,
+    0.024414062,
+    -0.003019333
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85013.md",
+    "file_name": "85013.md",
+    "file_size": 8607,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Analysis - Beech 35 Stall During Emergency Landing",
+      "The accident occurred in Geary, Oklahoma.",
+      "The accident occurred on September 9, 2012, at 13:15 Local time.",
+      "The aircraft involved was a Beech 35.",
+      "The defining event was an aerodynamic stall/spin.",
+      "The flight was conducted under Part 91: General aviation - Instructional.",
+      "The accident number was CEN12CA625.",
+      "The aircraft registration was N3014V.",
+      "The aircraft sustained substantial damage.",
+      "There were 2 occupants with no injuries.",
+      "The student pilot and instructor pilot were practicing emergency landing procedures.",
+      "The student pilot attempted a go-around after a missed approach to the private ranch airport.",
+      "The aircraft experienced a loss of engine power during the climb.",
+      "The student pilot tried to set up for an actual emergency landing.",
+      "Both the instructor pilot and student pilot attempted to troubleshoot the loss of engine power.",
+      "The pilots attempted to regain engine power by switching fuel tanks.",
+      "The pilots attempted to restart the engine.",
+      "The airplane stalled about 20 feet above the runway.",
+      "The airplane impacted the runway.",
+      "The airplane came to a stop in a grassy area to the left of the runway.",
+      "Both wings of the aircraft sustained substantial damage.",
+      "The student pilot owned the airplane.",
+      "The student pilot stated he may have moved the fuel selector lever to the left tank position during troubleshooting.",
+      "The instructor pilot occupied the right seat.",
+      "The instructor pilot would not have been able to see the fuel selector lever position.",
+      "Postaccident examination revealed the right main fuel tank had usable fuel.",
+      "Postaccident examination revealed the auxiliary fuel tank had usable fuel.",
+      "The left main fuel tank was empty.",
+      "The left main fuel tank was not compromised.",
+      "The fuel selector lever was found in the left tank position.",
+      "No evidence of mechanical malfunction was found.",
+      "No preimpact abnormalities were found.",
+      "The loss of engine power could be linked to possible fuel starvation.",
+      "The cause for the loss of engine power could not be substantiated.",
+      "The National Transportation Safety Board determined the probable cause of the accident.",
+      "The student pilot failed to maintain control of the airplane during a forced landing attempt.",
+      "The failure to maintain control resulted in an aerodynamic stall.",
+      "The instructor pilot's delay in taking control of the airplane contributed to the accident.",
+      "The loss of engine power for undetermined reasons contributed to the accident."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Analysis - Beech 35 Stall During Emergency Landing",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Geary, Oklahoma",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Beech 35",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N3014V",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CEN12CA625",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "student pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "instructor pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "private ranch airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Geary, Oklahoma.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Geary, Oklahoma",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on September 9, 2012, at 1315 Local time.",
+              "details": [
+                "accident DATE September 9, 2012",
+                "accident TIME 13:15 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "September 9, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "13:15 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Beech 35.",
+              "details": [
+                "accident INVOLVED Beech 35"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was an aerodynamic stall/spin.",
+              "details": [
+                "accident DEFINING EVENT aerodynamic stall/spin"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aerodynamic stall/spin",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Instructional.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Instructional"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Instructional",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was CEN12CA625.",
+              "details": [
+                "accident NUMBER CEN12CA625"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN12CA625",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N3014V.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N3014V",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 2 occupants with no injuries.",
+              "details": [
+                "accident OCCUPANTS 2",
+                "accident INJURIES none"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot and instructor pilot were practicing emergency landing procedures.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "practicing emergency landing procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTIVITY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "practicing emergency landing procedures",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot attempted a go-around after a missed approach to the private ranch airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ATTEMPTED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private ranch airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted a go-around after a missed approach",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft experienced a loss of engine power during the climb.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EXPERIENCED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power during the climb",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot tried to set up for an actual emergency landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tried to set up for an actual emergency landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both the instructor pilot and student pilot attempted to troubleshoot the loss of engine power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COLLABORATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted to troubleshoot the loss of engine power",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted to troubleshoot the loss of engine power",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilots attempted to regain engine power by switching fuel tanks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted to regain engine power by switching fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted to regain engine power by switching fuel tanks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilots attempted to restart the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted to restart the engine",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempted to restart the engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane stalled about 20 feet above the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "STALLED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 20 feet above the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to a stop in a grassy area to the left of the runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "STOPPED AT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "grassy area to the left of the runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both wings of the aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE DETAILS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "both wings sustained substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot owned the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OWNER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Beech 35",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot stated he may have moved the fuel selector lever to the left tank position during troubleshooting.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "STATEMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "may have moved the fuel selector lever to the left tank position during troubleshooting",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The instructor pilot occupied the right seat.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SEAT POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right seat",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The instructor pilot would not have been able to see the fuel selector lever position.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LIMITATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "would not have been able to see the fuel selector lever position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed the right main fuel tank had usable fuel.",
+              "details": [
+                "right main fuel tank CONDITION had usable fuel"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right main fuel tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "had usable fuel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed the auxiliary fuel tank had usable fuel.",
+              "details": [
+                "auxiliary fuel tank CONDITION had usable fuel"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "auxiliary fuel tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "had usable fuel",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left main fuel tank was empty.",
+              "details": [
+                "left main fuel tank CONDITION empty"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left main fuel tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "empty",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left main fuel tank was not compromised.",
+              "details": [
+                "left main fuel tank CONDITION not compromised"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left main fuel tank",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not compromised",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fuel selector lever was found in the left tank position.",
+              "details": [
+                "fuel selector lever POSITION left tank position"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel selector lever",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left tank position",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No evidence of mechanical malfunction was found.",
+              "details": [
+                "accident FINDING no evidence of mechanical malfunction"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no evidence of mechanical malfunction",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No preimpact abnormalities were found.",
+              "details": [
+                "accident FINDING no preimpact abnormalities"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no preimpact abnormalities",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The loss of engine power could be linked to possible fuel starvation.",
+              "details": [
+                "loss of engine power POSSIBLE CAUSE fuel starvation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "POSSIBLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel starvation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The cause for the loss of engine power could not be substantiated.",
+              "details": [
+                "loss of engine power CAUSE STATUS could not be substantiated"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "could not be substantiated",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DETERMINED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause of the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The student pilot failed to maintain control of the airplane during a forced landing attempt.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "student pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FAILURE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failed to maintain control of the airplane during a forced landing attempt",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The failure to maintain control resulted in an aerodynamic stall.",
+              "details": [
+                "failure to maintain control RESULTED IN aerodynamic stall"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure to maintain control",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESULTED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aerodynamic stall",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The instructor pilot's delay in taking control of the airplane contributed to the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "instructor pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONTRIBUTING FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "delay in taking control of the airplane",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The loss of engine power for undetermined reasons contributed to the accident.",
+              "details": [
+                "loss of engine power CONTRIBUTING FACTOR contributed to the accident",
+                "loss of engine power STATUS undetermined reasons"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONTRIBUTING FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "contributed to the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "undetermined reasons",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::79a6e99a:0940",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85013.md",
+        "file_name": "85013.md",
+        "file_size": 8607,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "db1c190fd77600e78fa17cb4e45b7be0330b8a566b763df20663459426e61d19",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::79a6e99a:0940:6242d7b1",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85013.md",
+        "file_name": "85013.md",
+        "file_size": 8607,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "f0504622e88302bdcc702f7f14a521f39a8047e255bb26677750498df871cca3",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nGeary, Oklahoma\n\n## Date & Time: \nSeptember 9, 2012, 13:15 Local\n\n## Aircraft:\nBeech 35\n\n## Defining Event:\nAerodynamic stall/spin\n\n## Flight Conducted Under:\nPart 91: General aviation - Instructional\n\n## Accident Number:\nCEN12CA625\n\n## Registration:\nN3014V\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 None\n\n## Analysis\n\nAfter an uneventful local instructional flight, the student pilot and instructor pilot were practicing emergency landing procedures. After a missed approach to the private ranch airport, the student attempted a go-around. During the go-around, there was a loss of engine power during the climb and the student pilot tried to set up for an actual emergency landing. While maneuvering the airplane to land, both the instructor pilot and student attempted to trouble shoot and regain engine power by switching fuel tanks attempting a restart. About 20 feet above the runway, the airplane stalled, impacted the runway, and came to a stop in a grassy area to the left of the runway. Both wings sustained substantial damage. After the accident, the student pilot, who owned the airplane, stated that he may have moved the fuel selector lever to the left tank position while he and the instructor were trying to trouble shoot the loss of engine power. The instructor pilot occupied the right seat and would not have been able to see the fuel selector lever position. Postaccident examination of the airplane and engine revealed that both the right main fuel tank and auxiliary fuel tank had usable fuel. The left main fuel tank was empty and was not compromised. The fuel selector lever was found in the left tank position. No evidence of mechanical malfunction or any other preimpact abnormalities were found. Although the loss of engine power could be linked to possible fuel starvation, the cause for the loss of engine power could not be substantiated.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:The student pilot failed to maintain control of the airplane during a forced landing attempt which resulted in an aerodynamic stall. Contributing to the accident was the instructor pilot's delay in taking control of the airplane and the loss of engine power for undetermined reasons.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2346,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

@@ -1,0 +1,2191 @@
+{
+  "id_": "aws::6bf60f6c:1d59:ba360c8c",
+  "embedding": [
+    0.0032615662,
+    -0.0006804466,
+    -0.0042762756,
+    -0.03857422,
+    -0.030151367,
+    -0.002603531,
+    -0.010955811,
+    0.016601562,
+    -0.007987976,
+    0.005542755,
+    -0.022613525,
+    -0.0030403137,
+    -0.010040283,
+    -0.040893555,
+    0.010826111,
+    -0.037628174,
+    0.024505615,
+    0.020492554,
+    0.033843994,
+    -0.013420105,
+    -0.0019311905,
+    0.012382507,
+    0.017486572,
+    0.045837402,
+    0.0024375916,
+    0.061035156,
+    -0.048980713,
+    -0.006252289,
+    -0.001958847,
+    -0.00617218,
+    0.01852417,
+    -0.017608643,
+    0.04260254,
+    0.023498535,
+    -0.058685303,
+    -0.084350586,
+    -0.031311035,
+    -0.0025615692,
+    -0.034423828,
+    0.027420044,
+    0.008422852,
+    -0.001502037,
+    0.068481445,
+    -0.025878906,
+    -0.015670776,
+    0.02772522,
+    0.01979065,
+    0.018615723,
+    0.05758667,
+    0.043640137,
+    -0.014183044,
+    -0.033081055,
+    -0.028060913,
+    0.041046143,
+    -0.03717041,
+    -0.042541504,
+    -0.034606934,
+    0.0030231476,
+    -0.0026950836,
+    0.050750732,
+    0.03201294,
+    0.013687134,
+    0.002275467,
+    -0.0064430237,
+    -0.06036377,
+    -0.011695862,
+    -0.0057640076,
+    0.0025863647,
+    0.023727417,
+    -0.06185913,
+    -0.014419556,
+    0.025421143,
+    0.020690918,
+    0.014221191,
+    -0.004940033,
+    -0.0793457,
+    0.03866577,
+    -0.013412476,
+    -0.0067214966,
+    0.027755737,
+    0.052642822,
+    -0.030532837,
+    0.026184082,
+    0.013465881,
+    -0.0014247894,
+    0.017532349,
+    0.0030899048,
+    -0.01777649,
+    -0.02229309,
+    -0.022415161,
+    -0.01928711,
+    -0.021194458,
+    0.015975952,
+    -0.008338928,
+    -0.05230713,
+    -0.015541077,
+    0.027999878,
+    -0.040740967,
+    0.058044434,
+    0.03189087,
+    0.040222168,
+    -0.091308594,
+    0.06750488,
+    -0.023483276,
+    -0.012214661,
+    -0.009567261,
+    0.0262146,
+    -0.07080078,
+    0.007068634,
+    -0.0102005005,
+    -0.05380249,
+    0.082336426,
+    -0.026687622,
+    -0.039642334,
+    -0.04321289,
+    0.044647217,
+    -0.0115737915,
+    -0.0118637085,
+    0.023040771,
+    -0.0060310364,
+    0.013130188,
+    0.04714966,
+    -0.037261963,
+    0.007160187,
+    -0.033843994,
+    -0.0317688,
+    -0.0037002563,
+    0.009399414,
+    0.10089111,
+    -0.038757324,
+    -0.024642944,
+    0.058654785,
+    -0.021484375,
+    -0.055755615,
+    -0.02381897,
+    0.012817383,
+    -0.012397766,
+    0.0181427,
+    0.004055023,
+    -0.005180359,
+    0.0096588135,
+    -0.015975952,
+    0.052764893,
+    0.019210815,
+    0.004562378,
+    0.028381348,
+    0.015617371,
+    -0.00617218,
+    -0.009963989,
+    -0.018722534,
+    1.0192394e-05,
+    -0.012626648,
+    0.049957275,
+    -0.032043457,
+    -0.009735107,
+    -0.093688965,
+    0.006000519,
+    -0.048706055,
+    0.033813477,
+    -0.062347412,
+    -0.0012550354,
+    -0.042999268,
+    -0.028900146,
+    -0.018188477,
+    -0.060058594,
+    0.04650879,
+    0.003572464,
+    -0.0035877228,
+    0.0078125,
+    -0.014671326,
+    0.007091522,
+    -0.039154053,
+    -0.06866455,
+    -0.012969971,
+    0.01675415,
+    0.020050049,
+    0.03074646,
+    0.022842407,
+    -0.005771637,
+    0.017868042,
+    -0.007118225,
+    -0.042114258,
+    0.02204895,
+    -0.028717041,
+    -0.016647339,
+    0.031799316,
+    0.015792847,
+    0.027389526,
+    -0.011291504,
+    0.016448975,
+    -0.008430481,
+    0.05770874,
+    0.006298065,
+    -0.0043525696,
+    0.011817932,
+    -0.030807495,
+    -0.03277588,
+    -0.01914978,
+    -0.020523071,
+    0.009460449,
+    -0.060180664,
+    0.045410156,
+    -0.0009217262,
+    0.058929443,
+    0.06604004,
+    0.035217285,
+    0.01675415,
+    0.013916016,
+    0.035369873,
+    0.023284912,
+    0.010414124,
+    -0.006549835,
+    -0.008079529,
+    -0.01864624,
+    -0.035705566,
+    -0.01524353,
+    -0.016738892,
+    0.010948181,
+    0.021865845,
+    0.0113220215,
+    -0.01525116,
+    0.034973145,
+    -0.03225708,
+    -0.029067993,
+    -0.0131073,
+    0.0063209534,
+    -0.0059661865,
+    0.004737854,
+    0.034606934,
+    0.00010818243,
+    0.07672119,
+    -0.028121948,
+    0.05480957,
+    0.032470703,
+    -0.025787354,
+    0.017105103,
+    0.012504578,
+    -0.019470215,
+    -0.019348145,
+    0.031219482,
+    -0.009819031,
+    0.016525269,
+    -0.016220093,
+    0.07312012,
+    -0.08148193,
+    -0.0309906,
+    0.014671326,
+    0.031463623,
+    -0.025466919,
+    0.028411865,
+    -0.00340271,
+    0.05432129,
+    -0.004623413,
+    0.0129852295,
+    -0.006958008,
+    0.03137207,
+    -0.027893066,
+    -0.078125,
+    0.0051345825,
+    0.021469116,
+    0.020477295,
+    -0.064086914,
+    -0.05102539,
+    -0.0061416626,
+    0.0039901733,
+    0.011512756,
+    0.040100098,
+    0.027816772,
+    -0.01600647,
+    -0.0051002502,
+    0.0046577454,
+    0.015274048,
+    0.008583069,
+    0.002714157,
+    -0.06048584,
+    0.011497498,
+    0.0024261475,
+    0.014411926,
+    -0.014801025,
+    -0.029541016,
+    -0.020889282,
+    0.013366699,
+    -0.019226074,
+    -0.031677246,
+    0.034332275,
+    -0.030380249,
+    -0.025115967,
+    -0.061950684,
+    0.0067977905,
+    0.0362854,
+    0.037628174,
+    0.04083252,
+    0.011054993,
+    0.022613525,
+    0.018249512,
+    -0.0031642914,
+    -0.013114929,
+    0.027633667,
+    -0.019256592,
+    -0.010002136,
+    -0.014328003,
+    0.019302368,
+    0.0132369995,
+    -0.031951904,
+    -0.0043258667,
+    -0.01939392,
+    -0.022781372,
+    0.0077209473,
+    0.0002734661,
+    0.014656067,
+    -0.04537964,
+    0.012298584,
+    0.018920898,
+    0.05532837,
+    -0.033813477,
+    -0.043304443,
+    -0.01737976,
+    0.009086609,
+    -0.048614502,
+    -0.059509277,
+    -0.007369995,
+    -0.043395996,
+    0.019439697,
+    0.018203735,
+    -0.0060310364,
+    -0.032318115,
+    0.018325806,
+    0.00944519,
+    -0.015335083,
+    0.009994507,
+    -0.04083252,
+    -0.010559082,
+    -0.029785156,
+    0.042022705,
+    -0.015853882,
+    0.0055656433,
+    0.005355835,
+    -0.018600464,
+    -0.0141067505,
+    0.019866943,
+    0.03024292,
+    -0.02444458,
+    0.0158844,
+    -0.015075684,
+    -0.054504395,
+    -0.0071907043,
+    0.000890255,
+    -0.00944519,
+    -0.001455307,
+    -0.007457733,
+    0.040527344,
+    0.006713867,
+    -0.029052734,
+    -0.029342651,
+    -0.0015974045,
+    -0.041656494,
+    0.031158447,
+    -0.024719238,
+    -0.011306763,
+    -0.0541687,
+    0.0072402954,
+    -0.03152466,
+    -0.053619385,
+    -0.021774292,
+    0.031311035,
+    0.014816284,
+    -0.032989502,
+    -0.003255844,
+    0.0029621124,
+    0.026382446,
+    -0.057678223,
+    0.029571533,
+    -0.011390686,
+    -0.018112183,
+    0.0063476562,
+    0.010955811,
+    0.027572632,
+    -0.026519775,
+    -0.015556335,
+    0.002500534,
+    -0.0024738312,
+    -0.024032593,
+    0.006187439,
+    -0.04336548,
+    0.021743774,
+    0.0035743713,
+    0.008758545,
+    0.017440796,
+    0.044647217,
+    0.000351429,
+    0.037353516,
+    0.011474609,
+    -0.056518555,
+    -0.008171082,
+    -0.026611328,
+    -0.0030059814,
+    -0.0071792603,
+    -0.024520874,
+    -0.04360962,
+    0.009346008,
+    -0.041168213,
+    0.001039505,
+    0.0029258728,
+    -0.026977539,
+    -0.0010900497,
+    0.015487671,
+    -0.018859863,
+    -0.03579712,
+    0.032928467,
+    -0.024917603,
+    -0.029647827,
+    0.019683838,
+    -0.03781128,
+    0.0095825195,
+    -0.036102295,
+    -0.016159058,
+    -0.05053711,
+    -0.016540527,
+    -0.03253174,
+    0.04748535,
+    0.036895752,
+    -0.032196045,
+    -0.0009522438,
+    0.045837402,
+    0.019332886,
+    0.02798462,
+    0.020462036,
+    -0.04144287,
+    0.07989502,
+    0.020233154,
+    1.6987324e-05,
+    -0.0021324158,
+    -0.027877808,
+    -0.030410767,
+    0.005836487,
+    0.023162842,
+    -0.002374649,
+    -0.0184021,
+    0.025360107,
+    -0.017578125,
+    0.0070648193,
+    0.011184692,
+    0.05407715,
+    0.035095215,
+    0.010360718,
+    -0.0022563934,
+    0.005176544,
+    0.025466919,
+    -0.021514893,
+    -0.015792847,
+    0.0049705505,
+    0.023330688,
+    0.03704834,
+    0.027236938,
+    0.009933472,
+    0.020751953,
+    0.04864502,
+    0.010391235,
+    -0.00021839142,
+    -0.0044555664,
+    -0.007926941,
+    -0.002254486,
+    -0.030334473,
+    -0.037200928,
+    -0.000957489,
+    0.0002875328,
+    0.025222778,
+    0.009681702,
+    0.0073127747,
+    -0.0031642914,
+    0.00843811,
+    -0.026046753,
+    0.015235901,
+    -0.020233154,
+    -0.007282257,
+    -0.042297363,
+    0.022247314,
+    -0.025115967,
+    0.046722412,
+    -0.0003569126,
+    -0.0725708,
+    0.026260376,
+    0.028671265,
+    -0.012428284,
+    0.017196655,
+    0.008918762,
+    0.03527832,
+    0.002538681,
+    0.0018177032,
+    0.0065307617,
+    -0.016555786,
+    0.01159668,
+    0.0032634735,
+    0.00894165,
+    -0.004573822,
+    0.0041999817,
+    0.014625549,
+    -0.033172607,
+    -0.030090332,
+    -0.027053833,
+    -0.08538818,
+    0.004638672,
+    -0.0061683655,
+    0.0032367706,
+    0.005138397,
+    0.025665283,
+    -0.007144928,
+    0.014389038,
+    -0.009963989,
+    -0.050598145,
+    0.015472412,
+    -0.034179688,
+    0.021224976,
+    0.03741455,
+    -0.042022705,
+    0.018447876,
+    -0.012519836,
+    0.028625488,
+    -0.03652954,
+    -0.005744934,
+    -0.035003662,
+    -0.025375366,
+    0.03729248,
+    0.0390625,
+    -0.014152527,
+    -0.020507812,
+    0.015090942,
+    0.011405945,
+    -0.021194458,
+    -0.06402588,
+    0.004207611,
+    0.027404785,
+    -0.01953125,
+    0.025360107,
+    0.030349731,
+    0.028060913,
+    0.0102005005,
+    0.061340332,
+    -0.022079468,
+    -0.076416016,
+    -0.021560669,
+    0.017959595,
+    0.046417236,
+    -0.08441162,
+    0.010910034,
+    0.0016336441,
+    0.028259277,
+    0.07946777,
+    -0.04928589,
+    0.03656006,
+    0.01889038,
+    0.011520386,
+    -0.0049552917,
+    -0.03286743,
+    -0.020568848,
+    0.019989014,
+    0.024353027,
+    -0.021392822,
+    -0.016998291,
+    0.046173096,
+    -0.00182724,
+    -0.011520386,
+    -0.0102005005,
+    0.006164551,
+    0.0024375916,
+    0.015640259,
+    0.029541016,
+    0.002735138,
+    0.00021457672,
+    0.0066833496,
+    -0.0008673668,
+    0.0017557144,
+    0.070129395,
+    -0.01512146,
+    0.029281616,
+    -0.066589355,
+    0.0038833618,
+    0.010353088,
+    -0.009536743,
+    -2.861023e-05,
+    -0.005657196,
+    0.05178833,
+    0.0158844,
+    0.0491333,
+    -0.050842285,
+    0.09527588,
+    0.009918213,
+    0.0059051514,
+    -0.024429321,
+    0.038513184,
+    -0.002456665,
+    0.029586792,
+    -0.011039734,
+    0.0151901245,
+    0.046875,
+    -0.007835388,
+    0.059448242,
+    -0.0552063,
+    0.007385254,
+    0.020446777,
+    0.0020389557,
+    0.010536194,
+    0.0033302307,
+    -0.0008940697,
+    0.013198853,
+    0.042877197,
+    0.031402588,
+    0.03656006,
+    -0.005847931,
+    -0.0075569153,
+    0.006916046,
+    0.04711914,
+    -0.057617188,
+    0.007080078,
+    -0.04284668,
+    -0.013122559,
+    0.0072517395,
+    0.019958496,
+    0.06085205,
+    -0.0051498413,
+    0.019561768,
+    0.028808594,
+    0.00081443787,
+    -0.0012207031,
+    0.058898926,
+    -0.0038375854,
+    -0.05807495,
+    0.008850098,
+    0.007789612,
+    0.0041122437,
+    0.011734009,
+    -0.010932922,
+    -0.062438965,
+    -0.045074463,
+    -0.052490234,
+    0.050872803,
+    -0.02746582,
+    -0.05218506,
+    -0.01966858,
+    -0.027786255,
+    -0.0059318542,
+    0.0040740967,
+    -0.072143555,
+    -0.011199951,
+    0.05999756,
+    -0.0058517456,
+    -0.027893066,
+    -0.011009216,
+    -0.011665344,
+    -0.004055023,
+    -0.03970337,
+    -0.0037155151,
+    0.03262329,
+    -0.044708252,
+    -0.020263672,
+    -0.0041122437,
+    -0.020568848,
+    -0.03173828,
+    -0.00680542,
+    -0.06048584,
+    -0.124694824,
+    -0.07647705,
+    -0.039886475,
+    -0.022659302,
+    -0.054901123,
+    -0.0018281937,
+    0.047454834,
+    -0.0056762695,
+    -0.003660202,
+    -0.039093018,
+    -0.023330688,
+    0.039886475,
+    0.03314209,
+    -0.03100586,
+    0.006919861,
+    0.046295166,
+    0.017990112,
+    0.00944519,
+    0.04724121,
+    -0.04611206,
+    0.008834839,
+    -0.011421204,
+    0.0040664673,
+    -0.04788208,
+    0.0070114136,
+    0.008903503,
+    -0.005340576,
+    0.022949219,
+    0.0020198822,
+    0.04058838,
+    -0.048950195,
+    -0.0012722015,
+    0.016418457,
+    -0.020996094,
+    -0.02394104,
+    -0.0102005005,
+    -0.0109939575,
+    0.03201294,
+    -0.003446579,
+    -0.017547607,
+    0.037506104,
+    0.0121154785,
+    -0.019851685,
+    -0.014633179,
+    0.023361206,
+    0.039276123,
+    0.01600647,
+    0.010246277,
+    0.0027656555,
+    -0.007686615,
+    0.020874023,
+    0.048797607,
+    -0.031677246,
+    -0.03277588,
+    0.019729614,
+    0.03164673,
+    0.10284424,
+    0.053619385,
+    0.038269043,
+    -0.020889282,
+    0.0072288513,
+    0.024520874,
+    0.024398804,
+    -0.049591064,
+    0.014511108,
+    -0.0008468628,
+    -0.009666443,
+    0.04864502,
+    -0.031982422,
+    -0.05831909,
+    -0.009048462,
+    -0.025909424,
+    0.018463135,
+    -0.027877808,
+    -0.035980225,
+    -0.02684021,
+    0.016708374,
+    -0.05895996,
+    -0.07598877,
+    0.029174805,
+    0.010696411,
+    0.0004427433,
+    0.0013875961,
+    -0.043945312,
+    -0.046325684,
+    -0.0073013306,
+    0.019332886,
+    -0.11590576,
+    -0.023605347,
+    -0.028335571,
+    0.0446167,
+    -0.06512451,
+    -0.06112671,
+    0.02822876,
+    0.022949219,
+    0.048065186,
+    -0.009864807,
+    -0.0044555664,
+    -0.053466797,
+    0.009178162,
+    -0.011985779,
+    0.001581192,
+    0.00047159195,
+    0.00010865927,
+    -0.034454346,
+    0.010185242,
+    -0.00070762634,
+    0.022857666,
+    2.7537346e-05,
+    -0.012016296,
+    0.013870239,
+    0.0037899017,
+    0.0155181885,
+    0.038604736,
+    0.020736694,
+    -0.022735596,
+    0.013092041,
+    -0.02406311,
+    0.008735657,
+    -0.007598877,
+    0.0015001297,
+    -0.018035889,
+    0.0006427765,
+    0.003665924,
+    -0.04977417,
+    0.040130615,
+    -0.031585693,
+    0.06567383,
+    -0.057891846,
+    -0.004283905,
+    -0.03152466,
+    0.051849365,
+    -0.006454468,
+    -0.025741577,
+    0.0065612793,
+    0.0016260147,
+    -0.028518677,
+    -0.01675415,
+    -0.054718018,
+    -0.044036865,
+    -0.015541077,
+    -0.018051147,
+    -0.058685303,
+    -0.0418396,
+    -0.044128418,
+    0.012527466,
+    0.028656006,
+    -0.035949707,
+    -0.0012178421,
+    -0.01486969,
+    0.018203735,
+    -0.033172607,
+    0.03012085,
+    -0.0065231323,
+    0.026153564,
+    0.025177002,
+    -0.03656006,
+    -0.040039062,
+    0.025131226,
+    0.037994385,
+    0.01084137,
+    0.02935791,
+    0.0059165955,
+    0.030029297,
+    0.004058838,
+    0.014427185,
+    0.006793976,
+    -0.04550171,
+    0.019866943,
+    -0.008514404,
+    0.0046195984,
+    0.006275177,
+    -0.011924744,
+    0.00072813034,
+    0.015731812,
+    0.021697998,
+    -0.007911682,
+    -0.0043296814,
+    -0.011428833,
+    0.012611389,
+    0.006324768,
+    -0.022109985,
+    0.003490448,
+    0.038879395,
+    -0.06964111,
+    -0.014030457,
+    0.01360321,
+    0.0007266998,
+    0.04550171,
+    0.06149292,
+    0.0075569153,
+    -0.0026493073,
+    0.022537231,
+    -0.030761719,
+    0.0018138885,
+    0.013320923,
+    0.011711121,
+    -0.00919342,
+    -0.028717041,
+    0.026611328,
+    0.026000977,
+    0.010826111,
+    0.03665161,
+    -0.009132385,
+    0.009963989,
+    0.036193848,
+    -0.013801575,
+    -0.0019016266,
+    0.026535034,
+    0.030899048,
+    0.031433105,
+    -0.0065612793,
+    -0.08227539,
+    -0.0015048981,
+    -0.0057373047,
+    -0.06817627,
+    0.04525757,
+    0.03579712,
+    -0.014289856,
+    -0.02468872,
+    -0.08428955,
+    -0.0869751,
+    -0.015113831,
+    -0.028045654,
+    -0.002450943,
+    -0.09942627,
+    0.02709961,
+    -0.0077056885,
+    0.06359863,
+    -0.005531311,
+    0.005771637,
+    0.012397766,
+    0.011329651,
+    0.014205933,
+    0.04434204,
+    -0.0067367554,
+    0.0078125,
+    -0.032409668,
+    -0.054626465,
+    0.04058838,
+    -0.015510559,
+    -0.037231445,
+    0.0070152283,
+    -0.06652832,
+    0.023208618,
+    -0.014945984,
+    0.009338379,
+    -0.050994873,
+    -0.018188477,
+    -0.02116394,
+    0.020019531,
+    -0.006263733,
+    -0.016220093,
+    0.015335083,
+    -0.01864624,
+    -0.01247406,
+    -0.06439209,
+    -0.002248764,
+    -0.016830444,
+    0.025436401,
+    -0.03137207,
+    -0.04550171,
+    0.001666069,
+    0.023422241,
+    0.011054993,
+    0.027709961,
+    -0.0076293945,
+    -0.08959961,
+    0.011039734,
+    -0.013641357,
+    -0.00447464,
+    0.0001718998,
+    0.025146484,
+    0.06439209,
+    0.030563354,
+    -0.0059890747,
+    0.005958557,
+    -0.037902832,
+    -0.012908936,
+    0.031280518,
+    0.013374329,
+    -0.010215759,
+    -0.048217773,
+    -0.0012998581,
+    -0.018218994,
+    0.050231934,
+    -0.013168335,
+    0.008201599,
+    -0.04067993,
+    0.01210022,
+    -0.02027893,
+    -0.011749268,
+    0.030303955,
+    -0.009101868,
+    0.050079346,
+    0.04852295,
+    -0.011779785,
+    0.010215759,
+    -0.019226074,
+    -0.084350586,
+    -0.02355957,
+    -0.018188477,
+    0.036743164,
+    0.033966064,
+    0.014823914,
+    0.021621704,
+    -0.017669678,
+    -0.048461914,
+    -0.019561768,
+    0.016830444,
+    0.016845703,
+    0.0008869171,
+    0.00048565865,
+    -0.038391113,
+    -0.023483276,
+    -0.01133728,
+    0.008255005,
+    0.006664276,
+    -0.011238098,
+    -0.010719299,
+    0.0010709763,
+    -0.024032593,
+    -0.04043579,
+    0.0027770996,
+    -0.0061149597,
+    0.0076522827,
+    -0.026504517,
+    -0.030960083,
+    -0.03161621,
+    0.020629883,
+    -0.036834717,
+    -0.041656494,
+    0.033294678,
+    -0.006832123,
+    0.008056641,
+    -1.3768673e-05,
+    0.032196045,
+    0.02003479,
+    0.036224365,
+    -0.030975342,
+    0.012641907,
+    0.019577026,
+    0.011932373,
+    0.0335083,
+    0.004047394,
+    0.006034851,
+    -0.011161804,
+    0.016235352,
+    -0.009651184,
+    -0.032958984,
+    -0.048858643,
+    0.058258057,
+    0.0158844,
+    -0.02696228,
+    0.053710938,
+    -0.026168823,
+    0.029876709,
+    0.0670166,
+    0.014846802,
+    0.044128418,
+    -0.022583008,
+    -0.006401062,
+    0.012382507,
+    -0.033294678
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+    "file_name": "101233.md",
+    "file_size": 17800,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Airbus Helicopters AS350 B3 Emergency Landing Due to Hydraulic System Failure",
+      "An Airbus Helicopters AS350 B3 helicopter with registration N1WT made an emergency landing at Airglades Airport in Clewiston, Florida on May 3, 2020, around 1315 eastern daylight time.",
+      "The pilot was the only occupant on board the helicopter.",
+      "The pilot reported an inflight hydraulics anomaly and declared an emergency.",
+      "The helicopter was not substantially damaged during the incident.",
+      "The flight was conducted under the provisions of Title 14 Code of Federal Regulations Part 91.",
+      "The flight began at Fort Lauderdale Executive Airport.",
+      "The flight landed at Palm Beach County Park Airport.",
+      "The flight subsequently departed Palm Beach County Park Airport for Airglades Airport.",
+      "Upon entering the left downwind for runway 13 at Airglades Airport, the pedals felt \"rock hard\" according to the pilot.",
+      "The \"HYD2\" and \"SERVO\" caution lights illuminated on the caution and warning panel during the incident.",
+      "The pilot reported light smoke in the cockpit during the incident.",
+      "The pilot reported an odor of \"something burnt\" in the cockpit during the incident.",
+      "The pilot opened the window to clear the smoke and odor.",
+      "The pilot executed a shallow approach to a run-on landing at Airglades Airport.",
+      "An AS350 B3 helicopter is equipped with a dual hydraulic system.",
+      "The dual hydraulic system has two hydraulic pumps.",
+      "Each hydraulic pump provides hydraulic pressure to their respective independent hydraulic system.",
+      "The hydraulic pump for the No. 1 hydraulic system is located at the forward side of the main gearbox.",
+      "The hydraulic pump for the No. 1 hydraulic system is driven directly by the main gearbox.",
+      "The hydraulic pump for the No. 2 hydraulic system is belt-driven by the hydraulic pump drive assembly.",
+      "The hydraulic pump drive assembly is located near the aft-right side of the main gearbox.",
+      "The hydraulic pump drive assembly is composed of the hydraulic pump pulley, a drive coupling, and a driveshaft.",
+      "The driveshaft ultimately powers the hydraulic pump.",
+      "A postlanding inspection of the incident helicopter identified the No. 2 hydraulic system belt had fractured.",
+      "The fractured belt had significant wear on localized sections of the belt grooves."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Airbus Helicopters AS350 B3 Emergency Landing Due to Hydraulic System Failure",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airbus Helicopters AS350 B3",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N1WT",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Airglades Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Clewiston, Florida",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Title 14 Code of Federal Regulations Part 91",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Fort Lauderdale Executive Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Palm Beach County Park Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "runway 13",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "No. 1 hydraulic system",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "No. 2 hydraulic system",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "main gearbox",
+              "classification": "Aircraftcategory"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "hydraulic pump drive assembly",
+              "classification": "Aircraftcategory"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An Airbus Helicopters AS350 B3 helicopter with registration N1WT made an emergency landing at Airglades Airport in Clewiston, Florida on May 3, 2020, around 1315 eastern daylight time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airglades Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N1WT",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airglades Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Clewiston, Florida",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EVENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "May 3, 2020",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EVENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1315 eastern daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EVENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was the only occupant on board the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported an inflight hydraulics anomaly and declared an emergency.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "inflight hydraulics anomaly",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DECLARED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter was not substantially damaged during the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under the provisions of Title 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Title 14 Code of Federal Regulations Part 91",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight began at Fort Lauderdale Executive Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Fort Lauderdale Executive Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight landed at Palm Beach County Park Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Beach County Park Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight subsequently departed Palm Beach County Park Airport for Airglades Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Palm Beach County Park Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DESTINATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airglades Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Upon entering the left downwind for runway 13 at Airglades Airport, the pedals felt \"rock hard\" according to the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "runway 13",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airglades Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pedals felt \"rock hard\"",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The \"HYD2\" and \"SERVO\" caution lights illuminated on the caution and warning panel during the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "WARNING LIGHTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "\"HYD2\" and \"SERVO\" caution lights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported light smoke in the cockpit during the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "light smoke in the cockpit",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported an odor of \"something burnt\" in the cockpit during the incident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "odor of \"something burnt\" in the cockpit",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot opened the window to clear the smoke and odor.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "opened the window to clear the smoke and odor",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot executed a shallow approach to a run-on landing at Airglades Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shallow approach to a run-on landing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airglades Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An AS350 B3 helicopter is equipped with a dual hydraulic system.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "EQUIPPED WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dual hydraulic system",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The dual hydraulic system has two hydraulic pumps.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HYDRAULIC SYSTEM COMPONENTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "two hydraulic pumps",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hydraulic pump for the No. 1 hydraulic system is located at the forward side of the main gearbox.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 1 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 1 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PUMP LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forward side of the main gearbox",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hydraulic pump for the No. 1 hydraulic system is driven directly by the main gearbox.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main gearbox",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DRIVES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 1 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 1 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DRIVE METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "directly by the main gearbox",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hydraulic pump for the No. 2 hydraulic system is belt-driven by the hydraulic pump drive assembly.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hydraulic pump drive assembly",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DRIVES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 2 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 2 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 2 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DRIVE METHOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "belt-driven by the hydraulic pump drive assembly",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hydraulic pump drive assembly is located near the aft-right side of the main gearbox.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hydraulic pump drive assembly",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "PART OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Airbus Helicopters AS350 B3",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hydraulic pump drive assembly",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near the aft-right side of the main gearbox",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hydraulic pump drive assembly is composed of the hydraulic pump pulley, a drive coupling, and a driveshaft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hydraulic pump drive assembly",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "COMPONENTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hydraulic pump pulley, a drive coupling, and a driveshaft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A postlanding inspection of the incident helicopter identified the No. 2 hydraulic system belt had fractured.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 2 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "belt had fractured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The fractured belt had significant wear on localized sections of the belt grooves.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 2 hydraulic system",
+                    "classification": "Aircraftcategory"
+                  },
+                  "predicate": {
+                    "value": "BELT CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant wear on localized sections of the belt grooves",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::6bf60f6c:1d59",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+        "file_name": "101233.md",
+        "file_size": 17800,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a82ded021c35338dd6cd465a407880665dbe61569f6fb133f57edbd17c8ff585",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::6bf60f6c:1d59:debe0510",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+        "file_name": "101233.md",
+        "file_size": 17800,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "3707a34c430377dc528bbff10e1c19bbc5d8366ace033254cc87029e5532f48a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::6bf60f6c:1d59:d83c84d8",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/101233.md",
+        "file_name": "101233.md",
+        "file_size": 17800,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "7e9e600619fdf1d4a51803e5d8ff8d0e0d00098b2b3b73f98a5c39b6670944f9",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Approach-VFR pattern downwind | Flight control sys malf/fail (Defining event) |\n| --- | --- |\n\n## HISTORY OF FLIGHT\n\nOn May 3, 2020, about 1315 eastern daylight time, an Airbus Helicopters AS350 B3 helicopter, N1WT, made an emergency landing at Airglades Airport (2IS) in Clewiston, Florida. The pilot, the only occupant on board, reported an inflight hydraulics anomaly and declared an emergency. The pilot subsequently landed at 2IS. The pilot reported no injuries and the helicopter was not substantially damaged. The flight was conducted under the provisions of Title 14 Code of Federal Regulations Part 91, which began at Fort Lauderdale Executive Airport (FXE), landed at Palm Beach County Park Airport (LNA), and subsequently departed LNA for 2IS.\n\nAccording to the pilot's written statement to the Federal Aviation Administration, he reported that upon entering the left downwind for runway 13 at 2IS, the pedals felt \"rock hard\" and the \"HYD2\" and \"SERVO\" caution lights illuminated on the caution and warning panel. The pilot reported light smoke in the cockpit along with an odor of \"something burnt,\" and opened the window to clear the smoke and odor. The pilot executed a shallow approach to a run-on landing at 2IS.\n\n## DAMAGE TO THE HELICOPTER\n\nAn AS350 B3 equipped with a dual hydraulic system has two hydraulic pumps that each provide hydraulic pressure to their respective [independent] hydraulic system. The hydraulic pump for the No. 1 hydraulic system (HYD1) is located at the forward side of the main gearbox and is driven directly by the main gearbox. The hydraulic pump for the No. 2 hydraulic system (HYD2) is belt-driven by the hydraulic pump drive assembly. The hydraulic pump drive assembly, located near the aft-right side of the main gearbox, is composed of the hydraulic pump pulley, a drive coupling, and a driveshaft that ultimately powers the hydraulic pump.\n\nA postlanding inspection of the incident helicopter identified the HYD2 belt had fractured, with significant wear on localized sections of the belt grooves.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2097,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

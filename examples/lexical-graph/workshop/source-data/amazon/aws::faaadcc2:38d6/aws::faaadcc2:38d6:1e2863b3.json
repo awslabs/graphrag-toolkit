@@ -1,0 +1,2087 @@
+{
+  "id_": "aws::faaadcc2:38d6:1e2863b3",
+  "embedding": [
+    0.043884277,
+    -0.0002477169,
+    -0.0058555603,
+    -0.03265381,
+    -0.016098022,
+    -0.012435913,
+    -0.018966675,
+    -0.017471313,
+    -0.011222839,
+    0.05899048,
+    0.0138549805,
+    0.0099105835,
+    0.017196655,
+    -0.02178955,
+    -0.0034675598,
+    -0.0013513565,
+    0.028015137,
+    0.028503418,
+    0.05380249,
+    0.013206482,
+    0.020553589,
+    0.028259277,
+    0.026321411,
+    -0.0067253113,
+    0.07623291,
+    -0.012756348,
+    -0.020843506,
+    -0.019378662,
+    0.06274414,
+    0.032562256,
+    0.04953003,
+    -0.07733154,
+    0.0072669983,
+    0.043029785,
+    -0.0287323,
+    0.051696777,
+    0.025497437,
+    0.005004883,
+    0.003768921,
+    0.0619812,
+    0.014282227,
+    -0.0029640198,
+    0.06011963,
+    -0.06414795,
+    0.02684021,
+    -0.017990112,
+    0.019760132,
+    -0.066711426,
+    0.02267456,
+    0.06707764,
+    0.01235199,
+    0.00472641,
+    -0.011711121,
+    0.04611206,
+    -0.003791809,
+    -0.027740479,
+    0.00026082993,
+    -0.058898926,
+    0.009132385,
+    0.019012451,
+    0.0039749146,
+    -0.020721436,
+    0.022521973,
+    -0.008850098,
+    0.0034389496,
+    0.00058174133,
+    0.03994751,
+    0.005317688,
+    0.014007568,
+    0.03488159,
+    0.03555298,
+    -0.0014820099,
+    -0.008422852,
+    0.019332886,
+    -0.048950195,
+    0.003665924,
+    0.03062439,
+    0.006603241,
+    0.018966675,
+    0.0073165894,
+    -0.021484375,
+    -0.006187439,
+    0.02658081,
+    -0.06549072,
+    0.025360107,
+    -0.04071045,
+    -0.009651184,
+    0.015167236,
+    -0.013206482,
+    0.016845703,
+    -0.018234253,
+    -0.03555298,
+    0.002149582,
+    0.05041504,
+    0.0058288574,
+    -0.006385803,
+    -0.009750366,
+    -0.010482788,
+    0.010437012,
+    0.0066719055,
+    0.027542114,
+    -0.038604736,
+    1.001358e-05,
+    -0.0154418945,
+    -0.0028419495,
+    0.009979248,
+    0.017791748,
+    0.015464783,
+    0.03604126,
+    0.005924225,
+    -0.013114929,
+    0.06958008,
+    0.02796936,
+    0.009391785,
+    0.0015039444,
+    -0.009994507,
+    -0.012565613,
+    0.07116699,
+    0.007282257,
+    0.05126953,
+    0.028701782,
+    0.0335083,
+    0.04336548,
+    -0.042297363,
+    -0.013374329,
+    -0.015823364,
+    -0.029510498,
+    -0.049743652,
+    -0.018951416,
+    0.030166626,
+    0.029388428,
+    -0.00037264824,
+    -0.031799316,
+    0.0012111664,
+    -0.03829956,
+    -0.00390625,
+    0.020980835,
+    0.045318604,
+    0.033569336,
+    -0.04714966,
+    0.0914917,
+    -0.00680542,
+    -0.026672363,
+    0.07165527,
+    0.008102417,
+    -0.03366089,
+    -0.013710022,
+    0.035705566,
+    0.032684326,
+    0.039398193,
+    0.025863647,
+    -0.038909912,
+    0.010948181,
+    0.027053833,
+    -0.032836914,
+    0.036895752,
+    -0.024887085,
+    0.015808105,
+    -0.037353516,
+    0.010131836,
+    -0.037963867,
+    -0.028442383,
+    0.02305603,
+    -0.01184845,
+    -0.02619934,
+    0.045166016,
+    0.012962341,
+    0.004825592,
+    0.01411438,
+    0.018341064,
+    0.0027179718,
+    0.014770508,
+    -0.0051002502,
+    0.015472412,
+    0.008300781,
+    -0.011940002,
+    0.0138549805,
+    0.0002565384,
+    0.0026016235,
+    0.044708252,
+    0.022949219,
+    -0.0036811829,
+    0.04107666,
+    0.005794525,
+    -0.034698486,
+    0.043426514,
+    0.013839722,
+    0.093688965,
+    -0.005832672,
+    0.015853882,
+    0.0028648376,
+    0.0006709099,
+    -0.017440796,
+    0.014328003,
+    0.005748749,
+    -0.016326904,
+    -0.036956787,
+    0.001449585,
+    -0.021194458,
+    0.0038795471,
+    0.01474762,
+    -0.014839172,
+    0.035308838,
+    -0.035491943,
+    0.06149292,
+    -0.056640625,
+    0.031677246,
+    0.013160706,
+    -0.061431885,
+    0.041656494,
+    0.04763794,
+    0.0024490356,
+    -0.032928467,
+    0.024276733,
+    0.06536865,
+    -0.00021886826,
+    0.0051651,
+    0.06011963,
+    0.017303467,
+    -0.012046814,
+    0.028579712,
+    -0.0039711,
+    0.029373169,
+    0.036346436,
+    -0.019699097,
+    0.0058135986,
+    -0.017868042,
+    0.0068130493,
+    -0.006465912,
+    0.026550293,
+    0.0034999847,
+    -0.00566864,
+    -0.000497818,
+    0.015808105,
+    -0.024368286,
+    -0.011169434,
+    0.00055122375,
+    -0.04067993,
+    0.028701782,
+    0.023544312,
+    0.026016235,
+    -0.034088135,
+    -0.031555176,
+    -0.005329132,
+    0.007610321,
+    -0.056610107,
+    -0.010231018,
+    0.010269165,
+    0.01991272,
+    0.006187439,
+    0.0049934387,
+    -0.043823242,
+    0.028289795,
+    0.036743164,
+    -0.00074625015,
+    0.006465912,
+    -0.039215088,
+    -0.020721436,
+    -0.02947998,
+    0.01033783,
+    0.011039734,
+    0.003829956,
+    0.0018081665,
+    -0.0024852753,
+    -0.06488037,
+    0.0029506683,
+    -0.02027893,
+    0.0070495605,
+    0.014297485,
+    -0.03527832,
+    0.01423645,
+    -0.014770508,
+    -0.023895264,
+    0.042053223,
+    0.053741455,
+    0.0340271,
+    -0.01828003,
+    -0.018249512,
+    0.0030021667,
+    0.03955078,
+    -0.025375366,
+    -0.0038261414,
+    0.009681702,
+    -0.00737381,
+    -0.028396606,
+    -0.011238098,
+    0.051513672,
+    0.014183044,
+    0.00064229965,
+    -0.01335907,
+    0.02746582,
+    0.0051002502,
+    -0.010124207,
+    -0.0050086975,
+    -0.01071167,
+    -0.019882202,
+    -0.051513672,
+    0.042816162,
+    -0.004951477,
+    -0.03567505,
+    -0.028076172,
+    0.026489258,
+    -0.032104492,
+    -0.0058784485,
+    -0.008628845,
+    0.040985107,
+    0.03286743,
+    -0.009605408,
+    -0.0055389404,
+    -0.04434204,
+    0.017120361,
+    -0.014968872,
+    -0.0026721954,
+    -0.03353882,
+    -0.0135650635,
+    0.000729084,
+    -0.019332886,
+    -0.009101868,
+    -0.02368164,
+    0.010620117,
+    -0.031280518,
+    -0.0138549805,
+    0.028533936,
+    0.0018968582,
+    0.013755798,
+    -0.022155762,
+    0.00076675415,
+    0.013008118,
+    0.0064964294,
+    -0.0087890625,
+    -0.027664185,
+    -0.027908325,
+    -0.045043945,
+    0.022872925,
+    -0.007160187,
+    0.013999939,
+    -1.2516975e-06,
+    0.09680176,
+    0.008735657,
+    -0.061950684,
+    -0.020050049,
+    0.013687134,
+    -0.013580322,
+    0.029083252,
+    0.006511688,
+    0.020645142,
+    -0.04321289,
+    0.027313232,
+    -0.05706787,
+    -0.018005371,
+    -0.002922058,
+    -0.0440979,
+    0.018676758,
+    -0.013076782,
+    0.0052986145,
+    -0.01939392,
+    -0.02078247,
+    -0.043304443,
+    -0.03302002,
+    -0.086120605,
+    0.027755737,
+    0.022277832,
+    -0.011131287,
+    -0.039215088,
+    -0.0054969788,
+    -0.027893066,
+    0.027770996,
+    -0.053649902,
+    0.035583496,
+    0.0146102905,
+    -0.049468994,
+    0.007926941,
+    0.022521973,
+    0.007522583,
+    0.05126953,
+    0.0131073,
+    -0.004146576,
+    -0.022384644,
+    -0.007537842,
+    -0.015853882,
+    0.030151367,
+    0.0039711,
+    0.040618896,
+    -0.022979736,
+    -0.068847656,
+    0.046722412,
+    -0.01576233,
+    0.021057129,
+    -0.04147339,
+    -0.029632568,
+    -0.0025730133,
+    0.11798096,
+    0.048187256,
+    -0.024993896,
+    -0.012176514,
+    -0.023956299,
+    -0.016174316,
+    0.027557373,
+    -0.033355713,
+    -0.004425049,
+    0.11517334,
+    -0.06744385,
+    -0.0657959,
+    0.011360168,
+    0.028808594,
+    -0.06958008,
+    0.10058594,
+    -0.008216858,
+    0.03744507,
+    0.012397766,
+    0.009414673,
+    0.013313293,
+    0.039886475,
+    -0.019256592,
+    -0.016174316,
+    0.0112838745,
+    0.02027893,
+    -0.010726929,
+    -0.013206482,
+    -0.00869751,
+    0.055389404,
+    -0.076049805,
+    0.0069084167,
+    0.0048713684,
+    0.020965576,
+    0.016342163,
+    0.0023517609,
+    -0.023544312,
+    0.02796936,
+    0.010467529,
+    0.0020809174,
+    -0.008224487,
+    -0.020629883,
+    -0.047424316,
+    -0.010871887,
+    -0.046661377,
+    -0.018310547,
+    -0.028259277,
+    -0.0008330345,
+    -0.009971619,
+    -0.004901886,
+    -0.00623703,
+    0.0012264252,
+    0.05505371,
+    0.005443573,
+    -0.001917839,
+    -0.033294678,
+    -0.025985718,
+    -0.015144348,
+    -0.06222534,
+    -0.006149292,
+    0.021865845,
+    0.095214844,
+    0.025985718,
+    0.033111572,
+    -0.013755798,
+    -0.0131073,
+    0.02722168,
+    0.0017948151,
+    0.028060913,
+    0.014045715,
+    -0.03062439,
+    0.057556152,
+    0.0030651093,
+    0.008628845,
+    -0.0040512085,
+    0.029678345,
+    0.01889038,
+    0.014854431,
+    -0.021316528,
+    0.012298584,
+    0.023422241,
+    0.0024795532,
+    -0.0154953,
+    -0.028686523,
+    -0.008804321,
+    0.034332275,
+    -0.042175293,
+    0.059020996,
+    -0.0070533752,
+    -0.011528015,
+    -0.0018281937,
+    0.051574707,
+    0.015991211,
+    0.0134887695,
+    0.015014648,
+    -0.011947632,
+    0.005065918,
+    -0.032043457,
+    -0.038757324,
+    -0.08331299,
+    0.030456543,
+    0.02243042,
+    -0.071899414,
+    0.0074806213,
+    -0.0012779236,
+    -0.0026493073,
+    -0.0211792,
+    0.0011425018,
+    -0.05102539,
+    -0.00422287,
+    0.016098022,
+    -0.015510559,
+    -0.02218628,
+    -0.013656616,
+    0.018432617,
+    -0.015029907,
+    -0.0036754608,
+    0.012886047,
+    -0.009597778,
+    -0.06652832,
+    -0.026046753,
+    0.03125,
+    -0.0034370422,
+    -0.006717682,
+    0.041778564,
+    -0.047973633,
+    -0.017227173,
+    -0.015083313,
+    0.0020198822,
+    0.05493164,
+    0.08538818,
+    -0.04135132,
+    -0.017105103,
+    0.061523438,
+    0.0067100525,
+    -0.06774902,
+    0.018859863,
+    -0.019805908,
+    -0.043762207,
+    -0.043121338,
+    -0.0129776,
+    -0.022201538,
+    0.023773193,
+    0.05227661,
+    0.027496338,
+    -0.018859863,
+    -0.059295654,
+    -0.05709839,
+    0.019882202,
+    -0.006286621,
+    0.00025629997,
+    0.007408142,
+    0.042297363,
+    -0.010322571,
+    -0.015853882,
+    -0.032165527,
+    0.015365601,
+    -0.05368042,
+    0.0017843246,
+    -0.0060272217,
+    -0.0013980865,
+    0.033081055,
+    0.0049743652,
+    0.0074157715,
+    -0.059417725,
+    -0.03488159,
+    -0.0073051453,
+    0.03982544,
+    0.05810547,
+    -0.011390686,
+    -0.027252197,
+    0.00044727325,
+    0.0058174133,
+    0.029907227,
+    0.010368347,
+    0.03543091,
+    -0.0132369995,
+    -0.06121826,
+    0.008102417,
+    -0.02659607,
+    -0.016708374,
+    -0.0053215027,
+    0.010650635,
+    -0.06518555,
+    0.005126953,
+    -0.0060768127,
+    0.0038661957,
+    -0.018630981,
+    -0.012939453,
+    0.0044822693,
+    0.025360107,
+    0.007396698,
+    -0.03338623,
+    -0.043762207,
+    -0.008514404,
+    0.030334473,
+    -0.013877869,
+    -0.023727417,
+    -0.0026073456,
+    0.040039062,
+    -0.019882202,
+    -0.046813965,
+    -0.061645508,
+    0.015167236,
+    0.015991211,
+    -0.010391235,
+    0.076538086,
+    0.0770874,
+    0.024353027,
+    -0.037384033,
+    -0.0037460327,
+    0.00048422813,
+    -0.01713562,
+    0.06726074,
+    0.02746582,
+    -0.023513794,
+    0.008079529,
+    -0.01663208,
+    0.048706055,
+    -0.0009908676,
+    -0.01914978,
+    0.017623901,
+    -0.015090942,
+    0.029754639,
+    0.0390625,
+    0.016403198,
+    0.015174866,
+    0.06060791,
+    -0.010917664,
+    0.01222229,
+    0.020004272,
+    -0.011291504,
+    0.0010890961,
+    0.017791748,
+    -0.03878784,
+    -0.04537964,
+    -0.017562866,
+    -0.009857178,
+    -0.006084442,
+    0.005973816,
+    -0.0035514832,
+    0.013793945,
+    0.11730957,
+    0.10003662,
+    -0.13769531,
+    -0.012382507,
+    0.020355225,
+    -0.043640137,
+    -0.033203125,
+    0.023483276,
+    0.010505676,
+    0.017913818,
+    -0.03503418,
+    -0.003232956,
+    -0.012054443,
+    -0.010688782,
+    -0.0015478134,
+    -0.011558533,
+    -0.010978699,
+    -0.0023822784,
+    -0.032714844,
+    -0.014854431,
+    -0.037231445,
+    -0.006324768,
+    -0.035858154,
+    -0.0032634735,
+    -0.0059776306,
+    0.015213013,
+    -0.032196045,
+    -0.03567505,
+    0.0005145073,
+    -0.033813477,
+    -0.0009551048,
+    -0.009498596,
+    0.015007019,
+    -0.010757446,
+    0.05041504,
+    -0.039489746,
+    0.01776123,
+    0.030685425,
+    0.007255554,
+    0.024993896,
+    0.01727295,
+    0.031433105,
+    -0.007873535,
+    -0.04458618,
+    0.0021839142,
+    -0.04776001,
+    0.01852417,
+    0.0058288574,
+    0.0031833649,
+    0.038482666,
+    0.0115356445,
+    -0.04144287,
+    0.025268555,
+    -0.05239868,
+    -0.014511108,
+    0.015052795,
+    0.0012159348,
+    -0.011009216,
+    0.021316528,
+    -0.005958557,
+    0.03878784,
+    0.03201294,
+    0.045898438,
+    -0.012634277,
+    -0.0076942444,
+    -0.0037059784,
+    -0.043151855,
+    -0.010505676,
+    0.0075912476,
+    0.0016708374,
+    0.0034103394,
+    0.02406311,
+    0.031463623,
+    0.07293701,
+    -0.04208374,
+    0.046142578,
+    -0.01210022,
+    -1.8000603e-05,
+    0.012229919,
+    -0.08831787,
+    -0.027999878,
+    -0.039001465,
+    -0.014595032,
+    -0.019515991,
+    0.021728516,
+    0.043914795,
+    0.028884888,
+    -0.009506226,
+    0.0054512024,
+    0.04046631,
+    -0.06225586,
+    0.012680054,
+    -0.04724121,
+    0.013938904,
+    -0.01272583,
+    -0.0004940033,
+    -0.0012817383,
+    0.02116394,
+    -0.029220581,
+    0.05529785,
+    -0.013755798,
+    -0.056793213,
+    0.01576233,
+    0.01374054,
+    0.0060157776,
+    -0.018310547,
+    0.014823914,
+    0.022720337,
+    -0.023773193,
+    0.025314331,
+    -0.0016975403,
+    -0.07092285,
+    0.024276733,
+    0.004875183,
+    -0.03543091,
+    0.00274086,
+    -0.047607422,
+    0.011940002,
+    0.016601562,
+    -0.03024292,
+    -0.036590576,
+    0.0043754578,
+    -0.04171753,
+    0.010787964,
+    -0.011024475,
+    -0.026794434,
+    -0.0030345917,
+    0.0093307495,
+    0.019897461,
+    -0.004421234,
+    -0.012321472,
+    -0.03112793,
+    0.022888184,
+    -0.089904785,
+    -0.08673096,
+    0.02772522,
+    -0.024261475,
+    0.012565613,
+    -0.001865387,
+    0.027526855,
+    0.03933716,
+    -0.01763916,
+    -0.009757996,
+    -0.027389526,
+    0.029922485,
+    0.009963989,
+    0.024459839,
+    -0.0058937073,
+    0.026931763,
+    -0.043823242,
+    -0.018066406,
+    0.011886597,
+    0.030044556,
+    0.051727295,
+    -0.03326416,
+    0.033416748,
+    -0.014556885,
+    0.027145386,
+    -0.009483337,
+    -0.014228821,
+    -0.009819031,
+    -0.0039253235,
+    0.0002720356,
+    0.005996704,
+    -0.01638794,
+    -0.010475159,
+    -0.025390625,
+    -0.05178833,
+    -0.045776367,
+    -0.058258057,
+    -0.012161255,
+    -0.038909912,
+    0.07116699,
+    -0.07336426,
+    0.026916504,
+    -0.021469116,
+    0.0014009476,
+    -0.0046424866,
+    -0.039520264,
+    0.029815674,
+    -0.021759033,
+    0.007484436,
+    -0.007850647,
+    -0.011245728,
+    -0.024154663,
+    -0.00047254562,
+    0.027709961,
+    0.0050468445,
+    0.031311035,
+    0.031799316,
+    0.02230835,
+    -0.0064849854,
+    0.01474762,
+    0.01424408,
+    -0.046691895,
+    0.015945435,
+    -0.021728516,
+    0.0025749207,
+    -0.011245728,
+    0.059143066,
+    0.031951904,
+    0.043884277,
+    0.023513794,
+    0.0039520264,
+    -0.01638794,
+    -0.00566864,
+    0.026306152,
+    0.02961731,
+    -0.034179688,
+    0.01777649,
+    0.004283905,
+    -0.00258255,
+    -0.017410278,
+    0.0063056946,
+    0.00063180923,
+    0.008140564,
+    0.066711426,
+    0.005130768,
+    0.02696228,
+    0.018722534,
+    -0.0028324127,
+    0.0057296753,
+    0.042236328,
+    0.046844482,
+    0.005542755,
+    -0.014259338,
+    0.034942627,
+    0.00036764145,
+    0.036987305,
+    0.10974121,
+    0.050872803,
+    0.013687134,
+    -0.0033664703,
+    0.0068588257,
+    0.00945282,
+    0.009819031,
+    -0.0039520264,
+    0.018463135,
+    -0.035491943,
+    -0.0016965866,
+    -0.0019626617,
+    -0.024215698,
+    0.022766113,
+    0.00039553642,
+    0.0016107559,
+    0.009399414,
+    0.0031032562,
+    -0.011947632,
+    0.07354736,
+    0.08166504,
+    0.024765015,
+    0.023086548,
+    -0.0018911362,
+    -0.028640747,
+    0.0390625,
+    0.0154800415,
+    0.016662598,
+    0.027923584,
+    -0.03137207,
+    0.010032654,
+    0.035125732,
+    0.02508545,
+    0.032836914,
+    0.058929443,
+    0.01360321,
+    -0.008346558,
+    -0.041381836,
+    -0.002380371,
+    -0.014884949,
+    0.099365234,
+    -0.0007901192,
+    -0.018661499,
+    -0.0026626587,
+    0.00077199936,
+    -0.031799316,
+    -0.02885437,
+    -0.02230835,
+    0.03048706,
+    -0.009475708,
+    -0.035583496,
+    -0.011810303,
+    0.014633179,
+    -0.044952393,
+    -0.033325195,
+    -0.0022735596,
+    0.0042037964,
+    0.0056915283,
+    -0.011695862,
+    0.0071907043,
+    0.006061554,
+    -0.020645142,
+    -0.009475708,
+    0.004146576,
+    0.018310547,
+    -0.034576416,
+    -0.009750366,
+    0.023208618,
+    0.056365967,
+    -0.0036506653,
+    -0.043823242,
+    -0.0025959015,
+    0.0033607483,
+    -0.029632568,
+    0.012054443,
+    -0.020553589,
+    -0.016830444,
+    0.01777649,
+    0.0017108917,
+    -0.01651001,
+    -0.019424438,
+    0.006904602,
+    0.018753052,
+    0.064575195,
+    0.00077199936,
+    0.01727295,
+    -0.017181396,
+    0.020004272,
+    -0.0030059814,
+    0.037475586,
+    -0.035980225,
+    0.010864258,
+    0.01713562,
+    0.031280518,
+    -0.025939941,
+    0.029418945,
+    0.0049934387,
+    0.0043296814,
+    0.009689331,
+    -0.02017212,
+    0.010116577,
+    0.0036411285,
+    -0.011260986,
+    0.01777649,
+    -0.005016327,
+    -0.020721436,
+    0.0138168335,
+    -0.018447876,
+    -0.017318726,
+    0.013420105,
+    -0.006164551,
+    0.01777649,
+    0.042022705,
+    -0.04107666,
+    -0.0017957687,
+    -0.070129395,
+    0.012863159,
+    -0.02961731,
+    -0.022750854,
+    -0.017181396,
+    -0.041046143,
+    0.07891846,
+    0.00969696,
+    -0.018310547,
+    -0.018539429,
+    -0.05105591,
+    -0.0070762634,
+    0.0071258545,
+    -0.05734253,
+    -0.0034255981,
+    -0.044708252,
+    -0.05291748,
+    0.010063171,
+    0.05355835,
+    -0.031311035,
+    0.058654785,
+    -0.0362854,
+    0.0018806458,
+    0.0025596619,
+    0.034698486,
+    -0.0059547424,
+    0.038208008,
+    -0.03829956,
+    0.07861328,
+    0.0043792725,
+    0.039764404,
+    -0.02684021,
+    0.021652222,
+    -0.031921387,
+    0.03616333,
+    -0.037872314,
+    0.00058984756,
+    -0.022003174,
+    -0.0103302,
+    0.021652222,
+    0.029327393,
+    0.013427734,
+    0.031280518,
+    -0.0446167,
+    0.024780273,
+    0.0015983582,
+    -0.024215698
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/",
+    "aws::graph::propositions": [
+      "# Amazon Payment Methods and Associated Risks",
+      "Amazon accepts payments using credit cards.",
+      "Amazon accepts payments using debit cards.",
+      "Amazon accepts payments using credit accounts.",
+      "Amazon accepts payments using promotional financing.",
+      "Amazon accepts payments using gift cards.",
+      "Amazon accepts payments using direct debit from a customer's bank account.",
+      "Amazon accepts payments using consumer invoicing.",
+      "Amazon accepts payments using checks.",
+      "Amazon accepts payments using payment upon delivery.",
+      "Amazon is subject to regulations for payment options offered to customers.",
+      "Amazon is subject to compliance requirements for payment options offered to customers.",
+      "Amazon may become subject to additional regulations for payment options offered to customers.",
+      "Amazon may become subject to additional compliance requirements for payment options offered to customers.",
+      "Compliance requirements may include obligations to implement enhanced authentication processes.",
+      "Enhanced authentication processes could result in significant costs for Amazon.",
+      "Enhanced authentication processes could reduce the ease of use of Amazon's payments products.",
+      "Amazon is subject to fraud risks related to payment options.",
+      "Amazon pays interchange fees for certain payment methods including credit cards and debit cards.",
+      "Amazon pays other fees for certain payment methods including credit cards and debit cards.",
+      "Interchange and other fees may increase over time.",
+      "Increasing fees may raise Amazon's operating costs.",
+      "Increasing fees may lower Amazon's profitability.",
+      "Amazon relies on third parties to provide certain Amazon-branded payment methods.",
+      "Amazon relies on third parties to provide payment processing services.",
+      "Third-party payment processing services include processing of credit cards.",
+      "Third-party payment processing services include processing of debit cards.",
+      "Third-party payment processing services include processing of electronic checks.",
+      "Third-party payment processing services include processing of promotional financing."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Amazon Payment Methods and Associated Risks",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "credit cards",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "debit cards",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "credit accounts",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "promotional financing",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "gift cards",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "direct debit",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "consumer invoicing",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "checks",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "payment upon delivery",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "third parties",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon-branded payment methods",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "payment processing services",
+              "classification": "Service"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "electronic checks",
+              "classification": "Financial Instrument"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using credit cards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "credit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using debit cards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "debit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using credit accounts.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "credit accounts",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using promotional financing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "promotional financing",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using gift cards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gift cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using direct debit from a customer's bank account.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct debit",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "direct debit",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "SOURCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "customer's bank account",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using consumer invoicing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "consumer invoicing",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using checks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "checks",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon accepts payments using payment upon delivery.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACCEPTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payment upon delivery",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon is subject to regulations for payment options offered to customers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regulations for payment options",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon is subject to compliance requirements for payment options offered to customers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "compliance requirements for payment options",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon may become subject to additional regulations for payment options offered to customers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY BECOME SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "additional regulations for payment options",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon may become subject to additional compliance requirements for payment options offered to customers.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY BECOME SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "additional compliance requirements for payment options",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Enhanced authentication processes could result in significant costs for Amazon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY INCUR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "significant costs from enhanced authentication processes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Enhanced authentication processes could reduce the ease of use of Amazon's payments products.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY EXPERIENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "reduced ease of use of payments products",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon is subject to fraud risks related to payment options.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "SUBJECT TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fraud risks related to payment options",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon pays interchange fees for certain payment methods including credit cards and debit cards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PAYS FEES FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "credit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PAYS FEES FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "debit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon pays other fees for certain payment methods including credit cards and debit cards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PAYS FEES FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "credit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PAYS FEES FOR"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "debit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Increasing fees may raise Amazon's operating costs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY EXPERIENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "raised operating costs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Increasing fees may lower Amazon's profitability.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAY EXPERIENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lowered profitability",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on third parties to provide certain Amazon-branded payment methods.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PROVIDE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon-branded payment methods",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon relies on third parties to provide payment processing services.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RELIES ON"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third parties",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PROVIDE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payment processing services",
+                    "classification": "Service"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Third-party payment processing services include processing of credit cards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payment processing services",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "credit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Third-party payment processing services include processing of debit cards.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payment processing services",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "debit cards",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Third-party payment processing services include processing of electronic checks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payment processing services",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "electronic checks",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Third-party payment processing services include processing of promotional financing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payment processing services",
+                    "classification": "Service"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "promotional financing",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:577c1b40",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/"
+      },
+      "hash": "9e87ea21bd5fcd18cb7c4c32788da7c64a2989b1867956fcd8e56285023d0b98",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:33769352",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/"
+      },
+      "hash": "90bcc5d5af4099700473ced6996a2e05b2b8aedfa33404f209f1beb0221d5d32",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "##### We Are Subject to Payments-Related Risks\n\nWe accept payments using a variety of methods, including credit card, debit card, credit accounts (including promotional financing), gift cards, direct debit from a customer’s bank account, consumer invoicing, checks, and payment upon delivery. For existing and future payment options we offer to our customers, we currently are subject to, and may become subject to additional, regulations and compliance requirements (including obligations to implement enhanced authentication processes that could result in significant costs and reduce the ease of use of our payments products), as well as fraud. For certain payment methods, including credit and debit cards, we pay interchange and other fees, which may increase over time and raise our operating costs and lower profitability. We rely on third parties to provide certain Amazon-branded payment methods and payment processing services, including the processing of credit cards, debit cards, electronic checks, and promotional financing.",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1038,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

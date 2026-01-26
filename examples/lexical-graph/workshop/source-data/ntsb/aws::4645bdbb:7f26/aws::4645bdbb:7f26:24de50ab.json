@@ -1,0 +1,2154 @@
+{
+  "id_": "aws::4645bdbb:7f26:24de50ab",
+  "embedding": [
+    0.022506714,
+    0.014221191,
+    0.002855301,
+    -0.0005455017,
+    0.0005054474,
+    -0.026977539,
+    -0.00078344345,
+    -0.031402588,
+    -0.0385437,
+    0.0021305084,
+    0.007896423,
+    0.009414673,
+    0.0463562,
+    -0.049316406,
+    0.08416748,
+    0.005176544,
+    0.011909485,
+    0.050994873,
+    0.043548584,
+    -0.0035133362,
+    -0.02708435,
+    0.021209717,
+    0.0076942444,
+    -0.018722534,
+    -0.009101868,
+    0.07739258,
+    0.013923645,
+    0.0058288574,
+    0.007472992,
+    -0.025253296,
+    0.0029773712,
+    -0.017089844,
+    0.0031490326,
+    0.023925781,
+    0.002494812,
+    9.006262e-05,
+    -0.03060913,
+    0.023849487,
+    -0.0053634644,
+    -0.0014915466,
+    0.05114746,
+    -0.030700684,
+    0.079833984,
+    -0.017807007,
+    0.016662598,
+    0.010009766,
+    0.059051514,
+    0.0052261353,
+    0.04220581,
+    0.003742218,
+    0.02684021,
+    0.0209198,
+    0.034606934,
+    -0.0017061234,
+    0.0029735565,
+    0.018356323,
+    -0.03564453,
+    0.032104492,
+    -0.0023498535,
+    0.023803711,
+    0.011146545,
+    0.019622803,
+    0.0124435425,
+    0.01612854,
+    -0.056427002,
+    0.008865356,
+    0.009765625,
+    -0.019256592,
+    0.028411865,
+    -0.052581787,
+    -0.023712158,
+    0.027114868,
+    -0.022354126,
+    0.023513794,
+    -0.03491211,
+    -0.036468506,
+    -0.0007543564,
+    -0.024642944,
+    -0.01977539,
+    0.040252686,
+    -0.0054244995,
+    0.041046143,
+    -0.036499023,
+    -0.0140686035,
+    -0.009376526,
+    0.002418518,
+    -0.024002075,
+    -0.0236969,
+    -0.02986145,
+    -0.038391113,
+    -0.029251099,
+    -0.016571045,
+    -0.012039185,
+    0.013244629,
+    -0.040618896,
+    0.019638062,
+    0.015281677,
+    -0.12164307,
+    0.060394287,
+    -0.04244995,
+    0.050933838,
+    -0.07458496,
+    -0.028717041,
+    0.053894043,
+    0.009376526,
+    -0.0103302,
+    -0.018218994,
+    -0.015808105,
+    0.045440674,
+    0.037872314,
+    -0.021881104,
+    0.03756714,
+    0.0049972534,
+    -0.007637024,
+    -0.016113281,
+    0.00045967102,
+    -0.014221191,
+    0.015975952,
+    0.01159668,
+    0.012527466,
+    -0.006259918,
+    0.028701782,
+    -0.029815674,
+    -0.009239197,
+    0.00085401535,
+    0.007709503,
+    0.0037174225,
+    -0.007537842,
+    0.034698486,
+    -0.027252197,
+    -0.013206482,
+    0.08062744,
+    -0.0056533813,
+    -0.08984375,
+    -0.062805176,
+    0.024642944,
+    0.002817154,
+    0.009544373,
+    -0.002714157,
+    0.036071777,
+    -0.060760498,
+    -0.0069274902,
+    0.08618164,
+    -0.038726807,
+    -0.010925293,
+    0.03189087,
+    0.020889282,
+    0.009292603,
+    -0.017227173,
+    -0.070739746,
+    0.017715454,
+    -0.031402588,
+    0.05340576,
+    -0.015098572,
+    -0.0047683716,
+    -0.080566406,
+    0.022857666,
+    -0.07159424,
+    0.012550354,
+    -0.0491333,
+    -0.028182983,
+    -0.009674072,
+    0.056610107,
+    -0.010848999,
+    -0.018005371,
+    0.02999878,
+    -0.027252197,
+    -0.012001038,
+    0.010787964,
+    0.0062065125,
+    0.03338623,
+    -0.002210617,
+    -0.053833008,
+    -0.020050049,
+    -0.0054855347,
+    -0.002696991,
+    -0.0071640015,
+    0.020568848,
+    0.012908936,
+    0.06829834,
+    0.056243896,
+    -0.010192871,
+    0.040893555,
+    0.019256592,
+    -0.023376465,
+    0.039916992,
+    0.011100769,
+    -0.015037537,
+    -0.0059928894,
+    -0.019378662,
+    0.03591919,
+    0.048706055,
+    0.003376007,
+    -0.018661499,
+    -0.031280518,
+    -0.019607544,
+    0.011001587,
+    -0.001707077,
+    -0.022262573,
+    0.046173096,
+    -0.015655518,
+    0.010658264,
+    0.016082764,
+    0.0028839111,
+    -0.0032482147,
+    0.010887146,
+    -0.0009946823,
+    0.030166626,
+    -0.021713257,
+    0.013465881,
+    0.023468018,
+    0.009788513,
+    -0.025665283,
+    -0.012260437,
+    -0.005962372,
+    0.02619934,
+    -0.019180298,
+    -0.045532227,
+    -0.013381958,
+    0.026306152,
+    -0.056488037,
+    0.058013916,
+    -0.06768799,
+    -0.01586914,
+    -0.008041382,
+    -0.007167816,
+    -0.015388489,
+    0.0012588501,
+    0.0023975372,
+    0.015319824,
+    0.01977539,
+    -0.0357666,
+    0.014526367,
+    0.012649536,
+    -0.050048828,
+    0.026672363,
+    -0.03137207,
+    0.044525146,
+    -0.024765015,
+    0.02029419,
+    -0.013458252,
+    -0.020904541,
+    -0.0016727448,
+    0.05557251,
+    -0.08465576,
+    -0.047058105,
+    0.013259888,
+    0.013946533,
+    -0.021850586,
+    -0.01727295,
+    0.055786133,
+    0.014892578,
+    0.024551392,
+    0.04055786,
+    0.048034668,
+    0.0066223145,
+    -0.007797241,
+    -0.020553589,
+    0.046844482,
+    -0.048553467,
+    0.045837402,
+    -0.00894165,
+    -0.0713501,
+    0.023422241,
+    0.026763916,
+    0.025817871,
+    0.046569824,
+    0.057861328,
+    -0.017044067,
+    0.014526367,
+    -0.010246277,
+    -0.014884949,
+    -0.009613037,
+    -0.01687622,
+    -0.06933594,
+    0.02482605,
+    -0.022445679,
+    0.03488159,
+    0.0028038025,
+    -0.017028809,
+    -0.008796692,
+    0.04638672,
+    -0.010948181,
+    -0.003921509,
+    -0.009002686,
+    0.04714966,
+    -0.009750366,
+    0.0074920654,
+    -0.030670166,
+    0.020370483,
+    0.052520752,
+    -0.01033783,
+    -0.00087690353,
+    -0.016952515,
+    -0.0032424927,
+    0.003063202,
+    0.020935059,
+    0.019882202,
+    0.004371643,
+    -0.009376526,
+    0.036743164,
+    0.04800415,
+    -0.04788208,
+    0.025466919,
+    -0.014457703,
+    0.0009822845,
+    0.013748169,
+    0.019165039,
+    0.006378174,
+    -0.015686035,
+    -0.044128418,
+    -0.03164673,
+    0.016326904,
+    0.01424408,
+    0.022979736,
+    0.010543823,
+    0.0066337585,
+    0.049560547,
+    0.04812622,
+    0.041534424,
+    -0.011413574,
+    -0.0076179504,
+    -0.026168823,
+    0.008415222,
+    -0.006855011,
+    -0.022201538,
+    -0.0058555603,
+    0.0012779236,
+    0.08416748,
+    -0.03161621,
+    -0.06121826,
+    -0.016403198,
+    -0.101135254,
+    -0.009651184,
+    0.02128601,
+    0.02609253,
+    0.0030174255,
+    -0.017105103,
+    -0.018951416,
+    0.015670776,
+    0.018188477,
+    -0.002746582,
+    0.017059326,
+    -0.041503906,
+    -0.03390503,
+    -0.08703613,
+    -0.016860962,
+    -0.0012407303,
+    -0.024246216,
+    -0.07287598,
+    0.10601807,
+    -0.00605011,
+    -0.02520752,
+    0.002281189,
+    -0.017654419,
+    -0.039642334,
+    0.023284912,
+    -0.0021839142,
+    -0.015266418,
+    -0.049713135,
+    -0.004333496,
+    -0.0060577393,
+    -0.031799316,
+    0.0041236877,
+    0.019165039,
+    0.0034618378,
+    0.0034236908,
+    -0.0025806427,
+    0.03616333,
+    0.020874023,
+    0.04864502,
+    -0.014678955,
+    0.0017337799,
+    0.0035953522,
+    -0.0048828125,
+    -0.04397583,
+    0.023590088,
+    -0.042510986,
+    0.012237549,
+    0.010154724,
+    -0.004611969,
+    -0.017303467,
+    0.015472412,
+    -0.0064353943,
+    0.013336182,
+    -0.0045166016,
+    -0.0067596436,
+    0.025756836,
+    0.04776001,
+    -0.00011998415,
+    0.042175293,
+    0.026901245,
+    0.0013208389,
+    -0.010643005,
+    0.004173279,
+    -0.0067710876,
+    -0.015655518,
+    0.02748108,
+    -0.043640137,
+    -0.009719849,
+    -0.07714844,
+    0.011558533,
+    -0.012374878,
+    -0.014213562,
+    -0.0021305084,
+    -0.042022705,
+    -0.017669678,
+    -0.047058105,
+    0.028823853,
+    0.02192688,
+    -0.008178711,
+    0.07885742,
+    0.022613525,
+    0.051971436,
+    -0.007965088,
+    -0.0030765533,
+    -0.055114746,
+    0.004901886,
+    0.023773193,
+    0.0015697479,
+    -0.006580353,
+    -0.02949524,
+    -0.011787415,
+    0.032592773,
+    -0.0073928833,
+    -0.040100098,
+    0.016204834,
+    -0.008346558,
+    -0.0023517609,
+    0.06286621,
+    0.0004863739,
+    -0.010185242,
+    -0.034576416,
+    -0.014656067,
+    -0.020950317,
+    0.019729614,
+    0.02458191,
+    0.012916565,
+    0.03845215,
+    -0.02722168,
+    0.005306244,
+    -0.0121536255,
+    -0.007789612,
+    0.013961792,
+    -0.0021514893,
+    -0.01864624,
+    -0.021636963,
+    0.014884949,
+    -0.013679504,
+    -0.034301758,
+    0.010688782,
+    -0.008628845,
+    0.039398193,
+    0.02772522,
+    -0.0025730133,
+    0.10180664,
+    -0.02607727,
+    0.0076408386,
+    -0.053466797,
+    0.010360718,
+    -0.015991211,
+    -0.012519836,
+    0.014671326,
+    -0.0496521,
+    -0.0152282715,
+    -0.022583008,
+    -0.00038456917,
+    0.024719238,
+    0.011779785,
+    -0.01171875,
+    -0.0064849854,
+    0.06304932,
+    0.0070533752,
+    -0.0031280518,
+    -0.030426025,
+    -0.04788208,
+    0.04559326,
+    0.006839752,
+    0.01789856,
+    -0.05645752,
+    -0.04751587,
+    0.021194458,
+    -0.018447876,
+    0.040222168,
+    -0.009117126,
+    0.018875122,
+    0.022003174,
+    0.021057129,
+    -0.0184021,
+    0.0055389404,
+    -0.06384277,
+    0.04928589,
+    0.005706787,
+    0.011268616,
+    0.015380859,
+    0.021484375,
+    0.0099105835,
+    -0.020812988,
+    -0.018035889,
+    -0.04586792,
+    -0.02130127,
+    0.013160706,
+    -0.0231781,
+    0.0063323975,
+    -0.009307861,
+    0.016525269,
+    -0.018218994,
+    0.03503418,
+    0.03857422,
+    -0.061645508,
+    0.015563965,
+    -0.0033931732,
+    0.03274536,
+    0.030914307,
+    -0.03515625,
+    0.010551453,
+    -0.033935547,
+    0.02885437,
+    -0.047698975,
+    -0.005718231,
+    -0.030822754,
+    -0.050933838,
+    0.045837402,
+    0.012023926,
+    0.0070266724,
+    0.0050239563,
+    0.010673523,
+    0.047058105,
+    -0.05255127,
+    -0.020202637,
+    -0.020950317,
+    0.068237305,
+    -0.012680054,
+    -0.026657104,
+    0.039978027,
+    -0.040771484,
+    -0.04751587,
+    0.013626099,
+    0.048553467,
+    -0.001914978,
+    -0.0058403015,
+    0.0008211136,
+    -0.00881958,
+    0.026443481,
+    0.04611206,
+    -0.042663574,
+    0.026123047,
+    0.012886047,
+    -0.026306152,
+    0.0031433105,
+    -0.0181427,
+    -0.00774765,
+    0.026977539,
+    -0.035247803,
+    -0.042297363,
+    0.035369873,
+    0.008781433,
+    -0.02722168,
+    -0.015388489,
+    0.076293945,
+    0.005657196,
+    -0.023986816,
+    -0.05114746,
+    0.0357666,
+    0.0010967255,
+    -0.0010385513,
+    0.00843811,
+    -0.042541504,
+    0.0017337799,
+    -0.024887085,
+    -0.03567505,
+    -0.0072898865,
+    0.07434082,
+    -0.008636475,
+    0.022079468,
+    -0.03540039,
+    -0.00046253204,
+    0.027679443,
+    -0.017410278,
+    -0.021713257,
+    0.003364563,
+    0.0047340393,
+    -0.005050659,
+    0.040252686,
+    -0.034332275,
+    0.025680542,
+    -0.004016876,
+    -0.023117065,
+    -0.0019435883,
+    0.0011606216,
+    0.032196045,
+    -0.0039405823,
+    -0.006580353,
+    0.0047187805,
+    0.011627197,
+    0.022140503,
+    -0.029296875,
+    -0.062683105,
+    0.0005259514,
+    -0.005821228,
+    0.02029419,
+    0.0025863647,
+    0.00059986115,
+    -0.0048217773,
+    -0.014984131,
+    -0.0109939575,
+    0.009849548,
+    0.014907837,
+    0.0036201477,
+    0.06161499,
+    0.032806396,
+    0.007030487,
+    0.0053634644,
+    -0.009376526,
+    0.041381836,
+    0.002828598,
+    -0.0049438477,
+    0.057617188,
+    0.08557129,
+    -0.0051498413,
+    0.06695557,
+    0.025390625,
+    0.03060913,
+    -0.003414154,
+    0.010070801,
+    0.011634827,
+    -0.0038375854,
+    -0.02078247,
+    -0.017440796,
+    -0.0010213852,
+    -0.042236328,
+    -0.024230957,
+    -0.012313843,
+    0.012756348,
+    -0.0069084167,
+    -0.05105591,
+    0.0075149536,
+    -0.030670166,
+    -0.010185242,
+    -0.0020942688,
+    0.0090408325,
+    -0.0104904175,
+    0.007293701,
+    -0.012390137,
+    -0.029937744,
+    -0.02067566,
+    -0.0002977848,
+    0.00048589706,
+    -0.0027656555,
+    -0.005191803,
+    -0.0028820038,
+    -0.0047454834,
+    -0.050201416,
+    -0.02142334,
+    0.018722534,
+    -0.01777649,
+    0.0074920654,
+    -0.019729614,
+    -0.03866577,
+    -0.061340332,
+    -0.06738281,
+    -0.06890869,
+    -0.045135498,
+    -0.002784729,
+    -0.066467285,
+    0.0029525757,
+    0.04953003,
+    0.011779785,
+    0.008895874,
+    -0.04385376,
+    -0.0020503998,
+    0.031173706,
+    0.031951904,
+    -0.035095215,
+    -0.014823914,
+    0.017486572,
+    -0.012062073,
+    0.011161804,
+    0.033081055,
+    -0.009811401,
+    0.025558472,
+    0.027999878,
+    -0.03149414,
+    -0.016220093,
+    -0.023925781,
+    0.036376953,
+    -0.026031494,
+    0.031280518,
+    -0.029144287,
+    0.044281006,
+    -0.008125305,
+    0.06262207,
+    -0.006465912,
+    0.043151855,
+    -0.042510986,
+    -0.06124878,
+    0.0020809174,
+    -0.03451538,
+    -0.016159058,
+    -0.016983032,
+    0.017318726,
+    -0.010002136,
+    0.035705566,
+    -0.011138916,
+    -0.015533447,
+    0.036102295,
+    0.015571594,
+    0.07635498,
+    -0.027908325,
+    -0.012367249,
+    0.057495117,
+    0.06945801,
+    -0.032165527,
+    -0.028259277,
+    0.03225708,
+    0.037017822,
+    0.060333252,
+    0.006828308,
+    -0.010368347,
+    -0.013092041,
+    0.014015198,
+    0.055419922,
+    0.037475586,
+    -0.039001465,
+    0.020629883,
+    -0.009727478,
+    -0.025482178,
+    0.040222168,
+    0.011383057,
+    0.022018433,
+    -0.023422241,
+    -0.053100586,
+    0.066833496,
+    -0.03564453,
+    -0.047180176,
+    -0.0016412735,
+    0.025878906,
+    0.02368164,
+    0.014526367,
+    0.0028381348,
+    -0.06707764,
+    0.007820129,
+    0.018539429,
+    -0.008201599,
+    -0.0076026917,
+    -0.025787354,
+    0.00894928,
+    -0.088378906,
+    -0.012840271,
+    -0.0006570816,
+    0.045532227,
+    -0.05633545,
+    -0.058807373,
+    0.0027046204,
+    -0.008232117,
+    -0.013092041,
+    -0.0138549805,
+    0.024810791,
+    -0.04244995,
+    0.008972168,
+    -0.022491455,
+    -0.0005598068,
+    0.018692017,
+    0.047851562,
+    0.00831604,
+    0.050109863,
+    0.0033874512,
+    0.010932922,
+    -0.034851074,
+    0.006111145,
+    -0.010375977,
+    0.0019989014,
+    -0.018676758,
+    -0.024765015,
+    0.031219482,
+    -0.024139404,
+    0.009536743,
+    -0.0043563843,
+    -0.011413574,
+    -0.025054932,
+    -0.011474609,
+    0.023773193,
+    0.03579712,
+    0.018081665,
+    -0.022949219,
+    0.002500534,
+    -0.01574707,
+    0.00737381,
+    -0.0034122467,
+    0.0030593872,
+    -0.032104492,
+    0.030212402,
+    -0.013969421,
+    -0.04321289,
+    0.010269165,
+    0.008705139,
+    -0.04763794,
+    -0.032836914,
+    -0.048828125,
+    -0.02909851,
+    -0.02468872,
+    0.009635925,
+    0.0012636185,
+    0.024414062,
+    -0.0078086853,
+    -0.01373291,
+    0.044708252,
+    0.03390503,
+    0.0395813,
+    -0.034240723,
+    0.027740479,
+    -0.013893127,
+    -0.008361816,
+    -0.010437012,
+    -0.038909912,
+    0.055023193,
+    -0.08105469,
+    -0.045928955,
+    0.027542114,
+    0.04525757,
+    0.0038833618,
+    0.020095825,
+    -0.025100708,
+    0.040283203,
+    -0.03225708,
+    0.007820129,
+    -0.05770874,
+    0.025665283,
+    -0.00028443336,
+    -0.01966858,
+    0.010017395,
+    -0.010925293,
+    0.029556274,
+    0.016601562,
+    -0.0016613007,
+    0.01864624,
+    0.05429077,
+    0.03189087,
+    0.0007352829,
+    0.038970947,
+    -0.014419556,
+    0.008125305,
+    -0.0059814453,
+    0.003206253,
+    -0.047576904,
+    0.041290283,
+    0.050750732,
+    -0.020050049,
+    0.052520752,
+    0.07043457,
+    0.022018433,
+    -0.013320923,
+    0.03314209,
+    -0.008552551,
+    -0.0084991455,
+    -0.0064430237,
+    0.03579712,
+    -0.014228821,
+    0.015289307,
+    0.060546875,
+    0.00504303,
+    0.021560669,
+    0.0057525635,
+    -0.00074243546,
+    -0.034332275,
+    0.032043457,
+    -0.007774353,
+    0.011665344,
+    0.06616211,
+    -0.0022468567,
+    0.011711121,
+    0.012680054,
+    -0.038757324,
+    -0.010498047,
+    -0.021759033,
+    -0.0010890961,
+    -0.02255249,
+    0.052337646,
+    -0.028945923,
+    0.0082473755,
+    -0.02178955,
+    -0.07684326,
+    0.0042915344,
+    0.010612488,
+    -0.018066406,
+    -0.060638428,
+    0.03414917,
+    -0.037475586,
+    0.072021484,
+    0.029815674,
+    0.027908325,
+    -0.02998352,
+    -0.02507019,
+    0.05847168,
+    0.04437256,
+    0.080200195,
+    0.01008606,
+    -0.0018749237,
+    -0.046691895,
+    0.01927185,
+    -0.03439331,
+    -0.036315918,
+    0.014427185,
+    -0.05545044,
+    -0.031204224,
+    0.033355713,
+    0.019119263,
+    -0.023788452,
+    0.021530151,
+    -0.019897461,
+    -0.02949524,
+    0.019332886,
+    -0.04864502,
+    -0.016677856,
+    0.021362305,
+    -0.00012886524,
+    -0.03353882,
+    -0.022628784,
+    0.0048599243,
+    -0.03125,
+    -0.045074463,
+    0.0018730164,
+    0.0060806274,
+    0.022964478,
+    0.046203613,
+    -0.030960083,
+    0.0949707,
+    0.006034851,
+    -0.000279665,
+    -0.00365448,
+    -0.007637024,
+    0.0018844604,
+    0.04901123,
+    -0.047302246,
+    0.044830322,
+    -0.016799927,
+    0.02810669,
+    -0.016784668,
+    -0.0070877075,
+    0.0113220215,
+    0.022415161,
+    -0.05999756,
+    -0.0018062592,
+    0.01777649,
+    0.0038490295,
+    -0.040802002,
+    0.04562378,
+    -0.044158936,
+    -0.083740234,
+    -0.022888184,
+    -0.015525818,
+    -0.017837524,
+    0.0031356812,
+    0.011672974,
+    -0.005012512,
+    0.024749756,
+    -0.015914917,
+    -0.029800415,
+    -0.016586304,
+    -0.060821533,
+    -0.003522873,
+    -0.034423828,
+    0.0033836365,
+    -0.016616821,
+    0.027572632,
+    -0.010253906,
+    0.01374054,
+    -0.02746582,
+    0.01889038,
+    -0.059020996,
+    0.042541504,
+    -0.045959473,
+    -0.028869629,
+    -0.02885437,
+    -0.011405945,
+    0.012992859,
+    -0.02281189,
+    0.0029335022,
+    0.031799316,
+    -0.031463623,
+    0.009605408,
+    0.01687622,
+    -0.0043258667,
+    -0.038360596,
+    0.017623901,
+    0.013053894,
+    -0.018951416,
+    -0.018432617,
+    0.030883789,
+    -0.011138916,
+    -0.026046753,
+    0.07183838,
+    0.0004720688,
+    -0.015235901,
+    -0.0020122528,
+    0.029449463,
+    0.013137817,
+    0.018295288,
+    -0.030197144,
+    -0.036224365,
+    -0.04272461,
+    0.005027771,
+    0.048065186,
+    0.002067566,
+    -0.024002075,
+    -0.028564453,
+    0.02420044,
+    -0.0025501251,
+    -0.008659363,
+    0.008872986,
+    -0.014007568,
+    0.057434082,
+    0.026184082,
+    -0.029205322,
+    0.042022705,
+    -0.038024902,
+    0.014801025,
+    0.045440674,
+    0.02609253,
+    0.03741455,
+    0.0050697327,
+    0.023422241,
+    0.034484863,
+    -0.013412476
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87473.md",
+    "file_name": "87473.md",
+    "file_size": 7313,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Boeing E75 Aircraft Accident in Bozeman, Montana",
+      "The accident occurred in Bozeman, Montana.",
+      "The accident occurred on July 14, 2013, at 09:30 Local time.",
+      "The aircraft involved was a Boeing E75.",
+      "The defining event of the accident was loss of lift.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was WPR13CA325.",
+      "The aircraft registration was N5176N.",
+      "The aircraft sustained substantial damage.",
+      "There were 2 occupants with no injuries.",
+      "The pilot and pilot-rated passenger departed from a turf runway.",
+      "Wind conditions were calm during takeoff.",
+      "The airplane's climb rate was not as expected during initial climb.",
+      "The pilot attributed the degraded climb performance to the addition of the passenger's weight.",
+      "The pilot began a 180-degree turn to the north upon reaching 200 feet above ground level.",
+      "The pilot's intention was to gain altitude while avoiding obstacles and a densely populated area.",
+      "The pilot felt a degradation in performance as the airplane entered the bank.",
+      "The engine power indicators showed adequate power during the turn.",
+      "The airspeed indicators showed adequate airspeed during the turn.",
+      "The airplane was not maintaining altitude during the turn.",
+      "The pilot increased the bank angle to avoid colliding with a subdivision.",
+      "The airplane collided with terrain.",
+      "The airplane came to rest in a ditch adjacent to the airport's perimeter fence.",
+      "The airplane sustained damage to the wings during the accident sequence.",
+      "The airplane sustained damage to the empennage during the accident sequence.",
+      "The pilot believed the airplane's descent was possibly caused by a downdraft.",
+      "The pilot believed the airplane's descent was possibly caused by too high angle-of-attack attitude.",
+      "The pilot believed the airplane's descent was possibly caused by a decrease in engine power output.",
+      "The pilot reported no mechanical malfunctions with the airplane.",
+      "The pilot reported no mechanical failures with the airplane that would have precluded normal operation.",
+      "The passenger believed the accident was caused by airspeed being too slow for the steep bank angle."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Boeing E75 Aircraft Accident in Bozeman, Montana",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Boeing E75",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Bozeman, Montana",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N5176N",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR13CA325",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot-rated passenger",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Bozeman, Montana.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Bozeman, Montana",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on July 14, 2013, at 0930 Local time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "July 14, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "09:30 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was loss of lift.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of lift",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR13CA325.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT NUMBER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR13CA325",
+                    "classification": "Accidentnumber"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N5176N.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N5176N",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 2 occupants with no injuries.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OCCUPANT COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INJURY COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot and pilot-rated passenger departed from a turf runway.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACCOMPANIED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-rated passenger",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE RUNWAY TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "turf runway",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Wind conditions were calm during takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "TAKEOFF WIND CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "calm",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane's climb rate was not as expected during initial climb.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CLIMB RATE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not as expected",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CLIMB PHASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initial climb",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attributed the degraded climb performance to the addition of the passenger's weight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ATTRIBUTED PERFORMANCE ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "addition of the passenger's weight",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "PERFORMANCE ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "degraded climb performance",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot began a 180-degree turn to the north upon reaching 200 feet above ground level.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MANEUVER PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "180-degree turn to the north",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ALTITUDE AT TURN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "200 feet above ground level",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's intention was to gain altitude while avoiding obstacles and a densely populated area.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INTENTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "gain altitude while avoiding obstacles and a densely populated area",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot felt a degradation in performance as the airplane entered the bank.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "degradation in performance during bank",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine power indicators showed adequate power during the turn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE POWER STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "adequate during turn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airspeed indicators showed adequate airspeed during the turn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRSPEED STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "adequate during turn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane was not maintaining altitude during the turn.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ALTITUDE STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not maintaining during turn",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot increased the bank angle to avoid colliding with a subdivision.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION TAKEN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "increased bank angle",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "avoid colliding with a subdivision",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane collided with terrain.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLISION WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "terrain",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane came to rest in a ditch adjacent to the airport's perimeter fence.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FINAL POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "ditch adjacent to the airport's perimeter fence",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane sustained damage to the wings during the accident sequence.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGED COMPONENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "wings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane sustained damage to the empennage during the accident sequence.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Boeing E75",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGED COMPONENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "empennage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot believed the airplane's descent was possibly caused by a downdraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "BELIEVED CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "downdraft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot believed the airplane's descent was possibly caused by too high angle-of-attack attitude.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "BELIEVED CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "too high angle-of-attack attitude",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot believed the airplane's descent was possibly caused by a decrease in engine power output.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "BELIEVED CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "decrease in engine power output",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no mechanical malfunctions with the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED MECHANICAL MALFUNCTIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported no mechanical failures with the airplane that would have precluded normal operation.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED MECHANICAL FAILURES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "none",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The passenger believed the accident was caused by airspeed being too slow for the steep bank angle.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot-rated passenger",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "BELIEVED CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airspeed being too slow for the steep bank angle",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::4645bdbb:7f26",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87473.md",
+        "file_name": "87473.md",
+        "file_size": 7313,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "ec8e9e4091a3065c0ce2e83aae38992de39f5b2ed274ee1233b2f1f99e22cc20",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::4645bdbb:7f26:83e51063",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/87473.md",
+        "file_name": "87473.md",
+        "file_size": 7313,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "6ec62fbc128a6b26b702cfa77e18076b170aa7d04ad8e13fd90e24ae30e382d5",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nBozeman, Montana\n\n## Date & Time: \nJuly 14, 2013, 09:30 Local\n\n## Aircraft:\nBoeing E75\n\n## Defining Event:\nLoss of lift\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nWPR13CA325\n\n## Registration:\nN5176N\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n2 None\n\n## Analysis\n\nThe pilot reported that he and the pilot-rated passenger, departed from the turf runway in calm wind conditions. During the initial climb, the airplane's climb rate was not as expected and he attributed this degraded climb performance to likely being the result of the addition of the passenger's weight. Upon reaching 200 feet above ground level (agl), the pilot began a 180-degree turn to the north in an effort to gain altitude while avoiding maneuvering over obstacles and a more densely populated area.\n\nAs the airplane entered the bank, the pilot felt a degradation in performance despite indications that both the engine power and airspeed were adequate. The airplane was not maintaining altitude and in an effort to avoid colliding into a subdivision, the pilot increased the bank angle. The airplane subsequently collided into terrain and came to rest in a ditch adjacent to the airport's perimeter fence. During the accident sequence the airplane sustained damage to the wings and empennage.\n\nThe pilot further stated that he believed the airplane's descent during the turn was a result of either of the following: a downdraft, too high angle-of-attack attitude, or possible decrease in engine power output. He reported no mechanical malfunctions or failures with the airplane that would have precluded normal operation. The passenger opined that the accident was a result of the airspeed being too slow for the steep bank angle.\n\n## Probable Cause and Findings\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1838,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

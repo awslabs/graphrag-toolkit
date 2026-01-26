@@ -1,0 +1,2203 @@
+{
+  "id_": "aws::faaadcc2:38d6:58a6c430",
+  "embedding": [
+    0.020492554,
+    -0.012786865,
+    -0.02935791,
+    0.009063721,
+    -0.008758545,
+    -0.025466919,
+    0.026306152,
+    -0.021972656,
+    -0.015052795,
+    0.042053223,
+    0.0012254715,
+    0.005619049,
+    0.006778717,
+    -0.014854431,
+    -0.013000488,
+    -0.016647339,
+    0.060791016,
+    0.0061187744,
+    0.08148193,
+    0.021728516,
+    0.0038490295,
+    0.06933594,
+    0.049743652,
+    -0.023895264,
+    0.07745361,
+    -0.015274048,
+    0.028457642,
+    -0.022781372,
+    0.080322266,
+    0.033477783,
+    0.058258057,
+    -0.084106445,
+    0.016571045,
+    0.015205383,
+    -0.014968872,
+    0.040527344,
+    0.01121521,
+    0.011116028,
+    0.02508545,
+    -0.01449585,
+    0.03942871,
+    -0.026931763,
+    0.078430176,
+    -0.01687622,
+    0.03765869,
+    -0.025512695,
+    0.03692627,
+    -0.066589355,
+    0.042236328,
+    -0.017501831,
+    -0.015945435,
+    0.03756714,
+    -0.009010315,
+    0.0028381348,
+    -0.017623901,
+    -0.01776123,
+    0.04876709,
+    -0.017669678,
+    0.017349243,
+    -0.0869751,
+    -0.04244995,
+    0.018753052,
+    0.064331055,
+    0.06854248,
+    -0.014984131,
+    -0.010192871,
+    -0.009933472,
+    0.0051994324,
+    0.008392334,
+    -0.011291504,
+    -0.0009851456,
+    -0.008583069,
+    -0.025878906,
+    -0.0036315918,
+    -0.014701843,
+    -0.006126404,
+    0.012290955,
+    -0.022018433,
+    -0.008407593,
+    0.033569336,
+    -0.0024738312,
+    0.017028809,
+    0.042419434,
+    -0.084472656,
+    0.04510498,
+    -0.0513916,
+    -0.00573349,
+    0.009155273,
+    0.020263672,
+    -0.01878357,
+    -0.0030212402,
+    0.024536133,
+    0.0060920715,
+    0.03173828,
+    -0.03100586,
+    -0.0035533905,
+    0.01612854,
+    0.009300232,
+    0.013999939,
+    -0.016418457,
+    -0.007873535,
+    -0.0072250366,
+    -0.048431396,
+    -0.0077400208,
+    -0.01537323,
+    0.011245728,
+    0.039916992,
+    0.0064926147,
+    0.019485474,
+    -0.00034856796,
+    -0.029022217,
+    0.07678223,
+    -0.012786865,
+    -0.033721924,
+    -0.0049476624,
+    0.056396484,
+    -0.0109939575,
+    0.032684326,
+    0.0149002075,
+    0.043823242,
+    0.025283813,
+    0.06335449,
+    0.03643799,
+    -0.04876709,
+    -0.0074043274,
+    -0.0035800934,
+    -0.03387451,
+    -0.060943604,
+    -0.0947876,
+    0.053588867,
+    0.0037288666,
+    0.001405716,
+    0.03616333,
+    0.031555176,
+    -0.0030937195,
+    -0.032043457,
+    -0.004878998,
+    0.035491943,
+    -0.0115737915,
+    -0.0033130646,
+    0.012306213,
+    -0.029296875,
+    0.0031833649,
+    0.009056091,
+    0.00957489,
+    -0.002937317,
+    0.0146484375,
+    0.02973938,
+    -0.017074585,
+    0.011772156,
+    0.0003194809,
+    -0.01235199,
+    0.04147339,
+    -0.00046753883,
+    -0.032226562,
+    -0.03753662,
+    -0.0061531067,
+    -0.035125732,
+    -0.0044517517,
+    -0.058746338,
+    -0.009109497,
+    -0.031036377,
+    -0.006401062,
+    0.06384277,
+    0.00630188,
+    0.048034668,
+    0.053833008,
+    0.0033779144,
+    0.015151978,
+    -0.006454468,
+    -0.032104492,
+    0.014442444,
+    0.029434204,
+    0.0050849915,
+    -0.0024547577,
+    0.029205322,
+    0.009941101,
+    0.020645142,
+    0.0038318634,
+    -0.006904602,
+    -0.014328003,
+    -0.047454834,
+    0.022262573,
+    -0.0011692047,
+    0.008605957,
+    0.0033168793,
+    0.012535095,
+    0.032073975,
+    -0.022781372,
+    0.02104187,
+    -0.016235352,
+    0.02923584,
+    -0.05545044,
+    0.00036263466,
+    -0.0017490387,
+    0.00573349,
+    -0.03326416,
+    0.0009331703,
+    -0.008041382,
+    -0.011161804,
+    -0.003250122,
+    -0.005126953,
+    0.010269165,
+    0.0036182404,
+    0.02545166,
+    -0.031204224,
+    0.015365601,
+    0.005558014,
+    -0.026046753,
+    0.017837524,
+    0.026031494,
+    -0.021362305,
+    -0.022644043,
+    -0.003364563,
+    0.005470276,
+    -0.025238037,
+    0.008544922,
+    -0.006706238,
+    0.013145447,
+    -0.030166626,
+    0.0067634583,
+    0.033935547,
+    -0.0064201355,
+    0.023757935,
+    -0.00014293194,
+    0.015411377,
+    -0.015426636,
+    0.015670776,
+    -0.0044784546,
+    0.032348633,
+    -0.00089263916,
+    -0.013511658,
+    0.034240723,
+    0.04373169,
+    -0.012413025,
+    -0.026748657,
+    -0.003293991,
+    -0.072021484,
+    0.033599854,
+    0.041900635,
+    0.013885498,
+    0.002090454,
+    -0.030670166,
+    0.024673462,
+    0.028564453,
+    0.0061149597,
+    0.011039734,
+    0.015640259,
+    0.025161743,
+    0.010757446,
+    0.028793335,
+    -0.022521973,
+    0.018218994,
+    0.030456543,
+    0.02128601,
+    0.003604889,
+    0.008659363,
+    0.037994385,
+    -0.061065674,
+    0.028411865,
+    -0.02029419,
+    0.05609131,
+    0.03665161,
+    0.005508423,
+    -0.050933838,
+    -0.0055351257,
+    -0.010673523,
+    0.005584717,
+    0.014778137,
+    -0.020980835,
+    -0.0014076233,
+    -0.061431885,
+    -0.003944397,
+    0.02142334,
+    0.0009384155,
+    -0.04940796,
+    -0.022445679,
+    -0.0010499954,
+    -0.0026073456,
+    0.004333496,
+    -0.00095558167,
+    0.038635254,
+    -0.0004043579,
+    -0.010429382,
+    -0.020965576,
+    -0.0138549805,
+    0.019805908,
+    0.004219055,
+    -0.011756897,
+    -0.025985718,
+    0.030853271,
+    -0.00680542,
+    -0.019180298,
+    0.00623703,
+    0.00088214874,
+    -0.031433105,
+    -0.058380127,
+    -0.017425537,
+    0.03781128,
+    -0.0597229,
+    -0.017669678,
+    0.05218506,
+    -0.041870117,
+    0.039916992,
+    -0.011665344,
+    0.016784668,
+    0.022277832,
+    -0.00919342,
+    -0.02178955,
+    0.0051345825,
+    -0.06488037,
+    -0.026947021,
+    0.0072021484,
+    -0.050445557,
+    0.027572632,
+    0.005012512,
+    -0.017242432,
+    -0.0064811707,
+    -0.05090332,
+    -0.018112183,
+    -0.03677368,
+    -0.0019798279,
+    0.0073165894,
+    -0.02784729,
+    0.012374878,
+    8.6188316e-05,
+    -0.023834229,
+    0.005680084,
+    0.0096588135,
+    -0.058624268,
+    -0.08709717,
+    -0.09844971,
+    -0.09362793,
+    0.031799316,
+    -0.0085372925,
+    0.017074585,
+    -0.011024475,
+    0.07373047,
+    -0.019714355,
+    -0.087768555,
+    -0.06335449,
+    -0.0011882782,
+    -0.0067329407,
+    -0.0025615692,
+    0.07171631,
+    -0.0013666153,
+    -0.013442993,
+    -0.0006222725,
+    0.09259033,
+    0.07293701,
+    -0.111572266,
+    0.002981186,
+    -0.0043296814,
+    -0.061553955,
+    0.01499176,
+    0.01033783,
+    -0.025482178,
+    -0.030899048,
+    0.028717041,
+    -0.073913574,
+    0.013244629,
+    -0.0012559891,
+    -0.03466797,
+    -0.06439209,
+    0.014526367,
+    0.0006804466,
+    -0.06384277,
+    0.0113220215,
+    -0.02116394,
+    -0.029937744,
+    -0.04107666,
+    -0.043273926,
+    0.027359009,
+    -0.003780365,
+    0.03781128,
+    0.03213501,
+    -0.025100708,
+    -0.030914307,
+    0.031341553,
+    -0.022140503,
+    0.018798828,
+    -0.0064201355,
+    0.047424316,
+    -0.03527832,
+    -0.021514893,
+    0.014022827,
+    -0.036193848,
+    0.01525116,
+    0.010650635,
+    0.004348755,
+    0.02255249,
+    0.039123535,
+    0.020904541,
+    -0.025939941,
+    -0.033447266,
+    -0.008926392,
+    0.01020813,
+    0.00044822693,
+    0.021636963,
+    -0.020614624,
+    0.072143555,
+    -0.02658081,
+    -0.042755127,
+    0.040649414,
+    -0.014099121,
+    0.014472961,
+    0.08520508,
+    -0.004386902,
+    0.010314941,
+    0.017471313,
+    0.023498535,
+    -0.007549286,
+    0.03866577,
+    -0.030426025,
+    0.015525818,
+    -0.023422241,
+    -0.022628784,
+    -0.008895874,
+    -0.007774353,
+    0.016677856,
+    0.03012085,
+    -0.052642822,
+    -0.00869751,
+    0.010482788,
+    0.015914917,
+    0.004295349,
+    -0.019119263,
+    -0.021148682,
+    0.0015707016,
+    0.006538391,
+    -0.012664795,
+    -0.004486084,
+    0.0077781677,
+    -0.015823364,
+    -0.0068244934,
+    -0.0020503998,
+    -0.014411926,
+    0.0037555695,
+    -0.0013570786,
+    -0.025939941,
+    -0.06304932,
+    -0.006000519,
+    0.034423828,
+    0.027786255,
+    0.018066406,
+    -0.008270264,
+    -0.0043792725,
+    -0.051849365,
+    -0.010505676,
+    0.008178711,
+    -0.018569946,
+    0.023010254,
+    0.028579712,
+    0.014549255,
+    -0.0068855286,
+    -0.050811768,
+    -0.007820129,
+    0.01751709,
+    -0.01751709,
+    0.04232788,
+    0.04232788,
+    0.014442444,
+    -0.015655518,
+    -0.00806427,
+    -0.02558899,
+    0.027938843,
+    0.026290894,
+    0.02053833,
+    -0.003742218,
+    -0.005744934,
+    0.0035037994,
+    0.009689331,
+    -0.017730713,
+    -0.044921875,
+    0.014953613,
+    -0.039764404,
+    0.016204834,
+    -0.03527832,
+    0.07092285,
+    -0.016174316,
+    -0.012802124,
+    0.011947632,
+    0.018951416,
+    -0.0057640076,
+    0.000500679,
+    0.009506226,
+    -0.030578613,
+    -0.019683838,
+    -0.01020813,
+    -0.023025513,
+    -0.041107178,
+    0.004425049,
+    0.008476257,
+    -0.029891968,
+    -0.006614685,
+    -0.009788513,
+    0.0021038055,
+    0.0028972626,
+    -0.0041885376,
+    -0.076660156,
+    0.011505127,
+    0.014076233,
+    -0.0491333,
+    0.02583313,
+    -0.02458191,
+    0.003194809,
+    0.05078125,
+    0.0030269623,
+    0.024093628,
+    -0.017791748,
+    0.022750854,
+    -0.022354126,
+    0.05911255,
+    0.011024475,
+    0.0016441345,
+    0.041809082,
+    -0.013954163,
+    -0.0024204254,
+    5.13196e-05,
+    0.008056641,
+    0.014518738,
+    0.019973755,
+    -0.008811951,
+    -0.001742363,
+    0.039215088,
+    0.01675415,
+    -0.053710938,
+    0.041412354,
+    -0.026977539,
+    0.002418518,
+    0.012191772,
+    0.004085541,
+    -0.041290283,
+    -0.033966064,
+    0.04473877,
+    -0.0036640167,
+    -0.0151901245,
+    -0.020858765,
+    0.012588501,
+    0.020324707,
+    -0.0118637085,
+    -0.031036377,
+    -0.02218628,
+    0.035827637,
+    0.012680054,
+    -0.053649902,
+    -0.0262146,
+    0.05279541,
+    -0.049621582,
+    0.08148193,
+    -0.035308838,
+    -0.05783081,
+    0.0018262863,
+    -0.009552002,
+    -0.009796143,
+    -0.04534912,
+    -0.06604004,
+    -0.00045228004,
+    0.03945923,
+    0.053710938,
+    0.010139465,
+    -0.01977539,
+    0.0066833496,
+    -0.0048828125,
+    0.044036865,
+    0.012779236,
+    -0.0054016113,
+    -0.05569458,
+    -0.053131104,
+    0.008529663,
+    -0.027893066,
+    -0.00409317,
+    -0.008972168,
+    -0.0012245178,
+    -0.053833008,
+    -0.010810852,
+    0.02760315,
+    -0.0046463013,
+    0.030532837,
+    0.0067367554,
+    -0.025543213,
+    0.030822754,
+    0.019332886,
+    -0.012458801,
+    -0.027313232,
+    -0.0602417,
+    0.023605347,
+    -0.04711914,
+    -0.05203247,
+    -0.05307007,
+    0.04598999,
+    0.0005726814,
+    0.024749756,
+    0.0039749146,
+    -0.008148193,
+    -0.013702393,
+    -0.02067566,
+    -0.07171631,
+    -0.009559631,
+    -0.021896362,
+    -0.012268066,
+    -0.021148682,
+    -0.0007019043,
+    -0.03387451,
+    0.056243896,
+    -0.017028809,
+    0.013999939,
+    -0.039093018,
+    -0.008926392,
+    0.019729614,
+    0.01360321,
+    -0.01928711,
+    -0.0010166168,
+    -0.0011558533,
+    0.00919342,
+    0.015083313,
+    -0.05441284,
+    0.044036865,
+    0.09765625,
+    -0.0021953583,
+    0.05105591,
+    0.018463135,
+    0.02532959,
+    0.05895996,
+    -0.01449585,
+    -0.044799805,
+    -0.044189453,
+    -0.015930176,
+    -0.011398315,
+    0.005607605,
+    0.021270752,
+    0.0048980713,
+    0.04248047,
+    0.07373047,
+    0.11138916,
+    -0.07751465,
+    -0.01146698,
+    0.033569336,
+    -0.034240723,
+    0.0075645447,
+    0.042877197,
+    -0.0064811707,
+    0.024780273,
+    -0.08557129,
+    -0.010307312,
+    -0.013725281,
+    -0.0004181862,
+    0.025375366,
+    -0.0029087067,
+    -0.021209717,
+    -0.0076789856,
+    0.00018513203,
+    -0.09802246,
+    0.036254883,
+    0.085876465,
+    -0.027786255,
+    -0.028274536,
+    0.012268066,
+    0.030319214,
+    -0.025558472,
+    -0.07122803,
+    0.010978699,
+    0.004383087,
+    -0.02204895,
+    0.0034046173,
+    -0.0055618286,
+    -0.0071983337,
+    0.027740479,
+    -0.0026474,
+    -0.023269653,
+    0.014846802,
+    -0.030136108,
+    0.02885437,
+    0.052978516,
+    0.025222778,
+    0.025039673,
+    -0.043823242,
+    -0.009544373,
+    -0.04446411,
+    0.048339844,
+    0.015312195,
+    -0.016464233,
+    -0.0014476776,
+    -0.0058135986,
+    -0.018997192,
+    0.042266846,
+    -0.033996582,
+    -0.011886597,
+    -0.02708435,
+    -0.040161133,
+    0.0019683838,
+    0.05895996,
+    -0.060668945,
+    0.014480591,
+    0.028640747,
+    -0.042877197,
+    0.003446579,
+    -0.037139893,
+    -0.0357666,
+    -0.012756348,
+    0.038146973,
+    -0.03414917,
+    0.0132751465,
+    -0.031829834,
+    -0.005256653,
+    0.02999878,
+    0.004802704,
+    0.023391724,
+    0.0071144104,
+    -0.0049972534,
+    0.025299072,
+    0.017425537,
+    -0.07849121,
+    -0.020751953,
+    0.04486084,
+    0.010177612,
+    0.030349731,
+    0.04473877,
+    0.03366089,
+    -0.048095703,
+    -0.03338623,
+    0.0044021606,
+    -0.0149002075,
+    -0.05545044,
+    0.003534317,
+    -0.0357666,
+    -0.04714966,
+    -0.0073547363,
+    0.017990112,
+    0.012794495,
+    0.006175995,
+    -0.010261536,
+    0.05218506,
+    -0.001613617,
+    -0.041137695,
+    0.040893555,
+    0.0146102905,
+    0.040802002,
+    0.010879517,
+    0.030227661,
+    -0.01121521,
+    -0.007873535,
+    0.024398804,
+    -0.0038337708,
+    -0.052947998,
+    0.05441284,
+    0.013328552,
+    0.010147095,
+    -0.008880615,
+    -0.020874023,
+    -0.011054993,
+    0.025009155,
+    -0.032806396,
+    0.007911682,
+    -0.0082092285,
+    -0.041259766,
+    0.01600647,
+    0.04714966,
+    0.00011456013,
+    -0.017684937,
+    0.003791809,
+    0.011192322,
+    -0.034973145,
+    -0.025909424,
+    -0.055633545,
+    -0.04827881,
+    -0.034576416,
+    -0.031921387,
+    0.011268616,
+    -0.008758545,
+    -0.00085020065,
+    0.03643799,
+    0.0103302,
+    0.03778076,
+    -0.05697632,
+    -0.03274536,
+    -0.027999878,
+    0.018829346,
+    -0.021774292,
+    0.019256592,
+    0.005622864,
+    0.029434204,
+    0.0031318665,
+    -0.007698059,
+    0.029434204,
+    0.0011720657,
+    -0.022140503,
+    0.0022068024,
+    -0.007987976,
+    -0.022109985,
+    -0.02229309,
+    0.035339355,
+    0.031555176,
+    -0.030685425,
+    0.009223938,
+    -0.018997192,
+    -0.015914917,
+    -0.008338928,
+    -0.041931152,
+    -0.018203735,
+    -0.047943115,
+    -0.03213501,
+    -0.03265381,
+    0.013542175,
+    -0.015235901,
+    0.023284912,
+    -0.03125,
+    0.055145264,
+    -0.008735657,
+    0.04321289,
+    -0.0030231476,
+    -0.0036640167,
+    0.0362854,
+    -0.034118652,
+    0.043395996,
+    0.0007352829,
+    -0.0037231445,
+    -0.015640259,
+    0.017700195,
+    -0.013198853,
+    -0.0040397644,
+    0.038085938,
+    0.0068588257,
+    0.01084137,
+    -0.025772095,
+    -0.015380859,
+    0.017791748,
+    -0.0047569275,
+    -0.0112838745,
+    0.013252258,
+    0.030731201,
+    -0.024627686,
+    0.03125,
+    0.011947632,
+    0.069885254,
+    0.006916046,
+    -0.030319214,
+    0.029922485,
+    -0.018157959,
+    -0.008476257,
+    0.07714844,
+    -0.04434204,
+    0.07128906,
+    0.062286377,
+    -0.0045051575,
+    -0.031188965,
+    -0.0044784546,
+    -0.01524353,
+    -0.0004541874,
+    0.05014038,
+    -0.020828247,
+    0.00068187714,
+    -0.011108398,
+    -0.008529663,
+    -0.0007710457,
+    0.057800293,
+    0.0074882507,
+    -0.007457733,
+    0.028366089,
+    0.030014038,
+    -0.035308838,
+    0.043060303,
+    0.045288086,
+    0.03253174,
+    0.009880066,
+    -0.03036499,
+    0.008239746,
+    0.017868042,
+    0.0039711,
+    0.012924194,
+    0.027450562,
+    -0.066589355,
+    0.027069092,
+    -0.019958496,
+    -0.03286743,
+    0.021331787,
+    0.0024528503,
+    0.019760132,
+    -0.013702393,
+    0.073913574,
+    -0.011581421,
+    0.0032138824,
+    0.028762817,
+    -0.039855957,
+    0.021774292,
+    0.021575928,
+    0.0060043335,
+    0.017974854,
+    0.043151855,
+    0.0051498413,
+    0.039611816,
+    -0.03616333,
+    0.0042533875,
+    0.034973145,
+    0.024612427,
+    0.025512695,
+    0.030532837,
+    0.05215454,
+    0.0073165894,
+    -0.058166504,
+    0.002456665,
+    -0.024032593,
+    0.059661865,
+    0.024154663,
+    -0.095947266,
+    0.0055656433,
+    0.03250122,
+    0.023025513,
+    0.01235199,
+    -0.053497314,
+    -0.021469116,
+    0.0045433044,
+    -0.009414673,
+    0.01828003,
+    0.007358551,
+    0.012481689,
+    -0.038024902,
+    -0.03161621,
+    0.009239197,
+    -0.025604248,
+    -0.02128601,
+    -9.304285e-05,
+    0.017150879,
+    0.016479492,
+    0.03466797,
+    -0.010574341,
+    0.044647217,
+    -0.03286743,
+    -0.022460938,
+    0.024887085,
+    0.044708252,
+    -0.01953125,
+    -0.05102539,
+    -0.023284912,
+    -0.004047394,
+    -0.026916504,
+    0.020721436,
+    -0.030853271,
+    -0.01838684,
+    -0.014015198,
+    -0.0069999695,
+    0.0025844574,
+    -0.0033302307,
+    0.028564453,
+    0.03652954,
+    0.072753906,
+    0.012397766,
+    0.016586304,
+    -0.033172607,
+    0.00484848,
+    -0.009208679,
+    0.04699707,
+    -0.016998291,
+    0.0018539429,
+    -0.004776001,
+    0.026657104,
+    -0.021575928,
+    -0.036895752,
+    -0.010978699,
+    -0.041625977,
+    0.018341064,
+    -0.03930664,
+    0.005344391,
+    -0.027893066,
+    -0.04650879,
+    0.014152527,
+    -0.018859863,
+    0.006755829,
+    0.028533936,
+    -0.026885986,
+    -0.014167786,
+    0.028564453,
+    -0.0064468384,
+    -0.018081665,
+    0.02128601,
+    0.025619507,
+    0.007835388,
+    0.008850098,
+    -0.029953003,
+    -0.032928467,
+    -0.0076065063,
+    -0.03262329,
+    -0.021560669,
+    0.010536194,
+    0.026107788,
+    -0.020187378,
+    -0.009025574,
+    -0.005718231,
+    -0.012123108,
+    -0.026763916,
+    -0.029922485,
+    0.017196655,
+    -0.03451538,
+    -0.031677246,
+    0.000626564,
+    0.024551392,
+    -0.015426636,
+    0.024414062,
+    -0.015701294,
+    -0.0028076172,
+    -0.033447266,
+    0.021759033,
+    0.030532837,
+    0.022155762,
+    -0.033325195,
+    0.050048828,
+    0.03967285,
+    -0.008964539,
+    -0.001830101,
+    0.053863525,
+    -0.007270813,
+    0.05026245,
+    -0.062927246,
+    0.009170532,
+    -0.061462402,
+    0.004634857,
+    0.020187378,
+    0.0132369995,
+    0.02128601,
+    0.02142334,
+    -0.004180908,
+    0.031036377,
+    -0.01828003,
+    -0.004928589
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/",
+    "aws::graph::propositions": [
+      "# Factors Affecting Amazon Common Stock Trading Price",
+      "The trading price of Amazon's common stock fluctuates significantly in response to various risks.",
+      "Changes in interest rates affect Amazon's common stock trading price.",
+      "Conditions in the internet industry affect Amazon's common stock trading price.",
+      "Trends in the industry segments Amazon operates in affect Amazon's common stock trading price.",
+      "Quarterly variations in Amazon's operating results affect Amazon's common stock trading price.",
+      "Fluctuations in the stock market in general affect Amazon's common stock trading price.",
+      "Market prices for internet-related companies in particular affect Amazon's common stock trading price.",
+      "Changes in financial estimates by Amazon affect Amazon's common stock trading price.",
+      "Amazon's decisions to increase future spending or investment levels affect Amazon's common stock trading price.",
+      "Amazon's decisions to decrease future spending or investment levels affect Amazon's common stock trading price.",
+      "Changes in financial estimates by securities analysts affect Amazon's common stock trading price.",
+      "Recommendations by securities analysts affect Amazon's common stock trading price.",
+      "Changes in Amazon's capital structure affect Amazon's common stock trading price.",
+      "Issuance of additional debt to the public affects Amazon's common stock trading price.",
+      "Issuance of additional equity to the public affects Amazon's common stock trading price.",
+      "Changes in the valuation methodology of other e-commerce companies affect Amazon's common stock trading price.",
+      "Changes in the valuation methodology of other technology companies affect Amazon's common stock trading price.",
+      "Performance by other e-commerce companies affects Amazon's common stock trading price.",
+      "Performance by other technology companies affects Amazon's common stock trading price.",
+      "Transactions in Amazon's common stock by major investors affect Amazon's common stock trading price.",
+      "Analyst reports affect Amazon's common stock trading price.",
+      "News affects Amazon's common stock trading price.",
+      "Social media activity affects Amazon's common stock trading price.",
+      "Speculation affects Amazon's common stock trading price."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Factors Affecting Amazon Common Stock Trading Price",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon's common stock",
+              "classification": "Financial Instrument"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "internet industry",
+              "classification": "Industry"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "securities analysts",
+              "classification": "Person"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "e-commerce companies",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "technology companies",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "major investors",
+              "classification": "Person"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The trading price of Amazon's common stock fluctuates significantly in response to various risks.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fluctuates significantly in response to various risks",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in interest rates affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changes in interest rates",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Conditions in the internet industry affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "internet industry",
+                    "classification": "Industry"
+                  },
+                  "predicate": {
+                    "value": "AFFECTS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "conditions in the internet industry",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Trends in the industry segments Amazon operates in affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "OPERATES IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "industry segments",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "trends in the industry segments",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Quarterly variations in Amazon's operating results affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "operating results",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "quarterly variations in operating results",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Fluctuations in the stock market in general affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fluctuations in the stock market in general",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Market prices for internet-related companies in particular affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "market prices for internet-related companies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in financial estimates by Amazon affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "financial estimates",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changes in financial estimates by Amazon",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's decisions to increase future spending or investment levels affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAKES DECISIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "to increase future spending or investment levels",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "decisions to increase future spending or investment levels",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon's decisions to decrease future spending or investment levels affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MAKES DECISIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "to decrease future spending or investment levels",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "decisions to decrease future spending or investment levels",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in financial estimates by securities analysts affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "securities analysts",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "financial estimates",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changes in financial estimates by securities analysts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Recommendations by securities analysts affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "securities analysts",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recommendations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "recommendations by securities analysts",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in Amazon's capital structure affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "capital structure",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changes in capital structure",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Issuance of additional debt to the public affects Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "additional debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "issuance of additional debt to the public",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Issuance of additional equity to the public affects Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "additional equity",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "issuance of additional equity to the public",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in the valuation methodology of other e-commerce companies affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "e-commerce companies",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "valuation methodology",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changes in the valuation methodology of other e-commerce companies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Changes in the valuation methodology of other technology companies affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "technology companies",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "valuation methodology",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "changes in the valuation methodology of other technology companies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Performance by other e-commerce companies affects Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "e-commerce companies",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "performance",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "performance by other e-commerce companies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Performance by other technology companies affects Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "technology companies",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "HAS CHARACTERISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "performance",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "performance by other technology companies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Transactions in Amazon's common stock by major investors affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "major investors",
+                    "classification": "Person"
+                  },
+                  "predicate": {
+                    "value": "TRANSACTS WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "transactions by major investors",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Analyst reports affect Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "analyst reports",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "News affects Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "news",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Social media activity affects Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "social media activity",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Speculation affects Amazon's common stock trading price.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon's common stock",
+                    "classification": "Financial Instrument"
+                  },
+                  "predicate": {
+                    "value": "AFFECTED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "speculation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:ea4bd638",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/"
+      },
+      "hash": "6052bed8521e108390de998237423df67ab1b8c8266ed7d42cbff260e13073f3",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:f8fc5310",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part I/Item 1A - Risk Factors/Operating Risks/"
+      },
+      "hash": "92c67c6401e1c1dd757edfd57c0116d2f4847a67cd1e89b2cdb1caba241244f7",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The trading price of our common stock fluctuates significantly in response to, among other risks, the risks described elsewhere in this Item 1A, as well as:\n\n* changes in interest rates;\n\n* conditions or trends in the internet and the industry segments we operate in;\n\n* quarterly variations in operating results;\n\n* fluctuations in the stock market in general and market prices for internet-related companies in particular;\n\n* changes in financial estimates by us or decisions to increase or decrease future spending or investment levels;\n\n* changes in financial estimates and recommendations by securities analysts;\n\n* changes in our capital structure, including issuance of additional debt or equity to the public;\n\n* changes in the valuation methodology of, or performance by, other e-commerce or technology companies; and\n\n* transactions in our common stock by major investors and certain analyst reports, news, social media activity, and speculation.",
+  "mimetype": "text/plain",
+  "start_char_idx": 131,
+  "end_char_idx": 1087,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

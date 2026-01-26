@@ -1,0 +1,2347 @@
+{
+  "id_": "aws::faaadcc2:38d6:6211902e",
+  "embedding": [
+    -0.009490967,
+    -0.02229309,
+    -0.038604736,
+    -0.043670654,
+    -0.035858154,
+    -0.014205933,
+    -0.02909851,
+    0.023605347,
+    -0.021697998,
+    0.028442383,
+    -0.014282227,
+    0.03817749,
+    -0.009178162,
+    -0.0076446533,
+    0.027160645,
+    -0.021728516,
+    0.025604248,
+    0.005466461,
+    0.04638672,
+    0.0007238388,
+    0.019500732,
+    0.02557373,
+    0.050201416,
+    -0.0501709,
+    0.034179688,
+    -0.073791504,
+    0.0066223145,
+    -0.011268616,
+    0.056915283,
+    0.019012451,
+    0.025817871,
+    -0.02357483,
+    0.04168701,
+    -0.027160645,
+    0.0066604614,
+    0.026855469,
+    0.005809784,
+    0.008781433,
+    -0.009376526,
+    0.008224487,
+    0.023849487,
+    -0.018463135,
+    0.043273926,
+    -0.039001465,
+    0.0124053955,
+    0.011009216,
+    0.019546509,
+    -0.035461426,
+    0.026763916,
+    0.021347046,
+    -0.0037174225,
+    0.029037476,
+    -0.008155823,
+    0.048614502,
+    -0.018371582,
+    0.0027999878,
+    -0.0044136047,
+    -0.044036865,
+    0.008758545,
+    0.044677734,
+    0.0023708344,
+    0.013076782,
+    0.002746582,
+    -0.019500732,
+    -0.030181885,
+    0.017700195,
+    0.057006836,
+    -0.023666382,
+    0.0440979,
+    0.013710022,
+    -0.009773254,
+    0.031799316,
+    -0.050628662,
+    0.021270752,
+    -0.05227661,
+    -0.008201599,
+    0.037506104,
+    -0.027069092,
+    -0.013671875,
+    0.028503418,
+    -0.010017395,
+    0.008773804,
+    0.0141067505,
+    -0.036743164,
+    -0.0043907166,
+    -0.014335632,
+    -0.007873535,
+    -0.0024909973,
+    0.02154541,
+    0.026733398,
+    0.01109314,
+    -0.033721924,
+    0.066223145,
+    0.053009033,
+    -0.033111572,
+    0.0049476624,
+    -0.009780884,
+    0.020370483,
+    0.010040283,
+    0.0010938644,
+    -0.0016336441,
+    -0.014076233,
+    -0.02960205,
+    -0.020584106,
+    0.0025787354,
+    0.007835388,
+    -0.0021362305,
+    -0.035186768,
+    0.015716553,
+    0.0037288666,
+    -0.029174805,
+    0.046417236,
+    0.017654419,
+    -0.041870117,
+    0.011116028,
+    0.06390381,
+    0.0418396,
+    0.02609253,
+    0.01751709,
+    0.055480957,
+    -0.02494812,
+    -0.010879517,
+    -0.015258789,
+    0.010978699,
+    -0.005001068,
+    -0.030334473,
+    -0.019622803,
+    0.022842407,
+    -0.072631836,
+    0.03768921,
+    0.03527832,
+    0.01625061,
+    -0.06915283,
+    -0.024932861,
+    -0.06549072,
+    -0.005882263,
+    -0.013725281,
+    0.027709961,
+    0.02029419,
+    -0.018310547,
+    0.04611206,
+    -0.007858276,
+    0.014533997,
+    0.046875,
+    -0.011405945,
+    -0.005241394,
+    6.067753e-05,
+    0.012245178,
+    0.016357422,
+    -0.0023708344,
+    -0.018722534,
+    -0.021820068,
+    0.011383057,
+    -0.00579834,
+    -0.029785156,
+    -0.045288086,
+    -0.029510498,
+    -0.015312195,
+    0.012496948,
+    -0.025894165,
+    0.053588867,
+    -0.014289856,
+    -0.02798462,
+    0.013763428,
+    0.0075950623,
+    -0.031402588,
+    0.027954102,
+    0.019882202,
+    -0.00089788437,
+    0.0063095093,
+    -0.057525635,
+    -0.0019931793,
+    -0.025421143,
+    -0.033935547,
+    -0.016830444,
+    0.0206604,
+    0.02519226,
+    0.00067806244,
+    -0.009628296,
+    0.080078125,
+    0.028152466,
+    -0.015037537,
+    0.022476196,
+    0.016494751,
+    0.039215088,
+    -0.062408447,
+    -0.009307861,
+    -0.06964111,
+    0.029159546,
+    0.0128479,
+    -0.037384033,
+    0.012954712,
+    -0.0038433075,
+    -0.03201294,
+    -0.03375244,
+    -0.0016059875,
+    0.00071525574,
+    0.0368042,
+    -0.018096924,
+    0.014320374,
+    -0.00440979,
+    0.023849487,
+    0.014122009,
+    -0.0063209534,
+    0.044647217,
+    -0.016937256,
+    0.009895325,
+    0.019439697,
+    -0.081604004,
+    -0.0060691833,
+    0.055358887,
+    -0.0055656433,
+    -0.04156494,
+    0.07122803,
+    0.04800415,
+    0.0009965897,
+    0.019943237,
+    0.013641357,
+    0.055847168,
+    -0.019821167,
+    0.028076172,
+    0.0496521,
+    0.005264282,
+    -0.020217896,
+    0.02973938,
+    -0.035003662,
+    0.012588501,
+    -0.018218994,
+    0.050201416,
+    -0.009086609,
+    0.0047073364,
+    0.01007843,
+    0.04156494,
+    0.027191162,
+    -0.023773193,
+    0.006980896,
+    0.02368164,
+    -0.0345459,
+    -0.00065898895,
+    0.021118164,
+    0.03564453,
+    0.0021400452,
+    -0.004119873,
+    -0.010177612,
+    0.030914307,
+    -0.014465332,
+    0.015029907,
+    -0.022491455,
+    -0.016235352,
+    0.0690918,
+    -0.005596161,
+    0.052642822,
+    0.011016846,
+    0.08416748,
+    -0.04321289,
+    0.03213501,
+    0.015205383,
+    -0.01991272,
+    -0.0104904175,
+    0.023803711,
+    0.0027122498,
+    -0.016601562,
+    -0.03692627,
+    -0.002735138,
+    -0.014518738,
+    -0.027313232,
+    0.00982666,
+    0.013832092,
+    0.010154724,
+    -0.048095703,
+    0.019699097,
+    -0.00434494,
+    0.0042266846,
+    -0.015029907,
+    -0.064208984,
+    0.008163452,
+    -0.0023269653,
+    0.024978638,
+    -0.008598328,
+    -0.024856567,
+    -0.04446411,
+    0.010047913,
+    -0.024414062,
+    -0.031097412,
+    0.008895874,
+    0.043151855,
+    -0.015899658,
+    -0.08355713,
+    -0.054107666,
+    -0.00064849854,
+    0.021697998,
+    0.030441284,
+    0.0035800934,
+    -0.04537964,
+    0.046691895,
+    -0.00046038628,
+    -0.011634827,
+    0.0027866364,
+    0.00198555,
+    -0.01651001,
+    0.01084137,
+    0.04736328,
+    -0.014785767,
+    0.022232056,
+    -0.013748169,
+    -0.0033226013,
+    0.017318726,
+    -0.008544922,
+    -0.00085163116,
+    -0.027236938,
+    0.008094788,
+    0.036071777,
+    0.023971558,
+    0.009681702,
+    -0.014846802,
+    -0.029006958,
+    -0.045959473,
+    0.013801575,
+    -0.059753418,
+    -0.02281189,
+    -0.036071777,
+    -0.020324707,
+    -0.00349617,
+    0.022537231,
+    -0.02520752,
+    -0.0004079342,
+    0.04675293,
+    0.006549835,
+    0.02381897,
+    -0.04736328,
+    -0.09539795,
+    -0.08306885,
+    -0.10223389,
+    0.023025513,
+    -0.015571594,
+    0.022750854,
+    0.011360168,
+    0.01763916,
+    0.003583908,
+    -0.06542969,
+    0.03845215,
+    0.047210693,
+    -0.003232956,
+    0.07019043,
+    0.0018482208,
+    -0.040283203,
+    0.014892578,
+    -0.014053345,
+    0.043548584,
+    0.028808594,
+    -0.030578613,
+    0.0074653625,
+    -0.0013608932,
+    -0.025238037,
+    0.00017762184,
+    0.022628784,
+    -0.013244629,
+    0.0064926147,
+    0.014976501,
+    -0.049316406,
+    0.037231445,
+    0.00010162592,
+    -0.023269653,
+    -0.055145264,
+    0.004196167,
+    -0.008705139,
+    -0.0038852692,
+    -0.014831543,
+    -0.002418518,
+    -0.010429382,
+    -0.03793335,
+    -0.018737793,
+    0.018859863,
+    -0.0046806335,
+    0.014411926,
+    0.03540039,
+    0.049987793,
+    -0.018676758,
+    -0.03543091,
+    0.016540527,
+    0.0031871796,
+    0.018005371,
+    -0.02633667,
+    0.011558533,
+    -0.018432617,
+    0.028305054,
+    -0.028121948,
+    0.001660347,
+    0.0032482147,
+    -0.0055656433,
+    0.013587952,
+    0.050231934,
+    -0.00022172928,
+    0.0042037964,
+    0.032318115,
+    -0.0018939972,
+    -0.062561035,
+    -0.0049438477,
+    -0.10662842,
+    0.009338379,
+    0.12237549,
+    -0.044799805,
+    -0.047851562,
+    0.038269043,
+    0.004005432,
+    -0.014808655,
+    0.10119629,
+    0.008811951,
+    0.023666382,
+    0.009529114,
+    -0.009300232,
+    0.01574707,
+    -0.01687622,
+    0.014144897,
+    0.02670288,
+    -0.021820068,
+    0.022323608,
+    0.0047035217,
+    0.034423828,
+    -0.052001953,
+    0.003168106,
+    0.017745972,
+    -0.008560181,
+    -0.0070762634,
+    -0.003484726,
+    0.006504059,
+    0.011146545,
+    0.012527466,
+    0.017120361,
+    0.017944336,
+    0.0012216568,
+    -0.020355225,
+    -0.024719238,
+    0.0012969971,
+    0.05545044,
+    0.07067871,
+    -0.021499634,
+    0.004890442,
+    -0.029510498,
+    -0.002298355,
+    0.02671814,
+    0.027511597,
+    -0.00083589554,
+    0.015106201,
+    0.012802124,
+    -0.036468506,
+    0.02545166,
+    0.013725281,
+    -0.010757446,
+    -0.012527466,
+    0.012878418,
+    0.02154541,
+    0.050109863,
+    0.020492554,
+    0.004863739,
+    -0.0056152344,
+    -0.013038635,
+    0.02279663,
+    -0.0036125183,
+    -0.016662598,
+    0.016052246,
+    -0.04888916,
+    -0.0024662018,
+    -0.000538826,
+    0.016113281,
+    -0.0066223145,
+    0.037200928,
+    0.030014038,
+    0.0418396,
+    -0.020080566,
+    0.046691895,
+    0.014907837,
+    0.00091791153,
+    -0.007965088,
+    -0.014701843,
+    -0.0143966675,
+    0.022323608,
+    -0.014907837,
+    0.045043945,
+    -0.011566162,
+    -0.0070762634,
+    -0.013191223,
+    0.041290283,
+    0.06298828,
+    0.056518555,
+    -0.0008368492,
+    0.052246094,
+    0.041229248,
+    0.019515991,
+    -0.0022277832,
+    -0.014328003,
+    -0.02003479,
+    0.048095703,
+    -0.049682617,
+    0.0058631897,
+    0.02166748,
+    0.023757935,
+    -0.1184082,
+    -0.01335907,
+    -0.0028743744,
+    -0.085998535,
+    0.040863037,
+    0.04272461,
+    -0.028213501,
+    -0.024291992,
+    0.06628418,
+    0.02230835,
+    -0.01158905,
+    -0.01083374,
+    -0.06512451,
+    -0.0028457642,
+    -0.09106445,
+    -0.002319336,
+    -0.0077285767,
+    -0.016418457,
+    0.030319214,
+    -0.012962341,
+    -0.019058228,
+    0.005958557,
+    0.01020813,
+    0.056610107,
+    0.021102905,
+    -0.00056791306,
+    0.0046043396,
+    0.03414917,
+    -0.0041160583,
+    -0.021118164,
+    -0.02722168,
+    -0.01991272,
+    -0.00030875206,
+    -0.02357483,
+    0.02394104,
+    -0.038024902,
+    -0.033477783,
+    0.04547119,
+    -0.028182983,
+    -0.030517578,
+    0.014312744,
+    0.0015439987,
+    -0.015068054,
+    -0.02722168,
+    0.021133423,
+    0.03060913,
+    0.006385803,
+    0.02558899,
+    0.01348114,
+    0.019302368,
+    0.053588867,
+    -0.059265137,
+    0.066223145,
+    -0.03186035,
+    -0.040222168,
+    -0.011566162,
+    0.0057678223,
+    0.0070533752,
+    -0.05581665,
+    -0.07080078,
+    0.023788452,
+    0.022720337,
+    0.016830444,
+    0.04046631,
+    -0.027435303,
+    0.0001386404,
+    -0.02407837,
+    0.05682373,
+    -0.0075645447,
+    0.029907227,
+    -0.053222656,
+    -0.019729614,
+    0.019470215,
+    -0.028808594,
+    0.00409317,
+    0.06341553,
+    -0.011650085,
+    0.0076560974,
+    -0.06506348,
+    0.03466797,
+    0.034179688,
+    -0.00018298626,
+    -0.03503418,
+    0.008346558,
+    -0.008773804,
+    0.011329651,
+    0.04522705,
+    -0.00081300735,
+    -0.027496338,
+    0.034423828,
+    0.0016679764,
+    0.019973755,
+    -0.009674072,
+    0.012062073,
+    -0.040802002,
+    0.02571106,
+    0.0013399124,
+    -0.0073661804,
+    -0.0345459,
+    0.0284729,
+    -0.028305054,
+    0.0115737915,
+    -0.018661499,
+    0.0063705444,
+    0.01386261,
+    0.013206482,
+    -0.0040283203,
+    -0.013160706,
+    0.006641388,
+    0.0046195984,
+    0.04269409,
+    -0.0030345917,
+    0.026046753,
+    0.0029506683,
+    -0.007904053,
+    0.0084991455,
+    -0.005958557,
+    0.016098022,
+    0.00040340424,
+    -0.022033691,
+    0.049560547,
+    0.06298828,
+    -0.027557373,
+    0.014549255,
+    0.035888672,
+    -0.020233154,
+    0.020553589,
+    0.014541626,
+    -0.026626587,
+    0.01033783,
+    0.046142578,
+    -0.0039253235,
+    -0.025970459,
+    0.01083374,
+    -0.024597168,
+    -0.0066604614,
+    0.028549194,
+    0.054779053,
+    -0.040374756,
+    -0.0010681152,
+    0.007160187,
+    -0.020706177,
+    -0.004184723,
+    0.03161621,
+    -0.015289307,
+    -0.0463562,
+    -0.03189087,
+    0.0062408447,
+    -0.004360199,
+    -0.0028858185,
+    -0.004798889,
+    -0.009994507,
+    -0.02128601,
+    -0.0021953583,
+    -0.007003784,
+    -0.0026359558,
+    -0.035186768,
+    0.024780273,
+    -0.027069092,
+    -0.014099121,
+    -0.0058059692,
+    -0.0057868958,
+    -0.030410767,
+    -0.027145386,
+    0.008224487,
+    -0.032165527,
+    0.014213562,
+    0.04095459,
+    -0.00944519,
+    -0.021636963,
+    0.053009033,
+    -0.046325684,
+    0.066467285,
+    0.0050201416,
+    -0.0065612793,
+    -0.035003662,
+    0.0029010773,
+    0.032989502,
+    0.022705078,
+    -0.09753418,
+    0.016738892,
+    -0.07891846,
+    0.03817749,
+    0.014076233,
+    -0.04928589,
+    -0.042999268,
+    -0.01663208,
+    0.0025844574,
+    0.02116394,
+    -0.05645752,
+    0.023468018,
+    0.002254486,
+    0.0020503998,
+    -0.016494751,
+    0.014564514,
+    -5.1796436e-05,
+    0.00063562393,
+    0.009567261,
+    0.041656494,
+    -0.023345947,
+    0.05734253,
+    -0.00484848,
+    -0.011146545,
+    0.017471313,
+    0.027496338,
+    -0.0066223145,
+    0.027755737,
+    0.016998291,
+    -0.014923096,
+    -0.00894165,
+    -0.018493652,
+    0.040252686,
+    0.00069856644,
+    -0.0043640137,
+    0.020568848,
+    -0.06750488,
+    -0.01423645,
+    0.021057129,
+    -0.005332947,
+    -0.012229919,
+    0.038360596,
+    0.028930664,
+    -0.0132751465,
+    -0.008834839,
+    -0.030044556,
+    0.025848389,
+    0.0016012192,
+    0.014152527,
+    -0.008361816,
+    -0.014350891,
+    -0.006454468,
+    -0.010314941,
+    -0.015731812,
+    0.01322937,
+    -0.047821045,
+    0.048431396,
+    -0.007911682,
+    -0.05593872,
+    0.02468872,
+    -0.037353516,
+    0.03488159,
+    -0.043670654,
+    9.179115e-05,
+    0.01335907,
+    -0.044158936,
+    0.025634766,
+    0.00048446655,
+    -0.050079346,
+    -0.0088272095,
+    0.017547607,
+    -0.02178955,
+    -0.039764404,
+    -0.046844482,
+    0.02355957,
+    -0.026641846,
+    0.028930664,
+    0.008415222,
+    0.033691406,
+    0.008010864,
+    -0.005344391,
+    -0.04888916,
+    0.015808105,
+    -0.011123657,
+    0.002363205,
+    0.00724411,
+    0.00069379807,
+    0.0006623268,
+    -0.03866577,
+    -0.007091522,
+    -0.020568848,
+    -0.021148682,
+    0.06427002,
+    0.00819397,
+    -0.00982666,
+    -0.028671265,
+    0.028518677,
+    0.07342529,
+    -0.029129028,
+    0.03729248,
+    -0.02760315,
+    0.011314392,
+    -0.011077881,
+    0.025863647,
+    -0.00028395653,
+    0.04425049,
+    -0.016555786,
+    -0.008361816,
+    0.018081665,
+    -0.0032215118,
+    0.046417236,
+    -0.036743164,
+    0.044128418,
+    0.036499023,
+    -0.036071777,
+    -0.0019159317,
+    -0.005279541,
+    -0.034210205,
+    -0.04989624,
+    -0.0395813,
+    0.006767273,
+    -0.0058059692,
+    -0.021408081,
+    -0.026107788,
+    -0.026794434,
+    -0.024963379,
+    -0.022125244,
+    -0.020004272,
+    -0.015029907,
+    0.0033721924,
+    0.030853271,
+    -0.011627197,
+    0.019317627,
+    -0.037994385,
+    0.036712646,
+    -0.045837402,
+    0.051483154,
+    0.0143966675,
+    0.01927185,
+    0.02949524,
+    0.086242676,
+    0.014884949,
+    0.047027588,
+    -0.027664185,
+    -0.025939941,
+    0.031707764,
+    0.02394104,
+    -0.028244019,
+    -0.009529114,
+    0.007232666,
+    -0.044647217,
+    0.022216797,
+    0.017822266,
+    -0.026885986,
+    0.020309448,
+    -0.006023407,
+    0.015464783,
+    -0.004776001,
+    0.023010254,
+    0.03640747,
+    0.03729248,
+    -0.019088745,
+    0.0014648438,
+    0.037109375,
+    0.0335083,
+    -0.054107666,
+    0.082092285,
+    0.062469482,
+    -0.052001953,
+    0.0044937134,
+    0.005115509,
+    -0.036834717,
+    0.016921997,
+    0.02355957,
+    0.016189575,
+    -0.0103302,
+    -0.012382507,
+    0.018234253,
+    -0.0010976791,
+    -0.0051727295,
+    0.03314209,
+    -0.023773193,
+    0.03881836,
+    0.03186035,
+    -0.031402588,
+    0.027328491,
+    -0.02532959,
+    -0.0031471252,
+    -0.0065956116,
+    0.03918457,
+    0.03463745,
+    0.0069465637,
+    0.0413208,
+    0.025466919,
+    0.023895264,
+    -0.03717041,
+    0.051330566,
+    0.017105103,
+    -0.023986816,
+    0.053497314,
+    0.0033779144,
+    -0.01828003,
+    0.021011353,
+    -0.008377075,
+    -0.024795532,
+    0.022521973,
+    0.043426514,
+    -0.021514893,
+    0.037872314,
+    -0.00047826767,
+    -0.018707275,
+    0.033691406,
+    0.0070114136,
+    0.011024475,
+    -0.014450073,
+    -0.023284912,
+    0.0047340393,
+    0.00015890598,
+    0.030334473,
+    0.05102539,
+    -0.011169434,
+    0.020843506,
+    0.033966064,
+    -0.06719971,
+    0.01108551,
+    0.03060913,
+    0.01713562,
+    0.027008057,
+    0.003900528,
+    0.025878906,
+    0.061187744,
+    -0.04449463,
+    -0.014419556,
+    0.024276733,
+    -0.0062408447,
+    0.012641907,
+    -0.008392334,
+    0.019424438,
+    -0.0025081635,
+    -0.010047913,
+    -0.043914795,
+    -0.0021152496,
+    0.01965332,
+    -0.000849247,
+    -0.038482666,
+    -0.051879883,
+    0.021316528,
+    -0.0005259514,
+    0.06530762,
+    0.024246216,
+    0.053771973,
+    -0.07458496,
+    0.00065374374,
+    -0.0032253265,
+    -0.003206253,
+    -0.020401001,
+    -0.008857727,
+    -0.0048713684,
+    0.017028809,
+    -0.025527954,
+    -0.045837402,
+    -0.025039673,
+    -0.02305603,
+    0.07128906,
+    -0.02178955,
+    0.014083862,
+    -0.0069274902,
+    0.05569458,
+    -0.009407043,
+    -0.018508911,
+    -0.0019626617,
+    -0.008583069,
+    -0.043884277,
+    0.032562256,
+    0.024658203,
+    -0.016036987,
+    -0.034301758,
+    0.0013303757,
+    0.020523071,
+    0.04824829,
+    -0.012931824,
+    0.0045814514,
+    0.015991211,
+    -0.023544312,
+    -0.008300781,
+    -0.026397705,
+    -0.008033752,
+    0.0007815361,
+    0.0017995834,
+    0.04171753,
+    -0.011199951,
+    -0.016708374,
+    0.06738281,
+    -0.011520386,
+    -0.013435364,
+    0.0385437,
+    -0.021652222,
+    0.05670166,
+    0.029342651,
+    -0.020019531,
+    0.022277832,
+    -0.09503174,
+    -0.0519104,
+    -0.018600464,
+    -0.03753662,
+    0.0023422241,
+    0.008415222,
+    0.12176514,
+    0.021484375,
+    0.003955841,
+    -0.030090332,
+    0.0013933182,
+    -0.02684021,
+    0.021347046,
+    -0.008926392,
+    -0.029510498,
+    -0.057922363,
+    -0.060638428,
+    -0.00065660477,
+    0.058929443,
+    -0.034332275,
+    0.034088135,
+    -0.033294678,
+    0.007423401,
+    0.016983032,
+    0.019546509,
+    0.005405426,
+    0.029266357,
+    -0.060424805,
+    0.08532715,
+    -0.00233078,
+    0.064575195,
+    -0.0178833,
+    0.05508423,
+    -0.047943115,
+    0.03427124,
+    -0.07232666,
+    0.01612854,
+    -0.06738281,
+    0.046081543,
+    0.0029773712,
+    -0.018692017,
+    -0.03225708,
+    -0.012001038,
+    -0.007926941,
+    -0.034606934,
+    -0.038879395,
+    0.0011482239
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+    "file_name": "AMZN_filing_10_K_250827.md",
+    "file_size": 338868,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-21",
+    "header_path": "/FORM 10-K/Part II/Item 7 - Management’s Discussion and Analysis of Financial Condition and Results of Operations/",
+    "aws::graph::propositions": [
+      "# Amazon Financial Activities and Investments",
+      "Amazon entered into an agreement in Q4 2024 to invest $1.3 billion in a third convertible note.",
+      "Amazon will invest an additional $2.7 billion by Q4 2025.",
+      "Cash used in financing activities was $15.9 billion in 2023.",
+      "Cash used in financing activities was $11.8 billion in 2024.",
+      "Cash inflows from financing activities resulted from proceeds from short-term debt in 2023.",
+      "Cash inflows from financing activities resulted from proceeds from other and long-term debt in 2023.",
+      "Cash inflows from financing activities totaled $18.1 billion in 2023.",
+      "Cash inflows from financing activities resulted from proceeds from short-term debt in 2024.",
+      "Cash inflows from financing activities resulted from proceeds from other and long-term debt in 2024.",
+      "Cash inflows from financing activities totaled $5.1 billion in 2024.",
+      "Cash outflows from financing activities resulted from payments of short-term debt in 2023.",
+      "Cash outflows from financing activities resulted from payments of other debt in 2023.",
+      "Cash outflows from financing activities resulted from payments of long-term debt in 2023.",
+      "Cash outflows from financing activities resulted from payments of finance leases in 2023.",
+      "Cash outflows from financing activities resulted from payments of financing obligations in 2023.",
+      "Cash outflows from financing activities totaled $34.0 billion in 2023.",
+      "Cash outflows from financing activities resulted from payments of short-term debt in 2024.",
+      "Cash outflows from financing activities resulted from payments of other debt in 2024.",
+      "Cash outflows from financing activities resulted from payments of long-term debt in 2024.",
+      "Cash outflows from financing activities resulted from payments of finance leases in 2024.",
+      "Cash outflows from financing activities resulted from payments of financing obligations in 2024.",
+      "Cash outflows from financing activities totaled $17.0 billion in 2024.",
+      "Property and equipment acquired under finance leases was $642 million in 2023.",
+      "Property and equipment acquired under finance leases was $854 million in 2024."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Amazon Financial Activities and Investments",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Amazon",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon entered into an agreement in Q4 2024 to invest $1.3 billion in a third convertible note.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INVESTMENT AMOUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$1.3 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INVESTMENT PERIOD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Q4 2024",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INVESTMENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "third convertible note",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Amazon will invest an additional $2.7 billion by Q4 2025.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INVESTMENT AMOUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$2.7 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INVESTMENT DEADLINE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Q4 2025",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash used in financing activities was $15.9 billion in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING CASH USED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$15.9 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash used in financing activities was $11.8 billion in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING CASH USED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$11.8 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash inflows from financing activities resulted from proceeds from short-term debt in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING INFLOW SOURCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "short-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash inflows from financing activities resulted from proceeds from other and long-term debt in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING INFLOW SOURCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other and long-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash inflows from financing activities totaled $18.1 billion in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING CASH INFLOW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$18.1 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash inflows from financing activities resulted from proceeds from short-term debt in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING INFLOW SOURCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "short-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash inflows from financing activities resulted from proceeds from other and long-term debt in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING INFLOW SOURCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other and long-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash inflows from financing activities totaled $5.1 billion in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING CASH INFLOW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$5.1 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of short-term debt in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of short-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of other debt in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of other debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of long-term debt in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of long-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of finance leases in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of finance leases",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of financing obligations in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of financing obligations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities totaled $34.0 billion in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING CASH OUTFLOW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$34.0 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of short-term debt in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of short-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of other debt in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of other debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of long-term debt in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of long-term debt",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of finance leases in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of finance leases",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities resulted from payments of financing obligations in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING OUTFLOW REASON"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "payments of financing obligations",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Cash outflows from financing activities totaled $17.0 billion in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING CASH OUTFLOW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$17.0 billion",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCING YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Property and equipment acquired under finance leases was $642 million in 2023.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCE LEASE ACQUISITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$642 million",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACQUISITION YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2023",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Property and equipment acquired under finance leases was $854 million in 2024.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "FINANCE LEASE ACQUISITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "$854 million",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Amazon",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ACQUISITION YEAR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2024",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::faaadcc2:38d6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21"
+      },
+      "hash": "118473ad6d4995207d607ceab0d6e4db5339472b415f187232a75074e0965b99",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::faaadcc2:38d6:b539aacc",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part II/Item 7 - Management’s Discussion and Analysis of Financial Condition and Results of Operations/"
+      },
+      "hash": "99bd6d587539eee3caf8854a91a38e015c6be32f898876a37c3f886a71efe514",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::faaadcc2:38d6:f5849177",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/filings/AMZN_filing_10_K_250827.md",
+        "file_name": "AMZN_filing_10_K_250827.md",
+        "file_size": 338868,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-21",
+        "header_path": "/FORM 10-K/Part II/Item 7 - Management’s Discussion and Analysis of Financial Condition and Results of Operations/"
+      },
+      "hash": "393fbdd571b127851e3a2460e52f99b4593ac51b7a374fd65bbba0bc22df50b3",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "In Q4 2024, we entered into an agreement and invested $1.3 billion in a third convertible note, and will invest an additional $2.7 billion by Q4 2025.\n\nCash provided by (used in) financing activities was $(15.9) billion and $(11.8) billion in 2023 and 2024. Cash inflows from financing activities resulted from proceeds from short-term debt, and other and long-term-debt of $18.1 billion and $5.1 billion in 2023 and 2024. Cash outflows from financing activities resulted from payments of short-term debt, and other, long-term debt, finance leases, and financing obligations of $34.0 billion and $17.0 billion in 2023 and 2024. Property and equipment acquired under finance leases was $642 million and $854 million in 2023 and 2024.",
+  "mimetype": "text/plain",
+  "start_char_idx": 3282,
+  "end_char_idx": 4014,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

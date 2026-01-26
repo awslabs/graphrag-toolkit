@@ -1,0 +1,96 @@
+[
+	{
+		"DBInstanceIdentifier": "doc-1-db-1",
+		"DBClusterIdentifier": "doc-1-cluster",
+		"DBInstanceClass": "db.serverless",
+		"Endpoint": {
+			"Address": "doc-1-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com",
+			"Port": 8182,
+			"HostedZoneId": "ZUFXD4SLT2LS7"
+		},
+		"VpcSecurityGroups": [
+			{
+				"VpcSecurityGroupId": "sg-0dbfaf14497e4be94",
+				"Status": "active"
+			}
+		],
+		"DBSubnetGroup": {
+			"DBSubnetGroupName": "doc-1-subnet",
+			"DBSubnetGroupDescription": "Neptune DB subnet group",
+			"VpcId": "vpc-0ce6486d890849dc3",
+			"SubnetGroupStatus": "Complete",
+			"Subnets": [
+				{
+					"SubnetIdentifier": "subnet-09b7b1f27834423b2",
+					"SubnetAvailabilityZone": {
+						"Name": "us-east-1a"
+					},
+					"SubnetStatus": "Active"
+				},
+				{
+					"SubnetIdentifier": "subnet-0f5a6feae3ebd0ece",
+					"SubnetAvailabilityZone": {
+						"Name": "us-east-1c"
+					},
+					"SubnetStatus": "Active"
+				},
+				{
+					"SubnetIdentifier": "subnet-0778222c5785c51f8",
+					"SubnetAvailabilityZone": {
+						"Name": "us-east-1b"
+					},
+					"SubnetStatus": "Active"
+				}
+			]
+		}
+	},
+	{
+		"DBInstanceIdentifier": "gr-1756394635-db-1",
+		"DBClusterIdentifier": "gr-1756394635-cluster",
+		"DBInstanceClass": "db.r7i.2xlarge",
+		"Endpoint": {
+			"Address": "gr-1756394635-db-1.cktfjywp6uxn.us-east-1.neptune.amazonaws.com",
+			"Port": 8182,
+			"HostedZoneId": "ZUFXD4SLT2LS7"
+		},
+		"VpcSecurityGroups": [
+			{
+				"VpcSecurityGroupId": "sg-0d3ff7717958bd983",
+				"Status": "active"
+			},
+			{
+				"VpcSecurityGroupId": "sg-08526dcf557ad13aa",
+				"Status": "active"
+			}
+		],
+		"DBSubnetGroup": {
+			"DBSubnetGroupName": "neptunedbsubnetgroup-qwsd5lphpl2v",
+			"DBSubnetGroupDescription": "Neptune DB subnet group",
+			"VpcId": "vpc-0f81e2d959d7be034",
+			"SubnetGroupStatus": "Complete",
+			"Subnets": [
+				{
+					"SubnetIdentifier": "subnet-0693ae4ae6bc5b4c0",
+					"SubnetAvailabilityZone": {
+						"Name": "us-east-1c"
+					},
+					"SubnetStatus": "Active"
+				},
+				{
+					"SubnetIdentifier": "subnet-03d920648eca5694f",
+					"SubnetAvailabilityZone": {
+						"Name": "us-east-1b"
+					},
+					"SubnetStatus": "Active"
+				},
+				{
+					"SubnetIdentifier": "subnet-0e8da61218fcf7a55",
+					"SubnetAvailabilityZone": {
+						"Name": "us-east-1a"
+					},
+					"SubnetStatus": "Active"
+				}
+			]
+		}
+	}
+]

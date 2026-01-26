@@ -1,0 +1,32 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me search"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " for more specific"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " information about fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system design issues"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and accidents in twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-engine aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of this"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " class:"}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_c2G_eMfbSHC4UJEScybqNg", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fuel syste"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "m design"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " fuel sta"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rvation t"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "win engi"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ne"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Ce"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ssna 31"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "0 Beech"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "craft B"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "aron fue"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l tank confi"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "gurati"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "on\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 9072, "outputTokens": 100, "totalTokens": 9172}, "metrics": {"latencyMs": 2768}}}

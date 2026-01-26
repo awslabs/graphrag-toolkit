@@ -1,0 +1,16 @@
+r7g Instance Type Family Features and Performance
+
+The r7g family is a family of instance types.
+The r7g family uses the AWS Graviton3 processor.
+The AWS Graviton3 processor delivers better price/performance than previous Graviton2-based instances.
+The Graviton3 processor offers 25-30% better performance for OLTP-style graph queries compared to r6g instances.
+The r7g family has a single-socket architecture.
+The single-socket architecture means that performance scales linearly with compute capacity from an r7g.large to an r7g.16xlarge.
+The r7g.16xlarge is the largest type in the r7g family.
+The r7g family is powered by AWS Graviton3 ARM-based processors.
+The r7g family has improved memory-paging performance compared to r6g.
+The improved memory-paging performance benefits both OLTP and OLAP workloads.
+The r7g family has enhanced buffer-pool cache efficiency.
+The r7g family has lower latency for memory-intensive operations.
+The r7g family is well-suited for production environments with varied query patterns.
+The r7g family is particularly effective for workloads that benefit from improved memory bandwidth.

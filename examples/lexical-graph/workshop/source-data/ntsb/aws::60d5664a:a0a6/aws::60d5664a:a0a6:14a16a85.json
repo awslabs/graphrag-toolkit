@@ -1,0 +1,2391 @@
+{
+  "id_": "aws::60d5664a:a0a6:14a16a85",
+  "embedding": [
+    0.04043579,
+    0.023330688,
+    0.008834839,
+    -0.073791504,
+    0.015716553,
+    0.009506226,
+    -0.05038452,
+    -0.013847351,
+    -0.03744507,
+    -0.0005335808,
+    -0.0054016113,
+    0.025680542,
+    0.00046992302,
+    -0.037384033,
+    0.05166626,
+    -0.012664795,
+    0.010177612,
+    0.011001587,
+    0.025543213,
+    -0.0054512024,
+    0.039398193,
+    0.030426025,
+    -0.03289795,
+    -0.022857666,
+    -0.011238098,
+    0.056640625,
+    -0.015655518,
+    -0.004119873,
+    -0.023803711,
+    -0.013496399,
+    0.0052490234,
+    -0.0049972534,
+    0.03152466,
+    0.042175293,
+    -0.07977295,
+    -0.0146484375,
+    -0.04257202,
+    0.01828003,
+    -0.041290283,
+    0.037994385,
+    0.039001465,
+    -0.015716553,
+    0.038879395,
+    -0.04107666,
+    -0.02609253,
+    0.036590576,
+    0.020050049,
+    0.019577026,
+    0.030654907,
+    0.06939697,
+    0.038116455,
+    0.01637268,
+    0.008224487,
+    0.035339355,
+    -0.005317688,
+    0.0013618469,
+    -0.014465332,
+    -0.006839752,
+    -0.007965088,
+    0.025238037,
+    0.008735657,
+    0.030273438,
+    0.020980835,
+    0.005886078,
+    -0.021835327,
+    -0.010353088,
+    -0.008552551,
+    -0.0034332275,
+    0.061279297,
+    -0.00069236755,
+    -0.014701843,
+    0.022567749,
+    -0.016296387,
+    0.035217285,
+    -0.010856628,
+    -0.04421997,
+    -0.003932953,
+    0.002916336,
+    0.014839172,
+    0.04559326,
+    0.018829346,
+    0.04208374,
+    -0.025772095,
+    -0.022399902,
+    0.0076560974,
+    0.0006170273,
+    -0.012329102,
+    -0.021759033,
+    0.01977539,
+    0.018600464,
+    0.0038528442,
+    -0.015281677,
+    0.064697266,
+    0.03567505,
+    -0.020721436,
+    -0.0006227493,
+    -0.012077332,
+    -0.056640625,
+    0.003616333,
+    -0.024902344,
+    0.017791748,
+    -0.010040283,
+    -0.037078857,
+    0.008728027,
+    -0.024765015,
+    0.019042969,
+    0.019134521,
+    0.056518555,
+    0.023086548,
+    0.016159058,
+    -0.023986816,
+    0.01625061,
+    0.019607544,
+    -0.037506104,
+    -0.024871826,
+    0.06088257,
+    0.038391113,
+    -0.008354187,
+    0.02558899,
+    -0.0027637482,
+    0.014167786,
+    0.041809082,
+    -0.068481445,
+    -0.026855469,
+    -0.022506714,
+    -0.036132812,
+    -0.0013160706,
+    0.04763794,
+    0.12011719,
+    0.0048294067,
+    -0.023864746,
+    0.06573486,
+    -0.03543091,
+    -0.12854004,
+    -0.07513428,
+    0.004878998,
+    -0.02067566,
+    -0.00029730797,
+    -0.006954193,
+    0.043121338,
+    -0.0647583,
+    -0.023864746,
+    0.09301758,
+    -0.03286743,
+    0.009086609,
+    0.029907227,
+    0.00015103817,
+    -0.013343811,
+    0.03237915,
+    -0.029373169,
+    -0.033111572,
+    -0.03189087,
+    0.038024902,
+    -0.007511139,
+    -0.031311035,
+    -0.072631836,
+    -0.0044441223,
+    -0.0602417,
+    0.04550171,
+    -0.060821533,
+    -0.034332275,
+    0.0013637543,
+    0.049926758,
+    -0.046020508,
+    -0.05303955,
+    0.008544922,
+    -0.029571533,
+    -0.007850647,
+    0.020492554,
+    -0.02885437,
+    0.039978027,
+    -0.04547119,
+    -0.016448975,
+    -0.011817932,
+    -0.007003784,
+    0.0256958,
+    0.022949219,
+    0.021530151,
+    0.020889282,
+    0.013114929,
+    -0.014122009,
+    -0.027999878,
+    0.0736084,
+    -0.032409668,
+    -0.0035648346,
+    0.0013618469,
+    0.012168884,
+    -0.027923584,
+    0.018325806,
+    -0.0042533875,
+    0.009170532,
+    0.014945984,
+    -0.010269165,
+    -0.019622803,
+    -0.018356323,
+    0.02607727,
+    0.00088357925,
+    0.029876709,
+    -0.007621765,
+    -0.014335632,
+    -0.0993042,
+    -0.0003297329,
+    -0.021331787,
+    0.010757446,
+    -0.014945984,
+    -0.022064209,
+    0.0021820068,
+    0.03265381,
+    -0.02659607,
+    0.017578125,
+    0.026733398,
+    -0.028717041,
+    -0.030380249,
+    0.060760498,
+    0.015342712,
+    -0.010231018,
+    -0.005378723,
+    0.0048179626,
+    -0.005027771,
+    0.021118164,
+    -0.019744873,
+    0.034698486,
+    -0.0099487305,
+    0.030563354,
+    0.0009703636,
+    0.0236969,
+    -0.0284729,
+    0.0026798248,
+    0.014694214,
+    0.0011396408,
+    0.05380249,
+    0.008323669,
+    0.03439331,
+    0.0574646,
+    -0.012817383,
+    0.0019311905,
+    0.017669678,
+    -0.007144928,
+    0.012367249,
+    0.020141602,
+    0.03262329,
+    -0.030136108,
+    0.01612854,
+    0.032226562,
+    -0.08746338,
+    -0.10144043,
+    0.028900146,
+    -0.025543213,
+    0.0012044907,
+    0.05722046,
+    0.018081665,
+    0.04660034,
+    0.00044679642,
+    0.07537842,
+    0.022247314,
+    0.010177612,
+    -0.025604248,
+    -0.061157227,
+    0.04272461,
+    -0.007106781,
+    0.019592285,
+    -0.026031494,
+    -0.03466797,
+    0.002122879,
+    0.00630188,
+    0.027786255,
+    0.047454834,
+    0.053375244,
+    -0.026870728,
+    0.0032463074,
+    0.0042037964,
+    0.026107788,
+    0.0039100647,
+    0.042663574,
+    -0.035186768,
+    0.013977051,
+    -0.013153076,
+    -0.006000519,
+    0.00066185,
+    0.0023670197,
+    -0.027267456,
+    0.033813477,
+    -0.028167725,
+    -0.022521973,
+    -0.0020999908,
+    0.00409317,
+    -0.018875122,
+    -0.04345703,
+    0.01108551,
+    0.043426514,
+    0.08093262,
+    -0.057128906,
+    -0.011116028,
+    -0.030960083,
+    0.0029506683,
+    -0.044769287,
+    0.008155823,
+    -0.014862061,
+    0.0098724365,
+    -0.026824951,
+    0.0154418945,
+    0.052886963,
+    -0.022659302,
+    0.0099105835,
+    0.015060425,
+    -0.02458191,
+    0.007774353,
+    0.04034424,
+    0.03579712,
+    0.02708435,
+    -0.05114746,
+    0.023651123,
+    0.014030457,
+    0.021759033,
+    -0.012969971,
+    -0.021362305,
+    0.0029582977,
+    0.020874023,
+    -0.005935669,
+    -0.0059394836,
+    -0.045562744,
+    -0.0101623535,
+    -0.011146545,
+    -0.013328552,
+    0.013053894,
+    0.020111084,
+    -0.036743164,
+    0.012611389,
+    0.017944336,
+    -0.028656006,
+    -0.053955078,
+    -0.0446167,
+    -0.050842285,
+    0.010810852,
+    -0.0070533752,
+    0.012039185,
+    -0.007965088,
+    -0.0039100647,
+    -0.045013428,
+    -0.07366943,
+    -0.06561279,
+    -0.033111572,
+    0.012458801,
+    -0.034698486,
+    -0.03643799,
+    -0.0748291,
+    -0.03152466,
+    0.0037555695,
+    -0.0541687,
+    -0.058807373,
+    0.08703613,
+    0.0090789795,
+    -0.03591919,
+    0.047180176,
+    -0.00818634,
+    -0.00831604,
+    0.04006958,
+    0.036132812,
+    0.0013875961,
+    -0.011680603,
+    0.03768921,
+    0.0074768066,
+    0.018234253,
+    -0.025634766,
+    -0.029724121,
+    -0.023620605,
+    -0.021499634,
+    0.027267456,
+    -0.05279541,
+    -0.022598267,
+    -0.010688782,
+    -0.020370483,
+    -0.014778137,
+    -0.020187378,
+    -0.036712646,
+    0.01828003,
+    0.052368164,
+    -0.0030155182,
+    -0.024154663,
+    0.024032593,
+    0.019241333,
+    0.004676819,
+    0.01727295,
+    0.0032901764,
+    -0.013168335,
+    0.017105103,
+    -0.021728516,
+    0.030227661,
+    -0.012588501,
+    -0.012969971,
+    -0.021987915,
+    0.046569824,
+    -0.018035889,
+    -0.029190063,
+    -0.010009766,
+    -0.011398315,
+    0.012191772,
+    0.064453125,
+    -0.03555298,
+    -0.0039978027,
+    -0.11529541,
+    0.012268066,
+    -0.024734497,
+    -0.027389526,
+    0.0045700073,
+    -0.08129883,
+    -0.025497437,
+    -0.07745361,
+    0.010345459,
+    0.049041748,
+    -0.037139893,
+    0.039978027,
+    -0.040893555,
+    0.045898438,
+    -0.021148682,
+    0.0010766983,
+    -0.052093506,
+    -0.0053901672,
+    -0.02909851,
+    0.04107666,
+    0.036621094,
+    -0.043701172,
+    -0.00843811,
+    0.00617218,
+    -0.009567261,
+    0.024017334,
+    -0.002105713,
+    0.012580872,
+    -0.0062065125,
+    0.017700195,
+    0.0070877075,
+    -0.021530151,
+    -0.012184143,
+    -0.026428223,
+    -0.040618896,
+    0.010734558,
+    -0.0010261536,
+    -0.0036888123,
+    0.0345459,
+    -0.031219482,
+    0.032348633,
+    -0.0184021,
+    -0.01675415,
+    0.013092041,
+    -0.00868988,
+    -0.01424408,
+    -0.009239197,
+    0.047332764,
+    -0.020904541,
+    -0.0340271,
+    -0.0062217712,
+    -0.0028915405,
+    0.06652832,
+    0.04675293,
+    0.0063323975,
+    0.06463623,
+    0.008918762,
+    0.0069122314,
+    -0.022384644,
+    0.020721436,
+    -0.026535034,
+    0.0059394836,
+    0.018447876,
+    -0.06021118,
+    -0.03050232,
+    0.014045715,
+    0.024398804,
+    0.0068740845,
+    0.010925293,
+    -0.030380249,
+    -0.022918701,
+    0.030792236,
+    -0.026657104,
+    -0.034057617,
+    -0.0015449524,
+    -0.04876709,
+    0.0054397583,
+    -0.006008148,
+    0.06549072,
+    0.00207901,
+    -0.08190918,
+    0.019821167,
+    0.014038086,
+    0.01474762,
+    0.033721924,
+    -0.00030851364,
+    0.06304932,
+    0.047912598,
+    -0.040863037,
+    0.0073165894,
+    -0.006839752,
+    0.029327393,
+    -0.010505676,
+    0.015113831,
+    -0.023635864,
+    -0.020614624,
+    0.005218506,
+    -0.018966675,
+    -0.019897461,
+    -0.014587402,
+    -0.0592041,
+    -0.012199402,
+    -0.018066406,
+    0.015052795,
+    -0.010856628,
+    0.033355713,
+    0.01889038,
+    0.006641388,
+    -0.0057296753,
+    -0.021530151,
+    -0.016830444,
+    -0.034240723,
+    -0.024002075,
+    0.016189575,
+    -0.033081055,
+    0.033843994,
+    0.012908936,
+    0.028762817,
+    0.0023956299,
+    -0.040222168,
+    -0.022720337,
+    -0.017745972,
+    0.049591064,
+    0.049713135,
+    -0.046691895,
+    0.0040130615,
+    0.017562866,
+    0.01612854,
+    -0.056152344,
+    -0.040161133,
+    -0.0017499924,
+    0.074401855,
+    -0.015182495,
+    -0.0038967133,
+    0.030517578,
+    -0.019805908,
+    -0.005393982,
+    0.00082063675,
+    0.010368347,
+    -0.03390503,
+    -0.0006170273,
+    0.055541992,
+    0.041046143,
+    -0.008399963,
+    0.02784729,
+    -0.016921997,
+    0.039367676,
+    0.0069618225,
+    -0.022918701,
+    -0.01777649,
+    -0.022018433,
+    -0.004928589,
+    -0.010002136,
+    -0.061584473,
+    -0.0151901245,
+    -0.0093688965,
+    0.041046143,
+    -0.02796936,
+    -0.006828308,
+    -0.011207581,
+    -0.023391724,
+    -0.023025513,
+    -0.019378662,
+    0.014671326,
+    0.050750732,
+    0.018096924,
+    0.040924072,
+    -0.00869751,
+    0.0067710876,
+    -0.02142334,
+    0.0048942566,
+    -0.0073242188,
+    0.097961426,
+    0.007167816,
+    0.009292603,
+    -0.039215088,
+    -0.008895874,
+    0.028549194,
+    -0.02331543,
+    -0.0032024384,
+    0.01876831,
+    0.020080566,
+    -0.013000488,
+    0.03945923,
+    -0.014389038,
+    0.03778076,
+    0.025436401,
+    -0.0027599335,
+    -0.0040245056,
+    0.018066406,
+    0.00013387203,
+    -0.014732361,
+    0.026382446,
+    0.0107040405,
+    -0.039215088,
+    -0.013847351,
+    -0.06726074,
+    -0.048706055,
+    0.03970337,
+    -0.017044067,
+    -0.024658203,
+    -0.003227234,
+    -0.010055542,
+    -0.02798462,
+    0.057403564,
+    0.017578125,
+    0.02154541,
+    -0.027801514,
+    0.020751953,
+    0.014266968,
+    0.009765625,
+    0.013931274,
+    -0.0657959,
+    0.034088135,
+    -0.05105591,
+    -0.0059318542,
+    0.029373169,
+    0.0023708344,
+    0.022659302,
+    -0.04385376,
+    -0.001329422,
+    0.05392456,
+    0.004928589,
+    -0.016036987,
+    -0.014137268,
+    0.023925781,
+    -0.020950317,
+    -0.01083374,
+    -0.014518738,
+    0.01889038,
+    0.017684937,
+    -0.0058631897,
+    -0.047790527,
+    -0.00047421455,
+    -0.029266357,
+    0.0038661957,
+    -0.011489868,
+    -0.026153564,
+    0.013687134,
+    0.013137817,
+    -0.030319214,
+    0.012557983,
+    -0.03302002,
+    0.017288208,
+    0.041107178,
+    -0.016540527,
+    -0.0028095245,
+    -0.0008211136,
+    0.010948181,
+    -0.00011134148,
+    0.031051636,
+    0.0038089752,
+    -0.062805176,
+    -0.03894043,
+    0.03274536,
+    -0.036132812,
+    -0.017608643,
+    0.014213562,
+    0.0027446747,
+    -0.050048828,
+    -0.06750488,
+    -0.013877869,
+    0.023468018,
+    -0.044799805,
+    -0.07183838,
+    -0.014205933,
+    0.03945923,
+    0.025344849,
+    -0.011642456,
+    -0.03829956,
+    0.025650024,
+    -0.034057617,
+    -0.017715454,
+    -0.03161621,
+    0.026275635,
+    0.0446167,
+    0.023956299,
+    0.031402588,
+    0.04348755,
+    -0.066711426,
+    6.866455e-05,
+    -0.021911621,
+    0.018066406,
+    -0.00051259995,
+    -0.039794922,
+    0.03414917,
+    -0.05758667,
+    -0.015838623,
+    -0.018875122,
+    0.014831543,
+    -0.026657104,
+    -0.0005044937,
+    -0.021331787,
+    -0.026245117,
+    -0.016937256,
+    -0.03765869,
+    0.007835388,
+    0.026275635,
+    -0.014633179,
+    -0.050933838,
+    -0.00016236305,
+    0.039093018,
+    0.017868042,
+    0.047332764,
+    0.015335083,
+    0.011955261,
+    -0.001455307,
+    0.015670776,
+    -0.0029850006,
+    0.0052375793,
+    0.018722534,
+    0.05307007,
+    -0.02507019,
+    -0.005596161,
+    0.034362793,
+    -0.010169983,
+    -0.04776001,
+    -0.0035095215,
+    -0.0491333,
+    0.0059432983,
+    -0.009338379,
+    0.006717682,
+    0.04296875,
+    -0.021896362,
+    0.04034424,
+    -0.031707764,
+    -0.0075645447,
+    0.0050811768,
+    -0.019622803,
+    -0.02720642,
+    -0.021911621,
+    -0.022415161,
+    0.014015198,
+    -0.027191162,
+    -0.03353882,
+    -0.0035762787,
+    -0.03881836,
+    0.04852295,
+    -0.0007209778,
+    -0.009407043,
+    0.011146545,
+    -0.025619507,
+    0.030670166,
+    0.0013570786,
+    -0.012275696,
+    -0.05026245,
+    0.007194519,
+    -0.083862305,
+    -0.0546875,
+    -0.029663086,
+    0.039123535,
+    -0.076660156,
+    -0.039123535,
+    0.00806427,
+    0.016479492,
+    -0.0061454773,
+    0.005138397,
+    0.015731812,
+    -0.031555176,
+    -0.006286621,
+    -0.041900635,
+    0.009811401,
+    0.028411865,
+    0.033203125,
+    -0.013298035,
+    0.018066406,
+    -0.012107849,
+    0.018539429,
+    0.020996094,
+    -0.018554688,
+    -0.031097412,
+    0.01965332,
+    0.0035305023,
+    -0.010795593,
+    0.025299072,
+    -0.03692627,
+    0.008583069,
+    -0.008743286,
+    -0.016342163,
+    -0.006008148,
+    0.009811401,
+    -0.01701355,
+    -0.0008678436,
+    0.0055236816,
+    -0.014930725,
+    -0.009681702,
+    -0.012496948,
+    0.023529053,
+    -0.0060920715,
+    0.012756348,
+    -0.044158936,
+    0.04244995,
+    0.02432251,
+    -0.022155762,
+    -0.014717102,
+    -0.0068473816,
+    0.0129776,
+    0.002861023,
+    -0.020477295,
+    -0.025283813,
+    -0.02003479,
+    0.025497437,
+    -0.031280518,
+    0.04272461,
+    -0.019973755,
+    -0.021835327,
+    0.011581421,
+    0.047729492,
+    0.044830322,
+    -0.06707764,
+    0.022903442,
+    -0.0637207,
+    0.01033783,
+    0.014511108,
+    0.024734497,
+    0.05340576,
+    0.018875122,
+    -0.027709961,
+    -1.0609627e-05,
+    0.055786133,
+    -0.019012451,
+    -0.00076913834,
+    0.00687027,
+    0.04232788,
+    0.008926392,
+    0.031311035,
+    -0.005554199,
+    -0.02142334,
+    -0.018859863,
+    -0.024551392,
+    0.029449463,
+    -0.0017642975,
+    -0.036743164,
+    -0.011985779,
+    -0.010276794,
+    0.019683838,
+    0.017547607,
+    0.0045814514,
+    0.018295288,
+    0.021255493,
+    -0.04159546,
+    -0.018798828,
+    -0.036590576,
+    -0.02230835,
+    -0.01828003,
+    0.0048294067,
+    0.0017747879,
+    0.0093688965,
+    0.016418457,
+    0.064086914,
+    -0.015007019,
+    0.0044059753,
+    0.023468018,
+    -0.017929077,
+    -0.011047363,
+    0.031311035,
+    -0.008407593,
+    -0.0129776,
+    0.025848389,
+    0.060516357,
+    -0.01197052,
+    0.02822876,
+    -0.00070142746,
+    0.00667572,
+    -0.005153656,
+    0.020309448,
+    -0.034240723,
+    0.027420044,
+    -0.0051231384,
+    0.023834229,
+    0.021194458,
+    0.017929077,
+    -0.04815674,
+    -0.011100769,
+    -0.029388428,
+    -0.011398315,
+    0.013298035,
+    0.04788208,
+    -0.014060974,
+    -0.004875183,
+    -0.018005371,
+    -0.062683105,
+    0.01322937,
+    -0.01133728,
+    -0.0063934326,
+    -0.042175293,
+    0.028259277,
+    -0.015411377,
+    0.068603516,
+    0.004348755,
+    -0.016494751,
+    -0.016815186,
+    -0.034851074,
+    0.026000977,
+    0.019348145,
+    0.08312988,
+    0.016281128,
+    -0.03149414,
+    -0.03387451,
+    -0.007095337,
+    0.028396606,
+    -0.047454834,
+    0.00039196014,
+    -0.06311035,
+    -0.003730774,
+    0.009315491,
+    0.0129776,
+    -0.044708252,
+    -0.013580322,
+    -0.029876709,
+    0.00699234,
+    -0.006252289,
+    -0.051574707,
+    -0.0057525635,
+    0.028335571,
+    -0.013961792,
+    -0.044128418,
+    -0.037475586,
+    0.018569946,
+    -0.083496094,
+    -0.009651184,
+    -0.017608643,
+    0.019073486,
+    -0.021484375,
+    0.044647217,
+    0.011161804,
+    0.078125,
+    -0.066833496,
+    0.01235199,
+    -0.0070877075,
+    0.0040740967,
+    0.015342712,
+    0.10064697,
+    -0.058929443,
+    0.0725708,
+    0.0024662018,
+    -0.023284912,
+    -0.009513855,
+    -0.019485474,
+    0.046936035,
+    0.005897522,
+    -0.055908203,
+    -0.022140503,
+    0.024642944,
+    0.0074272156,
+    -0.014251709,
+    0.0040664673,
+    -0.023086548,
+    -0.05154419,
+    0.04449463,
+    0.05166626,
+    0.022369385,
+    0.004989624,
+    -0.0016174316,
+    0.02192688,
+    0.023101807,
+    -0.03579712,
+    0.037506104,
+    -0.008529663,
+    -0.02293396,
+    -0.014801025,
+    -0.0060539246,
+    0.0047073364,
+    -0.012916565,
+    0.024276733,
+    0.012313843,
+    0.0010547638,
+    0.00223732,
+    -0.013641357,
+    0.007255554,
+    0.020355225,
+    0.0005660057,
+    -0.016799927,
+    0.007583618,
+    -0.0038852692,
+    -0.039978027,
+    0.018844604,
+    0.021148682,
+    0.013534546,
+    0.011726379,
+    0.006389618,
+    0.037139893,
+    -0.02633667,
+    -0.008811951,
+    0.02293396,
+    -0.0524292,
+    0.023330688,
+    0.016418457,
+    -0.009277344,
+    -0.00049209595,
+    -0.028869629,
+    0.06072998,
+    0.015716553,
+    0.041900635,
+    -0.005962372,
+    0.010383606,
+    0.033721924,
+    0.028182983,
+    0.012374878,
+    -0.0070114136,
+    -0.04510498,
+    0.0001373291,
+    0.040100098,
+    0.0004003048,
+    0.004966736,
+    -0.08782959,
+    0.006095886,
+    -0.021331787,
+    -0.015449524,
+    -0.012863159,
+    -0.055633545,
+    0.070129395,
+    0.0463562,
+    -0.030181885,
+    0.040863037,
+    0.03289795,
+    0.017486572,
+    0.013267517,
+    -0.0073890686,
+    0.026397705,
+    0.024230957,
+    0.010025024,
+    -0.0060539246,
+    0.0058059692
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85755.md",
+    "file_name": "85755.md",
+    "file_size": 8271,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Stinson 108 Aircraft Accident Information",
+      "A Stinson 108 aircraft with registration N8775K was substantially damaged during a forced landing on December 5, 2012.",
+      "The accident occurred at 1300 central standard time near Halfway, Missouri.",
+      "The private pilot sustained minor injuries in the accident.",
+      "The aircraft was registered to the pilot.",
+      "The aircraft was operated by the pilot.",
+      "Visual meteorological conditions prevailed during the flight.",
+      "The flight was conducted under 14 Code of Federal Regulations Part 91.",
+      "No flight plan was filed for the flight.",
+      "The flight departed from Eads Ridge Airport in Fair Grove, Missouri.",
+      "Eads Ridge Airport has the identifier MO68.",
+      "The flight departed at 1240 central standard time.",
+      "The defining event of the accident was a total loss of engine power.",
+      "A Federal Aviation Administration aviation safety inspector interviewed the pilot.",
+      "The Federal Aviation Administration aviation safety inspector examined the aircraft.",
+      "The pilot had been airborne for approximately 20 minutes when the engine began making an unusual grinding noise.",
+      "The unusual grinding noise was followed by a loss of engine power.",
+      "The pilot attempted to make a forced landing to a field.",
+      "The aircraft struck a powerline with the left main landing gear during the landing attempt.",
+      "The aircraft landed hard.",
+      "The hard landing resulted in substantial damage to both wings.",
+      "The hard landing resulted in substantial damage to the fuselage.",
+      "The hard landing resulted in substantial damage to an engine mount.",
+      "The left main landing gear was damaged in the accident.",
+      "The propeller was damaged in the accident.",
+      "Examination of the engine revealed the magnetos were not properly secured to the engine.",
+      "The magnetos were loose.",
+      "When the magnetos were removed, the inspector could visually see that the camshaft was broken.",
+      "The aircraft's last annual inspection was on January 8, 2008.",
+      "The pilot held a private pilot certificate for airplane single-engine land.",
+      "The pilot's last FAA third class medical was issued on March 4, 2009.",
+      "The pilot's last biennial flight review was on August 31, 2008.",
+      "The pilot reported a total of 761 flight hours.",
+      "The pilot had 437 flight hours in the accident aircraft.",
+      "The pilot had flown the aircraft approximately 3 hours in the last 90 days.",
+      "The pilot was trying to prepare for a biennial flight review when the accident occurred."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Stinson 108 Aircraft Accident Information",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Stinson 108",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N8775K",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Halfway, Missouri",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "private pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Eads Ridge Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Fair Grove, Missouri",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "MO68",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration aviation safety inspector",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "camshaft",
+              "classification": "Aircraftpart"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "magnetos",
+              "classification": "Aircraftpart"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Stinson 108 aircraft with registration N8775K was substantially damaged during a forced landing on December 5, 2012.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "HAS REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N8775K",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantially damaged",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forced landing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "December 5, 2012",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred at 1300 central standard time near Halfway, Missouri.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1300 central standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "near Halfway, Missouri",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The private pilot sustained minor injuries in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "minor injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was registered to the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTERED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was operated by the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Visual meteorological conditions prevailed during the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under 14 Code of Federal Regulations Part 91.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT REGULATIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 91",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "No flight plan was filed for the flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PLAN STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No flight plan filed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed from Eads Ridge Airport in Fair Grove, Missouri.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTED FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eads Ridge Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eads Ridge Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Fair Grove, Missouri",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Eads Ridge Airport has the identifier MO68.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Eads Ridge Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "MO68",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight departed at 1240 central standard time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEPARTURE TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1240 central standard time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was a total loss of engine power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "total loss of engine power",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A Federal Aviation Administration aviation safety inspector interviewed the pilot.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration aviation safety inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INTERVIEWED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration aviation safety inspector examined the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration aviation safety inspector",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EXAMINED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had been airborne for approximately 20 minutes when the engine began making an unusual grinding noise.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "AIRBORNE TIME BEFORE ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 20 minutes",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unusual grinding noise",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The unusual grinding noise was followed by a loss of engine power.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "ENGINE FAILURE SEQUENCE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unusual grinding noise followed by loss of power",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot attempted to make a forced landing to a field.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LANDING ATTEMPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forced landing to a field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft struck a powerline with the left main landing gear during the landing attempt.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLISION OBJECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "powerline",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "COLLISION PART"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left main landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft landed hard.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LANDING TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "hard",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hard landing resulted in substantial damage to both wings.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "both wings",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hard landing resulted in substantial damage to the fuselage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The hard landing resulted in substantial damage to an engine mount.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine mount",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The left main landing gear was damaged in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left main landing gear",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The propeller was damaged in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "propeller",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the engine revealed the magnetos were not properly secured to the engine.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftpart"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not properly secured to the engine",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The magnetos were loose.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "magnetos",
+                    "classification": "Aircraftpart"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loose",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "When the magnetos were removed, the inspector could visually see that the camshaft was broken.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "camshaft",
+                    "classification": "Aircraftpart"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "broken",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft's last annual inspection was on January 8, 2008.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Stinson 108",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "LAST ANNUAL INSPECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 8, 2008",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot held a private pilot certificate for airplane single-engine land.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CERTIFICATE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot certificate for airplane single-engine land",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last FAA third class medical was issued on March 4, 2009.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST MEDICAL DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "March 4, 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "MEDICAL CLASS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "FAA third class",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's last biennial flight review was on August 31, 2008.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "LAST BIENNIAL REVIEW"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 31, 2008",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported a total of 761 flight hours.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TOTAL FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "761",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had 437 flight hours in the accident aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT HOURS IN ACCIDENT AIRCRAFT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "437",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot had flown the aircraft approximately 3 hours in the last 90 days.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECENT FLIGHT HOURS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "approximately 3 hours in the last 90 days",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was trying to prepare for a biennial flight review when the accident occurred.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "private pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PURPOSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prepare for a biennial flight review",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::60d5664a:a0a6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85755.md",
+        "file_name": "85755.md",
+        "file_size": 8271,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "80fcb732dc80c53b9fe253b359c543f87938dfb68b8757af30f5da865f6a652b",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::60d5664a:a0a6:adffa811",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85755.md",
+        "file_name": "85755.md",
+        "file_size": 8271,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "70d223f6f00885ea334e2c0fecd3c25a264ac6bba2f84be65736c93dd72df78b",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::60d5664a:a0a6:d8738b84",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85755.md",
+        "file_name": "85755.md",
+        "file_size": 8271,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "fbdf0d57ad3b6bc15edef8cf2d08d298351790541ffdac76dd868e66a2fc7ab5",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Factual Information\n\n## History of Flight\n\n| Enroute | Loss of engine power (total) (Defining event) |\n\nOn December 5, 2012, at 1300 central standard time, a Stinson 108, N8775K, was substantially damaged during a forced landing to a field following a loss of engine power near Halfway, Missouri. The private pilot sustained minor injuries. The airplane was registered to and operated by the pilot. Visual meteorological conditions prevailed for the personal flight conducted under 14 Code of Federal Regulations Part 91. No flight plan was filed for the flight that departed Eads Ridge Airport (MO68), Fair Grove, Missouri, at 1240.\n\nA Federal Aviation Administration (FAA) aviation safety inspector interviewed the pilot and examined the airplane. According to the inspector, the pilot had been airborne for approximately 20 minutes when the engine began to make an unusual grinding noise followed by a loss of engine power. The pilot attempted to make a forced landing to a field and struck a powerline with the left main landing gear. The airplane landed hard, resulting in substantial damage to both wings, the fuselage and an engine mount. The left main landing gear and propeller were also damaged. Examination of the engine revealed the magnetos were not properly secured to the engine and were loose. When the magnetos were removed, the inspector could visually see that the camshaft was broken.\n\nA review of the engine maintenance logbooks revealed the airplane's last annual inspection was January 8, 2008.\n\nThe pilot held a private pilot certificate for airplane single-engine land. His last FAA third class medical was issued on March 4, 2009, and his last biennial flight review was on August 31, 2008. The pilot reported a total of 761 hours; of which 437 hours were in the accident airplane. He stated that he had flown the airplane approximately 3 hours in the last 90 days and was trying to prepare for a biennial flight review when the accident occurred.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1980,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

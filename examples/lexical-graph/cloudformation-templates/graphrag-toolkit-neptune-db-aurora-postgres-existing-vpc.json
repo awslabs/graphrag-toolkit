@@ -1,2228 +1,2248 @@
 {
-	"Description": "Creates a lexical-graph environment (Neptune Database, Aurora Postgres, and SageMaker notebook) in an existing VPC",
-	"Parameters": {
-		"ApplicationId": {
-			"Description": "Application id (used to name all resources in the environment)",
-			"Type": "String",
-			"Default": "graphrag-toolkit",
-			"AllowedPattern": "[a-z][a-z0-9-]*",
-			"MaxLength": 16,
-			"MinLength": 3,
-			"ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
-		},
-		"VPCId": {
-			"Description": "ID of the existing VPC",
-			"Type": "AWS::EC2::VPC::Id",
-			"ConstraintDescription": "Must be a valid VPC ID"
-		},
-		"SubnetId1": {
-			"Description": "ID of the first subnet (used for Neptune and Aurora Postgres)",
-			"Type": "AWS::EC2::Subnet::Id",
-			"ConstraintDescription": "Must be a valid subnet ID in the specified VPC"
-		},
-		"SubnetId2": {
-			"Description": "ID of the second subnet (used for Neptune and Aurora Postgres)",
-			"Type": "AWS::EC2::Subnet::Id",
-			"ConstraintDescription": "Must be a valid subnet ID in the specified VPC"
-		},
-		"SubnetId3": {
-			"Description": "ID of the third subnet (optional, used for Neptune and Aurora Postgres if provided)",
-			"Type": "String",
-			"Default": "",
-			"ConstraintDescription": "Must be a valid subnet ID in the specified VPC or empty"
-		},
-		"NotebookSubnetId": {
-			"Description": "ID of the subnet for the SageMaker notebook (must have internet access)",
-			"Type": "AWS::EC2::Subnet::Id",
-			"ConstraintDescription": "Must be a valid subnet ID in the specified VPC with internet access"
-		},
-		"NeptuneDbInstanceType": {
-			"Description": "Neptune DB instance type (use db.serverless to provision a Neptune Serverless cluster)",
-			"Type": "String",
-			"Default": "db.serverless",
-			"AllowedValues": [
-				"db.serverless",
-				"db.r8g.large",
-				"db.r8g.xlarge",
-				"db.r8g.2xlarge"
-			],
-			"ConstraintDescription": "Must be a valid Neptune instance type."
-		},
-		"NeptuneEngineVersion": {
-			"Description": "Neptune DB engine version",
-			"Type": "String",
-			"Default": "1.4.5.1"
-		},
-		"MinNCU": {
-			"Description": "Min number of NCUs (default 2.5, relevant only when instance type is db.serverless).",
-			"Type": "Number",
-			"Default": 2.5,
-			"MaxValue": 128,
-			"MinValue": 1
-		},
-		"MaxNCU": {
-			"Description": "Max number of NCUs (default 32, relevant only when instance type is db.serverless).",
-			"Type": "Number",
-			"Default": 32,
-			"MaxValue": 128,
-			"MinValue": 1
-		},
-		"EnableAuditLog": {
-			"Description": "Enable database auditing logging",
-			"Type": "String",
-			"Default": "false",
-			"AllowedValues": [
-				"true",
-				"false"
-			]
-		},
-		"PostgresDbInstanceType": {
-			"Description": "Aurora Postgres DB instance type (use db.serverless to provision an Aurora Serverless cluster)",
-			"Type": "String",
-			"Default": "db.serverless",
-			"AllowedValues": [
-				"db.serverless",
-				"db.r6g.large",
-				"db.r6g.xlarge",
-				"db.r6g.2xlarge"
-			],
-			"ConstraintDescription": "Must be a valid Aurora instance type."
-		},
-		"MinACU": {
-			"Description": "Min number of ACUs (default 0, relevant only when instance type is db.serverless).",
-			"Type": "Number",
-			"Default": 0,
-			"MaxValue": 128,
-			"MinValue": 0
-		},
-		"MaxACU": {
-			"Description": "Max number of ACUs (default 32, relevant only when instance type is db.serverless).",
-			"Type": "Number",
-			"Default": 32,
-			"MaxValue": 128,
-			"MinValue": 0.5
-		},
-		"IamPolicyArn": {
-			"Type": "String",
-			"Description": "ARN of an additional IAM policy to be attached to the GraphRAG client IAM role (optional)",
-			"Default": ""
-		},
-		"NotebookInstanceType": {
-			"Description": "SageMaker notebook instance type (use ml.p3.2xlarge to provision a GPU instance)",
-			"Type": "String",
-			"Default": "ml.m5.xlarge",
-			"AllowedValues": [
-				"ml.m5.xlarge",
-				"ml.p3.2xlarge"
-			],
-			"ConstraintDescription": "Must be a valid SageMaker instance type."
-		},
-		"GraphRAGS3BucketArn": {
-			"Type": "String",
-			"Description": "ARN of an existing S3 bucket for GraphRAG data (e.g., arn:aws:s3:::my-bucket)",
-			"ConstraintDescription": "Must be a valid S3 bucket ARN"
-		},
-		"GraphRAGPromptS3BucketArn": {
-			"Type": "String",
-			"Description": "ARN of an existing S3 bucket for GraphRAG prompt (e.g., arn:aws:s3:::my-bucket)",
-			"ConstraintDescription": "Must be a valid S3 bucket ARN"
-		},
-		"ExampleNotebooksURL": {
-			"Type": "String",
-			"Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
-			"Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip"
-		}
-	},
-	"Metadata": {
-		"AWS::CloudFormation::Interface": {
-			"ParameterGroups": [
-				{
-					"Label": {
-						"default": "Setup"
-					},
-					"Parameters": [
-						"ApplicationId"
-					]
-				},
-				{
-					"Label": {
-						"default": "Network"
-					},
-					"Parameters": [
-						"VPCId",
-						"SubnetId1",
-						"SubnetId2",
-						"SubnetId3",
-						"NotebookSubnetId"
-					]
-				},
-				{
-					"Label": {
-						"default": "Neptune"
-					},
-					"Parameters": [
-						"NeptuneDbInstanceType",
-						"MinNCU",
-						"MaxNCU",
-						"EnableAuditLog"
-					]
-				},
-				{
-					"Label": {
-						"default": "Aurora Postgres"
-					},
-					"Parameters": [
-						"PostgresDbInstanceType",
-						"MinACU",
-						"MaxACU"
-					]
-				},
-				{
-					"Label": {
-						"default": "Notebook"
-					},
-					"Parameters": [
-						"NotebookInstanceType",
-						"ExampleNotebooksURL",
-						"IamPolicyArn"
-					]
-				}
-			]
-		}
-	},
-	"Conditions": {
-		"ExampleNotebooksURLIsNotBlank": {
-			"Fn::Not": [
-				{
-					"Fn::Equals": [
-						{
-							"Ref": "ExampleNotebooksURL"
-						},
-						""
-					]
-				}
-			]
-		},
-		"IsIadRegion": {
-			"Fn::Equals": [
-				{
-					"Ref": "AWS::Region"
-				},
-				"us-east-1"
-			]
-		},
-		"SubnetId3IsProvided": {
-			"Fn::Not": [
-				{
-					"Fn::Equals": [
-						{
-							"Ref": "SubnetId3"
-						},
-						""
-					]
-				}
-			]
-		},
-		"AddIamPolicyArn": {
-			"Fn::Not": [
-				{
-					"Fn::Equals": [
-						{
-							"Ref": "IamPolicyArn"
-						},
-						""
-					]
-				}
-			]
-		},
-		"AuditLogEnabled": {
-			"Fn::Equals": [
-				{
-					"Ref": "EnableAuditLog"
-				},
-				"true"
-			]
-		}
-	},
-	"Resources": {
-		"NeptuneDBSubnetGroup": {
-			"Type": "AWS::Neptune::DBSubnetGroup",
-			"Properties": {
-				"DBSubnetGroupDescription": "Neptune DB subnet group",
-				"DBSubnetGroupName": {
-					"Fn::Sub": "${ApplicationId}-neptune-subnet"
-				},
-				"SubnetIds": {
-					"Fn::If": [
-						"SubnetId3IsProvided",
-						[
-							{
-								"Ref": "SubnetId1"
-							},
-							{
-								"Ref": "SubnetId2"
-							},
-							{
-								"Ref": "SubnetId3"
-							}
-						],
-						[
-							{
-								"Ref": "SubnetId1"
-							},
-							{
-								"Ref": "SubnetId2"
-							}
-						]
-					]
-				},
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-neptune-subnet"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"PostgresSubnetGroup": {
-			"Type": "AWS::RDS::DBSubnetGroup",
-			"Properties": {
-				"DBSubnetGroupDescription": "PostgreSQL subnet group",
-				"DBSubnetGroupName": {
-					"Fn::Sub": "${ApplicationId}-pg-subnet"
-				},
-				"SubnetIds": {
-					"Fn::If": [
-						"SubnetId3IsProvided",
-						[
-							{
-								"Ref": "SubnetId1"
-							},
-							{
-								"Ref": "SubnetId2"
-							},
-							{
-								"Ref": "SubnetId3"
-							}
-						],
-						[
-							{
-								"Ref": "SubnetId1"
-							},
-							{
-								"Ref": "SubnetId2"
-							}
-						]
-					]
-				},
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-pg-subnet"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"GraphRAGClientSecurityGroup": {
-			"Type": "AWS::EC2::SecurityGroup",
-			"Properties": {
-				"GroupName": {
-					"Fn::Sub": "${ApplicationId}-client-sg"
-				},
-				"VpcId": {
-					"Ref": "VPCId"
-				},
-				"GroupDescription": "GraphRAG client security group",
-				"SecurityGroupEgress": [
-					{
-						"FromPort": 443,
-						"ToPort": 443,
-						"IpProtocol": "tcp",
-						"CidrIp": "0.0.0.0/0",
-						"Description": "HTTPS egress"
-					}
-				],
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-client-sg"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"NeptuneSecurityGroup": {
-			"Type": "AWS::EC2::SecurityGroup",
-			"Properties": {
-				"GroupName": {
-					"Fn::Sub": "${ApplicationId}-neptune-sg"
-				},
-				"VpcId": {
-					"Ref": "VPCId"
-				},
-				"GroupDescription": "GraphRAG Neptune security group",
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-neptune-sg"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"PostgresSecurityGroup": {
-			"Type": "AWS::EC2::SecurityGroup",
-			"Properties": {
-				"GroupName": {
-					"Fn::Sub": "${ApplicationId}-pg-sg"
-				},
-				"VpcId": {
-					"Ref": "VPCId"
-				},
-				"GroupDescription": "PostgreSQL security group",
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-pg-sg"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"GraphRAGClientSecurityGroupToNeptuneEgress": {
-			"Type": "AWS::EC2::SecurityGroupEgress",
-			"Properties": {
-				"IpProtocol": "tcp",
-				"FromPort": 8182,
-				"ToPort": 8182,
-				"DestinationSecurityGroupId": {
-					"Fn::GetAtt": [
-						"NeptuneSecurityGroup",
-						"GroupId"
-					]
-				},
-				"GroupId": {
-					"Fn::GetAtt": [
-						"GraphRAGClientSecurityGroup",
-						"GroupId"
-					]
-				}
-			}
-		},
-		"GraphRAGClientSecurityGroupToPostgresEgress": {
-			"Type": "AWS::EC2::SecurityGroupEgress",
-			"Properties": {
-				"IpProtocol": "tcp",
-				"FromPort": 5432,
-				"ToPort": 5432,
-				"DestinationSecurityGroupId": {
-					"Fn::GetAtt": [
-						"PostgresSecurityGroup",
-						"GroupId"
-					]
-				},
-				"GroupId": {
-					"Fn::GetAtt": [
-						"GraphRAGClientSecurityGroup",
-						"GroupId"
-					]
-				}
-			}
-		},
-		"NeptuneSecurityGroupIngress": {
-			"Type": "AWS::EC2::SecurityGroupIngress",
-			"Properties": {
-				"IpProtocol": "tcp",
-				"FromPort": 8182,
-				"ToPort": 8182,
-				"SourceSecurityGroupId": {
-					"Fn::GetAtt": [
-						"GraphRAGClientSecurityGroup",
-						"GroupId"
-					]
-				},
-				"GroupId": {
-					"Fn::GetAtt": [
-						"NeptuneSecurityGroup",
-						"GroupId"
-					]
-				}
-			}
-		},
-		"PostgresSecurityGroupIngress": {
-			"Type": "AWS::EC2::SecurityGroupIngress",
-			"Properties": {
-				"IpProtocol": "tcp",
-				"FromPort": 5432,
-				"ToPort": 5432,
-				"SourceSecurityGroupId": {
-					"Fn::GetAtt": [
-						"GraphRAGClientSecurityGroup",
-						"GroupId"
-					]
-				},
-				"GroupId": {
-					"Fn::GetAtt": [
-						"PostgresSecurityGroup",
-						"GroupId"
-					]
-				}
-			}
-		},
-		"GraphRAGClientRole": {
-			"Type": "AWS::IAM::Role",
-			"Properties": {
-				"AssumeRolePolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Principal": {
-								"Service": [
-									"sagemaker.amazonaws.com"
-								]
-							},
-							"Action": [
-								"sts:AssumeRole"
-							]
-						}
-					]
-				},
-				"ManagedPolicyArns": [
-					{
-						"Fn::If": [
-							"AddIamPolicyArn",
-							{
-								"Ref": "IamPolicyArn"
-							},
-							{
-								"Ref": "AWS::NoValue"
-							}
-						]
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"GraphRAGClientRolePolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-graphrag-client-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Sid": "S3ListBucketAndGetObject",
-							"Effect": "Allow",
-							"Action": [
-								"s3:GetObject",
-								"s3:ListBucket"
-							],
-							"Resource": [
-								{
-									"Fn::If": [
-										"IsIadRegion",
-										"arn:aws:s3:::aws-neptune-notebook",
-										{
-											"Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}"
-										}
-									]
-								},
-								{
-									"Fn::If": [
-										"IsIadRegion",
-										"arn:aws:s3:::aws-neptune-notebook/*",
-										{
-											"Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}/*"
-										}
-									]
-								}
-							]
-						},
-						{
-							"Sid": "LogGroupAccess",
-							"Effect": "Allow",
-							"Action": [
-								"logs:CreateLogGroup",
-								"logs:CreateLogStream",
-								"logs:PutLogEvents"
-							],
-							"Resource": [
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/sagemaker/*"
-								}
-							]
-						},
-						{
-							"Sid": "GraphRAGS3BucketAccess",
-							"Effect": "Allow",
-							"Action": [
-								"s3:GetObject",
-								"s3:PutObject",
-								"s3:DeleteObject",
-								"s3:ListBucket"
-							],
-							"Resource": [
-										{
-											"Ref": "GraphRAGS3BucketArn"
-										},
-										{
-											"Fn::Join": [
-												"",
-												[
-													{
-														"Ref": "GraphRAGS3BucketArn"
-													},
-													"/*"
-												]
-											]
-										},
-										{
-											"Ref": "GraphRAGPromptS3BucketArn"
-										},
-										{
-											"Fn::Join": [
-												"",
-												[
-													{
-														"Ref": "GraphRAGPromptS3BucketArn"
-													},
-													"/*"
-												]
-											]
-										}
-									]
-						},
-						{
-							"Sid": "SageMakerNotebookAccess",
-							"Effect": "Allow",
-							"Action": "sagemaker:DescribeNotebookInstance",
-							"Resource": [
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:sagemaker:${AWS::Region}:${AWS::AccountId}:notebook-instance/*"
-								}
-							]
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"BedrockInvokeModelPolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-bedrock-invoke-model-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"bedrock:InvokeModel",
-								"bedrock:InvokeModelWithResponseStream"
-							],
-							"Resource": [
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
-								},
-								{
-									"Fn::Sub": [
-										"arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-haiku-20241022-v1:0",
-										{
-											"partition": {
-												"Ref": "AWS::Partition"
-											},
-											"region": {
-												"Ref": "AWS::Region"
-											},
-											"accountId": {
-												"Ref": "AWS::AccountId"
-											},
-											"regionPrefix": {
-												"Fn::Select": [
-													0,
-													{
-														"Fn::Split": [
-															"-",
-															{
-																"Ref": "AWS::Region"
-															}
-														]
-													}
-												]
-											}
-										}
-									]
-								},
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
-								},
-								{
-									"Fn::Sub": [
-										"arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-										{
-											"partition": {
-												"Ref": "AWS::Partition"
-											},
-											"region": {
-												"Ref": "AWS::Region"
-											},
-											"accountId": {
-												"Ref": "AWS::AccountId"
-											},
-											"regionPrefix": {
-												"Fn::Select": [
-													0,
-													{
-														"Fn::Split": [
-															"-",
-															{
-																"Ref": "AWS::Region"
-															}
-														]
-													}
-												]
-											}
-										}
-									]
-								},
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
-								},
-								{
-									"Fn::Sub": [
-										"arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
-										{
-											"partition": {
-												"Ref": "AWS::Partition"
-											},
-											"region": {
-												"Ref": "AWS::Region"
-											},
-											"accountId": {
-												"Ref": "AWS::AccountId"
-											},
-											"regionPrefix": {
-												"Fn::Select": [
-													0,
-													{
-														"Fn::Split": [
-															"-",
-															{
-																"Ref": "AWS::Region"
-															}
-														]
-													}
-												]
-											}
-										}
-									]
-								},
-								{
-									"Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
-								}
-							]
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"NeptuneDBDataAccessReadPolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-neptune-db-read-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"neptune-db:ReadDataViaQuery"
-							],
-							"Resource": {
-								"Fn::Join": [
-									"",
-									[
-										{
-											"Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
-										},
-										{
-											"Ref": "AWS::Region"
-										},
-										":",
-										{
-											"Ref": "AWS::AccountId"
-										},
-										":",
-										{
-											"Fn::GetAtt": [
-												"NeptuneDBCluster",
-												"ClusterResourceId"
-											]
-										},
-										"/*"
-									]
-								]
-							},
-							"Condition": {
-								"StringEquals": {
-									"neptune-db:QueryLanguage": "OpenCypher"
-								}
-							}
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"NeptuneDBDataAccessWritePolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-neptune-db-write-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"neptune-db:WriteDataViaQuery",
-								"neptune-db:DeleteDataViaQuery"
-							],
-							"Resource": {
-								"Fn::Join": [
-									"",
-									[
-										{
-											"Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
-										},
-										{
-											"Ref": "AWS::Region"
-										},
-										":",
-										{
-											"Ref": "AWS::AccountId"
-										},
-										":",
-										{
-											"Fn::GetAtt": [
-												"NeptuneDBCluster",
-												"ClusterResourceId"
-											]
-										},
-										"/*"
-									]
-								]
-							},
-							"Condition": {
-								"StringEquals": {
-									"neptune-db:QueryLanguage": "OpenCypher"
-								}
-							}
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"PostgresDataAccessPolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-pg-db-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"rds-db:connect"
-							],
-							"Resource": {
-								"Fn::Join": [
-									"",
-									[
-										{
-											"Fn::Sub": "arn:${AWS::Partition}:rds-db:"
-										},
-										{
-											"Ref": "AWS::Region"
-										},
-										":",
-										{
-											"Ref": "AWS::AccountId"
-										},
-										":dbuser:",
-										{
-											"Fn::GetAtt": [
-												"PostgresCluster",
-												"DBClusterResourceId"
-											]
-										},
-										"/graphrag"
-									]
-								]
-							}
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"PostgresClusterParameterGroup": {
-			"Type": "AWS::RDS::DBClusterParameterGroup",
-			"Properties": {
-				"DBClusterParameterGroupName": {
-					"Fn::Sub": "pg-cluster-params-${ApplicationId}"
-				},
-				"Description": "PostgreSQL cluster parameter group",
-				"Family": "aurora-postgresql16",
-				"Parameters": {
-					"client_encoding": "UTF8"
-				},
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "pg-cluster-params-${ApplicationId}"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"PostgresDBParameterGroup": {
-			"Type": "AWS::RDS::DBParameterGroup",
-			"Properties": {
-				"DBParameterGroupName": {
-					"Fn::Sub": "pg-params-${ApplicationId}"
-				},
-				"Description": "PostgreSQL parameter group",
-				"Family": "aurora-postgresql16",
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "pg-params-${ApplicationId}"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"PostgresCluster": {
-			"UpdateReplacePolicy": "Snapshot",
-			"Type": "AWS::RDS::DBCluster",
-			"Properties": {
-				"DBClusterIdentifier": {
-					"Fn::Sub": "${ApplicationId}-pg-cluster"
-				},
-				"DBClusterParameterGroupName": {
-					"Ref": "PostgresClusterParameterGroup"
-				},
-				"DBSubnetGroupName": {
-					"Ref": "PostgresSubnetGroup"
-				},
-				"DatabaseName": "postgres",
-				"EnableHttpEndpoint": true,
-				"EnableIAMDatabaseAuthentication": true,
-				"Engine": "aurora-postgresql",
-				"EngineVersion": "16.6",
-				"Port": "5432",
-				"ManageMasterUserPassword": true,
-				"MasterUsername": "pgmasteruser",
-				"ServerlessV2ScalingConfiguration": {
-					"MaxCapacity": {
-						"Ref": "MaxACU"
-					},
-					"MinCapacity": {
-						"Ref": "MinACU"
-					},
-					"SecondsUntilAutoPause": 3600
-				},
-				"StorageEncrypted": true,
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-pg-cluster"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				],
-				"VpcSecurityGroupIds": [
-					{
-						"Ref": "PostgresSecurityGroup"
-					}
-				]
-			},
-			"DependsOn": [
-				"PostgresSubnetGroup",
-				"PostgresClusterParameterGroup"
-			]
-		},
-		"PostgresInstance": {
-			"Type": "AWS::RDS::DBInstance",
-			"Properties": {
-				"DBClusterIdentifier": {
-					"Ref": "PostgresCluster"
-				},
-				"DBInstanceClass": {
-					"Ref": "PostgresDbInstanceType"
-				},
-				"DBInstanceIdentifier": {
-					"Fn::Sub": "${ApplicationId}-pg-db-1"
-				},
-				"Engine": "aurora-postgresql",
-				"EngineVersion": "16.6",
-				"AutoMinorVersionUpgrade": true,
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-pg-db-1"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			},
-			"DependsOn": [
-				"PostgresCluster",
-				"PostgresDBParameterGroup"
-			]
-		},
-		"NeptuneDBClusterParameterGroup": {
-			"Type": "AWS::Neptune::DBClusterParameterGroup",
-			"Properties": {
-				"Name": {
-					"Fn::Sub": "neptune-cluster-params-${ApplicationId}"
-				},
-				"Family": "neptune1.4",
-				"Description": "Neptune cluster parameter group",
-				"Parameters": {
-					"neptune_enable_audit_log": {
-						"Fn::If": [
-							"AuditLogEnabled",
-							1,
-							0
-						]
-					}
-				},
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "neptune-cluster-params-${ApplicationId}"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"NeptuneDBParameterGroup": {
-			"Type": "AWS::Neptune::DBParameterGroup",
-			"Properties": {
-				"Name": {
-					"Fn::Sub": "neptune-params-${ApplicationId}"
-				},
-				"Family": "neptune1.4",
-				"Description": "Neptune parameter group",
-				"Parameters": {
-					"neptune_query_timeout": 60000
-				},
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "neptune-params-${ApplicationId}"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"NeptuneDBCluster": {
-			"Type": "AWS::Neptune::DBCluster",
-			"Properties": {
-				"DBClusterIdentifier": {
-					"Fn::Sub": "${ApplicationId}-neptune-cluster"
-				},
-				"EngineVersion": {
-					"Ref": "NeptuneEngineVersion"
-				},
-				"DBSubnetGroupName": {
-					"Ref": "NeptuneDBSubnetGroup"
-				},
-				"VpcSecurityGroupIds": [
-					{
-						"Ref": "NeptuneSecurityGroup"
-					}
-				],
-				"DBClusterParameterGroupName": {
-					"Ref": "NeptuneDBClusterParameterGroup"
-				},
-				"Port": "8182",
-				"IamAuthEnabled": true,
-				"ServerlessScalingConfiguration": {
-					"MaxCapacity": {
-						"Ref": "MaxNCU"
-					},
-					"MinCapacity": {
-						"Ref": "MinNCU"
-					}
-				},
-				"StorageEncrypted": true,
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-neptune-cluster"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			},
-			"DependsOn": [
-				"NeptuneDBSubnetGroup",
-				"NeptuneDBClusterParameterGroup"
-			]
-		},
-		"NeptuneDBInstance": {
-			"Type": "AWS::Neptune::DBInstance",
-			"Properties": {
-				"DBInstanceIdentifier": {
-					"Fn::Sub": "${ApplicationId}-neptune-db-1"
-				},
-				"DBClusterIdentifier": {
-					"Ref": "NeptuneDBCluster"
-				},
-				"DBInstanceClass": {
-					"Ref": "NeptuneDbInstanceType"
-				},
-				"DBParameterGroupName": {
-					"Ref": "NeptuneDBParameterGroup"
-				},
-				"AutoMinorVersionUpgrade": true,
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": {
-							"Fn::Sub": "${ApplicationId}-neptune-db-1"
-						}
-					},
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			},
-			"DependsOn": [
-				"NeptuneDBCluster",
-				"NeptuneDBParameterGroup"
-			]
-		},
-		"NeptuneNotebookInstance": {
-			"Type": "AWS::SageMaker::NotebookInstance",
-			"Properties": {
-				"InstanceType": {
-					"Ref": "NotebookInstanceType"
-				},
-				"PlatformIdentifier": "notebook-al2-v3",
-				"NotebookInstanceName": {
-					"Fn::Sub": "aws-neptune-${ApplicationId}"
-				},
-				"SubnetId": {
-					"Ref": "NotebookSubnetId"
-				},
-				"SecurityGroupIds": [
-					{
-						"Ref": "GraphRAGClientSecurityGroup"
-					}
-				],
-				"RoleArn": {
-					"Fn::GetAtt": [
-						"GraphRAGClientRole",
-						"Arn"
-					]
-				},
-				"LifecycleConfigName": {
-					"Fn::GetAtt": [
-						"NeptuneNotebookInstanceLifecycleConfig",
-						"NotebookInstanceLifecycleConfigName"
-					]
-				},
-				"Tags": [
-					{
-						"Key": "StackId",
-						"Value": {
-							"Fn::Sub": "${AWS::StackId}"
-						}
-					},
-					{
-						"Key": "Stack",
-						"Value": {
-							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-						}
-					},
-					{
-						"Key": "Application",
-						"Value": {
-							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-						}
-					}
-				]
-			}
-		},
-		"NeptuneNotebookInstanceLifecycleConfig": {
-			"Type": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
-			"Properties": {
-				"OnStart": [
-					{
-						"Content": {
-							"Fn::Base64": {
-								"Fn::Join": [
-									"",
-									[
-										"#!/bin/bash\n\n",
-										"sudo -u ec2-user -i <<'EOF'\n",
-										"\n",
-										"sudo pip install packaging==24.2\n",
-										"echo \"export STACK_ID=",
-										{
-											"Ref": "AWS::StackId"
-										},
-										"echo \"export EXTRACTION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
-										"echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
-										"echo \"export RESPONSE_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export EVALUATION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_PORT=",
-										{
-											"Fn::GetAtt": [
-												"NeptuneDBCluster",
-												"Port"
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_STORE=",
-										{
-											"Fn::Sub": [
-												"neptune-db://${graphid}",
-												{
-													"graphid": {
-														"Fn::GetAtt": [
-															"NeptuneDBCluster",
-															"Endpoint"
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export VECTOR_STORE=",
-										{
-											"Fn::Sub": [
-												"postgresql://graphrag@${endpoint}:${port}/postgres?enable_iam_db_auth=True",
-												{
-													"endpoint": {
-														"Fn::GetAtt": [
-															"PostgresCluster",
-															"Endpoint.Address"
-														]
-													},
-													"port": {
-														"Fn::GetAtt": [
-															"PostgresCluster",
-															"Endpoint.Port"
-														]
-													}
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> ~/.bashrc\n",
-										"echo \"export GRAPH_NOTEBOOK_HOST=",
-										{
-											"Fn::GetAtt": [
-												"NeptuneDBCluster",
-												"Endpoint"
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export AWS_REGION=",
-										{
-											"Ref": "AWS::Region"
-										},
-										"\" >> ~/.bashrc\n\n",
-										"echo \"export LOCAL_EXTRACT_S3=",
-										{
-											"Fn::Select": [
-												5,
-												{
-													"Fn::Split": [
-														":",
-														{
-															"Ref": "GraphRAGS3BucketArn"
-														}
-													]
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-										"echo \"export PROMPT_S3=",
-										{
-											"Fn::Select": [
-												5,
-												{
-													"Fn::Split": [
-														":",
-														{
-															"Ref": "GraphRAGPromptS3BucketArn"
-														}
-													]
-												}
-											]
-										},
-										"\" >> ~/.bashrc\n",
-
-										"\n",
-										"aws s3 cp s3://",
-										{
-											"Fn::If": [
-												"IsIadRegion",
-												"aws-neptune-notebook",
-												{
-													"Fn::Sub": "aws-neptune-notebook-${AWS::Region}"
-												}
-											]
-										},
-										"/graph_notebook.tar.gz /tmp/graph_notebook.tar.gz\n",
-										"rm -rf /tmp/graph_notebook\n",
-										"tar -zxvf /tmp/graph_notebook.tar.gz -C /tmp\n",
-										"chmod +x /tmp/graph_notebook/install_jl4x.sh\n",
-										"/tmp/graph_notebook/install_jl4x.sh\n",
-										"\n",
-										"cd /home/ec2-user/SageMaker\n",
-										"if [ ! -d graphrag-toolkit ]; then\n",
-										"  mkdir graphrag-toolkit\n",
-										"  chmod -R 777 graphrag-toolkit\n",
-										{
-											"Fn::If": [
-												"ExampleNotebooksURLIsNotBlank",
-												{
-													"Fn::Join": [
-														"",
-														[
-															"  curl -LO \"",
-															{
-																"Ref": "ExampleNotebooksURL"
-															},
-															"\" -o lexical-graph-examples.zip\n",
-															"  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
-															"  rm -rf lexical-graph-examples.zip\n"
-														]
-													]
-												},
-												{
-													"Ref": "AWS::NoValue"
-												}
-											]
-										},
-										"  cd graphrag-toolkit\n",
-										"  echo \"export GRAPH_STORE=",
-										{
-											"Fn::Sub": [
-												"neptune-db://${graphid}",
-												{
-													"graphid": {
-														"Fn::GetAtt": [
-															"NeptuneDBCluster",
-															"Endpoint"
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export VECTOR_STORE=",
-										{
-											"Fn::Sub": [
-												"postgresql://graphrag@${endpoint}:${port}/postgres?enable_iam_db_auth=True",
-												{
-													"endpoint": {
-														"Fn::GetAtt": [
-															"PostgresCluster",
-															"Endpoint.Address"
-														]
-													},
-													"port": {
-														"Fn::GetAtt": [
-															"PostgresCluster",
-															"Endpoint.Port"
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export EXTRACTION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
-										"  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
-										"  echo \"export RESPONSE_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										"  echo \"export EVALUATION_MODEL=",
-										{
-											"Fn::Sub": [
-												"${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-												{
-													"partition": {
-														"Ref": "AWS::Partition"
-													},
-													"region": {
-														"Ref": "AWS::Region"
-													},
-													"accountId": {
-														"Ref": "AWS::AccountId"
-													},
-													"regionPrefix": {
-														"Fn::Select": [
-															0,
-															{
-																"Fn::Split": [
-																	"-",
-																	{
-																		"Ref": "AWS::Region"
-																	}
-																]
-															}
-														]
-													}
-												}
-											]
-										},
-										"\" >> .env\n",
-										" echo \"export LOCAL_EXTRACT_S3=",
-										{
-										  "Fn::Select": [
-											5,
-											{
-											  "Fn::Split": [
-												":",
-												{
-												  "Ref": "GraphRAGS3BucketArn"
-												}
-											  ]
-											}
-										  ]
-										},
-										"\" >> .env\n",
-										" echo \"export PROMPT_S3=",
-										{
-										  "Fn::Select": [
-											5,
-											{
-											  "Fn::Split": [
-												":",
-												{
-												  "Ref": "GraphRAGPromptS3BucketArn"
-												}
-											  ]
-											}
-										  ]
-										},
-										"\" >> .env\n",
-										"  echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> .env\n",
-										"  echo \"export GRAPH_NOTEBOOK_SSL=True\" >> .env\n",
-										"  echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> .env\n",
-										"  echo \"export GRAPH_NOTEBOOK_PORT=",
-										{
-										  "Fn::GetAtt": ["NeptuneDBCluster", "Port"]
-										},
-										"\" >> .env\n",
-										"  echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> .env\n",
-										"  echo \"export GRAPH_NOTEBOOK_HOST=",
-										{
-										  "Fn::GetAtt": ["NeptuneDBCluster", "Endpoint"]
-										},
-										"\" >> .env\n",
-										"  echo \"export AWS_REGION=",
-										{
-										  "Ref": "AWS::Region"
-										},
-										"\" >> .env\n",
-										"  if [ -f \"./run_test_suite.sh\" ]\n",
-										"  then\n",
-										"    echo \"Running test suite\"\n",
-										"    screen -L -m -d sh run_test_suite.sh\n",
-										"  else\n",
-										"    echo \"No test suite\"\n",
-										"  fi\n",
-										"fi\n",
-										"EOF"
-									]
-								]
-							}
-						}
-					}
-				]
-			}
-		},
-		"InitPostgresFunctionRole": {
-			"Type": "AWS::IAM::Role",
-			"Properties": {
-				"AssumeRolePolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Principal": {
-								"Service": [
-									"lambda.amazonaws.com"
-								]
-							},
-							"Action": [
-								"sts:AssumeRole"
-							]
-						}
-					]
-				},
-				"Path": "/graphrag-toolkit/",
-				"Policies": [
-					{
-						"PolicyName": "root",
-						"PolicyDocument": {
-							"Version": "2012-10-17",
-							"Statement": [
-								{
-									"Effect": "Allow",
-									"Action": "logs:CreateLogGroup",
-									"Resource": {
-										"Fn::Join": [
-											"",
-											[
-												{
-													"Fn::Sub": "arn:${AWS::Partition}:logs:"
-												},
-												{
-													"Ref": "AWS::Region"
-												},
-												":",
-												{
-													"Ref": "AWS::AccountId"
-												},
-												":*"
-											]
-										]
-									}
-								},
-								{
-									"Effect": "Allow",
-									"Action": [
-										"logs:CreateLogStream",
-										"logs:PutLogEvents"
-									],
-									"Resource": {
-										"Fn::Join": [
-											"",
-											[
-												{
-													"Fn::Sub": "arn:${AWS::Partition}:logs:"
-												},
-												{
-													"Ref": "AWS::Region"
-												},
-												":",
-												{
-													"Ref": "AWS::AccountId"
-												},
-												":log-group:/aws/lambda/",
-												{
-													"Fn::Sub": "${ApplicationId}-init-pg"
-												},
-												":*"
-											]
-										]
-									}
-								},
-								{
-									"Effect": "Allow",
-									"Action": [
-										"secretsmanager:GetSecretValue"
-									],
-									"Resource": {
-										"Fn::GetAtt": [
-											"PostgresCluster",
-											"MasterUserSecret.SecretArn"
-										]
-									}
-								},
-								{
-									"Effect": "Allow",
-									"Action": [
-										"rds-data:BatchExecuteStatement",
-										"rds-data:BeginTransaction",
-										"rds-data:CommitTransaction",
-										"rds-data:ExecuteStatement",
-										"rds-data:RollbackTransaction"
-									],
-									"Resource": {
-										"Fn::Join": [
-											"",
-											[
-												{
-													"Fn::Sub": "arn:${AWS::Partition}:rds:"
-												},
-												{
-													"Ref": "AWS::Region"
-												},
-												":",
-												{
-													"Ref": "AWS::AccountId"
-												},
-												":cluster:",
-												{
-													"Ref": "PostgresCluster"
-												}
-											]
-										]
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		"InitPostgresFunction": {
-			"Type": "AWS::Lambda::Function",
-			"Properties": {
-				"FunctionName": {
-					"Fn::Sub": "${ApplicationId}-init-pg"
-				},
-				"Handler": "index.lambda_handler",
-				"Role": {
-					"Fn::GetAtt": [
-						"InitPostgresFunctionRole",
-						"Arn"
-					]
-				},
-				"Code": {
-					"ZipFile": {
-						"Fn::Join": [
-							"",
-							[
-								"import json\n",
-								"import boto3\n",
-								"import cfnresponse\n",
-								"import logging\n",
-								"\n",
-								"logger = logging.getLogger()\n",
-								"logger.setLevel(logging.INFO)\n",
-								"\n",
-								"rds_data = boto3.client('rds-data')\n",
-								"    \n",
-								"def execute_sql(sql, cluster_arn, secret_arn):\n",
-								"    rds_data.execute_statement(\n",
-								"        resourceArn = cluster_arn,\n",
-								"        secretArn = secret_arn,\n",
-								"        database = 'postgres',\n",
-								"        sql = sql\n",
-								"    )\n",
-								"\n",
-								"def lambda_handler(event, context):\n",
-								"    \n",
-								"    logger.info('Event: {}'.format(event))\n",
-								"    logger.info('Context: {}'.format(context))\n",
-								"    \n",
-								"    cluster_arn = event['ResourceProperties']['ClusterArn']\n",
-								"    secret_arn = event['ResourceProperties']['SecretArn']\n",
-								"    \n",
-								"    if event['RequestType'] == 'Create' or event['RequestType'] == 'Update':\n",
-								"        \n",
-								"        try:\n",
-								"            \n",
-								"            logger.info('Begin Postgres setup')\n",
-								"\n",
-								"            execute_sql('CREATE EXTENSION IF NOT EXISTS vector;', cluster_arn, secret_arn)\n",
-								"            execute_sql(\"\"\"DO\n",
-								"            $$\n",
-								"            BEGIN\n",
-								"              IF NOT EXISTS (SELECT * FROM pg_user WHERE usename = 'graphrag') THEN\n",
-								"                 CREATE USER graphrag;\n",
-								"              END IF;\n",
-								"            END\n",
-								"            $$\n",
-								"            ;\n",
-								"            \"\"\", cluster_arn, secret_arn)\n",
-								"            execute_sql('CREATE SCHEMA IF NOT EXISTS graphrag;', cluster_arn, secret_arn)\n",
-								"            execute_sql('GRANT CONNECT ON DATABASE postgres TO graphrag;', cluster_arn, secret_arn)\n",
-								"            execute_sql('GRANT ALL PRIVILEGES ON SCHEMA graphrag TO graphrag;', cluster_arn, secret_arn)\n",
-								"            execute_sql('GRANT rds_iam TO graphrag;', cluster_arn, secret_arn)\n",
-								"            \n",
-								"            logger.info('Postgres setup complete')\n",
-								"            \n",
-								"            cfnresponse.send(event, \n",
-								"                context, \n",
-								"                cfnresponse.SUCCESS, \n",
-								"                {\n",
-								"                    'ClusterArn': cluster_arn, \n",
-								"                }, \n",
-								"                context.log_stream_name\n",
-								"            )\n",
-								"        \n",
-								"        except Exception as e:\n",
-								"            cfnresponse.send(event, context, cfnresponse.FAILED, { 'Message': str(e) }, context.log_stream_name)\n",
-								"                \n",
-								"    elif event['RequestType'] == 'Delete':\n",
-								"        \n",
-								"        logger.info('Delet request - do nothing')\n",
-								"        \n",
-								"        cfnresponse.send(event, \n",
-								"            context, \n",
-								"            cfnresponse.SUCCESS, \n",
-								"            {\n",
-								"                'ClusterArn': cluster_arn, \n",
-								"            }, \n",
-								"            context.log_stream_name\n",
-								"        )\n",
-								"        \n",
-								"    else:\n",
-								"        cfnresponse.send(event, context, cfnresponse.FAILED, { 'Message': 'Expected a Create, Delete or Update request' }, context.log_stream_name)\n"
-							]
-						]
-					}
-				},
-				"MemorySize": 128,
-				"Runtime": "python3.13",
-				"Timeout": "900"
-			}
-		},
-		"CustomInitPostgres": {
-			"Type": "Custom::CustomResource",
-			"Properties": {
-				"ServiceToken": {
-					"Fn::GetAtt": [
-						"InitPostgresFunction",
-						"Arn"
-					]
-				},
-				"ClusterArn": {
-					"Fn::GetAtt": [
-						"PostgresCluster",
-						"DBClusterArn"
-					]
-				},
-				"SecretArn": {
-					"Fn::GetAtt": [
-						"PostgresCluster",
-						"MasterUserSecret.SecretArn"
-					]
-				}
-			},
-			"DependsOn": [
-				"PostgresInstance"
-			]
-		}
-	},
-	"Outputs": {
-		"NeptuneClusterId": {
-			"Description": "Neptune cluster ID",
-			"Value": {
-				"Ref": "NeptuneDBCluster"
-			}
-		},
-		"NeptuneClusterEndpoint": {
-			"Description": "Neptune cluster endpoint",
-			"Value": {
-				"Fn::GetAtt": [
-					"NeptuneDBCluster",
-					"Endpoint"
-				]
-			}
-		},
-		"PostgresClusterId": {
-			"Description": "Postgres cluster ID",
-			"Value": {
-				"Ref": "PostgresCluster"
-			}
-		},
-		"PostgresClusterEndpoint": {
-			"Description": "Postgres cluster endpoint",
-			"Value": {
-				"Fn::GetAtt": [
-					"PostgresCluster",
-					"Endpoint.Address"
-				]
-			}
-		},
-		"GraphRAGClientSecurityGroup": {
-			"Description": "GraphRAG client security group",
-			"Value": {
-				"Ref": "GraphRAGClientSecurityGroup"
-			}
-		},
-		"NeptuneSagemakerNotebook": {
-			"Description": "SageMaker notebook URL",
-			"Value": {
-				"Fn::Join": [
-					"",
-					[
-						"https://",
-						{
-							"Fn::Select": [
-								1,
-								{
-									"Fn::Split": [
-										"/",
-										{
-											"Ref": "NeptuneNotebookInstance"
-										}
-									]
-								}
-							]
-						},
-						".notebook.",
-						{
-							"Ref": "AWS::Region"
-						},
-						".sagemaker.aws/nbclassic/tree"
-					]
-				]
-			}
-		},
-		"GraphRAGS3BucketArn": {
-			"Description": "ARN of the specified GraphRAG Extract S3 bucket",
-			"Value": {
-				"Ref": "GraphRAGS3BucketArn"
-			}
-		},
-		"GraphRAGPromptS3BucketArn": {
-			"Description": "ARN of the specified GraphRAG Prompt S3 bucket",
-			"Value": {
-				"Ref": "GraphRAGPromptS3BucketArn"
-			}
-		},
-		"VPC": {
-			"Description": "Existing VPC ID",
-			"Value": {
-				"Ref": "VPCId"
-			}
-		}
-	}
+  "Description": "Creates a lexical-graph environment (Neptune Database, Aurora Postgres, and SageMaker notebook) in an existing VPC",
+  "Parameters": {
+    "ApplicationId": {
+      "Description": "Application id (used to name all resources in the environment)",
+      "Type": "String",
+      "Default": "graphrag-toolkit",
+      "AllowedPattern": "[a-z][a-z0-9-]*",
+      "MaxLength": 16,
+      "MinLength": 3,
+      "ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
+    },
+    "VPCId": {
+      "Description": "ID of the existing VPC",
+      "Type": "AWS::EC2::VPC::Id",
+      "ConstraintDescription": "Must be a valid VPC ID"
+    },
+    "SubnetId1": {
+      "Description": "ID of the first subnet (used for Neptune and Aurora Postgres)",
+      "Type": "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "Must be a valid subnet ID in the specified VPC"
+    },
+    "SubnetId2": {
+      "Description": "ID of the second subnet (used for Neptune and Aurora Postgres)",
+      "Type": "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "Must be a valid subnet ID in the specified VPC"
+    },
+    "SubnetId3": {
+      "Description": "ID of the third subnet (optional, used for Neptune and Aurora Postgres if provided)",
+      "Type": "String",
+      "Default": "",
+      "ConstraintDescription": "Must be a valid subnet ID in the specified VPC or empty"
+    },
+    "NotebookSubnetId": {
+      "Description": "ID of the subnet for the SageMaker notebook (must have internet access)",
+      "Type": "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "Must be a valid subnet ID in the specified VPC with internet access"
+    },
+    "NeptuneDbInstanceType": {
+      "Description": "Neptune DB instance type (use db.serverless to provision a Neptune Serverless cluster)",
+      "Type": "String",
+      "Default": "db.serverless",
+      "AllowedValues": [
+        "db.serverless",
+        "db.r8g.large",
+        "db.r8g.xlarge",
+        "db.r8g.2xlarge",
+        "db.r8g.4xlarge"
+      ],
+      "ConstraintDescription": "Must be a valid Neptune instance type."
+    },
+    "NeptuneEngineVersion": {
+      "Description": "Neptune DB engine version",
+      "Type": "String",
+      "Default": "1.4.6.2"
+    },
+    "MinNCU": {
+      "Description": "Min number of NCUs (default 2.5, relevant only when instance type is db.serverless).",
+      "Type": "Number",
+      "Default": 2.5,
+      "MaxValue": 128,
+      "MinValue": 1
+    },
+    "MaxNCU": {
+      "Description": "Max number of NCUs (default 32, relevant only when instance type is db.serverless).",
+      "Type": "Number",
+      "Default": 32,
+      "MaxValue": 128,
+      "MinValue": 1
+    },
+    "EnableAuditLog": {
+      "Description": "Enable database auditing logging",
+      "Type": "String",
+      "Default": "false",
+      "AllowedValues": [
+        "true",
+        "false"
+      ]
+    },
+    "PostgresDbInstanceType": {
+      "Description": "Aurora Postgres DB instance type (use db.serverless to provision an Aurora Serverless cluster)",
+      "Type": "String",
+      "Default": "db.serverless",
+      "AllowedValues": [
+        "db.serverless",
+        "db.r6g.large",
+        "db.r6g.xlarge",
+        "db.r6g.2xlarge"
+      ],
+      "ConstraintDescription": "Must be a valid Aurora instance type."
+    },
+    "MinACU": {
+      "Description": "Min number of ACUs (default 0, relevant only when instance type is db.serverless).",
+      "Type": "Number",
+      "Default": 0,
+      "MaxValue": 128,
+      "MinValue": 0
+    },
+    "MaxACU": {
+      "Description": "Max number of ACUs (default 32, relevant only when instance type is db.serverless).",
+      "Type": "Number",
+      "Default": 32,
+      "MaxValue": 128,
+      "MinValue": 0.5
+    },
+    "IamPolicyArn": {
+      "Type": "String",
+      "Description": "ARN of an additional IAM policy to be attached to the GraphRAG client IAM role (optional)",
+      "Default": ""
+    },
+    "NotebookInstanceType": {
+      "Description": "SageMaker notebook instance type (use ml.p3.2xlarge to provision a GPU instance)",
+      "Type": "String",
+      "Default": "ml.m5.xlarge",
+      "AllowedValues": [
+        "ml.m5.xlarge",
+        "ml.m5.2xlarge",
+        "ml.m5.4xlarge",
+        "ml.p3.2xlarge"
+      ],
+      "ConstraintDescription": "Must be a valid SageMaker instance type."
+    },
+    "GraphRAGS3BucketArn": {
+      "Type": "String",
+      "Description": "ARN of an existing S3 bucket for GraphRAG data (e.g., arn:aws:s3:::my-bucket)",
+      "ConstraintDescription": "Must be a valid S3 bucket ARN"
+    },
+    "GraphRAGPromptS3BucketArn": {
+      "Type": "String",
+      "Description": "ARN of an existing S3 bucket for GraphRAG prompt (e.g., arn:aws:s3:::my-bucket)",
+      "ConstraintDescription": "Must be a valid S3 bucket ARN"
+    },
+    "ExampleNotebooksURL": {
+      "Type": "String",
+      "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
+      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip"
+    }
+  },
+  "Metadata": {
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [
+        {
+          "Label": {
+            "default": "Setup"
+          },
+          "Parameters": [
+            "ApplicationId"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Network"
+          },
+          "Parameters": [
+            "VPCId",
+            "SubnetId1",
+            "SubnetId2",
+            "SubnetId3",
+            "NotebookSubnetId"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Neptune"
+          },
+          "Parameters": [
+            "NeptuneDbInstanceType",
+            "MinNCU",
+            "MaxNCU",
+            "EnableAuditLog"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Aurora Postgres"
+          },
+          "Parameters": [
+            "PostgresDbInstanceType",
+            "MinACU",
+            "MaxACU"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Notebook"
+          },
+          "Parameters": [
+            "NotebookInstanceType",
+            "ExampleNotebooksURL",
+            "IamPolicyArn"
+          ]
+        }
+      ]
+    }
+  },
+  "Conditions": {
+    "ExampleNotebooksURLIsNotBlank": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "ExampleNotebooksURL"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "IsIadRegion": {
+      "Fn::Equals": [
+        {
+          "Ref": "AWS::Region"
+        },
+        "us-east-1"
+      ]
+    },
+    "SubnetId3IsProvided": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "SubnetId3"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "AddIamPolicyArn": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "IamPolicyArn"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "AuditLogEnabled": {
+      "Fn::Equals": [
+        {
+          "Ref": "EnableAuditLog"
+        },
+        "true"
+      ]
+    }
+  },
+  "Resources": {
+    "NeptuneDBSubnetGroup": {
+      "Type": "AWS::Neptune::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "Neptune DB subnet group",
+        "DBSubnetGroupName": {
+          "Fn::Sub": "${ApplicationId}-neptune-subnet"
+        },
+        "SubnetIds": {
+          "Fn::If": [
+            "SubnetId3IsProvided",
+            [
+              {
+                "Ref": "SubnetId1"
+              },
+              {
+                "Ref": "SubnetId2"
+              },
+              {
+                "Ref": "SubnetId3"
+              }
+            ],
+            [
+              {
+                "Ref": "SubnetId1"
+              },
+              {
+                "Ref": "SubnetId2"
+              }
+            ]
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-neptune-subnet"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "PostgresSubnetGroup": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "PostgreSQL subnet group",
+        "DBSubnetGroupName": {
+          "Fn::Sub": "${ApplicationId}-pg-subnet"
+        },
+        "SubnetIds": {
+          "Fn::If": [
+            "SubnetId3IsProvided",
+            [
+              {
+                "Ref": "SubnetId1"
+              },
+              {
+                "Ref": "SubnetId2"
+              },
+              {
+                "Ref": "SubnetId3"
+              }
+            ],
+            [
+              {
+                "Ref": "SubnetId1"
+              },
+              {
+                "Ref": "SubnetId2"
+              }
+            ]
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-pg-subnet"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "GraphRAGClientSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupName": {
+          "Fn::Sub": "${ApplicationId}-client-sg"
+        },
+        "VpcId": {
+          "Ref": "VPCId"
+        },
+        "GroupDescription": "GraphRAG client security group",
+        "SecurityGroupEgress": [
+          {
+            "FromPort": 443,
+            "ToPort": 443,
+            "IpProtocol": "tcp",
+            "CidrIp": "0.0.0.0/0",
+            "Description": "HTTPS egress"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-client-sg"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "NeptuneSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupName": {
+          "Fn::Sub": "${ApplicationId}-neptune-sg"
+        },
+        "VpcId": {
+          "Ref": "VPCId"
+        },
+        "GroupDescription": "GraphRAG Neptune security group",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-neptune-sg"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "PostgresSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupName": {
+          "Fn::Sub": "${ApplicationId}-pg-sg"
+        },
+        "VpcId": {
+          "Ref": "VPCId"
+        },
+        "GroupDescription": "PostgreSQL security group",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-pg-sg"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "GraphRAGClientSecurityGroupToNeptuneEgress": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "FromPort": 8182,
+        "ToPort": 8182,
+        "DestinationSecurityGroupId": {
+          "Fn::GetAtt": [
+            "NeptuneSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        }
+      }
+    },
+    "GraphRAGClientSecurityGroupToPostgresEgress": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "FromPort": 5432,
+        "ToPort": 5432,
+        "DestinationSecurityGroupId": {
+          "Fn::GetAtt": [
+            "PostgresSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        }
+      }
+    },
+    "NeptuneSecurityGroupIngress": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "FromPort": 8182,
+        "ToPort": 8182,
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "NeptuneSecurityGroup",
+            "GroupId"
+          ]
+        }
+      }
+    },
+    "PostgresSecurityGroupIngress": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "FromPort": 5432,
+        "ToPort": 5432,
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "PostgresSecurityGroup",
+            "GroupId"
+          ]
+        }
+      }
+    },
+    "GraphRAGClientRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "sagemaker.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::If": [
+              "AddIamPolicyArn",
+              {
+                "Ref": "IamPolicyArn"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "GraphRAGClientRolePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-graphrag-client-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "S3ListBucketAndGetObject",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Fn::If": [
+                    "IsIadRegion",
+                    "arn:aws:s3:::aws-neptune-notebook",
+                    {
+                      "Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}"
+                    }
+                  ]
+                },
+                {
+                  "Fn::If": [
+                    "IsIadRegion",
+                    "arn:aws:s3:::aws-neptune-notebook/*",
+                    {
+                      "Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}/*"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "LogGroupAccess",
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/sagemaker/*"
+                }
+              ]
+            },
+            {
+              "Sid": "GraphRAGS3BucketAccess",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Ref": "GraphRAGS3BucketArn"
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "GraphRAGS3BucketArn"
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Ref": "GraphRAGPromptS3BucketArn"
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "GraphRAGPromptS3BucketArn"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "SageMakerNotebookAccess",
+              "Effect": "Allow",
+              "Action": "sagemaker:DescribeNotebookInstance",
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:sagemaker:${AWS::Region}:${AWS::AccountId}:notebook-instance/*"
+                }
+              ]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "BedrockInvokeModelPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-bedrock-invoke-model-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-haiku-20241022-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.rerank-v3-5:0"
+                }
+              ]
+            },
+            {
+              "Action": [
+                "bedrock:Rerank"
+              ],
+              "Resource": [
+                "*"
+              ],
+              "Effect": "Allow"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "NeptuneDBDataAccessReadPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-neptune-db-read-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "neptune-db:ReadDataViaQuery"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "ClusterResourceId"
+                      ]
+                    },
+                    "/*"
+                  ]
+                ]
+              },
+              "Condition": {
+                "StringEquals": {
+                  "neptune-db:QueryLanguage": "OpenCypher"
+                }
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "NeptuneDBDataAccessWritePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-neptune-db-write-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "neptune-db:WriteDataViaQuery",
+                "neptune-db:DeleteDataViaQuery"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "ClusterResourceId"
+                      ]
+                    },
+                    "/*"
+                  ]
+                ]
+              },
+              "Condition": {
+                "StringEquals": {
+                  "neptune-db:QueryLanguage": "OpenCypher"
+                }
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "PostgresDataAccessPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-pg-db-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "rds-db:connect"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:rds-db:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":dbuser:",
+                    {
+                      "Fn::GetAtt": [
+                        "PostgresCluster",
+                        "DBClusterResourceId"
+                      ]
+                    },
+                    "/graphrag"
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "PostgresClusterParameterGroup": {
+      "Type": "AWS::RDS::DBClusterParameterGroup",
+      "Properties": {
+        "DBClusterParameterGroupName": {
+          "Fn::Sub": "pg-cluster-params-${ApplicationId}"
+        },
+        "Description": "PostgreSQL cluster parameter group",
+        "Family": "aurora-postgresql16",
+        "Parameters": {
+          "client_encoding": "UTF8"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "pg-cluster-params-${ApplicationId}"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "PostgresDBParameterGroup": {
+      "Type": "AWS::RDS::DBParameterGroup",
+      "Properties": {
+        "DBParameterGroupName": {
+          "Fn::Sub": "pg-params-${ApplicationId}"
+        },
+        "Description": "PostgreSQL parameter group",
+        "Family": "aurora-postgresql16",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "pg-params-${ApplicationId}"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "PostgresCluster": {
+      "UpdateReplacePolicy": "Snapshot",
+      "Type": "AWS::RDS::DBCluster",
+      "Properties": {
+        "DBClusterIdentifier": {
+          "Fn::Sub": "${ApplicationId}-pg-cluster"
+        },
+        "DBClusterParameterGroupName": {
+          "Ref": "PostgresClusterParameterGroup"
+        },
+        "DBSubnetGroupName": {
+          "Ref": "PostgresSubnetGroup"
+        },
+        "DatabaseName": "postgres",
+        "EnableHttpEndpoint": true,
+        "EnableIAMDatabaseAuthentication": true,
+        "Engine": "aurora-postgresql",
+        "EngineVersion": "16.6",
+        "Port": "5432",
+        "ManageMasterUserPassword": true,
+        "MasterUsername": "pgmasteruser",
+        "ServerlessV2ScalingConfiguration": {
+          "MaxCapacity": {
+            "Ref": "MaxACU"
+          },
+          "MinCapacity": {
+            "Ref": "MinACU"
+          },
+          "SecondsUntilAutoPause": 3600
+        },
+        "StorageEncrypted": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-pg-cluster"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ],
+        "VpcSecurityGroupIds": [
+          {
+            "Ref": "PostgresSecurityGroup"
+          }
+        ]
+      },
+      "DependsOn": [
+        "PostgresSubnetGroup",
+        "PostgresClusterParameterGroup"
+      ]
+    },
+    "PostgresInstance": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "DBClusterIdentifier": {
+          "Ref": "PostgresCluster"
+        },
+        "DBInstanceClass": {
+          "Ref": "PostgresDbInstanceType"
+        },
+        "DBInstanceIdentifier": {
+          "Fn::Sub": "${ApplicationId}-pg-db-1"
+        },
+        "Engine": "aurora-postgresql",
+        "EngineVersion": "16.6",
+        "AutoMinorVersionUpgrade": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-pg-db-1"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      },
+      "DependsOn": [
+        "PostgresCluster",
+        "PostgresDBParameterGroup"
+      ]
+    },
+    "NeptuneDBClusterParameterGroup": {
+      "Type": "AWS::Neptune::DBClusterParameterGroup",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "neptune-cluster-params-${ApplicationId}"
+        },
+        "Family": "neptune1.4",
+        "Description": "Neptune cluster parameter group",
+        "Parameters": {
+          "neptune_enable_audit_log": {
+            "Fn::If": [
+              "AuditLogEnabled",
+              1,
+              0
+            ]
+          }
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "neptune-cluster-params-${ApplicationId}"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "NeptuneDBParameterGroup": {
+      "Type": "AWS::Neptune::DBParameterGroup",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "neptune-params-${ApplicationId}"
+        },
+        "Family": "neptune1.4",
+        "Description": "Neptune parameter group",
+        "Parameters": {
+          "neptune_query_timeout": 60000
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "neptune-params-${ApplicationId}"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "NeptuneDBCluster": {
+      "Type": "AWS::Neptune::DBCluster",
+      "Properties": {
+        "DBClusterIdentifier": {
+          "Fn::Sub": "${ApplicationId}-neptune-cluster"
+        },
+        "EngineVersion": {
+          "Ref": "NeptuneEngineVersion"
+        },
+        "DBSubnetGroupName": {
+          "Ref": "NeptuneDBSubnetGroup"
+        },
+        "VpcSecurityGroupIds": [
+          {
+            "Ref": "NeptuneSecurityGroup"
+          }
+        ],
+        "DBClusterParameterGroupName": {
+          "Ref": "NeptuneDBClusterParameterGroup"
+        },
+        "Port": "8182",
+        "IamAuthEnabled": true,
+        "ServerlessScalingConfiguration": {
+          "MaxCapacity": {
+            "Ref": "MaxNCU"
+          },
+          "MinCapacity": {
+            "Ref": "MinNCU"
+          }
+        },
+        "StorageEncrypted": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-neptune-cluster"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      },
+      "DependsOn": [
+        "NeptuneDBSubnetGroup",
+        "NeptuneDBClusterParameterGroup"
+      ]
+    },
+    "NeptuneDBInstance": {
+      "Type": "AWS::Neptune::DBInstance",
+      "Properties": {
+        "DBInstanceIdentifier": {
+          "Fn::Sub": "${ApplicationId}-neptune-db-1"
+        },
+        "DBClusterIdentifier": {
+          "Ref": "NeptuneDBCluster"
+        },
+        "DBInstanceClass": {
+          "Ref": "NeptuneDbInstanceType"
+        },
+        "DBParameterGroupName": {
+          "Ref": "NeptuneDBParameterGroup"
+        },
+        "AutoMinorVersionUpgrade": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-neptune-db-1"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      },
+      "DependsOn": [
+        "NeptuneDBCluster",
+        "NeptuneDBParameterGroup"
+      ]
+    },
+    "NeptuneNotebookInstance": {
+      "Type": "AWS::SageMaker::NotebookInstance",
+      "Properties": {
+        "InstanceType": {
+          "Ref": "NotebookInstanceType"
+        },
+        "PlatformIdentifier": "notebook-al2-v3",
+        "NotebookInstanceName": {
+          "Fn::Sub": "aws-neptune-${ApplicationId}"
+        },
+        "SubnetId": {
+          "Ref": "NotebookSubnetId"
+        },
+        "SecurityGroupIds": [
+          {
+            "Ref": "GraphRAGClientSecurityGroup"
+          }
+        ],
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "GraphRAGClientRole",
+            "Arn"
+          ]
+        },
+        "LifecycleConfigName": {
+          "Fn::GetAtt": [
+            "NeptuneNotebookInstanceLifecycleConfig",
+            "NotebookInstanceLifecycleConfigName"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "NeptuneNotebookInstanceLifecycleConfig": {
+      "Type": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+      "Properties": {
+        "OnStart": [
+          {
+            "Content": {
+              "Fn::Base64": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "#!/bin/bash\n\n",
+                    "sudo -u ec2-user -i <<'EOF'\n",
+                    "\n",
+                    "sudo pip install packaging==24.2\n",
+                    "echo \"export STACK_ID=",
+                    {
+                      "Ref": "AWS::StackId"
+                    },
+                    "echo \"export EXTRACTION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
+                    "echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
+                    "echo \"export RESPONSE_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export EVALUATION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_PORT=",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "Port"
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-db://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "NeptuneDBCluster",
+                              "Endpoint"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export VECTOR_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "postgresql://graphrag@${endpoint}:${port}/postgres?enable_iam_db_auth=True",
+                        {
+                          "endpoint": {
+                            "Fn::GetAtt": [
+                              "PostgresCluster",
+                              "Endpoint.Address"
+                            ]
+                          },
+                          "port": {
+                            "Fn::GetAtt": [
+                              "PostgresCluster",
+                              "Endpoint.Port"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_HOST=",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "Endpoint"
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export AWS_REGION=",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "\" >> ~/.bashrc\n\n",
+                    "echo \"export LOCAL_EXTRACT_S3=",
+                    {
+                      "Fn::Select": [
+                        5,
+                        {
+                          "Fn::Split": [
+                            ":",
+                            {
+                              "Ref": "GraphRAGS3BucketArn"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export PROMPT_S3=",
+                    {
+                      "Fn::Select": [
+                        5,
+                        {
+                          "Fn::Split": [
+                            ":",
+                            {
+                              "Ref": "GraphRAGPromptS3BucketArn"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "\n",
+                    "aws s3 cp s3://",
+                    {
+                      "Fn::If": [
+                        "IsIadRegion",
+                        "aws-neptune-notebook",
+                        {
+                          "Fn::Sub": "aws-neptune-notebook-${AWS::Region}"
+                        }
+                      ]
+                    },
+                    "/graph_notebook.tar.gz /tmp/graph_notebook.tar.gz\n",
+                    "rm -rf /tmp/graph_notebook\n",
+                    "tar -zxvf /tmp/graph_notebook.tar.gz -C /tmp\n",
+                    "chmod +x /tmp/graph_notebook/install_jl4x.sh\n",
+                    "/tmp/graph_notebook/install_jl4x.sh\n",
+                    "\n",
+                    "cd /home/ec2-user/SageMaker\n",
+                    "if [ ! -d graphrag-toolkit ]; then\n",
+                    "  mkdir graphrag-toolkit\n",
+                    "  chmod -R 777 graphrag-toolkit\n",
+                    {
+                      "Fn::If": [
+                        "ExampleNotebooksURLIsNotBlank",
+                        {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "  curl -LO \"",
+                              {
+                                "Ref": "ExampleNotebooksURL"
+                              },
+                              "\" -o lexical-graph-examples.zip\n",
+                              "  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
+                              "  rm -rf lexical-graph-examples.zip\n"
+                            ]
+                          ]
+                        },
+                        {
+                          "Ref": "AWS::NoValue"
+                        }
+                      ]
+                    },
+                    "  cd graphrag-toolkit\n",
+                    "  echo \"export GRAPH_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-db://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "NeptuneDBCluster",
+                              "Endpoint"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export VECTOR_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "postgresql://graphrag@${endpoint}:${port}/postgres?enable_iam_db_auth=True",
+                        {
+                          "endpoint": {
+                            "Fn::GetAtt": [
+                              "PostgresCluster",
+                              "Endpoint.Address"
+                            ]
+                          },
+                          "port": {
+                            "Fn::GetAtt": [
+                              "PostgresCluster",
+                              "Endpoint.Port"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EXTRACTION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
+                    "  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
+                    "  echo \"export RESPONSE_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EVALUATION_MODEL=",
+                    {
+                      "Fn::Sub": [
+                        "${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                        {
+                          "partition": {
+                            "Ref": "AWS::Partition"
+                          },
+                          "region": {
+                            "Ref": "AWS::Region"
+                          },
+                          "accountId": {
+                            "Ref": "AWS::AccountId"
+                          },
+                          "regionPrefix": {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    " echo \"export LOCAL_EXTRACT_S3=",
+                    {
+                      "Fn::Select": [
+                        5,
+                        {
+                          "Fn::Split": [
+                            ":",
+                            {
+                              "Ref": "GraphRAGS3BucketArn"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    " echo \"export PROMPT_S3=",
+                    {
+                      "Fn::Select": [
+                        5,
+                        {
+                          "Fn::Split": [
+                            ":",
+                            {
+                              "Ref": "GraphRAGPromptS3BucketArn"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> .env\n",
+                    "  echo \"export GRAPH_NOTEBOOK_SSL=True\" >> .env\n",
+                    "  echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> .env\n",
+                    "  echo \"export GRAPH_NOTEBOOK_PORT=",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "Port"
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> .env\n",
+                    "  echo \"export GRAPH_NOTEBOOK_HOST=",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "Endpoint"
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export AWS_REGION=",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "\" >> .env\n",
+                    "  if [ -f \"./run_test_suite.sh\" ]\n",
+                    "  then\n",
+                    "    echo \"Running test suite\"\n",
+                    "    screen -L -m -d sh run_test_suite.sh\n",
+                    "  else\n",
+                    "    echo \"No test suite\"\n",
+                    "  fi\n",
+                    "fi\n",
+                    "EOF"
+                  ]
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "InitPostgresFunctionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path": "/graphrag-toolkit/",
+        "Policies": [
+          {
+            "PolicyName": "root",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "logs:CreateLogGroup",
+                  "Resource": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        {
+                          "Fn::Sub": "arn:${AWS::Partition}:logs:"
+                        },
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":",
+                        {
+                          "Ref": "AWS::AccountId"
+                        },
+                        ":*"
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        {
+                          "Fn::Sub": "arn:${AWS::Partition}:logs:"
+                        },
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":",
+                        {
+                          "Ref": "AWS::AccountId"
+                        },
+                        ":log-group:/aws/lambda/",
+                        {
+                          "Fn::Sub": "${ApplicationId}-init-pg"
+                        },
+                        ":*"
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "secretsmanager:GetSecretValue"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "PostgresCluster",
+                      "MasterUserSecret.SecretArn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "rds-data:BatchExecuteStatement",
+                    "rds-data:BeginTransaction",
+                    "rds-data:CommitTransaction",
+                    "rds-data:ExecuteStatement",
+                    "rds-data:RollbackTransaction"
+                  ],
+                  "Resource": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        {
+                          "Fn::Sub": "arn:${AWS::Partition}:rds:"
+                        },
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":",
+                        {
+                          "Ref": "AWS::AccountId"
+                        },
+                        ":cluster:",
+                        {
+                          "Ref": "PostgresCluster"
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "InitPostgresFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": {
+          "Fn::Sub": "${ApplicationId}-init-pg"
+        },
+        "Handler": "index.lambda_handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "InitPostgresFunctionRole",
+            "Arn"
+          ]
+        },
+        "Code": {
+          "ZipFile": {
+            "Fn::Join": [
+              "",
+              [
+                "import json\n",
+                "import boto3\n",
+                "import cfnresponse\n",
+                "import logging\n",
+                "\n",
+                "logger = logging.getLogger()\n",
+                "logger.setLevel(logging.INFO)\n",
+                "\n",
+                "rds_data = boto3.client('rds-data')\n",
+                "    \n",
+                "def execute_sql(sql, cluster_arn, secret_arn):\n",
+                "    rds_data.execute_statement(\n",
+                "        resourceArn = cluster_arn,\n",
+                "        secretArn = secret_arn,\n",
+                "        database = 'postgres',\n",
+                "        sql = sql\n",
+                "    )\n",
+                "\n",
+                "def lambda_handler(event, context):\n",
+                "    \n",
+                "    logger.info('Event: {}'.format(event))\n",
+                "    logger.info('Context: {}'.format(context))\n",
+                "    \n",
+                "    cluster_arn = event['ResourceProperties']['ClusterArn']\n",
+                "    secret_arn = event['ResourceProperties']['SecretArn']\n",
+                "    \n",
+                "    if event['RequestType'] == 'Create' or event['RequestType'] == 'Update':\n",
+                "        \n",
+                "        try:\n",
+                "            \n",
+                "            logger.info('Begin Postgres setup')\n",
+                "\n",
+                "            execute_sql('CREATE EXTENSION IF NOT EXISTS vector;', cluster_arn, secret_arn)\n",
+                "            execute_sql(\"\"\"DO\n",
+                "            $$\n",
+                "            BEGIN\n",
+                "              IF NOT EXISTS (SELECT * FROM pg_user WHERE usename = 'graphrag') THEN\n",
+                "                 CREATE USER graphrag;\n",
+                "              END IF;\n",
+                "            END\n",
+                "            $$\n",
+                "            ;\n",
+                "            \"\"\", cluster_arn, secret_arn)\n",
+                "            execute_sql('CREATE SCHEMA IF NOT EXISTS graphrag;', cluster_arn, secret_arn)\n",
+                "            execute_sql('GRANT CONNECT ON DATABASE postgres TO graphrag;', cluster_arn, secret_arn)\n",
+                "            execute_sql('GRANT ALL PRIVILEGES ON SCHEMA graphrag TO graphrag;', cluster_arn, secret_arn)\n",
+                "            execute_sql('GRANT rds_iam TO graphrag;', cluster_arn, secret_arn)\n",
+                "            \n",
+                "            logger.info('Postgres setup complete')\n",
+                "            \n",
+                "            cfnresponse.send(event, \n",
+                "                context, \n",
+                "                cfnresponse.SUCCESS, \n",
+                "                {\n",
+                "                    'ClusterArn': cluster_arn, \n",
+                "                }, \n",
+                "                context.log_stream_name\n",
+                "            )\n",
+                "        \n",
+                "        except Exception as e:\n",
+                "            cfnresponse.send(event, context, cfnresponse.FAILED, { 'Message': str(e) }, context.log_stream_name)\n",
+                "                \n",
+                "    elif event['RequestType'] == 'Delete':\n",
+                "        \n",
+                "        logger.info('Delet request - do nothing')\n",
+                "        \n",
+                "        cfnresponse.send(event, \n",
+                "            context, \n",
+                "            cfnresponse.SUCCESS, \n",
+                "            {\n",
+                "                'ClusterArn': cluster_arn, \n",
+                "            }, \n",
+                "            context.log_stream_name\n",
+                "        )\n",
+                "        \n",
+                "    else:\n",
+                "        cfnresponse.send(event, context, cfnresponse.FAILED, { 'Message': 'Expected a Create, Delete or Update request' }, context.log_stream_name)\n"
+              ]
+            ]
+          }
+        },
+        "MemorySize": 128,
+        "Runtime": "python3.13",
+        "Timeout": "900"
+      }
+    },
+    "CustomInitPostgres": {
+      "Type": "Custom::CustomResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "InitPostgresFunction",
+            "Arn"
+          ]
+        },
+        "ClusterArn": {
+          "Fn::GetAtt": [
+            "PostgresCluster",
+            "DBClusterArn"
+          ]
+        },
+        "SecretArn": {
+          "Fn::GetAtt": [
+            "PostgresCluster",
+            "MasterUserSecret.SecretArn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "PostgresInstance"
+      ]
+    }
+  },
+  "Outputs": {
+    "NeptuneClusterId": {
+      "Description": "Neptune cluster ID",
+      "Value": {
+        "Ref": "NeptuneDBCluster"
+      }
+    },
+    "NeptuneClusterEndpoint": {
+      "Description": "Neptune cluster endpoint",
+      "Value": {
+        "Fn::GetAtt": [
+          "NeptuneDBCluster",
+          "Endpoint"
+        ]
+      }
+    },
+    "PostgresClusterId": {
+      "Description": "Postgres cluster ID",
+      "Value": {
+        "Ref": "PostgresCluster"
+      }
+    },
+    "PostgresClusterEndpoint": {
+      "Description": "Postgres cluster endpoint",
+      "Value": {
+        "Fn::GetAtt": [
+          "PostgresCluster",
+          "Endpoint.Address"
+        ]
+      }
+    },
+    "GraphRAGClientSecurityGroup": {
+      "Description": "GraphRAG client security group",
+      "Value": {
+        "Ref": "GraphRAGClientSecurityGroup"
+      }
+    },
+    "NeptuneSagemakerNotebook": {
+      "Description": "SageMaker notebook URL",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Fn::Select": [
+                1,
+                {
+                  "Fn::Split": [
+                    "/",
+                    {
+                      "Ref": "NeptuneNotebookInstance"
+                    }
+                  ]
+                }
+              ]
+            },
+            ".notebook.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".sagemaker.aws/nbclassic/tree"
+          ]
+        ]
+      }
+    },
+    "GraphRAGS3BucketArn": {
+      "Description": "ARN of the specified GraphRAG Extract S3 bucket",
+      "Value": {
+        "Ref": "GraphRAGS3BucketArn"
+      }
+    },
+    "GraphRAGPromptS3BucketArn": {
+      "Description": "ARN of the specified GraphRAG Prompt S3 bucket",
+      "Value": {
+        "Ref": "GraphRAGPromptS3BucketArn"
+      }
+    },
+    "VPC": {
+      "Description": "Existing VPC ID",
+      "Value": {
+        "Ref": "VPCId"
+      }
+    }
+  }
 }

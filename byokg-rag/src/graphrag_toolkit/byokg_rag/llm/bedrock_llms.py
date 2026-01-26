@@ -1,12 +1,8 @@
 import boto3
 from abc import ABC, abstractmethod
-import os
-import sys
-# Add the parent directory to the Python path
-parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(parent_dir)
-from utils import color_print
 import time
+
+from ..utils import color_print
 
 class BaseGenerator(ABC):
     """

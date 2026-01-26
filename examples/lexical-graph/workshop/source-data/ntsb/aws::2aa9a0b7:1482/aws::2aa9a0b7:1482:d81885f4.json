@@ -1,0 +1,2631 @@
+{
+  "id_": "aws::2aa9a0b7:1482:d81885f4",
+  "embedding": [
+    0.04522705,
+    -0.010910034,
+    0.026275635,
+    -0.04989624,
+    -0.012199402,
+    0.008934021,
+    -0.019317627,
+    0.011108398,
+    -0.042785645,
+    -0.008872986,
+    -0.018661499,
+    0.0090789795,
+    -0.020751953,
+    -0.037597656,
+    0.053100586,
+    -0.028030396,
+    0.004447937,
+    0.008125305,
+    -0.032104492,
+    -0.03765869,
+    -0.0011644363,
+    -0.04324341,
+    -0.02772522,
+    0.014320374,
+    -0.001958847,
+    0.031341553,
+    -0.034301758,
+    0.030670166,
+    -0.020904541,
+    -0.009567261,
+    -0.0057754517,
+    0.03289795,
+    0.019302368,
+    0.049957275,
+    -0.06488037,
+    -0.08642578,
+    -0.039642334,
+    0.020431519,
+    -0.037078857,
+    0.020812988,
+    0.024261475,
+    -0.014060974,
+    0.037506104,
+    -0.020401001,
+    0.0028877258,
+    -0.022109985,
+    0.035980225,
+    -0.027938843,
+    0.013465881,
+    0.013313293,
+    0.024276733,
+    -0.018463135,
+    0.029312134,
+    0.06402588,
+    -0.024810791,
+    0.006465912,
+    -0.01637268,
+    0.015655518,
+    0.023925781,
+    -0.008834839,
+    -0.01133728,
+    -0.010398865,
+    0.015159607,
+    0.001964569,
+    -0.012817383,
+    -0.021072388,
+    0.02041626,
+    0.015701294,
+    -0.01247406,
+    -0.009002686,
+    0.01751709,
+    -0.008079529,
+    -0.042266846,
+    0.018585205,
+    0.015083313,
+    -0.045043945,
+    0.0031032562,
+    -0.037750244,
+    -0.030441284,
+    0.08514404,
+    0.05496216,
+    0.03665161,
+    -0.0022659302,
+    -0.0070266724,
+    0.026367188,
+    0.017501831,
+    0.0093688965,
+    -0.05038452,
+    0.004776001,
+    0.003868103,
+    -0.025756836,
+    0.05065918,
+    0.022460938,
+    0.019973755,
+    -0.053588867,
+    0.006515503,
+    0.016906738,
+    0.017120361,
+    0.0016050339,
+    -0.024963379,
+    -0.009605408,
+    -0.023147583,
+    -0.04660034,
+    -0.01928711,
+    0.009147644,
+    0.046905518,
+    -0.01020813,
+    -0.067871094,
+    0.011116028,
+    -0.0018119812,
+    -0.02319336,
+    -0.0063438416,
+    -0.052337646,
+    -0.04171753,
+    -0.030639648,
+    0.08215332,
+    -0.018707275,
+    -0.036590576,
+    0.01473999,
+    -0.0039749146,
+    -0.013420105,
+    -0.017486572,
+    0.008720398,
+    -0.055267334,
+    -0.0003466606,
+    -0.039245605,
+    -0.04421997,
+    0.033477783,
+    0.01713562,
+    -0.03375244,
+    -0.009407043,
+    0.06500244,
+    -0.001452446,
+    -0.03152466,
+    -0.03363037,
+    0.022384644,
+    -0.010093689,
+    -0.033447266,
+    0.020446777,
+    -0.052886963,
+    0.08673096,
+    -0.010345459,
+    -0.0037822723,
+    0.05014038,
+    -0.045562744,
+    0.033721924,
+    0.023635864,
+    -0.0006914139,
+    -0.029815674,
+    -0.0647583,
+    0.021957397,
+    -0.04248047,
+    0.03149414,
+    0.017456055,
+    0.016662598,
+    -0.04522705,
+    0.03378296,
+    -0.052856445,
+    0.011383057,
+    -0.047821045,
+    -0.0137786865,
+    -0.02255249,
+    0.027160645,
+    -0.056427002,
+    -0.08630371,
+    0.026473999,
+    -0.026672363,
+    -0.014839172,
+    0.0149383545,
+    0.013069153,
+    0.020965576,
+    -0.026916504,
+    -0.06036377,
+    -0.027282715,
+    -0.0028457642,
+    -0.009422302,
+    0.024276733,
+    0.036102295,
+    0.001156807,
+    0.023162842,
+    0.018493652,
+    -0.041015625,
+    0.03378296,
+    -0.0015649796,
+    0.0103302,
+    0.02947998,
+    0.03024292,
+    0.03149414,
+    -0.03475952,
+    0.025283813,
+    -0.006717682,
+    0.040222168,
+    2.2649765e-05,
+    -0.010505676,
+    0.01663208,
+    0.0042648315,
+    -0.04446411,
+    0.0041923523,
+    -0.021881104,
+    -0.028167725,
+    -0.06604004,
+    -0.0048828125,
+    0.033172607,
+    0.0056648254,
+    0.0758667,
+    -0.007659912,
+    0.025741577,
+    0.02960205,
+    0.009552002,
+    0.016082764,
+    0.006477356,
+    -0.010063171,
+    0.020584106,
+    -0.06573486,
+    -0.026519775,
+    0.02746582,
+    0.002380371,
+    0.01626587,
+    0.032318115,
+    0.003835678,
+    0.028121948,
+    0.02748108,
+    0.019500732,
+    -0.0064582825,
+    -0.009925842,
+    0.008857727,
+    -0.008148193,
+    0.018218994,
+    0.0060424805,
+    0.03930664,
+    0.008239746,
+    -0.03604126,
+    -0.0027866364,
+    0.028503418,
+    -0.00087070465,
+    0.028457642,
+    0.04385376,
+    0.011001587,
+    6.67572e-05,
+    -0.010681152,
+    -0.01927185,
+    -0.012741089,
+    -0.020935059,
+    0.07006836,
+    -0.047790527,
+    -0.011932373,
+    0.017181396,
+    0.036254883,
+    -0.013122559,
+    0.01928711,
+    -0.005695343,
+    0.01902771,
+    0.030014038,
+    0.007701874,
+    0.0075187683,
+    0.02166748,
+    -0.05444336,
+    -0.05307007,
+    0.032989502,
+    -0.014274597,
+    0.025558472,
+    -0.04711914,
+    -0.010482788,
+    -0.018478394,
+    0.019989014,
+    -0.0019874573,
+    0.03338623,
+    0.016052246,
+    -0.023254395,
+    -0.009162903,
+    0.006641388,
+    0.002828598,
+    -0.009429932,
+    0.007045746,
+    -0.06161499,
+    -0.044036865,
+    0.0050811768,
+    0.032562256,
+    -0.039001465,
+    -0.039855957,
+    0.0068511963,
+    0.07562256,
+    -0.025634766,
+    -0.026657104,
+    0.00730896,
+    -1.4305115e-06,
+    -0.05227661,
+    -0.015357971,
+    -0.020721436,
+    0.008926392,
+    0.05029297,
+    -0.0029277802,
+    -0.03552246,
+    0.013046265,
+    0.008399963,
+    -0.018447876,
+    0.024307251,
+    0.028045654,
+    0.001004219,
+    0.021835327,
+    -0.015357971,
+    0.038024902,
+    0.007873535,
+    0.00065517426,
+    0.0005030632,
+    0.005722046,
+    0.005142212,
+    0.0010299683,
+    -0.0039749146,
+    0.0056877136,
+    -0.031219482,
+    0.015823364,
+    0.02986145,
+    -0.006164551,
+    0.010627747,
+    0.0055236816,
+    -0.011421204,
+    0.024475098,
+    0.015205383,
+    0.00705719,
+    0.053344727,
+    0.027114868,
+    0.00390625,
+    -0.009124756,
+    0.02619934,
+    -0.045166016,
+    0.0033931732,
+    -0.009544373,
+    0.0010585785,
+    -0.035064697,
+    -0.02709961,
+    -0.02319336,
+    -0.021652222,
+    0.054595947,
+    0.016799927,
+    0.01499939,
+    0.0066986084,
+    -0.03463745,
+    -0.0024795532,
+    -0.0014381409,
+    0.04333496,
+    -0.012046814,
+    0.00869751,
+    -0.00655365,
+    -0.033721924,
+    -0.011558533,
+    0.0002142191,
+    0.012672424,
+    -0.0473938,
+    -0.032714844,
+    0.046051025,
+    -0.013793945,
+    -0.0028076172,
+    -0.021453857,
+    0.024642944,
+    -0.033813477,
+    -0.025558472,
+    0.01826477,
+    -0.004295349,
+    -0.043029785,
+    0.054595947,
+    -0.0090408325,
+    -0.0041236877,
+    -0.0073394775,
+    -0.008636475,
+    -0.008529663,
+    0.0041122437,
+    -0.02709961,
+    -0.02420044,
+    0.033447266,
+    -0.059631348,
+    -0.01386261,
+    -0.010124207,
+    0.0051879883,
+    -0.002155304,
+    0.06866455,
+    0.00447464,
+    -0.02204895,
+    0.011520386,
+    -0.005367279,
+    0.006816864,
+    -0.012504578,
+    0.038970947,
+    -0.014434814,
+    -0.02810669,
+    0.002527237,
+    -0.06262207,
+    0.0010604858,
+    0.0062561035,
+    0.003616333,
+    0.03414917,
+    0.046875,
+    -0.03414917,
+    -0.020599365,
+    -0.024002075,
+    0.029785156,
+    -0.040100098,
+    -0.0569458,
+    2.6881695e-05,
+    0.0070343018,
+    -0.079833984,
+    0.016174316,
+    -0.013000488,
+    -0.028167725,
+    0.01335144,
+    -0.030426025,
+    -0.02418518,
+    -0.049682617,
+    0.011878967,
+    0.08276367,
+    -0.038269043,
+    0.03741455,
+    -0.03164673,
+    0.050079346,
+    -0.0052871704,
+    0.0138549805,
+    -0.06304932,
+    -0.02796936,
+    -0.0068359375,
+    0.0871582,
+    0.020874023,
+    -0.026779175,
+    -0.0032196045,
+    0.06591797,
+    -0.004928589,
+    -0.024734497,
+    -0.013671875,
+    -0.01448822,
+    -0.020324707,
+    0.054504395,
+    -0.014663696,
+    0.011962891,
+    0.017242432,
+    0.003118515,
+    -0.014945984,
+    0.05432129,
+    -0.00687027,
+    0.041259766,
+    0.023742676,
+    -0.025268555,
+    0.015068054,
+    0.008621216,
+    -0.0010671616,
+    0.014259338,
+    -0.03086853,
+    0.0050354004,
+    0.008178711,
+    0.011550903,
+    -0.03894043,
+    -0.052978516,
+    -0.011169434,
+    0.03149414,
+    0.0418396,
+    0.022476196,
+    0.032562256,
+    -0.0035476685,
+    -0.0019664764,
+    0.010437012,
+    -0.0014238358,
+    0.003206253,
+    -0.00970459,
+    0.0030899048,
+    -0.04650879,
+    -0.022064209,
+    -0.006702423,
+    -0.00097227097,
+    0.018722534,
+    0.013435364,
+    0.0031414032,
+    0.00022387505,
+    0.023468018,
+    0.02078247,
+    -0.0033359528,
+    -0.030014038,
+    0.0031356812,
+    -0.035980225,
+    0.0289917,
+    -0.02645874,
+    0.07269287,
+    -0.019378662,
+    -0.055419922,
+    0.013648987,
+    -0.04937744,
+    0.050872803,
+    0.020355225,
+    0.005886078,
+    0.06329346,
+    0.04916382,
+    0.03845215,
+    0.03427124,
+    -0.018814087,
+    0.01461792,
+    0.07196045,
+    -0.024459839,
+    0.02909851,
+    0.04043579,
+    -0.009880066,
+    0.002002716,
+    0.024459839,
+    -0.034484863,
+    -0.019897461,
+    0.019821167,
+    0.007675171,
+    -0.045013428,
+    0.0022964478,
+    -0.012771606,
+    -0.037322998,
+    -0.003206253,
+    0.0009803772,
+    -0.021713257,
+    -0.025100708,
+    -0.00970459,
+    0.022628784,
+    0.04244995,
+    -0.027008057,
+    0.0446167,
+    0.005744934,
+    0.02331543,
+    2.9206276e-06,
+    -0.009094238,
+    -0.0012102127,
+    -0.00422287,
+    0.02633667,
+    0.029922485,
+    -0.017166138,
+    0.030197144,
+    -0.035461426,
+    0.004096985,
+    -0.046844482,
+    -0.020004272,
+    -0.016036987,
+    0.025421143,
+    0.0041923523,
+    -0.007080078,
+    0.044311523,
+    0.015419006,
+    -0.0060539246,
+    0.06732178,
+    -0.014213562,
+    -0.09448242,
+    0.0042877197,
+    0.039245605,
+    0.0178833,
+    -0.06738281,
+    0.011383057,
+    0.009223938,
+    -0.0070228577,
+    0.041137695,
+    -0.037322998,
+    0.034820557,
+    -0.033966064,
+    -0.030273438,
+    -0.0043296814,
+    -0.06402588,
+    -0.07421875,
+    0.09313965,
+    0.04699707,
+    -0.01676941,
+    -0.0134887695,
+    0.026992798,
+    0.020584106,
+    0.018173218,
+    -0.029846191,
+    -0.008132935,
+    0.033691406,
+    0.009757996,
+    0.0013551712,
+    -0.05596924,
+    0.0033950806,
+    -0.00856781,
+    -0.01348114,
+    0.011001587,
+    0.05114746,
+    -0.04498291,
+    0.022109985,
+    -0.033050537,
+    -0.024124146,
+    0.025039673,
+    -0.022979736,
+    -0.01335144,
+    0.0021572113,
+    -0.020828247,
+    -0.04244995,
+    -0.040283203,
+    -0.020477295,
+    0.013549805,
+    -0.00069999695,
+    -0.02230835,
+    -0.012512207,
+    -0.009056091,
+    0.016540527,
+    -0.0039634705,
+    -0.018188477,
+    -0.046936035,
+    0.012863159,
+    0.05105591,
+    -0.010063171,
+    -0.059265137,
+    -0.05947876,
+    -0.0013608932,
+    0.013648987,
+    0.007171631,
+    0.0059432983,
+    -0.022537231,
+    -0.04284668,
+    0.025253296,
+    0.022766113,
+    -0.023101807,
+    0.012435913,
+    0.011047363,
+    0.052703857,
+    0.011413574,
+    -0.05496216,
+    0.02809143,
+    -0.036224365,
+    0.0045318604,
+    -0.07299805,
+    0.07055664,
+    0.10046387,
+    0.022979736,
+    0.06225586,
+    0.0029468536,
+    0.018066406,
+    -0.0035686493,
+    -0.012916565,
+    -0.02935791,
+    -0.049041748,
+    -0.0007786751,
+    -0.012321472,
+    0.00223732,
+    0.03488159,
+    -0.0071640015,
+    -0.03048706,
+    -0.05279541,
+    -0.042785645,
+    0.02571106,
+    -0.011390686,
+    -0.058135986,
+    0.01197052,
+    0.049865723,
+    -0.006324768,
+    0.00047564507,
+    -0.049743652,
+    -0.022949219,
+    0.016052246,
+    -0.03604126,
+    -0.024719238,
+    0.0077209473,
+    -0.031921387,
+    -0.007713318,
+    -0.046539307,
+    0.0004529953,
+    0.00045251846,
+    -0.019363403,
+    -0.005619049,
+    0.004917145,
+    0.019348145,
+    -0.01285553,
+    -0.026947021,
+    -0.08093262,
+    -0.068359375,
+    -0.07220459,
+    -0.0045776367,
+    -0.04876709,
+    0.00806427,
+    0.011749268,
+    -0.01033783,
+    -0.010650635,
+    0.0009765625,
+    -0.018707275,
+    -0.037231445,
+    -0.0069084167,
+    -0.009178162,
+    -0.014022827,
+    0.010925293,
+    0.04812622,
+    0.012786865,
+    0.008262634,
+    0.012756348,
+    -0.027236938,
+    0.012672424,
+    0.027496338,
+    -0.021408081,
+    -0.037261963,
+    0.0012245178,
+    0.06567383,
+    -0.009651184,
+    -0.01889038,
+    0.0005235672,
+    0.014572144,
+    -0.021438599,
+    0.017654419,
+    0.016235352,
+    0.006504059,
+    -0.02230835,
+    0.01776123,
+    -0.026397705,
+    -0.038391113,
+    0.00434494,
+    -0.003736496,
+    0.0028839111,
+    -0.039245605,
+    0.0023422241,
+    -0.03753662,
+    -0.016586304,
+    0.021469116,
+    -0.0104599,
+    0.07397461,
+    -0.052215576,
+    -0.029541016,
+    0.03427124,
+    0.0670166,
+    0.009414673,
+    -0.020950317,
+    0.04385376,
+    0.044311523,
+    0.10467529,
+    0.024902344,
+    -0.010559082,
+    -0.039855957,
+    -0.006641388,
+    0.021774292,
+    -0.012680054,
+    -0.009712219,
+    0.033111572,
+    -0.012260437,
+    -0.059570312,
+    0.026321411,
+    -0.027801514,
+    -0.053497314,
+    0.014595032,
+    0.025604248,
+    0.0043907166,
+    -0.0014953613,
+    -0.028320312,
+    -0.02255249,
+    -0.010322571,
+    -0.020706177,
+    -0.05987549,
+    0.009017944,
+    0.0011110306,
+    -0.009651184,
+    -0.0024700165,
+    -0.021469116,
+    -0.0033893585,
+    -0.015571594,
+    0.012168884,
+    -0.005554199,
+    -0.043273926,
+    -0.018127441,
+    0.015258789,
+    -0.034973145,
+    -0.05203247,
+    0.031036377,
+    0.029541016,
+    0.0054244995,
+    -0.029891968,
+    0.01386261,
+    -0.030395508,
+    0.01473999,
+    0.013244629,
+    0.015457153,
+    -0.0020427704,
+    0.004184723,
+    -0.07098389,
+    -0.0040245056,
+    -0.025146484,
+    -0.02772522,
+    -0.027740479,
+    -0.01235199,
+    0.018066406,
+    0.016326904,
+    -0.00029110909,
+    -0.017745972,
+    0.00059890747,
+    -0.03265381,
+    -0.0099105835,
+    -0.00945282,
+    -0.009590149,
+    0.00844574,
+    0.009681702,
+    0.013244629,
+    -0.024261475,
+    -0.012138367,
+    0.011230469,
+    0.011276245,
+    -0.035980225,
+    -0.005344391,
+    0.018341064,
+    -0.013153076,
+    -0.06756592,
+    0.007835388,
+    0.025680542,
+    -0.03778076,
+    0.0038661957,
+    0.0024719238,
+    0.0019483566,
+    -0.0046081543,
+    -0.032684326,
+    -0.01399231,
+    0.02355957,
+    -0.028167725,
+    -0.00056886673,
+    0.016067505,
+    -0.026794434,
+    0.00045490265,
+    -0.022018433,
+    0.03878784,
+    -0.011207581,
+    -0.021072388,
+    -0.000767231,
+    -0.013916016,
+    0.074157715,
+    -0.012252808,
+    0.0025672913,
+    -0.007205963,
+    -0.0038394928,
+    -0.012039185,
+    -0.0026302338,
+    -0.016967773,
+    0.011062622,
+    0.043518066,
+    0.05343628,
+    -0.029251099,
+    0.00970459,
+    0.0059547424,
+    -0.0385437,
+    -0.0016717911,
+    0.026779175,
+    -0.008056641,
+    -0.0103302,
+    0.02558899,
+    -0.028549194,
+    -0.025161743,
+    -0.012702942,
+    0.028747559,
+    0.013092041,
+    0.025283813,
+    -0.005657196,
+    0.031951904,
+    0.010093689,
+    -0.02911377,
+    0.045318604,
+    0.03439331,
+    -0.056274414,
+    0.043151855,
+    0.047454834,
+    -0.032806396,
+    0.025497437,
+    0.075805664,
+    0.011703491,
+    -0.002111435,
+    0.051696777,
+    -0.017318726,
+    -0.011543274,
+    -0.024719238,
+    0.019760132,
+    -0.024658203,
+    -0.029449463,
+    0.025177002,
+    0.03189087,
+    -0.007156372,
+    -0.01133728,
+    -0.02178955,
+    -0.021270752,
+    -0.012664795,
+    -0.055664062,
+    0.018203735,
+    -0.007423401,
+    0.024398804,
+    0.026535034,
+    -0.0018520355,
+    -0.051330566,
+    -0.010810852,
+    -0.020935059,
+    -0.044036865,
+    0.016952515,
+    0.019638062,
+    -0.022659302,
+    -0.018615723,
+    -0.03050232,
+    -0.06707764,
+    0.023880005,
+    0.027420044,
+    -0.021240234,
+    -0.08380127,
+    0.020736694,
+    -0.036224365,
+    0.10235596,
+    0.033966064,
+    0.02772522,
+    -0.028182983,
+    -0.03250122,
+    0.038146973,
+    0.05239868,
+    0.061431885,
+    0.012702942,
+    -0.035949707,
+    -0.05633545,
+    0.023513794,
+    -0.01889038,
+    -0.035980225,
+    0.05130005,
+    -0.070129395,
+    0.04724121,
+    -0.009017944,
+    0.03475952,
+    -0.062286377,
+    -0.022979736,
+    -0.02671814,
+    0.017196655,
+    -0.039031982,
+    -0.014205933,
+    0.03439331,
+    0.0057144165,
+    0.015068054,
+    -0.056030273,
+    -0.025222778,
+    0.0031528473,
+    -0.08734131,
+    -0.047729492,
+    -0.02168274,
+    -0.018585205,
+    0.03955078,
+    0.0892334,
+    -0.008010864,
+    0.058410645,
+    -0.054626465,
+    0.0041007996,
+    -0.01448822,
+    0.0060920715,
+    0.006790161,
+    0.07940674,
+    0.064086914,
+    0.04058838,
+    0.012176514,
+    -0.028457642,
+    -0.029403687,
+    -0.017288208,
+    0.08666992,
+    0.009819031,
+    -0.013076782,
+    -0.057281494,
+    0.011749268,
+    0.005420685,
+    -0.026153564,
+    0.030090332,
+    -0.045715332,
+    -0.060577393,
+    -0.008087158,
+    0.00077199936,
+    0.014915466,
+    0.02293396,
+    0.006526947,
+    0.0037155151,
+    0.020309448,
+    -0.034423828,
+    0.03692627,
+    -0.023956299,
+    -0.017181396,
+    -0.0024528503,
+    0.013511658,
+    0.02281189,
+    0.045196533,
+    0.018005371,
+    0.035705566,
+    0.003993988,
+    -0.07501221,
+    0.017303467,
+    0.035736084,
+    0.023452759,
+    -0.0072517395,
+    -0.00015711784,
+    -0.023651123,
+    -0.012298584,
+    -0.025421143,
+    0.009887695,
+    0.016403198,
+    0.0011720657,
+    -0.008010864,
+    -0.0030174255,
+    0.013809204,
+    -0.013343811,
+    -0.036010742,
+    -0.05218506,
+    0.0018777847,
+    -0.0028953552,
+    -0.0082473755,
+    0.014709473,
+    0.029541016,
+    -0.01309967,
+    0.067993164,
+    -0.008056641,
+    -0.018829346,
+    0.0049438477,
+    0.0129470825,
+    0.017303467,
+    0.018951416,
+    0.016281128,
+    -0.02885437,
+    -0.009735107,
+    0.012710571,
+    0.019546509,
+    0.020889282,
+    -0.0093307495,
+    0.008628845,
+    -0.0074386597,
+    -0.017318726,
+    -0.04953003,
+    -0.021408081,
+    -0.04147339,
+    0.03363037,
+    0.035247803,
+    -0.004310608,
+    0.10571289,
+    -0.03414917,
+    0.012237549,
+    0.042175293,
+    0.062683105,
+    0.015792847,
+    -0.0026302338,
+    -0.027404785,
+    0.0395813,
+    -0.00674057
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+    "file_name": "85615.md",
+    "file_size": 49115,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Helicopter Accident Report Propositions",
+      "N96BM is a helicopter.",
+      "N911FA is a helicopter.",
+      "N911FA is a traffic helicopter.",
+      "The pilot of N96BM arrived at the heliport for his duty shift at 1500.",
+      "The pilot of N96BM performed a maintenance flight check.",
+      "The pilot of N96BM recalled rain cells to the south with 4-5 miles visibility.",
+      "The pilot of N96BM recalled a 2,000 foot ceiling.",
+      "At about 1530 the pilot of N96BM spoke to the pilot of N911FA.",
+      "The pilot of N96BM told the pilot of N911FA that there was weather and rain cells to the south.",
+      "The pilot of N96BM had been pushing out N96BM when a call for assistance was requested.",
+      "N911FA had already departed when the call for assistance was requested.",
+      "The pilot of N96BM moved N96BM to Pad 1 after the call for assistance was requested.",
+      "The pilot of N96BM placed the helicopter on the outside of Pad 1.",
+      "The pilot of N96BM knew they would be off the ground in a couple of minutes or he would be up on radios.",
+      "The pilot of N96BM planned to check the weather when he was up on radios.",
+      "The pilot of N96BM planned to request the pilot of N911FA start toward the priority call.",
+      "The pilot of N96BM stated it was not uncommon to place the helicopter outside of the box.",
+      "The pilot of N96BM had witnessed other pilots place helicopters outside of the box.",
+      "The pilot of N96BM opined that helicopters were placed outside the box due to poor water drainage when it rained.",
+      "The pilot of N96BM opined that helicopters were placed outside the box to keep clearance from the adjacent fuel farm.",
+      "The Tactical Flight Officer (TFO) is a crew member for N96BM.",
+      "The TFO for N96BM stated that he and the mechanic were being directed by the pilot as they pushed the helicopter outside.",
+      "The TFO for N96BM stated they did not place the helicopter inside the box for pad 1.",
+      "The helicopter N96BM was parked to the west of the box.",
+      "The TFO recalled putting on his gear at the helicopter.",
+      "The TFO recalled climbing into the helicopter.",
+      "The TFO recalled seat belting himself in the helicopter.",
+      "A lieutenant came to the TFO's side of the helicopter.",
+      "The lieutenant asked if they wanted to respond due to the weather.",
+      "The TFO indicated that the traffic helicopter N911FA was still up.",
+      "The TFO indicated that if the weather was bad once they were airborne, they would come back to the heliport.",
+      "The TFO stated he heard a loud bang.",
+      "The TFO saw the lieutenant run toward a fire extinguisher.",
+      "The TFO saw that the main rotor of helicopter N96BM was gone.",
+      "The Director of Maintenance was the on duty mechanic on the day of the accident."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Helicopter Accident Involving N96BM and N911FA",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N96BM",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N911FA",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Tactical Flight Officer",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot of N96BM",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot of N911FA",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "lieutenant",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Director of Maintenance",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "heliport",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pad 1",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "fuel farm",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N96BM is a helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N911FA is a helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N911FA is a traffic helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "AIRCRAFT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "traffic helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM arrived at the heliport for his duty shift at 1500.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ARRIVED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "heliport",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ARRIVAL TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1500",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HAS DUTY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "duty shift",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM performed a maintenance flight check.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PERFORMED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "maintenance flight check",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM recalled rain cells to the south with 4-5 miles visibility.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALLED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "rain cells to the south with 4-5 miles visibility",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM recalled a 2,000 foot ceiling.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RECALLED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "2,000 foot ceiling",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "At about 1530 the pilot of N96BM spoke to the pilot of N911FA.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SPOKE TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N911FA",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COMMUNICATION TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "about 1530",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM told the pilot of N911FA that there was weather and rain cells to the south.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COMMUNICATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N911FA",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "REPORTED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "weather and rain cells to the south",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM had been pushing out N96BM when a call for assistance was requested.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushing out N96BM",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N911FA had already departed when the call for assistance was requested.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "already departed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM moved N96BM to Pad 1 after the call for assistance was requested.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "MOVED TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM placed the helicopter on the outside of Pad 1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITIONED AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "outside of Pad 1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM knew they would be off the ground in a couple of minutes or he would be up on radios.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "EXPECTED STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "off the ground in a couple of minutes or up on radios",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM planned to check the weather when he was up on radios.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PLANNED ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "check the weather when up on radios",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM planned to request the pilot of N911FA start toward the priority call.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PLANNED COMMUNICATION WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N911FA",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PLANNED REQUEST"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "start toward the priority call",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM stated it was not uncommon to place the helicopter outside of the box.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "STATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not uncommon to place the helicopter outside of the box",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM had witnessed other pilots place helicopters outside of the box.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "WITNESSED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "other pilots place helicopters outside of the box",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM opined that helicopters were placed outside the box due to poor water drainage when it rained.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPINION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopters were placed outside the box due to poor water drainage when it rained",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N96BM opined that helicopters were placed outside the box to keep clearance from the adjacent fuel farm.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel farm",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "ADJACENT TO"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pad 1",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPINION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "helicopters were placed outside the box to keep clearance from the adjacent fuel farm",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Tactical Flight Officer (TFO) is a crew member for N96BM.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CREW MEMBER OF"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "crew member",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO for N96BM stated that he and the mechanic were being directed by the pilot as they pushed the helicopter outside.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DIRECTED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "DIRECTED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot of N96BM",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushed the helicopter outside",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pushed the helicopter outside",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO for N96BM stated they did not place the helicopter inside the box for pad 1.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "not inside the box for pad 1",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The helicopter N96BM was parked to the west of the box.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "west of the box",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO recalled putting on his gear at the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "putting on his gear at the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO recalled climbing into the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "climbing into the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO recalled seat belting himself in the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "seat belting himself in the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A lieutenant came to the TFO's side of the helicopter.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "APPROACHED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "POSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "TFO's side of the helicopter",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The lieutenant asked if they wanted to respond due to the weather.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COMMUNICATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "QUESTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "if they wanted to respond due to the weather",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO indicated that the traffic helicopter N911FA was still up.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "COMMUNICATED WITH"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N911FA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "still up",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO indicated that if the weather was bad once they were airborne, they would come back to the heliport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "STATED PLAN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "come back to the heliport if weather was bad once airborne",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO stated he heard a loud bang.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "HEARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loud bang",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO saw the lieutenant run toward a fire extinguisher.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "RAN TOWARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fire extinguisher",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "lieutenant run toward a fire extinguisher",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The TFO saw that the main rotor of helicopter N96BM was gone.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N96BM",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor gone",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Tactical Flight Officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "main rotor of helicopter N96BM was gone",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Director of Maintenance was the on duty mechanic on the day of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "on duty mechanic",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Director of Maintenance",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "day of the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::2aa9a0b7:1482",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "a45c36e0d4254ce290d515a8c90431d59411a5f52134b921e4be9debc05a3ddf",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::2aa9a0b7:1482:5d8445bf",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "fafcd51e304fef69a1dfbcd1619124c50b2d1b5e72b6f80612bd9ce43f1030cb",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::2aa9a0b7:1482:aa3370fb",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/85615.md",
+        "file_name": "85615.md",
+        "file_size": 49115,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "9980f4bde67695445b7b6e5b1a47c9f655b9b3db1b893bb8442acc0ff4e5fb1f",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Accident Report\n\n## Pilot N96BM\n* According to the pilot, he had arrived at the heliport for his duty shift at 1500\n* He had performed a maintenance flight check, and recalled that there were rain cells to the south with 4-5 miles visibility and a 2,000 foot ceiling\n* About 1530 he spoke to the pilot of N911FA, and told the other pilot that there was weather and rain cells to the south\n* He stated that he had been pushing out N96BM when a call for assistance was requested, as N911FA had already departed he moved N96BM to Pad 1\n* The pilot stated that he placed the helicopter on the outside of Pad 1; he knew they would be off the ground in a couple of minutes or he would be up on radios\n* The pilot stated that his thought process was that, when he was up on radios he would check the weather, and request the pilot of N911FA start toward the priority call\n* The pilot stated that it was not uncommon to place the helicopter outside of the box, and he had witnessed other pilot's do the same\n* He opined that it was done due to poor water drainage when it rained as well as to keep clearance from the adjacent fuel farm\n\n## Other Witnesses\n* The Tactical Flight Officer (TFO) for N96BM stated that he and the mechanic were being directed by the pilot as they pushed the helicopter outside, and that they did not place the helicopter inside the box for pad 1, instead it was parked to the west of the box\n* The TFO recalled putting on his gear at the helicopter, climbing in and seat belting himself in\n* The lieutenant came to his side of the helicopter, and asked if they wanted to respond due to the weather\n* The TFO indicated that the traffic helicopter (N911FA) was still up; once they were airborne, if the weather was bad, they would come back to the heliport\n* The TFO stated he heard a loud bang and saw the lieutenant run toward a fire extinguisher\n* When he looked up he saw that the main rotor of the helicopter he was sitting in was gone\n* The Director of Maintenance was the on duty mechanic on the day of the accident;",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 2043,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

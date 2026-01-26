@@ -12,6 +12,17 @@
     - [Querying](#querying)
     - [Combining versioned updates with metadata filtering](#combining-versioned-updates-with-metadata-filtering)
   - [Example](#example)
+  - [Inspecting source metadata](#inspecting-source-metadata)
+    - [Get details of all source nodes](#get-details-of-all-source-nodes)
+    - [Get details of all current source nodes](#get-details-of-all-current-source-nodes)
+    - [Get details of all previous source nodes](#get-details-of-all-previous-source-nodes)
+    - [Get details of previous versions of files with specific metadata](#get-details-of-previous-versions-of-files-with-specific-metadata)
+  - [Deleting documents](#deleting-documents)
+    - [Deleting documents by source id](#deleting-documents-by-source-id)
+    - [Deleting all previous versions of a document](#deleting-all-previous-versions-of-a-document)
+    - [Deleting a document with version-specific metadata](#deleting-a-document-with-version-specific-metadata)
+  - [Automatically delete versioned documents](#automatically-delete-versioned-documents)
+    - [Implementing deletion protection](#implementing-deletion-protection)
   - [Upgrading existing graph and vector stores](#upgrading-existing-graph-and-vector-stores)
     - [Upgrading specific tenants](#upgrading-specific-tenants)
     - [Upgrading specific vector indexes](#upgrading-specific-vector-indexes)
@@ -33,6 +44,8 @@ This means that if you extract two different versions of a document (i.e. versio
 For a document to be versioned in this manner, there must be some way of specifying that different sets of text and metadata represent _different_ versions of the _same_ document. In other words, the document must have a stable identity, independent of variations in content and/or metadata. 
 
 The graphrag-toolkit uses a concept of _version-independent metadata fields_ to represent this stable identify. When you index a document, you can specify which of that document's metadata fields represent its stable identify. For example, if a document has `title`, `author` and `last_updated` metadata fields, you might specify that a combination of the `title` and `author` metadata fields represent that document's stable identify. When the document is indexed, any previously indexed, non-versioned documents whose `title` and `author` field _values_ match those of the newly ingested document will be archived.
+
+> **Important** Which metadata fields you choose to represent different documents' stable identities will have a big impact on the versioning of documents. A set of specific version-independent field values should match all versions of a specific document, without including any other documents. A URI is often sufficient to uniquely identify a web page, whereas a filename may not always uniquely identify a file – there are lots of files named `readme.md`, for example. If a set of version-independent metadat fields is too permissive, you risk versioning – or worse, deleting – the wrong documents. If in doubt, consider adding a synthetic document id metadata field to each document that you index.
 
 ### Using versioned updates
 
@@ -241,11 +254,430 @@ If we were to query at timestamp 1761899972500, documents s1, s4 and s5 would be
 
 ![Historical](../../images/versioning-3.png)
 
+### Inspecting source metadata
+
+You can inspect the metadata and versioining infomration attached to source nodes using the `LexicalGraphIndex.get_sources()` method.
+
+#### Get details of all source nodes
+
+```python
+import os
+import json
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+
+with (
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store,
+        tenant_id='tenant123' # optional - uses default tenant if not specified
+    )
+    
+    sources = graph_index.get_sources()
+    
+    print(json.dumps(sources, indent=2))
+```
+
+The results are formatted like this:
+
+```json
+[
+  {
+    "metadata": {
+      "file_path": "/home/myuser/docs/readme.md",
+      "creation_date": "2025-12-16T00:00:00.000Z",
+      "file_name": "readme.md",
+      "title": "How to play",
+      "file_size": 93,
+      "last_modified_date": "2025-12-16T00:00:00.000Z",
+      "file_type": "text/markdown",
+      "version": "v1"
+    },
+    "versioning": {
+      "build_timestamp": 1765880067513,
+      "id_fields": [
+        "file_name",
+        "title"
+      ],
+      "valid_from": 1761899971000,
+      "valid_to": 1761899972000,
+      "extract_timestamp": 1765880063557
+    },
+    "sourceId": "aws:tenant123:31141440:6de6"
+  },
+  {
+    "metadata": {
+      "file_path": "/home/myuser/docs/readme.md",
+      "creation_date": "2025-12-16T00:00:00.000Z",
+      "file_name": "readme.md",
+      "title": "How to play",
+      "file_size": 91,
+      "last_modified_date": "2025-12-16T00:00:00.000Z",
+      "file_type": "text/markdown",
+      "version": "v2"
+    },
+    "versioning": {
+      "build_timestamp": 1765880102994,
+      "id_fields": [
+        "file_name",
+        "title"
+      ],
+      "valid_from": 1761899972000,
+      "valid_to": 1761899973000,
+      "extract_timestamp": 1765880098515
+    },
+    "sourceId": "aws:tenant123:34570f12:0726"
+  },
+  {
+    "metadata": {
+      "file_path": "/home/myuser/docs/readme.md",
+      "creation_date": "2025-12-16T00:00:00.000Z",
+      "file_name": "readme.md",
+      "title": "How to play",
+      "file_size": 93,
+      "last_modified_date": "2025-12-16T00:00:00.000Z",
+      "file_type": "text/markdown",
+      "version": "v3"
+    },
+    "versioning": {
+      "build_timestamp": 1765880173432,
+      "id_fields": [
+        "file_name",
+        "title"
+      ],
+      "valid_from": 1761899973000,
+      "valid_to": 1761899974000,
+      "extract_timestamp": 1765880166001
+    },
+    "sourceId": "aws:tenant123:07ca52e6:8960"
+  },
+  {
+    "metadata": {
+      "file_path": "/home/myuser/docs/readme.md",
+      "creation_date": "2025-12-16T00:00:00.000Z",
+      "file_name": "readme.md",
+      "title": "How to play",
+      "file_size": 83,
+      "last_modified_date": "2025-12-16T00:00:00.000Z",
+      "file_type": "text/markdown",
+      "version": "v4"
+    },
+    "versioning": {
+      "build_timestamp": 1765880242134,
+      "id_fields": [
+        "file_name",
+        "title"
+      ],
+      "valid_from": 1761899974000,
+      "valid_to": 10000000000000,
+      "extract_timestamp": 1765880236433
+    },
+    "sourceId": "aws:tenant123:7a54612d:57b8"
+  }
+]
+```
+
+#### Get details of all current source nodes
+
+```python
+import os
+import json
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, VersioningMode
+
+with (
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store,
+        tenant_id='tenant123' # optional - uses default tenant if not specified
+    )
+    
+    versioning_config = VersioningConfig(versioning_mode=VersioningMode.CURRENT)
+    
+    sources = graph_index.get_sources(versioning_config=versioning_config)
+    
+    print(json.dumps(sources, indent=2))
+```
+
+#### Get details of all previous source nodes
+
+```python
+import os
+import json
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, VersioningMode
+
+with (
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store,
+        tenant_id='tenant123' # optional - uses default tenant if not specified
+    )
+    
+    versioning_config = VersioningConfig(versioning_mode=VersioningMode.PREVIOUS)
+    
+    sources = graph_index.get_sources(versioning_config=versioning_config)
+    
+    print(json.dumps(sources, indent=2))
+```
+
+#### Get details of previous versions of files with specific metadata
+
+```python
+import os
+import json
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, VersioningMode
+
+with (
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store,
+        tenant_id='tenant123' # optional - uses default tenant if not specified
+    )
+    
+    versioning_config = VersioningConfig(versioning_mode=VersioningMode.PREVIOUS)
+    
+    sources = graph_index.get_sources(
+        filter={
+            'file_name': 'readme.md',
+            'title': 'How to play'
+        },
+        versioning_config=versioning_config
+    )
+    
+    print(json.dumps(sources, indent=2))
+```
+
+### Deleting documents
+
+You can deleted individual document subgraphs using the `LexcialGraphIndex.delete_sources()` method.
+
+> **WARNING** Deleting documents is a destructive action: document subgraphs will be physically removed from the graph store and their embeddings from the vector store. You can use the `LexcialGraphIndex.get_sources()` method to validate the sources that will be deleted before running `delete_sources()`. As an extra precaution, consider backing up your graph and vector stores prior to initiating a delete. Backup processes for the different graph and vector store backends are out-of-scope for the toolkit.
+
+`delete_sources()` has the same signature as `get_sources()`. You can use `get_sources()` to review which document versions will be deleted before running `delete_sources()`.
+
+When a versioned document is deleted, its source node, together with all its chunk, topic and statement nodes, are deleted from the lexical graph. The delete process will also remove any orphaned facts and entities that are no longer connected to at least one document.
+
+#### Deleting documents by source id
+
+```python
+import os
+import json
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+
+with (
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store,
+        tenant_id='tenant123' # optional - uses default tenant if not specified
+    )
+    
+    deleted = graph_index.delete_sources(source_ids=[
+      'aws:tenant123:31141440:6de6',
+      'aws:tenant123:34570f12:0726'
+    ])
+    
+    print(json.dumps(deleted, indent=2))
+```
+
+#### Deleting all previous versions of a document
+
+The following example uses version-independent metadata fields (in this case `file_name` and `title`) to identify all versions (current and previous) of a specific document, and then versioning config with `versioning_mode=VersioningMode.PREVIOUS` to further narrow the selection to all those versions of the document that are no longer current. These previous versions of the document are then deleted:
+
+```python
+import os
+import json
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, VersioningMode
+
+with (
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store,
+        tenant_id='tenant123' # optional - uses default tenant if not specified
+    )
+    
+    versioning_config = VersioningConfig(versioning_mode=VersioningMode.PREVIOUS)
+    
+    deleted = graph_index.delete_sources(
+        filter={
+            'file_name': 'readme.md',
+            'title': 'How to play'
+        },
+        versioning_config=versioning_config
+    )
+    
+    print(json.dumps(deleted, indent=2))
+```
+
+#### Deleting a document with version-specific metadata
+
+The following example assumes that each version of the `readme.md` file titled 'How to play', has a unique `version` metadata value (`version` is a domain-specific piece of metadata supplied by the application at indexing time, not a part of the internal versioning metadata used by the versioned update feature). Here, we delete version `v2` of the versioned document.
+
+```python
+import os
+import json
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+
+with (
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store,
+        tenant_id='tenant123' # optional - uses default tenant if not specified
+    )
+    
+    deleted = graph_index.delete_sources(
+        filter={
+            'file_name': 'readme.md',
+            'title': 'How to play',
+            'version': 'v2'
+        }
+    )
+    
+    print(json.dumps(deleted, indent=2))
+```
+
+### Automatically delete versioned documents
+
+You can configure the build process to automatically delete versioned documents using the `DeletePrevVersions` node handler:
+
+```python
+import os
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex, GraphRAGConfig
+from graphrag_toolkit.lexical_graph import add_versioning_info
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+from graphrag_toolkit.lexical_graph.indexing.build import DeletePrevVersions
+
+from llama_index.core import SimpleDirectoryReader
+from llama_index.core.readers.file.base import default_file_metadata_func
+
+GraphRAGConfig.enable_versioning = True
+
+def get_file_metadata(file_path):
+    metadata = default_file_metadata_func(file_path)
+    return add_versioning_info(metadata, id_fields=['file_name', 'file_path'])
+
+with(
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store
+    )
+    
+    reader = SimpleDirectoryReader(input_dir='./my_docs/', file_metadata=get_file_metadata)  
+    docs = reader.load_data()
+
+    graph_index.extract_and_build(docs, handler=DeletePrevVersions(lexical_graph=graph_index))
+```
+
+> **Warning** Use `DeletePrevVersions` with care. If your version-independent metadata fields are too permissive, you may end up versioning and deleting the wrong documents.
+
+#### Implementing deletion protection
+
+`DeletePrevVersions` accepts a custom filter function. This function will be invoked with the metadata of each versioned document that is a candidate for deletion. If the function returns `True`, the document will be deleted; if it returns `False`, the document will not be deleted. You can use this custom filter function and a custom metadata field to implement deletion protection. The following example adds a `deletionProtection` metadata field to each document to be indexed; the custom filter function then checks the value of this field:
+
+```python
+import os
+
+from graphrag_toolkit.lexical_graph import LexicalGraphIndex, GraphRAGConfig
+from graphrag_toolkit.lexical_graph import add_versioning_info
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+from graphrag_toolkit.lexical_graph.indexing.build import DeletePrevVersions
+
+from llama_index.core import SimpleDirectoryReader
+from llama_index.core.readers.file.base import default_file_metadata_func
+
+GraphRAGConfig.enable_versioning = True
+
+def get_file_metadata(file_path):
+    metadata = default_file_metadata_func(file_path)
+    metadata['deletionProtection'] = True # custom metadata field
+    return add_versioning_info(metadata, id_fields=['file_name', 'file_path'])
+
+def deletion_protection_filter_fn(metadata):
+    deletion_protection = metadata.get('deletionProtection', False)
+    return not deletion_protection 
+
+with(
+    GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
+    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+):
+    graph_index = LexicalGraphIndex(
+        graph_store, 
+        vector_store
+    )
+    
+    reader = SimpleDirectoryReader(input_dir='./my_docs/', file_metadata=get_file_metadata) 
+    docs = reader.load_data()
+
+    graph_index.extract_and_build(
+      docs, 
+      handler=DeletePrevVersions(
+        lexical_graph=graph_index,
+        filter_fn=deletion_protection_filter_fn # do not delete docs with deletionProtection == True
+      )
+    )
+```
+
 ### Upgrading existing graph and vector stores
 
 If you have existing graph and vector stores created by a version of the graphrag-toolkit prior to version 3.14.x, you will need to upgrade them before using the versioned updates feature. The graphrag-toolkit includes an `upgrade_for_versioning.py` script that will upgrade a graph and vector store so that you can use versioned updates.
 
-> Do not index any documenst while the upgrade script is running.
+> Do not index any documents while the upgrade script is running.
 
 Download the [`upgrade_for_versioning.py`](https://github.com/awslabs/graphrag-toolkit/blob/main/examples/lexical-graph/scripts/upgrade_for_versioning.py) script to an environment that can access your graph and vector stores. Then run:
 

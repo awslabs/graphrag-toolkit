@@ -1,0 +1,2115 @@
+{
+  "id_": "aws::a9590c75:8212:9aab3789",
+  "embedding": [
+    0.039031982,
+    0.0021820068,
+    0.017349243,
+    -0.054473877,
+    -0.013244629,
+    -0.01574707,
+    -0.039978027,
+    -0.011123657,
+    -0.055786133,
+    0.028182983,
+    0.011428833,
+    0.021057129,
+    0.0039482117,
+    -0.0368042,
+    0.03152466,
+    -0.011558533,
+    0.018875122,
+    -0.025787354,
+    -0.004524231,
+    -0.0061035156,
+    0.015434265,
+    0.010124207,
+    -0.008323669,
+    0.032226562,
+    -0.010932922,
+    0.030151367,
+    -0.033172607,
+    0.022918701,
+    -0.03463745,
+    -0.015151978,
+    -0.00051116943,
+    0.0129470825,
+    -0.008590698,
+    0.07409668,
+    -0.04547119,
+    0.05126953,
+    -0.0013418198,
+    0.018569946,
+    0.0146865845,
+    0.028320312,
+    0.043640137,
+    -0.034118652,
+    0.093811035,
+    -0.06121826,
+    0.05102539,
+    0.037353516,
+    0.0061950684,
+    -0.06298828,
+    0.041015625,
+    0.033477783,
+    0.013282776,
+    -0.0048446655,
+    0.0063209534,
+    0.02279663,
+    -0.020812988,
+    -0.007041931,
+    -0.005012512,
+    0.05581665,
+    0.027359009,
+    0.0020828247,
+    -0.027069092,
+    0.030929565,
+    0.020843506,
+    0.004875183,
+    0.019744873,
+    -0.009094238,
+    -0.032470703,
+    0.024307251,
+    0.09588623,
+    0.016159058,
+    -0.041229248,
+    0.008865356,
+    -0.023010254,
+    -0.016418457,
+    0.052001953,
+    -0.013710022,
+    -0.028305054,
+    -0.01675415,
+    -0.024765015,
+    0.075683594,
+    0.04751587,
+    0.010643005,
+    0.00039672852,
+    0.011955261,
+    0.0029449463,
+    0.051361084,
+    0.0049705505,
+    -0.03378296,
+    0.012107849,
+    0.008987427,
+    -0.021972656,
+    -0.027740479,
+    0.05090332,
+    0.051086426,
+    -0.026306152,
+    0.019882202,
+    -0.035003662,
+    -0.060546875,
+    0.0009536743,
+    -0.012527466,
+    0.0058403015,
+    -0.012687683,
+    -0.028549194,
+    -0.0067100525,
+    -0.03353882,
+    0.0021591187,
+    -0.01637268,
+    -0.002450943,
+    0.007736206,
+    0.018157959,
+    -0.03366089,
+    -0.024215698,
+    0.0076675415,
+    -0.047698975,
+    0.009063721,
+    0.036895752,
+    -0.0057144165,
+    0.026016235,
+    0.0143585205,
+    -0.00061798096,
+    0.007282257,
+    0.03677368,
+    -0.033447266,
+    -0.019378662,
+    0.01386261,
+    -0.0070495605,
+    -0.021148682,
+    0.012199402,
+    0.055114746,
+    0.015220642,
+    -0.018310547,
+    0.028503418,
+    0.005218506,
+    -0.050476074,
+    -0.026000977,
+    -0.0065460205,
+    0.0056991577,
+    -0.022857666,
+    -0.0368042,
+    0.02520752,
+    0.008720398,
+    -0.013595581,
+    0.020980835,
+    -0.0054473877,
+    -0.014770508,
+    0.0135269165,
+    0.017211914,
+    0.008422852,
+    -0.038085938,
+    0.0016784668,
+    0.0011558533,
+    -0.030273438,
+    0.048461914,
+    -0.036590576,
+    -0.025436401,
+    -0.103637695,
+    -0.028686523,
+    -0.050201416,
+    0.06573486,
+    -0.061187744,
+    -0.049591064,
+    0.0031776428,
+    0.019577026,
+    -0.056854248,
+    -0.04257202,
+    0.00063323975,
+    0.025299072,
+    0.018661499,
+    0.03274536,
+    -0.016845703,
+    0.0826416,
+    -0.039367676,
+    0.030975342,
+    0.0423584,
+    0.014022827,
+    0.049072266,
+    0.016143799,
+    0.0060653687,
+    0.019363403,
+    0.003768921,
+    -0.010444641,
+    -0.01625061,
+    0.06097412,
+    -0.008758545,
+    -0.015281677,
+    -0.0018196106,
+    -0.009506226,
+    -0.034973145,
+    0.023757935,
+    0.008056641,
+    0.009017944,
+    0.041534424,
+    0.076049805,
+    -0.0637207,
+    -0.039886475,
+    -0.034698486,
+    0.00020885468,
+    -0.0023078918,
+    -0.03302002,
+    0.05038452,
+    -0.086242676,
+    0.025375366,
+    -0.020385742,
+    0.034118652,
+    -0.016204834,
+    -0.018417358,
+    -0.0076408386,
+    0.040649414,
+    -0.03967285,
+    0.04296875,
+    0.04421997,
+    -0.012451172,
+    -0.04248047,
+    0.04083252,
+    0.023330688,
+    -0.040649414,
+    -0.013633728,
+    0.018875122,
+    -0.007820129,
+    0.03894043,
+    -0.014976501,
+    0.0057792664,
+    -0.034729004,
+    0.009033203,
+    0.008354187,
+    -0.03540039,
+    -0.008712769,
+    -0.0236969,
+    0.04171753,
+    -0.013633728,
+    0.028381348,
+    -0.0030288696,
+    -0.02960205,
+    0.017333984,
+    0.00030994415,
+    0.0206604,
+    0.018203735,
+    -0.011817932,
+    0.007194519,
+    0.0049057007,
+    0.013641357,
+    0.0014820099,
+    -0.00881958,
+    0.036499023,
+    -0.072265625,
+    -0.081970215,
+    -0.005355835,
+    0.0046157837,
+    -0.0390625,
+    -0.00022888184,
+    0.041259766,
+    0.046051025,
+    0.03277588,
+    0.066711426,
+    0.011993408,
+    0.028381348,
+    -0.064208984,
+    -0.04626465,
+    -0.014755249,
+    -0.0063323975,
+    0.023422241,
+    -0.03265381,
+    -0.019119263,
+    -0.016937256,
+    0.037017822,
+    0.022506714,
+    0.045532227,
+    0.04989624,
+    0.019485474,
+    0.008460999,
+    -0.03704834,
+    -0.06604004,
+    -0.014038086,
+    0.016082764,
+    -0.041809082,
+    0.027252197,
+    0.010421753,
+    0.007789612,
+    -0.030303955,
+    -0.01751709,
+    -0.018554688,
+    0.011169434,
+    -0.0050315857,
+    -3.8146973e-06,
+    -0.0035171509,
+    -0.0011672974,
+    0.02407837,
+    -0.004737854,
+    -0.002040863,
+    0.015357971,
+    0.056640625,
+    -0.024429321,
+    -0.014961243,
+    -0.030456543,
+    0.005001068,
+    -0.025817871,
+    -0.010864258,
+    0.078063965,
+    -0.021148682,
+    -0.012336731,
+    -0.022338867,
+    0.0149383545,
+    -0.047424316,
+    0.010688782,
+    0.005882263,
+    0.02746582,
+    0.015068054,
+    -0.03817749,
+    -0.015777588,
+    0.02418518,
+    -0.042755127,
+    0.016174316,
+    0.021575928,
+    0.051574707,
+    0.011398315,
+    -0.0256958,
+    0.034484863,
+    0.06378174,
+    0.039916992,
+    0.0423584,
+    0.013214111,
+    0.048553467,
+    0.026306152,
+    0.0107421875,
+    0.041534424,
+    -0.04067993,
+    0.001209259,
+    0.0030288696,
+    -0.0019340515,
+    0.009178162,
+    -0.014190674,
+    -0.0040779114,
+    -0.0051651,
+    0.031982422,
+    -0.0009384155,
+    0.0019550323,
+    0.010414124,
+    0.004196167,
+    -0.0070648193,
+    -0.017501831,
+    0.0035095215,
+    -0.019119263,
+    -0.0035305023,
+    0.016937256,
+    -0.035705566,
+    -0.028198242,
+    0.021133423,
+    0.012779236,
+    0.007411957,
+    -0.007484436,
+    0.006958008,
+    -0.010185242,
+    -0.023498535,
+    0.011932373,
+    -4.5776367e-05,
+    -0.01448822,
+    0.026306152,
+    0.042541504,
+    -0.011161804,
+    -0.023757935,
+    0.03137207,
+    0.024246216,
+    0.00415802,
+    0.003396988,
+    0.0055770874,
+    -0.044891357,
+    0.025146484,
+    -0.009124756,
+    0.013847351,
+    0.030273438,
+    -0.0011749268,
+    0.0209198,
+    -0.02027893,
+    -0.017608643,
+    -0.022766113,
+    -0.028793335,
+    0.00092697144,
+    -0.040100098,
+    0.002090454,
+    -0.0078125,
+    0.019134521,
+    0.0030841827,
+    0.0070266724,
+    0.0027198792,
+    0.04257202,
+    -0.001783371,
+    -0.032989502,
+    -0.004863739,
+    0.029815674,
+    0.017120361,
+    0.00021648407,
+    -0.0073394775,
+    0.02720642,
+    -0.029769897,
+    -0.0090408325,
+    0.003074646,
+    -0.027175903,
+    0.0062179565,
+    -0.020431519,
+    -0.0070495605,
+    -0.091918945,
+    -0.03111267,
+    -0.011474609,
+    -0.038269043,
+    0.06011963,
+    -0.0871582,
+    0.0102005005,
+    -0.074157715,
+    0.00642395,
+    0.032836914,
+    -0.033996582,
+    0.0635376,
+    -0.04095459,
+    0.07080078,
+    -0.0058898926,
+    -0.02394104,
+    -0.03024292,
+    0.00094366074,
+    0.0021800995,
+    0.046020508,
+    0.03616333,
+    -0.04449463,
+    -0.0047836304,
+    0.016693115,
+    0.0050735474,
+    0.03982544,
+    -0.05606079,
+    -0.021713257,
+    -0.04046631,
+    -0.0009899139,
+    -0.03161621,
+    -0.0049209595,
+    0.043884277,
+    0.030731201,
+    -0.09069824,
+    0.03262329,
+    -0.003774643,
+    0.049041748,
+    0.06506348,
+    -0.0847168,
+    -0.04675293,
+    -0.013153076,
+    0.024002075,
+    0.042114258,
+    0.012817383,
+    0.0034255981,
+    -0.05279541,
+    -0.018737793,
+    -0.0061798096,
+    0.0027179718,
+    -0.025146484,
+    0.020751953,
+    -0.015296936,
+    0.009407043,
+    -0.005832672,
+    -0.029037476,
+    0.0037631989,
+    0.0093307495,
+    0.008476257,
+    0.002483368,
+    -0.014717102,
+    -0.0026130676,
+    0.0043563843,
+    -0.029510498,
+    -0.059631348,
+    0.032806396,
+    0.017028809,
+    0.02017212,
+    -0.019348145,
+    -0.012878418,
+    -0.020553589,
+    0.037384033,
+    -0.0146102905,
+    -0.02279663,
+    -0.010498047,
+    -0.013122559,
+    0.0019702911,
+    -0.014038086,
+    0.06008911,
+    0.027862549,
+    -0.02128601,
+    0.007888794,
+    0.0084991455,
+    0.038116455,
+    0.003376007,
+    0.012138367,
+    -0.0037250519,
+    -0.003211975,
+    -0.0034332275,
+    -0.064941406,
+    0.022857666,
+    -0.033691406,
+    0.013626099,
+    -0.036376953,
+    -0.0135650635,
+    -0.050872803,
+    0.0075416565,
+    -0.010910034,
+    0.026062012,
+    0.0118255615,
+    -0.06378174,
+    0.013000488,
+    -0.013793945,
+    -0.03378296,
+    -0.00030136108,
+    0.037475586,
+    -0.00459671,
+    0.011947632,
+    -0.011886597,
+    -0.04425049,
+    0.008491516,
+    -0.040222168,
+    0.017028809,
+    -0.0005531311,
+    -0.024810791,
+    0.0064926147,
+    -0.029678345,
+    0.024795532,
+    -0.048095703,
+    0.0077934265,
+    -0.017486572,
+    0.009498596,
+    0.022720337,
+    0.043823242,
+    -0.022537231,
+    -0.008575439,
+    -0.006996155,
+    0.021057129,
+    -0.045013428,
+    -0.04333496,
+    0.00491333,
+    0.033569336,
+    0.018463135,
+    0.009796143,
+    0.013656616,
+    0.018478394,
+    -0.011497498,
+    0.0037193298,
+    0.013458252,
+    0.017318726,
+    -0.019073486,
+    -0.03955078,
+    -0.012123108,
+    0.008049011,
+    0.00016784668,
+    0.007881165,
+    -0.016967773,
+    0.0025234222,
+    0.020309448,
+    -0.049102783,
+    0.005340576,
+    0.022872925,
+    0.0051879883,
+    -0.05380249,
+    -0.009346008,
+    -0.017669678,
+    0.05618286,
+    -0.0390625,
+    -0.02180481,
+    4.5776367e-05,
+    0.0076942444,
+    -0.04421997,
+    -0.004272461,
+    0.0016326904,
+    0.06414795,
+    0.009933472,
+    0.00705719,
+    -0.048553467,
+    0.06994629,
+    0.003730774,
+    -0.037506104,
+    -0.020446777,
+    0.05429077,
+    -0.035095215,
+    0.029388428,
+    -0.0770874,
+    -0.0040512085,
+    0.021652222,
+    -0.020339966,
+    -0.03579712,
+    -0.045288086,
+    -0.00062179565,
+    0.029830933,
+    0.0076828003,
+    -0.0026359558,
+    0.0022602081,
+    0.017715454,
+    -0.022155762,
+    -0.02015686,
+    -0.010543823,
+    0.007106781,
+    0.0038528442,
+    0.036102295,
+    -0.016143799,
+    -0.038757324,
+    0.0037078857,
+    -0.06185913,
+    -0.064086914,
+    -0.01259613,
+    -0.014793396,
+    0.033294678,
+    -0.044525146,
+    0.004497528,
+    -0.01234436,
+    0.0049476624,
+    -0.09313965,
+    -0.0524292,
+    0.038879395,
+    0.07128906,
+    0.048461914,
+    -0.002948761,
+    -0.04034424,
+    -0.0552063,
+    0.050109863,
+    -0.00023651123,
+    -0.05303955,
+    -0.028198242,
+    0.030593872,
+    0.046020508,
+    0.03074646,
+    0.0067253113,
+    0.02532959,
+    0.01158905,
+    -0.095214844,
+    0.006340027,
+    -0.049194336,
+    -0.06390381,
+    -0.045440674,
+    0.008377075,
+    0.020126343,
+    0.026733398,
+    0.0012969971,
+    -0.06100464,
+    0.002210617,
+    -0.05899048,
+    0.0018701553,
+    -0.042419434,
+    -0.053741455,
+    0.024383545,
+    -0.01184845,
+    -0.056396484,
+    0.031097412,
+    -0.0075531006,
+    0.049713135,
+    0.024246216,
+    -0.02494812,
+    0.01914978,
+    -0.037261963,
+    0.005290985,
+    -0.012374878,
+    0.00033903122,
+    -0.006088257,
+    -0.009231567,
+    -0.02078247,
+    -0.017456055,
+    -0.016418457,
+    -0.011428833,
+    -0.014312744,
+    -0.0014228821,
+    -0.055541992,
+    -0.09411621,
+    -0.03616333,
+    -0.028747559,
+    -0.028076172,
+    -0.044830322,
+    0.018875122,
+    0.05505371,
+    0.004802704,
+    0.028411865,
+    -0.06695557,
+    -0.019638062,
+    0.022521973,
+    0.015213013,
+    -0.03024292,
+    -0.040161133,
+    0.034301758,
+    0.009925842,
+    0.011604309,
+    0.012321472,
+    -0.0008735657,
+    -0.01852417,
+    -0.035339355,
+    0.030944824,
+    -0.022354126,
+    -0.00831604,
+    0.03427124,
+    -0.005191803,
+    -0.008888245,
+    0.0016040802,
+    0.0016860962,
+    -0.032409668,
+    -0.0446167,
+    0.016418457,
+    -0.06021118,
+    -0.032073975,
+    -0.02355957,
+    -0.0025482178,
+    0.027618408,
+    -0.020141602,
+    -0.027496338,
+    0.0017957687,
+    0.025604248,
+    0.01133728,
+    0.022705078,
+    -0.0231781,
+    0.0021133423,
+    0.024642944,
+    -0.010421753,
+    -0.011207581,
+    -0.017059326,
+    -0.0017356873,
+    0.04071045,
+    0.018051147,
+    -0.0031757355,
+    0.027420044,
+    0.002696991,
+    0.012924194,
+    -0.00090646744,
+    -0.03967285,
+    0.0076141357,
+    -0.022918701,
+    -0.0033130646,
+    -0.04800415,
+    -0.037628174,
+    0.011985779,
+    -0.016845703,
+    -0.06323242,
+    0.015258789,
+    -0.003921509,
+    -0.032836914,
+    -0.02217102,
+    0.017730713,
+    0.020111084,
+    -0.019134521,
+    -0.021636963,
+    -0.002506256,
+    0.014533997,
+    0.005744934,
+    -0.03515625,
+    0.03857422,
+    0.01777649,
+    0.00970459,
+    0.009994507,
+    -0.010620117,
+    -0.026901245,
+    0.010253906,
+    -0.002861023,
+    -0.08911133,
+    -0.0077934265,
+    -0.008285522,
+    0.017807007,
+    -0.0287323,
+    -0.056152344,
+    -0.028686523,
+    -0.0067443848,
+    -0.016952515,
+    -0.028152466,
+    -0.006855011,
+    -0.059387207,
+    0.026779175,
+    -0.036102295,
+    -0.011886597,
+    0.012878418,
+    0.03704834,
+    -0.0048065186,
+    0.03237915,
+    -0.030578613,
+    0.0039138794,
+    0.0070991516,
+    -0.027694702,
+    -0.006137848,
+    -0.006313324,
+    -0.009613037,
+    -0.03137207,
+    0.059448242,
+    -0.008590698,
+    0.0051116943,
+    -0.05822754,
+    -0.03274536,
+    -0.0011825562,
+    0.034210205,
+    0.00491333,
+    0.04586792,
+    -0.0077552795,
+    -0.0017623901,
+    -0.025375366,
+    -0.02381897,
+    0.009857178,
+    -0.024765015,
+    -0.028762817,
+    0.018936157,
+    0.046936035,
+    -0.0018692017,
+    -0.038238525,
+    -0.012626648,
+    0.00048708916,
+    -0.03274536,
+    -0.030273438,
+    -0.041748047,
+    -0.024307251,
+    -0.025466919,
+    0.014892578,
+    -0.007045746,
+    0.044830322,
+    -0.022109985,
+    0.00497818,
+    0.03237915,
+    0.038513184,
+    0.00642395,
+    -0.035247803,
+    0.009742737,
+    -0.06555176,
+    0.01828003,
+    -0.016601562,
+    0.054016113,
+    0.037902832,
+    -0.036315918,
+    -0.0075683594,
+    -0.022323608,
+    0.027053833,
+    -0.025909424,
+    -0.008033752,
+    -0.015258789,
+    0.05328369,
+    -0.024169922,
+    0.028045654,
+    -0.023040771,
+    0.00070858,
+    -0.0119018555,
+    0.02960205,
+    0.046539307,
+    0.007133484,
+    -0.0028915405,
+    -0.03375244,
+    0.0064468384,
+    0.0546875,
+    -0.01864624,
+    0.07312012,
+    -0.05895996,
+    0.014198303,
+    -0.009506226,
+    -0.0010070801,
+    -0.0012664795,
+    -0.044708252,
+    0.02670288,
+    0.009048462,
+    0.00881958,
+    -0.0048332214,
+    0.05429077,
+    0.065979004,
+    0.008468628,
+    -0.015258789,
+    0.030410767,
+    -0.019241333,
+    -0.012016296,
+    0.0056877136,
+    0.03262329,
+    0.014266968,
+    0.03277588,
+    0.0069274902,
+    -0.023498535,
+    0.068603516,
+    0.024536133,
+    -0.045074463,
+    0.027389526,
+    0.04031372,
+    -0.01864624,
+    -0.00078582764,
+    -0.027770996,
+    0.010787964,
+    0.028747559,
+    0.028579712,
+    -0.03479004,
+    -0.051330566,
+    -0.031021118,
+    -0.040130615,
+    0.003250122,
+    0.008262634,
+    -0.03024292,
+    0.0021629333,
+    0.028717041,
+    0.00074768066,
+    0.07904053,
+    0.01953125,
+    0.018539429,
+    -0.02909851,
+    0.020217896,
+    -0.00061798096,
+    0.027526855,
+    0.017990112,
+    0.007972717,
+    -0.03945923,
+    -0.031463623,
+    0.032226562,
+    -0.0050811768,
+    0.10498047,
+    0.003030777,
+    0.012397766,
+    -0.05606079,
+    0.016571045,
+    -0.06414795,
+    -0.047058105,
+    0.052856445,
+    -0.020904541,
+    0.021057129,
+    0.0063934326,
+    0.009933472,
+    -0.05267334,
+    -0.016845703,
+    -0.02418518,
+    0.011978149,
+    0.0011787415,
+    -0.04574585,
+    0.015975952,
+    0.033355713,
+    -0.024353027,
+    -0.08190918,
+    -0.058135986,
+    -0.021377563,
+    -0.033813477,
+    -0.031555176,
+    -0.023986816,
+    0.0024852753,
+    -0.019104004,
+    0.028869629,
+    0.01928711,
+    0.055419922,
+    -0.040039062,
+    -0.0012359619,
+    0.004096985,
+    -0.00724411,
+    0.015426636,
+    0.104003906,
+    -0.0317688,
+    0.06695557,
+    0.0041046143,
+    0.023223877,
+    -0.020446777,
+    0.0026474,
+    -0.02571106,
+    -0.0063056946,
+    -0.041259766,
+    -0.016967773,
+    -0.0033931732,
+    -0.011459351,
+    0.010482788,
+    0.022949219,
+    -0.033416748,
+    -0.029251099,
+    -0.025177002,
+    -0.023635864,
+    -0.00554657,
+    -0.012611389,
+    -0.003162384,
+    0.00075531006,
+    0.031951904,
+    -0.04623413,
+    0.025909424,
+    -0.010154724,
+    0.0112838745,
+    0.0049438477,
+    0.017089844,
+    0.0011901855,
+    -0.016647339,
+    -0.008575439,
+    0.0076560974,
+    -0.008712769,
+    0.022491455,
+    0.049926758,
+    0.013618469,
+    -0.020767212,
+    -0.028961182,
+    -0.02128601,
+    0.012008667,
+    -0.016571045,
+    -0.052093506,
+    -0.0076522827,
+    0.019897461,
+    -0.015823364,
+    -0.013916016,
+    0.011238098,
+    0.045043945,
+    0.009613037,
+    0.0054092407,
+    0.007896423,
+    0.00045013428,
+    0.0029678345,
+    0.031143188,
+    0.018447876,
+    -0.0068511963,
+    0.01260376,
+    0.08581543,
+    0.005897522,
+    -0.010665894,
+    -0.009712219,
+    0.014450073,
+    0.0073509216,
+    0.014152527,
+    -0.0074691772,
+    -0.027114868,
+    -0.027435303,
+    -0.0029449463,
+    0.038269043,
+    0.008026123,
+    -0.030090332,
+    -0.05783081,
+    0.001625061,
+    0.0029830933,
+    -0.0423584,
+    -0.021636963,
+    -0.07269287,
+    0.03668213,
+    0.0019350052,
+    0.022277832,
+    0.06555176,
+    0.015182495,
+    0.021118164,
+    0.07873535,
+    0.038635254,
+    0.05569458,
+    -0.004169464,
+    -0.003320694,
+    0.05456543,
+    -0.034942627
+  ],
+  "metadata": {
+    "title": "AMD Zodiac",
+    "original_title": "AMD Zodiac",
+    "wikipedia_id": "6414450",
+    "url": "https://en.wikipedia.org/wiki/AMD_Zodiac",
+    "header_path": "/Operational history/Safety incidents and grounding/",
+    "aws::graph::propositions": [
+      "AMD Zodiac Aircraft Accidents and Safety Measures",
+      "An amateur-built CH-601XL broke up in flight over Arkansas on 6 November 2009.",
+      "The pilot of the amateur-built CH-601XL died in the 6 November 2009 accident.",
+      "Both wings of the amateur-built CH-601XL separated in flight during the 6 November 2009 accident.",
+      "The 6 November 2009 accident revealed a failure mode similar to earlier crashes.",
+      "The 6 November 2009 accident brought the total number of crashes to seven.",
+      "The 6 November 2009 accident brought the total number of deaths to eleven.",
+      "The Federal Aviation Administration (FAA) issued a Special Airworthiness Information Bulletin on 7 November 2009.",
+      "The Federal Aviation Administration (FAA) strongly recommended that the aircraft not be flown until modifications were carried out.",
+      "The modifications were detailed in an Aircraft Manufacturing and Development (AMD) Safety Alert.",
+      "Aircraft Manufacturing and Development (AMD) issued documents on 7 November 2009.",
+      "Zenith Aircraft issued documents on 7 November 2009.",
+      "Aircraft Manufacturing and Development (AMD) mandated that the Special Light-Sport Aircraft (S-LSA) version not be flown until modifications were completed.",
+      "Zenith Aircraft mandated that the Special Light-Sport Aircraft (S-LSA) version not be flown until modifications were completed.",
+      "Aircraft Manufacturing and Development (AMD) recommended all aircraft be modified.",
+      "Zenith Aircraft recommended all aircraft be modified.",
+      "The modifications included strengthening of the main wing spar carrythroughs.",
+      "The modifications included strengthening of the rear wing spar carrythroughs.",
+      "The modifications included the addition of aileron balance weights.",
+      "The Experimental Aircraft Association recommended grounding all affected aircraft until modifications are complete."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "AMD Zodiac Aircraft Accidents and Safety Measures",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CH-601XL",
+              "classification": "Aircraft"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Arkansas",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Federal Aviation Administration",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Aircraft Manufacturing and Development",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Zenith Aircraft",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Special Light-Sport Aircraft",
+              "classification": "Certification"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Experimental Aircraft Association",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "An amateur-built CH-601XL broke up in flight over Arkansas on 6 November 2009.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Arkansas",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CONSTRUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "amateur-built",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "broke up in flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of the amateur-built CH-601XL died in the 6 November 2009 accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CONSTRUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "amateur-built",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT OUTCOME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot died",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both wings of the amateur-built CH-601XL separated in flight during the 6 November 2009 accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "CONSTRUCTION TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "amateur-built",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "both wings separated in flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The 6 November 2009 accident revealed a failure mode similar to earlier crashes.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT FINDING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure mode similar to earlier crashes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The 6 November 2009 accident brought the total number of crashes to seven.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT STATISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "total number of crashes to seven",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The 6 November 2009 accident brought the total number of deaths to eleven.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "6 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "INCIDENT STATISTIC"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "total number of deaths to eleven",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration (FAA) issued a Special Airworthiness Information Bulletin on 7 November 2009.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUED DOCUMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Special Airworthiness Information Bulletin",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DOCUMENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Federal Aviation Administration (FAA) strongly recommended that the aircraft not be flown until modifications were carried out.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGULATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Federal Aviation Administration",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RECOMMENDATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft not be flown until modifications were carried out",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The modifications were detailed in an Aircraft Manufacturing and Development (AMD) Safety Alert.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUED DOCUMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Safety Alert",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DOCUMENT CONTENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "modifications details",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Aircraft Manufacturing and Development (AMD) issued documents on 7 November 2009.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUED DOCUMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "documents",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DOCUMENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Zenith Aircraft issued documents on 7 November 2009.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Zenith Aircraft",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "ISSUED DOCUMENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "documents",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Zenith Aircraft",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "DOCUMENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "7 November 2009",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Aircraft Manufacturing and Development (AMD) mandated that the Special Light-Sport Aircraft (S-LSA) version not be flown until modifications were completed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGULATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Special Light-Sport Aircraft",
+                    "classification": "Certification"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MANDATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Special Light-Sport Aircraft version not be flown until modifications were completed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Zenith Aircraft mandated that the Special Light-Sport Aircraft (S-LSA) version not be flown until modifications were completed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Zenith Aircraft",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGULATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Special Light-Sport Aircraft",
+                    "classification": "Certification"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Zenith Aircraft",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "MANDATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Special Light-Sport Aircraft version not be flown until modifications were completed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Aircraft Manufacturing and Development (AMD) recommended all aircraft be modified.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGULATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Aircraft Manufacturing and Development",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RECOMMENDATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "all aircraft be modified",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Zenith Aircraft recommended all aircraft be modified.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Zenith Aircraft",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGULATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Zenith Aircraft",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RECOMMENDATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "all aircraft be modified",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The modifications included strengthening of the main wing spar carrythroughs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MODIFICATION DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strengthening of the main wing spar carrythroughs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The modifications included strengthening of the rear wing spar carrythroughs.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MODIFICATION DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "strengthening of the rear wing spar carrythroughs",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The modifications included the addition of aileron balance weights.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "predicate": {
+                    "value": "MODIFICATION DETAIL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "addition of aileron balance weights",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Experimental Aircraft Association recommended grounding all affected aircraft until modifications are complete.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Aircraft Association",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "REGULATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CH-601XL",
+                    "classification": "Aircraft"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Experimental Aircraft Association",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "RECOMMENDATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "grounding all affected aircraft until modifications are complete",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [],
+  "excluded_llm_metadata_keys": [],
+  "relationships": {
+    "1": {
+      "node_id": "aws::a9590c75:8212",
+      "node_type": "4",
+      "metadata": {
+        "title": "AMD Zodiac",
+        "original_title": "AMD Zodiac",
+        "wikipedia_id": "6414450",
+        "url": "https://en.wikipedia.org/wiki/AMD_Zodiac"
+      },
+      "hash": "64ff2561293013ca45bf20ce6b7ac7e9a9be683551ee0c2bb1ee56ad288fa289",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::a9590c75:8212:c5c6fffa",
+      "node_type": "1",
+      "metadata": {
+        "title": "AMD Zodiac",
+        "original_title": "AMD Zodiac",
+        "wikipedia_id": "6414450",
+        "url": "https://en.wikipedia.org/wiki/AMD_Zodiac",
+        "header_path": "/Operational history/Safety incidents and grounding/"
+      },
+      "hash": "09b6fbfd2218bc166bbf9640c59216b915592238c9c6c0a6f98e2f4e161374fb",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::a9590c75:8212:5c283592",
+      "node_type": "1",
+      "metadata": {
+        "title": "AMD Zodiac",
+        "original_title": "AMD Zodiac",
+        "wikipedia_id": "6414450",
+        "url": "https://en.wikipedia.org/wiki/AMD_Zodiac",
+        "header_path": "/Operational history/Safety incidents and grounding/"
+      },
+      "hash": "6049712cabc542b9995aafbc9d9e5c553cf791ea63f7b98e7f2e0a07281fccad",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "On 6 November 2009, an amateur-built CH-601XL broke up in flight over Arkansas, resulting in the death of the pilot. Preliminary investigation of the accident revealed a failure mode similar to that seen in the earlier crashes, as both wings separated in flight. This brought the number of crashes to seven and deaths to 11.\nThe FAA issued a Special Airworthiness Information Bulletin on 7 November 2009 and strongly recommended that the aircraft not be flown until modifications detailed in an AMD Safety Alert are carried out. AMD and Zenith Aircraft issued documents the same day, mandating that the S-LSA version not be flown until the modifications were completed and recommended all aircraft be modified. The modifications included strengthening of the main and rear wing spar carrythroughs and the addition of aileron balance weights. The Experimental Aircraft Association also recommended grounding all affected aircraft until modifications are complete.",
+  "mimetype": "text/plain",
+  "start_char_idx": 2619,
+  "end_char_idx": 3581,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

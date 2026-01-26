@@ -1,0 +1,2073 @@
+{
+  "id_": "aws::32bbb80f:75b6:5472ac63",
+  "embedding": [
+    0.014907837,
+    -0.00869751,
+    0.00970459,
+    -0.03717041,
+    -0.0043296814,
+    0.0010137558,
+    0.006641388,
+    0.005947113,
+    0.009887695,
+    -0.012786865,
+    0.021255493,
+    0.0058517456,
+    -0.01423645,
+    -0.050933838,
+    0.060394287,
+    0.003194809,
+    0.001906395,
+    0.024261475,
+    0.018554688,
+    -0.0107803345,
+    0.017425537,
+    -0.020095825,
+    -0.039245605,
+    -0.029525757,
+    -0.0012664795,
+    0.030731201,
+    -0.038879395,
+    -0.018249512,
+    -0.0011234283,
+    -0.01739502,
+    -0.0017642975,
+    0.022842407,
+    0.009643555,
+    0.006290436,
+    0.016326904,
+    -0.046325684,
+    -0.0009813309,
+    0.018066406,
+    -0.026657104,
+    0.028869629,
+    0.034851074,
+    -0.0076904297,
+    0.017181396,
+    -0.011581421,
+    -0.0067367554,
+    -0.03378296,
+    0.049987793,
+    -0.006828308,
+    0.053955078,
+    0.02243042,
+    0.01676941,
+    -0.03756714,
+    0.0060157776,
+    0.04663086,
+    0.0072517395,
+    0.018096924,
+    -0.019134521,
+    0.0049057007,
+    0.0152282715,
+    0.0055656433,
+    -0.018188477,
+    0.015151978,
+    0.020843506,
+    -0.0024642944,
+    -0.012771606,
+    -0.0020046234,
+    0.01576233,
+    0.00919342,
+    0.064941406,
+    0.0096588135,
+    -0.015258789,
+    0.04324341,
+    -0.021743774,
+    0.048553467,
+    0.0025691986,
+    -0.019012451,
+    0.035705566,
+    0.050811768,
+    -0.04953003,
+    0.06878662,
+    0.03463745,
+    0.0033626556,
+    -0.008323669,
+    -0.027114868,
+    0.033813477,
+    0.015655518,
+    -0.011489868,
+    -0.032348633,
+    -0.008460999,
+    -0.04864502,
+    -0.021652222,
+    0.0030841827,
+    -0.010932922,
+    -0.021591187,
+    -0.032226562,
+    -0.024795532,
+    0.017501831,
+    -0.057800293,
+    0.01889038,
+    -0.045288086,
+    0.03427124,
+    -0.040100098,
+    -0.04522705,
+    0.03289795,
+    -0.023330688,
+    0.060943604,
+    0.03643799,
+    0.052001953,
+    0.022079468,
+    -0.010238647,
+    0.0036697388,
+    0.023117065,
+    -0.020004272,
+    -0.019515991,
+    -0.043670654,
+    0.06048584,
+    -0.004486084,
+    -0.02130127,
+    -0.007030487,
+    0.023620605,
+    -0.011665344,
+    0.030578613,
+    -0.034820557,
+    -0.03225708,
+    0.0028438568,
+    -0.006088257,
+    -0.003408432,
+    0.0060157776,
+    0.047454834,
+    0.011947632,
+    -0.0068855286,
+    0.035308838,
+    -0.008979797,
+    -0.0793457,
+    -0.0463562,
+    0.007461548,
+    -0.019226074,
+    -0.012626648,
+    0.0009551048,
+    -0.0074882507,
+    -0.010673523,
+    -0.02911377,
+    0.042877197,
+    -0.0027999878,
+    -0.005367279,
+    0.04714966,
+    6.991625e-05,
+    3.5703182e-05,
+    -0.012779236,
+    -0.021972656,
+    0.009231567,
+    -0.06695557,
+    0.040924072,
+    -0.011787415,
+    -0.0048294067,
+    -0.059509277,
+    0.009353638,
+    -0.034210205,
+    0.012878418,
+    -0.035217285,
+    -0.055908203,
+    -0.0020980835,
+    0.04019165,
+    0.0118637085,
+    0.0038757324,
+    -0.0048179626,
+    0.032806396,
+    0.0064315796,
+    0.021575928,
+    -0.023971558,
+    0.057373047,
+    -0.020339966,
+    -0.03488159,
+    -0.009712219,
+    0.001285553,
+    0.003610611,
+    0.02973938,
+    0.007587433,
+    0.0038967133,
+    0.047973633,
+    0.026168823,
+    -0.016677856,
+    0.026016235,
+    -0.013519287,
+    -0.02822876,
+    0.03491211,
+    0.019744873,
+    0.05960083,
+    0.009292603,
+    0.023742676,
+    0.00390625,
+    0.0008149147,
+    0.068115234,
+    -0.038116455,
+    -0.00031232834,
+    -0.04647827,
+    -0.014335632,
+    -0.019500732,
+    -0.02142334,
+    0.025680542,
+    0.0021419525,
+    0.005355835,
+    0.020507812,
+    -0.0016746521,
+    0.06561279,
+    -0.03201294,
+    0.0491333,
+    4.5001507e-05,
+    -0.02798462,
+    0.013549805,
+    0.032440186,
+    0.0020046234,
+    -0.04144287,
+    0.024780273,
+    -0.016433716,
+    0.015602112,
+    0.008476257,
+    -0.032806396,
+    0.018569946,
+    -0.015548706,
+    -0.014167786,
+    0.06842041,
+    -0.03967285,
+    -0.018615723,
+    0.0033950806,
+    -0.035614014,
+    -0.00484848,
+    -0.025665283,
+    0.018875122,
+    -0.0068855286,
+    0.04385376,
+    -0.007183075,
+    0.006778717,
+    0.026885986,
+    -0.036956787,
+    0.022888184,
+    -0.009231567,
+    0.046539307,
+    -0.015777588,
+    -0.0039138794,
+    -0.022644043,
+    -0.02708435,
+    -0.03253174,
+    0.060577393,
+    -0.04425049,
+    -0.028625488,
+    -0.0038757324,
+    0.039886475,
+    -0.036743164,
+    0.0007162094,
+    0.047332764,
+    0.052490234,
+    0.0069847107,
+    0.05908203,
+    0.008422852,
+    0.015899658,
+    -0.025177002,
+    -0.05130005,
+    0.03201294,
+    -0.012237549,
+    0.033111572,
+    0.015541077,
+    -0.033813477,
+    0.01689148,
+    0.03262329,
+    -0.00034737587,
+    0.027496338,
+    0.021453857,
+    -0.0023040771,
+    0.013801575,
+    0.00995636,
+    -0.023498535,
+    -0.009811401,
+    -0.011871338,
+    -0.036071777,
+    0.01739502,
+    -0.053131104,
+    0.027999878,
+    0.015716553,
+    -0.02180481,
+    -0.032073975,
+    0.08331299,
+    -0.008552551,
+    -0.012046814,
+    -0.05328369,
+    -0.0062789917,
+    -0.008430481,
+    -0.026535034,
+    -0.06500244,
+    -0.00573349,
+    0.052947998,
+    0.017822266,
+    0.01914978,
+    -0.05316162,
+    -0.011146545,
+    -0.006362915,
+    0.019973755,
+    0.013038635,
+    0.01586914,
+    -0.031677246,
+    -0.0044784546,
+    0.031280518,
+    -0.05203247,
+    0.015449524,
+    -0.0068092346,
+    -0.0013608932,
+    -0.0036697388,
+    0.006034851,
+    0.0074882507,
+    -0.02230835,
+    -0.009155273,
+    0.021896362,
+    0.006576538,
+    0.0021705627,
+    0.0030326843,
+    -0.013015747,
+    -0.0056419373,
+    0.030593872,
+    -0.008773804,
+    0.025238037,
+    -0.061645508,
+    0.02684021,
+    -0.009887695,
+    -0.0011892319,
+    0.038330078,
+    0.004814148,
+    -0.038024902,
+    -0.00085258484,
+    -0.009025574,
+    -0.00057029724,
+    0.0048103333,
+    -0.008399963,
+    -0.031829834,
+    0.026672363,
+    0.024673462,
+    0.036102295,
+    0.014343262,
+    -0.03729248,
+    -0.013038635,
+    0.01637268,
+    0.008102417,
+    -0.0058784485,
+    0.0107040405,
+    -0.059936523,
+    -0.06463623,
+    0.005847931,
+    0.03677368,
+    0.008796692,
+    -0.049041748,
+    -0.025726318,
+    0.051361084,
+    -0.017242432,
+    -0.016052246,
+    0.01209259,
+    -0.00045728683,
+    -0.06188965,
+    0.004524231,
+    0.007041931,
+    -0.043518066,
+    -0.047546387,
+    0.04006958,
+    -0.011421204,
+    -0.015716553,
+    -0.068115234,
+    0.009338379,
+    0.012001038,
+    -0.032684326,
+    -0.025985718,
+    -0.0013580322,
+    -0.0019168854,
+    -0.015266418,
+    -0.0087509155,
+    -0.0029640198,
+    0.001247406,
+    -0.011436462,
+    -0.0043258667,
+    0.053985596,
+    -0.008171082,
+    -0.010925293,
+    0.021224976,
+    0.022903442,
+    0.0021400452,
+    0.011390686,
+    -0.011177063,
+    0.029266357,
+    -0.0022354126,
+    -0.016433716,
+    -0.043945312,
+    0.055511475,
+    0.036743164,
+    0.054748535,
+    -0.02357483,
+    -0.061157227,
+    -0.02368164,
+    -0.0028820038,
+    0.013069153,
+    -0.039031982,
+    -0.024002075,
+    -0.03189087,
+    -0.009971619,
+    -0.11920166,
+    0.0085372925,
+    -0.04156494,
+    -0.008377075,
+    0.011375427,
+    -0.060699463,
+    -0.027557373,
+    -0.08972168,
+    0.026382446,
+    0.117370605,
+    -0.0418396,
+    0.05697632,
+    -0.009933472,
+    0.060394287,
+    -0.016860962,
+    0.03942871,
+    0.0048942566,
+    0.0063476562,
+    -0.0368042,
+    0.027053833,
+    0.020385742,
+    0.025878906,
+    0.0138549805,
+    0.04260254,
+    0.008560181,
+    -0.04208374,
+    -0.0072784424,
+    -0.04748535,
+    0.020553589,
+    0.061187744,
+    -0.04135132,
+    0.027313232,
+    0.010353088,
+    0.019302368,
+    -0.025619507,
+    0.012062073,
+    0.002538681,
+    -0.0023441315,
+    0.042938232,
+    -0.039794922,
+    0.0049324036,
+    0.034088135,
+    0.017486572,
+    0.008796692,
+    -0.031234741,
+    0.0039100647,
+    0.045715332,
+    0.011756897,
+    -0.05014038,
+    -0.045440674,
+    -0.016036987,
+    0.0015630722,
+    0.013694763,
+    0.030014038,
+    0.023986816,
+    0.07836914,
+    0.012832642,
+    0.013420105,
+    0.0090789795,
+    0.015487671,
+    -0.00894928,
+    -0.0034942627,
+    -0.005847931,
+    -0.012084961,
+    -0.012878418,
+    0.00592041,
+    0.026916504,
+    -0.008033752,
+    -0.027404785,
+    0.021942139,
+    -0.029159546,
+    0.027435303,
+    -0.020843506,
+    0.012298584,
+    -0.04083252,
+    -0.0030593872,
+    0.026870728,
+    0.0006656647,
+    0.04272461,
+    -0.00036001205,
+    -0.04031372,
+    0.011489868,
+    0.023635864,
+    0.033813477,
+    0.010108948,
+    0.0076179504,
+    0.03741455,
+    0.037841797,
+    0.007858276,
+    -0.03933716,
+    -0.016418457,
+    -0.005859375,
+    -7.748604e-05,
+    0.0075683594,
+    -0.0050621033,
+    -0.0440979,
+    -0.006412506,
+    0.0501709,
+    -0.007419586,
+    -0.04071045,
+    0.0030078888,
+    -0.02281189,
+    -0.033233643,
+    0.021331787,
+    -0.016677856,
+    0.025131226,
+    0.051696777,
+    0.0063171387,
+    0.017959595,
+    -0.0072135925,
+    0.044769287,
+    -0.026885986,
+    -0.0034065247,
+    0.01864624,
+    -0.022216797,
+    0.004760742,
+    0.018035889,
+    0.01399231,
+    -0.012542725,
+    -0.016967773,
+    -0.043945312,
+    -0.031555176,
+    0.046691895,
+    0.05218506,
+    -0.038970947,
+    0.00089263916,
+    0.010810852,
+    0.02456665,
+    -0.033294678,
+    -0.038970947,
+    -0.013710022,
+    0.029190063,
+    -0.011505127,
+    0.0013217926,
+    0.060577393,
+    0.0005145073,
+    -0.053955078,
+    0.057250977,
+    0.011917114,
+    -0.05709839,
+    -0.03286743,
+    0.020324707,
+    0.025985718,
+    -0.0014247894,
+    0.02859497,
+    -0.006034851,
+    0.028686523,
+    0.03955078,
+    -0.053894043,
+    0.015960693,
+    -0.0021686554,
+    0.005744934,
+    -0.00056648254,
+    -0.04537964,
+    -0.0463562,
+    0.072143555,
+    0.023391724,
+    -0.019348145,
+    -0.021942139,
+    0.010154724,
+    -0.025543213,
+    -0.038085938,
+    -0.0048980713,
+    0.04058838,
+    0.0181427,
+    0.036712646,
+    -0.016983032,
+    -0.048858643,
+    0.0019950867,
+    -0.011146545,
+    0.010124207,
+    -0.011116028,
+    0.07409668,
+    -0.011405945,
+    -0.00333786,
+    -0.042785645,
+    -0.017486572,
+    0.025268555,
+    0.0074806213,
+    0.029342651,
+    -0.0021591187,
+    0.009025574,
+    -0.014526367,
+    0.011962891,
+    -0.03265381,
+    0.014831543,
+    -0.0051078796,
+    -0.036590576,
+    -0.032440186,
+    -0.024154663,
+    0.04360962,
+    0.006965637,
+    0.0036182404,
+    -0.05847168,
+    -0.03591919,
+    0.0022010803,
+    -0.05810547,
+    0.020263672,
+    0.0065956116,
+    -0.013313293,
+    0.023208618,
+    -0.017608643,
+    -0.011650085,
+    -0.014289856,
+    0.04135132,
+    0.007843018,
+    0.019165039,
+    0.04827881,
+    0.03604126,
+    0.05999756,
+    0.02494812,
+    0.029876709,
+    -0.0670166,
+    0.019592285,
+    -0.0012350082,
+    -0.058044434,
+    -0.03540039,
+    0.08508301,
+    0.06994629,
+    -0.01399231,
+    0.036987305,
+    0.025756836,
+    0.02407837,
+    -0.010848999,
+    0.011230469,
+    -0.0087509155,
+    -0.036956787,
+    -0.016357422,
+    0.0008392334,
+    -0.007820129,
+    -0.016464233,
+    -0.00970459,
+    -0.05206299,
+    0.001045227,
+    -0.02960205,
+    0.011146545,
+    -0.039123535,
+    -0.044036865,
+    0.03173828,
+    0.012496948,
+    -0.0071907043,
+    -0.0084991455,
+    -0.012939453,
+    -0.014625549,
+    -0.001625061,
+    -0.051757812,
+    -0.025512695,
+    -0.0036849976,
+    -0.022399902,
+    -0.002254486,
+    -0.027114868,
+    -0.005180359,
+    -0.041137695,
+    -0.009933472,
+    0.02947998,
+    -0.05368042,
+    0.002960205,
+    -0.008895874,
+    -0.005138397,
+    -0.06341553,
+    -0.058380127,
+    -0.02079773,
+    0.0049476624,
+    -0.032928467,
+    -0.06719971,
+    -0.029922485,
+    0.018966675,
+    -0.0020198822,
+    -0.026412964,
+    -0.0012874603,
+    -0.05404663,
+    0.056488037,
+    0.05227661,
+    -0.017837524,
+    -0.025665283,
+    0.011039734,
+    0.03012085,
+    -0.0046691895,
+    0.019134521,
+    -0.0027160645,
+    0.013587952,
+    0.045043945,
+    0.044525146,
+    -0.009513855,
+    -0.05609131,
+    0.027114868,
+    -0.07330322,
+    0.0127334595,
+    0.0074539185,
+    0.019104004,
+    -0.03353882,
+    -0.009925842,
+    0.015563965,
+    -0.015052795,
+    -0.022583008,
+    0.0018253326,
+    0.00030064583,
+    -0.05432129,
+    -0.0103302,
+    -0.024353027,
+    0.0020885468,
+    -0.024765015,
+    0.024246216,
+    -0.023391724,
+    -0.005290985,
+    0.019607544,
+    0.005241394,
+    -0.012359619,
+    -0.00061416626,
+    0.00061655045,
+    -0.011421204,
+    0.033203125,
+    -0.008422852,
+    -0.010253906,
+    0.016342163,
+    -0.015533447,
+    -0.018966675,
+    -0.00077295303,
+    -0.020889282,
+    0.011672974,
+    -0.0055274963,
+    0.056121826,
+    -0.0127334595,
+    -0.036956787,
+    0.021636963,
+    -0.05709839,
+    -0.06011963,
+    0.03604126,
+    -0.010429382,
+    -0.039276123,
+    0.0289917,
+    -0.031433105,
+    -0.015335083,
+    0.0075035095,
+    -0.011199951,
+    0.024002075,
+    -0.025985718,
+    0.015563965,
+    0.014045715,
+    -0.035705566,
+    0.013061523,
+    -0.022537231,
+    0.032836914,
+    0.014709473,
+    -0.03466797,
+    -0.0036525726,
+    0.018585205,
+    -0.101501465,
+    0.01159668,
+    -0.0038642883,
+    0.047607422,
+    -0.057037354,
+    -0.08062744,
+    0.015335083,
+    0.01285553,
+    0.013969421,
+    -0.00010854006,
+    -0.0048103333,
+    -0.06970215,
+    0.017501831,
+    -0.035247803,
+    0.0012407303,
+    -0.017410278,
+    0.025878906,
+    -0.02684021,
+    0.008628845,
+    -0.06384277,
+    -0.038513184,
+    -0.07055664,
+    0.014823914,
+    0.022262573,
+    0.039794922,
+    -0.016418457,
+    -0.057739258,
+    -0.00095129013,
+    -0.036346436,
+    0.009727478,
+    -0.035736084,
+    -0.034454346,
+    0.037139893,
+    0.01965332,
+    0.033569336,
+    -0.042266846,
+    -0.021774292,
+    0.0071487427,
+    -0.03289795,
+    -0.044647217,
+    -0.002023697,
+    -0.01133728,
+    0.019622803,
+    -0.05734253,
+    0.03439331,
+    0.01486969,
+    0.0018196106,
+    0.038269043,
+    -0.0034732819,
+    -0.022705078,
+    -0.023590088,
+    -0.024520874,
+    -0.033935547,
+    -0.031799316,
+    0.00093364716,
+    -0.011009216,
+    0.04107666,
+    -0.020431519,
+    0.007320404,
+    0.026046753,
+    0.03375244,
+    0.022613525,
+    -0.019424438,
+    0.0019006729,
+    -0.049804688,
+    0.015609741,
+    -0.018493652,
+    0.012550354,
+    0.017486572,
+    0.033599854,
+    -0.00080537796,
+    0.032592773,
+    -0.003522873,
+    -0.02999878,
+    0.016296387,
+    -0.008735657,
+    0.037963867,
+    0.024597168,
+    0.034729004,
+    -0.041137695,
+    0.009010315,
+    0.009300232,
+    0.021835327,
+    0.040893555,
+    0.0340271,
+    0.0121154785,
+    -0.0052261353,
+    -0.034332275,
+    0.041870117,
+    0.026916504,
+    0.05239868,
+    -0.029403687,
+    0.023376465,
+    -0.06317139,
+    -0.016326904,
+    -0.028030396,
+    -0.042388916,
+    -0.02456665,
+    0.059661865,
+    0.018844604,
+    -0.0021419525,
+    0.03479004,
+    0.062347412,
+    0.004573822,
+    -0.016342163,
+    0.02708435,
+    -0.021316528,
+    -0.0127334595,
+    0.0084991455,
+    0.07287598,
+    -0.0134887695,
+    0.03543091,
+    0.009307861,
+    -0.042114258,
+    0.06262207,
+    -0.0011196136,
+    -0.0061683655,
+    0.0030021667,
+    0.014266968,
+    -0.011146545,
+    0.034973145,
+    -0.003293991,
+    0.06732178,
+    0.026016235,
+    -0.027832031,
+    -0.025772095,
+    -0.056610107,
+    -0.01373291,
+    0.012420654,
+    -0.008117676,
+    0.024414062,
+    -0.010299683,
+    0.04699707,
+    -0.007675171,
+    -0.055847168,
+    0.017456055,
+    -0.030761719,
+    -0.00033020973,
+    -0.030944824,
+    0.029708862,
+    0.018157959,
+    0.074279785,
+    0.03564453,
+    0.028152466,
+    0.0154953,
+    -0.01878357,
+    0.09454346,
+    0.070251465,
+    0.11602783,
+    0.0463562,
+    0.0056991577,
+    -0.04751587,
+    -0.0044937134,
+    -0.036315918,
+    -0.059661865,
+    0.099121094,
+    -0.0758667,
+    -0.004673004,
+    0.021392822,
+    -0.0062408447,
+    -0.039276123,
+    -0.0037899017,
+    -0.0071105957,
+    0.011108398,
+    0.032684326,
+    -0.023025513,
+    0.009109497,
+    0.011894226,
+    -0.008781433,
+    -0.041534424,
+    -0.031829834,
+    0.019927979,
+    -0.049591064,
+    -0.013069153,
+    0.014091492,
+    0.008995056,
+    0.009635925,
+    -0.006336212,
+    -0.03543091,
+    0.09075928,
+    0.004962921,
+    0.022460938,
+    -0.04083252,
+    -0.028564453,
+    -0.010276794,
+    0.07171631,
+    -0.06161499,
+    0.07788086,
+    -0.023864746,
+    0.04168701,
+    -0.025238037,
+    -0.016189575,
+    0.043518066,
+    0.04107666,
+    -0.05038452,
+    -0.026809692,
+    -0.019195557,
+    0.00087070465,
+    -0.014076233,
+    0.032348633,
+    -0.042297363,
+    -0.06512451,
+    -0.018173218,
+    -0.020263672,
+    0.021774292,
+    0.014968872,
+    -0.0024776459,
+    0.008163452,
+    0.034851074,
+    -0.03677368,
+    -0.00027394295,
+    -0.025939941,
+    -0.0137786865,
+    -0.0015439987,
+    -0.01525116,
+    0.058563232,
+    0.037322998,
+    0.013267517,
+    -0.015701294,
+    -0.010437012,
+    -0.036956787,
+    -0.021911621,
+    0.010017395,
+    0.037841797,
+    -0.027694702,
+    0.0057144165,
+    -0.060791016,
+    -0.032562256,
+    0.009971619,
+    -0.0357666,
+    -0.0088272095,
+    0.008041382,
+    -0.049468994,
+    0.018508911,
+    0.024795532,
+    0.0041770935,
+    -0.012260437,
+    0.034057617,
+    -0.019683838,
+    -0.0027179718,
+    0.011917114,
+    -0.019989014,
+    -0.0128479,
+    -0.009231567,
+    0.042053223,
+    0.02319336,
+    0.0010118484,
+    -0.028030396,
+    -0.002090454,
+    0.02810669,
+    -0.0027637482,
+    0.01864624,
+    -0.049072266,
+    -0.021362305,
+    -0.01576233,
+    0.014160156,
+    -0.015266418,
+    0.040130615,
+    -0.06970215,
+    -0.024490356,
+    -0.011413574,
+    -0.034240723,
+    0.02482605,
+    -0.027801514,
+    0.025985718,
+    0.018737793,
+    -0.00083971024,
+    0.07366943,
+    -0.033203125,
+    0.019134521,
+    0.0463562,
+    0.003435135,
+    0.05053711,
+    -0.0184021,
+    -0.03668213,
+    -0.0023231506,
+    -0.023422241
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86020.md",
+    "file_name": "86020.md",
+    "file_size": 7504,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for N897GA in Ankeny, Iowa",
+      "N897GA is an American General Aircraft Corporation AG5B aircraft.",
+      "N897GA was involved in an accident on January 11, 2013, at 23:30 local time.",
+      "The accident occurred in Ankeny, Iowa.",
+      "The defining event of the accident was controlled flight into terrain/object (CFIT).",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The accident number was CEN13CA133.",
+      "N897GA sustained substantial damage in the accident.",
+      "The pilot of N897GA suffered no injuries in the accident.",
+      "The pilot listened to the automated weather observing system before arriving at the destination airport.",
+      "The automated weather observing system indicated wind from 220 degrees at 10 knots.",
+      "The wind was gusting to 26 knots.",
+      "The pilot was flying in night visual meteorological conditions.",
+      "The pilot aborted the first landing attempt after a bounced landing.",
+      "During the second approach, the pilot observed the visual approach slope indicator rapidly transition from both white to both red.",
+      "Both white visual approach slope indicator lights indicate the aircraft is high on the glideslope.",
+      "Both red visual approach slope indicator lights indicate the aircraft is low on the glideslope.",
+      "The pilot decided to perform a go-around during the second approach.",
+      "During the go-around attempt, the aircraft's left wing struck a tree.",
+      "The tree strike resulted in substantial damage to the left wing of N897GA.",
+      "The tree strike resulted in substantial damage to the horizontal stabilizer of N897GA.",
+      "The pilot landed the airplane without further incident on the third landing attempt.",
+      "The pilot stated that the airplane's interior lighting was too bright for the night conditions.",
+      "The pilot stated that the bright runway lights in the dark rural setting gave the pilot a \"false sense of night vision.\"",
+      "The National Transportation Safety Board determined the probable cause of the accident to be the pilot's failure to maintain a proper glide path to the runway in gusty wind conditions.",
+      "The National Transportation Safety Board determined the pilot's failure to maintain clearance from obstructions during the go-around was a probable cause of the accident.",
+      "The National Transportation Safety Board determined the pilot's improper interior lighting configuration was a contributing factor to the accident."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for N897GA in Ankeny, Iowa",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N897GA",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "American General Aircraft Corporation AG5B",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Ankeny, Iowa",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "controlled flight into terrain/object",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Part 91: General aviation - Personal",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CEN13CA133",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "automated weather observing system",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "visual approach slope indicator",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "tree",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N897GA is an American General Aircraft Corporation AG5B aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "American General Aircraft Corporation AG5B",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N897GA was involved in an accident on January 11, 2013, at 2330 local time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "January 11, 2013",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "23:30 local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Ankeny, Iowa.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "ACCIDENT LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Ankeny, Iowa",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event of the accident was controlled flight into terrain/object (CFIT).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "controlled flight into terrain/object",
+                    "classification": "Definingevent"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDUCTED UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was CEN13CA133.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "HAS ACCIDENT NUMBER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CEN13CA133",
+                    "classification": "Accidentnumber"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "N897GA sustained substantial damage in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot of N897GA suffered no injuries in the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATES"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "INJURY LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no injuries",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot listened to the automated weather observing system before arriving at the destination airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "USED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automated weather observing system",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The automated weather observing system indicated wind from 220 degrees at 10 knots.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automated weather observing system",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND DIRECTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "220 degrees",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automated weather observing system",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND SPEED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "10 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The wind was gusting to 26 knots.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automated weather observing system",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WIND GUST"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "26 knots",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot was flying in night visual meteorological conditions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT CONDITIONS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "night visual meteorological conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot aborted the first landing attempt after a bounced landing.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "FIRST LANDING ATTEMPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aborted after bounced landing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the second approach, the pilot observed the visual approach slope indicator rapidly transition from both white to both red.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual approach slope indicator",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual approach slope indicator",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "TRANSITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "from both white to both red",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both white visual approach slope indicator lights indicate the aircraft is high on the glideslope.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual approach slope indicator",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "WHITE LIGHTS INDICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft is high on the glideslope",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Both red visual approach slope indicator lights indicate the aircraft is low on the glideslope.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "visual approach slope indicator",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "RED LIGHTS INDICATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft is low on the glideslope",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot decided to perform a go-around during the second approach.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "SECOND APPROACH ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "perform a go-around",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the go-around attempt, the aircraft's left wing struck a tree.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "STRUCK"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "tree",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "IMPACT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "left wing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tree strike resulted in substantial damage to the left wing of N897GA.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "LEFT WING DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The tree strike resulted in substantial damage to the horizontal stabilizer of N897GA.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "HORIZONTAL STABILIZER DAMAGE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot landed the airplane without further incident on the third landing attempt.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "THIRD LANDING ATTEMPT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "without further incident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot stated that the airplane's interior lighting was too bright for the night conditions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "predicate": {
+                    "value": "INTERIOR LIGHTING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "too bright for night conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot stated that the bright runway lights in the dark rural setting gave the pilot a \"false sense of night vision.\"",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "VISION ISSUE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "false sense of night vision",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident to be the pilot's failure to maintain a proper glide path to the runway in gusty wind conditions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INVESTIGATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N897GA",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE 1"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure to maintain a proper glide path to the runway in gusty wind conditions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the pilot's failure to maintain clearance from obstructions during the go-around was a probable cause of the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE 2"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure to maintain clearance from obstructions during the go-around",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the pilot's improper interior lighting configuration was a contributing factor to the accident.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "CONTRIBUTING FACTOR"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "improper interior lighting configuration",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::32bbb80f:75b6",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86020.md",
+        "file_name": "86020.md",
+        "file_size": 7504,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "e6e616c3d69edb06c7b9a5eae2e645806f8f28a79566df3a68d764d9d359ee5a",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::32bbb80f:75b6:d2f84308",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/86020.md",
+        "file_name": "86020.md",
+        "file_size": 7504,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "9b41aa4eb36f9983792d0944da7fdb284d3ef9bff60f9802f841a103051d29c1",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nAnkeny, Iowa\n\n## Date & Time: \nJanuary 11, 2013, 23:30 Local\n\n## Aircraft:\nAMERICAN GENERAL ACFT CORP AG5B\n\n## Defining Event:\nControlled flight into terr/obj (CFIT)\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Accident Number:\nCEN13CA133\n\n## Registration:\nN897GA\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n1 None\n\n## Analysis\n\nThe pilot stated that before arriving at his destination airport in night visual meteorological conditions, he listened to the automated weather observing system, which indicated wind from 220 degrees at 10 knots, gusting to 26 knots. The pilot aborted his first attempt to land after a bounced landing. During the second approach to land, the pilot observed the visual approach slope indicator rapidly transition from both white (indicating high on the glideslope) to both red (indicating low on the glideslope) and decided to perform a go-around. During the attempted go-around, the airplane's left wing struck a tree, which resulted in substantial damage to the left wing and horizontal stabilizer. The pilot then landed the airplane without further incident on his third landing attempt. The pilot stated that the airplane's interior lighting was too bright for the night conditions and that the bright runway lights in the dark rural setting gave him a \"false sense of night vision.\"\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\nThe pilot's failure to maintain a proper glide path to the runway in gusty wind conditions and his failure to maintain clearance from obstructions during the subsequent go-around. Contributing to the accident was the pilot's improper interior lighting configuration.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1799,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

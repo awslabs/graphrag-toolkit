@@ -1,0 +1,231 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Base"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d on the available"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " data from"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " both aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " information an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d NTS"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "B accident reports,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " I can provide an analysis"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of the correlation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " between Cessna 210"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Centurion variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failures or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " safety incidents:"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n## Analysis"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of Cessna "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210 Variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and Associate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d Mechanical Issues"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n### Cessna "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210 Variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Overview"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\nThe Cessna"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Centurion was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " manufactured in "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "26 model variants from"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 1957"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to 1"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "986, including"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- **Early models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " (C"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " C210A-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "D)**: Four"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-seat variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with Continental IO-470"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engines\n- **Standar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d variants (C210E"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-H&J,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " C210K-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "N&R"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ")**: Six-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "seat models with upgrade"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d engines\n- **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged variants (T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210F-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "H&"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "J, T210K"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-N&R"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ")**: Equippe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d with Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " TSIO-520"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engines"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- **Press"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "urized variants ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "P210N"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "&R)**: High"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-altitude capable"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " models [aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]\n\n###"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Key Mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Failure Patterns"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by Variant Type"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n#### "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "1. **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Turbocharged Models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " (T210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "series)**\nThe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " turbocharged variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " show specific patterns of mechanical failures"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":\n\n- **Engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Problems**: A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210M experienced connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod failures ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Nos"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ". 5"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and 6)"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " due to oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " starvation,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " resulting in complete"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine power loss an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d forced landing ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ntsb]"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "TSIO-520 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Engine Issues**: The Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " TSIO-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "520 turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged engines"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " appear more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " susceptible to connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod failures an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d oil starvation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " problems compared to naturally"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aspirated variants [ntsb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]\n\n#### "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "2. **Early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Models (C210"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "A)**\nEarly"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " variants demonstrate fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system-related issues:"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n- **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Fuel System Problems"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**: A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210A experienced total"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine power loss during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " takeoff after"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel system adjust"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ments, though"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the specific cause coul"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d not be determined despite"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " post-accident examination"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [ntsb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- **Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " IO-470 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Engine**: Early models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with Continental IO-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "470 engines showe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system vulner"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "abilities ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ntsb]"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n#### 3"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ". **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Retractable Landing Gear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " System Issues**\nAll"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210 variants share"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable landing gear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system, which presents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " common"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure modes"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":\n\n- **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Landing Gear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Malfunctions**: While"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specific Cessna 210"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gear failures"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " weren't detailed in the available"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " data, relate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d Cessna models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " (like the "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "310L) experienced right"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " main landing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gear collapse issues,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " suggesting this is"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a vulnerability across"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna's"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " retractable gear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aircraft [ntsb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]\n\n###"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Correlation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Patterns\n\n####"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **Engine-Relate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d Failures by Power"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "plant Type:**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n1. **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Continental IO-470"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " (Early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Models)**:"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Fuel system vulnerabilities"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and power loss incidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n2. **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Continental TSIO-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "520 ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Turbocharged Models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ")**: Higher inc"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "idence of connecting ro"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d failures and oil starv"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ation issues, likely"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " due to the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " additional complexity an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d stress of tur"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "bocharging systems"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n#### **System"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Complexity Correlation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":**\n- **Turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged variants**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " show more complex"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure modes involving oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system problems and connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod failures\n- **Early naturally"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aspirated models**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tend to have simpler"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel system-related issues"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- **Retractable landing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gear** represents a common failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " point across all variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " due to system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complexity\n\n### Safety"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Implications\n\nThe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " data suggests"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that:"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n1. **Turbocharge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d T210 models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** may require more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " intensive oil system monitoring"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and maintenance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n2. **Fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system integrity** is"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " critical across all variants,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " particularly after maintenance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " work\n3. **Landing gear system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " reliability** remains"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a concern for all ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable gear variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n4. **Engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complexity** correlates with failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " severity - turbocharged models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " show more catastrophic engine failures requiring"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " forced landings\n\nThis"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " analysis indicates that the more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complex variants ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "turbocharged an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d later models) ten"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d to experience more severe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mechanical failures,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " while simpler early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " models show more basic"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel and ignition system issues ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aircraft, ntsb]."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "end_turn"}}
+{"metadata": {"usage": {"inputTokens": 17969, "outputTokens": 881, "totalTokens": 18850}, "metrics": {"latencyMs": 17198}}}

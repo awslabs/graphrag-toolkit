@@ -1,0 +1,2353 @@
+{
+  "id_": "aws::d264e413:66e5:032d938b",
+  "embedding": [
+    0.032592773,
+    0.0032787323,
+    0.016067505,
+    -0.056396484,
+    0.017425537,
+    3.9994717e-05,
+    -0.011428833,
+    -0.008674622,
+    -0.022277832,
+    0.015945435,
+    0.007873535,
+    0.013755798,
+    -0.012840271,
+    -0.040740967,
+    0.029525757,
+    -0.009727478,
+    0.013710022,
+    0.032836914,
+    0.04324341,
+    0.017333984,
+    -0.010391235,
+    0.03604126,
+    -0.00774765,
+    -0.095703125,
+    -0.011940002,
+    0.03543091,
+    -7.456541e-05,
+    -0.023880005,
+    0.0027618408,
+    -0.023849487,
+    0.006881714,
+    0.022994995,
+    0.016571045,
+    0.0061798096,
+    0.002790451,
+    -0.017440796,
+    0.030929565,
+    -0.017471313,
+    -0.04598999,
+    0.070495605,
+    0.028030396,
+    -0.014549255,
+    0.06506348,
+    0.008346558,
+    0.016952515,
+    0.004589081,
+    0.02029419,
+    -0.04208374,
+    -0.0006637573,
+    0.06567383,
+    0.030029297,
+    0.010169983,
+    0.0050239563,
+    0.060699463,
+    0.02218628,
+    0.030349731,
+    -0.061065674,
+    0.0045204163,
+    -0.008903503,
+    0.049591064,
+    0.025558472,
+    0.010627747,
+    0.009338379,
+    0.009300232,
+    -0.020553589,
+    -0.027420044,
+    0.022720337,
+    0.017303467,
+    0.040863037,
+    -0.016525269,
+    -0.011421204,
+    0.0435791,
+    -0.014183044,
+    0.0385437,
+    -0.020065308,
+    -0.037994385,
+    -0.018356323,
+    -0.012580872,
+    0.0024929047,
+    0.05795288,
+    0.017684937,
+    -0.00623703,
+    -0.014984131,
+    0.012237549,
+    -0.0024280548,
+    0.037628174,
+    -0.010978699,
+    -0.02204895,
+    -0.013130188,
+    -0.0004620552,
+    -0.015808105,
+    -0.018218994,
+    -0.02178955,
+    0.029785156,
+    0.006790161,
+    -0.010147095,
+    -0.0103302,
+    -0.08087158,
+    0.03894043,
+    -0.028656006,
+    0.014587402,
+    -0.03994751,
+    -0.025650024,
+    0.031188965,
+    -0.017410278,
+    0.012359619,
+    0.029571533,
+    0.04296875,
+    0.01940918,
+    0.015365601,
+    -0.031036377,
+    0.017089844,
+    -0.023254395,
+    -0.017623901,
+    -0.054534912,
+    0.06347656,
+    0.0030288696,
+    -0.06222534,
+    0.011207581,
+    -0.007736206,
+    0.0069465637,
+    0.039733887,
+    -0.040008545,
+    -0.025039673,
+    -0.022994995,
+    -0.04397583,
+    -0.02267456,
+    0.01979065,
+    0.04196167,
+    0.030670166,
+    -0.009056091,
+    0.026245117,
+    -0.028259277,
+    -0.054260254,
+    -0.039642334,
+    -0.014526367,
+    -0.023391724,
+    -0.042785645,
+    -0.017501831,
+    0.037109375,
+    -0.04232788,
+    -0.038024902,
+    0.06402588,
+    -0.023910522,
+    -0.066711426,
+    0.023742676,
+    0.005996704,
+    -0.010414124,
+    0.0046081543,
+    -0.026794434,
+    -0.08947754,
+    0.009880066,
+    0.0758667,
+    -0.034851074,
+    -0.023406982,
+    -0.07525635,
+    0.00014340878,
+    -0.039215088,
+    0.0044403076,
+    -0.043426514,
+    -0.0362854,
+    -0.0017986298,
+    0.07287598,
+    -0.008460999,
+    -0.013145447,
+    0.028686523,
+    -0.041778564,
+    -0.018585205,
+    0.01436615,
+    0.00010251999,
+    0.05343628,
+    0.021987915,
+    -0.019302368,
+    -0.0015497208,
+    0.018951416,
+    -0.025665283,
+    0.016494751,
+    0.004634857,
+    0.019165039,
+    0.028900146,
+    0.0440979,
+    0.0011472702,
+    0.060913086,
+    0.016021729,
+    -0.07562256,
+    0.023803711,
+    0.01209259,
+    0.06536865,
+    0.062438965,
+    0.015945435,
+    0.014175415,
+    -0.028213501,
+    0.012161255,
+    -0.011634827,
+    -0.015838623,
+    -0.027709961,
+    -0.01826477,
+    0.016677856,
+    -0.028945923,
+    0.028335571,
+    -0.05508423,
+    0.021270752,
+    0.013923645,
+    0.012321472,
+    0.04650879,
+    -0.014678955,
+    0.023422241,
+    0.03152466,
+    -0.020080566,
+    0.007331848,
+    0.020019531,
+    -0.0019464493,
+    -0.012321472,
+    0.0010137558,
+    -0.0055732727,
+    0.008644104,
+    -0.01234436,
+    -0.032470703,
+    0.009475708,
+    -0.03100586,
+    0.0028629303,
+    0.045135498,
+    -0.014022827,
+    0.022857666,
+    -0.023071289,
+    -0.014091492,
+    -0.02267456,
+    -0.0075683594,
+    -0.009475708,
+    0.0038719177,
+    0.030044556,
+    -0.004005432,
+    -0.0017204285,
+    0.022735596,
+    -0.03857422,
+    0.017288208,
+    0.0011301041,
+    0.055511475,
+    -0.015335083,
+    0.0048065186,
+    -0.0137786865,
+    -0.038269043,
+    -0.03036499,
+    0.053344727,
+    -0.08465576,
+    -0.06549072,
+    -0.0127334595,
+    0.050201416,
+    -0.018722534,
+    0.011543274,
+    0.09075928,
+    0.022750854,
+    0.003944397,
+    0.0914917,
+    0.035003662,
+    0.001086235,
+    -0.020584106,
+    -0.049743652,
+    0.032043457,
+    -0.012046814,
+    0.043151855,
+    0.0059013367,
+    -0.050689697,
+    0.03186035,
+    0.0030555725,
+    0.0024681091,
+    0.02696228,
+    0.017959595,
+    0.022064209,
+    -0.017593384,
+    -0.018173218,
+    -0.036102295,
+    0.00484848,
+    0.05166626,
+    -0.037506104,
+    0.020126343,
+    -0.0059051514,
+    -0.016296387,
+    0.018539429,
+    0.018127441,
+    -0.030731201,
+    0.037017822,
+    -0.016113281,
+    -0.021194458,
+    0.00667572,
+    -0.0038414001,
+    -0.025405884,
+    -0.058258057,
+    -0.04248047,
+    0.002626419,
+    0.01914978,
+    0.027679443,
+    0.008705139,
+    -0.020141602,
+    0.02281189,
+    0.0035934448,
+    0.03277588,
+    0.016235352,
+    -0.0018129349,
+    0.009231567,
+    0.012794495,
+    0.049041748,
+    -0.0048561096,
+    0.018920898,
+    0.0005555153,
+    0.017044067,
+    0.009963989,
+    -0.0127334595,
+    0.010551453,
+    0.02128601,
+    0.0051078796,
+    0.06549072,
+    0.008598328,
+    0.012420654,
+    -0.017333984,
+    -0.03955078,
+    -0.014656067,
+    0.006866455,
+    -0.044799805,
+    0.0056533813,
+    -0.06817627,
+    -0.0019760132,
+    -0.018234253,
+    -0.009712219,
+    0.021774292,
+    0.013008118,
+    -0.043701172,
+    0.015525818,
+    -0.04800415,
+    0.015899658,
+    0.041015625,
+    0.005466461,
+    0.0039520264,
+    0.020507812,
+    0.009094238,
+    0.004798889,
+    0.005012512,
+    -0.05227661,
+    -0.0284729,
+    -0.014335632,
+    -0.0010709763,
+    -0.06744385,
+    0.0026435852,
+    -0.032470703,
+    -0.041137695,
+    0.0010271072,
+    -0.010696411,
+    0.009605408,
+    -0.021820068,
+    -0.024093628,
+    0.02810669,
+    -0.032348633,
+    -0.021484375,
+    -0.01864624,
+    0.014404297,
+    -0.09777832,
+    -0.026931763,
+    0.010597229,
+    -0.014953613,
+    -0.028701782,
+    0.027145386,
+    -0.013465881,
+    -0.02406311,
+    -0.04724121,
+    0.015274048,
+    0.01133728,
+    0.00066137314,
+    -0.040496826,
+    0.015220642,
+    0.00015437603,
+    0.05441284,
+    -0.013870239,
+    0.0045700073,
+    -0.010543823,
+    -0.03189087,
+    -0.049682617,
+    0.07897949,
+    0.02468872,
+    -0.03982544,
+    0.037200928,
+    0.0546875,
+    0.017196655,
+    0.036499023,
+    -0.014533997,
+    0.054229736,
+    0.0045318604,
+    -0.023239136,
+    -0.023162842,
+    0.062469482,
+    0.033325195,
+    0.023773193,
+    -0.040283203,
+    -0.033691406,
+    -0.0077438354,
+    -0.027008057,
+    -0.018707275,
+    0.031555176,
+    -0.0072669983,
+    -0.013710022,
+    -0.006336212,
+    -0.011390686,
+    -0.014427185,
+    -0.023422241,
+    -0.010475159,
+    0.009490967,
+    -0.044189453,
+    0.016571045,
+    -0.03164673,
+    0.025741577,
+    0.04940796,
+    -0.0031166077,
+    0.062286377,
+    0.013412476,
+    0.060333252,
+    -0.018753052,
+    -0.009353638,
+    0.013114929,
+    -0.002571106,
+    0.005645752,
+    -0.01335144,
+    0.01763916,
+    -0.03643799,
+    -0.013137817,
+    0.0069274902,
+    0.03137207,
+    0.010787964,
+    -0.011917114,
+    -0.024612427,
+    -0.015487671,
+    0.012275696,
+    -0.0051651,
+    -0.019592285,
+    -0.0048980713,
+    0.016281128,
+    -0.043426514,
+    0.040527344,
+    0.022918701,
+    0.010887146,
+    0.059906006,
+    -0.036743164,
+    0.0058021545,
+    -0.0020141602,
+    0.017471313,
+    0.04159546,
+    -0.022964478,
+    0.025512695,
+    -0.0132751465,
+    0.0023517609,
+    -0.018295288,
+    -0.02029419,
+    -0.02468872,
+    0.006000519,
+    0.04421997,
+    0.023162842,
+    0.012382507,
+    0.039794922,
+    -0.02357483,
+    -0.0072746277,
+    -0.029541016,
+    0.009376526,
+    -0.027359009,
+    0.003850937,
+    -0.008003235,
+    -0.07928467,
+    0.025527954,
+    -0.047668457,
+    0.04071045,
+    0.0048980713,
+    -0.0058250427,
+    0.039886475,
+    0.0038223267,
+    0.009063721,
+    -0.007949829,
+    0.00096797943,
+    -0.00548172,
+    -0.0026817322,
+    -0.0021343231,
+    -0.023544312,
+    0.037078857,
+    0.0128479,
+    -0.01663208,
+    4.4465065e-05,
+    0.053009033,
+    0.034484863,
+    0.024658203,
+    0.011268616,
+    0.024795532,
+    0.030578613,
+    0.025436401,
+    -0.018234253,
+    0.017684937,
+    -0.01838684,
+    0.05529785,
+    -0.01763916,
+    0.030914307,
+    -0.024002075,
+    -0.006126404,
+    0.012481689,
+    0.011375427,
+    0.006008148,
+    -0.03125,
+    -0.003982544,
+    -0.05810547,
+    -0.008041382,
+    -0.009727478,
+    0.01473999,
+    0.016159058,
+    0.009307861,
+    0.042816162,
+    0.019622803,
+    -0.018844604,
+    0.008277893,
+    0.010253906,
+    0.030944824,
+    -0.045806885,
+    0.035491943,
+    -0.054870605,
+    0.01826477,
+    -0.038970947,
+    -0.0052261353,
+    -0.064453125,
+    -0.022262573,
+    0.058288574,
+    0.04714966,
+    -0.06585693,
+    -0.010925293,
+    0.047973633,
+    0.018051147,
+    -0.008010864,
+    -0.014457703,
+    -0.016494751,
+    -0.0035820007,
+    -0.054504395,
+    -0.009613037,
+    0.061279297,
+    0.006919861,
+    -0.035736084,
+    0.0082092285,
+    -0.06036377,
+    -0.024337769,
+    -0.05053711,
+    -0.020217896,
+    0.014190674,
+    -0.005958557,
+    0.018936157,
+    0.000106453896,
+    0.018844604,
+    0.0035934448,
+    -0.016479492,
+    -0.015472412,
+    -0.02909851,
+    -0.0051574707,
+    0.017425537,
+    -0.0423584,
+    -0.03338623,
+    0.021362305,
+    0.01701355,
+    -0.039642334,
+    0.011672974,
+    0.06304932,
+    -0.012298584,
+    0.0013446808,
+    -0.0025749207,
+    -0.013824463,
+    -0.009269714,
+    0.028579712,
+    -0.0007276535,
+    -0.009674072,
+    0.042266846,
+    -0.022537231,
+    -0.020339966,
+    -0.031082153,
+    0.15209961,
+    0.053375244,
+    0.002111435,
+    -0.04788208,
+    -0.015609741,
+    0.013298035,
+    0.014373779,
+    0.05126953,
+    0.01852417,
+    0.00096178055,
+    -0.05065918,
+    -0.030151367,
+    -0.025543213,
+    0.027908325,
+    -0.00052785873,
+    -0.027633667,
+    -0.0446167,
+    -0.01448822,
+    0.03616333,
+    0.010925293,
+    -0.021224976,
+    -0.028625488,
+    0.031021118,
+    0.031311035,
+    -0.050048828,
+    -0.032958984,
+    0.027404785,
+    0.008911133,
+    0.03930664,
+    -0.010116577,
+    0.009353638,
+    -0.034698486,
+    -0.0132751465,
+    -0.07336426,
+    -0.0071907043,
+    -0.018310547,
+    0.04208374,
+    0.058685303,
+    -0.010787964,
+    -0.012062073,
+    -0.014579773,
+    0.018981934,
+    0.036102295,
+    -0.050231934,
+    -0.035186768,
+    0.032287598,
+    0.040740967,
+    -0.014411926,
+    0.028076172,
+    0.0013113022,
+    0.010414124,
+    0.014907837,
+    0.025161743,
+    -0.012260437,
+    -0.087646484,
+    -0.0023040771,
+    -0.0027828217,
+    -0.013000488,
+    -0.0017118454,
+    -0.029571533,
+    -0.03161621,
+    0.009963989,
+    -0.011528015,
+    0.018844604,
+    -0.032318115,
+    -0.046936035,
+    -0.020599365,
+    0.023971558,
+    -0.010795593,
+    0.009460449,
+    -0.022155762,
+    0.046325684,
+    0.011482239,
+    -0.0041770935,
+    0.021560669,
+    -0.011398315,
+    0.01461792,
+    0.0074539185,
+    0.026550293,
+    0.01864624,
+    -0.03451538,
+    -0.01574707,
+    0.0033454895,
+    0.018325806,
+    -0.042999268,
+    0.032562256,
+    -0.035247803,
+    -0.021865845,
+    -0.04827881,
+    -0.0050811768,
+    0.037109375,
+    -0.017044067,
+    -0.01902771,
+    -0.010818481,
+    0.008911133,
+    -0.0029067993,
+    -0.0065689087,
+    -0.040893555,
+    -0.008628845,
+    -0.034820557,
+    -0.023422241,
+    -0.035980225,
+    0.030441284,
+    -0.014259338,
+    -0.007633209,
+    0.029388428,
+    0.014038086,
+    -0.082458496,
+    0.0073280334,
+    -0.008598328,
+    -0.0021209717,
+    0.021408081,
+    -0.042938232,
+    0.049224854,
+    -0.010185242,
+    -0.009750366,
+    0.0019607544,
+    0.016281128,
+    -0.016052246,
+    -0.010765076,
+    -0.0057411194,
+    -0.05770874,
+    -0.017623901,
+    0.00034952164,
+    -0.017166138,
+    0.0038719177,
+    0.00044822693,
+    -0.018981934,
+    -0.0032291412,
+    -0.0009741783,
+    -0.0035629272,
+    -0.010879517,
+    -0.022277832,
+    0.03729248,
+    -0.03390503,
+    0.051757812,
+    -0.033843994,
+    -0.0029067993,
+    0.009651184,
+    0.025634766,
+    -0.055755615,
+    -0.018218994,
+    0.058044434,
+    0.027236938,
+    0.01852417,
+    -0.02708435,
+    -0.030334473,
+    -0.01259613,
+    -0.008621216,
+    0.0065460205,
+    0.025466919,
+    -0.026016235,
+    0.014633179,
+    0.009521484,
+    -0.016723633,
+    0.008888245,
+    -0.018417358,
+    -0.019683838,
+    -0.018188477,
+    -0.04058838,
+    -0.004245758,
+    -0.020462036,
+    -0.0206604,
+    -0.014564514,
+    0.028503418,
+    0.022476196,
+    -0.015914917,
+    0.058044434,
+    -0.046813965,
+    0.012008667,
+    0.010238647,
+    0.0010929108,
+    -0.017562866,
+    -0.017288208,
+    0.01940918,
+    -0.09307861,
+    -0.016204834,
+    -0.0017652512,
+    0.045288086,
+    -0.07196045,
+    -0.03741455,
+    -0.021972656,
+    0.01474762,
+    -0.028640747,
+    0.009414673,
+    0.005092621,
+    -0.026855469,
+    -0.011047363,
+    -0.020385742,
+    0.012329102,
+    0.012519836,
+    0.02720642,
+    -0.0033073425,
+    0.043029785,
+    -0.06970215,
+    -0.043640137,
+    0.0007200241,
+    0.0041275024,
+    -0.003917694,
+    0.013771057,
+    0.015586853,
+    0.036376953,
+    0.00111866,
+    -0.051971436,
+    -0.0058288574,
+    0.007537842,
+    0.014259338,
+    0.012252808,
+    -0.019210815,
+    0.054901123,
+    0.014762878,
+    -0.00087594986,
+    0.01713562,
+    0.03753662,
+    -0.0077705383,
+    -0.032104492,
+    0.05029297,
+    -0.011871338,
+    -0.058410645,
+    -0.015914917,
+    0.04776001,
+    -0.000310421,
+    0.030471802,
+    0.021133423,
+    0.0015535355,
+    0.0019397736,
+    0.01663208,
+    -0.003025055,
+    -0.041015625,
+    0.019592285,
+    -0.046569824,
+    0.020843506,
+    -0.033569336,
+    -0.017608643,
+    0.03149414,
+    0.0071411133,
+    0.021606445,
+    -0.06591797,
+    0.02079773,
+    -0.01574707,
+    0.02168274,
+    -0.0017719269,
+    -0.06262207,
+    0.026977539,
+    -0.06359863,
+    -0.010261536,
+    -0.040924072,
+    0.022964478,
+    -0.001627922,
+    0.013702393,
+    0.018600464,
+    0.027496338,
+    0.014823914,
+    -0.016189575,
+    -0.019989014,
+    -0.001865387,
+    0.038116455,
+    0.0013847351,
+    -0.01979065,
+    0.009483337,
+    -0.008369446,
+    0.0047950745,
+    -0.020507812,
+    0.020812988,
+    0.032073975,
+    0.07757568,
+    -0.023910522,
+    0.03451538,
+    -0.0053367615,
+    -0.019607544,
+    -0.01020813,
+    -0.027694702,
+    0.02217102,
+    -0.010513306,
+    0.014831543,
+    -0.005680084,
+    0.022262573,
+    0.07293701,
+    0.006549835,
+    -0.00013554096,
+    0.032287598,
+    -0.025909424,
+    -0.005130768,
+    0.021224976,
+    0.040771484,
+    -0.033203125,
+    -0.01524353,
+    0.046966553,
+    0.03062439,
+    -0.010192871,
+    -0.0146484375,
+    0.00060510635,
+    -0.028915405,
+    0.03967285,
+    -0.023483276,
+    0.048858643,
+    0.0137786865,
+    0.08117676,
+    0.012031555,
+    -0.0012817383,
+    -0.091918945,
+    -0.0049209595,
+    -0.013519287,
+    -0.036712646,
+    0.0034561157,
+    0.08129883,
+    -0.023895264,
+    -0.0075569153,
+    -0.022750854,
+    -0.053771973,
+    0.0004491806,
+    -0.008094788,
+    -0.016799927,
+    -0.042297363,
+    0.013023376,
+    -0.029037476,
+    0.0791626,
+    0.022598267,
+    -0.0058250427,
+    -0.00049066544,
+    0.0021877289,
+    0.03326416,
+    0.09075928,
+    0.08062744,
+    0.024765015,
+    -0.007171631,
+    -0.040863037,
+    0.0003540516,
+    -0.019973755,
+    -0.033111572,
+    0.04055786,
+    -0.0647583,
+    0.020309448,
+    -0.011070251,
+    0.019927979,
+    -0.020690918,
+    -0.035217285,
+    -0.030273438,
+    0.050872803,
+    -0.017227173,
+    -0.079833984,
+    -0.034057617,
+    0.041748047,
+    0.030471802,
+    -0.0949707,
+    -0.041992188,
+    -0.04675293,
+    -0.04360962,
+    -0.041229248,
+    0.012611389,
+    -0.006416321,
+    0.016983032,
+    0.02545166,
+    -0.033569336,
+    0.07006836,
+    -0.0029659271,
+    0.0118637085,
+    -0.02720642,
+    -0.006385803,
+    -0.010978699,
+    0.038360596,
+    -0.07696533,
+    0.060913086,
+    -0.022964478,
+    0.0026664734,
+    0.039215088,
+    0.019897461,
+    -0.057800293,
+    0.011184692,
+    -0.057556152,
+    -0.019744873,
+    -0.037475586,
+    -0.035980225,
+    0.018051147,
+    0.014091492,
+    -0.04345703,
+    -0.033172607,
+    -0.03878784,
+    -0.029312134,
+    -0.01977539,
+    0.029251099,
+    0.0005874634,
+    0.03741455,
+    0.05154419,
+    -0.034301758,
+    0.022079468,
+    -0.0335083,
+    -0.033569336,
+    0.008895874,
+    0.007827759,
+    0.056610107,
+    0.03378296,
+    0.004180908,
+    -0.044799805,
+    -0.019180298,
+    -0.019241333,
+    0.016601562,
+    -0.0017709732,
+    0.02708435,
+    0.011856079,
+    -0.01625061,
+    -0.017120361,
+    -0.012336731,
+    0.0027885437,
+    -0.0021705627,
+    0.005432129,
+    0.004875183,
+    -0.0074310303,
+    -0.005241394,
+    0.0027313232,
+    -0.022705078,
+    -0.02192688,
+    -0.016921997,
+    0.0046310425,
+    -0.02368164,
+    -0.010765076,
+    -0.014572144,
+    0.023498535,
+    -0.02645874,
+    -0.006362915,
+    0.011268616,
+    -0.017486572,
+    -0.006187439,
+    0.019439697,
+    0.02709961,
+    0.045288086,
+    -0.010299683,
+    -0.033935547,
+    -0.03390503,
+    0.008911133,
+    0.032165527,
+    0.029708862,
+    0.014785767,
+    -0.07727051,
+    0.00630188,
+    -0.038330078,
+    -0.034851074,
+    -0.013114929,
+    -0.03955078,
+    0.02911377,
+    0.05908203,
+    -0.014198303,
+    0.110961914,
+    -0.0027713776,
+    0.028656006,
+    0.020431519,
+    0.012992859,
+    0.024139404,
+    0.021087646,
+    0.050048828,
+    -0.022659302,
+    0.011260986
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89887.md",
+    "file_name": "89887.md",
+    "file_size": 8058,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Piedmont Airlines Flight 4206",
+      "A deHavilland DHC-8-100 aircraft struck a flock of geese during takeoff.",
+      "The accident occurred on August 10, 2014 at about 0605 eastern daylight time.",
+      "The accident occurred at Middletown Harrisburg International Airport (KMDT) in Harrisburg, Pennsylvania.",
+      "The aircraft registration was N815EX.",
+      "The aircraft was operated by Piedmont Airlines.",
+      "Piedmont Airlines was doing business as USAirways Express.",
+      "The flight number was 4206.",
+      "The flight was operating under 14 Code of Federal Regulations Part 121.",
+      "The flight was a regularly scheduled passenger flight.",
+      "The flight was scheduled to travel from Harrisburg International Airport to Philadelphia International Airport.",
+      "Philadelphia International Airport is located in Philadelphia, Pennsylvania.",
+      "Philadelphia International Airport's code is KPHL.",
+      "The aircraft sustained substantial damage.",
+      "There were no injuries to passengers or crew.",
+      "There were 20 people on board the aircraft.",
+      "The captain was the pilot flying.",
+      "The first officer was the pilot monitoring.",
+      "About 15 seconds into the takeoff roll, the captain observed a large group of geese flying from right to left in front of the airplane.",
+      "The captain observed the geese prior to reaching V1 speed.",
+      "The captain immediately initiated a rejected takeoff.",
+      "The airplane impacted multiple geese on the front windshield.",
+      "The airplane impacted multiple geese on the right engine propeller.",
+      "The impact caused a severe vibration.",
+      "The flight crew shut down the right engine as the airplane slowed.",
+      "The flight crew returned the aircraft to the gate.",
+      "Examination of the airplane indicated damage to the right propeller.",
+      "Examination of the airplane indicated a broken passenger window.",
+      "Examination of the airplane indicated damage to the fuselage skin.",
+      "Examination of the airplane indicated damage to the stringers near the broken window.",
+      "The National Transportation Safety Board determined the probable cause of the accident to be the airplane's collision with geese during the takeoff roll.",
+      "The deHavilland DHC-8-100 is an aircraft type."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Piedmont Airlines Flight 4206",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "deHavilland DHC-8-100",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Piedmont Airlines",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "USAirways Express",
+              "classification": "Aircraftowner"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Middletown Harrisburg International Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "KMDT",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Harrisburg",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Pennsylvania",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N815EX",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Flight 4206",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "14 Code of Federal Regulations Part 121",
+              "classification": "Flightconductedunder"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Philadelphia International Airport",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Philadelphia",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "KPHL",
+              "classification": "Airport"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "captain",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "first officer",
+              "classification": "Pilot"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Location"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "A deHavilland DHC-8-100 aircraft struck a flock of geese during takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "struck a flock of geese during takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on August 10, 2014 at about 0605 eastern daylight time.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "August 10, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "0605 eastern daylight time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred at Middletown Harrisburg International Airport (KMDT) in Harrisburg, Pennsylvania.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Middletown Harrisburg International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Harrisburg",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Harrisburg",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pennsylvania",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Middletown Harrisburg International Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Middletown Harrisburg International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "CODE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KMDT",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N815EX.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N815EX",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft was operated by Piedmont Airlines.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "OPERATED BY"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piedmont Airlines",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Piedmont Airlines was doing business as USAirways Express.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Piedmont Airlines",
+                    "classification": "Aircraftowner"
+                  },
+                  "predicate": {
+                    "value": "DOES BUSINESS AS"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "USAirways Express",
+                    "classification": "Aircraftowner"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight number was 4206.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "NUMBER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "4206",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was operating under 14 Code of Federal Regulations Part 121.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "OPERATES UNDER"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14 Code of Federal Regulations Part 121",
+                    "classification": "Flightconductedunder"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was a regularly scheduled passenger flight.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "regularly scheduled passenger flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was scheduled to travel from Harrisburg International Airport to Philadelphia International Airport.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "DEPARTS FROM"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Middletown Harrisburg International Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "ARRIVES AT"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Philadelphia International Airport",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Philadelphia International Airport is located in Philadelphia, Pennsylvania.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Philadelphia International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Philadelphia",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Philadelphia",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATED IN"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Pennsylvania",
+                    "classification": "Location"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Philadelphia International Airport's code is KPHL.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Philadelphia International Airport",
+                    "classification": "Airport"
+                  },
+                  "predicate": {
+                    "value": "CODE"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "KPHL",
+                    "classification": "Airport"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were no injuries to passengers or crew.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "INJURIES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "no injuries to passengers or crew",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "There were 20 people on board the aircraft.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "PEOPLE ONBOARD"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "20",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The captain was the pilot flying.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "captain",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot flying",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The first officer was the pilot monitoring.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "first officer",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ROLE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot monitoring",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "About 15 seconds into the takeoff roll, the captain observed a large group of geese flying from right to left in front of the airplane.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "captain",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "large group of geese flying from right to left",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "TAKEOFF EVENT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "observed geese 15 seconds into takeoff roll",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The captain observed the geese prior to reaching V1 speed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "captain",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OBSERVATION TIMING"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "prior to reaching V1 speed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The captain immediately initiated a rejected takeoff.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "captain",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initiated a rejected takeoff",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted multiple geese on the front windshield.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "front windshield",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACT OBJECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple geese",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane impacted multiple geese on the right engine propeller.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACT LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right engine propeller",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACT OBJECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "multiple geese",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The impact caused a severe vibration.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "IMPACT EFFECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "severe vibration",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight crew shut down the right engine as the airplane slowed.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "CREW ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "shut down the right engine as the airplane slowed",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight crew returned the aircraft to the gate.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "CREW ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "returned the aircraft to the gate",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane indicated damage to the right propeller.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "right propeller",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane indicated a broken passenger window.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "passenger window",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE TYPE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "broken",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane indicated damage to the fuselage skin.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuselage skin",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Examination of the airplane indicated damage to the stringers near the broken window.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "stringers near the broken window",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident to be the airplane's collision with geese during the takeoff roll.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Flight 4206",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "airplane's collision with geese during the takeoff roll",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "DETERMINATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "probable cause of the accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The deHavilland DHC-8-100 is an aircraft type.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "deHavilland DHC-8-100",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "CATEGORY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "aircraft type",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::d264e413:66e5",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89887.md",
+        "file_name": "89887.md",
+        "file_size": 8058,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "ceda762076ff3a54c2b5bc1165e41d56f81316b8c317b397b776e4b416116ced",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::d264e413:66e5:6ea316d1",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/89887.md",
+        "file_name": "89887.md",
+        "file_size": 8058,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "ca3c8d363564aea2301a7f85dba3fd87f42ee63476abd1347101db9461862200",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nHarrisburg, Pennsylvania\n\n## Date & Time: \nAugust 10, 2014, 06:05 Local\n\n## Aircraft:\nDEHAVILLAND DHC 8 102\n\n## Defining Event:\nBirdstrike\n\n## Flight Conducted Under:\nPart 121: Air carrier - Scheduled\n\n## Accident Number:\nDCA14CA147\n\n## Registration:\nN815EX\n\n## Aircraft Damage:\nSubstantial\n\n## Injuries:\n20 None\n\n## Analysis\n\nOn August 10, 2014 at about 0605 eastern daylight time, a deHavilland DHC-8-100, N815EX, operated by Piedmont Airlines d.b.a. USAirways Express flight 4206, struck a flock of geese during the takeoff roll from Middletown Harrisburg International Airport (KMDT), Harrisburg, Pennsylvania. There were no injuries to the passengers or crew and the airplane sustained damage. The flight was operating under the provisions of 14 Code of Federal Regulations Part 121 as a regularly scheduled passenger flight between KMDT and Philadelphia International Airport (KPHL), Philadelphia, Pennsylvania.\n\nThe captain was the pilot flying and the first officer was the pilot monitoring. According to the flight crew, about 15 seconds into the takeoff roll and prior to V1, the captain observed a large group of geese flying from right to left in front of the airplane. He immediately initiated a rejected takeoff as the airplane impacted multiple geese on the front windshield and the right engine propeller, which caused a severe vibration. The flight crew shut down the right engine as the airplane slowed and returned to the gate.\n\nExamination of the airplane indicated damage to the right propeller, a broken passenger window, and damage to the fuselage skin and stringers near the broken window.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be: the airplanes collision with geese during the takeoff roll.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1861,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

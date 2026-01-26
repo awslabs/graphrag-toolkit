@@ -1,0 +1,69 @@
+topic: Neptune Serverless Instance Type Information
+
+  entities:
+  
+    serverless instance type|Product
+    Neptune Serverless|Service
+    Neptune Capacity Units|Product
+    DB cluster|Product
+    vCPUs|Product
+    provisioned instances|Product
+    serverless instances|Product
+  
+  proposition: The serverless instance type is a Neptune Serverless feature.
+    
+    entity-entity relationships:
+    serverless instance type|FEATURE_OF|Neptune Serverless
+    
+    entity-attributes:
+      
+  proposition: Neptune Serverless is a feature that can scale instance size dynamically based on a workload's resource needs.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Neptune Serverless|CAPABILITY|scale instance size dynamically based on workload's resource needs
+    
+  proposition: Neptune Serverless lets users set lower and upper limits on compute capacity for the instances in their DB cluster.
+
+    entity-entity relationships:
+    
+    entity-attributes:
+    Neptune Serverless|CAPABILITY|lets users set lower and upper limits on compute capacity for instances in DB cluster
+
+  proposition: Compute capacity in Neptune Serverless is measured in Neptune Capacity Units.
+
+    entity-entity relationships:
+    Neptune Serverless|MEASURED_BY|Neptune Capacity Units
+    
+    entity-attributes:
+
+  proposition: Neptune Serverless eliminates the need to calculate how many vCPUs are needed for an application.
+
+    entity-entity relationships:
+    Neptune Serverless|ELIMINATES_NEED_FOR|vCPUs
+    
+    entity-attributes:
+    Neptune Serverless|CAPABILITY|eliminates the need to calculate how many vCPUs are needed for an application
+
+  proposition: Workloads with varying utilization can be cost-optimized by using serverless rather than provisioned instances.
+
+    entity-entity relationships:
+    
+    entity-attributes:
+
+  proposition: Users can set up both provisioned and serverless instances in the same DB cluster.
+
+    entity-entity relationships:
+    provisioned instances|PART_OF|DB cluster
+    serverless instances|PART_OF|DB cluster
+    
+    entity-attributes:
+
+  proposition: Setting up both provisioned and serverless instances in the same DB cluster can achieve an optimal cost-performance configuration.
+
+    entity-entity relationships:
+    provisioned instances|PART_OF|DB cluster
+    serverless instances|PART_OF|DB cluster
+    
+    entity-attributes:

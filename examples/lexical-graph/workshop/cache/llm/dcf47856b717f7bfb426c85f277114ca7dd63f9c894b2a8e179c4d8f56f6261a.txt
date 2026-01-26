@@ -1,0 +1,136 @@
+topic: r6g family instance types and Graviton2 processor characteristics
+
+  entities:
+  
+    r6g family|Product
+    AWS|Company
+    Graviton|Product
+    Graviton2|Product
+    Intel|Company
+    AMD|Company
+    r6g.large|Product
+    r6g.16xlarge|Product
+
+  proposition: The r6g family is a family of instance types.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    r6g family|IS_A|family of instance types
+      
+  proposition: AWS has developed its own ARM-based processor called Graviton.
+  
+    entity-entity relationships:
+    AWS|DEVELOPED|Graviton
+  
+    entity-attributes:
+    Graviton|DESCRIBED_BY|ARM-based processor
+
+  proposition: Graviton is an ARM-based processor.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Graviton|IS_A|ARM-based processor
+
+  proposition: AWS developed Graviton.
+  
+    entity-entity relationships:
+    AWS|DEVELOPED|Graviton
+  
+    entity-attributes:
+
+  proposition: Graviton delivers better price/performance than the Intel and AMD equivalents.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Graviton|HAS_PERFORMANCE|better price/performance than the Intel and AMD equivalents
+
+  proposition: The r6g family uses the Graviton2 processor.
+  
+    entity-entity relationships:
+    r6g family|USES|Graviton2
+  
+    entity-attributes:
+
+  proposition: Graviton2 is a processor.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Graviton2|IS_A|processor
+
+  proposition: The Graviton2 processor offers 10-20% better performance for OLTP-style (constrained) graph queries.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Graviton2|HAS_PERFORMANCE|10-20% better performance for OLTP-style (constrained) graph queries
+
+  proposition: OLTP-style queries are constrained graph queries.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+
+  proposition: Larger, OLAP-ish queries may be slightly less performant with the Graviton2 processors than with Intel ones.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Graviton2|HAS_PERFORMANCE|slightly less performant for larger, OLAP-ish queries than Intel
+
+  proposition: The slightly less performant performance of larger, OLAP-ish queries with Graviton2 processors is owing to slightly less performant memory-paging performance.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Graviton2|HAS_PERFORMANCE|slightly less performant memory-paging performance
+
+  proposition: Intel processors have slightly more performant memory-paging performance than Graviton2 processors.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    Intel|HAS_PERFORMANCE|slightly more performant memory-paging performance than Graviton2
+
+  proposition: The r6g family has a single-socket architecture.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    r6g family|HAS_ARCHITECTURE|single-socket architecture
+
+  proposition: Performance scales linearly with compute capacity from an r6g.large to an r6g.16xlarge in the r6g family.
+  
+    entity-entity relationships:
+    r6g.large|PART_OF|r6g family
+    r6g.16xlarge|PART_OF|r6g family
+  
+    entity-attributes:
+    r6g family|HAS_PERFORMANCE|scales linearly with compute capacity from r6g.large to r6g.16xlarge
+
+  proposition: r6g.large is an instance type in the r6g family.
+  
+    entity-entity relationships:
+    r6g.large|PART_OF|r6g family
+  
+    entity-attributes:
+    r6g.large|IS_A|instance type
+
+  proposition: r6g.16xlarge is an instance type in the r6g family.
+  
+    entity-entity relationships:
+    r6g.16xlarge|PART_OF|r6g family
+  
+    entity-attributes:
+    r6g.16xlarge|IS_A|instance type
+
+  proposition: r6g.16xlarge is the largest type in the r6g family.
+  
+    entity-entity relationships:
+    r6g.16xlarge|PART_OF|r6g family
+  
+    entity-attributes:
+    r6g.16xlarge|IS_A|largest type in the r6g family

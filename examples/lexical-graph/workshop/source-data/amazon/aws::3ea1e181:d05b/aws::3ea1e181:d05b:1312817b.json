@@ -1,0 +1,2176 @@
+{
+  "id_": "aws::3ea1e181:d05b:1312817b",
+  "embedding": [
+    0.020233154,
+    -0.0129776,
+    0.040802002,
+    -0.040618896,
+    -0.02130127,
+    0.018859863,
+    -0.035095215,
+    -0.03778076,
+    -0.018692017,
+    0.06185913,
+    -0.04397583,
+    -0.0018730164,
+    0.031921387,
+    -0.014198303,
+    -0.012779236,
+    -0.03656006,
+    0.04547119,
+    -0.03375244,
+    0.0009741783,
+    -0.01461792,
+    -0.0031375885,
+    0.010887146,
+    0.037109375,
+    0.092163086,
+    0.028076172,
+    -0.026916504,
+    -0.03982544,
+    0.007987976,
+    -0.028015137,
+    -0.01940918,
+    0.026275635,
+    0.030563354,
+    0.021392822,
+    0.009170532,
+    -0.03112793,
+    -0.03137207,
+    0.009971619,
+    -0.013031006,
+    -0.042907715,
+    0.042816162,
+    -0.017959595,
+    0.018249512,
+    0.08154297,
+    -0.024490356,
+    0.008987427,
+    -0.014930725,
+    -0.012763977,
+    -0.045196533,
+    0.014060974,
+    -0.08013916,
+    0.018661499,
+    0.00869751,
+    0.039916992,
+    -0.0423584,
+    -0.034332275,
+    -0.0068130493,
+    -0.00970459,
+    0.04135132,
+    0.02418518,
+    0.021331787,
+    -0.024276733,
+    0.01386261,
+    0.008056641,
+    -0.022705078,
+    -0.041259766,
+    -0.0024929047,
+    0.023880005,
+    -0.005645752,
+    -0.028549194,
+    -0.051757812,
+    0.041900635,
+    -0.006919861,
+    0.004180908,
+    -0.02281189,
+    0.0340271,
+    -0.046142578,
+    -0.029174805,
+    -0.05783081,
+    0.052612305,
+    0.028259277,
+    0.008712769,
+    -0.0062828064,
+    0.023925781,
+    -0.043640137,
+    0.037353516,
+    -0.0074157715,
+    -0.017791748,
+    -0.0009794235,
+    -0.053009033,
+    -0.025924683,
+    -0.045532227,
+    -0.023025513,
+    -0.04901123,
+    -0.005592346,
+    -0.005252838,
+    -0.0038204193,
+    -0.013137817,
+    -0.046081543,
+    0.034088135,
+    0.02468872,
+    0.016693115,
+    -0.048675537,
+    0.0579834,
+    0.007003784,
+    -0.001627922,
+    0.079589844,
+    0.025253296,
+    -0.06524658,
+    -0.041229248,
+    -0.024429321,
+    -0.005092621,
+    -0.03677368,
+    0.023757935,
+    -0.02848816,
+    -0.061706543,
+    0.008232117,
+    0.037475586,
+    -0.06555176,
+    0.014678955,
+    -0.06311035,
+    -0.0026550293,
+    -0.013290405,
+    0.040252686,
+    -0.022506714,
+    0.011459351,
+    -0.021148682,
+    -0.046020508,
+    0.0062789917,
+    0.03845215,
+    -0.0028591156,
+    -0.023452759,
+    0.018417358,
+    -0.0107421875,
+    -0.009613037,
+    -0.017074585,
+    0.0013589859,
+    0.023635864,
+    0.04324341,
+    0.017349243,
+    -0.008148193,
+    0.050598145,
+    -0.05645752,
+    -0.0463562,
+    0.06149292,
+    0.0037670135,
+    -0.042541504,
+    0.032592773,
+    0.046295166,
+    -0.019165039,
+    -0.014694214,
+    0.054107666,
+    0.009506226,
+    0.0024604797,
+    0.010810852,
+    0.024871826,
+    0.0063056946,
+    0.0017375946,
+    -0.0010719299,
+    -0.0088272095,
+    0.0057907104,
+    0.019836426,
+    0.0069732666,
+    0.013000488,
+    0.044189453,
+    0.015396118,
+    -0.002313614,
+    -0.007091522,
+    -0.0008382797,
+    0.013587952,
+    -0.008804321,
+    0.016662598,
+    0.008705139,
+    -0.0541687,
+    -0.060638428,
+    0.0014352798,
+    -0.024032593,
+    0.023757935,
+    0.03704834,
+    -0.012763977,
+    -0.032958984,
+    -0.014328003,
+    -0.0579834,
+    0.047546387,
+    -0.020828247,
+    -0.035461426,
+    0.07446289,
+    3.5464764e-05,
+    0.062927246,
+    0.006839752,
+    -0.0002425909,
+    0.0057754517,
+    0.024353027,
+    -0.034942627,
+    0.025299072,
+    -0.013008118,
+    0.012832642,
+    0.0044555664,
+    0.037963867,
+    -0.018295288,
+    -0.027359009,
+    0.051605225,
+    -0.017181396,
+    0.0025024414,
+    -0.054260254,
+    -0.058135986,
+    -0.045410156,
+    -0.021148682,
+    0.017623901,
+    -0.045288086,
+    0.024841309,
+    0.02470398,
+    -0.019500732,
+    -0.009994507,
+    -0.012298584,
+    0.03604126,
+    0.03100586,
+    0.025390625,
+    -0.038146973,
+    -0.015312195,
+    -0.032592773,
+    -0.014526367,
+    0.024765015,
+    -0.028015137,
+    0.09210205,
+    0.012123108,
+    0.025131226,
+    -0.030044556,
+    0.015106201,
+    0.05505371,
+    0.011116028,
+    0.05819702,
+    -0.012329102,
+    0.0035820007,
+    0.04159546,
+    -0.009101868,
+    -0.0069351196,
+    0.036468506,
+    -0.05819702,
+    0.024551392,
+    0.04006958,
+    0.012886047,
+    -0.0008764267,
+    -0.015434265,
+    0.009552002,
+    -0.025543213,
+    -0.012184143,
+    0.016662598,
+    -0.012046814,
+    0.0024662018,
+    0.011375427,
+    0.04748535,
+    -0.019485474,
+    0.011657715,
+    -0.026031494,
+    0.024551392,
+    -0.006175995,
+    -0.031921387,
+    0.014091492,
+    0.008659363,
+    -0.0014619827,
+    -0.017074585,
+    0.0056915283,
+    0.036499023,
+    -0.008979797,
+    -0.037506104,
+    0.030899048,
+    -0.0016546249,
+    0.032104492,
+    -0.016311646,
+    0.0067825317,
+    0.032440186,
+    0.0047683716,
+    -0.00067043304,
+    -0.033325195,
+    -0.05041504,
+    -0.06341553,
+    -0.021987915,
+    0.031829834,
+    -0.014083862,
+    -0.062164307,
+    0.023117065,
+    0.003484726,
+    -0.026184082,
+    0.002658844,
+    0.043182373,
+    -0.0062332153,
+    0.005191803,
+    0.058410645,
+    0.013389587,
+    0.010276794,
+    0.0385437,
+    -0.016021729,
+    -0.014572144,
+    0.016906738,
+    0.043548584,
+    -0.05368042,
+    0.0056915283,
+    0.027069092,
+    -0.005153656,
+    -0.025802612,
+    0.0099487305,
+    0.034423828,
+    -0.031555176,
+    -0.010643005,
+    0.004589081,
+    -0.0077590942,
+    0.0146484375,
+    0.011161804,
+    -0.008018494,
+    0.014778137,
+    -0.07495117,
+    -0.011077881,
+    -0.0042686462,
+    -0.05404663,
+    0.0132369995,
+    -4.172325e-06,
+    -0.040985107,
+    -0.016448975,
+    -0.017593384,
+    0.03074646,
+    -0.010688782,
+    0.043792725,
+    -0.047546387,
+    -0.00390625,
+    0.020126343,
+    0.008651733,
+    -0.035583496,
+    -0.0017328262,
+    -0.046691895,
+    -0.0055732727,
+    -0.027648926,
+    -0.04901123,
+    -0.026519775,
+    0.079589844,
+    0.00012612343,
+    0.03616333,
+    0.015335083,
+    0.04751587,
+    0.011764526,
+    -0.046844482,
+    0.011299133,
+    0.006832123,
+    -0.013710022,
+    0.035064697,
+    -0.0045776367,
+    0.0033683777,
+    -0.01902771,
+    0.0044403076,
+    0.014503479,
+    0.03314209,
+    -0.031158447,
+    0.0032196045,
+    -0.02331543,
+    -0.010826111,
+    -0.0076141357,
+    -0.01838684,
+    0.015159607,
+    -0.01838684,
+    -0.025802612,
+    -0.057769775,
+    -0.0055389404,
+    0.03439331,
+    -0.0158844,
+    -0.087768555,
+    -0.0067443848,
+    -0.014801025,
+    -0.022628784,
+    -0.025009155,
+    0.01727295,
+    0.0043411255,
+    -0.05215454,
+    -0.017944336,
+    -0.025848389,
+    0.022644043,
+    0.0637207,
+    0.04748535,
+    0.037139893,
+    -0.018630981,
+    0.06500244,
+    0.036315918,
+    0.012901306,
+    -0.0034370422,
+    0.019927979,
+    -0.019927979,
+    0.07763672,
+    0.013397217,
+    0.033447266,
+    0.029968262,
+    0.0115356445,
+    -0.015579224,
+    -0.042297363,
+    -0.033081055,
+    0.019744873,
+    -0.009353638,
+    0.017089844,
+    -0.016525269,
+    -0.014434814,
+    0.061065674,
+    -0.067993164,
+    -0.004032135,
+    -0.01260376,
+    0.022842407,
+    -0.011634827,
+    0.016174316,
+    -0.03982544,
+    0.07110596,
+    -0.0018482208,
+    -0.021316528,
+    0.02911377,
+    -0.0007119179,
+    0.033569336,
+    0.019363403,
+    0.022903442,
+    7.1167946e-05,
+    -0.010971069,
+    -0.025390625,
+    0.041259766,
+    0.0041275024,
+    0.018539429,
+    -0.03866577,
+    0.007873535,
+    -0.0017642975,
+    -0.011398315,
+    -0.01411438,
+    0.016799927,
+    -0.0262146,
+    0.004989624,
+    -0.018920898,
+    -0.0073013306,
+    0.022109985,
+    -0.0040664673,
+    -0.0037631989,
+    0.0025081635,
+    0.011077881,
+    -0.016113281,
+    -0.016738892,
+    -0.00623703,
+    -0.06518555,
+    0.030700684,
+    -0.047180176,
+    -0.04135132,
+    -0.032958984,
+    -0.0031738281,
+    -0.0075683594,
+    0.0036468506,
+    -0.0044937134,
+    -0.017990112,
+    -0.024291992,
+    -0.021133423,
+    -0.06774902,
+    0.022613525,
+    0.0178833,
+    0.045288086,
+    0.016464233,
+    0.003364563,
+    0.059509277,
+    -0.021957397,
+    0.006778717,
+    0.045043945,
+    0.047576904,
+    0.04345703,
+    0.031311035,
+    -0.03692627,
+    0.019973755,
+    -0.014427185,
+    0.008560181,
+    -0.021911621,
+    -0.00919342,
+    -0.032836914,
+    -0.0041618347,
+    -0.007926941,
+    0.030410767,
+    0.005443573,
+    -0.03527832,
+    -0.005126953,
+    -0.027420044,
+    0.059906006,
+    -0.025222778,
+    0.044677734,
+    -0.0435791,
+    -0.008598328,
+    0.010040283,
+    -0.0119018555,
+    -0.0093307495,
+    0.03253174,
+    -0.0057792664,
+    -0.04147339,
+    -0.045806885,
+    -0.010955811,
+    0.062438965,
+    0.038238525,
+    0.030456543,
+    0.007598877,
+    0.047607422,
+    -0.021347046,
+    -0.015319824,
+    0.002456665,
+    0.035339355,
+    -0.027236938,
+    -0.014503479,
+    -0.09185791,
+    -0.01876831,
+    -0.030883789,
+    0.0016593933,
+    -0.04437256,
+    0.03274536,
+    0.029632568,
+    -0.017715454,
+    -0.00047016144,
+    -0.08319092,
+    0.032073975,
+    -0.055419922,
+    0.014129639,
+    0.0011482239,
+    -0.022735596,
+    0.037200928,
+    -0.05307007,
+    -0.005279541,
+    -0.03466797,
+    0.018981934,
+    0.018249512,
+    0.037628174,
+    -0.038513184,
+    0.005382538,
+    0.06762695,
+    -0.015823364,
+    -0.048828125,
+    0.032348633,
+    -0.009246826,
+    -0.0018644333,
+    -0.011070251,
+    -0.02508545,
+    0.03213501,
+    0.025283813,
+    0.030685425,
+    0.036224365,
+    -0.0016012192,
+    -0.023010254,
+    0.059936523,
+    0.024124146,
+    0.015533447,
+    0.0017366409,
+    -0.018066406,
+    0.02104187,
+    -0.002128601,
+    0.049468994,
+    -0.005153656,
+    0.062805176,
+    -0.034820557,
+    0.024993896,
+    -0.013549805,
+    -0.0074043274,
+    -0.04663086,
+    -0.01914978,
+    0.023010254,
+    -0.02659607,
+    -0.014213562,
+    -0.0012693405,
+    -0.024353027,
+    -0.011833191,
+    0.031951904,
+    -0.03842163,
+    0.02947998,
+    -0.034576416,
+    0.0692749,
+    0.016174316,
+    -0.009246826,
+    -0.075683594,
+    0.015007019,
+    -0.010284424,
+    -0.060180664,
+    -0.04547119,
+    -0.049102783,
+    -0.009559631,
+    -0.05319214,
+    0.043640137,
+    -0.0011100769,
+    0.023895264,
+    -0.03100586,
+    -0.022598267,
+    0.0013542175,
+    0.024459839,
+    0.0068740845,
+    0.029663086,
+    0.016357422,
+    -0.00630188,
+    -0.02645874,
+    0.013946533,
+    -0.018127441,
+    -0.045684814,
+    -0.029220581,
+    -0.0012454987,
+    0.00084733963,
+    -0.0036563873,
+    -0.042663574,
+    0.0045814514,
+    -0.017074585,
+    0.023040771,
+    0.087768555,
+    0.004055023,
+    0.037353516,
+    -0.021102905,
+    0.00932312,
+    -0.01852417,
+    -0.048675537,
+    -0.050689697,
+    0.012619019,
+    -0.029830933,
+    -0.0031147003,
+    0.013519287,
+    0.0027828217,
+    -0.0579834,
+    0.007575989,
+    0.049865723,
+    0.01574707,
+    -0.013381958,
+    -0.07684326,
+    0.07128906,
+    0.10449219,
+    0.013923645,
+    0.08520508,
+    0.018463135,
+    0.015457153,
+    0.06237793,
+    -0.009155273,
+    -0.004058838,
+    -0.013381958,
+    0.008323669,
+    -0.007896423,
+    0.024276733,
+    0.006614685,
+    0.00869751,
+    -0.0345459,
+    0.020324707,
+    -0.00017142296,
+    -0.035095215,
+    -0.007358551,
+    -0.012031555,
+    0.0013227463,
+    -0.026062012,
+    0.0065689087,
+    -0.002128601,
+    -0.025115967,
+    -0.00982666,
+    0.0052490234,
+    -0.013961792,
+    -0.010345459,
+    0.0055656433,
+    -0.005382538,
+    -0.020141602,
+    -0.039886475,
+    0.014984131,
+    0.0006942749,
+    -0.016479492,
+    -0.006679535,
+    -0.03137207,
+    0.0035552979,
+    0.016174316,
+    -0.011985779,
+    -0.028076172,
+    -0.030090332,
+    0.0049705505,
+    -0.022827148,
+    -0.02960205,
+    0.06427002,
+    -0.040618896,
+    -0.029342651,
+    0.0029964447,
+    -0.028335571,
+    0.021026611,
+    -0.046875,
+    -0.044525146,
+    0.0061912537,
+    0.01737976,
+    0.04373169,
+    0.014564514,
+    -0.0019760132,
+    0.011680603,
+    -0.038879395,
+    0.010391235,
+    -0.0006914139,
+    0.026260376,
+    0.041625977,
+    0.0060653687,
+    -0.02279663,
+    0.022476196,
+    0.023651123,
+    0.008140564,
+    0.022781372,
+    0.02130127,
+    -0.022979736,
+    -0.022491455,
+    0.023544312,
+    -0.01260376,
+    -0.006088257,
+    0.035125732,
+    0.007865906,
+    0.0072135925,
+    0.032318115,
+    -0.069885254,
+    -0.016937256,
+    0.036743164,
+    -0.004589081,
+    0.026626587,
+    0.015655518,
+    0.008277893,
+    -0.03491211,
+    -0.03656006,
+    -0.0030708313,
+    0.014183044,
+    -0.021987915,
+    0.015327454,
+    -0.061309814,
+    -0.009674072,
+    -0.028137207,
+    -0.032958984,
+    -0.093566895,
+    -0.03866577,
+    -0.017349243,
+    0.05529785,
+    0.004875183,
+    0.07885742,
+    0.054229736,
+    -0.09118652,
+    -0.003917694,
+    -0.0050735474,
+    0.002111435,
+    0.030380249,
+    0.017333984,
+    0.016555786,
+    0.007293701,
+    0.00605011,
+    0.012611389,
+    -0.00737381,
+    -0.004135132,
+    0.020629883,
+    0.02494812,
+    0.052368164,
+    0.06732178,
+    -0.072021484,
+    -0.048034668,
+    -0.018951416,
+    0.04751587,
+    0.019866943,
+    -0.046020508,
+    -0.0046195984,
+    0.0023593903,
+    -0.027557373,
+    -0.013587952,
+    -0.04458618,
+    0.022216797,
+    -0.01651001,
+    -0.034301758,
+    -0.00027418137,
+    0.008613586,
+    -0.024414062,
+    0.0033187866,
+    0.022354126,
+    -0.020431519,
+    -0.020629883,
+    -0.04547119,
+    0.025177002,
+    0.023025513,
+    0.024002075,
+    0.023864746,
+    0.059509277,
+    -0.04309082,
+    0.00023698807,
+    0.045898438,
+    0.022232056,
+    0.01713562,
+    -0.034851074,
+    0.031921387,
+    0.06536865,
+    -0.016540527,
+    0.06750488,
+    0.015670776,
+    0.0104904175,
+    -0.009101868,
+    -0.036987305,
+    -0.045654297,
+    0.011756897,
+    0.011131287,
+    0.030822754,
+    0.0011882782,
+    -0.0025482178,
+    -0.002029419,
+    0.010131836,
+    0.03149414,
+    0.02494812,
+    -0.028640747,
+    0.008163452,
+    0.016952515,
+    -0.00084781647,
+    0.04425049,
+    0.04058838,
+    -0.012031555,
+    -0.011001587,
+    0.012390137,
+    -0.012863159,
+    -0.014801025,
+    -0.005859375,
+    -0.074035645,
+    -0.045074463,
+    -0.04272461,
+    0.0038089752,
+    0.001914978,
+    -0.015487671,
+    -0.019836426,
+    0.023895264,
+    -0.007575989,
+    -0.010238647,
+    0.037994385,
+    -0.0031414032,
+    -0.008598328,
+    0.0022010803,
+    -0.024627686,
+    -0.03086853,
+    -0.0058135986,
+    -0.016433716,
+    0.06225586,
+    0.06524658,
+    0.022918701,
+    -0.021011353,
+    -0.06085205,
+    0.027938843,
+    -0.010520935,
+    -0.038146973,
+    0.013519287,
+    -0.01727295,
+    -0.023269653,
+    -0.018295288,
+    -0.006187439,
+    0.0041542053,
+    0.018844604,
+    5.286932e-05,
+    -0.003660202,
+    0.025619507,
+    0.00020837784,
+    0.016159058,
+    0.0003066063,
+    -0.033050537,
+    0.030700684,
+    0.00459671,
+    0.0084991455,
+    0.032928467,
+    0.030426025,
+    -0.021621704,
+    0.0042686462,
+    0.03366089,
+    0.024719238,
+    -0.033447266,
+    -0.006515503,
+    0.03692627,
+    0.0070343018,
+    -0.02305603,
+    -0.008285522,
+    -0.046142578,
+    -0.0070228577,
+    -0.0054779053,
+    -0.015060425,
+    -0.0037288666,
+    -0.03451538,
+    0.015655518,
+    0.016113281,
+    -0.033966064,
+    -0.008735657,
+    -0.0007405281,
+    -0.009719849,
+    -0.0340271,
+    0.022201538,
+    -0.019439697,
+    -0.034606934,
+    0.007118225,
+    -0.0072784424,
+    0.014801025,
+    0.012969971,
+    0.014167786,
+    0.04550171,
+    0.021560669,
+    -0.030654907,
+    -0.004459381,
+    -0.029907227,
+    -0.07965088,
+    -0.01965332,
+    0.047027588,
+    -0.023376465,
+    0.02468872,
+    -0.015945435,
+    0.0013666153,
+    0.024993896,
+    -0.057891846,
+    0.0018491745,
+    -0.007843018,
+    -0.0736084,
+    -0.054870605,
+    -0.014167786,
+    -0.031143188,
+    -0.04248047,
+    0.036895752,
+    -0.057617188,
+    0.0009832382,
+    0.011924744,
+    -0.07623291,
+    0.0040740967,
+    -0.030136108,
+    -0.04083252,
+    0.02180481,
+    -0.0030460358,
+    -0.030975342,
+    0.068237305,
+    0.04071045,
+    -0.006679535,
+    0.011489868,
+    -0.0031585693,
+    -0.009399414,
+    -0.017486572,
+    -0.022735596,
+    0.043884277,
+    0.004962921,
+    -0.044311523,
+    -0.045654297,
+    0.017242432,
+    0.021896362,
+    0.01121521,
+    0.015487671,
+    -0.0026226044,
+    -0.03387451,
+    0.02017212,
+    -0.04333496,
+    -0.030975342,
+    -0.019317627,
+    0.023605347,
+    0.13061523,
+    0.032348633,
+    0.016448975,
+    0.061309814,
+    -0.0146102905,
+    0.012168884,
+    -0.06124878,
+    0.0027637482,
+    -0.008453369,
+    -0.019699097,
+    -0.013038635,
+    0.0042686462,
+    0.018615723,
+    0.04055786,
+    -0.020004272,
+    -0.07141113,
+    -0.014945984,
+    -0.029663086,
+    0.012916565,
+    -0.02859497,
+    0.024414062,
+    -0.00014603138,
+    0.009750366,
+    -0.012229919,
+    0.011924744,
+    0.014717102,
+    -0.0046577454,
+    0.019989014,
+    0.06939697,
+    -0.017120361,
+    0.01864624,
+    0.001083374,
+    0.04611206,
+    0.01309967,
+    -0.03326416,
+    -0.04156494,
+    -0.010681152,
+    0.00050354004,
+    -0.006587982,
+    0.015235901,
+    -0.05419922,
+    0.012641907,
+    -0.01335907,
+    -0.015213013,
+    0.020233154,
+    0.002916336,
+    -0.010696411,
+    -0.012992859,
+    -0.019592285,
+    -0.04751587,
+    -0.0021343231,
+    0.048736572,
+    -0.01525116,
+    -0.0231781,
+    -9.298325e-06,
+    -0.028518677,
+    -0.014808655,
+    -0.017959595,
+    -0.015594482,
+    -0.0061569214,
+    0.025177002,
+    -0.00071144104,
+    -0.016174316,
+    0.022644043,
+    0.023422241,
+    0.008216858,
+    -0.012138367,
+    -0.017486572,
+    0.039489746,
+    -0.00079870224,
+    0.052856445,
+    -0.0132369995,
+    -0.0077590942,
+    0.0034427643,
+    0.042419434,
+    -0.05355835,
+    0.043182373,
+    -0.02709961,
+    0.00868988,
+    -0.04837036,
+    0.041503906,
+    0.013183594,
+    0.015617371,
+    -0.0038967133,
+    0.05227661,
+    -0.01838684,
+    -0.0021343231,
+    -0.024032593,
+    -0.058013916,
+    0.019958496,
+    -0.008163452
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/smart_city_infrastructure.md",
+    "file_name": "smart_city_infrastructure.md",
+    "file_size": 3218,
+    "creation_date": "2025-09-25",
+    "last_modified_date": "2025-09-22",
+    "header_path": "/Amazon Partners with Cities to Deploy Comprehensive Smart Infrastructure Platform/",
+    "aws::graph::propositions": [
+      "# CityOS Smart City Infrastructure Features",
+      "The platform's traffic optimization system uses AI to analyze vehicle flow patterns.",
+      "The platform's traffic optimization system automatically adjusts traffic signals.",
+      "The platform's traffic optimization system reduces commute times by up to 30%.",
+      "The platform's traffic optimization system decreases fuel consumption.",
+      "The platform's traffic optimization system decreases emissions.",
+      "The platform's traffic optimization system can predict traffic problems before they occur.",
+      "The platform's traffic optimization system can reroute vehicles through less congested areas.",
+      "The platform's traffic optimization system creates smoother traffic flow throughout the city.",
+      "CityOS is a smart city platform.",
+      "CityOS includes advanced public safety features.",
+      "CityOS public safety features integrate with existing emergency services.",
+      "CityOS public safety features provide faster response times.",
+      "CityOS public safety features provide better resource allocation.",
+      "CityOS public safety system can detect unusual activities.",
+      "CityOS public safety system can identify potential safety hazards.",
+      "CityOS public safety system can coordinate emergency responses across multiple agencies.",
+      "CityOS includes privacy protections.",
+      "CityOS privacy protections ensure surveillance capabilities are used only for legitimate public safety purposes.",
+      "CityOS includes energy management capabilities.",
+      "CityOS energy management capabilities help cities reduce power consumption by 25%.",
+      "CityOS energy management capabilities use intelligent grid management.",
+      "CityOS energy management capabilities use automated building controls.",
+      "CityOS energy management capabilities use optimized street lighting.",
+      "CityOS energy management system can predict energy demand patterns.",
+      "CityOS energy management system can automatically adjust power distribution to prevent outages.",
+      "CityOS energy management system minimizes waste.",
+      "CityOS includes environmental monitoring sensors.",
+      "CityOS environmental monitoring sensors track air quality in real-time.",
+      "CityOS environmental monitoring sensors track noise levels in real-time.",
+      "CityOS environmental monitoring sensors track water quality in real-time.",
+      "CityOS environmental monitoring sensors provide city officials with immediate alerts when pollution levels exceed safe thresholds."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "CityOS Smart City Platform",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "CityOS",
+              "classification": "Technology"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "smart city platform",
+              "classification": "Technology"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS is a smart city platform.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "IS A"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smart city platform",
+                    "classification": "Technology"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS includes advanced public safety features.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "advanced public safety features",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS public safety features integrate with existing emergency services.",
+              "details": [
+                "CityOS public safety features INTEGRATE WITH existing emergency services"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS public safety features",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INTEGRATE WITH"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "existing emergency services",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS public safety features provide faster response times.",
+              "details": [
+                "CityOS public safety features PROVIDES faster response times"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS public safety features",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "faster response times",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS public safety features provide better resource allocation.",
+              "details": [
+                "CityOS public safety features PROVIDES better resource allocation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS public safety features",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "better resource allocation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS public safety system can detect unusual activities.",
+              "details": [
+                "CityOS public safety system CAN DETECT unusual activities"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS public safety system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAN DETECT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "unusual activities",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS public safety system can identify potential safety hazards.",
+              "details": [
+                "CityOS public safety system CAN IDENTIFY potential safety hazards"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS public safety system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAN IDENTIFY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "potential safety hazards",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS public safety system can coordinate emergency responses across multiple agencies.",
+              "details": [
+                "CityOS public safety system CAN COORDINATE emergency responses across multiple agencies"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS public safety system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAN COORDINATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emergency responses across multiple agencies",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS includes privacy protections.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "privacy protections",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS privacy protections ensure surveillance capabilities are used only for legitimate public safety purposes.",
+              "details": [
+                "CityOS privacy protections ENSURES surveillance capabilities are used only for legitimate public safety purposes"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS privacy protections",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ENSURES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "surveillance capabilities are used only for legitimate public safety purposes",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS includes energy management capabilities.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "energy management capabilities",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS energy management capabilities help cities reduce power consumption by 25%.",
+              "details": [
+                "CityOS energy management capabilities HELPS cities",
+                "CityOS energy management capabilities REDUCES power consumption by 25%"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management capabilities",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "HELPS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cities",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management capabilities",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "REDUCES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power consumption by 25%",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS energy management capabilities use intelligent grid management.",
+              "details": [
+                "CityOS energy management capabilities USES intelligent grid management"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management capabilities",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "intelligent grid management",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS energy management capabilities use automated building controls.",
+              "details": [
+                "CityOS energy management capabilities USES automated building controls"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management capabilities",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "automated building controls",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS energy management capabilities use optimized street lighting.",
+              "details": [
+                "CityOS energy management capabilities USES optimized street lighting"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management capabilities",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "optimized street lighting",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS energy management system can predict energy demand patterns.",
+              "details": [
+                "CityOS energy management system CAN PREDICT energy demand patterns"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAN PREDICT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "energy demand patterns",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS energy management system can automatically adjust power distribution to prevent outages.",
+              "details": [
+                "CityOS energy management system CAN ADJUST power distribution to prevent outages"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAN ADJUST"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "power distribution to prevent outages",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS energy management system minimizes waste.",
+              "details": [
+                "CityOS energy management system MINIMIZES waste"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS energy management system",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "MINIMIZES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "waste",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS includes environmental monitoring sensors.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "INCLUDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "environmental monitoring sensors",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS environmental monitoring sensors track air quality in real-time.",
+              "details": [
+                "CityOS environmental monitoring sensors TRACKS air quality in real-time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS environmental monitoring sensors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TRACKS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "air quality in real-time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS environmental monitoring sensors track noise levels in real-time.",
+              "details": [
+                "CityOS environmental monitoring sensors TRACKS noise levels in real-time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS environmental monitoring sensors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TRACKS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "noise levels in real-time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS environmental monitoring sensors track water quality in real-time.",
+              "details": [
+                "CityOS environmental monitoring sensors TRACKS water quality in real-time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS environmental monitoring sensors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TRACKS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "water quality in real-time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "CityOS environmental monitoring sensors provide city officials with immediate alerts when pollution levels exceed safe thresholds.",
+              "details": [
+                "CityOS environmental monitoring sensors PROVIDES TO city officials",
+                "CityOS environmental monitoring sensors PROVIDES immediate alerts when pollution levels exceed safe thresholds"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS environmental monitoring sensors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES TO"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "city officials",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "CityOS environmental monitoring sensors",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROVIDES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "immediate alerts when pollution levels exceed safe thresholds",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Traffic Optimization System",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "platform's traffic optimization system",
+              "classification": "Technology"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system uses AI to analyze vehicle flow patterns.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "USES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "AI",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "ANALYZES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vehicle flow patterns",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system automatically adjusts traffic signals.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "ADJUSTS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "traffic signals",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system reduces commute times by up to 30%.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "REDUCES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "commute times by up to 30%",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system decreases fuel consumption.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "DECREASES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fuel consumption",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system decreases emissions.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "DECREASES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "emissions",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system can predict traffic problems before they occur.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAN PREDICT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "traffic problems before they occur",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system can reroute vehicles through less congested areas.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CAN REROUTE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "vehicles through less congested areas",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The platform's traffic optimization system creates smoother traffic flow throughout the city.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "platform's traffic optimization system",
+                    "classification": "Technology"
+                  },
+                  "predicate": {
+                    "value": "CREATES"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smoother traffic flow throughout the city",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::3ea1e181:d05b",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/smart_city_infrastructure.md",
+        "file_name": "smart_city_infrastructure.md",
+        "file_size": 3218,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22"
+      },
+      "hash": "7e628af32df211d57faec256724949442bb48140eb8737b936a8f2cd66defdb8",
+      "class_name": "RelatedNodeInfo"
+    },
+    "2": {
+      "node_id": "aws::3ea1e181:d05b:87c9eb8e",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/smart_city_infrastructure.md",
+        "file_name": "smart_city_infrastructure.md",
+        "file_size": 3218,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Partners with Cities to Deploy Comprehensive Smart Infrastructure Platform/"
+      },
+      "hash": "e8d218ad49b7810f41743ac870bff79604289e1997f164f33ef9758286d8eb1e",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::3ea1e181:d05b:9522ad23",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/documents/press-releases/smart_city_infrastructure.md",
+        "file_name": "smart_city_infrastructure.md",
+        "file_size": 3218,
+        "creation_date": "2025-09-25",
+        "last_modified_date": "2025-09-22",
+        "header_path": "/Amazon Partners with Cities to Deploy Comprehensive Smart Infrastructure Platform/"
+      },
+      "hash": "7d9c94a60ab793b4eb86ef6dfabd25c955020d9788bf9ac83e02487d8da4ac3f",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "The platform's traffic optimization system uses AI to analyze vehicle flow patterns and automatically adjust traffic signals, reducing commute times by up to 30% while decreasing fuel consumption and emissions. The system can predict traffic problems before they occur and reroute vehicles through less congested areas, creating smoother traffic flow throughout the city.\n\nCityOS includes advanced public safety features that integrate with existing emergency services to provide faster response times and better resource allocation. The system can detect unusual activities, identify potential safety hazards, and coordinate emergency responses across multiple agencies. Privacy protections ensure that surveillance capabilities are used only for legitimate public safety purposes.\n\nEnergy management capabilities help cities reduce power consumption by 25% through intelligent grid management, automated building controls, and optimized street lighting. The system can predict energy demand patterns and automatically adjust power distribution to prevent outages while minimizing waste.\n\nEnvironmental monitoring sensors track air quality, noise levels, and water quality in real-time, providing city officials with immediate alerts when pollution levels exceed safe thresholds.",
+  "mimetype": "text/plain",
+  "start_char_idx": 1123,
+  "end_char_idx": 2403,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}

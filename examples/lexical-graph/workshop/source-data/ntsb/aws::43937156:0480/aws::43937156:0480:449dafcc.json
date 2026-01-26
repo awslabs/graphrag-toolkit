@@ -1,0 +1,2233 @@
+{
+  "id_": "aws::43937156:0480:449dafcc",
+  "embedding": [
+    0.0519104,
+    0.024108887,
+    -0.01600647,
+    -0.056793213,
+    0.022766113,
+    -0.028457642,
+    -0.022491455,
+    -0.009399414,
+    -0.053894043,
+    -0.0032958984,
+    0.060180664,
+    0.010063171,
+    -0.010284424,
+    -0.0713501,
+    0.08850098,
+    -0.012916565,
+    -0.007980347,
+    0.046813965,
+    0.022415161,
+    -0.022735596,
+    0.020477295,
+    -0.013839722,
+    -0.04937744,
+    -0.037628174,
+    0.0039138794,
+    0.0026798248,
+    -0.024154663,
+    -0.0016584396,
+    -0.011199951,
+    -0.016113281,
+    0.009597778,
+    0.00705719,
+    0.043395996,
+    0.022247314,
+    -0.060424805,
+    -0.020248413,
+    0.0054092407,
+    -0.011230469,
+    -0.056671143,
+    0.03201294,
+    0.03366089,
+    -0.020523071,
+    0.07867432,
+    -0.032226562,
+    0.0104904175,
+    0.0072746277,
+    0.029174805,
+    -0.031829834,
+    0.049438477,
+    8.457899e-05,
+    -0.018173218,
+    0.026519775,
+    -0.026809692,
+    0.00856781,
+    -0.0012969971,
+    0.022979736,
+    -0.040802002,
+    0.033691406,
+    0.003036499,
+    0.030349731,
+    0.023239136,
+    0.031021118,
+    -0.002866745,
+    0.012466431,
+    -0.021011353,
+    -0.021362305,
+    0.036895752,
+    0.014144897,
+    0.054107666,
+    -0.028640747,
+    -0.026794434,
+    0.064453125,
+    -0.0042877197,
+    0.015899658,
+    0.009307861,
+    -0.045776367,
+    -0.018600464,
+    -0.0068130493,
+    -0.012390137,
+    0.05810547,
+    0.01902771,
+    -0.027069092,
+    -0.0014324188,
+    0.0043029785,
+    0.0075263977,
+    0.054260254,
+    -0.016296387,
+    -0.018447876,
+    -0.007217407,
+    -0.036865234,
+    -0.0151901245,
+    -0.031051636,
+    0.046203613,
+    -0.009895325,
+    -0.047973633,
+    -0.016448975,
+    -0.010795593,
+    -0.09674072,
+    0.022842407,
+    -0.023239136,
+    0.04953003,
+    -0.063964844,
+    0.016311646,
+    0.016815186,
+    0.005092621,
+    0.014511108,
+    0.009300232,
+    0.03866577,
+    0.05593872,
+    0.00086164474,
+    -0.02696228,
+    0.06689453,
+    0.010398865,
+    -0.053375244,
+    0.013320923,
+    0.053649902,
+    0.023223877,
+    0.025894165,
+    0.0309906,
+    0.05505371,
+    -0.04260254,
+    -0.0019493103,
+    -0.08642578,
+    0.004524231,
+    0.017929077,
+    -0.046081543,
+    -0.017837524,
+    0.10192871,
+    0.03930664,
+    0.01234436,
+    -0.026138306,
+    0.02571106,
+    -0.029006958,
+    -0.027832031,
+    -0.00504303,
+    0.00018262863,
+    -0.059387207,
+    0.002210617,
+    0.017425537,
+    0.00087976456,
+    0.0027484894,
+    -0.026763916,
+    0.059051514,
+    0.01914978,
+    -0.0047187805,
+    -0.00072813034,
+    0.040100098,
+    0.031311035,
+    -0.030929565,
+    -0.00011777878,
+    0.0028762817,
+    0.036010742,
+    0.076660156,
+    -0.015731812,
+    -0.09729004,
+    -0.04437256,
+    0.006263733,
+    -0.038024902,
+    -0.030807495,
+    -0.09100342,
+    0.030441284,
+    0.01335907,
+    0.0001758337,
+    -0.017715454,
+    -0.062072754,
+    -0.032440186,
+    -0.0024528503,
+    -0.0065193176,
+    0.004550934,
+    -0.011566162,
+    -0.009521484,
+    0.003967285,
+    -0.013465881,
+    -0.022354126,
+    -0.0104599,
+    0.0075035095,
+    -0.008430481,
+    0.033203125,
+    0.027069092,
+    0.006931305,
+    0.016693115,
+    -0.022216797,
+    0.08428955,
+    -0.015403748,
+    -0.0021743774,
+    0.011894226,
+    0.04083252,
+    0.08227539,
+    -0.0126953125,
+    0.04888916,
+    -0.029907227,
+    -0.005138397,
+    -0.0031909943,
+    -0.028182983,
+    0.010826111,
+    0.0007572174,
+    -0.007881165,
+    0.0072135925,
+    -0.0021457672,
+    -0.015090942,
+    -0.019882202,
+    0.06011963,
+    -0.045562744,
+    0.024536133,
+    -0.0138549805,
+    0.008522034,
+    0.006843567,
+    0.033996582,
+    -0.017211914,
+    0.029296875,
+    0.032440186,
+    -0.0074920654,
+    -0.005947113,
+    -0.043029785,
+    0.01789856,
+    0.006603241,
+    -0.032348633,
+    -0.051940918,
+    0.001581192,
+    -0.015655518,
+    -0.012451172,
+    0.04586792,
+    -0.036254883,
+    0.015853882,
+    -0.03475952,
+    -0.060150146,
+    -0.0064468384,
+    -0.026245117,
+    -0.038238525,
+    -0.025817871,
+    0.06994629,
+    0.029373169,
+    0.0005302429,
+    0.04953003,
+    -0.034179688,
+    0.027450562,
+    -0.0015268326,
+    0.066589355,
+    -0.0104522705,
+    -0.011177063,
+    -0.0138549805,
+    -0.007247925,
+    -0.045928955,
+    0.04119873,
+    -0.08081055,
+    -0.06530762,
+    -0.0060195923,
+    0.03869629,
+    0.0054244995,
+    0.021331787,
+    0.015563965,
+    0.030776978,
+    0.009635925,
+    0.049102783,
+    0.027252197,
+    0.0053253174,
+    -0.016143799,
+    -0.027114868,
+    -0.066833496,
+    0.021453857,
+    0.03765869,
+    -0.011062622,
+    -0.0579834,
+    0.018737793,
+    0.0026874542,
+    0.018096924,
+    0.027526855,
+    0.022857666,
+    0.004512787,
+    0.020339966,
+    -0.0004696846,
+    -0.041992188,
+    0.009803772,
+    0.038391113,
+    -0.041046143,
+    -0.015625,
+    -0.039794922,
+    -0.00015163422,
+    0.036987305,
+    -0.004371643,
+    -0.018692017,
+    0.0016613007,
+    0.0042915344,
+    -0.00081157684,
+    0.018585205,
+    -0.020324707,
+    0.0055160522,
+    -0.017791748,
+    -0.02180481,
+    0.019073486,
+    0.044555664,
+    -0.017227173,
+    -0.024963379,
+    -0.004512787,
+    -0.009811401,
+    -0.017791748,
+    0.031311035,
+    0.011138916,
+    -0.0016727448,
+    -0.0005450249,
+    0.050933838,
+    0.061950684,
+    -0.018707275,
+    0.02532959,
+    -0.0024261475,
+    0.00048208237,
+    0.013999939,
+    0.0032081604,
+    0.0076675415,
+    0.010322571,
+    -0.015655518,
+    0.024124146,
+    0.028045654,
+    -0.020767212,
+    0.031036377,
+    0.010253906,
+    0.02381897,
+    0.03161621,
+    -0.0068130493,
+    -0.03652954,
+    -0.06713867,
+    -0.023757935,
+    -0.04663086,
+    0.0107421875,
+    -0.008850098,
+    0.030944824,
+    0.018218994,
+    0.010734558,
+    -0.016433716,
+    0.0042533875,
+    -0.080322266,
+    -0.022567749,
+    -0.034973145,
+    0.050048828,
+    -0.02545166,
+    0.020111084,
+    -0.009254456,
+    0.006137848,
+    -0.037750244,
+    -0.05432129,
+    -0.02494812,
+    -0.032470703,
+    0.0079574585,
+    -0.010597229,
+    -0.029769897,
+    -0.030593872,
+    -0.008071899,
+    0.009010315,
+    -0.023803711,
+    -0.026107788,
+    0.040924072,
+    -0.012626648,
+    -0.0128479,
+    0.007209778,
+    0.016159058,
+    -0.06188965,
+    -0.004890442,
+    0.038879395,
+    -0.0033073425,
+    -0.019744873,
+    -0.011245728,
+    -0.004776001,
+    -0.04815674,
+    -0.030181885,
+    0.025650024,
+    0.007221222,
+    -0.010719299,
+    0.012054443,
+    0.0039749146,
+    0.005176544,
+    -0.045410156,
+    0.019561768,
+    0.028121948,
+    -0.014022827,
+    0.0051116943,
+    0.011184692,
+    0.07824707,
+    -0.0026283264,
+    -0.018753052,
+    0.037750244,
+    0.03036499,
+    0.037994385,
+    -0.024414062,
+    0.0013084412,
+    0.017456055,
+    0.013442993,
+    -0.015525818,
+    0.010017395,
+    0.04244995,
+    0.021118164,
+    0.01423645,
+    -0.0062217712,
+    0.001414299,
+    -0.030456543,
+    0.009681702,
+    -0.00027012825,
+    0.030563354,
+    0.00040912628,
+    0.0008678436,
+    -0.046051025,
+    -0.061309814,
+    -0.010185242,
+    -0.015701294,
+    -0.031066895,
+    0.03527832,
+    -0.13562012,
+    0.03024292,
+    -0.06112671,
+    0.02130127,
+    0.06719971,
+    -0.04309082,
+    0.052825928,
+    -0.04626465,
+    0.050811768,
+    -0.019104004,
+    0.021392822,
+    -0.054351807,
+    -0.014923096,
+    -0.023864746,
+    0.062164307,
+    0.05593872,
+    -0.047180176,
+    0.0070114136,
+    0.044189453,
+    -0.013145447,
+    0.017028809,
+    -0.012168884,
+    0.020355225,
+    -0.024002075,
+    0.01763916,
+    -0.011871338,
+    -0.03149414,
+    -0.0070533752,
+    0.0064430237,
+    -0.018936157,
+    0.055480957,
+    0.009208679,
+    -0.009063721,
+    0.037628174,
+    -0.033996582,
+    0.0395813,
+    -0.016433716,
+    0.018371582,
+    0.019058228,
+    -0.021484375,
+    0.029846191,
+    -0.01638794,
+    0.06719971,
+    -0.001490593,
+    -0.012481689,
+    0.012458801,
+    -0.0079574585,
+    0.04446411,
+    0.011749268,
+    0.005455017,
+    0.05505371,
+    -0.020401001,
+    0.026641846,
+    -0.01713562,
+    -0.012054443,
+    -0.012878418,
+    0.00018882751,
+    0.0013284683,
+    -0.017181396,
+    0.00605011,
+    -0.012718201,
+    0.0031547546,
+    0.010696411,
+    0.018325806,
+    0.009552002,
+    0.010406494,
+    -0.0017137527,
+    -0.0011539459,
+    -0.01071167,
+    0.011672974,
+    -0.012275696,
+    0.00018703938,
+    -0.006061554,
+    0.0074005127,
+    0.006427765,
+    -0.05203247,
+    0.0076065063,
+    0.0126953125,
+    0.03982544,
+    0.028686523,
+    0.0077781677,
+    0.050964355,
+    0.042755127,
+    0.016525269,
+    0.00084877014,
+    0.007331848,
+    0.007144928,
+    0.022766113,
+    0.03869629,
+    0.024093628,
+    -0.020019531,
+    -0.006313324,
+    0.013679504,
+    -0.0137786865,
+    -0.025863647,
+    -0.045440674,
+    -0.014862061,
+    0.0051612854,
+    0.0060806274,
+    -0.025344849,
+    0.021636963,
+    0.032440186,
+    -0.006980896,
+    0.010276794,
+    -0.042755127,
+    0.027435303,
+    -0.04107666,
+    0.077819824,
+    0.04714966,
+    -0.02180481,
+    0.027282715,
+    -0.002029419,
+    0.030685425,
+    -0.023284912,
+    -0.0010089874,
+    -0.02772522,
+    -0.056854248,
+    0.08782959,
+    0.045532227,
+    -0.06365967,
+    0.002872467,
+    0.0657959,
+    0.0018377304,
+    -0.009460449,
+    -0.023086548,
+    -0.00522995,
+    0.007507324,
+    0.0077323914,
+    0.0082473755,
+    0.02658081,
+    -0.012237549,
+    -0.0077209473,
+    -0.0069847107,
+    -0.03161621,
+    -0.016662598,
+    -0.008544922,
+    -0.014419556,
+    -0.024398804,
+    -0.012062073,
+    0.021194458,
+    -0.03881836,
+    0.019744873,
+    0.020202637,
+    -0.066589355,
+    0.006603241,
+    0.002790451,
+    0.009460449,
+    -0.020217896,
+    -0.051940918,
+    -0.012573242,
+    0.034698486,
+    0.06097412,
+    -0.036102295,
+    -0.0390625,
+    0.035095215,
+    0.0037078857,
+    -0.03753662,
+    -0.038269043,
+    0.034332275,
+    -0.0025520325,
+    0.014343262,
+    -0.014923096,
+    -0.054016113,
+    -0.008895874,
+    0.009765625,
+    -0.023757935,
+    -0.022476196,
+    0.08416748,
+    0.009712219,
+    -0.0060539246,
+    -0.051940918,
+    -0.003648758,
+    0.03289795,
+    -0.016525269,
+    -0.0006418228,
+    0.0026874542,
+    0.023239136,
+    -0.0062561035,
+    0.095458984,
+    -0.026107788,
+    0.031280518,
+    0.019104004,
+    -0.0061683655,
+    0.011619568,
+    0.0046920776,
+    0.0031433105,
+    0.00016832352,
+    0.02670288,
+    0.0040626526,
+    -0.022018433,
+    -0.0030059814,
+    -0.040771484,
+    -0.07702637,
+    -0.024749756,
+    -0.017471313,
+    0.006549835,
+    -0.01826477,
+    -0.009269714,
+    -0.012916565,
+    0.015090942,
+    0.0067253113,
+    0.026748657,
+    -0.00447464,
+    -0.00054216385,
+    0.0052223206,
+    0.019210815,
+    -0.011260986,
+    -0.026062012,
+    0.028518677,
+    -0.0022716522,
+    -0.025802612,
+    -0.03152466,
+    0.0317688,
+    0.04812622,
+    0.019836426,
+    0.060821533,
+    0.036499023,
+    0.061767578,
+    0.020904541,
+    0.0007662773,
+    0.038970947,
+    -0.014305115,
+    0.0078086853,
+    -0.018310547,
+    -0.0058174133,
+    -0.012359619,
+    -0.023391724,
+    -0.03768921,
+    -0.0055770874,
+    -0.018600464,
+    0.00033783913,
+    -0.016677856,
+    -0.029846191,
+    -0.010948181,
+    -0.008132935,
+    -0.0021629333,
+    -0.011619568,
+    -0.005683899,
+    -0.017974854,
+    0.018447876,
+    -0.031982422,
+    -0.001364708,
+    0.017028809,
+    -0.0045814514,
+    0.00024068356,
+    0.0058517456,
+    0.0028877258,
+    -0.056640625,
+    -0.007980347,
+    0.014656067,
+    -0.017120361,
+    0.029815674,
+    0.023956299,
+    -0.02684021,
+    -0.027954102,
+    -0.004737854,
+    0.004421234,
+    -0.02029419,
+    -0.035339355,
+    -0.06616211,
+    0.0033073425,
+    0.025466919,
+    0.009788513,
+    0.00869751,
+    -0.06500244,
+    -0.0044174194,
+    0.012107849,
+    0.020599365,
+    -0.00052690506,
+    0.013534546,
+    0.0135650635,
+    0.040100098,
+    0.0063438416,
+    0.008468628,
+    -0.031143188,
+    -0.0014734268,
+    0.00598526,
+    0.055633545,
+    0.004032135,
+    -0.04034424,
+    0.088012695,
+    -0.021270752,
+    -0.06750488,
+    -0.036254883,
+    -0.038726807,
+    -0.03366089,
+    0.006752014,
+    -0.0440979,
+    -0.024871826,
+    0.015586853,
+    -0.039093018,
+    -0.00724411,
+    -0.0035991669,
+    -0.025756836,
+    -0.014572144,
+    0.018630981,
+    -7.468462e-05,
+    0.005115509,
+    0.0054855347,
+    -0.056549072,
+    0.030853271,
+    -0.0011711121,
+    0.07696533,
+    -0.04638672,
+    -0.013664246,
+    0.019866943,
+    0.042755127,
+    -0.040496826,
+    -0.009941101,
+    0.026031494,
+    -0.0038013458,
+    0.0012788773,
+    -0.015510559,
+    -0.01637268,
+    0.018569946,
+    -0.026153564,
+    0.03390503,
+    0.0013742447,
+    -9.769201e-05,
+    0.031173706,
+    0.01184082,
+    -0.09490967,
+    0.01197052,
+    0.006603241,
+    -0.01928711,
+    0.007534027,
+    -0.022323608,
+    -0.010139465,
+    0.0006341934,
+    -0.026535034,
+    0.014541626,
+    -0.026885986,
+    0.03164673,
+    -0.00024235249,
+    -0.050445557,
+    -0.07751465,
+    -0.020111084,
+    0.0149002075,
+    0.0050964355,
+    -0.04824829,
+    0.01725769,
+    0.024963379,
+    -0.111572266,
+    0.00019741058,
+    -0.020050049,
+    0.023223877,
+    -0.033447266,
+    -0.033355713,
+    0.01727295,
+    0.01499176,
+    0.018539429,
+    -0.030792236,
+    0.011184692,
+    -0.024871826,
+    0.0184021,
+    -0.031219482,
+    -0.008834839,
+    0.0008625984,
+    0.059387207,
+    -0.025787354,
+    0.028701782,
+    -0.04953003,
+    -0.02458191,
+    -0.0087509155,
+    -0.00041151047,
+    -0.021331787,
+    -0.01902771,
+    -0.013824463,
+    -0.0006136894,
+    0.059417725,
+    0.014556885,
+    0.027816772,
+    -0.015777588,
+    -0.02645874,
+    0.0006785393,
+    -0.017669678,
+    0.02394104,
+    -0.039855957,
+    0.009048462,
+    -0.020446777,
+    0.061645508,
+    -0.012863159,
+    0.017028809,
+    -0.033691406,
+    -0.029769897,
+    -0.046142578,
+    0.03161621,
+    0.031463623,
+    0.012229919,
+    0.011138916,
+    -0.017120361,
+    -0.014373779,
+    0.0010681152,
+    0.007522583,
+    -0.024108887,
+    -0.0013551712,
+    -0.008506775,
+    0.0069084167,
+    0.040374756,
+    -0.022369385,
+    -0.01713562,
+    -0.0054244995,
+    0.062561035,
+    0.029129028,
+    -0.025894165,
+    0.02180481,
+    -0.036621094,
+    0.010398865,
+    -0.015266418,
+    0.02609253,
+    0.028289795,
+    -0.04824829,
+    -0.025680542,
+    0.006839752,
+    0.035949707,
+    -0.00084257126,
+    0.031677246,
+    -0.0023517609,
+    0.04446411,
+    0.009880066,
+    0.01335907,
+    -0.007659912,
+    -0.027786255,
+    0.024917603,
+    0.005554199,
+    0.018371582,
+    0.01802063,
+    -0.0012569427,
+    0.0026626587,
+    0.03152466,
+    0.0055007935,
+    0.017730713,
+    0.012901306,
+    0.0019254684,
+    0.0022697449,
+    -0.0068511963,
+    0.023254395,
+    -0.051696777,
+    -0.013938904,
+    -0.035736084,
+    -0.00065279007,
+    0.038360596,
+    0.0025615692,
+    -0.019104004,
+    0.034973145,
+    0.014579773,
+    0.03265381,
+    0.01902771,
+    -0.02305603,
+    0.029144287,
+    0.04171753,
+    0.04058838,
+    -0.020690918,
+    0.015365601,
+    0.026367188,
+    -0.0064468384,
+    0.029571533,
+    -0.019882202,
+    0.00074625015,
+    0.0116119385,
+    0.033233643,
+    0.016677856,
+    0.037017822,
+    0.013023376,
+    0.07128906,
+    0.031158447,
+    -0.03869629,
+    -0.10736084,
+    -0.049987793,
+    -0.0259552,
+    -0.026397705,
+    -0.018325806,
+    0.0713501,
+    -0.038909912,
+    -0.0024547577,
+    -0.04724121,
+    -0.038238525,
+    0.010620117,
+    -0.0037288666,
+    0.010528564,
+    -0.045562744,
+    0.00983429,
+    -0.014472961,
+    0.04220581,
+    0.008132935,
+    -0.005130768,
+    -0.0052337646,
+    -0.01386261,
+    0.03479004,
+    -0.010307312,
+    0.064086914,
+    -0.020767212,
+    0.0013837814,
+    -0.04663086,
+    0.04095459,
+    -0.047943115,
+    -0.04284668,
+    0.0038414001,
+    -0.028305054,
+    0.045166016,
+    -0.008117676,
+    0.0058937073,
+    -0.048461914,
+    -0.035888672,
+    -0.012145996,
+    0.060028076,
+    0.011199951,
+    0.000995636,
+    0.0335083,
+    -0.0019702911,
+    0.02279663,
+    -0.03878784,
+    -0.015045166,
+    0.020385742,
+    -0.07098389,
+    -0.028961182,
+    -0.0008406639,
+    0.014533997,
+    0.026611328,
+    0.021621704,
+    -0.011695862,
+    0.040252686,
+    -0.0060653687,
+    -0.023712158,
+    -0.011436462,
+    -0.023101807,
+    -0.0141067505,
+    0.07293701,
+    -0.06744385,
+    0.051574707,
+    -0.018203735,
+    0.01007843,
+    -0.051605225,
+    -0.03488159,
+    0.05758667,
+    0.005039215,
+    -0.043029785,
+    -0.0115737915,
+    0.035217285,
+    -0.009963989,
+    -0.0073051453,
+    -0.0030937195,
+    -0.03845215,
+    -0.068603516,
+    0.009223938,
+    0.02255249,
+    -0.0011081696,
+    0.005092621,
+    -0.004245758,
+    0.02859497,
+    0.05593872,
+    -0.020950317,
+    -0.0039749146,
+    -0.030059814,
+    -0.04220581,
+    0.014732361,
+    -0.012741089,
+    0.030563354,
+    0.0035381317,
+    -0.024276733,
+    0.0050582886,
+    -0.011260986,
+    -0.012870789,
+    -0.008041382,
+    0.016479492,
+    0.018218994,
+    -0.0068740845,
+    0.0023536682,
+    -0.027236938,
+    -0.007789612,
+    -0.032043457,
+    0.004096985,
+    -0.008239746,
+    -0.0041503906,
+    -0.011062622,
+    -0.02142334,
+    -0.016067505,
+    -0.033935547,
+    0.011711121,
+    0.028427124,
+    -0.07513428,
+    0.014831543,
+    -0.013252258,
+    -0.0032367706,
+    -0.014007568,
+    -0.059143066,
+    0.04284668,
+    0.028335571,
+    -0.00982666,
+    -0.0058021545,
+    0.018630981,
+    0.03149414,
+    0.011039734,
+    -0.016693115,
+    -0.043823242,
+    -0.015975952,
+    -0.0184021,
+    0.026687622,
+    -0.02671814,
+    0.024475098,
+    -0.055236816,
+    -0.013282776,
+    -0.029373169,
+    -0.05078125,
+    -0.043121338,
+    -0.081726074,
+    0.03225708,
+    0.011383057,
+    0.015258789,
+    0.07324219,
+    0.033172607,
+    0.012527466,
+    0.053131104,
+    0.034698486,
+    0.020874023,
+    -0.0007777214,
+    0.020584106,
+    0.037231445,
+    -0.025283813
+  ],
+  "metadata": {
+    "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90347.md",
+    "file_name": "90347.md",
+    "file_size": 14933,
+    "creation_date": "2025-09-24",
+    "last_modified_date": "2025-09-24",
+    "header_path": "/",
+    "aws::graph::propositions": [
+      "# Aviation Accident Report for Cessna T210M in Jacksonville, Oregon",
+      "The accident occurred in Jacksonville, Oregon.",
+      "The accident number was WPR15LA032.",
+      "The accident occurred on November 2, 2014, at 14:56 Local time.",
+      "The aircraft involved was a Cessna T210M.",
+      "The aircraft registration was N1593M.",
+      "The aircraft sustained substantial damage.",
+      "The defining event was loss of engine power (total).",
+      "The accident resulted in 1 minor injury.",
+      "The flight was conducted under Part 91: General aviation - Personal.",
+      "The pilot reported the engine began running roughly during cruise flight.",
+      "Smoke developed inside the cabin during the engine malfunction.",
+      "Oil covered the windshield during the engine malfunction.",
+      "The engine continued to run despite the malfunction.",
+      "The pilot's attempts to increase power resulted in severe shaking.",
+      "The pilot's attempts to increase power resulted in more smoke.",
+      "The pilot initiated a forced landing in a nearby field.",
+      "During the landing roll, the nosewheel landing gear dug into mud.",
+      "The airplane nosed over after the nosewheel dug into mud.",
+      "Postaccident examination revealed the Nos. 5 and 6 connecting rods were liberated from the crankshaft.",
+      "The No. 6 connecting rod was thermally discolored.",
+      "The No. 6 connecting rod was fractured.",
+      "The No. 6 connecting rod fracture was likely caused by oil starvation to the No. 6 connecting rod journal and bearing.",
+      "The No. 5 connecting rod was fractured.",
+      "The No. 5 connecting rod did not exhibit thermal discoloration or distress.",
+      "The No. 5 connecting rod fracture likely resulted from damage sustained when the No. 6 connecting rod fractured.",
+      "The Nos. 1 and 2 connecting rods exhibited thermal discoloration and distress.",
+      "The thermal discoloration and distress of Nos. 1 and 2 connecting rods likely resulted from the engine's continued operation after the liberation of the No. 6 connecting rod.",
+      "The National Transportation Safety Board determined the probable cause of the accident to be a loss of engine power during cruise flight.",
+      "The loss of engine power was due to the failure of the No. 6 connecting rod.",
+      "The No. 6 connecting rod failure resulted from oil starvation."
+    ],
+    "aws::graph::topics": {
+      "topics": [
+        {
+          "topicId": null,
+          "chunkIds": [],
+          "value": "Aviation Accident Report for Cessna T210M in Jacksonville, Oregon",
+          "entities": [
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Jacksonville, Oregon",
+              "classification": "Location"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "WPR15LA032",
+              "classification": "Accidentnumber"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "Cessna T210M",
+              "classification": "Aircraftmodel"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "N1593M",
+              "classification": "Aircraftregistration"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "loss of engine power",
+              "classification": "Definingevent"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "National Transportation Safety Board",
+              "classification": "Organization"
+            },
+            {
+              "entityId": null,
+              "altEntityId": null,
+              "value": "pilot",
+              "classification": "Pilot"
+            }
+          ],
+          "statements": [
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred in Jacksonville, Oregon.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Jacksonville, Oregon",
+                    "classification": "Location"
+                  },
+                  "predicate": {
+                    "value": "LOCATION OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident number was WPR15LA032.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "WPR15LA032",
+                    "classification": "Accidentnumber"
+                  },
+                  "predicate": {
+                    "value": "IDENTIFIER OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident occurred on November 2, 2014, at 1456 Local time.",
+              "details": [
+                "accident DATE November 2, 2014",
+                "accident TIME 14:56 Local time"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "DATE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "November 2, 2014",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "TIME"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "14:56 Local time",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft involved was a Cessna T210M.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna T210M",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "INVOLVED IN"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft registration was N1593M.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna T210M",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "REGISTRATION"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "N1593M",
+                    "classification": "Aircraftregistration"
+                  },
+                  "complement": null
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The aircraft sustained substantial damage.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna T210M",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "DAMAGE LEVEL"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "substantial damage",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The defining event was loss of engine power (total).",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "DEFINING EVENT OF"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The accident resulted in 1 minor injury.",
+              "details": [
+                "accident INJURY COUNT 1 minor injury"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "INJURY COUNT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "1 minor injury",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The flight was conducted under Part 91 General aviation - Personal.",
+              "details": [
+                "flight CONDUCTED UNDER Part 91: General aviation - Personal"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "flight",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDUCTED UNDER"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Part 91: General aviation - Personal",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot reported the engine began running roughly during cruise flight.",
+              "details": [
+                "engine CONDITION running roughly",
+                "engine FLIGHT PHASE cruise flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "OPERATED"
+                  },
+                  "object": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna T210M",
+                    "classification": "Aircraftmodel"
+                  },
+                  "complement": null
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "running roughly",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "FLIGHT PHASE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cruise flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Smoke developed inside the cabin during the engine malfunction.",
+              "details": [
+                "cabin CONDITION smoke developed inside"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cabin",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "smoke developed inside",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Oil covered the windshield during the engine malfunction.",
+              "details": [
+                "windshield COVERED BY oil"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "windshield",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "COVERED BY"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oil",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The engine continued to run despite the malfunction.",
+              "details": [
+                "engine STATUS continued to run despite malfunction"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "STATUS"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "continued to run despite malfunction",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's attempts to increase power resulted in severe shaking.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempts to increase power",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna T210M",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RESPONSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "severe shaking",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot's attempts to increase power resulted in more smoke.",
+              "details": [
+                "cabin RESPONSE more smoke"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "attempts to increase power",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "cabin",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "RESPONSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "more smoke",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The pilot initiated a forced landing in a nearby field.",
+              "details": [
+                "forced landing LOCATION nearby field"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "pilot",
+                    "classification": "Pilot"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "initiated a forced landing",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "forced landing",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "LOCATION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nearby field",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "During the landing roll, the nosewheel landing gear dug into mud.",
+              "details": [
+                "nosewheel landing gear ACTION dug into mud"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nosewheel landing gear",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "ACTION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "dug into mud",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The airplane nosed over after the nosewheel dug into mud.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Cessna T210M",
+                    "classification": "Aircraftmodel"
+                  },
+                  "predicate": {
+                    "value": "RESULT"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "nosed over",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "Postaccident examination revealed the Nos. 5 and 6 connecting rods were liberated from the crankshaft.",
+              "details": [
+                "Nos. 5 and 6 connecting rods CONDITION liberated from the crankshaft"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nos. 5 and 6 connecting rods",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "liberated from the crankshaft",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The No. 6 connecting rod was thermally discolored.",
+              "details": [
+                "No. 6 connecting rod CONDITION thermally discolored"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 6 connecting rod",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thermally discolored",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The No. 6 connecting rod was fractured.",
+              "details": [
+                "No. 6 connecting rod CONDITION fractured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 6 connecting rod",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fractured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The No. 6 connecting rod fracture was likely caused by oil starvation to the No. 6 connecting rod journal and bearing.",
+              "details": [
+                "No. 6 connecting rod fracture CAUSE oil starvation to the No. 6 connecting rod journal and bearing"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 6 connecting rod fracture",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oil starvation to the No. 6 connecting rod journal and bearing",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The No. 5 connecting rod was fractured.",
+              "details": [
+                "No. 5 connecting rod CONDITION fractured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 5 connecting rod",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "fractured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The No. 5 connecting rod did not exhibit thermal discoloration or distress.",
+              "details": [
+                "No. 5 connecting rod CONDITION did not exhibit thermal discoloration or distress"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 5 connecting rod",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "did not exhibit thermal discoloration or distress",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The No. 5 connecting rod fracture likely resulted from damage sustained when the No. 6 connecting rod fractured.",
+              "details": [
+                "No. 5 connecting rod fracture CAUSE damage sustained when the No. 6 connecting rod fractured"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 5 connecting rod fracture",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "damage sustained when the No. 6 connecting rod fractured",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The Nos. 1 and 2 connecting rods exhibited thermal discoloration and distress.",
+              "details": [
+                "Nos. 1 and 2 connecting rods CONDITION exhibited thermal discoloration and distress"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "Nos. 1 and 2 connecting rods",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CONDITION"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "exhibited thermal discoloration and distress",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The thermal discoloration and distress of Nos. 1 and 2 connecting rods likely resulted from the engine's continued operation after the liberation of the No. 6 connecting rod.",
+              "details": [
+                "thermal discoloration and distress of Nos. 1 and 2 connecting rods CAUSE engine's continued operation after the liberation of the No. 6 connecting rod"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "thermal discoloration and distress of Nos. 1 and 2 connecting rods",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "engine's continued operation after the liberation of the No. 6 connecting rod",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The National Transportation Safety Board determined the probable cause of the accident to be a loss of engine power during cruise flight.",
+              "details": [
+                "accident PROBABLE CAUSE loss of engine power during cruise flight"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "National Transportation Safety Board",
+                    "classification": "Organization"
+                  },
+                  "predicate": {
+                    "value": "INVESTIGATED"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  }
+                },
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "accident",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "PROBABLE CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power during cruise flight",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The loss of engine power was due to the failure of the No. 6 connecting rod.",
+              "details": [],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "loss of engine power",
+                    "classification": "Definingevent"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "failure of the No. 6 connecting rod",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            },
+            {
+              "statementId": null,
+              "topicId": null,
+              "chunkId": null,
+              "value": "The No. 6 connecting rod failure resulted from oil starvation.",
+              "details": [
+                "No. 6 connecting rod failure CAUSE oil starvation"
+              ],
+              "facts": [
+                {
+                  "factId": null,
+                  "statementId": null,
+                  "subject": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "No. 6 connecting rod failure",
+                    "classification": "__Local_Entity__"
+                  },
+                  "predicate": {
+                    "value": "CAUSE"
+                  },
+                  "object": null,
+                  "complement": {
+                    "entityId": null,
+                    "altEntityId": null,
+                    "value": "oil starvation",
+                    "classification": "__Local_Entity__"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "excluded_embed_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "excluded_llm_metadata_keys": [
+    "file_name",
+    "file_type",
+    "file_size",
+    "creation_date",
+    "last_modified_date",
+    "last_accessed_date"
+  ],
+  "relationships": {
+    "1": {
+      "node_id": "aws::43937156:0480",
+      "node_type": "4",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90347.md",
+        "file_name": "90347.md",
+        "file_size": 14933,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24"
+      },
+      "hash": "d0d03940678839c8bc2987e469553148fceaf996f653af7ecb629cd2ca4c251f",
+      "class_name": "RelatedNodeInfo"
+    },
+    "3": {
+      "node_id": "aws::43937156:0480:9f97791b",
+      "node_type": "1",
+      "metadata": {
+        "file_path": "/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb-md/90347.md",
+        "file_name": "90347.md",
+        "file_size": 14933,
+        "creation_date": "2025-09-24",
+        "last_modified_date": "2025-09-24",
+        "header_path": "/"
+      },
+      "hash": "60b6aface8300e43695c0865a0bf5ca026e23d7ed0871d2a063bd5522ea90bcf",
+      "class_name": "RelatedNodeInfo"
+    }
+  },
+  "metadata_template": "{key}: {value}",
+  "metadata_separator": "\n",
+  "text": "# Aviation Investigation Final Report\n\n## Location:\nJacksonville, Oregon\n\n## Accident Number:\nWPR15LA032\n\n## Date & Time: \nNovember 2, 2014, 14:56 Local\n\n## Registration:\nN1593M\n\n## Aircraft:\nCessna T210M\n\n## Aircraft Damage:\nSubstantial\n\n## Defining Event:\nLoss of engine power (total)\n\n## Injuries:\n1 Minor\n\n## Flight Conducted Under:\nPart 91: General aviation - Personal\n\n## Analysis\n\nThe pilot reported that, during cruise flight, the engine began running roughly with smoke developing inside the cabin, followed by oil covering the windshield. The pilot stated that the engine continued to run and that his attempts to increase the power setting resulted in severe shaking and more smoke. The pilot initiated a forced landing in a nearby field. During the landing roll, the nosewheel landing gear dug into mud, and the airplane subsequently nosed over.\n\nPostaccident examination of the engine revealed that the Nos. 5 and 6 connecting rods were liberated from the crankshaft. The No. 6 connecting rod was thermally discolored and fractured, which was likely caused by oil starvation to the No. 6 connecting rod journal and bearing. The No. 5 connecting rod was also fractured; however, the connecting rod and bearing did not exhibit thermal discoloration or distress; the fracture likely resulted due to damage sustained when the No. 6 connecting rod fractured. The Nos. 1 and 2 connecting rods also exhibited thermal discoloration and distress, which likely resulted from the engine's continued operation after the liberation of the No. 6 connecting rod.\n\n## Probable Cause and Findings\n\nThe National Transportation Safety Board determines the probable cause(s) of this accident to be:\n\nA loss of engine power during cruise flight due to the failure of the No. 6 connecting rod, which resulted from oil starvation.\n\n---",
+  "mimetype": "text/plain",
+  "start_char_idx": 0,
+  "end_char_idx": 1825,
+  "metadata_seperator": "\n",
+  "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+  "class_name": "TextNode"
+}
