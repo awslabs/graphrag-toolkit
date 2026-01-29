@@ -32,7 +32,7 @@ DEFAULT_PROCESSORS = [
     RescoreResults,
     SortResults,
     TruncateStatements,
-    ClearChunks,
+    UpdateChunkMetadata,
     ClearScores
 ]
 
@@ -40,6 +40,7 @@ DEFAULT_FORMATTING_PROCESSORS = [
     StatementsToStrings,
     SimplifySingleTopicResults,
     FormatSources,
+    ClearChunks,
     ClearTopicIds,
     TruncateResults
 ]
@@ -132,6 +133,8 @@ class TraversalBasedBaseRetriever(BaseRetriever):
             'statementIds': statement_ids
         }
 
+        chunk_metadata = 'properties(c)' if self.args.include_chunk_details else '{}'
+
         statements_cypher = f'''
         // get statements grouped by topic and source
         MATCH (t)<-[:`__BELONGS_TO__`]-(l:`__Statement__`)   
@@ -150,7 +153,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
                 }}  
             }} AS source,
             t, l, c,
-            {{ chunkId: {self.graph_store.node_id("c.chunkId")}, value: NULL }} AS cc, 
+            {{ chunkId: {self.graph_store.node_id("c.chunkId")}, value: NULL, metadata: {chunk_metadata} }} AS cc, 
             {{ statementId: {self.graph_store.node_id("l.statementId")}, statement: l.value, facts: [], details: l.details, chunkId: {self.graph_store.node_id("c.chunkId")}, score: 0 }} as ll
         WITH source, 
             t, 

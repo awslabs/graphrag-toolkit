@@ -57,6 +57,7 @@ class ProcessorArgs():
         
         self.expand_entities = kwargs.get('expand_entities', True)
         self.include_facts = kwargs.get('include_facts', False)
+        self.include_chunk_details = kwargs.get('include_chunk_details', False)
         self.derive_subqueries = kwargs.get('derive_subqueries', False)
         self.debug_results = kwargs.get('debug_results', [])
         self.reranker = kwargs.get('reranker', 'tfidf')

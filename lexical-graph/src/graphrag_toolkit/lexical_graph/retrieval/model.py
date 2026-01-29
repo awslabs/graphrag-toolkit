@@ -58,6 +58,7 @@ class Chunk(BaseModel):
 
     chunkId:str
     value:Optional[str]=None
+    metadata:dict={}
     score:Optional[float]=None
 
 class Topic(BaseModel):
