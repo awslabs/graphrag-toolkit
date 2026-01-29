@@ -76,6 +76,8 @@ class BatchTopicExtractorSync(BatchExtractorBase):
         }
     
     def _run_non_batch_extractor(self, nodes):
+        
+        all_nodes = [node for node in nodes]
 
         extractor = TopicExtractor( 
             prompt_template=self.prompt_template, 
@@ -84,14 +86,20 @@ class BatchTopicExtractorSync(BatchExtractorBase):
             topic_provider=self.topic_provider
         )
 
-        return extractor.extract(nodes)
+        extracted = extractor.extract(all_nodes)
+        
+        results = [{n.id_: e[TOPICS_KEY]} for (n, e) in zip(all_nodes, extracted)]
+        
+        return results
     
     def _update_node(self, node:TextNode, node_metadata_map):
         if node.node_id in node_metadata_map:
-            raw_response = node_metadata_map[node.node_id]
-            (topics, _) = parse_extracted_topics(raw_response)
-            node.metadata[TOPICS_KEY] = topics.model_dump()             
+            topic_data = node_metadata_map[node.node_id]
+            if isinstance(topic_data, dict):
+                node.metadata[TOPICS_KEY] = topic_data
+            else:
+                (topics, _) = parse_extracted_topics(topic_data)
+                node.metadata[TOPICS_KEY] = topics.model_dump()             
         else:
             node.metadata[TOPICS_KEY] = []
         return node
-    

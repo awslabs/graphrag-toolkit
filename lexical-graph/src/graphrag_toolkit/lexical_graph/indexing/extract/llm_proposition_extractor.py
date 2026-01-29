@@ -133,7 +133,7 @@ class LLMPropositionExtractor(BaseExtractor):
             jobs, 
             show_progress=self.show_progress, 
             workers=self.num_workers, 
-            desc=f'Extracting propositions [nodes: {len(nodes)}, num_workers: {self.num_workers}]'
+            desc=f'Extracting propositions [nodes: {len(jobs)}, num_workers: {self.num_workers}]'
         )
         
     async def _extract_propositions_for_node(self, node):

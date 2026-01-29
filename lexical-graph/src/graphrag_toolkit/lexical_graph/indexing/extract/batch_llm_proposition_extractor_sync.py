@@ -63,20 +63,29 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
         }
     
     def _run_non_batch_extractor(self, nodes):
+        
+        all_nodes = [node for node in nodes]
 
         extractor = LLMPropositionExtractor(
             prompt_template=self.prompt_template, 
             source_metadata_field=self.source_metadata_field
         )
-
-        return extractor.extract(nodes)
+        
+        extracted = extractor.extract(all_nodes)
+        
+        results = [{n.node_id: e[PROPOSITIONS_KEY]} for (n, e) in zip(all_nodes, extracted)]
+        
+        return results
     
     def _update_node(self, node:TextNode, node_metadata_map):
         if node.node_id in node_metadata_map:
-            raw_response = node_metadata_map[node.node_id]
-            propositions = raw_response.split('\n')
-            propositions_model = Propositions(propositions=[p for p in propositions if p])
-            node.metadata[PROPOSITIONS_KEY] = propositions_model.model_dump()['propositions']                
+            proposition_data = node_metadata_map[node.node_id]
+            if isinstance(proposition_data, list):
+                node.metadata[PROPOSITIONS_KEY] = proposition_data
+            else:
+                propositions = proposition_data.split('\n')
+                propositions_model = Propositions(propositions=[p for p in propositions if p])
+                node.metadata[PROPOSITIONS_KEY] = propositions_model.model_dump()['propositions']                
         else:
             node.metadata[PROPOSITIONS_KEY] = []
         return node
