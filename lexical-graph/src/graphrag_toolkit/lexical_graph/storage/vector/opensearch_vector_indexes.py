@@ -283,7 +283,7 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
     index_exists = False
 
     try:
-        index_exists = client.indices.exists(index_name)
+        index_exists = client.indices.exists(index=index_name)
         if not index_exists and writeable:
             logger.debug(f'Creating OpenSearch index [index_name: {index_name}, endpoint: {endpoint}]')
             client.indices.create(index=index_name, body=idx_conf)
