@@ -19,7 +19,7 @@ point in time.
 The lexical-graph requires Python and [pip](http://www.pip-installer.org/en/latest/) to install. You can install the lexical-graph using pip:
 
 ```
-$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.15.3.zip#subdirectory=lexical-graph
+$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.15.4.zip#subdirectory=lexical-graph
 ```
 
 If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](../docs/lexical-graph/configuration.md#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
