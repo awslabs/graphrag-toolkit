@@ -83,7 +83,7 @@ The system's performance has been evaluated across multiple knowledge graph benc
 You can get started with byokg-rag by installing the package and running the demo notebook:
 
 ```bash
-pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.15.4.zip#subdirectory=byokg-rag
+pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.15.5.zip#subdirectory=byokg-rag
 ```
 
 The repository includes several [example notebooks](../../examples/byokg-rag/) that demonstrate how to use the library with different graph stores and datasets:
