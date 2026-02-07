@@ -47,7 +47,7 @@ class EntityVSSProvider(EntityProviderBase):
             MATCH (t:`__Topic__`)<-[:`__BELONGS_TO__`]-(:`__Statement__`)
             <-[:`__SUPPORTS__`]-()<-[:`__SUBJECT__`|`__OBJECT__`]-(entity)
             WHERE {self.graph_store.node_id("t.topicId")} in $nodeIds
-            AND ebtity.class <> '__Local_Entity__'
+            AND entity.class <> '__Local_Entity__'
             WITH DISTINCT entity
             MATCH (entity)-[r:`__SUBJECT__`|`__OBJECT__`]->()
             WITH entity, count(r) AS score ORDER BY score DESC LIMIT $limit
