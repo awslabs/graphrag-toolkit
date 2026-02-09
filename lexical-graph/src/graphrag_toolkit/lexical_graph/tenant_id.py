@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import re
 from typing import Optional, Union
 from llama_index.core.bridge.pydantic import BaseModel
 
@@ -22,24 +23,36 @@ class TenantId(BaseModel):
     value: Optional[str] = None
 
     def __init__(self, value: str = None):
-        """Initializes an instance of the class with a specified value.
+        """ Initializes an instance of the class with a specified value.
 
         Validates the input value to ensure it meets specific criteria. The value must be
-        a string containing between 1 to 10 characters and restricted to lowercase letters
-        or numbers. If the value is invalid, a ValueError is raised.
+        a string containing between 1 and 25 characters and restricted to lowercase letters,
+        numbers, and periods (but not at the start or end). If the value is invalid, a ValueError is raised.
 
         Args:
             value (str): Optional. A string value for initialization. The string must be
-                between 1 to 10 characters, alphanumeric, entirely in lowercase, and must
-                not contain uppercase letters. Defaults to None.
+                between 1 and 25 characters, alphanumeric with optional periods (not at start/end),
+                entirely in lowercase, and must not contain uppercase letters. Defaults to None.
         """
         if value is not None:
             if value.lower() == DEFAULT_TENANT_NAME:
                 value = None
-            elif len(value) > 10 or len(value) < 1 or not value.isalnum() or any(letter.isupper() for letter in value):
+            elif not self._is_valid_tenant_id(value):
                 raise ValueError(
-                    f"Invalid TenantId: '{value}'. TenantId must be between 1-10 lowercase letters and numbers.")
+                    f"Invalid TenantId: '{value}'. TenantId must be between 1-25 lowercase letters, numbers, and periods (not at start or end).")
         super().__init__(value=value)
+
+    def _is_valid_tenant_id(self, value: str) -> bool:
+        """ Validates a tenant ID format with backwards compatibility."""
+        if (
+            not value
+            or len(value) > 25
+            or any(letter.isupper() for letter in value)
+        ):
+            return False
+        if value.startswith('.') or value.endswith('.'):
+            return False
+        return all(c.isalnum() or c == '.' for c in value)
 
     def __str__(self):
         return self.value if self.value else DEFAULT_TENANT_NAME

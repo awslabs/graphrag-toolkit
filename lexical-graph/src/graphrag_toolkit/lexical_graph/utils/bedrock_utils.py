@@ -51,9 +51,15 @@ def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], An
         stop=stop_after_attempt(max_retries),
         wait=wait_random_exponential(multiplier=1, min=min_seconds, max=max_seconds),
         retry=(
-            retry_if_exception_type(client.exceptions.ThrottlingException) | 
-            retry_if_exception_type(client.exceptions.ModelTimeoutException) |
-            retry_if_exception_type(client.exceptions.ModelErrorException)
+            retry_if_exception_type(
+                (
+                    client.exceptions.ThrottlingException,
+                    client.exceptions.InternalServerException,
+                    client.exceptions.ServiceUnavailableException,
+                    client.exceptions.ModelTimeoutException,
+                    client.exceptions.ModelErrorException
+                )
+            )
         ),
         before_sleep=before_sleep_log(logger, logging.WARNING),
     )

@@ -58,7 +58,7 @@ pip install .
 ```
 or 
 ```
-pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.15.2.zip#subdirectory=byokg-rag
+pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.15.5.zip#subdirectory=byokg-rag
 ```
 (The version number will vary based on the latest GitHub release)
 

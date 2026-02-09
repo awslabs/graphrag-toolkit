@@ -21,4 +21,5 @@ from .sort_results import SortResults
 from .statements_to_strings import StatementsToStrings
 from .truncate_results import TruncateResults
 from .truncate_statements import TruncateStatements
+from .update_chunk_metadata import UpdateChunkMetadata
 from .zero_scores import ZeroScores
