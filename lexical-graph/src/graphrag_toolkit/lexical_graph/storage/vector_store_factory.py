@@ -6,6 +6,7 @@ from graphrag_toolkit.lexical_graph.storage.vector import VectorStore, VectorInd
 from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.vector.neptune_vector_indexes import NeptuneAnalyticsVectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.vector.pg_vector_index_factory import PGVectorIndexFactory
+from graphrag_toolkit.lexical_graph.storage.vector.s3_vector_index_factory import S3VectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.constants import DEFAULT_EMBEDDING_INDEXES
 
@@ -13,7 +14,13 @@ from graphrag_toolkit.lexical_graph.storage.constants import DEFAULT_EMBEDDING_I
 VectorStoreType = Union[str, VectorStore]
 VectorIndexFactoryMethodType = Union[VectorIndexFactoryMethod, Type[VectorIndexFactoryMethod]]
 
-_vector_index_factories:Dict[str, VectorIndexFactoryMethod] = { c.__name__ : c() for c in [OpenSearchVectorIndexFactory, PGVectorIndexFactory, NeptuneAnalyticsVectorIndexFactory, DummyVectorIndexFactory] }
+_vector_index_factories:Dict[str, VectorIndexFactoryMethod] = { c.__name__ : c() for c in [
+    OpenSearchVectorIndexFactory, 
+    PGVectorIndexFactory, 
+    NeptuneAnalyticsVectorIndexFactory, 
+    S3VectorIndexFactory,
+    DummyVectorIndexFactory
+] }
 
 class VectorStoreFactory():
     """Manages the registration and creation of vector index factories and vector stores.
