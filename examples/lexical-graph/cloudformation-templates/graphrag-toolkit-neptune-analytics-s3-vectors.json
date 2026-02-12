@@ -1,5 +1,5 @@
 {
-  "Description": "Creates a lexical-graph environment (VPC, Neptune Database, S3 Vectors, and SageMaker notebook)",
+  "Description": "Creates a graphrag-toolkit environment (Neptune Analytics, S3 Vectors, and SageMaker notebook)",
   "Parameters": {
     "ApplicationId": {
       "Description": "Application id (used to name all resources in the environment)",
@@ -10,50 +10,25 @@
       "MinLength": 3,
       "ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
     },
-    "NeptuneEngineVersion": {
-      "Description": "Neptune DB engine version",
+    "ProvisionedMemory": {
+      "Description": "Number of m-NCUs to be allocated to the graph",
       "Type": "String",
-      "Default": "1.4.6.2"
-    },
-    "NeptuneDbInstanceType": {
-      "Description": "Neptune DB instance type (use db.serverless to provision a Neptune Serverless cluster)",
-      "Type": "String",
-      "Default": "db.r8g.large",
+      "Default": "16",
       "AllowedValues": [
-        "db.serverless",
-        "db.r8g.large",
-        "db.r8g.xlarge",
-        "db.r8g.2xlarge",
-        "db.r8g.4xlarge"
-      ],
-      "ConstraintDescription": "Must be a valid Neptune instance type."
-    },
-    "MinNCU": {
-      "Description": "Min number of NCUs (default 2.5, relevant only when instance type is db.serverless).",
-      "Type": "Number",
-      "Default": 2.5,
-      "MaxValue": 128,
-      "MinValue": 1
-    },
-    "MaxNCU": {
-      "Description": "Max number of NCUs (default 128, relevant only when instance type is db.serverless).",
-      "Type": "Number",
-      "Default": 32,
-      "MaxValue": 128,
-      "MinValue": 1
-    },
-    "EnableAuditLog": {
-      "Description": "Enable database auditing logging",
-      "Type": "String",
-      "Default": "false",
-      "AllowedValues": [
-        "true",
-        "false"
+        "16",
+        "32",
+        "64",
+        "128",
+        "256",
+        "384",
+        "512",
+        "768",
+        "1024"
       ]
     },
     "IamPolicyArn": {
       "Type": "String",
-      "Description": "Space-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
+      "Description": "Spaced-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
       "Default": ""
     },
     "NotebookInstanceType": {
@@ -90,11 +65,7 @@
             "default": "Neptune"
           },
           "Parameters": [
-            "NeptuneEngineVersion",
-            "NeptuneDbInstanceType",
-            "MinNCU",
-            "MaxNCU",
-            "EnableAuditLog"
+            "ProvisionedMemory"
           ]
         },
         {
@@ -149,33 +120,6 @@
         "us-east-1"
       ]
     },
-    "AZ3NotPresent": {
-      "Fn::Or": [
-        {
-          "Fn::Equals": [
-            {
-              "Ref": "AWS::Region"
-            },
-            "ca-central-1"
-          ]
-        },
-        {
-          "Fn::Equals": [
-            {
-              "Ref": "AWS::Region"
-            },
-            "us-west-1"
-          ]
-        }
-      ]
-    },
-    "AZ3Present": {
-      "Fn::Not": [
-        {
-          "Condition": "AZ3NotPresent"
-        }
-      ]
-    },
     "AddIamPolicyArn": {
       "Fn::Not": [
         {
@@ -187,53 +131,29 @@
           ]
         }
       ]
-    },
-    "AuditLogEnabled": {
-      "Fn::Equals": [
-        {
-          "Ref": "EnableAuditLog"
-        },
-        "true"
-      ]
     }
   },
   "Resources": {
-    "NeptuneDBSubnetGroup": {
-      "Type": "AWS::Neptune::DBSubnetGroup",
+    "Graph": {
+      "Type": "AWS::NeptuneGraph::Graph",
       "Properties": {
-        "DBSubnetGroupDescription": "Neptune DB subnet group",
-        "DBSubnetGroupName": {
-          "Fn::Sub": "${ApplicationId}-subnet"
+        "GraphName": {
+          "Fn::Sub": "${ApplicationId}-graph"
         },
-        "SubnetIds": {
-          "Fn::If": [
-            "AZ3NotPresent",
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              }
-            ],
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              },
-              {
-                "Ref": "Subnet3"
-              }
-            ]
-          ]
+        "DeletionProtection": false,
+        "ProvisionedMemory": {
+          "Ref": "ProvisionedMemory"
+        },
+        "PublicConnectivity": true,
+        "ReplicaCount": 1,
+        "VectorSearchConfiguration": {
+          "VectorSearchDimension": 1024
         },
         "Tags": [
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${ApplicationId}-subnet"
+              "Fn::Sub": "${ApplicationId}-graph"
             }
           },
           {
@@ -255,131 +175,6 @@
             }
           }
         ]
-      }
-    },
-    "GraphRAGClientSecurityGroup": {
-      "Type": "AWS::EC2::SecurityGroup",
-      "Properties": {
-        "GroupName": {
-          "Fn::Sub": "${ApplicationId}-client-sg"
-        },
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "GroupDescription": "GraphRAG client security group",
-        "SecurityGroupEgress": [
-          {
-            "FromPort": "443",
-            "ToPort": "443",
-            "IpProtocol": "tcp",
-            "CidrIp": "0.0.0.0/0",
-            "Description": "HTTPS egress"
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-client-sg"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "NeptuneSecurityGroup": {
-      "Type": "AWS::EC2::SecurityGroup",
-      "Properties": {
-        "GroupName": {
-          "Fn::Sub": "${ApplicationId}-neptune-sg"
-        },
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "GroupDescription": "GraphRAG Neptune security group",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-neptune-sg"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "GraphRAGClientSecurityGroupEgress": {
-      "Type": "AWS::EC2::SecurityGroupEgress",
-      "Properties": {
-        "IpProtocol": "tcp",
-        "FromPort": 8182,
-        "ToPort": 8182,
-        "DestinationSecurityGroupId": {
-          "Fn::GetAtt": [
-            "NeptuneSecurityGroup",
-            "GroupId"
-          ]
-        },
-        "GroupId": {
-          "Fn::GetAtt": [
-            "GraphRAGClientSecurityGroup",
-            "GroupId"
-          ]
-        }
-      }
-    },
-    "NeptuneSecurityGroupIngress": {
-      "Type": "AWS::EC2::SecurityGroupIngress",
-      "Properties": {
-        "IpProtocol": "tcp",
-        "FromPort": 8182,
-        "ToPort": 8182,
-        "SourceSecurityGroupId": {
-          "Fn::GetAtt": [
-            "GraphRAGClientSecurityGroup",
-            "GroupId"
-          ]
-        },
-        "GroupId": {
-          "Fn::GetAtt": [
-            "NeptuneSecurityGroup",
-            "GroupId"
-          ]
-        }
       }
     },
     "GraphRAGClientRole": {
@@ -654,11 +449,11 @@
         "Path": "/graphrag-toolkit/"
       }
     },
-    "NeptuneDBDataAccessReadPolicy": {
+    "NeptuneAnalyticsDataAccessPolicy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
         "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-read-policy"
+          "Fn::Sub": "${ApplicationId}-neptune-analytics-policy"
         },
         "PolicyDocument": {
           "Version": "2012-10-17",
@@ -666,93 +461,29 @@
             {
               "Effect": "Allow",
               "Action": [
-                "neptune-db:ReadDataViaQuery"
+                "neptune-graph:ReadDataViaQuery",
+                "neptune-graph:WriteDataViaQuery",
+                "neptune-graph:DeleteDataViaQuery",
+                "neptune-graph:GetGraph"
               ],
               "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    {
-                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
+                "Fn::Sub": [
+                  "arn:${partition}:neptune-graph:${region}:${account_id}:graph/${resource_id}",
+                  {
+                    "partition": {
+                      "Ref": "AWS::Partition"
                     },
-                    {
+                    "region": {
                       "Ref": "AWS::Region"
                     },
-                    ":",
-                    {
+                    "account_id": {
                       "Ref": "AWS::AccountId"
                     },
-                    ":",
-                    {
-                      "Fn::GetAtt": [
-                        "NeptuneDBCluster",
-                        "ClusterResourceId"
-                      ]
-                    },
-                    "/*"
-                  ]
+                    "resource_id": {
+                      "Ref": "Graph"
+                    }
+                  }
                 ]
-              },
-              "Condition": {
-                "StringEquals": {
-                  "neptune-db:QueryLanguage": "OpenCypher"
-                }
-              }
-            }
-          ]
-        },
-        "Roles": [
-          {
-            "Ref": "GraphRAGClientRole"
-          }
-        ],
-        "Path": "/graphrag-toolkit/"
-      }
-    },
-    "NeptuneDBDataAccessWritePolicy": {
-      "Type": "AWS::IAM::ManagedPolicy",
-      "Properties": {
-        "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-write-policy"
-        },
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "neptune-db:WriteDataViaQuery",
-                "neptune-db:DeleteDataViaQuery"
-              ],
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    {
-                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
-                    },
-                    {
-                      "Ref": "AWS::Region"
-                    },
-                    ":",
-                    {
-                      "Ref": "AWS::AccountId"
-                    },
-                    ":",
-                    {
-                      "Fn::GetAtt": [
-                        "NeptuneDBCluster",
-                        "ClusterResourceId"
-                      ]
-                    },
-                    "/*"
-                  ]
-                ]
-              },
-              "Condition": {
-                "StringEquals": {
-                  "neptune-db:QueryLanguage": "OpenCypher"
-                }
               }
             }
           ]
@@ -1109,201 +840,6 @@
         }
       }
     },
-    "NeptuneDBClusterParameterGroup": {
-      "Type": "AWS::Neptune::DBClusterParameterGroup",
-      "Properties": {
-        "Name": {
-          "Fn::Sub": "neptune-cluster-params-${ApplicationId}"
-        },
-        "Family": "neptune1.4",
-        "Description": "Neptune cluster parameter group",
-        "Parameters": {
-          "neptune_enable_audit_log": {
-            "Fn::If": [
-              "AuditLogEnabled",
-              1,
-              0
-            ]
-          }
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "neptune-cluster-params-${ApplicationId}"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "NeptuneDBParameterGroup": {
-      "Type": "AWS::Neptune::DBParameterGroup",
-      "Properties": {
-        "Name": {
-          "Fn::Sub": "neptune-params-${ApplicationId}"
-        },
-        "Family": "neptune1.4",
-        "Description": "Neptune parameter group",
-        "Parameters": {
-          "neptune_query_timeout": 60000
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "neptune-params-${ApplicationId}"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "NeptuneDBCluster": {
-      "Type": "AWS::Neptune::DBCluster",
-      "Properties": {
-        "DBClusterIdentifier": {
-          "Fn::Sub": "${ApplicationId}-cluster"
-        },
-        "EngineVersion": {
-          "Ref": "NeptuneEngineVersion"
-        },
-        "DBSubnetGroupName": {
-          "Ref": "NeptuneDBSubnetGroup"
-        },
-        "VpcSecurityGroupIds": [
-          {
-            "Ref": "NeptuneSecurityGroup"
-          }
-        ],
-        "DBClusterParameterGroupName": {
-          "Ref": "NeptuneDBClusterParameterGroup"
-        },
-        "Port": "8182",
-        "IamAuthEnabled": true,
-        "ServerlessScalingConfiguration": {
-          "MaxCapacity": {
-            "Ref": "MaxNCU"
-          },
-          "MinCapacity": {
-            "Ref": "MinNCU"
-          }
-        },
-        "StorageEncrypted": true,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-cluster"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      },
-      "DependsOn": [
-        "NeptuneDBSubnetGroup",
-        "NeptuneDBClusterParameterGroup"
-      ]
-    },
-    "NeptuneDBInstance": {
-      "Type": "AWS::Neptune::DBInstance",
-      "Properties": {
-        "DBInstanceIdentifier": {
-          "Fn::Sub": "${ApplicationId}-db-1"
-        },
-        "DBClusterIdentifier": {
-          "Ref": "NeptuneDBCluster"
-        },
-        "DBInstanceClass": {
-          "Ref": "NeptuneDbInstanceType"
-        },
-        "DBParameterGroupName": {
-          "Ref": "NeptuneDBParameterGroup"
-        },
-        "AutoMinorVersionUpgrade": true,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-db-1"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      },
-      "DependsOn": [
-        "NeptuneDBCluster",
-        "NeptuneDBParameterGroup"
-      ]
-    },
     "NeptuneNotebookInstance": {
       "Type": "AWS::SageMaker::NotebookInstance",
       "Properties": {
@@ -1314,14 +850,6 @@
         "NotebookInstanceName": {
           "Fn::Sub": "aws-neptune-${ApplicationId}"
         },
-        "SubnetId": {
-          "Ref": "Subnet4"
-        },
-        "SecurityGroupIds": [
-          {
-            "Ref": "GraphRAGClientSecurityGroup"
-          }
-        ],
         "RoleArn": {
           "Fn::GetAtt": [
             "GraphRAGClientRole",
@@ -1473,23 +1001,16 @@
                     "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
-                    "echo \"export GRAPH_NOTEBOOK_PORT=",
-                    {
-                      "Fn::GetAtt": [
-                        "NeptuneDBCluster",
-                        "Port"
-                      ]
-                    },
-                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_PORT=8182\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_STORE=",
                     {
                       "Fn::Sub": [
-                        "neptune-db://${graphid}",
+                        "neptune-graph://${graphid}",
                         {
                           "graphid": {
                             "Fn::GetAtt": [
-                              "NeptuneDBCluster",
-                              "Endpoint"
+                              "Graph",
+                              "GraphId"
                             ]
                           }
                         }
@@ -1501,11 +1022,11 @@
                       "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}"
                     },
                     "\" >> ~/.bashrc\n",
-                    "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-graph\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_HOST=",
                     {
                       "Fn::GetAtt": [
-                        "NeptuneDBCluster",
+                        "Graph",
                         "Endpoint"
                       ]
                     },
@@ -1585,12 +1106,12 @@
                     "  echo \"export GRAPH_STORE=",
                     {
                       "Fn::Sub": [
-                        "neptune-db://${graphid}",
+                        "neptune-graph://${graphid}",
                         {
                           "graphid": {
                             "Fn::GetAtt": [
-                              "NeptuneDBCluster",
-                              "Endpoint"
+                              "Graph",
+                              "GraphId"
                             ]
                           }
                         }
@@ -1713,305 +1234,15 @@
           }
         ]
       }
-    },
-    "ElasticIP1": {
-      "Type": "AWS::EC2::EIP",
-      "Properties": {
-        "Domain": "VPC"
-      }
-    },
-    "VPC": {
-      "Type": "AWS::EC2::VPC",
-      "Properties": {
-        "CidrBlock": "172.30.0.0/16",
-        "EnableDnsSupport": "true",
-        "EnableDnsHostnames": "true",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-vpc"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          }
-        ]
-      }
-    },
-    "PublicRouteTable": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "VPC"
-        }
-      },
-      "DependsOn": [
-        "VPC"
-      ]
-    },
-    "PrivateRouteTable": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "VPC"
-        }
-      },
-      "DependsOn": [
-        "VPC"
-      ]
-    },
-    "IGWAtt": {
-      "Type": "AWS::EC2::VPCGatewayAttachment",
-      "Properties": {
-        "InternetGatewayId": {
-          "Ref": "IGW"
-        },
-        "VpcId": {
-          "Ref": "VPC"
-        }
-      },
-      "DependsOn": [
-        "VPC",
-        "IGW"
-      ]
-    },
-    "IGW": {
-      "Type": "AWS::EC2::InternetGateway",
-      "Properties": {
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-igw"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "NATGW": {
-      "Type": "AWS::EC2::NatGateway",
-      "Properties": {
-        "AllocationId": {
-          "Fn::GetAtt": [
-            "ElasticIP1",
-            "AllocationId"
-          ]
-        },
-        "SubnetId": {
-          "Ref": "Subnet4"
-        }
-      }
-    },
-    "PublicRoute": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": {
-          "Ref": "IGW"
-        },
-        "RouteTableId": {
-          "Ref": "PublicRouteTable"
-        }
-      },
-      "DependsOn": [
-        "IGWAtt"
-      ]
-    },
-    "PrivateRoute": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "NatGatewayId": {
-          "Ref": "NATGW"
-        },
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        }
-      },
-      "DependsOn": [
-        "IGWAtt"
-      ]
-    },
-    "Subnet1": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "172.30.1.0/24",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "Subnet2": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "172.30.2.0/24",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            1,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "Subnet3": {
-      "Type": "AWS::EC2::Subnet",
-      "Condition": "AZ3Present",
-      "Properties": {
-        "CidrBlock": "172.30.3.0/24",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            2,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "Subnet4": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "172.30.4.0/24",
-        "MapPublicIpOnLaunch": "true",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "SubnetRTAssociation1": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "DependsOn": [
-        "Subnet1",
-        "PrivateRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet1"
-        }
-      }
-    },
-    "SubnetRTAssociation2": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "DependsOn": [
-        "Subnet2",
-        "PrivateRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet2"
-        }
-      }
-    },
-    "SubnetRTAssociation3": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Condition": "AZ3Present",
-      "DependsOn": [
-        "Subnet3",
-        "PrivateRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet3"
-        }
-      }
-    },
-    "SubnetRTAssociation4": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "DependsOn": [
-        "Subnet4",
-        "PublicRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PublicRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet4"
-        }
-      }
     }
   },
   "Outputs": {
-    "NeptuneClusterId": {
-      "Description": "Neptune cluster id",
-      "Value": {
-        "Ref": "NeptuneDBCluster"
-      }
-    },
-    "NeptuneClusterEndpoint": {
-      "Description": "Neptune cluster endpoint",
+    "NeptuneAnalyticsGraphId": {
       "Value": {
         "Fn::GetAtt": [
-          "NeptuneDBCluster",
-          "Endpoint"
+          "Graph",
+          "GraphId"
         ]
-      }
-    },
-    "GraphRAGClientSecurityGroup": {
-      "Description": "GraphRAG client security group",
-      "Value": {
-        "Ref": "GraphRAGClientSecurityGroup"
       }
     },
     "S3VectorsBucket": {
@@ -2047,12 +1278,6 @@
             ".sagemaker.aws/nbclassic/tree"
           ]
         ]
-      }
-    },
-    "VPC": {
-      "Description": "VPC",
-      "Value": {
-        "Ref": "VPC"
       }
     }
   }

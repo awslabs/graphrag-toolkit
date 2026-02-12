@@ -96,8 +96,6 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
 
         return f'{{"{key}": {{ "{operator}": {type_formatter(operator_formatter(str(f.value)))} }}}}'
 
-    condition = metadata_filters.condition.value
-
     filter_strs = []
 
     for metadata_filter in metadata_filters.filters:
@@ -109,7 +107,7 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
             filter_strs.append(parse_metadata_filters_recursive(metadata_filter))
         else:
             raise ValueError(f'Invalid metadata filter type: {type(metadata_filter)}')
-        
+
     if metadata_filters.condition == FilterCondition.AND:       
         return json.loads(f'{{"$and": [{",".join(filter_strs)}]}}')
     elif metadata_filters.condition == FilterCondition.OR:
@@ -501,6 +499,10 @@ class S3VectorIndex(VectorIndex):
     
 
     def top_k(self, query_bundle:QueryBundle, top_k:int=5, filter_config:Optional[FilterConfig]=None) -> Sequence[Dict[str, Any]]:
+        
+        if top_k > MAX_RESULTS:
+            logger.warning(f'Reducing top_k from {top_k} to {MAX_RESULTS} because S3 vectors supports a maximum of {MAX_RESULTS} Top-K results per QueryVectors request')
+            top_k = MAX_RESULTS
         
         query_bundle = to_embedded_query(query_bundle, self.embed_model)
 
