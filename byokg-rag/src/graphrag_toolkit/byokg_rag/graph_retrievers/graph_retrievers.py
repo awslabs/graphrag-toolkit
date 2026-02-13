@@ -441,9 +441,9 @@ class GraphQueryRetriever(GRetriever):
                 return [context]
                 
         except Exception as e:
-            # Return error context based on return_answers flag
-            error_context = f"Error executing query: {graph_query}\nError: {str(e)}"
+            error_msg = f"Error executing query: {graph_query}\nError: {type(e).__name__}: {e}"
             if return_answers:
-                return [error_context], []
+                return [error_msg], []
             else:
-                return [error_context]
+                return [error_msg]
+

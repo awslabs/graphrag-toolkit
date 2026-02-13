@@ -168,15 +168,23 @@ class ByoKGQueryEngine:
                     context, linked_entities_cypher = self.graph_query_executor.retrieve(linking_query, return_answers=True)
                     cypher_context_with_feedback += context
                     if len(linked_entities_cypher) == 0:
-                        cypher_context_with_feedback.append("No executable results for the above cypher query for entity linking. Please improve cypher generation in the future for linking.")
-                    
+                        # Check if the context contains an actual execution error
+                        has_error = any("Error" in c and "Error executing query" in c for c in context)
+                        if has_error:
+                            cypher_context_with_feedback.append("The above cypher query for entity linking failed with an error. Please review the error message and fix the query syntax or schema references.")
+                        else:
+                            cypher_context_with_feedback.append("No executable results for the above cypher query for entity linking. Please improve cypher generation in the future for linking.")
 
                 if "opencypher" in artifacts:
                     graph_query = " ".join(artifacts["opencypher"])
                     context, answers = self.graph_query_executor.retrieve(graph_query, return_answers=True)
                     cypher_context_with_feedback += context
                     if len(answers) == 0:
-                        cypher_context_with_feedback.append("No executable results for the above. Please improve cypher generation in the future by focusing more on the given schema and the relations between node types.")
+                        has_error = any("Error" in c and "Error executing query" in c for c in context)
+                        if has_error:
+                            cypher_context_with_feedback.append("The above cypher query failed with an error. Please review the error message and fix the query syntax or schema references.")
+                        else:
+                            cypher_context_with_feedback.append("No executable results for the above. Please improve cypher generation in the future by focusing more on the given schema and the relations between node types.")
             
             if self.kg_linker is None:
                 return cypher_context_with_feedback
