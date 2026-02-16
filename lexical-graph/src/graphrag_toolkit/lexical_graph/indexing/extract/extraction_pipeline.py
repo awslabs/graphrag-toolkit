@@ -370,7 +370,7 @@ class ExtractionPipeline():
 
         input_source_documents = source_documents_from_source_types(inputs)
 
-        for source_documents in iter_batch(input_source_documents, self.batch_size):
+        for batch_num, source_documents in enumerate(iter_batch(input_source_documents, self.batch_size), 1):
 
             for pre_processor in self.pre_processors:
                 source_documents = pre_processor.parse_source_docs(source_documents)
@@ -383,14 +383,14 @@ class ExtractionPipeline():
                 for sd in source_documents
                 for n in sd.nodes
             ]
-            
+
             filtered_input_nodes = [
-                node 
-                for node in input_nodes 
-                if self.extraction_filters.filter_source_metadata_dictionary(get_source_metadata(node)) 
+                node
+                for node in input_nodes
+                if self.extraction_filters.filter_source_metadata_dictionary(get_source_metadata(node))
             ]
 
-            logger.info(f'Running extraction pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
+            logger.info(f'Running extraction pipeline [batch: {batch_num}, batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
             
             node_batches = node_batcher(
                 num_batches=self.num_workers, 
