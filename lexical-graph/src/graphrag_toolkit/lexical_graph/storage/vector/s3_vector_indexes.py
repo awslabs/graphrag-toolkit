@@ -203,7 +203,7 @@ def validate_metadata_limits(metadata: Dict[str, Any], max_tags: int, vector_id:
             raise ValueError(f"Key must not exceed {MAX_KEY_LENGTH - len(SOURCE_METADATA_PREFIX)} characters: {k}")
         
 
-def create_vector_bucket(s3_vectors_client, bucket_name:str) -> str:
+def create_vector_bucket(s3_vectors_client, bucket_name:str, writeable:bool=False) -> str:
 
     try:
         # Check if vector bucket already exists using S3 Vectors API
@@ -212,8 +212,11 @@ def create_vector_bucket(s3_vectors_client, bucket_name:str) -> str:
         return bucket_name
     except ClientError as e:
         if e.response['Error']['Code'] != 'NotFoundException':
-            logger.error(f"Error while creating vector bucket: {str(e)}")
+            logger.error(f"Error while getting vector bucket: {str(e)}")
             raise
+
+    if not writeable:
+        raise IndexError(f"Vector bucket '{bucket_name}' does not exist, but vector store is not writeable")
     
     # Create vector bucket using S3 Vectors API
     try:
@@ -230,11 +233,24 @@ def create_vector_bucket(s3_vectors_client, bucket_name:str) -> str:
     return bucket_name
 
 
-def create_vector_index(s3_vectors_client, bucket_name:str, index_name:str, dimension:int, distance_metric:str=None) -> str:
+def create_vector_index(s3_vectors_client, bucket_name:str, index_name:str, dimension:int, distance_metric:str=None, writeable:bool=False) -> str:
        
     if distance_metric is None:
         distance_metric = DISTANCE_METRIC
-    
+
+    try:
+        # Check if vector bucket already exists using S3 Vectors API
+        s3_vectors_client.get_vector_bucket(vectorBucketName=bucket_name, indexName=index_name)
+        logger.debug(f'Using existing index: {index_name}')
+        return index_name
+    except ClientError as e:
+        if e.response['Error']['Code'] != 'NotFoundException':
+            logger.error(f"Error while getting index: {str(e)}")
+            raise
+
+    if not writeable:
+        raise IndexError(f"Index '{index_name}' in vector bucket '{bucket_name}' does not exist, but vector store is not writeable")
+ 
     try:
         s3_vectors_client.create_index(
             vectorBucketName=bucket_name,
@@ -444,8 +460,8 @@ class S3VectorIndex(VectorIndex):
         
     def _init_index(self, client):
         if not self.initialized:
-            create_vector_bucket(client, self.bucket_name)
-            create_vector_index(client, self.bucket_name, self.underlying_index_name(), dimension=self.dimensions)
+            create_vector_bucket(client, self.bucket_name, writeable=self.writeable)
+            create_vector_index(client, self.bucket_name, self.underlying_index_name(), dimension=self.dimensions, writeable=self.writeable)
             self.initialized = True
 
     def add_embeddings(self, nodes:Sequence[BaseNode]) -> Sequence[BaseNode]:
