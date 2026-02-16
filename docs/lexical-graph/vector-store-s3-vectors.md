@@ -54,7 +54,7 @@ Imagine an application with two [tenants](./multi-tenancy.md) - the default tena
 s3vectors://my-s3-vectors-bucket
 ```
 
- Because the vector store connection string is configured with a bucket name only, the application will create the following chunk indexes:
+Because the vector store connection string is configured with a bucket name only, the application will create the following chunk indexes:
 
    - `chunk`
    - `chunk-admin`
@@ -65,7 +65,7 @@ If the connection string includes a prefix, like this -
 s3vectors://my-s3-vectors-bucket/app1
 ```
 
-- the application will create the following chunk indexes:
+the application will create the following chunk indexes:
 
    - `app1.chunk`
    - `app1.chunk-admin`
