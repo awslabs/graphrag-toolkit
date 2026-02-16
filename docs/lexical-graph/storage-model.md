@@ -30,7 +30,6 @@ The lexical-graph supports the following graph databases:
   - [Amazon Neptune](./graph-store-neptune-db.md)
   - [Amazon Neptune Analytics](./graph-store-neptune-analytics.md)
   - [Neo4j](./graph-store-neo4j.md)
-  - [FalkorDB](./graph-store-falkor-db.md)
 
 #### Logging graph queries
 
@@ -61,6 +60,7 @@ The lexical-graph supports the following vector-stores:
   - [Amazon OpenSearch Serverless](./vector-store-opensearch-serverless.md)
   - [Amazon Neptune Analytics](./vector-store-neptune-analytics.md)
   - [Postgres with the pgvector extension](./vector-store-postgres.md)
+  - [Amazon S3 Vectors](./vector-store-s3-vectors.md)
 
 By default, the `VectorStoreFactory` will enable both the statement index and the chunk index. However, we recommend using traversal-based search, which requres only the chunk index. Use the `index_names` argument to enable just the chunk index:
 

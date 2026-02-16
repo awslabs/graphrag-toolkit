@@ -679,11 +679,11 @@
         "Path": "/graphrag-toolkit/"
       }
     },
-    "NeptuneDBDataAccessReadPolicy": {
+    "NeptuneDBDataAccessQueryingPolicy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
         "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-read-policy"
+          "Fn::Sub": "${ApplicationId}-neptune-db-querying-policy"
         },
         "PolicyDocument": {
           "Version": "2012-10-17",
@@ -734,11 +734,11 @@
         "Path": "/graphrag-toolkit/"
       }
     },
-    "NeptuneDBDataAccessWritePolicy": {
+    "NeptuneDBDataAccessIndexingPolicy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
         "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-write-policy"
+          "Fn::Sub": "${ApplicationId}-neptune-db-indexing-policy"
         },
         "PolicyDocument": {
           "Version": "2012-10-17",
@@ -747,7 +747,8 @@
               "Effect": "Allow",
               "Action": [
                 "neptune-db:WriteDataViaQuery",
-                "neptune-db:DeleteDataViaQuery"
+                "neptune-db:DeleteDataViaQuery",
+                "neptune-db:ReadDataViaQuery"
               ],
               "Resource": {
                 "Fn::Join": [

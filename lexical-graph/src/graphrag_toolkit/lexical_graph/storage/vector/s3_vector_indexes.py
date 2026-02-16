@@ -240,7 +240,7 @@ def create_vector_index(s3_vectors_client, bucket_name:str, index_name:str, dime
 
     try:
         # Check if vector bucket already exists using S3 Vectors API
-        s3_vectors_client.get_vector_bucket(vectorBucketName=bucket_name, indexName=index_name)
+        s3_vectors_client.get_index(vectorBucketName=bucket_name, indexName=index_name)
         logger.debug(f'Using existing index: {index_name}')
         return index_name
     except ClientError as e:

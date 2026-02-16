@@ -805,117 +805,118 @@
 				"Path": "/graphrag-toolkit/"
 			}
 		},
-		"NeptuneDBDataAccessReadPolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-neptune-db-read-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"neptune-db:ReadDataViaQuery"
-							],
-							"Resource": {
-								"Fn::Join": [
-									"",
-									[
-										{
-											"Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
-										},
-										{
-											"Ref": "AWS::Region"
-										},
-										":",
-										{
-											"Ref": "AWS::AccountId"
-										},
-										":",
-										{
-											"Fn::GetAtt": [
-												"NeptuneDBCluster",
-												"ClusterResourceId"
-											]
-										},
-										"/*"
-									]
-								]
-							},
-							"Condition": {
-								"StringEquals": {
-									"neptune-db:QueryLanguage": "OpenCypher"
-								}
-							}
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
-		"NeptuneDBDataAccessWritePolicy": {
-			"Type": "AWS::IAM::ManagedPolicy",
-			"Properties": {
-				"ManagedPolicyName": {
-					"Fn::Sub": "${ApplicationId}-neptune-db-write-policy"
-				},
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"neptune-db:WriteDataViaQuery",
-								"neptune-db:DeleteDataViaQuery"
-							],
-							"Resource": {
-								"Fn::Join": [
-									"",
-									[
-										{
-											"Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
-										},
-										{
-											"Ref": "AWS::Region"
-										},
-										":",
-										{
-											"Ref": "AWS::AccountId"
-										},
-										":",
-										{
-											"Fn::GetAtt": [
-												"NeptuneDBCluster",
-												"ClusterResourceId"
-											]
-										},
-										"/*"
-									]
-								]
-							},
-							"Condition": {
-								"StringEquals": {
-									"neptune-db:QueryLanguage": "OpenCypher"
-								}
-							}
-						}
-					]
-				},
-				"Roles": [
-					{
-						"Ref": "GraphRAGClientRole"
-					}
-				],
-				"Path": "/graphrag-toolkit/"
-			}
-		},
+    "NeptuneDBDataAccessQueryingPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-neptune-db-querying-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "neptune-db:ReadDataViaQuery"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "ClusterResourceId"
+                      ]
+                    },
+                    "/*"
+                  ]
+                ]
+              },
+              "Condition": {
+                "StringEquals": {
+                  "neptune-db:QueryLanguage": "OpenCypher"
+                }
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "NeptuneDBDataAccessIndexingPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-neptune-db-indexing-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "neptune-db:WriteDataViaQuery",
+                "neptune-db:DeleteDataViaQuery",
+                "neptune-db:ReadDataViaQuery"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Fn::GetAtt": [
+                        "NeptuneDBCluster",
+                        "ClusterResourceId"
+                      ]
+                    },
+                    "/*"
+                  ]
+                ]
+              },
+              "Condition": {
+                "StringEquals": {
+                  "neptune-db:QueryLanguage": "OpenCypher"
+                }
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
 		"PostgresDataAccessPolicy": {
 			"Type": "AWS::IAM::ManagedPolicy",
 			"Properties": {
