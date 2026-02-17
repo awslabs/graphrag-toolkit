@@ -1,5 +1,5 @@
 # ignore virtual environment directories
-/.venv/
+.venv/
 
 # ignore generated files and directories from version control
 /examples/lexical-graph/notebooks/extracted/
