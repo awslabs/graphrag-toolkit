@@ -1,7 +1,22 @@
+# ignore virtual environment directories
+.venv/
+
+# ignore generated files and directories from version control
 /examples/lexical-graph/notebooks/extracted/
 /examples/lexical-graph/notebooks/output/
-/.venv/
 /examples/lexical-graph-local-dev/notebooks/output/
-/docs/lexical-graph/.idea/
 /examples/lexical-graph-hybrid-dev/notebooks/output/
 /examples/lexical-graph-hybrid-dev/notebooks/extracted/
+
+# ignore IDE files
+.vscode/
+.idea/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# cache files
+__pycache__/
+
+# Byte-compiled / optimized / DLL files
+*.pyc
