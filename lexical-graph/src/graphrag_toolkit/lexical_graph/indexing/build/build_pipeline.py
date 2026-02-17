@@ -291,16 +291,16 @@ class BuildPipeline():
         """
         input_source_documents = source_documents_from_source_types(inputs)
 
-        for source_documents in iter_batch(input_source_documents, self.batch_size):
+        for batch_num, source_documents in enumerate(iter_batch(input_source_documents, self.batch_size), 1):
 
             build_timestamp = int(time.time() * 1000)
 
             num_source_docs_per_batch = math.ceil(len(source_documents)/self.num_workers)
             source_doc_batches = iter_batch(source_documents, num_source_docs_per_batch)
-            
+
             node_batches:List[List[BaseNode]] = self._to_node_batches(source_doc_batches, build_timestamp)
 
-            logger.info(f'Running build pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}, job_sizes: {[len(b) for b in node_batches]}, batch_writes_enabled: {self.batch_writes_enabled}, batch_write_size: {self.batch_write_size}]')
+            logger.info(f'Running build pipeline [batch: {batch_num}, batch_size: {self.batch_size}, num_workers: {self.num_workers}, job_sizes: {[len(b) for b in node_batches]}, batch_writes_enabled: {self.batch_writes_enabled}, batch_write_size: {self.batch_write_size}]')
 
             output_nodes = run_pipeline(
                 self.inner_pipeline,

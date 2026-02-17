@@ -78,7 +78,7 @@ class StatementCosineSimilaritySearch(SemanticGuidedBaseRetriever):
         # 1. Get initial candidates from vector store via L2 Norm
         statement_results = self.vector_store.get_index('statement').top_k(
             query_bundle, 
-            top_k=500,
+            top_k=self.top_k,
             filter_config=self.filter_config
         )
         

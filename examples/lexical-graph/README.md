@@ -6,9 +6,8 @@
   - [**01-Combined Extract and Build**](./notebooks/01-Combined-Extract-and-Build.ipynb) – An example of [performing continuous ingest](../../docs/lexical-graph/indexing.md#continous-ingest) using the `LexicalGraphIndex.extract_and_build()` method.
   - [**02-Separate Extract and Build**](./notebooks/02-Separate-Extract-and-Build.ipynb) – An example of [running the extract and build stages separately](../../docs/lexical-graph/indexing.md#run-the-extract-and-build-stages-separately), with intermediate chunks persisted to the local filesystem using a `FileBasedChunks` object.
   - [**03-Traversal-Based Querying**](./notebooks/03-Traversal-Based-Querying.ipynb) – Examples of [querying the graph](../../docs/lexical-graph/querying.md) using [traversal-based search](../../docs/lexical-graph/traversal-based-search.md). Includes examples of visualising the results.
-  - [**04-Semantic-Guided Querying**](./notebooks/04-Semantic-Guided-Querying.ipynb) – Examples of [querying the graph](../../docs/lexical-graph/querying.md) using the [semantic-guided search](../../docs/lexical-graph/semantic-guided-search.md).
-  - [**05-Multi-Tenancy**](./notebooks/05-Multi-Tenancy.ipynb) – An example of creating and querying a [multi-tenant](../../docs/lexical-graph/multi-tenancy.md) graph.
-  - [**06-Agentic-GraphRAG**](./notebooks/06-Agentic-GraphRAG.ipynb) – Example of creating an MCP server for a multi-tenant graph, and using an agent to interact with the lexical graph tools exposed by the server.
+  - [**04-Multi-Tenancy**](./notebooks/04-Multi-Tenancy.ipynb) – An example of creating and querying a [multi-tenant](../../docs/lexical-graph/multi-tenancy.md) graph.
+  - [**05-Agentic-GraphRAG**](./notebooks/05-Agentic-GraphRAG.ipynb) – Example of creating an MCP server for a multi-tenant graph, and using an agent to interact with the lexical graph tools exposed by the server.
   
 #### Environment variables
 
@@ -30,6 +29,10 @@ If you are running these notebooks via the Cloudformation template below, a `.en
     - Amazon Neptune Analytics graph
     - Amazon Aurora Postgres Database cluster with a single serverless instance
     - Amazon SageMaker notebook
+  - [`graphrag-toolkit-neptune-analytics-s3-vectors.json`](./cloudformation-templates/graphrag-toolkit-neptune-analytics-s3-vectors.json) creates the following lexical-graph environment:
+    - Amazon Neptune Analytics graph
+    - Amazon SageMaker notebook
+    - Amazon S3 Vectors bucket
   - [`graphrag-toolkit-neptune-db-opensearch-serverless.json`](./cloudformation-templates/graphrag-toolkit-neptune-db-opensearch-serverless.json) creates the following lexical-graph environment:
     - Amazon VPC with three private subnets, one public subnet, and an internet gateway
     - Amazon Neptune Database cluster with a single Neptune serverless instance
@@ -40,6 +43,11 @@ If you are running these notebooks via the Cloudformation template below, a `.en
     - Amazon Neptune Database cluster with a single Neptune serverless instance
     - Amazon Aurora Postgres Database cluster with a single serverless instance
     - Amazon SageMaker notebook
+  - [`graphrag-toolkit-neptune-db-s3-vectors.json`](./cloudformation-templates/graphrag-toolkit-neptune-db-s3-vectors.json) creates the following lexical-graph environment:
+    - Amazon VPC with three private subnets, one public subnet, and an internet gateway
+    - Amazon Neptune Database cluster with a single Neptune serverless instance
+    - Amazon SageMaker notebook
+    - Amazon S3 Vectors bucket
   - [`graphrag-toolkit-neptune-db-aurora-postgres-existing-vpc.json`](./cloudformation-templates/graphrag-toolkit-neptune-db-aurora-postgres.json) creates the following lexical-graph environment:
     - Amazon Neptune Database cluster with a single Neptune serverless instance
     - Amazon Aurora Postgres Database cluster with a single serverless instance

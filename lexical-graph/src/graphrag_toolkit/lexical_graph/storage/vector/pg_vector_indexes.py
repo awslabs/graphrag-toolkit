@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 try:
     import psycopg2
     from pgvector.psycopg2 import register_vector
-    from psycopg2.errors import UniqueViolation, UndefinedTable
+    from psycopg2.errors import UniqueViolation, UndefinedTable, DuplicateTable
 except ImportError as e:
     raise ImportError(
         "psycopg2 and/or pgvector packages not found, install with 'pip install psycopg2-binary pgvector'"
@@ -382,7 +382,7 @@ class PGIndex(VectorIndex):
                             valid_to BIGINT DEFAULT {TIMESTAMP_UPPER_BOUND}
                             );'''
                         )
-                    except UniqueViolation:
+                    except (UniqueViolation, DuplicateTable):
                         # For alt approaches, see: https://stackoverflow.com/questions/29900845/create-schema-if-not-exists-raises-duplicate-key-error
                         logger.warning(f"Table already exists, so ignoring CREATE: {self.underlying_index_name()}")
 

@@ -20,7 +20,7 @@ The graphrag-toolkit [lexical-graph](../../lexical-graph/) library provides a fr
 
 The lexical-graph library depends on three backend systems: a [_graph store_](./storage-model.md#graph-store), a [_vector store_](./storage-model.md#vector-store), and a _foundation model provider_. The graph store allows an application to store and query a lexical graph that has been extracted from unstructured, text-based sources. The vector store contains one or more indexes with emebddings for some of the elements in the lexical graph. These embeddings are primarily used to find starting points in the graph when the library runs a graph query. The foundation model provider hosts the Large Language Models (LLMs) and embedding models used to extract and embed information.
 
-The library has built-in graph store support for [Amazon Neptune Analytics](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html), [Amazon Neptune Database](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html), and [Neo4j](https://neo4j.com/docs/), and built-in vector store support for Neptune Analytics, [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html), and Postgres with the pgvector extension. It is configured to use Amazon Bedrock as its foundation model provider. Besides these defaults, the library can be extended to support other third-party backends.
+The library has built-in graph store support for [Amazon Neptune Analytics](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html), [Amazon Neptune Database](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html), and [Neo4j](https://neo4j.com/docs/), and built-in vector store support for Neptune Analytics, [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html), [Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html), and Postgres with the pgvector extension. It is configured to use Amazon Bedrock as its foundation model provider. Besides these defaults, the library can be extended to support other third-party backends.
 
 ### Indexing and querying
 
@@ -102,17 +102,35 @@ The resources deployed by the CloudFormation templates incur costs in your accou
 
 Choose from the following templates:
 
- - [`graphrag-toolkit-neptune-db-opensearch-serverless.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-db-opensearch-serverless.json) creates the following lexical-graph environment:
-   - Amazon VPC with three private subnets, one public subnet, and an internet gateway
-   - Amazon Neptune Database cluster with a single Neptune serverless instance
-   - Amazon OpenSearch Serverless collection with a public endpoint
-   - Amazon SageMaker notebook with sample code
- - [`graphrag-toolkit-neptune-db-aurora-postgres.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-db-aurora-postgres.json) creates the following lexical-graph environment:
-   - Amazon VPC with three private subnets, one public subnet, and an internet gateway
-   - Amazon Neptune Database cluster with a single Neptune serverless instance
-   - Amazon Aurora Postgres Database cluster with a single serverless instance
-   - Amazon SageMaker notebook with sample code
- - [`graphrag-toolkit-neptune-db-aurora-postgres-existing-vpc.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-db-aurora-postgres.json) creates the following lexical-graph environment:
-   - Amazon Neptune Database cluster with a single Neptune serverless instance
-   - Amazon Aurora Postgres Database cluster with a single serverless instance
-   - Amazon SageMaker notebook with sample code
+  - [`graphrag-toolkit-neptune-analytics.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-analytics.json) creates the following lexical-graph environment:
+     - Amazon Neptune Analytics graph
+     - Amazon SageMaker notebook
+  - [`graphrag-toolkit-neptune-analytics-opensearch-serverless.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-analytics-opensearch-serverless.json) creates the following lexical-graph environment:
+     - Amazon Amazon Neptune Analytics graph
+     - Amazon OpenSearch Serverless collection with a public endpoint
+     - Amazon SageMaker notebook
+  - [`graphrag-toolkit-neptune-analytics-aurora-postgres.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-analytics-aurora-postgres.json) creates the following lexical-graph environment:
+     - Amazon VPC with three private subnets, one public subnet, and an internet gateway
+     - Amazon Neptune Analytics graph
+     - Amazon Aurora Postgres Database cluster with a single serverless instance
+     - Amazon SageMaker notebook
+  - [`graphrag-toolkit-neptune-analytics-s3-vectors.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-analytics-s3-vectors.json) creates the following lexical-graph environment:
+     - Amazon Neptune Analytics graph
+     - Amazon SageMaker notebook
+     - Amazon S3 Vectors bucket
+  - [`graphrag-toolkit-neptune-db-opensearch-serverless.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-db-opensearch-serverless.json) creates the following lexical-graph environment:
+     - Amazon VPC with three private subnets, one public subnet, and an internet gateway
+     - Amazon Neptune Database cluster with a single Neptune serverless instance
+     - Amazon OpenSearch Serverless collection with a public endpoint
+     - Amazon SageMaker notebook
+  - [`graphrag-toolkit-neptune-db-aurora-postgres.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-db-aurora-postgres.json) creates the following lexical-graph environment:
+     - Amazon VPC with three private subnets, one public subnet, and an internet gateway
+     - Amazon Neptune Database cluster with a single Neptune serverless instance
+     - Amazon Aurora Postgres Database cluster with a single serverless instance
+     - Amazon SageMaker notebook
+  - [`graphrag-toolkit-neptune-db-s3-vectors.json`](../../examples/lexical-graph/cloudformation-templates/graphrag-toolkit-neptune-db-s3-vectors.json) creates the following lexical-graph environment:
+     - Amazon VPC with three private subnets, one public subnet, and an internet gateway
+     - Amazon Neptune Database cluster with a single Neptune serverless instance
+     - Amazon SageMaker notebook
+     - Amazon S3 Vectors bucket
+

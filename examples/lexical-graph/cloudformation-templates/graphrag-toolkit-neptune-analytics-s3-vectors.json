@@ -1,5 +1,5 @@
 {
-  "Description": "Creates a lexical-graph environment (VPC, Neptune Database, OpenSearch Serverless collection, and SageMaker notebook)",
+  "Description": "Creates a graphrag-toolkit environment (Neptune Analytics, S3 Vectors, and SageMaker notebook)",
   "Parameters": {
     "ApplicationId": {
       "Description": "Application id (used to name all resources in the environment)",
@@ -10,50 +10,25 @@
       "MinLength": 3,
       "ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
     },
-    "NeptuneEngineVersion": {
-      "Description": "Neptune DB engine version",
+    "ProvisionedMemory": {
+      "Description": "Number of m-NCUs to be allocated to the graph",
       "Type": "String",
-      "Default": "1.4.6.2"
-    },
-    "NeptuneDbInstanceType": {
-      "Description": "Neptune DB instance type (use db.serverless to provision a Neptune Serverless cluster)",
-      "Type": "String",
-      "Default": "db.r8g.large",
+      "Default": "16",
       "AllowedValues": [
-        "db.serverless",
-        "db.r8g.large",
-        "db.r8g.xlarge",
-        "db.r8g.2xlarge",
-        "db.r8g.4xlarge"
-      ],
-      "ConstraintDescription": "Must be a valid Neptune instance type."
-    },
-    "MinNCU": {
-      "Description": "Min number of NCUs (default 2.5, relevant only when instance type is db.serverless).",
-      "Type": "Number",
-      "Default": 2.5,
-      "MaxValue": 128,
-      "MinValue": 1
-    },
-    "MaxNCU": {
-      "Description": "Max number of NCUs (default 128, relevant only when instance type is db.serverless).",
-      "Type": "Number",
-      "Default": 32,
-      "MaxValue": 128,
-      "MinValue": 1
-    },
-    "EnableAuditLog": {
-      "Description": "Enable database auditing logging",
-      "Type": "String",
-      "Default": "false",
-      "AllowedValues": [
-        "true",
-        "false"
+        "16",
+        "32",
+        "64",
+        "128",
+        "256",
+        "384",
+        "512",
+        "768",
+        "1024"
       ]
     },
     "IamPolicyArn": {
       "Type": "String",
-      "Description": "Space-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
+      "Description": "Spaced-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
       "Default": ""
     },
     "NotebookInstanceType": {
@@ -90,11 +65,7 @@
             "default": "Neptune"
           },
           "Parameters": [
-            "NeptuneEngineVersion",
-            "NeptuneDbInstanceType",
-            "MinNCU",
-            "MaxNCU",
-            "EnableAuditLog"
+            "ProvisionedMemory"
           ]
         },
         {
@@ -149,33 +120,6 @@
         "us-east-1"
       ]
     },
-    "AZ3NotPresent": {
-      "Fn::Or": [
-        {
-          "Fn::Equals": [
-            {
-              "Ref": "AWS::Region"
-            },
-            "ca-central-1"
-          ]
-        },
-        {
-          "Fn::Equals": [
-            {
-              "Ref": "AWS::Region"
-            },
-            "us-west-1"
-          ]
-        }
-      ]
-    },
-    "AZ3Present": {
-      "Fn::Not": [
-        {
-          "Condition": "AZ3NotPresent"
-        }
-      ]
-    },
     "AddIamPolicyArn": {
       "Fn::Not": [
         {
@@ -187,53 +131,29 @@
           ]
         }
       ]
-    },
-    "AuditLogEnabled": {
-      "Fn::Equals": [
-        {
-          "Ref": "EnableAuditLog"
-        },
-        "true"
-      ]
     }
   },
   "Resources": {
-    "NeptuneDBSubnetGroup": {
-      "Type": "AWS::Neptune::DBSubnetGroup",
+    "Graph": {
+      "Type": "AWS::NeptuneGraph::Graph",
       "Properties": {
-        "DBSubnetGroupDescription": "Neptune DB subnet group",
-        "DBSubnetGroupName": {
-          "Fn::Sub": "${ApplicationId}-subnet"
+        "GraphName": {
+          "Fn::Sub": "${ApplicationId}-graph"
         },
-        "SubnetIds": {
-          "Fn::If": [
-            "AZ3NotPresent",
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              }
-            ],
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              },
-              {
-                "Ref": "Subnet3"
-              }
-            ]
-          ]
+        "DeletionProtection": false,
+        "ProvisionedMemory": {
+          "Ref": "ProvisionedMemory"
+        },
+        "PublicConnectivity": true,
+        "ReplicaCount": 1,
+        "VectorSearchConfiguration": {
+          "VectorSearchDimension": 1024
         },
         "Tags": [
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${ApplicationId}-subnet"
+              "Fn::Sub": "${ApplicationId}-graph"
             }
           },
           {
@@ -255,131 +175,6 @@
             }
           }
         ]
-      }
-    },
-    "GraphRAGClientSecurityGroup": {
-      "Type": "AWS::EC2::SecurityGroup",
-      "Properties": {
-        "GroupName": {
-          "Fn::Sub": "${ApplicationId}-client-sg"
-        },
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "GroupDescription": "GraphRAG client security group",
-        "SecurityGroupEgress": [
-          {
-            "FromPort": "443",
-            "ToPort": "443",
-            "IpProtocol": "tcp",
-            "CidrIp": "0.0.0.0/0",
-            "Description": "HTTPS egress"
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-client-sg"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "NeptuneSecurityGroup": {
-      "Type": "AWS::EC2::SecurityGroup",
-      "Properties": {
-        "GroupName": {
-          "Fn::Sub": "${ApplicationId}-neptune-sg"
-        },
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "GroupDescription": "GraphRAG Neptune security group",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-neptune-sg"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "GraphRAGClientSecurityGroupEgress": {
-      "Type": "AWS::EC2::SecurityGroupEgress",
-      "Properties": {
-        "IpProtocol": "tcp",
-        "FromPort": 8182,
-        "ToPort": 8182,
-        "DestinationSecurityGroupId": {
-          "Fn::GetAtt": [
-            "NeptuneSecurityGroup",
-            "GroupId"
-          ]
-        },
-        "GroupId": {
-          "Fn::GetAtt": [
-            "GraphRAGClientSecurityGroup",
-            "GroupId"
-          ]
-        }
-      }
-    },
-    "NeptuneSecurityGroupIngress": {
-      "Type": "AWS::EC2::SecurityGroupIngress",
-      "Properties": {
-        "IpProtocol": "tcp",
-        "FromPort": 8182,
-        "ToPort": 8182,
-        "SourceSecurityGroupId": {
-          "Fn::GetAtt": [
-            "GraphRAGClientSecurityGroup",
-            "GroupId"
-          ]
-        },
-        "GroupId": {
-          "Fn::GetAtt": [
-            "NeptuneSecurityGroup",
-            "GroupId"
-          ]
-        }
       }
     },
     "GraphRAGClientRole": {
@@ -417,6 +212,28 @@
                 "Ref": "AWS::NoValue"
               }
             ]
+          ]
+        },
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "LambdaFunctionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
           ]
         },
         "Path": "/graphrag-toolkit/"
@@ -632,187 +449,441 @@
         "Path": "/graphrag-toolkit/"
       }
     },
-    "OpenSearchServerlessAPIAccessAllPolicy": {
+    "NeptuneAnalyticsDataAccessPolicy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
         "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-aoss-api-access-all-policy"
+          "Fn::Sub": "${ApplicationId}-neptune-analytics-policy"
         },
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
             {
               "Effect": "Allow",
-              "Action": "aoss:APIAccessAll",
-              "Resource": [
-                {
-                  "Fn::Sub": [
-                    "arn:${partition}:aoss:${region}:${accountId}:collection/${collectionId}",
+              "Action": [
+                "neptune-graph:ReadDataViaQuery",
+                "neptune-graph:WriteDataViaQuery",
+                "neptune-graph:DeleteDataViaQuery",
+                "neptune-graph:GetGraph"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:${partition}:neptune-graph:${region}:${account_id}:graph/${resource_id}",
+                  {
+                    "partition": {
+                      "Ref": "AWS::Partition"
+                    },
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account_id": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "resource_id": {
+                      "Ref": "Graph"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "S3VectorsQueryingPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-s3-vectors-querying-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3vectors:GetVectorBucket"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
                     {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "collectionId": {
-                        "Fn::GetAtt": [
-                          "OpenSearchServerless",
-                          "Id"
-                        ]
-                      }
+                      "Fn::Sub": "arn:${AWS::Partition}:s3vectors:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":bucket/",
+                    {
+                      "Ref": "ApplicationId"
+                    },
+                    "-",
+                    {
+                      "Ref": "AWS::Region"
                     }
                   ]
-                }
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3vectors:GetIndex",
+                "s3vectors:GetVectors",
+                "s3vectors:QueryVectors"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3vectors:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":bucket/",
+                    {
+                      "Ref": "ApplicationId"
+                    },
+                    "-",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "/index/*"
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "S3VectorsIndexingPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-s3-vectors-indexing-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3vectors:GetVectorBucket",
+                "s3vectors:CreateVectorBucket"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3vectors:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":bucket/",
+                    {
+                      "Ref": "ApplicationId"
+                    },
+                    "-",
+                    {
+                      "Ref": "AWS::Region"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3vectors:CreateIndex",
+                "s3vectors:GetIndex",
+                "s3vectors:PutVectors",
+                "s3vectors:GetVectors",
+                "s3vectors:QueryVectors",
+                "s3vectors:DeleteVectors"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3vectors:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":bucket/",
+                    {
+                      "Ref": "ApplicationId"
+                    },
+                    "-",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "/index/*"
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "LambdaS3VectorsPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-lambda-s3-vectors-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3vectors:GetVectorBucket",
+                "s3vectors:DeleteVectorBucket",
+                "s3vectors:ListIndexes"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3vectors:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":bucket/",
+                    {
+                      "Ref": "ApplicationId"
+                    },
+                    "-",
+                    {
+                      "Ref": "AWS::Region"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3vectors:DeleteIndex"
+              ],
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3vectors:"
+                    },
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":bucket/",
+                    {
+                      "Ref": "ApplicationId"
+                    },
+                    "-",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "/index/*"
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "LambdaFunctionRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "LambdaCloudWatchPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-lambda-cloudwatch-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": "*"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "LambdaFunctionRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "DeleteVectorBucketFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": {
+          "Fn::Sub": [
+            "${prefix}-delete-vector-bucket",
+            {
+              "prefix": {
+                "Ref": "ApplicationId"
+              }
+            }
+          ]
+        },
+        "Handler": "index.lambda_handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaFunctionRole",
+            "Arn"
+          ]
+        },
+        "Code": {
+          "ZipFile": {
+            "Fn::Join": [
+              "",
+              [
+                "import boto3\n",
+                "import cfnresponse\n",
+                "\n",
+                "s3_vectors_client = boto3.client('s3vectors', region_name='",
+                {
+                  "Ref": "AWS::Region"
+                },
+                "')\n",
+                "\n",
+                "def delete_vector_bucket(s3_vectors_client, bucket_name):\n",
+                "    \n",
+                "    list_indexes_response = s3_vectors_client.list_indexes(\n",
+                "        vectorBucketName=bucket_name,\n",
+                "        maxResults=100\n",
+                "    )\n",
+                "    \n",
+                "    while list_indexes_response['indexes']:\n",
+                "        \n",
+                "        for index in list_indexes_response['indexes']:\n",
+                "            \n",
+                "            index_name = index['indexName']\n",
+                "            \n",
+                "            print(f'Deleting index {index_name}')\n",
+                "            \n",
+                "            s3_vectors_client.delete_index(\n",
+                "                vectorBucketName=bucket_name,\n",
+                "                indexName=index_name\n",
+                "            )\n",
+                "        \n",
+                "        list_indexes_response = s3_vectors_client.list_indexes(\n",
+                "            vectorBucketName=bucket_name,\n",
+                "            maxResults=100\n",
+                "        )\n",
+                "        \n",
+                "    print(f'Deleting bucket {bucket_name}')\n",
+                "    \n",
+                "    s3_vectors_client.delete_vector_bucket(\n",
+                "        vectorBucketName=bucket_name\n",
+                "    )\n",
+                "    \n",
+                "    \n",
+                "def lambda_handler(event, context):\n",
+                "    \n",
+                "    print('Event: {}'.format(event))\n",
+                "    print('Context: {}'.format(context))\n",
+                "    \n",
+                "    if event['RequestType'] == 'Create' or event['RequestType'] == 'Update':\n",
+                "        \n",
+                "        event_type = event['RequestType']\n",
+                "        print(f'Ignoring {event_type} request')\n",
+                "        cfnresponse.send(event, context, cfnresponse.SUCCESS, {'Message': 'OK'}, context.log_stream_name)\n",
+                "                   \n",
+                "    elif event['RequestType'] == 'Delete':\n",
+                "        \n",
+                "        print('Deleting vector indexes and bucket')\n",
+                "        \n",
+                "        bucket_name = event['ResourceProperties']['BucketName']\n",
+                "        \n",
+                "        try:        \n",
+                "            delete_vector_bucket(s3_vectors_client, bucket_name)\n",
+                "            \n",
+                "            cfnresponse.send(event, context, cfnresponse.SUCCESS, {'BucketName': bucket_name}, context.log_stream_name)\n",
+                "        except Exception as e:\n",
+                "            cfnresponse.send(event, context, cfnresponse.FAILED, { 'Message': str(e) }, context.log_stream_name)\n",
+                "        \n",
+                "    else:\n",
+                "        cfnresponse.send(event, context, cfnresponse.FAILED, { 'Message': 'Expected a Create, Delete or Update request' }, context.log_stream_name)\n"
               ]
-            }
-          ]
-        },
-        "Roles": [
-          {
-            "Ref": "GraphRAGClientRole"
-          }
-        ],
-        "Path": "/graphrag-toolkit/"
-      }
-    },
-    "NeptuneDBDataAccessQueryingPolicy": {
-      "Type": "AWS::IAM::ManagedPolicy",
-      "Properties": {
-        "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-querying-policy"
-        },
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "neptune-db:ReadDataViaQuery"
-              ],
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    {
-                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
-                    },
-                    {
-                      "Ref": "AWS::Region"
-                    },
-                    ":",
-                    {
-                      "Ref": "AWS::AccountId"
-                    },
-                    ":",
-                    {
-                      "Fn::GetAtt": [
-                        "NeptuneDBCluster",
-                        "ClusterResourceId"
-                      ]
-                    },
-                    "/*"
-                  ]
-                ]
-              },
-              "Condition": {
-                "StringEquals": {
-                  "neptune-db:QueryLanguage": "OpenCypher"
-                }
-              }
-            }
-          ]
-        },
-        "Roles": [
-          {
-            "Ref": "GraphRAGClientRole"
-          }
-        ],
-        "Path": "/graphrag-toolkit/"
-      }
-    },
-    "NeptuneDBDataAccessIndexingPolicy": {
-      "Type": "AWS::IAM::ManagedPolicy",
-      "Properties": {
-        "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-indexing-policy"
-        },
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "neptune-db:WriteDataViaQuery",
-                "neptune-db:DeleteDataViaQuery",
-                "neptune-db:ReadDataViaQuery"
-              ],
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    {
-                      "Fn::Sub": "arn:${AWS::Partition}:neptune-db:"
-                    },
-                    {
-                      "Ref": "AWS::Region"
-                    },
-                    ":",
-                    {
-                      "Ref": "AWS::AccountId"
-                    },
-                    ":",
-                    {
-                      "Fn::GetAtt": [
-                        "NeptuneDBCluster",
-                        "ClusterResourceId"
-                      ]
-                    },
-                    "/*"
-                  ]
-                ]
-              },
-              "Condition": {
-                "StringEquals": {
-                  "neptune-db:QueryLanguage": "OpenCypher"
-                }
-              }
-            }
-          ]
-        },
-        "Roles": [
-          {
-            "Ref": "GraphRAGClientRole"
-          }
-        ],
-        "Path": "/graphrag-toolkit/"
-      }
-    },
-    "NeptuneDBClusterParameterGroup": {
-      "Type": "AWS::Neptune::DBClusterParameterGroup",
-      "Properties": {
-        "Name": {
-          "Fn::Sub": "neptune-cluster-params-${ApplicationId}"
-        },
-        "Family": "neptune1.4",
-        "Description": "Neptune cluster parameter group",
-        "Parameters": {
-          "neptune_enable_audit_log": {
-            "Fn::If": [
-              "AuditLogEnabled",
-              1,
-              0
             ]
           }
         },
+        "MemorySize": 128,
+        "Runtime": "python3.12",
+        "Timeout": "900",
         "Tags": [
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "neptune-cluster-params-${ApplicationId}"
+              "Fn::Sub": "${ApplicationId}-delete-vector-bucket"
             }
           },
           {
@@ -836,329 +907,18 @@
         ]
       }
     },
-    "NeptuneDBParameterGroup": {
-      "Type": "AWS::Neptune::DBParameterGroup",
+    "DeleteVectorBucketCustomResource": {
+      "Type": "Custom::CustomResource",
       "Properties": {
-        "Name": {
-          "Fn::Sub": "neptune-params-${ApplicationId}"
-        },
-        "Family": "neptune1.4",
-        "Description": "Neptune parameter group",
-        "Parameters": {
-          "neptune_query_timeout": 60000
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "neptune-params-${ApplicationId}"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "NeptuneDBCluster": {
-      "Type": "AWS::Neptune::DBCluster",
-      "Properties": {
-        "DBClusterIdentifier": {
-          "Fn::Sub": "${ApplicationId}-cluster"
-        },
-        "EngineVersion": {
-          "Ref": "NeptuneEngineVersion"
-        },
-        "DBSubnetGroupName": {
-          "Ref": "NeptuneDBSubnetGroup"
-        },
-        "VpcSecurityGroupIds": [
-          {
-            "Ref": "NeptuneSecurityGroup"
-          }
-        ],
-        "DBClusterParameterGroupName": {
-          "Ref": "NeptuneDBClusterParameterGroup"
-        },
-        "Port": "8182",
-        "IamAuthEnabled": true,
-        "ServerlessScalingConfiguration": {
-          "MaxCapacity": {
-            "Ref": "MaxNCU"
-          },
-          "MinCapacity": {
-            "Ref": "MinNCU"
-          }
-        },
-        "StorageEncrypted": true,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-cluster"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      },
-      "DependsOn": [
-        "NeptuneDBSubnetGroup",
-        "NeptuneDBClusterParameterGroup"
-      ]
-    },
-    "NeptuneDBInstance": {
-      "Type": "AWS::Neptune::DBInstance",
-      "Properties": {
-        "DBInstanceIdentifier": {
-          "Fn::Sub": "${ApplicationId}-db-1"
-        },
-        "DBClusterIdentifier": {
-          "Ref": "NeptuneDBCluster"
-        },
-        "DBInstanceClass": {
-          "Ref": "NeptuneDbInstanceType"
-        },
-        "DBParameterGroupName": {
-          "Ref": "NeptuneDBParameterGroup"
-        },
-        "AutoMinorVersionUpgrade": true,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-db-1"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      },
-      "DependsOn": [
-        "NeptuneDBCluster",
-        "NeptuneDBParameterGroup"
-      ]
-    },
-    "OpenSearchServerless": {
-      "DependsOn": "OpenSearchServerlessEncryptionPolicy",
-      "Type": "AWS::OpenSearchServerless::Collection",
-      "Properties": {
-        "Name": {
-          "Fn::Sub": "${ApplicationId}-collection"
-        },
-        "StandbyReplicas": "DISABLED",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-collection"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ],
-        "Type": "VECTORSEARCH"
-      }
-    },
-    "OpenSearchServerlessNetworkPolicy": {
-      "Type": "AWS::OpenSearchServerless::SecurityPolicy",
-      "Properties": {
-        "Name": {
-          "Fn::Sub": "${ApplicationId}-network"
-        },
-        "Policy": {
-          "Fn::Join": [
-            "",
-            [
-              "[",
-              "  {",
-              "    \"Rules\": [",
-              "      {",
-              "        \"Resource\": [",
-              "          \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "        ],",
-              "        \"ResourceType\": \"dashboard\"",
-              "      },",
-              "      {",
-              "        \"Resource\": [",
-              "          \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "        ],",
-              "        \"ResourceType\": \"collection\"",
-              "      }",
-              "    ],",
-              "    \"AllowFromPublic\": true",
-              "  }",
-              "]"
-            ]
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "DeleteVectorBucketFunction",
+            "Arn"
           ]
         },
-        "Type": "network"
-      }
-    },
-    "OpenSearchServerlessEncryptionPolicy": {
-      "Type": "AWS::OpenSearchServerless::SecurityPolicy",
-      "Properties": {
-        "Name": {
-          "Fn::Sub": "${ApplicationId}-encryption"
-        },
-        "Policy": {
-          "Fn::Join": [
-            "",
-            [
-              "{",
-              "  \"Rules\": [",
-              "    {",
-              "      \"Resource\": [",
-              "        \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "      ],",
-              "      \"ResourceType\": \"collection\"",
-              "    }",
-              "  ],",
-              "  \"AWSOwnedKey\": true",
-              "}"
-            ]
-          ]
-        },
-        "Type": "encryption"
-      }
-    },
-    "OpenSearchServerlessAccessPolicy": {
-      "Type": "AWS::OpenSearchServerless::AccessPolicy",
-      "Properties": {
-        "Name": {
-          "Fn::Sub": "${ApplicationId}-access"
-        },
-        "Policy": {
-          "Fn::Join": [
-            "",
-            [
-              "[",
-              "  {",
-              "    \"Rules\": [",
-              "      {",
-              "        \"Resource\": [",
-              "          \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "        ],",
-              "        \"Permission\": [",
-              "          \"aoss:CreateCollectionItems\",",
-              "          \"aoss:DeleteCollectionItems\",",
-              "          \"aoss:UpdateCollectionItems\",",
-              "          \"aoss:DescribeCollectionItems\"",
-              "        ],",
-              "        \"ResourceType\": \"collection\"",
-              "      },",
-              "      {",
-              "        \"Resource\": [",
-              "          \"index/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "/*\"",
-              "        ],",
-              "        \"Permission\": [",
-              "          \"aoss:CreateIndex\",",
-              "          \"aoss:DeleteIndex\",",
-              "          \"aoss:UpdateIndex\",",
-              "          \"aoss:DescribeIndex\",",
-              "          \"aoss:ReadDocument\",",
-              "          \"aoss:WriteDocument\"",
-              "        ],",
-              "        \"ResourceType\": \"index\"",
-              "      }",
-              "    ],",
-              "    \"Principal\": [\"",
-              {
-                "Fn::GetAtt": [
-                  "GraphRAGClientRole",
-                  "Arn"
-                ]
-              },
-              "\"]",
-              "  }",
-              "]"
-            ]
-          ]
-        },
-        "Type": "data"
+        "BucketName": {
+          "Fn::Sub": "${ApplicationId}-${AWS::Region}"
+        }
       }
     },
     "NeptuneNotebookInstance": {
@@ -1171,14 +931,6 @@
         "NotebookInstanceName": {
           "Fn::Sub": "aws-neptune-${ApplicationId}"
         },
-        "SubnetId": {
-          "Ref": "Subnet4"
-        },
-        "SecurityGroupIds": [
-          {
-            "Ref": "GraphRAGClientSecurityGroup"
-          }
-        ],
         "RoleArn": {
           "Fn::GetAtt": [
             "GraphRAGClientRole",
@@ -1330,23 +1082,16 @@
                     "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
-                    "echo \"export GRAPH_NOTEBOOK_PORT=",
-                    {
-                      "Fn::GetAtt": [
-                        "NeptuneDBCluster",
-                        "Port"
-                      ]
-                    },
-                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_PORT=8182\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_STORE=",
                     {
                       "Fn::Sub": [
-                        "neptune-db://${graphid}",
+                        "neptune-graph://${graphid}",
                         {
                           "graphid": {
                             "Fn::GetAtt": [
-                              "NeptuneDBCluster",
-                              "Endpoint"
+                              "Graph",
+                              "GraphId"
                             ]
                           }
                         }
@@ -1355,24 +1100,14 @@
                     "\" >> ~/.bashrc\n",
                     "echo \"export VECTOR_STORE=",
                     {
-                      "Fn::Sub": [
-                        "aoss://${endpoint}",
-                        {
-                          "endpoint": {
-                            "Fn::GetAtt": [
-                              "OpenSearchServerless",
-                              "CollectionEndpoint"
-                            ]
-                          }
-                        }
-                      ]
+                      "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}"
                     },
                     "\" >> ~/.bashrc\n",
-                    "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-graph\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_HOST=",
                     {
                       "Fn::GetAtt": [
-                        "NeptuneDBCluster",
+                        "Graph",
                         "Endpoint"
                       ]
                     },
@@ -1452,12 +1187,12 @@
                     "  echo \"export GRAPH_STORE=",
                     {
                       "Fn::Sub": [
-                        "neptune-db://${graphid}",
+                        "neptune-graph://${graphid}",
                         {
                           "graphid": {
                             "Fn::GetAtt": [
-                              "NeptuneDBCluster",
-                              "Endpoint"
+                              "Graph",
+                              "GraphId"
                             ]
                           }
                         }
@@ -1466,17 +1201,7 @@
                     "\" >> .env\n",
                     "  echo \"export VECTOR_STORE=",
                     {
-                      "Fn::Sub": [
-                        "aoss://${endpoint}",
-                        {
-                          "endpoint": {
-                            "Fn::GetAtt": [
-                              "OpenSearchServerless",
-                              "CollectionEndpoint"
-                            ]
-                          }
-                        }
-                      ]
+                      "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}"
                     },
                     "\" >> .env\n",
                     "  echo \"export EXTRACTION_MODEL=",
@@ -1590,314 +1315,21 @@
           }
         ]
       }
-    },
-    "ElasticIP1": {
-      "Type": "AWS::EC2::EIP",
-      "Properties": {
-        "Domain": "VPC"
-      }
-    },
-    "VPC": {
-      "Type": "AWS::EC2::VPC",
-      "Properties": {
-        "CidrBlock": "172.30.0.0/16",
-        "EnableDnsSupport": "true",
-        "EnableDnsHostnames": "true",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-vpc"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          }
-        ]
-      }
-    },
-    "PublicRouteTable": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "VPC"
-        }
-      },
-      "DependsOn": [
-        "VPC"
-      ]
-    },
-    "PrivateRouteTable": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "VPC"
-        }
-      },
-      "DependsOn": [
-        "VPC"
-      ]
-    },
-    "IGWAtt": {
-      "Type": "AWS::EC2::VPCGatewayAttachment",
-      "Properties": {
-        "InternetGatewayId": {
-          "Ref": "IGW"
-        },
-        "VpcId": {
-          "Ref": "VPC"
-        }
-      },
-      "DependsOn": [
-        "VPC",
-        "IGW"
-      ]
-    },
-    "IGW": {
-      "Type": "AWS::EC2::InternetGateway",
-      "Properties": {
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": {
-              "Fn::Sub": "${ApplicationId}-igw"
-            }
-          },
-          {
-            "Key": "StackId",
-            "Value": {
-              "Fn::Sub": "${AWS::StackId}"
-            }
-          },
-          {
-            "Key": "Stack",
-            "Value": {
-              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
-            }
-          },
-          {
-            "Key": "Application",
-            "Value": {
-              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
-            }
-          }
-        ]
-      }
-    },
-    "NATGW": {
-      "Type": "AWS::EC2::NatGateway",
-      "Properties": {
-        "AllocationId": {
-          "Fn::GetAtt": [
-            "ElasticIP1",
-            "AllocationId"
-          ]
-        },
-        "SubnetId": {
-          "Ref": "Subnet4"
-        }
-      }
-    },
-    "PublicRoute": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": {
-          "Ref": "IGW"
-        },
-        "RouteTableId": {
-          "Ref": "PublicRouteTable"
-        }
-      },
-      "DependsOn": [
-        "IGWAtt"
-      ]
-    },
-    "PrivateRoute": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "NatGatewayId": {
-          "Ref": "NATGW"
-        },
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        }
-      },
-      "DependsOn": [
-        "IGWAtt"
-      ]
-    },
-    "Subnet1": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "172.30.1.0/24",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "Subnet2": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "172.30.2.0/24",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            1,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "Subnet3": {
-      "Type": "AWS::EC2::Subnet",
-      "Condition": "AZ3Present",
-      "Properties": {
-        "CidrBlock": "172.30.3.0/24",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            2,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "Subnet4": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "172.30.4.0/24",
-        "MapPublicIpOnLaunch": "true",
-        "VpcId": {
-          "Ref": "VPC"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        }
-      }
-    },
-    "SubnetRTAssociation1": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "DependsOn": [
-        "Subnet1",
-        "PrivateRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet1"
-        }
-      }
-    },
-    "SubnetRTAssociation2": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "DependsOn": [
-        "Subnet2",
-        "PrivateRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet2"
-        }
-      }
-    },
-    "SubnetRTAssociation3": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Condition": "AZ3Present",
-      "DependsOn": [
-        "Subnet3",
-        "PrivateRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PrivateRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet3"
-        }
-      }
-    },
-    "SubnetRTAssociation4": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "DependsOn": [
-        "Subnet4",
-        "PublicRouteTable"
-      ],
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "PublicRouteTable"
-        },
-        "SubnetId": {
-          "Ref": "Subnet4"
-        }
-      }
     }
   },
   "Outputs": {
-    "NeptuneClusterId": {
-      "Description": "Neptune cluster id",
-      "Value": {
-        "Ref": "NeptuneDBCluster"
-      }
-    },
-    "NeptuneClusterEndpoint": {
-      "Description": "Neptune cluster endpoint",
+    "NeptuneAnalyticsGraphId": {
       "Value": {
         "Fn::GetAtt": [
-          "NeptuneDBCluster",
-          "Endpoint"
+          "Graph",
+          "GraphId"
         ]
       }
     },
-    "GraphRAGClientSecurityGroup": {
-      "Description": "GraphRAG client security group",
+    "S3VectorsBucket": {
+      "Description": "S3 Vectors bucket name",
       "Value": {
-        "Ref": "GraphRAGClientSecurityGroup"
-      }
-    },
-    "OpenSearchCollectionEndpoint": {
-      "Description": "OpenSearch Serverless collection endpoint",
-      "Value": {
-        "Fn::GetAtt": [
-          "OpenSearchServerless",
-          "CollectionEndpoint"
-        ]
+        "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}"
       }
     },
     "NeptuneSagemakerNotebook": {
@@ -1927,12 +1359,6 @@
             ".sagemaker.aws/nbclassic/tree"
           ]
         ]
-      }
-    },
-    "VPC": {
-      "Description": "VPC",
-      "Value": {
-        "Ref": "VPC"
       }
     }
   }
