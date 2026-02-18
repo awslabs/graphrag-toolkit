@@ -1,0 +1,48 @@
+name: Lexical Graph Unit Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "lexical-graph/**"
+      - ".github/workflows/lexical-graph-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "lexical-graph/**"
+      - ".github/workflows/lexical-graph-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    defaults:
+      run:
+        working-directory: lexical-graph
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create virtual environment
+        run: uv venv .venv
+
+      - name: Install dependencies
+        run: |
+          uv pip install --python .venv/bin/python \
+            pytest \
+            -r src/graphrag_toolkit/lexical_graph/requirements.txt
+
+      - name: Run unit tests
+        run: |
+          PYTHONPATH=src .venv/bin/python -m pytest tests/ -v --tb=short
