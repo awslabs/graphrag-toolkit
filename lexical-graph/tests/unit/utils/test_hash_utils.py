@@ -3,8 +3,8 @@
 get_hash is the foundation of all ID generation in this library. Every source ID,
 chunk ID, entity ID, topic ID, etc. is ultimately an MD5 hex digest of a formatted
 string. These tests verify the properties that the rest of the system depends on:
-determinism (same input → same ID on every run), collision resistance (different
-inputs → different IDs), correct output format (32-char lowercase hex), and safe
+determinism (same input -> same ID on every run), collision resistance (different
+inputs -> different IDs), correct output format (32-char lowercase hex), and safe
 handling of edge-case inputs (unicode, empty string).
 
 The known-vector test pins the exact MD5 digest of "hello" so that any future
