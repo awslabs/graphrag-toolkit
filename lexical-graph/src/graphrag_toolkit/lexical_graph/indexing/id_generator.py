@@ -68,10 +68,18 @@ class IdGenerator(BaseModel):
         """
         return f"aws::{self._get_hash(text)[:8]}:{self._get_hash(metadata_str)[:4]}"
         
+    # Delimiter used to separate text and metadata in chunk ID hashing.
+    # Using null byte as it cannot appear in valid UTF-8 text strings.
+    _CHUNK_ID_DELIMITER = '\x00'
+
     def create_chunk_id(self, source_id:str, text:str, metadata_str:str):
         """
         Generates a unique chunk identifier by combining a source ID, a hash of the given text,
         and associated metadata.
+
+        The text and metadata are separated by a null byte delimiter before hashing to prevent
+        boundary collision issues where different (text, metadata_str) pairs could produce
+        identical concatenated strings.
 
         Args:
             source_id (str): The identifier of the source content.
@@ -81,7 +89,7 @@ class IdGenerator(BaseModel):
         Returns:
             str: A uniquely generated chunk identifier based on the given inputs.
         """
-        return f'{source_id}:{self._get_hash(text + metadata_str)[:8]}'
+        return f'{source_id}:{self._get_hash(text + self._CHUNK_ID_DELIMITER + metadata_str)[:8]}'
     
     def rewrite_id_for_tenant(self, id_value:str):
         """
