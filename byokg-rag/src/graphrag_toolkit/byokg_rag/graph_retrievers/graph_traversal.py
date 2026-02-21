@@ -1,5 +1,4 @@
 from collections import defaultdict, deque
-import heapq
 
 class GTraversal:
     """
@@ -152,7 +151,7 @@ class GTraversal:
     
     def shortest_paths(self, source_nodes, target_nodes, max_distance=None):
         """
-        Find shortest paths from source nodes to target nodes using Dijkstra's algorithm.
+        Find shortest paths from source nodes to target nodes using BFS.
         Returns paths in the same format as follow_paths: list of paths, where each path is a list of triplets.
 
         Args:
@@ -168,23 +167,21 @@ class GTraversal:
         paths = defaultdict(list)
         visited = set()
         
-        # Priority queue for Dijkstra's algorithm
-        # Format: (distance, node, path_triplets)
-        pq = []
+        # Queue for BFS
+        # Format: node (path is reconstructed from `paths[node]`)
+        q = deque()
         
         # Initialize source nodes
         for source in source_nodes:
             distances[source] = 0
             paths[source] = []  # Empty path for source node
-            heapq.heappush(pq, (0, source, []))
-        
-        while pq:
-            current_dist, current_node, current_path = heapq.heappop(pq)
-            
-            # Skip if we've already found a shorter path to this node
-            if current_dist > distances[current_node]:
-                continue
-                
+            q.append(source)
+
+        while q:
+            current_node = q.popleft()
+            current_dist = distances[current_node]
+            current_path = paths[current_node]
+
             # Skip if we've already visited this node
             if current_node in visited:
                 continue
@@ -216,7 +213,7 @@ class GTraversal:
                     distances[dst] = new_dist
                     new_path = current_path + [triplet]  # Add the entire triplet
                     paths[dst] = new_path
-                    heapq.heappush(pq, (new_dist, dst, new_path))
+                    q.append(dst)
         
         # Convert paths to list of triplet paths
         result_paths = []
