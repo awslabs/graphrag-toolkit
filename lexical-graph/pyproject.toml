@@ -7,7 +7,7 @@ packages = ["src/graphrag_toolkit"]
 
 [project]
 name = "graphrag-toolkit-lexical-graph"
-version = "3.16.2-SNAPSHOT"
+version = "3.16.2.dev0"
 description = "AWS GraphRAG Toolkit, lexical graph"
 readme = "README.md"
 requires-python = ">=3.10"
