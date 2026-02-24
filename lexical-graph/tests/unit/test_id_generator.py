@@ -107,14 +107,8 @@ def test_create_entity_id_classification_matters_when_enabled(default_id_gen):
 def test_create_entity_id_classification_ignored_when_disabled(default_tenant):
     """With classification disabled, entity identity depends only on value — so
     'Amazon/Company' and 'Amazon/River' collapse to the same node.
-
-    SOURCE BUG: IdGenerator.__init__ uses
-        `include_classification_in_entity_id or GraphRAGConfig.include_classification_in_entity_id`
-    Because False is falsy, passing False is silently overridden by the config default (True).
-    Workaround: set the field directly on the instance after construction.
     """
-    gen = IdGenerator(tenant_id=default_tenant, include_classification_in_entity_id=True)
-    gen.include_classification_in_entity_id = False
+    gen = IdGenerator(tenant_id=default_tenant, include_classification_in_entity_id=False)
     assert gen.create_entity_id("Amazon", "Company") == gen.create_entity_id("Amazon", "River")
 
 

@@ -19,6 +19,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.source_doc_parser import So
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint
 from graphrag_toolkit.lexical_graph.indexing.extract.docs_to_nodes import DocsToNodes
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
+from graphrag_toolkit.lexical_graph.utils.arg_utils import first_non_none
 
 from llama_index.core.node_parser import NodeParser
 from llama_index.core.utils import iter_batch
@@ -231,7 +232,7 @@ class ExtractionPipeline():
         components = components or []
         num_workers = num_workers or GraphRAGConfig.extraction_num_workers
         batch_size = batch_size or GraphRAGConfig.extraction_batch_size
-        include_classification_in_entity_id = include_classification_in_entity_id or GraphRAGConfig.include_classification_in_entity_id
+        include_classification_in_entity_id = first_non_none([include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id])
         extract_timestamp = kwargs.pop('extract_timestamp', None)
 
         if num_workers > multiprocessing.cpu_count():
