@@ -5,7 +5,7 @@ from typing import Optional
 
 from graphrag_toolkit.lexical_graph import TenantId, GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
-from graphrag_toolkit.lexical_graph.utils.arg_utils import first_non_none
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.bridge.pydantic import BaseModel
 
@@ -42,7 +42,7 @@ class IdGenerator(BaseModel):
         """
         super().__init__(
             tenant_id=tenant_id or TenantId(),
-            include_classification_in_entity_id=first_non_none([include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id]),
+            include_classification_in_entity_id=coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id),
             use_chunk_id_delimiter=use_chunk_id_delimiter
         )
 

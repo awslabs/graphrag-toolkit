@@ -3,5 +3,5 @@
 
 from typing import List, Any
 
-def first_non_none(items:List[Any]):
+def coalesce(*items):
     return next((item for item in items if item is not None), None)

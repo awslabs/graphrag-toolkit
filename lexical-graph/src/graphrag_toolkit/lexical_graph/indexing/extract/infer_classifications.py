@@ -13,6 +13,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.preferred_values import Pre
 from graphrag_toolkit.lexical_graph.indexing.constants import DEFAULT_ENTITY_CLASSIFICATIONS
 from graphrag_toolkit.lexical_graph.indexing.prompts import DOMAIN_ENTITY_CLASSIFICATIONS_PROMPT
 from graphrag_toolkit.lexical_graph.indexing.prompts import RANK_ENTITY_CLASSIFICATIONS_PROMPT
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import BaseNode
 from llama_index.core.node_parser import SentenceSplitter
@@ -80,9 +81,9 @@ class InferClassifications(SourceDocParser, PreferredValuesProvider):
             ):
         
         super().__init__(
-            num_samples=num_samples or DEFAULT_NUM_SAMPLES,
-            num_iterations=num_iterations or DEFAULT_NUM_ITERATIONS,
-            num_classifications=num_classifications or DEFAULT_NUM_CLASSIFICATIONS,
+            num_samples=coalesce(num_samples, DEFAULT_NUM_SAMPLES),
+            num_iterations=coalesce(num_iterations, DEFAULT_NUM_ITERATIONS),
+            num_classifications=coalesce(num_classifications, DEFAULT_NUM_CLASSIFICATIONS),
             splitter=splitter,
             llm=llm if llm and isinstance(llm, LLMCache) else LLMCache(
                 llm=llm or GraphRAGConfig.extraction_llm,

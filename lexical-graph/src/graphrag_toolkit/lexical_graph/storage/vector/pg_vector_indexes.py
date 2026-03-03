@@ -14,6 +14,7 @@ from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIME
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import BaseNode, QueryBundle
 from llama_index.core.indices.utils import embed_nodes
@@ -284,7 +285,7 @@ class PGIndex(VectorIndex):
         enable_iam_db_auth = compute_enable_iam_db_auth(parsed.query, enable_iam_db_auth)
         
         embed_model = embed_model or GraphRAGConfig.embed_model
-        dimensions = dimensions or GraphRAGConfig.embed_dimensions
+        dimensions = coalesce(dimensions, GraphRAGConfig.embed_dimensions)
 
         return PGIndex(index_name=index_name, 
                        database=database, 

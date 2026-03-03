@@ -18,6 +18,7 @@ from graphrag_toolkit.lexical_graph.retrieval.retrievers.statement_cosine_seach 
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_beam_search import SemanticBeamGraphSearch
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.rerank_beam_search import RerankingBeamGraphSearch
 from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_statements_query, SharedEmbeddingCache
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 logger = logging.getLogger(__name__)
 
@@ -250,7 +251,7 @@ class SemanticGuidedRetriever(SemanticGuidedBaseRetriever):
         # 8. Create final ordered list
         ordered_nodes = []
         for source_id, nodes in source_nodes.items():
-            nodes.sort(key=lambda x: x.score or 0.0, reverse=True)
+            nodes.sort(key=lambda x: coalesce(x.score, 0.0), reverse=True)
             ordered_nodes.extend(nodes)
 
         if logger.isEnabledFor(logging.DEBUG) and self.debug_results:    

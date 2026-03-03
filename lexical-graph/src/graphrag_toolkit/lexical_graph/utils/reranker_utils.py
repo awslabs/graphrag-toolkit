@@ -5,6 +5,7 @@ import statistics
 import numpy
 import tfidf_matcher as tm
 from typing import List, Optional
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 def to_float(v):
     if isinstance(v, numpy.float64) or isinstance(v, numpy.float32):
@@ -21,7 +22,7 @@ def score_values_with_tfidf(values:List[str],
         values_to_score = values.copy()
         
         num_match_values = len(match_values)
-        num_primary_match_values = num_primary_match_values or num_match_values
+        num_primary_match_values = coalesce(num_primary_match_values, num_match_values)
         max_num_values_to_score =  len(values_to_score)
         
         def calculate_ranked_score(row_index, score):

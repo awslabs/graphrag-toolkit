@@ -18,7 +18,7 @@ from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuild
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint, CheckpointWriter
 from graphrag_toolkit.lexical_graph.indexing.build.node_builders import NodeBuilders
 from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
-from graphrag_toolkit.lexical_graph.utils.arg_utils import first_non_none
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
@@ -189,13 +189,13 @@ class BuildPipeline():
             **kwargs (Any): Additional keyword arguments to configure the pipeline behavior.
         """
         components = components or []
-        num_workers = num_workers or GraphRAGConfig.build_num_workers
-        batch_size = batch_size or GraphRAGConfig.build_batch_size
-        batch_writes_enabled = first_non_none([batch_writes_enabled, GraphRAGConfig.batch_writes_enabled])
-        batch_write_size = batch_write_size or GraphRAGConfig.build_batch_write_size
-        include_domain_labels = first_non_none([include_domain_labels, GraphRAGConfig.include_domain_labels])
-        include_local_entities = first_non_none([include_local_entities, GraphRAGConfig.include_local_entities])
-        include_classification_in_entity_id = first_non_none([include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id])
+        num_workers = coalesce(num_workers, GraphRAGConfig.build_num_workers)
+        batch_size = coalesce(batch_size, GraphRAGConfig.build_batch_size)
+        batch_writes_enabled = coalesce(batch_writes_enabled, GraphRAGConfig.batch_writes_enabled)
+        batch_write_size = coalesce(batch_write_size, GraphRAGConfig.build_batch_write_size)
+        include_domain_labels = coalesce(include_domain_labels, GraphRAGConfig.include_domain_labels)
+        include_local_entities = coalesce(include_local_entities, GraphRAGConfig.include_local_entities)
+        include_classification_in_entity_id = coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id)
         source_metadata_formatter = source_metadata_formatter or DefaultSourceMetadataFormatter()
         
         for c in components:

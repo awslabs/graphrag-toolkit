@@ -11,6 +11,7 @@ from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_statements_query
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
 from graphrag_toolkit.lexical_graph.retrieval.post_processors import RerankerMixin
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
 
@@ -384,7 +385,7 @@ class RerankingBeamGraphSearch(SemanticGuidedBaseRetriever):
             else:
                 logger.warning(f"Statement data not found in cache for ID: {statement_id}")
 
-        nodes.sort(key=lambda x: x.score or 0.0, reverse=True)
+        nodes.sort(key=lambda x: coalesce(x.score, 0.0), reverse=True)
 
         logger.info(f"Retrieved {len(nodes)} new nodes through beam search.")
         return nodes

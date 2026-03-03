@@ -2,25 +2,19 @@
 # SPDX-License-Identifier: Apache-2.0
 import json
 import logging
-import numpy as np
-import time
-import boto3
 
 from botocore.exceptions import ClientError
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
 from tqdm import tqdm
-from typing import List, Sequence, Dict, Any, Optional, Callable
-from urllib.parse import urlparse
+from typing import List, Dict, Any, Callable
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
-from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
-from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
-from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import BaseNode, TextNode, QueryBundle
-from llama_index.core.bridge.pydantic import PrivateAttr
-from llama_index.core.indices.utils import embed_nodes
+from llama_index.core.schema import TextNode
 from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
 
 DISTANCE_METRIC = 'cosine'
@@ -422,7 +416,7 @@ class S3VectorIndex(VectorIndex):
     def for_index(index_name, bucket_name, prefix=None, embed_model=None, dimensions=None, **kwargs):
 
         embed_model = embed_model or GraphRAGConfig.embed_model
-        dimensions = dimensions or GraphRAGConfig.embed_dimensions
+        dimensions = coalesce((dimensions, GraphRAGConfig.embed_dimensions)
 
         return S3VectorIndex(
             index_name=index_name, 

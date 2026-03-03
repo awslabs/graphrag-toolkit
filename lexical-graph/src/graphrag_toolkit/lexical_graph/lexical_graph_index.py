@@ -33,7 +33,7 @@ from graphrag_toolkit.lexical_graph.indexing.build import Checkpoint
 from graphrag_toolkit.lexical_graph.indexing.build import BuildFilters
 from graphrag_toolkit.lexical_graph.indexing.build.null_builder import NullBuilder
 from graphrag_toolkit.lexical_graph.indexing.build.delete_sources import DeleteSources
-from graphrag_toolkit.lexical_graph.utils.arg_utils import first_non_none
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
@@ -490,7 +490,7 @@ class LexicalGraphIndex():
 
         build_config = self.indexing_config.build
 
-        enable_versioning =  first_non_none([kwargs.get('enable_versioning', None), build_config.enable_versioning, GraphRAGConfig.enable_versioning])
+        enable_versioning =  coalesce(kwargs.get('enable_versioning', None), build_config.enable_versioning, GraphRAGConfig.enable_versioning)
 
         components = []
 
@@ -554,7 +554,7 @@ class LexicalGraphIndex():
 
         build_config = self.indexing_config.build
 
-        enable_versioning =  first_non_none([kwargs.get('enable_versioning', None), build_config.enable_versioning, GraphRAGConfig.enable_versioning])
+        enable_versioning =  coalesce(kwargs.get('enable_versioning', None), build_config.enable_versioning, GraphRAGConfig.enable_versioning)
 
         build_components = []
 

@@ -12,6 +12,7 @@ from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, MultiTenant
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result, filter_config_to_opencypher_filters
 from graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores import NeptuneAnalyticsClient
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, VectorIndexFactoryMethod, to_embedded_query
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.indices.utils import embed_nodes
 from llama_index.core.schema import QueryBundle
@@ -99,7 +100,7 @@ class NeptuneIndex(VectorIndex):
         index_name = index_name.lower()
         neptune_client:GraphStore = GraphStoreFactory.for_graph_store(graph_id, **kwargs)
         embed_model = embed_model or GraphRAGConfig.embed_model
-        dimensions = dimensions or GraphRAGConfig.embed_dimensions
+        dimensions = coalesce(dimensions, GraphRAGConfig.embed_dimensions)
         id_name = f'{index_name}Id'
         label = f'__{string.capwords(index_name)}__' 
         path = f'({index_name})'

@@ -20,6 +20,7 @@ from graphrag_toolkit.lexical_graph.versioning import  VALID_FROM, VALID_TO, TIM
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 logger = logging.getLogger(__name__)
 
@@ -479,7 +480,7 @@ class OpenSearchIndex(VectorIndex):
                 specified or default parameters.
         """
         embed_model = embed_model or GraphRAGConfig.embed_model
-        dimensions = dimensions or GraphRAGConfig.embed_dimensions
+        dimensions = coalesce(dimensions, GraphRAGConfig.embed_dimensions)
 
         return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model)
     
