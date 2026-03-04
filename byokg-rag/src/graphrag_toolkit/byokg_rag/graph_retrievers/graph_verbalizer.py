@@ -40,12 +40,18 @@ class TripletGVerbalizer(GVerbalizer):
 
     def validate_and_process(self, edges:List[Tuple]):
         """
-        Validate the triples and apply any necessary preprocessing.
+        Validate the triplets and apply any necessary preprocessing.
 
-        Returns only valid triples. Raises error if none of the triples are valid
+        Returns only valid triplets. Raises error if none of the triplets are valid.
 
-        :param edges: List[tuple(str, str, str)] List of triples to validate
-        :return: List[tuple(str, str, str)] validated triplets
+        Args:
+            edges: List of triplets to validate
+
+        Returns:
+            List[Tuple]: Validated triplets
+
+        Raises:
+            ValueError: If no valid triplets are found
         """
         valid_triplets = [triplet for triplet in edges if len(triplet) == 3]
         if not valid_triplets:
@@ -60,11 +66,11 @@ class TripletGVerbalizer(GVerbalizer):
         Convert graph edges into natural language format using triplets.
 
         Args:
-            edges (List[Tuple]): List of graph triplets to be converted.
-            Assumes the format of each tuple is (src, rel, dst)
+            edges: List of graph triplets to be converted.
+                Assumes the format of each tuple is (src, rel, dst)
 
         Returns:
-            List[str]: A list of natural language descriptions corresponding to the input edges.
+            List[str]: A list of natural language descriptions corresponding to the input edges
         """
         valid_triplets = self.validate_and_process(edges)
 
@@ -72,14 +78,26 @@ class TripletGVerbalizer(GVerbalizer):
     
     def verbalize_relations(self, edges: List[Tuple]):
         """
-        Return relation descriptions only
+        Return relation descriptions only.
+
+        Args:
+            edges: List of triplets
+
+        Returns:
+            List[str]: List of relation strings
         """
 
         return [f"{triplet[1]}" for triplet in self.validate_and_process(edges)]
     
     def verbalize_head_relations(self, edges: List[Tuple]):
         """
-        Return head and relation descriptions 
+        Return head and relation descriptions.
+
+        Args:
+            edges: List of triplets
+
+        Returns:
+            List[str]: List of "head -> relation" strings
         """
 
         return [f"{triplet[0]} {self.delimiter} {triplet[1]}" for triplet in self.validate_and_process(edges)]
@@ -87,7 +105,14 @@ class TripletGVerbalizer(GVerbalizer):
     def verbalize_merge_triplets(self, edges: List[Tuple], max_retain_num=-1):
         """
         Merge tails of triplets with the same head and relation and verbalize.
-        Retain max_retain_num tails to avoid long-context.
+
+        Args:
+            edges: List of triplets
+            max_retain_num: Maximum number of tails to retain to avoid long context.
+                If -1, retain all tails.
+
+        Returns:
+            List[str]: List of merged and verbalized triplets
         """
         head_relations =  set(self.verbalize_head_relations(edges))
         return_set = defaultdict(list)
@@ -134,10 +159,10 @@ class PathVerbalizer(GVerbalizer):
         Validate that a path contains valid triplets.
 
         Args:
-            path: List of triplets representing a path.
+            path: List of triplets representing a path
 
         Returns:
-            bool: True if path is valid, False otherwise.
+            bool: True if path is valid, False otherwise
         """
         if not path:
             return False
@@ -148,10 +173,10 @@ class PathVerbalizer(GVerbalizer):
         Convert a single path into a verbalized format.
 
         Args:
-            path: List of triplets representing a path.
+            path: List of triplets representing a path
 
         Returns:
-            Tuple[str, bool]: Verbalized path and whether it's a single-hop path.
+            Tuple[str, bool]: Verbalized path and whether it's a single-hop path
         """
         if not self._validate_path(path):
             raise ValueError(f"Invalid path format: {path}")

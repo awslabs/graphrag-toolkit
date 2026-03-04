@@ -64,9 +64,9 @@ class AgenticRetriever(GRetriever):
         Search and prune relations based on relevance to the query.
         
         Args:
-            query (str): The search query
-            entities (list): List of entities to search from
-            max_num_relations (int): Maximum number of relations to return
+            query: The search query
+            entities: List of entities to search from
+            max_num_relations: Maximum number of relations to return
             
         Returns:
             list: Pruned list of relevant relations
@@ -90,9 +90,9 @@ class AgenticRetriever(GRetriever):
         Retrieve relevant information from the graph using an iterative exploration strategy.
 
         Args:
-            query (str): The search query
-            source_nodes (list): List of source nodes to start exploration from
-            history_context (list, optional): Previously retrieved context to build upon.
+            query: The search query
+            source_nodes: List of source nodes to start exploration from
+            history_context: Previously retrieved context to build upon.
                 If None, starts with an empty context.
 
         Returns:
@@ -204,12 +204,12 @@ class GraphScoringRetriever(GRetriever):
         Retrieve relevant information from the graph using multi-hop traversal with pruning and reranking.
 
         Args:
-            query (str): The search query
-            source_nodes (list): List of source nodes to start from
-            hops (int, optional): Number of hops to traverse. Defaults to 2.
-            topk (int, optional): Maximum number of results to return. Defaults to None.
-            max_num_relations (int): Maximum number of relations to keep after pruning
-            max_num_triplets (int): Maximum number of triplets to keep after pruning
+            query: The search query
+            source_nodes: List of source nodes to start from
+            hops: Number of hops to traverse. Defaults to 2.
+            topk: Maximum number of results to return. Defaults to None.
+            max_num_relations: Maximum number of relations to keep after pruning
+            max_num_triplets: Maximum number of triplets to keep after pruning
             **kwargs: Additional keyword arguments for the retrieval process
 
         Returns:
@@ -282,8 +282,8 @@ class PathRetriever(GRetriever):
         Follow predefined metapaths from source nodes and verbalize the results.
 
         Args:
-            source_nodes (list): List of starting nodes
-            metapaths (list): List of metapaths to follow
+            source_nodes: List of starting nodes
+            metapaths: List of metapaths to follow
 
         Returns:
             list: Verbalized paths following the metapaths
@@ -299,8 +299,8 @@ class PathRetriever(GRetriever):
         Find shortest paths between source and target nodes and verbalize the results.
 
         Args:
-            source_nodes (list): List of starting nodes
-            target_nodes (list): List of target nodes
+            source_nodes: List of starting nodes
+            target_nodes: List of target nodes
 
         Returns:
             list: Verbalized shortest paths between sources and targets
@@ -316,9 +316,9 @@ class PathRetriever(GRetriever):
         Retrieve paths by combining metapath traversal and shortest paths.
 
         Args:
-            source_nodes (list): List of starting nodes
-            metapaths (list): List of metapaths to follow
-            target_nodes (list): List of target nodes for shortest paths
+            source_nodes: List of starting nodes
+            metapaths: List of metapaths to follow
+            target_nodes: List of target nodes for shortest paths
             **kwargs: Additional keyword arguments for path retrieval
 
         Returns:
@@ -354,7 +354,7 @@ class GraphQueryRetriever(GRetriever):
 
         Args:
             graph_store: Component that implements graph query execution
-            block_graph_modification (bool): Whether to block modification queries.
+            block_graph_modification: Whether to block modification queries.
                 Defaults to True for security.
             
         Raises:
@@ -371,7 +371,7 @@ class GraphQueryRetriever(GRetriever):
         Check if a query is safe to execute without actually executing it.
         
         Args:
-            graph_query (str): The graph query to check
+            graph_query: The graph query to check
             
         Returns:
             bool: True if query is safe, False if it contains blocked keywords
@@ -403,8 +403,8 @@ class GraphQueryRetriever(GRetriever):
         Execute a graph query and return the verbalized results.
 
         Args:
-            graph_query (str): The graph query to execute
-            return_answers (bool, optional): Whether to return answers along with results.
+            graph_query: The graph query to execute
+            return_answers: Whether to return answers along with results.
                 Defaults to False.
             **kwargs: Additional keyword arguments for query execution
 

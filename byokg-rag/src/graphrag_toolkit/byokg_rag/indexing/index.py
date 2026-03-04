@@ -18,11 +18,14 @@ class Index(ABC):
     @abstractmethod
     def query(self, input, topk=1):
         """
-        match a query to items in the index and return the topk results
+        Match a query to items in the index and return the topk results.
 
-        :param query: str the query to match
-        :param topk: number of items to return
-        :return:
+        Args:
+            input: The query to match
+            topk: Number of items to return
+
+        Returns:
+            dict: Query results
         """
         pass
 
@@ -38,11 +41,14 @@ class Index(ABC):
 
     def add_with_ids(self, ids, documents):
         """
-        add documents with their given ids to the index
+        Add documents with their given ids to the index.
 
-        :param ids: list of documents to add
-        :param documents: list of doument ids in same order as documents
-        :return:
+        Args:
+            ids: List of document ids in same order as documents
+            documents: List of documents to add
+
+        Returns:
+            None
         """
         pass
 

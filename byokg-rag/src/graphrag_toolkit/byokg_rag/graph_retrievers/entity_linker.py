@@ -20,25 +20,25 @@ class Linker(ABC):
         Process to link the given queries to graph (nodes/edges).
 
         Args:
-            queries (List[str]): List of input query texts to perform graph linking on.
-            return_dict: Whether to return a dictionary of linking results or linked entities only.
-            **kwargs: Additional keyword arguments for graph linking configuration.
+            queries: List of input query texts to perform graph linking on
+            return_dict: Whether to return a dictionary of linking results or linked entities only
+            **kwargs: Additional keyword arguments for graph linking configuration
 
-        Returns: List[Dict] if return_dict else List[str]
-            List[Dict]: A list of dictionaries containing linking results for each query.
-                Each dictionary has the following structure:
-                {
-                    'hits': [
-                        {
-                            'document_id': List[str],  # List of matched entity IDs
-                            'document': List[str],     # List of matched entity documents
-                            'match_score': List[float] # List of matching scores
-                        }
-                    ]
-                }
-            or 
-
-            List[str]: A list of matched nodes, i.e., documents or entities 
+        Returns:
+            If return_dict is True:
+                List[Dict]: A list of dictionaries containing linking results for each query.
+                    Each dictionary has the following structure:
+                    {
+                        'hits': [
+                            {
+                                'document_id': List[str],  # List of matched entity IDs
+                                'document': List[str],     # List of matched entity documents
+                                'match_score': List[float] # List of matching scores
+                            }
+                        ]
+                    }
+            If return_dict is False:
+                List[str]: A list of matched nodes, i.e., documents or entities
         """
         if return_dict:
             return [{'hits': [{'document_id': [],
@@ -63,9 +63,9 @@ class EntityLinker(Linker):
         Initialize the EntityLinker instance.
 
         Args:
-            retriever: An indexing.EntityMatcher object.
-            topk: How many items to return per extracted entity per query.
-            **kwargs: Additional keyword arguments for graph linking configuration.
+            retriever: An indexing.EntityMatcher object
+            topk: How many items to return per extracted entity per query
+            **kwargs: Additional keyword arguments for graph linking configuration
         """
         self.retriever = retriever
         self.topk = topk
@@ -75,20 +75,21 @@ class EntityLinker(Linker):
         Process to link the given or extracted query entities to graph entities.
 
         Args:
-            queries (List[str]): List of entity lists to perform graph linking on.
-            retriever (object, optional): A retriever object to use for entity lookup.
+            query_extracted_entities: List of entity lists to perform graph linking on
+            retriever: A retriever object to use for entity lookup.
                 If None, the default retriever configured for this instance will be used.
-            topk (int, optional): The number of items to return per extracted entity
-            id_selector (list, optional): A list of ids to retrieve the topk from i.e an allowlist
-            return_dict: Whether to return a dictionary of linking results or linked entities only.
+            topk: The number of items to return per extracted entity
+            id_selector: A list of ids to retrieve the topk from (allowlist)
+            return_dict: Whether to return a dictionary of linking results or linked entities only
+
         Returns:
-            List[Dict] if return_dict else List[str]
-            List[Dict]: A list of dictionaries containing linking results for each query.
-            or
-            List[str]: A list of matched entities
+            If return_dict is True:
+                List[Dict]: A list of dictionaries containing linking results for each query
+            If return_dict is False:
+                List[str]: A list of matched entities
 
-
-        Note: topk is applied per entity
+        Note:
+            topk is applied per entity
         """
 
         if retriever is None and self.retriever is None:

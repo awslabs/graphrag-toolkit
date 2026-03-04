@@ -53,18 +53,22 @@ class NeptuneAnalyticsGraphStoreIndex(DenseIndex):
 
     def query(self, input, topk=1, id_selector=None):
         """
-        match a query to items in the index and return the topk results
+        Match a query to items in the index and return the topk results.
 
-        :param input: str the query to match
-        :param topk: number of items to return
-        :param id_selector: a list of ids to retrieve the topk from i.e an allowlist
-        :return:
+        Args:
+            input: The query to match
+            topk: Number of items to return
+            id_selector: A list of ids to retrieve the topk from (allowlist).
+                WARNING: Not supported for this index type and will be ignored.
+
+        Returns:
+            dict: Query results with hits containing document_id, document, and match_score
         """
 
         query_emb = self.embedding.embed(input)
 
         if id_selector is not None:
-            logger.warn('id_selector not supported for: {self.__class__.__name__}, ignoring')
+            logger.warn(f'id_selector not supported for {self.__class__.__name__}, ignoring')
 
         response = self.graphstore.execute_query(self.top_k_by_embedding_query.format(query_embedding_vector=query_emb, k=topk))
 

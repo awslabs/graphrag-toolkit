@@ -17,14 +17,24 @@ class BaseGenerator(ABC):
 
 class BedrockGenerator(BaseGenerator):
     """
-    LLMs implemented with Bedrock APIs.
+    LLM generator implemented with AWS Bedrock APIs.
     
-    Attributes:
-        model_name (str): The name or ID of the Bedrock model to use for generating responses.
-        max_tokens (int): The maximum number of new tokens to generate in the response.
-        system_prompt (str): The system prompt to provide to the language model.
+    This class provides a wrapper around AWS Bedrock's Converse API for
+    generating text responses using various foundation models.
     """
     def __init__(self, model_name="anthropic.claude-3-7-sonnet-20250219-v1:0", region_name="us-west-2", prefill=False, max_tokens = 4096, max_retries = 10, inference_config=None, reasoning_config=None):
+        """
+        Initialize the BedrockGenerator.
+
+        Args:
+            model_name: The name or ID of the Bedrock model to use
+            region_name: AWS region name where Bedrock is available
+            prefill: Whether to use prefill functionality (not currently implemented)
+            max_tokens: Maximum number of tokens to generate in the response
+            max_retries: Maximum number of retry attempts for failed requests
+            inference_config: Optional custom inference configuration dict
+            reasoning_config: Optional reasoning configuration for models that support it
+        """
         super().__init__()
         self.model_name = model_name
         self.max_new_tokens = max_tokens
@@ -36,12 +46,18 @@ class BedrockGenerator(BaseGenerator):
 
     def generate(self, prompt, system_prompt = "You are a helpful AI assistant.",  few_shot_examples=None):
         """
-        LLM Generation function
+        Generate a response using the Bedrock LLM.
         
-        Attributes:
-            prompt (str): The propmt to provide to the language model
-            system_prompt (str): The system prompt to provide to the language model.
-            few_shot_examples (str): few shot demonstrations for in-context learning
+        Args:
+            prompt: The prompt to provide to the language model
+            system_prompt: The system prompt to provide to the language model
+            few_shot_examples: Few shot demonstrations for in-context learning (not currently used)
+
+        Returns:
+            str: Generated text response
+
+        Raises:
+            Exception: If generation fails after all retry attempts
         """
         response = generate_llm_response(self.region_name, self.model_name, system_prompt, prompt, self.max_new_tokens, self.max_retries, self.inference_config, self.reasoning_config)
         if "Failed due to other reasons." in response:

@@ -40,21 +40,11 @@ class KGLinker:
         self.llm_generator = llm_generator
 
     def get_tasks(self, graph_store):
+        """
+        Returns the graph store's linker tasks
+        """
         return graph_store.get_linker_tasks()
 
-    def _finalize_prompt(self) -> str:
-        """
-        Combine task prompts into a single string.
-
-        Returns:
-            str: Combined task prompts
-        """
-        task_prompts = ""
-        for task in self.tasks:
-            task_prompt = load_yaml(self.task_prompt_file)[task]
-            task_prompts += f"\n\n{task_prompt}\n\n"
-        return task_prompts
-    
     def _finalize_prompt(self) -> str:
         """
         Combine task prompts into a single string.
@@ -178,6 +168,9 @@ class CypherKGLinker(KGLinker):
         return task_prompts
 
     def is_cypher_linker(self): #function to test if is instance of CypherKGLinker
+        """
+        Returns whether this linker is an instance of CypherKGLinker
+        """
         return True
 
 

@@ -30,7 +30,9 @@ class ByoKGQueryEngine:
             path_retriever: Optional component for retrieving paths
             graph_query_executor: Optional component for executing graph queries
             llm_generator: Optional language model for generating responses
-            direct_query_linking: flag whether to use entity linker with query embedding directly and can run without KG Linker LLM call
+            kg_linker: Optional KG linker for multi-strategy retrieval
+            cypher_kg_linker: Optional Cypher KG linker for cypher-based retrieval
+            direct_query_linking: Flag whether to use entity linker with query embedding directly
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
@@ -105,6 +107,9 @@ class ByoKGQueryEngine:
         Args:
             context_list: The list to add items to
             new_items: New items to add
+
+        Returns:
+            None
         """
         seen = set(context_list)
         for item in new_items:
@@ -113,7 +118,7 @@ class ByoKGQueryEngine:
                 seen.add(item)
 
     
-    def query(self, query: str, iterations: int = 2, cypher_iterations: int = 2, user_input: str = "") -> Tuple[List[str], List[str]]:
+    def query(self, query: str, iterations: int = 2, cypher_iterations: int = 2, user_input: str = "") -> List[str]:
         """
         Process a query through the retrieval and generation pipeline.
 
@@ -124,7 +129,7 @@ class ByoKGQueryEngine:
             user_input: Optional user input for additional instructions or context
 
         Returns:
-            Tuple of (retrieved context, final answers)
+            List containing retrieved context and final answers
         """
         retrieved_context: List[str] = []
         explored_entities: Set[str] = set()
@@ -237,6 +242,21 @@ class ByoKGQueryEngine:
         return cypher_context_with_feedback + retrieved_context
 
     def generate_response(self, query: str, graph_context: str = "", task_prompt = None, user_input: str = "") -> Tuple[List[str], str]:
+        """
+        Generate a response using the LLM based on the query and graph context.
+
+        Args:
+            query: The search query
+            graph_context: Retrieved graph context to use for generation
+            task_prompt: Optional custom task prompt. If None, uses default generation prompt
+            user_input: Optional user input for additional instructions or context
+
+        Returns:
+            tuple: (list of answers, full response text)
+
+        Raises:
+            NotImplementedError: If custom task_prompt is provided (not yet supported)
+        """
         
         if task_prompt is None:
             task_prompt = load_yaml("prompts/generation_prompts.yaml")["generate-response-qa"]

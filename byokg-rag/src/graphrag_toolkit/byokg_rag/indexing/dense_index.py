@@ -6,24 +6,38 @@ import numpy as np
 
 class DenseIndex(Index):
     """
-        Abstract base class for indexes
+    Abstract base class for dense indexes using embeddings.
+
+    This class extends the Index base class to support dense vector-based
+    indexing and retrieval using embeddings.
     """
 
     def __init__(self, embedding: Embedding = None):
+        """
+        Initialize the DenseIndex.
+
+        Args:
+            embedding: An Embedding object for generating vector embeddings
+        """
         self.embedding = embedding
 
 
 class LocalFaissDenseIndex(DenseIndex):
     """
-        A local dense text embedding index using faiss
+    A local dense text embedding index using FAISS.
+
+    This class provides efficient similarity search using FAISS library
+    with support for different distance metrics.
     """
 
     def __init__(self, embedding: Embedding = None, distance_type="l2", embedding_dim=-1):
         """
+        Initialize the LocalFaissDenseIndex.
 
-        :param embedding: an Embedding object that can embed text inputs (queries and docs) individually and in batch
-        :param distance_type: distance type for faiss index one of ["l2", "cosine", "inner_product"]
-        :param embedding_dim: dimension of embedding vector to save in the index
+        Args:
+            embedding: An Embedding object that can embed text inputs (queries and docs) individually and in batch
+            distance_type: Distance type for FAISS index, one of ["l2", "cosine", "inner_product"]
+            embedding_dim: Dimension of embedding vector to save in the index
         """
         assert embedding_dim > 0, "Embedding dimension size must be passed"
         self.distance_type = distance_type
@@ -101,14 +115,19 @@ class LocalFaissDenseIndex(DenseIndex):
         """
         Add documents with their given ids to the index.
 
-        Does not support update when the same id is used
+        Does not support update when the same id is used.
 
-        @TODO check if id already exists and throw error
-        @TODO potentially support upserts and deletes
+        NOTE: Currently does not check if id already exists.
+        TODO: Check if id already exists and throw error.
+        TODO: Potentially support upserts and deletes.
 
-        :param ids: list of ids for each document
-        :param documents: list of document text to add
+        Args:
+            ids: List of ids for each document
+            documents: List of document text to add
+            embeddings: Optional pre-computed embeddings as numpy array
 
+        Returns:
+            None
         """
         if isinstance(embeddings, np.ndarray):
             doc_embs = embeddings
