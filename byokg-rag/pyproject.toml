@@ -16,3 +16,43 @@ license = "Apache-2.0"
 
 [tool.hatch.metadata.hooks.requirements_txt]
 files = ["src/graphrag_toolkit/byokg_rag/requirements.txt"]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--cov=src/graphrag_toolkit/byokg_rag",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+]
+
+[tool.coverage.run]
+source = ["src/graphrag_toolkit/byokg_rag"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/prompts/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
+]
