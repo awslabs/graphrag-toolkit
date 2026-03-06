@@ -21,20 +21,20 @@ def mock_graph_store_with_edges():
     
     # Mock one-hop edges for single-hop expansion
     mock_store.get_one_hop_edges.return_value = {
-        'TechCorp': {
+        'Organization': {
             'FOUNDED_BY': ['edge1'],
             'LOCATED_IN': ['edge2']
         },
-        'Dr. Elena Voss': {
+        'John Doe': {
             'FOUNDED': ['edge3']
         }
     }
     
     # Mock edge destination nodes
     mock_store.get_edge_destination_nodes.return_value = {
-        'edge1': ['Dr. Elena Voss'],
+        'edge1': ['John Doe'],
         'edge2': ['Portland'],
-        'edge3': ['TechCorp']
+        'edge3': ['Organization']
     }
     
     return mock_store
@@ -53,12 +53,12 @@ def mock_graph_store_with_triplets():
     def get_one_hop_edges_side_effect(nodes, return_triplets=False):
         if return_triplets:
             return {
-                'TechCorp': {
-                    'FOUNDED_BY': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')],
-                    'LOCATED_IN': [('TechCorp', 'LOCATED_IN', 'Portland')]
+                'Organization': {
+                    'FOUNDED_BY': [('Organization', 'FOUNDED_BY', 'John Doe')],
+                    'LOCATED_IN': [('Organization', 'LOCATED_IN', 'Portland')]
                 },
-                'Dr. Elena Voss': {
-                    'FOUNDED': [('Dr. Elena Voss', 'FOUNDED', 'TechCorp')]
+                'John Doe': {
+                    'FOUNDED': [('John Doe', 'FOUNDED', 'Organization')]
                 },
                 'Portland': {
                     'LOCATED_IN': [('Portland', 'LOCATED_IN', 'Oregon')]
@@ -66,7 +66,7 @@ def mock_graph_store_with_triplets():
             }
         else:
             return {
-                'TechCorp': {
+                'Organization': {
                     'FOUNDED_BY': ['edge1'],
                     'LOCATED_IN': ['edge2']
                 }
@@ -93,18 +93,18 @@ class TestGraphTraversalSingleHop:
     def test_graph_traversal_single_hop(self, mock_graph_store_with_edges):
         """Verify single-hop expansion returns neighbor nodes."""
         traversal = GTraversal(graph_store=mock_graph_store_with_edges)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         
         result = traversal.one_hop_expand(source_nodes)
         
         assert isinstance(result, set)
-        assert 'Dr. Elena Voss' in result or 'Portland' in result
+        assert 'John Doe' in result or 'Portland' in result
         mock_graph_store_with_edges.get_one_hop_edges.assert_called_once_with(source_nodes)
     
     def test_graph_traversal_single_hop_with_edge_type(self, mock_graph_store_with_edges):
         """Verify single-hop expansion filters by edge type."""
         traversal = GTraversal(graph_store=mock_graph_store_with_edges)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         
         result = traversal.one_hop_expand(source_nodes, edge_type='FOUNDED_BY')
         
@@ -114,7 +114,7 @@ class TestGraphTraversalSingleHop:
     def test_graph_traversal_single_hop_return_src_id(self, mock_graph_store_with_edges):
         """Verify single-hop expansion returns source node mapping when requested."""
         traversal = GTraversal(graph_store=mock_graph_store_with_edges)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         
         result = traversal.one_hop_expand(source_nodes, return_src_id=True)
         
@@ -128,7 +128,7 @@ class TestGraphTraversalMultiHop:
     def test_graph_traversal_multi_hop(self, mock_graph_store_with_triplets):
         """Verify multi-hop traversal returns triplets from multiple hops."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         
         result = traversal.multi_hop_triplets(source_nodes, hop=2)
         
@@ -141,7 +141,7 @@ class TestGraphTraversalMultiHop:
     def test_graph_traversal_multi_hop_three_hops(self, mock_graph_store_with_triplets):
         """Verify multi-hop traversal works with three hops."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         
         result = traversal.multi_hop_triplets(source_nodes, hop=3)
         
@@ -156,7 +156,7 @@ class TestGraphTraversalWithMetapath:
     def test_graph_traversal_with_metapath(self, mock_graph_store_with_triplets):
         """Verify metapath-guided traversal follows specified edge types."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['Dr. Elena Voss']
+        source_nodes = ['John Doe']
         metapaths = [['FOUNDED', 'LOCATED_IN']]
         
         result = traversal.follow_paths(source_nodes, metapaths)
@@ -173,7 +173,7 @@ class TestGraphTraversalWithMetapath:
     def test_graph_traversal_with_single_edge_metapath(self, mock_graph_store_with_triplets):
         """Verify metapath traversal works with single-edge paths."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         metapaths = [['FOUNDED_BY']]
         
         result = traversal.follow_paths(source_nodes, metapaths)
@@ -183,7 +183,7 @@ class TestGraphTraversalWithMetapath:
     def test_graph_traversal_with_multiple_metapaths(self, mock_graph_store_with_triplets):
         """Verify traversal handles multiple metapaths from same source."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         metapaths = [['FOUNDED_BY'], ['LOCATED_IN']]
         
         result = traversal.follow_paths(source_nodes, metapaths)
@@ -197,7 +197,7 @@ class TestGraphTraversalTriplets:
     def test_one_hop_triplets(self, mock_graph_store_with_triplets):
         """Verify one-hop triplet expansion returns triplet tuples."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         
         result = traversal.one_hop_triplets(source_nodes)
         
@@ -210,18 +210,18 @@ class TestGraphTraversalTriplets:
         """Verify extraction of destination nodes from triplets."""
         traversal = GTraversal(graph_store=Mock())
         triplets = [
-            ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),
-            ('TechCorp', 'LOCATED_IN', 'Portland'),
-            ('Dr. Elena Voss', 'FOUNDED', 'TechCorp')
+            ('Organization', 'FOUNDED_BY', 'John Doe'),
+            ('Organization', 'LOCATED_IN', 'Portland'),
+            ('John Doe', 'FOUNDED', 'Organization')
         ]
         
         result = traversal.get_destination_triplet_nodes(triplets)
         
         assert isinstance(result, list)
         assert len(result) == 3
-        assert 'Dr. Elena Voss' in result
+        assert 'John Doe' in result
         assert 'Portland' in result
-        assert 'TechCorp' in result
+        assert 'Organization' in result
 
 
 class TestGraphTraversalShortestPaths:
@@ -230,7 +230,7 @@ class TestGraphTraversalShortestPaths:
     def test_shortest_paths_basic(self, mock_graph_store_with_triplets):
         """Verify shortest path finding between source and target nodes."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['Dr. Elena Voss']
+        source_nodes = ['John Doe']
         target_nodes = ['Portland']
         
         result = traversal.shortest_paths(source_nodes, target_nodes, max_distance=3)
@@ -246,7 +246,7 @@ class TestGraphTraversalShortestPaths:
     def test_shortest_paths_with_max_distance(self, mock_graph_store_with_triplets):
         """Verify shortest path respects max_distance constraint."""
         traversal = GTraversal(graph_store=mock_graph_store_with_triplets)
-        source_nodes = ['TechCorp']
+        source_nodes = ['Organization']
         target_nodes = ['Oregon']
         
         result = traversal.shortest_paths(source_nodes, target_nodes, max_distance=1)

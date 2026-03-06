@@ -28,19 +28,19 @@ def mock_graph_traversal():
     """Fixture providing a mock graph traversal component."""
     mock_traversal = Mock()
     mock_traversal.one_hop_triplets.return_value = [
-        ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),
-        ('TechCorp', 'LOCATED_IN', 'Portland')
+        ('Organization', 'FOUNDED_BY', 'John Doe'),
+        ('Organization', 'LOCATED_IN', 'Portland')
     ]
     mock_traversal.multi_hop_triplets.return_value = [
-        ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),
-        ('TechCorp', 'LOCATED_IN', 'Portland'),
+        ('Organization', 'FOUNDED_BY', 'John Doe'),
+        ('Organization', 'LOCATED_IN', 'Portland'),
         ('Portland', 'IN_STATE', 'Oregon')
     ]
     mock_traversal.follow_paths.return_value = [
-        ['TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss', 'BORN_IN', 'Chicago']
+        ['Organization', 'FOUNDED_BY', 'John Doe', 'BORN_IN', 'Chicago']
     ]
     mock_traversal.shortest_paths.return_value = [
-        ['TechCorp', 'LOCATED_IN', 'Portland']
+        ['Organization', 'LOCATED_IN', 'Portland']
     ]
     return mock_traversal
 
@@ -51,8 +51,8 @@ def mock_graph_verbalizer():
     mock_verbalizer = Mock()
     mock_verbalizer.verbalize_relations.return_value = ['FOUNDED_BY', 'LOCATED_IN']
     mock_verbalizer.verbalize_merge_triplets.return_value = [
-        'TechCorp FOUNDED_BY Dr. Elena Voss',
-        'TechCorp LOCATED_IN Portland'
+        'Organization FOUNDED_BY John Doe',
+        'Organization LOCATED_IN Portland'
     ]
     return mock_verbalizer
 
@@ -62,7 +62,7 @@ def mock_path_verbalizer():
     """Fixture providing a mock path verbalizer."""
     mock_verbalizer = Mock()
     mock_verbalizer.verbalize.return_value = [
-        'TechCorp -> FOUNDED_BY -> Dr. Elena Voss -> BORN_IN -> Chicago'
+        'Organization -> FOUNDED_BY -> John Doe -> BORN_IN -> Chicago'
     ]
     return mock_verbalizer
 
@@ -72,7 +72,7 @@ def mock_graph_reranker():
     """Fixture providing a mock graph reranker."""
     mock_reranker = Mock()
     mock_reranker.rerank_input_with_query.return_value = (
-        ['TechCorp FOUNDED_BY Dr. Elena Voss', 'TechCorp LOCATED_IN Portland'],
+        ['Organization FOUNDED_BY John Doe', 'Organization LOCATED_IN Portland'],
         [0.9, 0.8]
     )
     return mock_reranker
@@ -95,7 +95,7 @@ def mock_graph_store():
     """Fixture providing a mock graph store."""
     mock_store = Mock()
     mock_store.execute_query.return_value = [
-        {'name': 'TechCorp', 'founded': 2010}
+        {'name': 'Organization', 'founded': 2010}
     ]
     return mock_store
 
@@ -178,10 +178,10 @@ class TestAgenticRetrieverRelationSearchPrune:
             graph_verbalizer=mock_graph_verbalizer
         )
         
-        relations = retriever.relation_search_prune("test query", ['TechCorp'], max_num_relations=10)
+        relations = retriever.relation_search_prune("test query", ['Organization'], max_num_relations=10)
         
         assert isinstance(relations, (list, set))
-        mock_graph_traversal.one_hop_triplets.assert_called_once_with(['TechCorp'])
+        mock_graph_traversal.one_hop_triplets.assert_called_once_with(['Organization'])
     
     def test_relation_search_prune_empty_triplets(self, mock_llm_generator, mock_graph_traversal,
                                                   mock_graph_verbalizer):
@@ -194,7 +194,7 @@ class TestAgenticRetrieverRelationSearchPrune:
             graph_verbalizer=mock_graph_verbalizer
         )
         
-        relations = retriever.relation_search_prune("test query", ['TechCorp'])
+        relations = retriever.relation_search_prune("test query", ['Organization'])
         
         assert relations == []
     
@@ -215,7 +215,7 @@ class TestAgenticRetrieverRelationSearchPrune:
             pruning_reranker=mock_pruning_reranker
         )
         
-        relations = retriever.relation_search_prune("test query", ['TechCorp'], max_num_relations=5)
+        relations = retriever.relation_search_prune("test query", ['Organization'], max_num_relations=5)
         
         mock_pruning_reranker.rerank_input_with_query.assert_called_once()
         assert isinstance(relations, (list, tuple))
@@ -244,7 +244,7 @@ class TestAgenticRetrieverRetrieve:
             graph_verbalizer=mock_graph_verbalizer
         )
         
-        result = retriever.retrieve("Who founded TechCorp?", ['TechCorp'])
+        result = retriever.retrieve("Who founded Organization?", ['Organization'])
         
         assert isinstance(result, list)
         mock_graph_traversal.one_hop_triplets.assert_called()
@@ -270,7 +270,7 @@ class TestAgenticRetrieverRetrieve:
         )
         
         history = ['Previous context']
-        result = retriever.retrieve("test query", ['TechCorp'], history_context=history)
+        result = retriever.retrieve("test query", ['Organization'], history_context=history)
         
         assert isinstance(result, list)
 
@@ -318,10 +318,10 @@ class TestGraphScoringRetrieverRetrieve:
             graph_reranker=mock_graph_reranker
         )
         
-        result = retriever.retrieve("test query", ['TechCorp'], hops=2)
+        result = retriever.retrieve("test query", ['Organization'], hops=2)
         
         assert isinstance(result, list)
-        mock_graph_traversal.multi_hop_triplets.assert_called_once_with(['TechCorp'], hop=2)
+        mock_graph_traversal.multi_hop_triplets.assert_called_once_with(['Organization'], hop=2)
         mock_graph_reranker.rerank_input_with_query.assert_called_once()
     
     def test_retrieve_empty_source_nodes(self, mock_graph_traversal, mock_graph_verbalizer,
@@ -352,7 +352,7 @@ class TestGraphScoringRetrieverRetrieve:
             pruning_reranker=mock_pruning_reranker
         )
         
-        result = retriever.retrieve("test query", ['TechCorp'], hops=2, max_num_relations=5)
+        result = retriever.retrieve("test query", ['Organization'], hops=2, max_num_relations=5)
         
         assert isinstance(result, list)
         # Pruning should be called because we have more than max_num_relations
@@ -367,7 +367,7 @@ class TestGraphScoringRetrieverRetrieve:
             graph_reranker=mock_graph_reranker
         )
         
-        result = retriever.retrieve("test query", ['TechCorp'], topk=5)
+        result = retriever.retrieve("test query", ['Organization'], topk=5)
         
         assert isinstance(result, list)
         call_args = mock_graph_reranker.rerank_input_with_query.call_args
@@ -421,10 +421,10 @@ class TestPathRetrieverFollowPaths:
         )
         
         metapaths = [['FOUNDED_BY', 'BORN_IN']]
-        result = retriever.follow_paths(['TechCorp'], metapaths)
+        result = retriever.follow_paths(['Organization'], metapaths)
         
         assert isinstance(result, list)
-        mock_graph_traversal.follow_paths.assert_called_once_with(['TechCorp'], metapaths)
+        mock_graph_traversal.follow_paths.assert_called_once_with(['Organization'], metapaths)
         mock_path_verbalizer.verbalize.assert_called_once()
     
     def test_follow_paths_empty_result(self, mock_graph_traversal, mock_path_verbalizer):
@@ -436,7 +436,7 @@ class TestPathRetrieverFollowPaths:
             path_verbalizer=mock_path_verbalizer
         )
         
-        result = retriever.follow_paths(['TechCorp'], [['FOUNDED_BY']])
+        result = retriever.follow_paths(['Organization'], [['FOUNDED_BY']])
         
         assert result == []
 
@@ -452,10 +452,10 @@ class TestPathRetrieverShortestPaths:
             path_verbalizer=mock_path_verbalizer
         )
         
-        result = retriever.shortest_paths(['TechCorp'], ['Portland'])
+        result = retriever.shortest_paths(['Organization'], ['Portland'])
         
         assert isinstance(result, list)
-        mock_graph_traversal.shortest_paths.assert_called_once_with(['TechCorp'], ['Portland'])
+        mock_graph_traversal.shortest_paths.assert_called_once_with(['Organization'], ['Portland'])
         mock_path_verbalizer.verbalize.assert_called_once()
     
     def test_shortest_paths_empty_result(self, mock_graph_traversal, mock_path_verbalizer):
@@ -467,7 +467,7 @@ class TestPathRetrieverShortestPaths:
             path_verbalizer=mock_path_verbalizer
         )
         
-        result = retriever.shortest_paths(['TechCorp'], ['Portland'])
+        result = retriever.shortest_paths(['Organization'], ['Portland'])
         
         assert result == []
 
@@ -483,7 +483,7 @@ class TestPathRetrieverRetrieve:
         )
         
         metapaths = [['FOUNDED_BY', 'BORN_IN']]
-        result = retriever.retrieve(['TechCorp'], metapaths=metapaths)
+        result = retriever.retrieve(['Organization'], metapaths=metapaths)
         
         assert isinstance(result, list)
         mock_graph_traversal.follow_paths.assert_called_once()
@@ -495,7 +495,7 @@ class TestPathRetrieverRetrieve:
             path_verbalizer=mock_path_verbalizer
         )
         
-        result = retriever.retrieve(['TechCorp'], target_nodes=['Portland'])
+        result = retriever.retrieve(['Organization'], target_nodes=['Portland'])
         
         assert isinstance(result, list)
         mock_graph_traversal.shortest_paths.assert_called_once()
@@ -509,7 +509,7 @@ class TestPathRetrieverRetrieve:
         )
         
         metapaths = [['FOUNDED_BY']]
-        result = retriever.retrieve(['TechCorp'], metapaths=metapaths, target_nodes=['Portland'])
+        result = retriever.retrieve(['Organization'], metapaths=metapaths, target_nodes=['Portland'])
         
         assert isinstance(result, list)
         mock_graph_traversal.follow_paths.assert_called_once()
@@ -523,7 +523,7 @@ class TestPathRetrieverRetrieve:
             path_verbalizer=mock_path_verbalizer
         )
         
-        result = retriever.retrieve(['TechCorp'], metapaths=[], target_nodes=[])
+        result = retriever.retrieve(['Organization'], metapaths=[], target_nodes=[])
         
         assert result == []
 
@@ -657,7 +657,7 @@ class TestGraphQueryRetrieverRetrieve:
         assert isinstance(context, list)
         assert isinstance(answers, list)
         assert len(answers) == 1
-        assert answers[0]['name'] == 'TechCorp'
+        assert answers[0]['name'] == 'Organization'
     
     def test_retrieve_with_return_answers_false(self, mock_graph_store):
         """Verify retrieval with return_answers=False."""

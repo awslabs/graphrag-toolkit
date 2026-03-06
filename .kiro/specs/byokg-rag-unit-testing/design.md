@@ -153,7 +153,7 @@ def mock_graph_store():
         'node_types': ['Person', 'Organization', 'Location'],
         'edge_types': ['WORKS_FOR', 'LOCATED_IN']
     }
-    mock_store.nodes.return_value = ['TechCorp', 'Portland', 'Dr. Elena Voss']
+    mock_store.nodes.return_value = ['Organization', 'Portland', 'John Doe']
     return mock_store
 ```
 
@@ -168,9 +168,9 @@ def sample_queries():
     Returns a list of representative queries covering different patterns.
     """
     return [
-        "Who founded TechCorp?",
-        "Where is TechCorp headquartered?",
-        "What products does TechCorp sell?"
+        "Who founded Organization?",
+        "Where is Organization headquartered?",
+        "What products does Organization sell?"
     ]
 ```
 
@@ -186,8 +186,8 @@ def sample_graph_data():
     """
     return {
         'nodes': [
-            {'id': 'n1', 'label': 'Person', 'name': 'Dr. Elena Voss'},
-            {'id': 'n2', 'label': 'Organization', 'name': 'TechCorp'},
+            {'id': 'n1', 'label': 'Person', 'name': 'John Doe'},
+            {'id': 'n2', 'label': 'Organization', 'name': 'Organization'},
             {'id': 'n3', 'label': 'Location', 'name': 'Portland'}
         ],
         'edges': [
@@ -732,7 +732,7 @@ Mock byokg-rag components for integration tests:
 def mock_entity_linker():
     """Mock EntityLinker for query engine tests."""
     mock_linker = Mock(spec=EntityLinker)
-    mock_linker.link.return_value = ['TechCorp', 'Portland']
+    mock_linker.link.return_value = ['Organization', 'Portland']
     return mock_linker
 ```
 
@@ -817,12 +817,12 @@ def test_fuzzy_string_index_query_exact_match():
     string index should return that item with a match score of 100.
     """
     index = FuzzyStringIndex()
-    index.add(['TechCorp', 'DataCorp', 'CloudCorp'])
+    index.add(['Organization', 'DataCorp', 'CloudCorp'])
     
-    result = index.query('TechCorp', topk=1)
+    result = index.query('Organization', topk=1)
     
     assert len(result['hits']) == 1
-    assert result['hits'][0]['document'] == 'TechCorp'
+    assert result['hits'][0]['document'] == 'Organization'
     assert result['hits'][0]['match_score'] == 100
 ```
 
@@ -1034,33 +1034,33 @@ class TestFuzzyStringIndexAdd:
     def test_add_single_item(self):
         """Verify adding a single vocabulary item."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp'])
+        index.add(['Organization'])
         
-        assert 'TechCorp' in index.vocab
+        assert 'Organization' in index.vocab
         assert len(index.vocab) == 1
     
     def test_add_multiple_items(self):
         """Verify adding multiple vocabulary items."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp', 'DataCorp', 'CloudCorp'])
+        index.add(['Organization', 'DataCorp', 'CloudCorp'])
         
         assert len(index.vocab) == 3
-        assert all(item in index.vocab for item in ['TechCorp', 'DataCorp', 'CloudCorp'])
+        assert all(item in index.vocab for item in ['Organization', 'DataCorp', 'CloudCorp'])
     
     def test_add_duplicate_items(self):
         """Verify duplicate items are deduplicated."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp', 'TechCorp', 'DataCorp'])
+        index.add(['Organization', 'Organization', 'DataCorp'])
         
         assert len(index.vocab) == 2
-        assert index.vocab.count('TechCorp') == 1
+        assert index.vocab.count('Organization') == 1
     
     def test_add_with_ids_not_implemented(self):
         """Verify add_with_ids raises NotImplementedError."""
         index = FuzzyStringIndex()
         
         with pytest.raises(NotImplementedError):
-            index.add_with_ids(['id1'], ['TechCorp'])
+            index.add_with_ids(['id1'], ['Organization'])
 
 
 class TestFuzzyStringIndexQuery:
@@ -1069,31 +1069,31 @@ class TestFuzzyStringIndexQuery:
     def test_query_exact_match(self):
         """Verify exact string matching returns 100% match score."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp', 'DataCorp', 'CloudCorp'])
+        index.add(['Organization', 'DataCorp', 'CloudCorp'])
         
-        result = index.query('TechCorp', topk=1)
+        result = index.query('Organization', topk=1)
         
         assert len(result['hits']) == 1
-        assert result['hits'][0]['document'] == 'TechCorp'
+        assert result['hits'][0]['document'] == 'Organization'
         assert result['hits'][0]['match_score'] == 100
     
     def test_query_fuzzy_match(self):
         """Verify fuzzy matching handles typos."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp', 'DataCorp', 'CloudCorp'])
+        index.add(['Organization', 'DataCorp', 'CloudCorp'])
         
-        result = index.query('TechCrp', topk=1)  # Missing 'o'
+        result = index.query('Organizaton', topk=1)  # Missing 'i'
         
         assert len(result['hits']) == 1
-        assert result['hits'][0]['document'] == 'TechCorp'
+        assert result['hits'][0]['document'] == 'Organization'
         assert result['hits'][0]['match_score'] > 80  # High but not perfect
     
     def test_query_topk_limiting(self):
         """Verify topk parameter limits results."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp', 'DataCorp', 'CloudCorp', 'WebCorp', 'AppCorp'])
+        index.add(['Organization', 'DataCorp', 'CloudCorp', 'WebCorp', 'AppCorp'])
         
-        result = index.query('Tech', topk=3)
+        result = index.query('Org', topk=3)
         
         assert len(result['hits']) == 3
     
@@ -1101,17 +1101,17 @@ class TestFuzzyStringIndexQuery:
         """Verify querying empty index returns empty results."""
         index = FuzzyStringIndex()
         
-        result = index.query('TechCorp', topk=1)
+        result = index.query('Organization', topk=1)
         
         assert len(result['hits']) == 0
     
     def test_query_with_id_selector_not_implemented(self):
         """Verify id_selector parameter raises NotImplementedError."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp'])
+        index.add(['Organization'])
         
         with pytest.raises(NotImplementedError):
-            index.query('TechCorp', topk=1, id_selector=['id1'])
+            index.query('Organization', topk=1, id_selector=['id1'])
 
 
 class TestFuzzyStringIndexMatch:
@@ -1120,22 +1120,22 @@ class TestFuzzyStringIndexMatch:
     def test_match_multiple_inputs(self):
         """Verify batch matching of multiple queries."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp', 'DataCorp', 'CloudCorp'])
+        index.add(['Organization', 'DataCorp', 'CloudCorp'])
         
-        result = index.match(['TechCorp', 'CloudCorp'], topk=1)
+        result = index.match(['Organization', 'CloudCorp'], topk=1)
         
         assert len(result['hits']) == 2
         documents = [hit['document'] for hit in result['hits']]
-        assert 'TechCorp' in documents
+        assert 'Organization' in documents
         assert 'CloudCorp' in documents
     
     def test_match_length_filtering(self):
         """Verify max_len_difference filters short matches."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp Solutions', 'TC', 'TechCorp'])
+        index.add(['Organization Solutions', 'OS', 'Organization'])
         
-        # Query for long string, should filter out 'TC' (too short)
-        result = index.match(['TechCorp Solutions'], topk=3, max_len_difference=4)
+        # Query for long string, should filter out 'OS' (too short)
+        result = index.match(['Organization Solutions'], topk=3, max_len_difference=4)
         
         documents = [hit['document'] for hit in result['hits']]
         assert 'TC' not in documents  # Too short compared to query
@@ -1143,9 +1143,9 @@ class TestFuzzyStringIndexMatch:
     def test_match_sorted_by_score(self):
         """Verify results are sorted by match score descending."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp', 'TechCorporation', 'Technology'])
+        index.add(['Organization', 'Organizations', 'Organize'])
         
-        result = index.match(['TechCorp'], topk=3)
+        result = index.match(['Organization'], topk=3)
         
         scores = [hit['match_score'] for hit in result['hits']]
         assert scores == sorted(scores, reverse=True)
@@ -1153,10 +1153,10 @@ class TestFuzzyStringIndexMatch:
     def test_match_with_id_selector_not_implemented(self):
         """Verify id_selector parameter raises NotImplementedError."""
         index = FuzzyStringIndex()
-        index.add(['TechCorp'])
+        index.add(['Organization'])
         
         with pytest.raises(NotImplementedError):
-            index.match(['TechCorp'], topk=1, id_selector=['id1'])
+            index.match(['Organization'], topk=1, id_selector=['id1'])
 ```
 
 ### Example 3: Entity Linker Test Implementation
@@ -1185,8 +1185,8 @@ def mock_retriever():
     mock.retrieve.return_value = {
         'hits': [
             {
-                'document_id': 'TechCorp',
-                'document': 'TechCorp',
+                'document_id': 'Organization',
+                'document': 'Organization',
                 'match_score': 95.0
             },
             {
@@ -1325,7 +1325,7 @@ def mock_graph_store():
         'node_types': ['Person', 'Organization'],
         'edge_types': ['WORKS_FOR']
     }
-    mock_store.nodes.return_value = ['TechCorp', 'Dr. Elena Voss']
+    mock_store.nodes.return_value = ['Organization', 'John Doe']
     return mock_store
 
 
@@ -1333,7 +1333,7 @@ def mock_graph_store():
 def mock_llm_generator():
     """Fixture providing a mock LLM generator."""
     mock_gen = Mock()
-    mock_gen.generate.return_value = "<entity-extraction>TechCorp</entity-extraction>"
+    mock_gen.generate.return_value = "<entity-extraction>Organization</entity-extraction>"
     return mock_gen
 
 
@@ -1431,7 +1431,7 @@ class TestQueryEngineGenerateResponse:
     ):
         """Verify response generation with default prompt."""
         mock_llm_generator.generate.return_value = (
-            "<answers>TechCorp was founded by Dr. Elena Voss</answers>"
+            "<answers>Organization was founded by John Doe</answers>"
         )
         
         engine = ByoKGQueryEngine(
@@ -1440,8 +1440,8 @@ class TestQueryEngineGenerateResponse:
         )
         
         answers, response = engine.generate_response(
-            query="Who founded TechCorp?",
-            graph_context="Dr. Elena Voss founded TechCorp"
+            query="Who founded Organization?",
+            graph_context="John Doe founded Organization"
         )
         
         assert isinstance(answers, list)

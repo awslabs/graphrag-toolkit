@@ -37,35 +37,35 @@ class TestTripletVerbalizerFormat:
         """Verify triplet verbalizer formats triplets correctly."""
         verbalizer = TripletGVerbalizer()
         triplets = [
-            ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),
-            ('TechCorp', 'LOCATED_IN', 'Portland')
+            ('Organization', 'FOUNDED_BY', 'John Doe'),
+            ('Organization', 'LOCATED_IN', 'Portland')
         ]
         
         result = verbalizer.verbalize(triplets)
         
         assert isinstance(result, list)
         assert len(result) == 2
-        assert result[0] == 'TechCorp -> FOUNDED_BY -> Dr. Elena Voss'
-        assert result[1] == 'TechCorp -> LOCATED_IN -> Portland'
+        assert result[0] == 'Organization -> FOUNDED_BY -> John Doe'
+        assert result[1] == 'Organization -> LOCATED_IN -> Portland'
     
     def test_triplet_verbalizer_custom_delimiter(self):
         """Verify triplet verbalizer uses custom delimiter."""
         verbalizer = TripletGVerbalizer(delimiter='-->')
-        triplets = [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]
+        triplets = [('Organization', 'FOUNDED_BY', 'John Doe')]
         
         result = verbalizer.verbalize(triplets)
         
-        assert result[0] == 'TechCorp --> FOUNDED_BY --> Dr. Elena Voss'
+        assert result[0] == 'Organization --> FOUNDED_BY --> John Doe'
     
     def test_triplet_verbalizer_single_triplet(self):
         """Verify triplet verbalizer handles single triplet."""
         verbalizer = TripletGVerbalizer()
-        triplets = [('Dr. Elena Voss', 'FOUNDED', 'TechCorp')]
+        triplets = [('John Doe', 'FOUNDED', 'Organization')]
         
         result = verbalizer.verbalize(triplets)
         
         assert len(result) == 1
-        assert result[0] == 'Dr. Elena Voss -> FOUNDED -> TechCorp'
+        assert result[0] == 'John Doe -> FOUNDED -> Organization'
 
 
 class TestTripletVerbalizerValidation:
@@ -74,7 +74,7 @@ class TestTripletVerbalizerValidation:
     def test_verbalizer_invalid_triplet_length(self):
         """Verify ValueError raised for invalid triplet length."""
         verbalizer = TripletGVerbalizer()
-        invalid_triplets = [('TechCorp', 'FOUNDED_BY')]  # Only 2 elements
+        invalid_triplets = [('Organization', 'FOUNDED_BY')]  # Only 2 elements
         
         with pytest.raises(ValueError, match="No valid triplets found"):
             verbalizer.verbalize(invalid_triplets)
@@ -83,15 +83,15 @@ class TestTripletVerbalizerValidation:
         """Verify verbalizer filters out invalid triplets and processes valid ones."""
         verbalizer = TripletGVerbalizer()
         mixed_triplets = [
-            ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),  # Valid
-            ('TechCorp', 'LOCATED_IN'),  # Invalid - only 2 elements
+            ('Organization', 'FOUNDED_BY', 'John Doe'),  # Valid
+            ('Organization', 'LOCATED_IN'),  # Invalid - only 2 elements
             ('Portland', 'IN', 'Oregon')  # Valid
         ]
         
         result = verbalizer.verbalize(mixed_triplets)
         
         assert len(result) == 2
-        assert 'TechCorp -> FOUNDED_BY -> Dr. Elena Voss' in result
+        assert 'Organization -> FOUNDED_BY -> John Doe' in result
         assert 'Portland -> IN -> Oregon' in result
 
 
@@ -114,8 +114,8 @@ class TestTripletVerbalizerRelations:
         """Verify verbalize_relations returns only relation strings."""
         verbalizer = TripletGVerbalizer()
         triplets = [
-            ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),
-            ('TechCorp', 'LOCATED_IN', 'Portland')
+            ('Organization', 'FOUNDED_BY', 'John Doe'),
+            ('Organization', 'LOCATED_IN', 'Portland')
         ]
         
         result = verbalizer.verbalize_relations(triplets)
@@ -133,16 +133,16 @@ class TestTripletVerbalizerHeadRelations:
         """Verify verbalize_head_relations returns head and relation strings."""
         verbalizer = TripletGVerbalizer()
         triplets = [
-            ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),
-            ('TechCorp', 'LOCATED_IN', 'Portland')
+            ('Organization', 'FOUNDED_BY', 'John Doe'),
+            ('Organization', 'LOCATED_IN', 'Portland')
         ]
         
         result = verbalizer.verbalize_head_relations(triplets)
         
         assert isinstance(result, list)
         assert len(result) == 2
-        assert result[0] == 'TechCorp -> FOUNDED_BY'
-        assert result[1] == 'TechCorp -> LOCATED_IN'
+        assert result[0] == 'Organization -> FOUNDED_BY'
+        assert result[1] == 'Organization -> LOCATED_IN'
 
 
 class TestTripletVerbalizerMerge:
@@ -152,32 +152,32 @@ class TestTripletVerbalizerMerge:
         """Verify verbalize_merge_triplets merges tails with same head and relation."""
         verbalizer = TripletGVerbalizer()
         triplets = [
-            ('TechCorp', 'SELLS', 'Software'),
-            ('TechCorp', 'SELLS', 'Hardware'),
-            ('TechCorp', 'SELLS', 'Services'),
+            ('Organization', 'SELLS', 'Software'),
+            ('Organization', 'SELLS', 'Hardware'),
+            ('Organization', 'SELLS', 'Services'),
             ('DataCorp', 'SELLS', 'Analytics')
         ]
         
         result = verbalizer.verbalize_merge_triplets(triplets)
         
         assert isinstance(result, list)
-        # Should merge the three TechCorp SELLS triplets into one
-        techcorp_sells = [r for r in result if r.startswith('TechCorp -> SELLS')]
-        assert len(techcorp_sells) == 1
-        assert 'Software' in techcorp_sells[0]
-        assert 'Hardware' in techcorp_sells[0]
-        assert 'Services' in techcorp_sells[0]
-        assert '|' in techcorp_sells[0]  # Default merge delimiter
+        # Should merge the three Organization SELLS triplets into one
+        organization_sells = [r for r in result if r.startswith('Organization -> SELLS')]
+        assert len(organization_sells) == 1
+        assert 'Software' in organization_sells[0]
+        assert 'Hardware' in organization_sells[0]
+        assert 'Services' in organization_sells[0]
+        assert '|' in organization_sells[0]  # Default merge delimiter
     
     def test_verbalize_merge_triplets_with_max_retain(self):
         """Verify verbalize_merge_triplets respects max_retain_num parameter."""
         verbalizer = TripletGVerbalizer()
         triplets = [
-            ('TechCorp', 'SELLS', 'Software'),
-            ('TechCorp', 'SELLS', 'Hardware'),
-            ('TechCorp', 'SELLS', 'Services'),
-            ('TechCorp', 'SELLS', 'Consulting'),
-            ('TechCorp', 'SELLS', 'Training')
+            ('Organization', 'SELLS', 'Software'),
+            ('Organization', 'SELLS', 'Hardware'),
+            ('Organization', 'SELLS', 'Services'),
+            ('Organization', 'SELLS', 'Consulting'),
+            ('Organization', 'SELLS', 'Training')
         ]
         
         result = verbalizer.verbalize_merge_triplets(triplets, max_retain_num=3)
@@ -216,8 +216,8 @@ class TestPathVerbalizerFormat:
         verbalizer = PathVerbalizer()
         paths = [
             [
-                ('Dr. Elena Voss', 'FOUNDED', 'TechCorp'),
-                ('TechCorp', 'LOCATED_IN', 'Portland')
+                ('John Doe', 'FOUNDED', 'Organization'),
+                ('Organization', 'LOCATED_IN', 'Portland')
             ]
         ]
         
@@ -230,7 +230,7 @@ class TestPathVerbalizerFormat:
         """Verify path verbalizer handles single-hop paths."""
         verbalizer = PathVerbalizer()
         paths = [
-            [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]
+            [('Organization', 'FOUNDED_BY', 'John Doe')]
         ]
         
         result = verbalizer.verbalize(paths)
@@ -243,8 +243,8 @@ class TestPathVerbalizerFormat:
         verbalizer = PathVerbalizer()
         paths = [
             [
-                ('Dr. Elena Voss', 'FOUNDED', 'TechCorp'),
-                ('TechCorp', 'LOCATED_IN', 'Portland'),
+                ('John Doe', 'FOUNDED', 'Organization'),
+                ('Organization', 'LOCATED_IN', 'Portland'),
                 ('Portland', 'IN', 'Oregon')
             ]
         ]
@@ -286,8 +286,8 @@ class TestPathVerbalizerValidation:
         verbalizer = PathVerbalizer()
         paths = [
             [
-                ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss'),  # Valid
-                ('TechCorp', 'LOCATED_IN')  # Invalid - only 2 elements
+                ('Organization', 'FOUNDED_BY', 'John Doe'),  # Valid
+                ('Organization', 'LOCATED_IN')  # Invalid - only 2 elements
             ]
         ]
         

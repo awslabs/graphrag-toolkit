@@ -35,7 +35,7 @@ def mock_graph_store():
         'node_types': ['Person', 'Organization', 'Location'],
         'edge_types': ['WORKS_FOR', 'LOCATED_IN']
     }
-    mock_store.nodes.return_value = ['TechCorp', 'Portland', 'Dr. Elena Voss']
+    mock_store.nodes.return_value = ['Organization', 'Portland', 'John Doe']
     return mock_store
 
 
@@ -47,9 +47,9 @@ def sample_queries():
     Returns a list of representative queries covering different patterns.
     """
     return [
-        "Who founded TechCorp?",
-        "Where is TechCorp headquartered?",
-        "What products does TechCorp sell?"
+        "Who founded Organization?",
+        "Where is Organization headquartered?",
+        "What products does Organization sell?"
     ]
 
 

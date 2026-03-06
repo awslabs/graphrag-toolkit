@@ -48,9 +48,9 @@ class TestLocalKGStoreInitialization:
     def test_initialization_with_graph(self):
         """Verify LocalKGStore initializes with provided graph."""
         initial_graph = {
-            'TechCorp': {
+            'Organization': {
                 'FOUNDED_BY': {
-                    'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]
+                    'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]
                 }
             }
         }
@@ -69,35 +69,35 @@ class TestLocalKGStoreReadFromCSV:
         # Create temporary CSV file
         with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
             f.write('source,relation,target\n')
-            f.write('TechCorp,FOUNDED_BY,Dr. Elena Voss\n')
-            f.write('TechCorp,LOCATED_IN,Portland\n')
+            f.write('Organization,FOUNDED_BY,John Doe\n')
+            f.write('Organization,LOCATED_IN,Portland\n')
             temp_path = f.name
         
         try:
             store = LocalKGStore()
             graph = store.read_from_csv(temp_path)
             
-            assert 'TechCorp' in graph
-            assert 'FOUNDED_BY' in graph['TechCorp']
-            assert 'LOCATED_IN' in graph['TechCorp']
-            assert len(graph['TechCorp']['FOUNDED_BY']['triplets']) == 1
-            assert graph['TechCorp']['FOUNDED_BY']['triplets'][0] == ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')
+            assert 'Organization' in graph
+            assert 'FOUNDED_BY' in graph['Organization']
+            assert 'LOCATED_IN' in graph['Organization']
+            assert len(graph['Organization']['FOUNDED_BY']['triplets']) == 1
+            assert graph['Organization']['FOUNDED_BY']['triplets'][0] == ('Organization', 'FOUNDED_BY', 'John Doe')
         finally:
             os.unlink(temp_path)
     
     def test_read_from_csv_no_header(self):
         """Verify reading CSV without header."""
         with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
-            f.write('TechCorp,FOUNDED_BY,Dr. Elena Voss\n')
-            f.write('TechCorp,LOCATED_IN,Portland\n')
+            f.write('Organization,FOUNDED_BY,John Doe\n')
+            f.write('Organization,LOCATED_IN,Portland\n')
             temp_path = f.name
         
         try:
             store = LocalKGStore()
             graph = store.read_from_csv(temp_path, has_header=False)
             
-            assert 'TechCorp' in graph
-            assert len(graph['TechCorp']) == 2
+            assert 'Organization' in graph
+            assert len(graph['Organization']) == 2
         finally:
             os.unlink(temp_path)
     
@@ -105,15 +105,15 @@ class TestLocalKGStoreReadFromCSV:
         """Verify reading CSV with custom delimiter."""
         with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
             f.write('source|relation|target\n')
-            f.write('TechCorp|FOUNDED_BY|Dr. Elena Voss\n')
+            f.write('Organization|FOUNDED_BY|John Doe\n')
             temp_path = f.name
         
         try:
             store = LocalKGStore()
             graph = store.read_from_csv(temp_path, delimiter='|')
             
-            assert 'TechCorp' in graph
-            assert 'FOUNDED_BY' in graph['TechCorp']
+            assert 'Organization' in graph
+            assert 'FOUNDED_BY' in graph['Organization']
         finally:
             os.unlink(temp_path)
     
@@ -121,7 +121,7 @@ class TestLocalKGStoreReadFromCSV:
         """Verify handling of invalid rows in CSV."""
         with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
             f.write('source,relation,target\n')
-            f.write('TechCorp,FOUNDED_BY,Dr. Elena Voss\n')
+            f.write('Organization,FOUNDED_BY,John Doe\n')
             f.write('Invalid,Row\n')  # Invalid row with only 2 columns
             f.write('DataCorp,FOUNDED_BY,John Smith\n')
             temp_path = f.name
@@ -130,7 +130,7 @@ class TestLocalKGStoreReadFromCSV:
             store = LocalKGStore()
             graph = store.read_from_csv(temp_path)
             
-            assert 'TechCorp' in graph
+            assert 'Organization' in graph
             assert 'DataCorp' in graph
             # Invalid row should be skipped
         finally:
@@ -153,9 +153,9 @@ class TestLocalKGStoreGetSchema:
     def test_get_schema_with_relations(self):
         """Verify schema extraction from graph."""
         graph = {
-            'TechCorp': {
-                'FOUNDED_BY': {'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]},
-                'LOCATED_IN': {'triplets': [('TechCorp', 'LOCATED_IN', 'Portland')]}
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]},
+                'LOCATED_IN': {'triplets': [('Organization', 'LOCATED_IN', 'Portland')]}
             },
             'DataCorp': {
                 'FOUNDED_BY': {'triplets': [('DataCorp', 'FOUNDED_BY', 'John Smith')]}
@@ -185,7 +185,7 @@ class TestLocalKGStoreNodes:
     def test_nodes_with_data(self):
         """Verify nodes returns all node IDs."""
         graph = {
-            'TechCorp': {},
+            'Organization': {},
             'DataCorp': {},
             'CloudCorp': {}
         }
@@ -194,7 +194,7 @@ class TestLocalKGStoreNodes:
         nodes = store.nodes()
         
         assert len(nodes) == 3
-        assert 'TechCorp' in nodes
+        assert 'Organization' in nodes
         assert 'DataCorp' in nodes
         assert 'CloudCorp' in nodes
 
@@ -205,8 +205,8 @@ class TestLocalKGStoreGetNodes:
     def test_get_nodes_existing(self):
         """Verify get_nodes returns details for existing nodes."""
         graph = {
-            'TechCorp': {
-                'FOUNDED_BY': {'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]}
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]}
             },
             'DataCorp': {
                 'FOUNDED_BY': {'triplets': [('DataCorp', 'FOUNDED_BY', 'John Smith')]}
@@ -214,24 +214,24 @@ class TestLocalKGStoreGetNodes:
         }
         
         store = LocalKGStore(graph=graph)
-        nodes = store.get_nodes(['TechCorp', 'DataCorp'])
+        nodes = store.get_nodes(['Organization', 'DataCorp'])
         
-        assert 'TechCorp' in nodes
+        assert 'Organization' in nodes
         assert 'DataCorp' in nodes
-        assert 'FOUNDED_BY' in nodes['TechCorp']
+        assert 'FOUNDED_BY' in nodes['Organization']
     
     def test_get_nodes_nonexistent(self):
         """Verify get_nodes handles nonexistent nodes."""
         graph = {
-            'TechCorp': {
-                'FOUNDED_BY': {'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]}
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]}
             }
         }
         
         store = LocalKGStore(graph=graph)
-        nodes = store.get_nodes(['TechCorp', 'Nonexistent'])
+        nodes = store.get_nodes(['Organization', 'Nonexistent'])
         
-        assert 'TechCorp' in nodes
+        assert 'Organization' in nodes
         assert 'Nonexistent' not in nodes
 
 
@@ -266,9 +266,9 @@ class TestLocalKGStoreGetTriplets:
     def test_get_triplets_with_data(self):
         """Verify get_triplets returns all triplets."""
         graph = {
-            'TechCorp': {
-                'FOUNDED_BY': {'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]},
-                'LOCATED_IN': {'triplets': [('TechCorp', 'LOCATED_IN', 'Portland')]}
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]},
+                'LOCATED_IN': {'triplets': [('Organization', 'LOCATED_IN', 'Portland')]}
             },
             'DataCorp': {
                 'FOUNDED_BY': {'triplets': [('DataCorp', 'FOUNDED_BY', 'John Smith')]}
@@ -279,8 +279,8 @@ class TestLocalKGStoreGetTriplets:
         triplets = store.get_triplets()
         
         assert len(triplets) == 3
-        assert ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss') in triplets
-        assert ('TechCorp', 'LOCATED_IN', 'Portland') in triplets
+        assert ('Organization', 'FOUNDED_BY', 'John Doe') in triplets
+        assert ('Organization', 'LOCATED_IN', 'Portland') in triplets
         assert ('DataCorp', 'FOUNDED_BY', 'John Smith') in triplets
 
 
@@ -291,9 +291,9 @@ class TestLocalKGStoreGetOneHopEdges:
     def test_get_one_hop_edges_basic(self):
         """Verify get_one_hop_edges returns triplets for source nodes."""
         graph = {
-            'TechCorp': {
-                'FOUNDED_BY': {'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]},
-                'LOCATED_IN': {'triplets': [('TechCorp', 'LOCATED_IN', 'Portland')]}
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]},
+                'LOCATED_IN': {'triplets': [('Organization', 'LOCATED_IN', 'Portland')]}
             },
             'DataCorp': {
                 'FOUNDED_BY': {'triplets': [('DataCorp', 'FOUNDED_BY', 'John Smith')]}
@@ -301,19 +301,19 @@ class TestLocalKGStoreGetOneHopEdges:
         }
         
         store = LocalKGStore(graph=graph)
-        edges = store.get_one_hop_edges(['TechCorp'])
+        edges = store.get_one_hop_edges(['Organization'])
         
-        assert 'TechCorp' in edges
-        assert 'FOUNDED_BY' in edges['TechCorp']
-        assert 'LOCATED_IN' in edges['TechCorp']
-        assert len(edges['TechCorp']['FOUNDED_BY']) == 1
-        assert edges['TechCorp']['FOUNDED_BY'][0] == ('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')
+        assert 'Organization' in edges
+        assert 'FOUNDED_BY' in edges['Organization']
+        assert 'LOCATED_IN' in edges['Organization']
+        assert len(edges['Organization']['FOUNDED_BY']) == 1
+        assert edges['Organization']['FOUNDED_BY'][0] == ('Organization', 'FOUNDED_BY', 'John Doe')
     
     def test_get_one_hop_edges_multiple_sources(self):
         """Verify get_one_hop_edges handles multiple source nodes."""
         graph = {
-            'TechCorp': {
-                'FOUNDED_BY': {'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]}
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]}
             },
             'DataCorp': {
                 'FOUNDED_BY': {'triplets': [('DataCorp', 'FOUNDED_BY', 'John Smith')]}
@@ -321,23 +321,23 @@ class TestLocalKGStoreGetOneHopEdges:
         }
         
         store = LocalKGStore(graph=graph)
-        edges = store.get_one_hop_edges(['TechCorp', 'DataCorp'])
+        edges = store.get_one_hop_edges(['Organization', 'DataCorp'])
         
-        assert 'TechCorp' in edges
+        assert 'Organization' in edges
         assert 'DataCorp' in edges
     
     def test_get_one_hop_edges_nonexistent_node(self):
         """Verify get_one_hop_edges handles nonexistent nodes."""
         graph = {
-            'TechCorp': {
-                'FOUNDED_BY': {'triplets': [('TechCorp', 'FOUNDED_BY', 'Dr. Elena Voss')]}
+            'Organization': {
+                'FOUNDED_BY': {'triplets': [('Organization', 'FOUNDED_BY', 'John Doe')]}
             }
         }
         
         store = LocalKGStore(graph=graph)
-        edges = store.get_one_hop_edges(['TechCorp', 'Nonexistent'])
+        edges = store.get_one_hop_edges(['Organization', 'Nonexistent'])
         
-        assert 'TechCorp' in edges
+        assert 'Organization' in edges
         assert 'Nonexistent' not in edges
     
     def test_get_one_hop_edges_return_triplets_false(self):
@@ -345,7 +345,7 @@ class TestLocalKGStoreGetOneHopEdges:
         store = LocalKGStore()
         
         with pytest.raises(ValueError, match="supports only triplet format"):
-            store.get_one_hop_edges(['TechCorp'], return_triplets=False)
+            store.get_one_hop_edges(['Organization'], return_triplets=False)
 
 
 class TestLocalKGStoreGetEdgeDestinationNodes:

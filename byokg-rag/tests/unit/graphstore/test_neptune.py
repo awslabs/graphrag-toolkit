@@ -26,7 +26,7 @@ def mock_neptune_client():
     mock_client.execute_query.return_value = {
         'payload': Mock(read=lambda: json.dumps({
             'results': [
-                {'node': 'n1', 'properties': {'name': 'TechCorp'}},
+                {'node': 'n1', 'properties': {'name': 'Organization'}},
                 {'node': 'n2', 'properties': {'name': 'Portland'}}
             ]
         }).encode())
@@ -48,7 +48,7 @@ def mock_neptune_data_client():
     mock_client = Mock()
     mock_client.execute_open_cypher_query.return_value = {
         'results': [
-            {'node': 'n1', 'properties': {'name': 'TechCorp'}},
+            {'node': 'n1', 'properties': {'name': 'Organization'}},
             {'node': 'n2', 'properties': {'name': 'Portland'}}
         ]
     }
@@ -128,8 +128,8 @@ class TestNeptuneAnalyticsGraphStore:
         }[service]
         
         query_results = [
-            {'node': 'n1', 'label': 'Person', 'name': 'Dr. Elena Voss'},
-            {'node': 'n2', 'label': 'Organization', 'name': 'TechCorp'}
+            {'node': 'n1', 'label': 'Person', 'name': 'John Doe'},
+            {'node': 'n2', 'label': 'Organization', 'name': 'Organization'}
         ]
         
         mock_neptune_client.execute_query.return_value = {
@@ -150,8 +150,8 @@ class TestNeptuneAnalyticsGraphStore:
         
         assert isinstance(result, list)
         assert len(result) == 2
-        assert result[0]['name'] == 'Dr. Elena Voss'
-        assert result[1]['name'] == 'TechCorp'
+        assert result[0]['name'] == 'John Doe'
+        assert result[1]['name'] == 'Organization'
         
         # Verify the call was made with correct parameters
         call_args = mock_neptune_client.execute_query.call_args[1]
@@ -350,7 +350,7 @@ class TestNeptuneAnalyticsGraphStore:
         mock_neptune_client.execute_query.return_value = {
             'payload': Mock(read=lambda: json.dumps({
                 'results': [
-                    {'node': 'n1', 'properties': {'name': 'Dr. Elena Voss', 'age': 45}},
+                    {'node': 'n1', 'properties': {'name': 'John Doe', 'age': 45}},
                     {'node': 'n2', 'properties': {'name': 'John Smith', 'age': 38}}
                 ]
             }).encode())
@@ -384,7 +384,7 @@ class TestNeptuneAnalyticsGraphStore:
         mock_neptune_client.execute_query.return_value = {
             'payload': Mock(read=lambda: json.dumps({
                 'results': [
-                    {'node': 'n1', 'properties': {'name': 'TechCorp'}},
+                    {'node': 'n1', 'properties': {'name': 'Organization'}},
                     {'node': 'n2', 'properties': {'name': 'DataCorp'}}
                 ]
             }).encode())
@@ -439,7 +439,7 @@ class TestNeptuneDBGraphStore:
         }[service]
         
         query_results = [
-            {'node': 'n1', 'name': 'TechCorp'},
+            {'node': 'n1', 'name': 'Organization'},
             {'node': 'n2', 'name': 'Portland'}
         ]
         
@@ -459,7 +459,7 @@ class TestNeptuneDBGraphStore:
         
         assert isinstance(result, list)
         assert len(result) == 2
-        assert result[0]['name'] == 'TechCorp'
+        assert result[0]['name'] == 'Organization'
     
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_db_store_execute_query_with_parameters(self, mock_session, mock_neptune_data_client, mock_s3_client):
@@ -757,7 +757,7 @@ class TestBaseNeptuneGraphStore:
         mock_neptune_client.execute_query.return_value = {
             'payload': Mock(read=lambda: json.dumps({
                 'results': [
-                    {'node': 'n1', 'properties': {'name': 'TechCorp', 'industry': 'Tech'}},
+                    {'node': 'n1', 'properties': {'name': 'Organization', 'industry': 'Tech'}},
                     {'node': 'n2', 'properties': {'name': 'Portland', 'country': 'USA'}}
                 ]
             }).encode())
@@ -772,7 +772,7 @@ class TestBaseNeptuneGraphStore:
         
         assert isinstance(result, dict)
         assert 'n1' in result
-        assert result['n1']['name'] == 'TechCorp'
+        assert result['n1']['name'] == 'Organization'
         assert 'n2' in result
         assert result['n2']['name'] == 'Portland'
     
@@ -789,7 +789,7 @@ class TestBaseNeptuneGraphStore:
         mock_neptune_client.execute_query.return_value = {
             'payload': Mock(read=lambda: json.dumps({
                 'results': [
-                    {'node': 'n1', 'properties': {'name': 'TechCorp', 'industry': 'Tech'}}
+                    {'node': 'n1', 'properties': {'name': 'Organization', 'industry': 'Tech'}}
                 ]
             }).encode())
         }
@@ -975,8 +975,8 @@ class TestBaseNeptuneGraphStore:
         mock_neptune_client.execute_query.return_value = {
             'payload': Mock(read=lambda: json.dumps({
                 'results': [
-                    {'node': 'n1', 'properties': {'name': 'Dr. Elena Voss'}, 'node_labels': ['Person']},
-                    {'node': 'n2', 'properties': {'name': 'TechCorp'}, 'node_labels': ['Organization']}
+                    {'node': 'n1', 'properties': {'name': 'John Doe'}, 'node_labels': ['Person']},
+                    {'node': 'n2', 'properties': {'name': 'Organization'}, 'node_labels': ['Organization']}
                 ]
             }).encode())
         }
@@ -990,8 +990,8 @@ class TestBaseNeptuneGraphStore:
         result = store.nodes()
         
         assert isinstance(result, list)
-        assert 'Dr. Elena Voss' in result
-        assert 'TechCorp' in result
+        assert 'John Doe' in result
+        assert 'Organization' in result
     
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_s3_file_exists_true(self, mock_session, mock_neptune_client, mock_s3_client):

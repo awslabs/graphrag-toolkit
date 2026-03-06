@@ -17,7 +17,7 @@ def mock_graph_store_with_schema():
         'node_types': ['Person', 'Organization', 'Location'],
         'edge_types': ['WORKS_FOR', 'FOUNDED', 'LOCATED_IN']
     }
-    mock_store.nodes.return_value = ['TechCorp', 'Dr. Elena Voss', 'Portland']
+    mock_store.nodes.return_value = ['Organization', 'John Doe', 'Portland']
     mock_store.execute_query = Mock(return_value=[])
     return mock_store
 
@@ -26,7 +26,7 @@ def mock_graph_store_with_schema():
 def mock_llm_generator():
     """Fixture providing a mock LLM generator."""
     mock_gen = Mock()
-    mock_gen.generate.return_value = "<entity-extraction>TechCorp</entity-extraction><task-completion>FINISH</task-completion>"
+    mock_gen.generate.return_value = "<entity-extraction>Organization</entity-extraction><task-completion>FINISH</task-completion>"
     return mock_gen
 
 
@@ -34,7 +34,7 @@ def mock_llm_generator():
 def mock_entity_linker():
     """Fixture providing a mock entity linker."""
     mock_linker = Mock()
-    mock_linker.link.return_value = ['TechCorp', 'Portland']
+    mock_linker.link.return_value = ['Organization', 'Portland']
     return mock_linker
 
 
@@ -45,11 +45,11 @@ def mock_kg_linker():
     mock_linker.task_prompts = "Mock task prompts"
     mock_linker.task_prompts_iterative = "Mock iterative task prompts"
     mock_linker.generate_response.return_value = (
-        "<entity-extraction>TechCorp</entity-extraction>"
+        "<entity-extraction>Organization</entity-extraction>"
         "<task-completion>FINISH</task-completion>"
     )
     mock_linker.parse_response.return_value = {
-        'entity-extraction': ['TechCorp'],
+        'entity-extraction': ['Organization'],
         'draft-answer-generation': []
     }
     return mock_linker
@@ -129,7 +129,7 @@ class TestQueryEngineQuery:
     ):
         """Verify single iteration query processing."""
         mock_triplet_retriever = Mock()
-        mock_triplet_retriever.retrieve.return_value = ['Dr. Elena Voss founded TechCorp']
+        mock_triplet_retriever.retrieve.return_value = ['John Doe founded Organization']
         
         engine = ByoKGQueryEngine(
             graph_store=mock_graph_store_with_schema,
@@ -139,7 +139,7 @@ class TestQueryEngineQuery:
             kg_linker=mock_kg_linker
         )
         
-        result = engine.query("Who founded TechCorp?", iterations=1)
+        result = engine.query("Who founded Organization?", iterations=1)
         
         assert isinstance(result, list)
         mock_kg_linker.generate_response.assert_called_once()
@@ -176,7 +176,7 @@ class TestQueryEngineGenerateResponse:
     ):
         """Verify response generation with default prompt."""
         mock_llm_generator.generate.return_value = (
-            "<answers>TechCorp was founded by Dr. Elena Voss</answers>"
+            "<answers>Organization was founded by John Doe</answers>"
         )
         
         with patch('graphrag_toolkit.byokg_rag.byokg_query_engine.load_yaml') as mock_load_yaml, \
@@ -197,13 +197,13 @@ class TestQueryEngineGenerateResponse:
             )
             
             answers, response = engine.generate_response(
-                query="Who founded TechCorp?",
-                graph_context="Dr. Elena Voss founded TechCorp"
+                query="Who founded Organization?",
+                graph_context="John Doe founded Organization"
             )
             
             assert isinstance(answers, list)
             assert isinstance(response, str)
-            assert "TechCorp was founded by Dr. Elena Voss" in response
+            assert "Organization was founded by John Doe" in response
             mock_llm_generator.generate.assert_called_once()
 
 
@@ -270,7 +270,7 @@ class TestQueryEngineWithCypherLinker:
         
         mock_graph_query_executor = Mock()
         mock_graph_query_executor.retrieve.return_value = (
-            ['Query result'], [{'name': 'TechCorp'}]
+            ['Query result'], [{'name': 'Organization'}]
         )
         
         # Mock parse_response to return FINISH
