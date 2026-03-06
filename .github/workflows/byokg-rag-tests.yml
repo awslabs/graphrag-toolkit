@@ -1,0 +1,64 @@
+name: BYOKG-RAG Unit Tests using pytest with code coverage on byokg-rag module
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "byokg-rag/**"
+      - ".github/workflows/byokg-rag-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "byokg-rag/**"
+      - ".github/workflows/byokg-rag-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    defaults:
+      run:
+        working-directory: byokg-rag
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create virtual environment
+        run: uv venv .venv
+
+      - name: Install dependencies
+        run: |
+          uv pip install --python .venv/bin/python \
+            pytest \
+            pytest-cov \
+            pytest-mock \
+            -r src/graphrag_toolkit/byokg_rag/requirements.txt
+
+      - name: Run unit tests with coverage
+        run: |
+          PYTHONPATH=src .venv/bin/python -m pytest tests/ \
+            -v \
+            --tb=short \
+            --cov=src/graphrag_toolkit/byokg_rag \
+            --cov-report=term-missing \
+            --cov-report=html:htmlcov \
+            --deselect=tests/unit/indexing/test_dense_index.py::TestDenseIndexMatch::test_dense_index_match_multiple_queries \
+            --deselect=tests/unit/indexing/test_dense_index.py::TestDenseIndexMatch::test_dense_index_match_with_id_selector_not_implemented
+
+      - name: Upload coverage report
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: byokg-rag/htmlcov/

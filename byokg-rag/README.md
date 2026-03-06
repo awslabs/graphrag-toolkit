@@ -141,6 +141,10 @@ Complete documentation is available in the [docs/byokg-rag/](../docs/byokg-rag/)
 
 Additional examples are available in the [examples/byokg-rag/](../examples/byokg-rag/) directory.
 
+## Unit testing
+
+The complete unit tests can be found under [`tests/`](tests/), please see [`tests/README.md](tests/README.md) for more details.
+
 ## Citation
 
 If you use BYOKG-RAG in your research, please cite our paper (to appear in EMNLP Main 2025):
