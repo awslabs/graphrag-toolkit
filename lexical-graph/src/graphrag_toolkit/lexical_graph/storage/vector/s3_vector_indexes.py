@@ -119,7 +119,11 @@ def filter_config_to_s3_filters(filter_config:FilterConfig) -> Dict[str, Any]:
     if filter_config is None or filter_config.source_filters is None:
         return None
     
-    return parse_metadata_filters_recursive(filter_config.source_filters)
+    s3_filters = parse_metadata_filters_recursive(filter_config.source_filters)
+
+    logger.debug(f's3_filters: {s3_filters}')
+    
+    return s3_filters
 
 def _node_to_s3_vector(id:str, value:str, embedding: List[float], node_metadata:Dict[str, Any]) -> Dict[str, Any]:
 
