@@ -114,7 +114,7 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> Dict[s
         raise ValueError(f'Unsupported filters condition: {metadata_filters.condition}')
 
 
-def filter_config_to_s3_filters(filter_config:FilterConfig) -> str:
+def filter_config_to_s3_filters(filter_config:FilterConfig) -> Dict[str, Any]:
 
     if filter_config is None or filter_config.source_filters is None:
         return None
