@@ -21,6 +21,9 @@ __pycache__/
 # Byte-compiled / optimized / DLL files
 *.pyc
 
+# hypothesis artifacts
+.hypothesis/
+
 # coverage artifact
 .coverage
 
