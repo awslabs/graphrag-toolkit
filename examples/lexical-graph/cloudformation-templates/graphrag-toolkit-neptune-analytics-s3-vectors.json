@@ -134,6 +134,88 @@
     }
   },
   "Resources": {
+    "VectorBucketKMSKey": {
+      "Type": "AWS::KMS::Key",
+      "Properties": {
+        "Description": {
+          "Fn::Sub": "KMS key for ${ApplicationId}"
+        },
+        "KeyPolicy": {
+          "Version": "2012-10-17",
+          "Id": "key-default-1",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:root"
+                }
+              },
+              "Action": "kms:*",
+              "Resource": "*"
+            },
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "indexing.s3vectors.amazonaws.com"
+              },
+              "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt"
+              ],
+              "Condition": {
+                "ArnLike": {
+                  "aws:SourceArn": {
+                    "Fn::Sub": "arn:${AWS::Partition}:s3vectors:${AWS::Region}:${AWS::AccountId}:bucket/*"
+                  }
+                },
+                "StringEquals": {
+                  "aws:SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                },
+                "ForAnyValue:StringEquals": {
+                  "kms:EncryptionContextKeys": [
+                    "aws:s3vectors:arn",
+                    "aws:s3vectors:resource-id"
+                  ]
+                }
+              },
+              "Resource": "*"
+            },
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::GetAtt": [
+                    "GraphRAGClientRole",
+                    "Arn"
+                  ]
+                }
+              },
+              "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt"
+              ],
+              "Condition": {
+                "StringEquals": {
+                  "kms:ViaService": {
+                    "Fn::Sub": "s3vectors.${AWS::Region}.amazonaws.com"
+                  }
+                },
+                "ForAnyValue:StringEquals": {
+                  "kms:EncryptionContextKeys": [
+                    "aws:s3vectors:arn",
+                    "aws:s3vectors:resource-id"
+                  ]
+                }
+              },
+              "Resource": "*"
+            }
+          ]
+        }
+      }
+    },
     "Graph": {
       "Type": "AWS::NeptuneGraph::Graph",
       "Properties": {
@@ -926,6 +1008,15 @@
         "VectorBucketName": {
           "Fn::Sub": "${ApplicationId}-${AWS::Region}"
         },
+        "EncryptionConfiguration": {
+          "KmsKeyArn": {
+            "Fn::GetAtt": [
+              "VectorBucketKMSKey",
+              "Arn"
+            ]
+          },
+          "SseType": "aws:kms"
+        },
         "Tags": [
           {
             "Key": "Name",
@@ -1133,7 +1224,13 @@
                     "\" >> ~/.bashrc\n",
                     "echo \"export VECTOR_STORE=",
                     {
-                      "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}"
+                      "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}?kmsKeyArn="
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VectorBucketKMSKey",
+                        "Arn"
+                      ]
                     },
                     "\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-graph\" >> ~/.bashrc\n",
@@ -1234,7 +1331,13 @@
                     "\" >> .env\n",
                     "  echo \"export VECTOR_STORE=",
                     {
-                      "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}"
+                      "Fn::Sub": "s3vectors://${ApplicationId}-${AWS::Region}/${ApplicationId}?kmsKeyArn="
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VectorBucketKMSKey",
+                        "Arn"
+                      ]
                     },
                     "\" >> .env\n",
                     "  echo \"export EXTRACTION_MODEL=",
