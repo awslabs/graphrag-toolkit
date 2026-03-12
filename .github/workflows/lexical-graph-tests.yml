@@ -40,7 +40,7 @@ jobs:
       - name: Install dependencies
         run: |
           uv pip install --python .venv/bin/python \
-            pytest \
+            pytest hypothesis \
             -r src/graphrag_toolkit/lexical_graph/requirements.txt
 
       - name: Run unit tests

@@ -18,7 +18,7 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
     def __init__(self, config: PDFReaderConfig):
 
         try:
-            import fitz  # pymupdf
+            import pymupdf 
         except ImportError as e:
             raise ImportError(
                 "pymupdf package not found, install with 'pip install pymupdf'"
@@ -41,7 +41,7 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
         try:
             pdf_path = processed_paths[0]
             logger.debug(f"Opening PDF file: {pdf_path}")
-            doc = fitz.open(pdf_path)
+            doc = pymupdf.open(pdf_path)
             documents = []
             
             for page_num in range(len(doc)):
@@ -52,7 +52,7 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
                 for img_index, img in enumerate(image_list):
                     try:
                         xref = img[0]
-                        pix = fitz.Pixmap(doc, xref)
+                        pix = pymupdf.Pixmap(doc, xref)
                         if pix.n - pix.alpha < 4:
                             img_data = pix.tobytes("png")
                             img_b64 = base64.b64encode(img_data).decode()

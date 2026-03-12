@@ -1053,13 +1053,11 @@ class _GraphRAGConfig:
                 connect_timeout=60.0,
                 read_timeout=60.0,
             )
-            
+
             if _is_json_string(embed_model):
                 config = json.loads(embed_model)
-                model_name = config['model_name']
-                
                 self._embed_model = BedrockEmbedding(
-                    model_name=model_name,
+                    model_name=config['model_name'],
                     botocore_session=botocore_session,
                     region_name=config.get('region_name', region),
                     profile_name=config.get('profile_name', profile),

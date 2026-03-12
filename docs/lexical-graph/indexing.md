@@ -115,8 +115,7 @@ extracted_docs = S3BasedDocs(
     region='us-east-1',
     bucket_name='my-bucket',
     key_prefix='extracted',
-    collection_id='12345',
-    s3_encryption_key_id='arn:aws:kms:us-east-1:222222222222:key/99169dcb-12ce-4493-942b-1523125d7339'
+    collection_id='12345'
 )
 
 with (
@@ -158,8 +157,7 @@ docs = S3BasedDocs(
     region='us-east-1',
     bucket_name='my-bucket',
     key_prefix='extracted',
-    collection_id='12345',
-    s3_encryption_key_id='arn:aws:kms:us-east-1:222222222222:key/99169dcb-12ce-4493-942b-1523125d7339'
+    collection_id='12345'
 )
 
 with (

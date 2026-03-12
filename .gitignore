@@ -21,8 +21,13 @@ __pycache__/
 # Byte-compiled / optimized / DLL files
 *.pyc
 
+# hypothesis artifacts
+.hypothesis/
+
 # coverage artifact
 .coverage
 
 # kiro config
 .config.kiro
+/temp/
+/temp/
