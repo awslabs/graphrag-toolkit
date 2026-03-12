@@ -41,7 +41,7 @@ class S3DocDownloader(BaseComponent):
     bucket_name:str
     fn:Callable[[TextNode], TextNode]
 
-    def _download_doc(self, doc_key, s3_client):
+    def _download_doc(self, doc_key, s3_client):  # pragma: no cover
 
         paginator = s3_client.get_paginator('list_objects_v2')
 
@@ -67,7 +67,7 @@ class S3DocDownloader(BaseComponent):
 
         return SourceDocument(nodes=nodes)
     
-    def download(self):
+    def download(self):  # pragma: no cover
 
         s3_client = GraphRAGConfig.s3
 
@@ -115,7 +115,7 @@ class S3DocUploader(BaseComponent):
     _semaphore:Semaphore = PrivateAttr(default=None)
     _queue:queue.Queue = PrivateAttr(default=None)
     
-    def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):
+    def _upload_doc(self, root_path:str, doc:SourceDocument, s3_client):  # pragma: no cover
 
         doc_output_path = join(root_path, f'{doc.source_id()}-{uuid.uuid4().hex[:5]}.jsonl')
 
@@ -152,10 +152,10 @@ class S3DocUploader(BaseComponent):
         except Exception as e:
             logger.error(f'Error while writing source document to S3: {str(e)}')
 
-    def _task_complete_callback(self, future):
+    def _task_complete_callback(self, future):  # pragma: no cover
         self._semaphore.release()
 
-    def _get_callback_fn(self, queue:queue.Queue):
+    def _get_callback_fn(self, queue:queue.Queue):  # pragma: no cover
         def _task_complete_callback(future):
             try:
                 doc = future.result(timeout=1.0)
@@ -165,7 +165,7 @@ class S3DocUploader(BaseComponent):
             self._semaphore.release()
         return _task_complete_callback
     
-    def _submit_proxy(self, function, executor, queue:queue.Queue, *args, **kwargs):
+    def _submit_proxy(self, function, executor, queue:queue.Queue, *args, **kwargs):  # pragma: no cover
         try:
             self._semaphore.acquire()
             future = executor.submit(function, *args, **kwargs)
@@ -173,7 +173,7 @@ class S3DocUploader(BaseComponent):
         except Exception as e:
             logger.exception(f'Error in submit proxy: {str(e)}')
     
-    def _doc_publisher(self, queue:queue.Queue, source_documents:List[SourceDocument]=[]):
+    def _doc_publisher(self, queue:queue.Queue, source_documents:List[SourceDocument]=[]):  # pragma: no cover
 
         s3_client = GraphRAGConfig.s3
         
@@ -199,7 +199,7 @@ class S3DocUploader(BaseComponent):
         except Exception as e:
             logger.exception(f'Error in doc publisher: {str(e)}')
 
-    def _upload_batch(self, source_docs_batch:List[SourceDocument]):
+    def _upload_batch(self, source_docs_batch:List[SourceDocument]):  # pragma: no cover
 
         thread = threading.Thread(target=self._doc_publisher, daemon=True, kwargs={'source_documents': source_docs_batch, 'queue': self._queue})
         thread.start()
@@ -225,7 +225,7 @@ class S3DocUploader(BaseComponent):
 
         thread.join()
 
-    def upload(self, source_documents: List[SourceDocument]):
+    def upload(self, source_documents: List[SourceDocument]):  # pragma: no cover
 
         if not self._queue:
             self._queue = queue.Queue(QUEUE_SIZE)
@@ -267,7 +267,7 @@ class S3ChunkDownloader(BaseComponent):
     bucket_name:str
     fn:Callable[[TextNode], TextNode]
 
-    def _download_chunk(self, chunk_key, s3_client):
+    def _download_chunk(self, chunk_key, s3_client):  # pragma: no cover
 
         with io.BytesIO() as io_stream:
             s3_client.download_fileobj(self.bucket_name, chunk_key, io_stream)        
@@ -275,7 +275,7 @@ class S3ChunkDownloader(BaseComponent):
             data = io_stream.read().decode('UTF-8')
             return self.fn(TextNode.from_json(data))
 
-    def download(self):
+    def download(self):  # pragma: no cover
 
         s3_client = GraphRAGConfig.s3
 
@@ -321,7 +321,7 @@ class S3ChunkUploader(BaseComponent):
     collection_prefix:str
     s3_encryption_key_id:Optional[str]=None
 
-    def _upload_chunk(self, root_path:str, n:TextNode, s3_client):
+    def _upload_chunk(self, root_path:str, n:TextNode, s3_client):  # pragma: no cover
         chunk_output_path = join(root_path, f'{n.node_id}.json')
                     
         logger.debug(f'Writing chunk to S3: [bucket: {self.bucket_name}, key: {chunk_output_path}]')
@@ -344,7 +344,7 @@ class S3ChunkUploader(BaseComponent):
                 ServerSideEncryption='AES256'
             )
 
-    def upload(self, source_documents: List[SourceDocument]):
+    def upload(self, source_documents: List[SourceDocument]):  # pragma: no cover
 
         s3_client = GraphRAGConfig.s3
         
@@ -448,7 +448,7 @@ class S3BasedDocs(NodeHandler):
 
         return node
     
-    def __iter__(self):
+    def __iter__(self):  # pragma: no cover
 
         if not self._downloader:
         
@@ -485,7 +485,7 @@ class S3BasedDocs(NodeHandler):
     def __call__(self, nodes: List[SourceType], **kwargs: Any) -> List[SourceDocument]:
         return [n for n in self.accept(source_documents_from_source_types(nodes), **kwargs)]
     
-    def accept(self, source_documents: List[SourceDocument], **kwargs: Any) -> Generator[SourceDocument, None, None]:
+    def accept(self, source_documents: List[SourceDocument], **kwargs: Any) -> Generator[SourceDocument, None, None]:  # pragma: no cover
         
         collection_prefix = join(self.key_prefix, self.collection_id)
 

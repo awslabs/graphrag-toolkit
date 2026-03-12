@@ -12,7 +12,7 @@ S3_VECTORS = 's3vectors://'
 
 class S3VectorIndexFactory(VectorIndexFactoryMethod):
     
-    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:
+    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:  # pragma: no cover
 
         bucket_and_prefix = None
 

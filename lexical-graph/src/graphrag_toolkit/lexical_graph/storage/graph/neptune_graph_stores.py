@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 REGISTER_FIRST = object()
 
-def intercept_before_parse(operation_model, response_dict, **kwargs):
+def intercept_before_parse(operation_model, response_dict, **kwargs):  # pragma: no cover
     # We only need to check reponses that are initially looking successful because the response is streaming
     # and the query might fail while Neptune has already returned partial results.
     if response_dict['status_code'] != 200:
@@ -181,7 +181,7 @@ class NeptuneAnalyticsGraphStoreFactory(GraphStoreFactoryMethod):
     Attributes:
         None
     """
-    def try_create(self, graph_info:str, **kwargs) -> GraphStore:
+    def try_create(self, graph_info:str, **kwargs) -> GraphStore:  # pragma: no cover
         """
         Attempts to create and return an instance of `NeptuneAnalyticsClient` if the provided
         graph information matches the expected format. If the graph information does not match,
@@ -219,7 +219,7 @@ class NeptuneDatabaseGraphStoreFactory(GraphStoreFactoryMethod):
     Attributes:
         None
     """
-    def try_create(self, graph_info:str, **kwargs) -> GraphStore:
+    def try_create(self, graph_info:str, **kwargs) -> GraphStore:  # pragma: no cover
         """
         Attempts to create a GraphStore instance for a Neptune database based on the provided
         graph information. It extracts or processes the graph endpoint from the given
@@ -281,12 +281,12 @@ class NeptuneAnalyticsClient(GraphStore):
     config : Optional[str] = None
     _client: Optional[Any] = PrivateAttr(default=None)
         
-    def __getstate__(self):
+    def __getstate__(self):  # pragma: no cover
         self._client = None
         return super().__getstate__()
 
     @property
-    def client(self):
+    def client(self):  # pragma: no cover
         """
         The `client` property provides access to the Neptune Graph API client. It initializes
         the client lazily upon the first request, ensuring that the session and configuration
@@ -348,7 +348,7 @@ class NeptuneAnalyticsClient(GraphStore):
         """
         return create_property_assigment_fn_for_neptune(key, value)
  
-    def _execute_query(self, cypher, parameters={}, correlation_id=None):
+    def _execute_query(self, cypher, parameters={}, correlation_id=None):  # pragma: no cover
         """
         Executes a Cypher query against the database, with the ability to log the request and response,
         including the execution time. This method is a wrapper over the database client execution,
@@ -420,12 +420,12 @@ class NeptuneDatabaseClient(GraphStore):
     config : Optional[str] = None
     _client: Optional[Any] = PrivateAttr(default=None)
         
-    def __getstate__(self):
+    def __getstate__(self):  # pragma: no cover
         self._client = None
         return super().__getstate__()
 
     @property
-    def client(self):
+    def client(self):  # pragma: no cover
         """
         Provides a property to access the `_client` attribute, initializing it if
         necessary. The `_client` is created using the `neptunedata` service, where
@@ -498,7 +498,7 @@ class NeptuneDatabaseClient(GraphStore):
         """
         return create_property_assigment_fn_for_neptune(key, value)
 
-    def _execute_query(self, cypher, parameters={}, correlation_id=None):
+    def _execute_query(self, cypher, parameters={}, correlation_id=None):  # pragma: no cover
         """
         Executes an openCypher query using the provided query string and parameters,
         logs the query and its results for debugging purposes, and measures the

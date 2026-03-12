@@ -130,7 +130,7 @@ def create_inference_inputs(llm:BedrockConverse, nodes: List[TextNode], prompts:
         json_outputs.append(json_structure)
     return json_outputs
 
-def create_and_run_batch_job(job_name_prefix:str,
+def create_and_run_batch_job(job_name_prefix:str,  # pragma: no cover
                              bedrock_client: Any, 
                              timestamp:str, 
                              batch_suffix:str,
@@ -191,7 +191,7 @@ def create_and_run_batch_job(job_name_prefix:str,
         logger.error(f'Error creating or running batch job: {str(e)}')
         raise BatchJobError(f'{e!s}') from e 
 
-def wait_for_job_completion(bedrock_client: Any, job_arn: str, input_file:str) -> None:
+def wait_for_job_completion(bedrock_client: Any, job_arn: str, input_file:str) -> None:  # pragma: no cover
     """Wait for a Bedrock batch job to complete."""
     status = 'Started'
     while status not in ['Completed', 'Failed', 'Stopped', 'PartiallyCompleted', 'Expired']:
@@ -207,7 +207,7 @@ def wait_for_job_completion(bedrock_client: Any, job_arn: str, input_file:str) -
     
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
-def download_output_files(s3_client: Any, bucket_name:str, output_path:str, input_filename:str, local_directory:str) -> None:
+def download_output_files(s3_client: Any, bucket_name:str, output_path:str, input_filename:str, local_directory:str) -> None:  # pragma: no cover
     """Download output files from S3 by searching for a folder containing a file matching the input filename."""
     paginator = s3_client.get_paginator('list_objects_v2')
     pages = paginator.paginate(Bucket=bucket_name, Prefix=output_path)

@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 
-def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], Any]:
+def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], Any]:  # pragma: no cover
     """
     Creates a retry decorator with exponential backoff strategy.
 

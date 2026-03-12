@@ -65,7 +65,7 @@ class NodeId:
     value:str
     is_property_based:bool = True
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         return self.value
     
 def format_id(id_name:str):

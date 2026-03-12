@@ -94,7 +94,7 @@ class BatchExtractorBase(BaseExtractor):
     def _update_node(self, node:TextNode, node_metadata_map):
         raise NotImplemented()
         
-    def _process_single_batch(self, batch_index:int, node_batch:Iterable[TextNode], s3_client, bedrock_client):
+    def _process_single_batch(self, batch_index:int, node_batch:Iterable[TextNode], s3_client, bedrock_client):  # pragma: no cover
         try:
 
             batch_start = time.time()

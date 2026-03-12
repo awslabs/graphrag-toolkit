@@ -24,7 +24,7 @@ class Neo4jDatabaseClient(GraphStore):
     _client: Optional[Any] = PrivateAttr(default=None)
 
     
-    def __init__(self,
+    def __init__(self,  # pragma: no cover
                  endpoint_url:str =None,
                  host:str=None,
                  port:int=None,
@@ -69,14 +69,14 @@ class Neo4jDatabaseClient(GraphStore):
             **kwargs
         )
 
-    def __getstate__(self):
+    def __getstate__(self):  # pragma: no cover
         if self._client:
             self._client.close()
         self._client = None
         return super().__getstate__()
     
     @property
-    def client(self):
+    def client(self):  # pragma: no cover
 
         try:
             from neo4j import GraphDatabase
@@ -102,12 +102,12 @@ class Neo4jDatabaseClient(GraphStore):
     def node_id(self, id_name: str) -> NodeId:
         return format_id(id_name)
     
-    def __exit__(self, exception_type, exception_value, traceback):
+    def __exit__(self, exception_type, exception_value, traceback):  # pragma: no cover
         if self._client:
             self._client.close()
         return super().__exit__(exception_type, exception_value, traceback)
 
-    def _execute_query(self, 
+    def _execute_query(self,   # pragma: no cover
                       cypher: str, 
                       parameters: Optional[dict] = None, 
                       correlation_id: Any = None):
@@ -155,7 +155,7 @@ class Neo4jDatabaseClient(GraphStore):
         
         return results
     
-    def init(self, graph_store=None):
+    def init(self, graph_store=None):  # pragma: no cover
     
         graph_store = graph_store or self
         

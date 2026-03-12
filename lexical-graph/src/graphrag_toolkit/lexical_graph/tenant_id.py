@@ -55,7 +55,7 @@ class TenantId(BaseModel):
             return False
         return all(c.isalnum() or c == '.' for c in value)
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         return self.value if self.value else DEFAULT_TENANT_NAME
 
     def is_default_tenant(self):

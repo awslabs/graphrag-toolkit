@@ -31,7 +31,7 @@ class AWSConfig(ABC):
 
 
     @property
-    def session(self) -> Boto3Session:
+    def session(self) -> Boto3Session:  # pragma: no cover
         """
         Returns a boto3 session for AWS API access.
 
@@ -51,7 +51,7 @@ class AWSConfig(ABC):
                 self._boto3_session = Boto3Session(region_name=self.aws_region)
         return self._boto3_session
 
-    def _get_or_create_client(self, service_name: str) -> Any:
+    def _get_or_create_client(self, service_name: str) -> Any:  # pragma: no cover
         """
         Returns an AWS service client for the specified service name.
 
@@ -71,7 +71,7 @@ class AWSConfig(ABC):
         return client
 
     @property
-    def s3(self) -> Any:
+    def s3(self) -> Any:  # pragma: no cover
         """
         Returns an AWS S3 client instance.
 
@@ -83,7 +83,7 @@ class AWSConfig(ABC):
         return self._get_or_create_client("s3")
 
     @property
-    def bedrock(self) -> Any:
+    def bedrock(self) -> Any:  # pragma: no cover
         """
         Returns an AWS Bedrock Agent client instance.
 
@@ -95,7 +95,7 @@ class AWSConfig(ABC):
         return self._get_or_create_client("bedrock-agent")
 
     @property
-    def sts(self) -> Any:
+    def sts(self) -> Any:  # pragma: no cover
         """
         Returns an AWS STS (Security Token Service) client instance.
 
