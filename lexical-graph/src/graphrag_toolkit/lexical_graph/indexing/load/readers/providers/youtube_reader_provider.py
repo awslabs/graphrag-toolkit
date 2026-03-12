@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
+import os
 from typing import List, Union
 import re
 from llama_index.core.schema import Document
@@ -26,7 +27,8 @@ class YouTubeReaderProvider:
 
         self.language = config.language
         self.metadata_fn = config.metadata_fn
-        logger.debug(f"Initialized YouTubeReaderProvider with language={config.language}")
+        self.proxy_url = config.proxy_url or os.environ.get('YOUTUBE_PROXY_URL')
+        logger.debug(f"Initialized YouTubeReaderProvider with language={config.language}, proxy_url={self.proxy_url}")
 
     def _extract_video_id(self, url: str) -> str:
         """Extract video ID from YouTube URL."""
@@ -50,17 +52,24 @@ class YouTubeReaderProvider:
             logger.error("No input source provided to YouTubeReaderProvider")
             raise ValueError("input_source cannot be None or empty")
         
+        from youtube_transcript_api import YouTubeTranscriptApi
 
         urls = [input_source] if isinstance(input_source, str) else input_source
         logger.info(f"Reading transcripts from {len(urls)} YouTube video(s)")
         documents = []
+        
+        # Configure proxy if provided
+        proxies = None
+        if self.proxy_url:
+            proxies = {'http': self.proxy_url, 'https': self.proxy_url}
+            logger.debug(f"Using proxy: {self.proxy_url}")
         
         for url in urls:
             try:
                 video_id = self._extract_video_id(url)
                 logger.debug(f"Processing video ID: {video_id}")
                 
-                api = YouTubeTranscriptApi()
+                api = YouTubeTranscriptApi(proxies=proxies) if proxies else YouTubeTranscriptApi()
                 transcript_list = api.fetch(video_id, languages=[self.language])
                 
                 if isinstance(transcript_list, list):
@@ -86,7 +95,7 @@ class YouTubeReaderProvider:
             except Exception as e:
                 logger.warning(f"Failed to read transcript for {url} with language {self.language}: {e}")
                 try:
-                    api = YouTubeTranscriptApi()
+                    api = YouTubeTranscriptApi(proxies=proxies) if proxies else YouTubeTranscriptApi()
                     transcript_list = api.fetch(video_id)
                     
                     if isinstance(transcript_list, list):

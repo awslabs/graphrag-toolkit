@@ -61,7 +61,7 @@ class BatchExtractorBase(BaseExtractor):
             ),
             prompt_template=prompt_template,
             source_metadata_field=source_metadata_field,
-            batch_inference_dir=batch_inference_dir or os.path.join('output', f'batch-{description}s'),
+            batch_inference_dir=batch_inference_dir or os.path.join(GraphRAGConfig.local_output_dir, f'batch-{description}s'),
             description=description,
             **kwargs
         )

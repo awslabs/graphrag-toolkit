@@ -44,7 +44,7 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
             ),
             prompt_template=prompt_template or EXTRACT_PROPOSITIONS_PROMPT,
             source_metadata_field=source_metadata_field,
-            batch_inference_dir=batch_inference_dir or os.path.join('output', 'batch-propositions'),
+            batch_inference_dir=batch_inference_dir or os.path.join(GraphRAGConfig.local_output_dir, 'batch-propositions'),
             description='Proposition'
         )
 

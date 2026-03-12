@@ -51,7 +51,7 @@ In the build stage, the LlamaIndex chunk nodes emitted from the extract stage ar
 
 The `LexicalGraphIndex` provides a convenient means of constructing a graph – via either continuous ingest, or separate extract and build stages. When constructing a `LexicalGraphIndex` you must supply a graph store and a vector store (see [Storage Model](./storage-model.md) for more details). In the examples below, the graph store and vector store connection strings are fetched from environment variables.
 
-The `LexicalGraphIndex` constructor has an `extraction_dir` named argument. This is the path to a local directory to which intermediate artefacts (such as [checkpoints](#checkpoints)) will be written. By default, the vaue of `extraction_dir` is set to 'output'.
+The `LexicalGraphIndex` constructor has an `extraction_dir` named argument. This is the path to a local directory to which intermediate artefacts (such as [checkpoints](#checkpoints)) will be written. By default, the value of `extraction_dir` is set to the value of `GraphRAGConfig.local_output_dir`, which defaults to `'output'`. For containerized deployments (EKS/Kubernetes), you can configure this via the `LOCAL_OUTPUT_DIR` environment variable or by setting `GraphRAGConfig.local_output_dir` programmatically. See [Configuration](./configuration.md) for more details.
 
 #### Continous ingest
 
@@ -115,8 +115,7 @@ extracted_docs = S3BasedDocs(
     region='us-east-1',
     bucket_name='my-bucket',
     key_prefix='extracted',
-    collection_id='12345',
-    s3_encryption_key_id='arn:aws:kms:us-east-1:222222222222:key/99169dcb-12ce-4493-942b-1523125d7339'
+    collection_id='12345'
 )
 
 with (
@@ -158,8 +157,7 @@ docs = S3BasedDocs(
     region='us-east-1',
     bucket_name='my-bucket',
     key_prefix='extracted',
-    collection_id='12345',
-    s3_encryption_key_id='arn:aws:kms:us-east-1:222222222222:key/99169dcb-12ce-4493-942b-1523125d7339'
+    collection_id='12345'
 )
 
 with (

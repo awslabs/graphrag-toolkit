@@ -31,7 +31,7 @@ class FileSystemTap(PipelineDecorator):
         sources_dir (str): Path to the directory where processed source
             documents are stored.
     """
-    def __init__(self, subdirectory_name, clean=True, output_dir='output'):
+    def __init__(self, subdirectory_name, clean=True, output_dir=None):
         """
         Initializes the necessary directories and sets up instance variables for managing
         subdirectories and output locations. This constructor prepares output directories
@@ -43,9 +43,11 @@ class FileSystemTap(PipelineDecorator):
             clean: A flag indicating whether to clean existing content in the target
                 output directories before initialization. Defaults to True.
             output_dir: The base directory for storing organized output files and
-                subdirectories. Defaults to 'output'.
+                subdirectories. Defaults to GraphRAGConfig.local_output_dir.
         """
-        (raw_sources_dir, chunks_dir, sources_dir) = self._prepare_output_directories(output_dir, subdirectory_name, clean)
+        from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+        resolved_output_dir = output_dir if output_dir is not None else GraphRAGConfig.local_output_dir
+        (raw_sources_dir, chunks_dir, sources_dir) = self._prepare_output_directories(resolved_output_dir, subdirectory_name, clean)
 
         self.raw_sources_dir = raw_sources_dir
         self.chunks_dir = chunks_dir
