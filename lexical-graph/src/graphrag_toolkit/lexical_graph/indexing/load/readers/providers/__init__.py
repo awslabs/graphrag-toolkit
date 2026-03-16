@@ -17,6 +17,7 @@ _PROVIDER_MODULES = {
     "MarkdownReaderProvider": ".markdown_reader_provider",
     "CSVReaderProvider": ".csv_reader_provider",
     "JSONReaderProvider": ".json_reader_provider",
+    "StreamingJSONLReaderProvider": ".streaming_jsonl_reader_provider",
     "DocumentGraphReaderProvider": ".document_graph_reader_provider",
     # Web readers
     "WebReaderProvider": ".web_reader_provider",

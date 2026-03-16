@@ -38,7 +38,7 @@ from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
 
-DEFAULT_EXTRACTION_DIR = 'output'
+
 
 logger = logging.getLogger(__name__)
 
@@ -284,7 +284,7 @@ class LexicalGraphIndex():
         self.graph_store = MultiTenantGraphStore.wrap(GraphStoreFactory.for_graph_store(graph_store), tenant_id)
         self.vector_store = MultiTenantVectorStore.wrap(VectorStoreFactory.for_vector_store(vector_store), tenant_id)
         self.tenant_id = tenant_id or TenantId()
-        self.extraction_dir = extraction_dir or DEFAULT_EXTRACTION_DIR
+        self.extraction_dir = extraction_dir or GraphRAGConfig.local_output_dir
         self.indexing_config = to_indexing_config(indexing_config)
 
         (pre_processors, components) = self._configure_extraction_pipeline(self.indexing_config)

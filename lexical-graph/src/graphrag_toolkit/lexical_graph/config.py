@@ -52,6 +52,8 @@ DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 DEFAULT_OPENSEARCH_ENGINE = 'nmslib'
 DEFAULT_ENABLE_VERSIONING = False
 DEFAULT_CHUNK_EXTERNAL_PROPERTIES = None
+DEFAULT_LOCAL_OUTPUT_DIR = 'output'  # Local staging directory for batch files (use /tmp for EKS)
+DEFAULT_LOG_OUTPUT_DIR = None  # Log file directory (None = use filename as-is, set to /tmp for EKS)
 
 def _is_json_string(s):
     """
@@ -291,6 +293,8 @@ class _GraphRAGConfig:
     _opensearch_engine: Optional[str] = None
     _enable_versioning = None
     _chunk_external_properties: Optional[Dict[str, str]] = None
+    _local_output_dir: Optional[str] = None
+    _log_output_dir: Optional[str] = None
 
     @contextlib.contextmanager
     def _validate_sso_token(self, profile):
@@ -1224,6 +1228,50 @@ class _GraphRAGConfig:
             if 'chunkId' in chunk_external_properties:
                 raise ConfigurationError("chunk_external_properties cannot contain a 'chunkId' key")
         self._chunk_external_properties = chunk_external_properties
+
+    @property
+    def local_output_dir(self) -> str:
+        """
+        Local output directory for batch staging files.
+        
+        This directory is used by batch extractors to stage JSONL files before
+        uploading to S3. Default is 'output' for local development.
+        
+        For EKS/Kubernetes deployments, set to '/tmp' via environment variable
+        LOCAL_OUTPUT_DIR or programmatically via GraphRAGConfig.local_output_dir = '/tmp'
+        
+        Returns:
+            str: The local output directory path.
+        """
+        if self._local_output_dir is None:
+            self._local_output_dir = os.environ.get('LOCAL_OUTPUT_DIR', DEFAULT_LOCAL_OUTPUT_DIR)
+        return self._local_output_dir
+
+    @local_output_dir.setter
+    def local_output_dir(self, local_output_dir: str) -> None:
+        self._local_output_dir = local_output_dir
+
+    @property
+    def log_output_dir(self) -> Optional[str]:
+        """
+        Directory for log files.
+        
+        When set, log filenames passed to set_logging_config() will be prefixed
+        with this directory. Default is None (use filename as-is).
+        
+        For EKS/Kubernetes deployments, set to '/tmp' via environment variable
+        LOG_OUTPUT_DIR or programmatically via GraphRAGConfig.log_output_dir = '/tmp'
+        
+        Returns:
+            Optional[str]: The log output directory path, or None.
+        """
+        if self._log_output_dir is None:
+            self._log_output_dir = os.environ.get('LOG_OUTPUT_DIR', DEFAULT_LOG_OUTPUT_DIR)
+        return self._log_output_dir
+
+    @log_output_dir.setter
+    def log_output_dir(self, log_output_dir: Optional[str]) -> None:
+        self._log_output_dir = log_output_dir
 
 
 GraphRAGConfig = _GraphRAGConfig()

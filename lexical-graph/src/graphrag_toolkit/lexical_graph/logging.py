@@ -264,6 +264,8 @@ def set_advanced_logging_config(
             console-based.
 
     """
+    from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+    
     if not _is_valid_logging_level(logging_level):
         warnings.warn(f'Unknown logging level {logging_level!r} provided.', UserWarning)
     if isinstance(logging_level, int):
@@ -277,6 +279,9 @@ def set_advanced_logging_config(
     config['filters']['moduleFilter']['excluded_messages'].update(excluded_messages or dict())
     
     if filename:
+        import os
+        if GraphRAGConfig.log_output_dir and not os.path.isabs(filename):
+            filename = os.path.join(GraphRAGConfig.log_output_dir, filename)
         config['handlers']['file_handler']['filename'] = filename
         config['loggers']['']['handlers'].append('file_handler')
     

@@ -71,7 +71,7 @@ def formatter_for_type(type_name:str) -> Callable[[Any], str]:
         raise ValueError(f'Unsupported type name: {type_name}')
 
 
-def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
+def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> Dict[str, Any]:
 
     def to_key(key: str) -> str:
         if key == VALID_FROM:
@@ -102,7 +102,7 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
                 raise ValueError(f'Expected MetadataFilters for FilterCondition.NOT, but found MetadataFilter')
             filter_strs.append(to_s3_filter(metadata_filter))
         elif isinstance(metadata_filter, MetadataFilters):
-            filter_strs.append(parse_metadata_filters_recursive(metadata_filter))
+            filter_strs.append(json.dumps(parse_metadata_filters_recursive(metadata_filter)))
         else:
             raise ValueError(f'Invalid metadata filter type: {type(metadata_filter)}')
 
@@ -114,12 +114,16 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
         raise ValueError(f'Unsupported filters condition: {metadata_filters.condition}')
 
 
-def filter_config_to_s3_filters(filter_config:FilterConfig) -> str:
+def filter_config_to_s3_filters(filter_config:FilterConfig) -> Dict[str, Any]:
 
     if filter_config is None or filter_config.source_filters is None:
         return None
     
-    return parse_metadata_filters_recursive(filter_config.source_filters)
+    s3_filters = parse_metadata_filters_recursive(filter_config.source_filters)
+
+    logger.debug(f's3_filters: {s3_filters}')
+    
+    return s3_filters
 
 def _node_to_s3_vector(id:str, value:str, embedding: List[float], node_metadata:Dict[str, Any]) -> Dict[str, Any]:
 
@@ -230,7 +234,7 @@ def check_vector_bucket(s3_vectors_client, bucket_name:str) -> bool:
     # return bucket_name
 
 
-def create_vector_index(s3_vectors_client, bucket_name:str, index_name:str, dimension:int, distance_metric:str=None, writeable:bool=False) -> str:
+def create_vector_index(s3_vectors_client, bucket_name:str, index_name:str, kms_key_arn:str, dimension:int, distance_metric:str=None, writeable:bool=False) -> str:
        
     if distance_metric is None:
         distance_metric = DISTANCE_METRIC
@@ -249,6 +253,16 @@ def create_vector_index(s3_vectors_client, bucket_name:str, index_name:str, dime
         raise IndexError(f"Index '{index_name}' in vector bucket '{bucket_name}' does not exist, but vector store is not writeable")
  
     try:
+        if kms_key_arn:
+            encryption_configuration={
+                'sseType': 'aws:kms',
+                'kmsKeyArn': kms_key_arn
+            }
+        else:
+            encryption_configuration={
+                'sseType': 'AES256'
+            }
+
         s3_vectors_client.create_index(
             vectorBucketName=bucket_name,
             indexName=index_name,
@@ -257,7 +271,8 @@ def create_vector_index(s3_vectors_client, bucket_name:str, index_name:str, dime
             dataType=VECTOR_DATA_TYPE,
             metadataConfiguration={
                 'nonFilterableMetadataKeys': NON_FILTERABLE_FIELDS
-            }
+            },
+            #encryptionConfiguration=encryption_configuration
         )
         logger.debug(f'Created index: {index_name}')
     except ClientError as index_error:
@@ -416,7 +431,7 @@ def delete_vectors(s3_vectors_client, bucket_name:str, index_name:str, vector_id
 
 class S3VectorIndex(VectorIndex):
     @staticmethod
-    def for_index(index_name, bucket_name, prefix=None, embed_model=None, dimensions=None, **kwargs):
+    def for_index(index_name, bucket_name, prefix=None, kms_key_arn=None, embed_model=None, dimensions=None, **kwargs):
 
         embed_model = embed_model or GraphRAGConfig.embed_model
         dimensions = coalesce(dimensions, GraphRAGConfig.embed_dimensions)
@@ -425,6 +440,7 @@ class S3VectorIndex(VectorIndex):
             index_name=index_name, 
             bucket_name=bucket_name, 
             prefix=prefix, 
+            kms_key_arn=kms_key_arn,
             embed_model=embed_model, 
             dimensions=dimensions
         )
@@ -433,6 +449,7 @@ class S3VectorIndex(VectorIndex):
     initialized:bool=False
     bucket_name:str
     prefix:Optional[str]=None
+    kms_key_arn:Optional[str]=None
     embed_model: Any
     dimensions: int
         
@@ -458,7 +475,14 @@ class S3VectorIndex(VectorIndex):
     def _init_index(self, client):
         if not self.initialized:
             if check_vector_bucket(client, self.bucket_name):
-                create_vector_index(client, self.bucket_name, self.underlying_index_name(), dimension=self.dimensions, writeable=self.writeable)
+                create_vector_index(
+                    client, 
+                    self.bucket_name, 
+                    self.underlying_index_name(), 
+                    kms_key_arn=self.kms_key_arn, 
+                    dimension=self.dimensions, 
+                    writeable=self.writeable
+                )
                 self.initialized = True
 
     def add_embeddings(self, nodes:Sequence[BaseNode]) -> Sequence[BaseNode]:

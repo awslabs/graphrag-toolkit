@@ -42,6 +42,15 @@ class JSONReaderConfig(ReaderProviderConfig):
     metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
 
 @dataclass
+class StreamingJSONLReaderConfig(ReaderProviderConfig):
+    """Configuration for streaming JSONL reader that processes files line-by-line."""
+    batch_size: int = 100
+    text_field: Optional[str] = "text"
+    strict_mode: bool = False
+    log_interval: int = 10000
+    metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
+
+@dataclass
 class XMLReaderConfig(ReaderProviderConfig):
     tree_level_split: int = 0
 
@@ -122,6 +131,7 @@ class WikipediaReaderConfig(ReaderProviderConfig):
 class YouTubeReaderConfig(ReaderProviderConfig):
     language: str = "en"
     metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
+    proxy_url: Optional[str] = None  # HTTP/HTTPS proxy URL (e.g., 'http://proxy.example.com:8080')
 
 @dataclass
 class StructuredDataReaderConfig(ReaderProviderConfig):
