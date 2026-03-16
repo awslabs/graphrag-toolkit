@@ -107,7 +107,7 @@ class Neo4jDatabaseClient(GraphStore):
             self._client.close()
         return super().__exit__(exception_type, exception_value, traceback)
 
-    def _execute_query(self, 
+    def _execute_query(self,
                       cypher: str, 
                       parameters: Optional[dict] = None, 
                       correlation_id: Any = None):
