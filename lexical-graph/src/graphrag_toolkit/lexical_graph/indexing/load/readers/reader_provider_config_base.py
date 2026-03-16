@@ -16,7 +16,7 @@ class AWSReaderConfigBase(ReaderProviderConfig):
     aws_profile: Optional[str] = None
     aws_region: Optional[str] = None
     
-    def get_boto3_session(self):  # pragma: no cover
+    def get_boto3_session(self):
         """Get boto3 session with configured profile/region."""
         from boto3.session import Session as Boto3Session
         return (

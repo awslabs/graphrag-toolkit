@@ -12,7 +12,7 @@ NEO4J_SCHEMES = ['bolt', 'bolt+ssc', 'bolt+s', 'neo4j', 'neo4j+ssc', 'neo4j+s']
 
 class Neo4jGraphStoreFactory(GraphStoreFactoryMethod):
 
-    def try_create(self, graph_info:str, **kwargs) -> GraphStore:  # pragma: no cover
+    def try_create(self, graph_info:str, **kwargs) -> GraphStore:
         endpoint_url = None
         for scheme in NEO4J_SCHEMES:
             if graph_info.startswith(f'{scheme}://'):
