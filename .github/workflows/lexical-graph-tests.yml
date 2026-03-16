@@ -12,6 +12,9 @@ on:
       - "lexical-graph/**"
       - ".github/workflows/lexical-graph-tests.yml"
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
