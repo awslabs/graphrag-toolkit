@@ -124,7 +124,7 @@ class ResilientClient:
         self._lock = threading.Lock()
 
 
-    def _create_client(self):  # pragma: no cover
+    def _create_client(self):
         """
         Create a new boto3 client using the config's session.
 
@@ -171,7 +171,7 @@ class ResilientClient:
         with self._lock:
             yield
         
-    def _refresh_client(self):  # pragma: no cover
+    def _refresh_client(self):
         """
         Refresh the underlying boto3 client in a thread-safe manner.
         
@@ -333,7 +333,7 @@ class _GraphRAGConfig:
             # Continue even if SSO validation fails
             yield
     
-    def _get_or_create_client(self, service_name: str):  # pragma: no cover
+    def _get_or_create_client(self, service_name: str):
         """
         Creates or retrieves a resilient boto3 client for a specified AWS service.
         
@@ -380,7 +380,7 @@ class _GraphRAGConfig:
             ) from e
 
     @property
-    def session(self) -> Boto3Session:  # pragma: no cover
+    def session(self) -> Boto3Session:
         """
         Initializes and manages a Boto3 session. This property lazily initializes
         a Boto3 session the first time it is accessed. It uses an explicitly
@@ -424,7 +424,7 @@ class _GraphRAGConfig:
         return self._boto3_session
 
     @property
-    def s3(self):  # pragma: no cover
+    def s3(self):
         """
         Provides a read-only property to access the S3 client by retrieving or creating an
         instance of the client. The method `_get_or_create_client` is responsible for
@@ -438,7 +438,7 @@ class _GraphRAGConfig:
         return self._get_or_create_client("s3")
 
     @property
-    def bedrock(self):  # pragma: no cover
+    def bedrock(self):
         """
         Provides a property to access the 'bedrock' client. This client is managed internally
         and created on demand, ensuring minimal resource usage unless explicitly required.
@@ -451,7 +451,7 @@ class _GraphRAGConfig:
         return self._get_or_create_client("bedrock")
 
     @property
-    def rds(self):  # pragma: no cover
+    def rds(self):
         """
         Provides a property `rds` that retrieves an RDS client instance. The client
         is created if not already available, allowing users to interact with RDS
