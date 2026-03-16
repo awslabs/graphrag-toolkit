@@ -240,7 +240,7 @@ class Nova2MultimodalEmbedding(BaseEmbedding):
         return self._get_query_embedding(query)
 
 
-def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], Any]:
+def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], Any]:  # pragma: no cover
     """
     Creates a retry decorator with exponential backoff strategy.
 

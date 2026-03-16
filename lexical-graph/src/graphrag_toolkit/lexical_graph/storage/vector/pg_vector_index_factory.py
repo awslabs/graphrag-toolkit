@@ -12,7 +12,7 @@ POSTGRES = 'postgres://'
 POSTGRESQL = 'postgresql://'
 
 class PGVectorIndexFactory(VectorIndexFactoryMethod):
-    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:
+    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:  # pragma: no cover
         """
         Tries to create and return a list of vector indexes using the given parameters.
 

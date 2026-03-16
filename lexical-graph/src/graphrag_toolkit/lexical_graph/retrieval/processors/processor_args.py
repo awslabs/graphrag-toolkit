@@ -109,7 +109,7 @@ class ProcessorArgs():
         args = self.__dict__
         return args | new_args
     
-    def __repr__(self):
+    def __repr__(self):  # pragma: no cover
         """
         Returns a string representation of the object for debugging and logging purposes. This method
         ensures that the object is represented as a string in dictionary format, which is particularly

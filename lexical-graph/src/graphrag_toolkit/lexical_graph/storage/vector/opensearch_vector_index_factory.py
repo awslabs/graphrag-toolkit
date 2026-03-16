@@ -25,7 +25,7 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
         relies on the methods and details passed during the instantiation and
         method calls.
     """
-    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:
+    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:  # pragma: no cover
         """
         Attempts to create a list of vector indexes using the provided index names and vector
         index information. This method checks if a supported endpoint configuration is

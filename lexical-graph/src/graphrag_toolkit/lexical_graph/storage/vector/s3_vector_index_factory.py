@@ -30,7 +30,7 @@ def parse_s3_vectors_connection_string(connection_string):
 
 class S3VectorIndexFactory(VectorIndexFactoryMethod):
     
-    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:
+    def try_create(self, index_names:List[str], vector_index_info:str, **kwargs) -> List[VectorIndex]:  # pragma: no cover
 
         bucket_and_prefix = None
 

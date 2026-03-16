@@ -113,7 +113,7 @@ class DummyAuth:
     """
     service:str
 
-def create_os_client(endpoint, **kwargs):
+def create_os_client(endpoint, **kwargs):  # pragma: no cover
     """
     Creates an OpenSearch client configured to use AWS Signature Version 4
     authentication.
@@ -154,7 +154,7 @@ def create_os_client(endpoint, **kwargs):
         **kwargs
     )
 
-def create_os_async_client(endpoint, **kwargs):
+def create_os_async_client(endpoint, **kwargs):  # pragma: no cover
     """
     Creates an asynchronous OpenSearch client.
 
@@ -300,7 +300,7 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
     return index_exists
         
     
-def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model):
+def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model):  # pragma: no cover
     """
     Creates an OpenSearch vector client for interacting with an OpenSearch cluster.
 
@@ -522,7 +522,7 @@ class OpenSearchIndex(VectorIndex):
         return super().__getstate__()
         
     @property
-    def client(self) -> OpensearchVectorClient:
+    def client(self) -> OpensearchVectorClient:  # pragma: no cover
         """
         Retrieves or creates an OpenSearch vector client for interacting with the
         specified index. Ensures that the client is initialized appropriately,

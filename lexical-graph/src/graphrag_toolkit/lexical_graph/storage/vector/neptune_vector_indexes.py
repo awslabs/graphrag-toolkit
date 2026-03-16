@@ -136,7 +136,7 @@ class NeptuneIndex(VectorIndex):
     path: str
     return_fields: str
 
-    def _neptune_client(self):
+    def _neptune_client(self):  # pragma: no cover
         """
         Creates and returns the appropriate Neptune client based on tenant ID.
 

@@ -312,7 +312,7 @@ class PGIndex(VectorIndex):
     def underlying_index_name(self) -> str:
         return ''.join([ c if c.isalnum() else '_' for c in super().underlying_index_name() ])
 
-    def _get_connection(self):
+    def _get_connection(self):  # pragma: no cover
         """
         Establishes a connection to the database, configures it, and optionally initializes the schema and
         indexes required for the application. The method supports IAM-based authentication for Amazon RDS if

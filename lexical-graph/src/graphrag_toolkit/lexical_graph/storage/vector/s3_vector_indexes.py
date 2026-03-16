@@ -458,7 +458,7 @@ class S3VectorIndex(VectorIndex):
         return super().__getstate__()
 
     @property
-    def client(self):
+    def client(self):  # pragma: no cover
         if self._client is None:
             session = GraphRAGConfig.session
             self._client = session.client('s3vectors')

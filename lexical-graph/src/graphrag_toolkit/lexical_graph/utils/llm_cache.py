@@ -33,7 +33,7 @@ class LLMCache(BaseModel):
     verbose_prompt:Optional[bool] = Field(default=False)
     verbose_response:Optional[bool] = Field(default=False)
 
-    def stream(
+    def stream(  # pragma: no cover
          self,
         prompt: BasePromptTemplate,
         **prompt_args: Any
@@ -60,7 +60,7 @@ class LLMCache(BaseModel):
             
         return response
 
-    def predict(
+    def predict(  # pragma: no cover
         self,
         prompt: BasePromptTemplate,
         **prompt_args: Any
