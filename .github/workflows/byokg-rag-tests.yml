@@ -1,5 +1,8 @@
 name: BYOKG-RAG Unit Tests using pytest with code coverage on byokg-rag module
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [main]

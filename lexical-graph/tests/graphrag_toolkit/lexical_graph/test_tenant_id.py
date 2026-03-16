@@ -19,6 +19,23 @@ from graphrag_toolkit.lexical_graph.tenant_id import TenantId, to_tenant_id
 
 
 # ---------------------------------------------------------------------------
+# Fixtures
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def default_tenant():
+    """Fixture providing a default tenant (value=None)."""
+    return TenantId()
+
+
+@pytest.fixture
+def custom_tenant():
+    """Fixture providing a custom tenant with value='acme'."""
+    return TenantId("acme")
+
+
+# ---------------------------------------------------------------------------
 # __init__ validation
 # ---------------------------------------------------------------------------
 
