@@ -1,4 +1,11 @@
+# Runs lexical-graph unit tests with coverage on push/PR to main.
+# Tests run across Python 3.10–3.12. Coverage reports are uploaded as
+# artifacts and a PR comment is posted on failure.
 name: Lexical Graph Unit Tests
+
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   push:
@@ -11,9 +18,6 @@ on:
     paths:
       - "lexical-graph/**"
       - ".github/workflows/lexical-graph-tests.yml"
-
-permissions:
-  contents: read
 
 jobs:
   test:
@@ -43,9 +47,43 @@ jobs:
       - name: Install dependencies
         run: |
           uv pip install --python .venv/bin/python \
-            pytest hypothesis \
+            pytest \
+            pytest-cov \
+            pytest-mock \
+            pytest-asyncio \
+            hypothesis \
             -r src/graphrag_toolkit/lexical_graph/requirements.txt
 
-      - name: Run unit tests
+      - name: Run tests
+        id: run_tests
         run: |
-          PYTHONPATH=src .venv/bin/python -m pytest tests/ -v --tb=short
+          PYTHONPATH=src .venv/bin/python -m pytest \
+            -v --cov-config=.coveragerc --cov=graphrag_toolkit.lexical_graph \
+            -l --tb=short --maxfail=1 --cov-fail-under=50 \
+            tests/
+
+      - name: Package coverage reports
+        if: always()
+        run: |
+          PYTHONPATH=src .venv/bin/python -m coverage xml
+          PYTHONPATH=src .venv/bin/python -m coverage html
+
+      - name: Upload HTML coverage report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-report
+          path: lexical-graph/htmlcov/
+
+      - name: Comment on PR with coverage report link
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `**Coverage Report**: Download the HTML report [here](${artifactUrl}).`
+            });

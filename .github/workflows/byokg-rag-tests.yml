@@ -1,7 +1,11 @@
-name: BYOKG-RAG Unit Tests using pytest with code coverage on byokg-rag module
+# Runs BYOKG-RAG unit tests with coverage on push/PR to main.
+# Tests run across Python 3.10–3.12. Coverage reports are uploaded as
+# artifacts and a PR comment is posted on failure.
+name: BYOKG-RAG Unit Tests
 
 permissions:
   contents: read
+  pull-requests: write
 
 on:
   push:
@@ -48,20 +52,36 @@ jobs:
             pytest-mock \
             -r src/graphrag_toolkit/byokg_rag/requirements.txt
 
-      - name: Run unit tests with coverage
+      - name: Run tests
+        id: run_tests
         run: |
-          PYTHONPATH=src .venv/bin/python -m pytest tests/ \
-            -v \
-            --tb=short \
-            --cov=src/graphrag_toolkit/byokg_rag \
-            --cov-report=term-missing \
-            --cov-report=html:htmlcov \
-            --deselect=tests/unit/indexing/test_dense_index.py::TestDenseIndexMatch::test_dense_index_match_multiple_queries \
-            --deselect=tests/unit/indexing/test_dense_index.py::TestDenseIndexMatch::test_dense_index_match_with_id_selector_not_implemented
+          PYTHONPATH=src .venv/bin/python -m pytest \
+            -v --cov-config=.coveragerc --cov=graphrag_toolkit.byokg_rag \
+            -l --tb=short --maxfail=1 --cov-fail-under=80 \
+            tests/
 
-      - name: Upload coverage report
-        if: matrix.python-version == '3.12'
-        uses: actions/upload-artifact@v4
+      - name: Package coverage reports
+        if: always()
+        run: |
+          PYTHONPATH=src .venv/bin/python -m coverage xml
+          PYTHONPATH=src .venv/bin/python -m coverage html
+
+      - name: Upload HTML coverage report
+        if: always()
+        uses: actions/upload-artifact@v6
         with:
           name: coverage-report
           path: byokg-rag/htmlcov/
+
+      - name: Comment on PR with coverage report link
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `**Coverage Report**: Download the HTML report [here](${artifactUrl}).`
+            });
