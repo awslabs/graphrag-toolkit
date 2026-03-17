@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.pypi_version }}
     permissions:
       contents: write
 
@@ -57,6 +59,7 @@ jobs:
             VERSION="v$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')"
           fi
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "pypi_version=${VERSION#v}" >> $GITHUB_OUTPUT
 
       - name: Update pip install version in lexical-graph notebooks
         working-directory: examples/lexical-graph/notebooks
@@ -128,7 +131,7 @@ jobs:
       id-token: write
     environment:
       name: pypi
-      url: https://pypi.org/project/grt-lexical-graph
+      url: https://pypi.org/project/grt-lexical-graph/${{ needs.build.outputs.version }}
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
