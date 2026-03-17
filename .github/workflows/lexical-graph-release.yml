@@ -128,7 +128,7 @@ jobs:
       id-token: write
     environment:
       name: pypi
-      url: https://pypi.org/project/graphrag-toolkit-lexical-graph
+      url: https://pypi.org/project/grt-lexical-graph
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4

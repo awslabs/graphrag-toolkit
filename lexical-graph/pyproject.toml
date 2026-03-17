@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 packages = ["src/graphrag_toolkit"]
 
 [project]
-name = "graphrag-toolkit-lexical-graph"
+name = "grt-lexical-graph"
 version = "3.17.1.dev0"
 description = "AWS GraphRAG Toolkit, lexical graph"
 readme = "README.md"
