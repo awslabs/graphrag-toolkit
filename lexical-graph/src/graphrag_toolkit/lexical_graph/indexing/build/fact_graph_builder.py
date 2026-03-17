@@ -131,7 +131,7 @@ class FactGraphBuilder(GraphBuilder):
                     insert_entity_fact_relationship('object', fact.complement.entityId)
 
             create_next_relationship = Query(
-                query=f"""// insert connection to prev facts
+                query=f"""// insert next connection between facts
                 UNWIND $params AS params
                 MATCH (start{{{graph_client.node_id("factId")}: params.startId}}), (end{{{graph_client.node_id("factId")}: params.endId}})
                 MERGE (start)-[:`__NEXT__`]->(end)
@@ -139,7 +139,7 @@ class FactGraphBuilder(GraphBuilder):
             )
 
             find_start_end_for_prev_facts = Query(
-                query=f"""// get start and end facts for prev conection
+                query=f"""// get start and end facts for prev connection
                 UNWIND $params AS params
                 MATCH (fact:`__Fact__`{{{graph_client.node_id("factId")}: params.fact_id}})<-[:`__SUBJECT__`]-(:`__Entity__`)-[:`__OBJECT__`]->(prevFact:`__Fact__`)
                 WHERE fact <> prevFact
@@ -159,7 +159,7 @@ class FactGraphBuilder(GraphBuilder):
             if fact.object or fact.complement:
 
                 find_start_end_for_next_facts = Query(
-                    query=f"""// get start and end facts for next conection
+                    query=f"""// get start and end facts for next connection
                     UNWIND $params AS params
                     MATCH (fact:`__Fact__`{{{graph_client.node_id("factId")}: params.fact_id}})<-[:`__OBJECT__`]-(:`__Entity__`)-[:`__SUBJECT__`]->(nextFact:`__Fact__`)
                     WHERE fact <> nextFact
