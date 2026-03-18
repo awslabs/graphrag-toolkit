@@ -70,15 +70,21 @@ jobs:
           PYTHONPATH=src .venv/bin/python -m coverage html
           COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage.xml').getroot().get('line-rate')) * 100, 2))")
           echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
+          echo "${COVERAGE_PCT}" > coverage-percentage.txt
 
-      - name: Upload coverage reports
+      - name: Upload HTML coverage report
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: coverage-report-${{ matrix.python-version }}
-          path: |
-            lexical-graph/htmlcov/
-            lexical-graph/coverage.xml
+          path: lexical-graph/htmlcov/
+
+      - name: Upload coverage percentage
+        if: always() && matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-percentage
+          path: lexical-graph/coverage-percentage.txt
 
   comment:
     if: always() && github.event_name == 'pull_request'
@@ -86,16 +92,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download coverage report
+      - name: Download coverage percentage
         uses: actions/download-artifact@v4
         with:
-          name: coverage-report-3.12
+          name: coverage-percentage
           path: coverage-data
 
       - name: Get coverage percentage
         id: coverage
         run: |
-          COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage-data/lexical-graph/coverage.xml').getroot().get('line-rate')) * 100, 2))" 2>/dev/null || echo "unknown")
+          COVERAGE_PCT=$(cat coverage-data/coverage-percentage.txt 2>/dev/null || echo "unknown")
           echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
 
       - name: Comment on PR with coverage report link

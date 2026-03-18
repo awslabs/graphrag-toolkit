@@ -68,15 +68,21 @@ jobs:
           PYTHONPATH=src .venv/bin/python -m coverage html
           COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage.xml').getroot().get('line-rate')) * 100, 2))")
           echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
+          echo "${COVERAGE_PCT}" > coverage-percentage.txt
 
-      - name: Upload coverage reports
+      - name: Upload HTML coverage report
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: coverage-report-${{ matrix.python-version }}
-          path: |
-            byokg-rag/htmlcov/
-            byokg-rag/coverage.xml
+          path: byokg-rag/htmlcov/
+
+      - name: Upload coverage percentage
+        if: always() && matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-percentage
+          path: byokg-rag/coverage-percentage.txt
 
   comment:
     if: always() && github.event_name == 'pull_request'
@@ -84,16 +90,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download coverage report
+      - name: Download coverage percentage
         uses: actions/download-artifact@v4
         with:
-          name: coverage-report-3.12
+          name: coverage-percentage
           path: coverage-data
 
       - name: Get coverage percentage
         id: coverage
         run: |
-          COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage-data/byokg-rag/coverage.xml').getroot().get('line-rate')) * 100, 2))" 2>/dev/null || echo "unknown")
+          COVERAGE_PCT=$(cat coverage-data/coverage-percentage.txt 2>/dev/null || echo "unknown")
           echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
 
       - name: Comment on PR with coverage report link
@@ -103,7 +109,8 @@ jobs:
             const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const coverage = `${{ steps.coverage.outputs.percentage }}`;
             await github.rest.issues.createComment({
-              owner: cntext.repo.repo,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               issue_number: context.issue.number,
               body: `**Coverage Report**: The coverage is at ${coverage}%. Download the HTML report [here](${artifactUrl}).`
             });
