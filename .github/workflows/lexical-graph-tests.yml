@@ -63,10 +63,13 @@ jobs:
             tests/
 
       - name: Package coverage reports
+        id: coverage
         if: always()
         run: |
           PYTHONPATH=src .venv/bin/python -m coverage xml
           PYTHONPATH=src .venv/bin/python -m coverage html
+          COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage.xml').getroot().get('line-rate')) * 100, 2))")
+          echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
 
       - name: Upload HTML coverage report
         if: always()
@@ -81,9 +84,10 @@ jobs:
         with:
           script: |
             const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const coverage = `${{ steps.coverage.outputs.percentage }}`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `**Coverage Report**: Download the HTML report [here](${artifactUrl}).`
+              body: `**Coverage Report**: The coverage is at ${coverage}%. Download the HTML report [here](${artifactUrl}).`
             });
