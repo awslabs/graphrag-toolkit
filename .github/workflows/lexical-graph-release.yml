@@ -17,6 +17,8 @@ jobs:
   release-build:
     # Constraint: Only run if the tag starts with 'lexical-graph/v':
     # if: startsWith(github.ref, 'refs/tags/lexical-graph/v')
+    if: startsWith(github.ref, 'refs/tags/')
+
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.pypi_version }}
@@ -112,9 +114,8 @@ jobs:
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
           retention-days: 30
 
-      # Automatically create a GitHub Release when a new tag is pushed
-      - name: Create GitHub Release
-        if: startsWith(github.ref, 'refs/tags/')
+      # Add artifacts to the GitHub Release
+      - name: Attach Artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
@@ -123,14 +124,7 @@ jobs:
             examples/lexical-graph/notebooks/lexical-graph-examples-latest.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
-          generate_release_notes: true
-          prerelease: >-
-            ${{
-              contains(github.ref_name, 'alpha') ||
-              contains(github.ref_name, 'beta') ||
-              contains(github.ref_name, 'rc') ||
-              contains(github.ref_name, 'dev')
-            }}
+          prerelease: false
 
   pypi-publish:
     runs-on: ubuntu-latest
