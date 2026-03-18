@@ -1,6 +1,6 @@
 # Runs lexical-graph unit tests with coverage on push/PR to main.
 # Tests run across Python 3.10–3.12. Coverage reports are uploaded as
-# artifacts and a PR comment is posted on failure.
+# artifacts and a PR comment is posted with the coverage summary.
 name: Lexical Graph Unit Tests
 
 permissions:
@@ -71,15 +71,34 @@ jobs:
           COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage.xml').getroot().get('line-rate')) * 100, 2))")
           echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
 
-      - name: Upload HTML coverage report
+      - name: Upload coverage reports
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: coverage-report-${{ matrix.python-version }}
-          path: lexical-graph/htmlcov/
+          path: |
+            lexical-graph/htmlcov/
+            lexical-graph/coverage.xml
+
+  comment:
+    if: always() && github.event_name == 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download coverage report
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report-3.12
+          path: coverage-data
+
+      - name: Get coverage percentage
+        id: coverage
+        run: |
+          COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage-data/lexical-graph/coverage.xml').getroot().get('line-rate')) * 100, 2))" 2>/dev/null || echo "unknown")
+          echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
 
       - name: Comment on PR with coverage report link
-        if: always() && github.event_name == 'pull_request'
         uses: actions/github-script@v8
         with:
           script: |
