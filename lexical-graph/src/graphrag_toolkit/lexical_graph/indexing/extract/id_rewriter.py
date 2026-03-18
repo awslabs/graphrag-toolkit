@@ -51,7 +51,7 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
         """
 
         if properties:
-            return ';'.join(sorted([f'{k}:{v}' for k,v in properties.items() if k not in [VERSIONING_METADATA_KEYS]]))
+            return ';'.join(sorted([f'{k}:{v}' for k,v in properties.items() if k not in VERSIONING_METADATA_KEYS]))
         else:
             return default
     
