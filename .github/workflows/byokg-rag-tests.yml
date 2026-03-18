@@ -69,6 +69,7 @@ jobs:
           COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage.xml').getroot().get('line-rate')) * 100, 2))")
           echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
           echo "${COVERAGE_PCT}" > coverage-percentage.txt
+          echo "80" > coverage-target.txt
 
       - name: Upload HTML coverage report
         if: always()
@@ -82,7 +83,9 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: coverage-percentage
-          path: byokg-rag/coverage-percentage.txt
+          path: |
+            byokg-rag/coverage-percentage.txt
+            byokg-rag/coverage-target.txt
 
   comment:
     if: always() && github.event_name == 'pull_request'
@@ -100,7 +103,9 @@ jobs:
         id: coverage
         run: |
           COVERAGE_PCT=$(cat coverage-data/coverage-percentage.txt 2>/dev/null || echo "unknown")
+          COVERAGE_TARGET=$(cat coverage-data/coverage-target.txt 2>/dev/null || echo "unknown")
           echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
+          echo "target=${COVERAGE_TARGET}" >> "$GITHUB_OUTPUT"
 
       - name: Comment on PR with coverage report link
         uses: actions/github-script@v8
@@ -108,9 +113,10 @@ jobs:
           script: |
             const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const coverage = `${{ steps.coverage.outputs.percentage }}`;
+            const target = `${{ steps.coverage.outputs.target }}`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `**Coverage Report**: The coverage is at ${coverage}%. Download the HTML report [here](${artifactUrl}).`
+              body: `**BYOKG-RAG Coverage Report**: The coverage is at ${coverage}% (target: ${target}%). Download the HTML report [here](${artifactUrl}).`
             });
