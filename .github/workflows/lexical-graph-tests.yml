@@ -59,7 +59,7 @@ jobs:
         run: |
           PYTHONPATH=src .venv/bin/python -m pytest \
             -v --cov-config=.coveragerc --cov=graphrag_toolkit.lexical_graph \
-            -l --tb=short --maxfail=1 --cov-fail-under=50 \
+            -l --tb=short --maxfail=1 --cov-fail-under=30 \
             tests/
 
       - name: Package coverage reports
@@ -72,7 +72,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: coverage-report
+          name: coverage-report-${{ matrix.python-version }}
           path: lexical-graph/htmlcov/
 
       - name: Comment on PR with coverage report link

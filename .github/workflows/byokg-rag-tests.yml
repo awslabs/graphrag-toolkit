@@ -70,7 +70,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: coverage-report
+          name: coverage-report-${{ matrix.python-version }}
           path: byokg-rag/htmlcov/
 
       - name: Comment on PR with coverage report link
