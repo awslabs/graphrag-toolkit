@@ -79,7 +79,7 @@ jobs:
           path: lexical-graph/htmlcov/
 
       - name: Comment on PR with coverage report link
-        if: failure() && github.event_name == 'pull_request'
+        if: always() && github.event_name == 'pull_request'
         uses: actions/github-script@v8
         with:
           script: |
