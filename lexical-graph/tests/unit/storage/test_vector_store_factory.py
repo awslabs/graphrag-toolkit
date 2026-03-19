@@ -124,21 +124,23 @@ class TestVectorStoreFactoryForVectorStore:
         with pytest.raises(ValueError, match="Unrecognized vector store info"):
             VectorStoreFactory.for_vector_store("")
 
-    @patch('boto3.client')
-    def test_factory_creates_opensearch_store(self, mock_boto3_client):
-        """Verify factory creates OpenSearch store with mocked boto3."""
-        # Skip if OpenSearch dependencies not installed
-        pytest.importorskip("llama_index.vector_stores.opensearch")
-        
-        # Mock OpenSearch client
-        mock_client = Mock()
-        mock_boto3_client.return_value = mock_client
+    def test_factory_creates_opensearch_store(self):
+        """Verify factory creates OpenSearch store with mocked OpenSearchIndex."""
+        from unittest.mock import MagicMock, patch as _patch
 
-        # OpenSearch Serverless connection string format (correct format is aoss://)
-        result = VectorStoreFactory.for_vector_store("aoss://domain-endpoint")
+        mock_index = MagicMock(spec=VectorIndex)
+        mock_index.index_name = "chunk"
+        mock_os_cls = MagicMock()
+        mock_os_cls.for_index.return_value = mock_index
 
-        # Should create a vector store (not raise an error)
-        assert isinstance(result, VectorStore)
+        with _patch.dict("sys.modules", {
+            "graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes": MagicMock(
+                OpenSearchIndex=mock_os_cls
+            ),
+            "llama_index.vector_stores.opensearch": MagicMock(),
+        }):
+            result = VectorStoreFactory.for_vector_store("aoss://domain-endpoint")
+            assert isinstance(result, VectorStore)
 
 
 class TestVectorStoreFactoryForComposite:
