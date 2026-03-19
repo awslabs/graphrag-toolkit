@@ -31,3 +31,5 @@ __pycache__/
 # kiro config
 .config.kiro
 /temp/
+examples/lexical-graph-local-dev/notebooks/.env
+examples/lexical-graph-local-dev/notebooks/output.log

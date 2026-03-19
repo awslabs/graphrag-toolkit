@@ -13,7 +13,7 @@ IF "%1"=="--reset" (
 
 REM Create data directories
 echo Creating data directories...
-mkdir data\falkordb 2>nul
+mkdir data\neo4j 2>nul
 
 REM Check if Docker network exists
 docker network inspect graphrag_network >nul 2>&1
@@ -34,5 +34,5 @@ timeout /t 10 /nobreak >nul
 
 echo Lexical-Graph environment is ready!
 echo    Jupyter Lab: http://localhost:8889 (token: lexical-graph)
-echo    FalkorDB: localhost:6379
+echo    Neo4j: http://localhost:7476
 echo    PostgreSQL: localhost:5433
