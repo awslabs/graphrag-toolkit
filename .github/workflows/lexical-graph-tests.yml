@@ -7,6 +7,10 @@ permissions:
   contents: read
   pull-requests: write
 
+# NOTE: The PR comment job is skipped for fork PRs because the GITHUB_TOKEN
+# is read-only in that context. Coverage reports are still uploaded as
+# artifacts regardless.
+
 on:
   push:
     branches: [main]
@@ -90,7 +94,10 @@ jobs:
             lexical-graph/coverage-target.txt
 
   comment:
-    if: always() && github.event_name == 'pull_request'
+    if: >-
+      always()
+      && github.event_name == 'pull_request'
+      && github.event.pull_request.head.repo.full_name == github.repository
     needs: test
     runs-on: ubuntu-latest
 
