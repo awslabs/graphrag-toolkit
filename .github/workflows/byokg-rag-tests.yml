@@ -1,7 +1,15 @@
-name: BYOKG-RAG Unit Tests using pytest with code coverage on byokg-rag module
+# Runs BYOKG-RAG unit tests with coverage on push/PR to main.
+# Tests run across Python 3.10–3.12. Coverage reports are uploaded as
+# artifacts and a PR comment is posted with the coverage summary.
+name: BYOKG-RAG Unit Tests
 
 permissions:
   contents: read
+  pull-requests: write
+
+# NOTE: The PR comment job is skipped for fork PRs because the GITHUB_TOKEN
+# is read-only in that context. Coverage reports are still uploaded as
+# artifacts regardless.
 
 on:
   push:
@@ -48,20 +56,74 @@ jobs:
             pytest-mock \
             -r src/graphrag_toolkit/byokg_rag/requirements.txt
 
-      - name: Run unit tests with coverage
+      - name: Run tests
+        id: run_tests
         run: |
-          PYTHONPATH=src .venv/bin/python -m pytest tests/ \
-            -v \
-            --tb=short \
-            --cov=src/graphrag_toolkit/byokg_rag \
-            --cov-report=term-missing \
-            --cov-report=html:htmlcov \
-            --deselect=tests/unit/indexing/test_dense_index.py::TestDenseIndexMatch::test_dense_index_match_multiple_queries \
-            --deselect=tests/unit/indexing/test_dense_index.py::TestDenseIndexMatch::test_dense_index_match_with_id_selector_not_implemented
+          PYTHONPATH=src .venv/bin/python -m pytest \
+            -v --cov-config=.coveragerc --cov=graphrag_toolkit.byokg_rag \
+            -l --tb=short --maxfail=1 --cov-fail-under=80 \
+            tests/
 
-      - name: Upload coverage report
-        if: matrix.python-version == '3.12'
-        uses: actions/upload-artifact@v4
+      - name: Package coverage reports
+        id: coverage
+        if: always()
+        run: |
+          PYTHONPATH=src .venv/bin/python -m coverage xml
+          PYTHONPATH=src .venv/bin/python -m coverage html
+          COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage.xml').getroot().get('line-rate')) * 100, 2))")
+          echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
+          echo "${COVERAGE_PCT}" > coverage-percentage.txt
+          echo "80" > coverage-target.txt
+
+      - name: Upload HTML coverage report
+        if: always()
+        uses: actions/upload-artifact@v6
         with:
-          name: coverage-report
+          name: coverage-report-${{ matrix.python-version }}
           path: byokg-rag/htmlcov/
+
+      - name: Upload coverage percentage
+        if: always() && matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-percentage
+          path: |
+            byokg-rag/coverage-percentage.txt
+            byokg-rag/coverage-target.txt
+
+  comment:
+    if: >-
+      always()
+      && github.event_name == 'pull_request'
+      && github.event.pull_request.head.repo.full_name == github.repository
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download coverage percentage
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-percentage
+          path: coverage-data
+
+      - name: Get coverage percentage
+        id: coverage
+        run: |
+          COVERAGE_PCT=$(cat coverage-data/coverage-percentage.txt 2>/dev/null || echo "unknown")
+          COVERAGE_TARGET=$(cat coverage-data/coverage-target.txt 2>/dev/null || echo "unknown")
+          echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
+          echo "target=${COVERAGE_TARGET}" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR with coverage report link
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const coverage = `${{ steps.coverage.outputs.percentage }}`;
+            const target = `${{ steps.coverage.outputs.target }}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `**BYOKG-RAG Coverage Report**: The coverage is at ${coverage}% (target: ${target}%). Download the HTML report [here](${artifactUrl}).`
+            });

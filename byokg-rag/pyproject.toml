@@ -37,22 +37,4 @@ addopts = [
     "--cov-report=html:htmlcov",
 ]
 
-[tool.coverage.run]
-source = ["src/graphrag_toolkit/byokg_rag"]
-omit = [
-    "*/tests/*",
-    "*/test_*.py",
-    "*/__pycache__/*",
-    "*/prompts/*",
-]
-
-[tool.coverage.report]
-exclude_lines = [
-    "pragma: no cover",
-    "def __repr__",
-    "raise AssertionError",
-    "raise NotImplementedError",
-    "if __name__ == .__main__.:",
-    "if TYPE_CHECKING:",
-    "@abstractmethod",
-]
+# Coverage configuration lives in .coveragerc (used by CI via --cov-config).
