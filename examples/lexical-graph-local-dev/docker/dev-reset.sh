@@ -4,10 +4,10 @@ echo "Stopping and removing development containers, volumes, and networks..."
 docker compose -f docker-compose-dev.yml up -d --build --force-recreate
 
 echo "Ensuring development containers are removed..."
-docker rm -f lg-falkordb-dev lg-pgvector-db-dev lg-jupyter-dev 2>/dev/null
+docker rm -f lg-neo4j-dev lg-pgvector-db-dev lg-jupyter-dev 2>/dev/null
 
 echo "Removing development volumes..."
-docker volume rm -f lg_pgvector_data_dev lg_falkor_data_dev lg_jupyter_data_dev 2>/dev/null
+docker volume rm -f lg_pgvector_data_dev lg_neo4j_data_dev lg_neo4j_logs_dev lg_jupyter_data_dev 2>/dev/null
 
 echo "Clearing extracted directory..."
 rm -rf extracted
