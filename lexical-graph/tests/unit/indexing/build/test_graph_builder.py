@@ -2,56 +2,45 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
-from unittest.mock import Mock, MagicMock
+from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 
 
 class TestGraphBuilderInitialization:
     """Tests for GraphBuilder initialization."""
-    
-    def test_initialization_with_mock_store(self, mock_neptune_store):
-        """Verify GraphBuilder initializes with graph store."""
-        builder = GraphBuilder(graph_store=mock_neptune_store)
-        assert builder is not None
-        assert builder.graph_store == mock_neptune_store
+
+    def test_is_abstract(self):
+        """Verify GraphBuilder cannot be instantiated directly."""
+        with pytest.raises(TypeError):
+            GraphBuilder()
 
 
-class TestGraphBuilderConstruction:
-    """Tests for graph construction functionality."""
-    
-    def test_build_graph_with_nodes(self, mock_neptune_store):
-        """Verify graph building with nodes."""
-        builder = GraphBuilder(graph_store=mock_neptune_store)
-        
-        nodes = [
-            {"id": "n1", "type": "Document", "properties": {"title": "Doc 1"}},
-            {"id": "n2", "type": "Chunk", "properties": {"text": "Chunk 1"}}
-        ]
-        
-        # Mock the build method
-        builder.build = Mock(return_value={"nodes": 2, "edges": 0})
-        result = builder.build(nodes)
-        
-        assert result is not None
-        assert result["nodes"] == 2
-    
-    def test_build_graph_with_relationships(self, mock_neptune_store):
-        """Verify graph building with relationships."""
-        builder = GraphBuilder(graph_store=mock_neptune_store)
-        
-        data = {
-            "nodes": [
-                {"id": "n1", "type": "Document"},
-                {"id": "n2", "type": "Chunk"}
-            ],
-            "edges": [
-                {"source": "n1", "target": "n2", "type": "HAS_CHUNK"}
-            ]
-        }
-        
-        # Mock the build method
-        builder.build = Mock(return_value={"nodes": 2, "edges": 1})
-        result = builder.build(data)
-        
-        assert result is not None
-        assert result["edges"] == 1
+class TestGraphBuilderHelpers:
+    """Tests for GraphBuilder helper methods via a concrete subclass."""
+
+    def test_to_params_wraps_dict(self):
+        """Verify _to_params wraps a dict in {'params': [dict]}."""
+        # Use ChunkGraphBuilder as a concrete subclass
+        from graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder import ChunkGraphBuilder
+        builder = ChunkGraphBuilder()
+        result = builder._to_params({'key': 'value'})
+        assert result == {'params': [{'key': 'value'}]}
+
+    def test_to_params_empty_dict(self):
+        """Verify _to_params returns empty params list for falsy input."""
+        from graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder import ChunkGraphBuilder
+        builder = ChunkGraphBuilder()
+        result = builder._to_params({})
+        assert result == {'params': []}
+
+    def test_to_params_none(self):
+        """Verify _to_params returns empty params list for None."""
+        from graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder import ChunkGraphBuilder
+        builder = ChunkGraphBuilder()
+        result = builder._to_params(None)
+        assert result == {'params': []}
+
+    def test_index_key_on_subclass(self):
+        """Verify index_key works on concrete subclass."""
+        from graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder import ChunkGraphBuilder
+        assert ChunkGraphBuilder.index_key() == 'chunk'

@@ -2,162 +2,102 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
-from unittest.mock import Mock, MagicMock
+from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.entity_graph_builder import EntityGraphBuilder
 
 
 class TestEntityGraphBuilderInitialization:
     """Tests for EntityGraphBuilder initialization."""
-    
+
     def test_initialization(self):
         """Verify EntityGraphBuilder initializes correctly."""
         builder = EntityGraphBuilder()
-        
         assert builder is not None
-    
+
     def test_index_key(self):
-        """Verify index_key returns correct value."""
-        key = EntityGraphBuilder.index_key()
-        
-        assert key == 'entity'
+        """Verify index_key returns 'fact'."""
+        assert EntityGraphBuilder.index_key() == 'fact'
 
 
 class TestEntityGraphBuilding:
     """Tests for entity graph building functionality."""
-    
-    def test_build_entity_node(self, mock_neptune_store):
-        """Verify building entity node with properties."""
-        builder = EntityGraphBuilder()
-        
-        # Mock node with entity metadata
-        mock_node = Mock()
-        mock_node.node_id = 'node_123'
-        mock_node.text = 'GraphRAG'
-        mock_node.metadata = {
-            'entity': {
-                'entityId': 'entity_001',
-                'name': 'GraphRAG',
-                'type': 'Technology',
-                'metadata': {
-                    'category': 'AI Framework'
-                }
+
+    def _make_fact_node(self, fact_id='f1', subject_id='e1', subject_val='GraphRAG',
+                        object_id='e2', object_val='framework', predicate='is',
+                        subject_class=None, object_class=None):
+        """Create a mock node with valid fact metadata."""
+        node = Mock()
+        node.node_id = fact_id
+        node.metadata = {
+            'fact': {
+                'factId': fact_id,
+                'subject': {
+                    'entityId': subject_id,
+                    'value': subject_val,
+                    'classification': subject_class,
+                },
+                'predicate': {'value': predicate},
+                'object': {
+                    'entityId': object_id,
+                    'value': object_val,
+                    'classification': object_class,
+                },
             }
         }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.node_id = Mock(return_value='entityId')
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        builder.build(mock_node, mock_graph_client)
-        
-        assert mock_graph_client.execute_query_with_retry.called
-    
-    def test_build_entity_with_chunk_relationship(self):
-        """Verify building entity with chunk relationship."""
+        return node
+
+    def _make_graph_client(self):
+        client = Mock()
+        client.node_id = Mock(side_effect=lambda field: f'params.{field}')
+        client.execute_query_with_retry = Mock()
+        return client
+
+    def test_build_inserts_entities(self):
+        """Verify build calls execute_query_with_retry for entity insertion."""
         builder = EntityGraphBuilder()
-        
-        # Mock node with chunk relationship
-        mock_node = Mock()
-        mock_node.node_id = 'node_123'
-        mock_node.text = 'Knowledge Graph'
-        mock_node.metadata = {
-            'entity': {
-                'entityId': 'entity_002',
-                'name': 'Knowledge Graph',
-                'type': 'Concept',
-                'metadata': {
-                    'chunk_id': 'chunk_001'
-                }
-            }
-        }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.node_id = Mock(return_value='entityId')
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        builder.build(mock_node, mock_graph_client)
-        
-        assert mock_graph_client.execute_query_with_retry.called
-    
-    def test_build_multiple_entities(self):
-        """Verify building multiple entity nodes."""
+        node = self._make_fact_node()
+        client = self._make_graph_client()
+
+        builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        assert client.execute_query_with_retry.called
+
+    def test_build_inserts_both_subject_and_object(self):
+        """Verify build inserts both subject and object entities."""
         builder = EntityGraphBuilder()
-        
-        entities = [
-            Mock(metadata={'entity': {'entityId': 'e1', 'name': 'Entity1'}}),
-            Mock(metadata={'entity': {'entityId': 'e2', 'name': 'Entity2'}}),
-            Mock(metadata={'entity': {'entityId': 'e3', 'name': 'Entity3'}})
-        ]
-        
-        mock_graph_client = Mock()
-        mock_graph_client.node_id = Mock(return_value='entityId')
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        for entity in entities:
-            entity.node_id = entity.metadata['entity']['entityId']
-            entity.text = entity.metadata['entity']['name']
-            entity.relationships = {}
-            builder.build(entity, mock_graph_client)
-        
-        assert mock_graph_client.execute_query_with_retry.call_count >= 3
+        node = self._make_fact_node(subject_id='s1', object_id='o1')
+        client = self._make_graph_client()
+
+        builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        # Should have at least 2 calls: one for subject, one for object
+        assert client.execute_query_with_retry.call_count >= 2
+
+    def test_build_skips_duplicate_object(self):
+        """Verify build skips object when it has same entityId as subject."""
+        builder = EntityGraphBuilder()
+        node = self._make_fact_node(subject_id='same', object_id='same')
+        client = self._make_graph_client()
+
+        builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        # Only subject should be inserted
+        assert client.execute_query_with_retry.call_count == 1
 
 
 class TestEntityGraphBuilderErrorHandling:
     """Tests for entity graph builder error handling."""
-    
-    def test_build_with_missing_entity_id(self):
-        """Verify handling of node with missing entity ID."""
+
+    def test_build_with_empty_fact_metadata(self):
+        """Verify build logs warning for missing fact metadata."""
         builder = EntityGraphBuilder()
-        
-        # Mock node without entity ID
-        mock_node = Mock()
-        mock_node.node_id = 'node_123'
-        mock_node.text = 'Entity Name'
-        mock_node.metadata = {
-            'entity': {
-                'name': 'Entity Name',
-                'metadata': {}
-            }
-        }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        # Should log warning but not crash
-        builder.build(mock_node, mock_graph_client)
-        
-        # Should not execute queries without entity ID
-        assert not mock_graph_client.execute_query_with_retry.called
-    
-    def test_build_with_empty_entity_name(self):
-        """Verify handling of entity with empty name."""
-        builder = EntityGraphBuilder()
-        
-        # Mock node with empty name
-        mock_node = Mock()
-        mock_node.node_id = 'node_123'
-        mock_node.text = ''
-        mock_node.metadata = {
-            'entity': {
-                'entityId': 'entity_001',
-                'name': '',
-                'metadata': {}
-            }
-        }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.node_id = Mock(return_value='entityId')
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        builder.build(mock_node, mock_graph_client)
-        
-        # Should still create entity node
-        assert mock_graph_client.execute_query_with_retry.called
+        node = Mock()
+        node.node_id = 'node_123'
+        node.metadata = {}
+
+        client = Mock()
+        client.execute_query_with_retry = Mock()
+
+        builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        assert not client.execute_query_with_retry.called

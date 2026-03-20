@@ -6,47 +6,8 @@ This module tests query execution and retrieval operations.
 """
 
 import pytest
-from unittest.mock import Mock, MagicMock, patch
+from unittest.mock import Mock, patch
 from graphrag_toolkit.lexical_graph.lexical_graph_query_engine import LexicalGraphQueryEngine
-from graphrag_toolkit.lexical_graph.tenant_id import TenantId
-
-
-def _make_engine(extra_patches=None, **kwargs):
-    """Context manager helper – not used directly; prefer inline patches."""
-    pass
-
-
-def _engine_base_patches():
-    """Return module-level patch targets needed to construct a LexicalGraphQueryEngine."""
-    return [
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.GraphStoreFactory',
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.VectorStoreFactory',
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.MultiTenantGraphStore',
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.MultiTenantVectorStore',
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.ReadOnlyVectorStore',
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.LLMCache',
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.CompositeTraversalBasedRetriever',
-        'graphrag_toolkit.lexical_graph.lexical_graph_query_engine.PromptProviderFactory',
-    ]
-
-
-class TestLexicalGraphQueryEngineInitialization:
-    """Tests for LexicalGraphQueryEngine initialization."""
-
-
-
-
-
-
-class TestLexicalGraphQueryEngineFactoryMethods:
-    """Tests for factory methods."""
-
-
-
-class TestLexicalGraphQueryEngineQuery:
-    """Tests for query execution."""
-
-
 
 
 class TestLexicalGraphQueryEngineErrorHandling:
@@ -65,10 +26,3 @@ class TestLexicalGraphQueryEngineErrorHandling:
                     graph_store="invalid",
                     vector_store=Mock()
                 )
-
-
-
-class TestLexicalGraphQueryEngineAsync:
-    """Tests verifying async query behavior."""
-
-
