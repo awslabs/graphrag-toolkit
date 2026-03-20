@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 import pytest
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
