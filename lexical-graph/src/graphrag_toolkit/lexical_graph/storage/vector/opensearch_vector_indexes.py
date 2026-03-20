@@ -958,6 +958,9 @@ class OpenSearchIndex(VectorIndex):
 
         return node_ids_to_embed_map
     
+    def _insufficient_ids(self, doc_id_map:Dict[str, List[str]], ids:List[str]) -> bool:
+        return len(doc_id_map.keys()) < len(set(ids));
+    
     def update_versioning(self, versioning_timestamp:int, ids:List[str]=[]) -> List[str]:
 
         allow_refresh = True
@@ -973,14 +976,14 @@ class OpenSearchIndex(VectorIndex):
 
         start = time.time()
 
-        while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
+        while self._insufficient_ids(doc_id_map, ids) and allow_refresh:
             logger.debug(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
-        if len(doc_id_map.keys()) < len(ids):
+        if self._insufficient_ids(doc_id_map, ids) :
             logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
         
@@ -1048,14 +1051,14 @@ class OpenSearchIndex(VectorIndex):
 
         start = time.time()
 
-        while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
+        while self._insufficient_ids(doc_id_map, ids) and allow_refresh:
             logger.debug('[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
-        if len(doc_id_map.keys()) < len(ids):
+        if self._insufficient_ids(doc_id_map, ids) :
             logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
         update_request = '{ "doc": {"metadata" : {"source" : {"versioning": {"valid_from": ' + str(TIMESTAMP_LOWER_BOUND) + ', "valid_to": ' + str(TIMESTAMP_UPPER_BOUND) + '}}}}}'
@@ -1150,14 +1153,14 @@ class OpenSearchIndex(VectorIndex):
 
         start = time.time()
 
-        while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
+        while self._insufficient_ids(doc_id_map, ids) and allow_refresh:
             logger.debug(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
-        if len(doc_id_map.keys()) < len(ids):
+        if self._insufficient_ids(doc_id_map, ids):
             logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
         requests = {}
