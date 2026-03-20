@@ -26,6 +26,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
@@ -55,15 +56,19 @@ jobs:
             pytest-cov \
             pytest-mock \
             pytest-asyncio \
+            pytest-timeout \
             hypothesis \
             -r src/graphrag_toolkit/lexical_graph/requirements.txt
 
       - name: Run tests
         id: run_tests
+        env:
+          HYPOTHESIS_PROFILE: ci
         run: |
           PYTHONPATH=src .venv/bin/python -m pytest \
             -v --cov-config=.coveragerc --cov=graphrag_toolkit.lexical_graph \
             -l --tb=short --maxfail=1 --cov-fail-under=30 \
+            --timeout=120 \
             tests/
 
       - name: Package coverage reports
