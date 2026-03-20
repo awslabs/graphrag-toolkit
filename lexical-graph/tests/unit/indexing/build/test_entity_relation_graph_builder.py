@@ -2,176 +2,101 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
-from unittest.mock import Mock, MagicMock
+from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.entity_relation_graph_builder import EntityRelationGraphBuilder
 
 
 class TestEntityRelationGraphBuilderInitialization:
     """Tests for EntityRelationGraphBuilder initialization."""
-    
+
     def test_initialization(self):
         """Verify EntityRelationGraphBuilder initializes correctly."""
         builder = EntityRelationGraphBuilder()
-        
         assert builder is not None
+
+    def test_index_key(self):
+        """Verify index_key returns 'fact'."""
+        assert EntityRelationGraphBuilder.index_key() == 'fact'
 
 
 class TestEntityRelationBuilding:
     """Tests for entity relation building functionality."""
-    
-    def test_build_entity_relation(self, mock_neptune_store):
-        """Verify building entity relation between two entities."""
-        builder = EntityRelationGraphBuilder()
-        
-        # Mock node with relation metadata
-        mock_node = Mock()
-        mock_node.node_id = 'relation_001'
-        mock_node.metadata = {
-            'relation': {
-                'relationId': 'rel_001',
-                'source_entity': 'entity_001',
-                'target_entity': 'entity_002',
-                'relation_type': 'RELATES_TO',
-                'metadata': {
-                    'confidence': 0.95
-                }
+
+    def _make_spo_node(self, fact_id='f1', subject_id='e1', object_id='e2', predicate='is'):
+        """Create a mock node with SPO fact metadata."""
+        node = Mock()
+        node.node_id = fact_id
+        node.metadata = {
+            'fact': {
+                'factId': fact_id,
+                'subject': {
+                    'entityId': subject_id,
+                    'value': 'Subject',
+                    'classification': None,
+                },
+                'predicate': {'value': predicate},
+                'object': {
+                    'entityId': object_id,
+                    'value': 'Object',
+                    'classification': None,
+                },
             }
         }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.node_id = Mock(return_value='relationId')
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        builder.build(mock_node, mock_graph_client)
-        
-        assert mock_graph_client.execute_query_with_retry.called
-    
-    def test_build_relation_with_properties(self):
-        """Verify building relation with additional properties."""
+        return node
+
+    def _make_graph_client(self):
+        client = Mock()
+        client.node_id = Mock(side_effect=lambda field: f'params.{field}')
+        client.execute_query_with_retry = Mock()
+        return client
+
+    def test_build_creates_spo_relation(self):
+        """Verify build creates relation between subject and object."""
         builder = EntityRelationGraphBuilder()
-        
-        # Mock node with relation properties
-        mock_node = Mock()
-        mock_node.node_id = 'relation_002'
-        mock_node.metadata = {
-            'relation': {
-                'relationId': 'rel_002',
-                'source_entity': 'entity_003',
-                'target_entity': 'entity_004',
-                'relation_type': 'MENTIONS',
-                'metadata': {
-                    'confidence': 0.88,
-                    'context': 'mentioned in paragraph 2',
-                    'weight': 0.75
-                }
-            }
-        }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.node_id = Mock(return_value='relationId')
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        builder.build(mock_node, mock_graph_client)
-        
-        assert mock_graph_client.execute_query_with_retry.called
-    
+        node = self._make_spo_node()
+        client = self._make_graph_client()
+
+        builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        assert client.execute_query_with_retry.called
+
+    def test_build_passes_predicate_in_properties(self):
+        """Verify build includes predicate value in query properties."""
+        builder = EntityRelationGraphBuilder()
+        node = self._make_spo_node(predicate='relates_to')
+        client = self._make_graph_client()
+
+        builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        call_args = client.execute_query_with_retry.call_args
+        params = call_args[0][1]  # second positional arg is properties
+        assert params['params'][0]['p'] == 'relates_to'
+
     def test_build_multiple_relations(self):
-        """Verify building multiple entity relations."""
+        """Verify build handles multiple fact nodes."""
         builder = EntityRelationGraphBuilder()
-        
-        relations = [
-            Mock(metadata={'relation': {'relationId': 'r1', 'source_entity': 'e1', 'target_entity': 'e2', 'relation_type': 'RELATES_TO'}}),
-            Mock(metadata={'relation': {'relationId': 'r2', 'source_entity': 'e2', 'target_entity': 'e3', 'relation_type': 'MENTIONS'}}),
-            Mock(metadata={'relation': {'relationId': 'r3', 'source_entity': 'e1', 'target_entity': 'e3', 'relation_type': 'CONNECTS_TO'}})
-        ]
-        
-        mock_graph_client = Mock()
-        mock_graph_client.node_id = Mock(return_value='relationId')
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        for relation in relations:
-            relation.node_id = relation.metadata['relation']['relationId']
-            relation.relationships = {}
-            builder.build(relation, mock_graph_client)
-        
-        assert mock_graph_client.execute_query_with_retry.call_count >= 3
+        client = self._make_graph_client()
+
+        for i in range(3):
+            node = self._make_spo_node(fact_id=f'f{i}', subject_id=f's{i}', object_id=f'o{i}')
+            builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        assert client.execute_query_with_retry.call_count >= 3
 
 
 class TestEntityRelationGraphBuilderErrorHandling:
     """Tests for entity relation builder error handling."""
-    
-    def test_build_with_missing_relation_id(self):
-        """Verify handling of relation with missing ID."""
+
+    def test_build_with_empty_fact_metadata(self):
+        """Verify build handles missing fact metadata gracefully."""
         builder = EntityRelationGraphBuilder()
-        
-        # Mock node without relation ID
-        mock_node = Mock()
-        mock_node.node_id = 'relation_001'
-        mock_node.metadata = {
-            'relation': {
-                'source_entity': 'entity_001',
-                'target_entity': 'entity_002',
-                'relation_type': 'RELATES_TO'
-            }
-        }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        # Should log warning but not crash
-        builder.build(mock_node, mock_graph_client)
-        
-        # Should not execute queries without relation ID
-        assert not mock_graph_client.execute_query_with_retry.called
-    
-    def test_build_with_missing_source_entity(self):
-        """Verify handling of relation with missing source entity."""
-        builder = EntityRelationGraphBuilder()
-        
-        # Mock node without source entity
-        mock_node = Mock()
-        mock_node.node_id = 'relation_001'
-        mock_node.metadata = {
-            'relation': {
-                'relationId': 'rel_001',
-                'target_entity': 'entity_002',
-                'relation_type': 'RELATES_TO'
-            }
-        }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        # Should handle gracefully
-        builder.build(mock_node, mock_graph_client)
-    
-    def test_build_with_missing_target_entity(self):
-        """Verify handling of relation with missing target entity."""
-        builder = EntityRelationGraphBuilder()
-        
-        # Mock node without target entity
-        mock_node = Mock()
-        mock_node.node_id = 'relation_001'
-        mock_node.metadata = {
-            'relation': {
-                'relationId': 'rel_001',
-                'source_entity': 'entity_001',
-                'relation_type': 'RELATES_TO'
-            }
-        }
-        mock_node.relationships = {}
-        
-        # Mock graph client
-        mock_graph_client = Mock()
-        mock_graph_client.execute_query_with_retry = Mock()
-        
-        # Should handle gracefully
-        builder.build(mock_node, mock_graph_client)
+        node = Mock()
+        node.node_id = 'node_123'
+        node.metadata = {}
+
+        client = Mock()
+        client.execute_query_with_retry = Mock()
+
+        builder.build(node, client, include_domain_labels=False, include_local_entities=False)
+
+        assert not client.execute_query_with_retry.called
