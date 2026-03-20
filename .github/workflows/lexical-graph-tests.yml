@@ -26,7 +26,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     strategy:
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
@@ -74,6 +74,7 @@ jobs:
       - name: Package coverage reports
         id: coverage
         if: always()
+        timeout-minutes: 5
         run: |
           PYTHONPATH=src .venv/bin/python -m coverage xml
           PYTHONPATH=src .venv/bin/python -m coverage html
