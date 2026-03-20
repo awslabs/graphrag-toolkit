@@ -14,12 +14,16 @@ import os
 from hypothesis import settings, HealthCheck
 
 settings.register_profile(
+    "default",
+    max_examples=100,
+)
+
+settings.register_profile(
     "ci",
     max_examples=20,
     deadline=5000,  # 5 seconds per example
     suppress_health_check=[HealthCheck.too_slow],
 )
 
-# Auto-load the ci profile when the env var is set
-if os.environ.get("HYPOTHESIS_PROFILE"):
-    settings.load_profile(os.environ["HYPOTHESIS_PROFILE"])
+# Load the profile selected by env var, falling back to "default"
+settings.load_profile(os.environ.get("HYPOTHESIS_PROFILE", "default"))
