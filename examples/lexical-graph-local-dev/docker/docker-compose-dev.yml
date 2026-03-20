@@ -1,12 +1,16 @@
 services:
-  lg-falkordb:
-    image: falkordb/falkordb:latest
-    container_name: lg-falkordb-dev
+  lg-neo4j:
+    image: neo4j:5.25-community
+    container_name: lg-neo4j-dev
     ports:
-      - "6380:6379"
-      - "3002:3000"
+      - "7476:7474"  # HTTP
+      - "7689:7687"  # Bolt
+    environment:
+      - NEO4J_AUTH=${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-password}
+      - NEO4J_PLUGINS=["apoc"]
     volumes:
-      - lg_falkor_data_dev:/data
+      - lg_neo4j_data_dev:/data
+      - lg_neo4j_logs_dev:/logs
     networks:
       - lg_graphrag_network_dev
 
@@ -16,9 +20,9 @@ services:
     ports:
       - "5433:5432"
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+      - POSTGRES_DB=${POSTGRES_DB:-graphrag}
     volumes:
       - lg_pgvector_data_dev:/var/lib/postgresql/data
       - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
@@ -60,7 +64,7 @@ services:
       - lg_graphrag_network_dev
     depends_on:
       - lg-postgres
-      - lg-falkordb
+      - lg-neo4j
       - lg-mysql-dev
     command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
 
@@ -69,7 +73,8 @@ networks:
     driver: bridge
 
 volumes:
-  lg_falkor_data_dev:
+  lg_neo4j_data_dev:
+  lg_neo4j_logs_dev:
   lg_pgvector_data_dev:
   lg_jupyter_data_dev:
   lg_mysql_data_dev:
