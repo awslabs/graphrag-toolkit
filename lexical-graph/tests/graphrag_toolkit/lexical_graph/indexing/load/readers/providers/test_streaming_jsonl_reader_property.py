@@ -36,7 +36,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.readers.providers.streaming_js
 # Validates: Requirements 2.2, 2.3, 2.4, 4.3
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=500),
     batch_size=st.integers(min_value=1, max_value=100)
@@ -96,7 +96,7 @@ def test_batch_size_consistency(num_lines: int, batch_size: int):
 # Validates: Requirements 4.2, 9.3
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=500),
     batch_size=st.integers(min_value=1, max_value=100)
@@ -140,7 +140,7 @@ def test_read_returns_all_valid_documents(num_lines: int, batch_size: int):
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=200),
     batch_size=st.integers(min_value=1, max_value=50)
@@ -190,7 +190,7 @@ def test_lazy_load_and_read_return_same_documents(num_lines: int, batch_size: in
 # Validates: Requirements 5.2, 5.3
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=100),
     custom_key=st.text(min_size=1, max_size=20, alphabet=st.characters(whitelist_categories=('L', 'N'))),
@@ -256,7 +256,7 @@ def test_metadata_function_integration(num_lines: int, custom_key: str, custom_v
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=50)
 )
@@ -301,7 +301,7 @@ def test_metadata_fn_receives_correct_source_path(num_lines: int):
 # Validates: Requirements 5.4, 5.5
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=100),
     batch_size=st.integers(min_value=1, max_value=50)
@@ -369,7 +369,7 @@ def test_required_metadata_fields_present(num_lines: int, batch_size: int):
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=50)
 )
@@ -418,7 +418,7 @@ def test_metadata_fields_present_in_lazy_load(num_lines: int):
 # Validates: Requirements 6.2, 8.3
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_line_count=st.integers(min_value=1, max_value=100),
     invalid_json_count=st.integers(min_value=0, max_value=20),
@@ -496,7 +496,7 @@ def test_invalid_line_skipping(
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_line_count=st.integers(min_value=1, max_value=50),
     invalid_json_count=st.integers(min_value=1, max_value=10)
@@ -552,7 +552,7 @@ def test_malformed_json_lines_skipped(valid_line_count: int, invalid_json_count:
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_line_count=st.integers(min_value=1, max_value=50),
     missing_field_count=st.integers(min_value=1, max_value=10),
@@ -572,8 +572,9 @@ def test_missing_text_field_lines_skipped(
     lines = []
 
     # Add valid lines with the specified text_field
+    # Use "_id" to avoid collision when text_field happens to be "id"
     for i in range(valid_line_count):
-        lines.append(json.dumps({text_field: f"content {i}", "id": i}))
+        lines.append(json.dumps({text_field: f"content {i}", "_id": i}))
 
     # Add lines missing the text_field (but valid JSON)
     for i in range(missing_field_count):
@@ -608,7 +609,7 @@ def test_missing_text_field_lines_skipped(
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_line_count=st.integers(min_value=1, max_value=50),
     invalid_count=st.integers(min_value=1, max_value=20)
@@ -662,7 +663,7 @@ def test_lazy_load_skips_invalid_lines(valid_line_count: int, invalid_count: int
 # Validates: Requirements 6.4
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_lines_before=st.integers(min_value=0, max_value=20),
     valid_lines_after=st.integers(min_value=0, max_value=20)
@@ -705,7 +706,7 @@ def test_strict_mode_raises_on_malformed_json(valid_lines_before: int, valid_lin
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_lines_before=st.integers(min_value=0, max_value=20),
     valid_lines_after=st.integers(min_value=0, max_value=20),
@@ -757,7 +758,7 @@ def test_strict_mode_raises_on_missing_text_field(
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_lines_before=st.integers(min_value=0, max_value=20),
     valid_lines_after=st.integers(min_value=0, max_value=20)
@@ -800,7 +801,7 @@ def test_strict_mode_raises_on_lazy_load_malformed_json(
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_lines_before=st.integers(min_value=0, max_value=20),
     valid_lines_after=st.integers(min_value=0, max_value=20)
@@ -842,7 +843,7 @@ def test_strict_mode_raises_on_lazy_load_missing_field(
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=100),
     batch_size=st.integers(min_value=1, max_value=50)
@@ -895,7 +896,7 @@ def test_strict_mode_succeeds_with_all_valid_lines(num_lines: int, batch_size: i
 # Validates: Requirements 8.2
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=100),
     text_field=st.text(min_size=1, max_size=20, alphabet=st.characters(whitelist_categories=('L', 'N'))),
@@ -943,7 +944,7 @@ def test_text_field_extraction(num_lines: int, text_field: str, batch_size: int)
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=50),
     text_field=st.text(min_size=1, max_size=10, alphabet=st.characters(whitelist_categories=('L',)))
@@ -994,7 +995,7 @@ def test_text_field_extraction_with_various_types(num_lines: int, text_field: st
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=50)
 )
@@ -1041,7 +1042,7 @@ def test_text_field_extraction_lazy_load(num_lines: int):
 # Validates: Requirements 8.4
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=100),
     batch_size=st.integers(min_value=1, max_value=50)
@@ -1090,7 +1091,7 @@ def test_null_text_field_uses_full_json(num_lines: int, batch_size: int):
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=50)
 )
@@ -1139,7 +1140,7 @@ def test_null_text_field_preserves_json_structure(num_lines: int):
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=50)
 )
@@ -1180,7 +1181,7 @@ def test_null_text_field_lazy_load(num_lines: int):
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=50),
     batch_size=st.integers(min_value=1, max_value=20)
@@ -1232,7 +1233,7 @@ def test_null_text_field_read_and_lazy_load_consistency(num_lines: int, batch_si
 # Validates: Requirements 4.2, 4.3
 # =============================================================================
 
-@settings(max_examples=100)
+@settings()
 @given(
     num_lines=st.integers(min_value=1, max_value=500),
     batch_size=st.integers(min_value=1, max_value=100)
@@ -1280,7 +1281,7 @@ def test_document_count_equals_valid_line_count(num_lines: int, batch_size: int)
         os.unlink(jsonl_file)
 
 
-@settings(max_examples=100)
+@settings()
 @given(
     valid_line_count=st.integers(min_value=1, max_value=200),
     invalid_line_count=st.integers(min_value=0, max_value=50),

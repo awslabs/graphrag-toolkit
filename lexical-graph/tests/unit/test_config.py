@@ -71,17 +71,23 @@ class TestGraphRAGConfigDefaults:
     
     def test_aws_profile_from_environment(self):
         """Verify aws_profile reads from AWS_PROFILE environment variable."""
-        with patch.dict(os.environ, {'AWS_PROFILE': 'test-profile'}):
-            # Reset the cached value
-            GraphRAGConfig._aws_profile = None
-            assert GraphRAGConfig.aws_profile == 'test-profile'
+        original = GraphRAGConfig._aws_profile
+        try:
+            with patch.dict(os.environ, {'AWS_PROFILE': 'test-profile'}):
+                GraphRAGConfig._aws_profile = None
+                assert GraphRAGConfig.aws_profile == 'test-profile'
+        finally:
+            GraphRAGConfig._aws_profile = original
     
     def test_aws_region_from_environment(self):
         """Verify aws_region reads from AWS_REGION environment variable."""
-        with patch.dict(os.environ, {'AWS_REGION': 'us-west-2'}):
-            # Reset the cached value
-            GraphRAGConfig._aws_region = None
-            assert GraphRAGConfig.aws_region == 'us-west-2'
+        original = GraphRAGConfig._aws_region
+        try:
+            with patch.dict(os.environ, {'AWS_REGION': 'us-west-2'}):
+                GraphRAGConfig._aws_region = None
+                assert GraphRAGConfig.aws_region == 'us-west-2'
+        finally:
+            GraphRAGConfig._aws_region = original
 
 
 class TestGraphRAGConfigSetters:
@@ -161,24 +167,40 @@ class TestGraphRAGConfigEnvironmentVariables:
     
     def test_extraction_num_workers_from_env(self):
         """Verify extraction_num_workers reads from EXTRACTION_NUM_WORKERS env var."""
-        with patch.dict(os.environ, {'EXTRACTION_NUM_WORKERS': '5'}):
-            GraphRAGConfig._extraction_num_workers = None
-            assert GraphRAGConfig.extraction_num_workers == 5
+        original = GraphRAGConfig._extraction_num_workers
+        try:
+            with patch.dict(os.environ, {'EXTRACTION_NUM_WORKERS': '5'}):
+                GraphRAGConfig._extraction_num_workers = None
+                assert GraphRAGConfig.extraction_num_workers == 5
+        finally:
+            GraphRAGConfig._extraction_num_workers = original
     
     def test_extraction_batch_size_from_env(self):
         """Verify extraction_batch_size reads from EXTRACTION_BATCH_SIZE env var."""
-        with patch.dict(os.environ, {'EXTRACTION_BATCH_SIZE': '10'}):
-            GraphRAGConfig._extraction_batch_size = None
-            assert GraphRAGConfig.extraction_batch_size == 10
+        original = GraphRAGConfig._extraction_batch_size
+        try:
+            with patch.dict(os.environ, {'EXTRACTION_BATCH_SIZE': '10'}):
+                GraphRAGConfig._extraction_batch_size = None
+                assert GraphRAGConfig.extraction_batch_size == 10
+        finally:
+            GraphRAGConfig._extraction_batch_size = original
     
     def test_build_num_workers_from_env(self):
         """Verify build_num_workers reads from BUILD_NUM_WORKERS env var."""
-        with patch.dict(os.environ, {'BUILD_NUM_WORKERS': '3'}):
-            GraphRAGConfig._build_num_workers = None
-            assert GraphRAGConfig.build_num_workers == 3
+        original = GraphRAGConfig._build_num_workers
+        try:
+            with patch.dict(os.environ, {'BUILD_NUM_WORKERS': '3'}):
+                GraphRAGConfig._build_num_workers = None
+                assert GraphRAGConfig.build_num_workers == 3
+        finally:
+            GraphRAGConfig._build_num_workers = original
     
     def test_build_batch_size_from_env(self):
         """Verify build_batch_size reads from BUILD_BATCH_SIZE env var."""
-        with patch.dict(os.environ, {'BUILD_BATCH_SIZE': '7'}):
-            GraphRAGConfig._build_batch_size = None
-            assert GraphRAGConfig.build_batch_size == 7
+        original = GraphRAGConfig._build_batch_size
+        try:
+            with patch.dict(os.environ, {'BUILD_BATCH_SIZE': '7'}):
+                GraphRAGConfig._build_batch_size = None
+                assert GraphRAGConfig.build_batch_size == 7
+        finally:
+            GraphRAGConfig._build_batch_size = original

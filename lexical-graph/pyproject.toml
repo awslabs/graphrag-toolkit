@@ -37,7 +37,6 @@ addopts = [
     "--tb=short",
     "--cov=src/graphrag_toolkit/lexical_graph",
     "--cov-report=term-missing",
-    "--cov-report=html:htmlcov",
 ]
 
 # Coverage configuration lives in .coveragerc (used by CI via --cov-config).

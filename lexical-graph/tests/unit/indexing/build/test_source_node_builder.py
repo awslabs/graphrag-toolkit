@@ -2,101 +2,108 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
-from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.source_node_builder import SourceNodeBuilder
+from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
+from graphrag_toolkit.lexical_graph.metadata import DefaultSourceMetadataFormatter
+from graphrag_toolkit.lexical_graph.indexing import IdGenerator
+from graphrag_toolkit.lexical_graph.tenant_id import TenantId
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from llama_index.core.schema import TextNode, NodeRelationship, RelatedNodeInfo
+
+
+def _make_builder():
+    """Create a SourceNodeBuilder with required dependencies."""
+    tenant = TenantId()
+    id_gen = IdGenerator(tenant_id=tenant, include_classification_in_entity_id=True, use_chunk_id_delimiter=False)
+    return SourceNodeBuilder(
+        id_generator=id_gen,
+        build_filters=BuildFilters(),
+        source_metadata_formatter=DefaultSourceMetadataFormatter(),
+    )
+
+
+def _make_node(node_id='chunk_001', source_id='source_001', source_metadata=None):
+    """Create a TextNode with a SOURCE relationship."""
+    node = TextNode(id_=node_id, text='chunk text')
+    node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(
+        node_id=source_id,
+        metadata=source_metadata or {'title': 'Test Doc'},
+    )
+    return node
 
 
 class TestSourceNodeBuilderInitialization:
     """Tests for SourceNodeBuilder initialization."""
-    
+
     def test_initialization(self):
         """Verify SourceNodeBuilder initializes correctly."""
-        builder = SourceNodeBuilder()
+        builder = _make_builder()
         assert builder is not None
+
+    def test_name(self):
+        """Verify name returns 'SourceNodeBuilder'."""
+        assert SourceNodeBuilder.name() == 'SourceNodeBuilder'
 
 
 class TestSourceNodeCreation:
     """Tests for source node creation functionality."""
-    
-    def test_create_source_node_with_metadata(self):
-        """Verify creating source node with metadata."""
-        builder = SourceNodeBuilder()
-        
-        source_data = {
-            'id': 'source_001',
-            'title': 'Sample Document',
-            'content': 'Document content here',
-            'metadata': {
-                'author': 'Test Author',
-                'date': '2024-01-01',
-                'source_type': 'pdf'
-            }
-        }
-        
-        builder.build = Mock(return_value=source_data)
-        result = builder.build(source_data)
-        
-        assert result is not None
-        assert result['id'] == 'source_001'
-        assert result['metadata']['author'] == 'Test Author'
-    
-    def test_create_source_node_with_file_path(self):
-        """Verify creating source node with file path."""
-        builder = SourceNodeBuilder()
-        
-        source_data = {
-            'id': 'source_002',
-            'file_path': '/path/to/document.pdf',
-            'metadata': {'size': 1024}
-        }
-        
-        builder.build = Mock(return_value=source_data)
-        result = builder.build(source_data)
-        
-        assert result is not None
-        assert 'file_path' in result
-    
-    def test_create_multiple_source_nodes(self):
-        """Verify creating multiple source nodes."""
-        builder = SourceNodeBuilder()
-        
-        sources = [
-            {'id': 's1', 'title': 'Doc 1'},
-            {'id': 's2', 'title': 'Doc 2'},
-            {'id': 's3', 'title': 'Doc 3'}
+
+    def test_build_nodes_creates_source_node(self):
+        """Verify build_nodes creates a source node from chunk's SOURCE relationship."""
+        builder = _make_builder()
+        node = _make_node(source_id='src_42')
+        results = builder.build_nodes([node])
+
+        assert len(results) == 1
+        assert results[0].metadata['source']['sourceId'] == 'src_42'
+
+    def test_build_nodes_sets_index_key(self):
+        """Verify build_nodes sets INDEX_KEY to 'source'."""
+        builder = _make_builder()
+        node = _make_node()
+        results = builder.build_nodes([node])
+
+        assert results[0].metadata[INDEX_KEY]['index'] == 'source'
+
+    def test_build_nodes_deduplicates_by_source_id(self):
+        """Verify build_nodes deduplicates nodes sharing the same source."""
+        builder = _make_builder()
+        nodes = [
+            _make_node(node_id='c1', source_id='shared_source'),
+            _make_node(node_id='c2', source_id='shared_source'),
         ]
-        
-        builder.build = Mock(return_value=sources)
-        result = builder.build(sources)
-        
-        assert result is not None
-        assert len(result) == 3
+        results = builder.build_nodes(nodes)
+
+        assert len(results) == 1
+        assert results[0].metadata['source']['sourceId'] == 'shared_source'
+
+    def test_build_nodes_multiple_sources(self):
+        """Verify build_nodes creates separate nodes for different sources."""
+        builder = _make_builder()
+        nodes = [
+            _make_node(node_id='c1', source_id='src_a'),
+            _make_node(node_id='c2', source_id='src_b'),
+        ]
+        results = builder.build_nodes(nodes)
+
+        assert len(results) == 2
+        source_ids = {r.metadata['source']['sourceId'] for r in results}
+        assert source_ids == {'src_a', 'src_b'}
+
+    def test_build_nodes_includes_source_metadata(self):
+        """Verify build_nodes includes formatted source metadata."""
+        builder = _make_builder()
+        node = _make_node(source_metadata={'author': 'Test Author'})
+        results = builder.build_nodes([node])
+
+        assert 'metadata' in results[0].metadata['source']
 
 
-class TestSourceNodeBuilderErrorHandling:
-    """Tests for source node builder error handling."""
-    
-    def test_create_source_node_with_missing_id(self):
-        """Verify handling of source without ID."""
-        builder = SourceNodeBuilder()
-        
-        source_data = {'title': 'Document without ID'}
-        
-        builder.build = Mock(side_effect=ValueError("Missing source ID"))
-        
-        with pytest.raises(ValueError, match="Missing source ID"):
-            builder.build(source_data)
-    
-    def test_create_source_node_with_invalid_metadata(self):
-        """Verify handling of invalid metadata."""
-        builder = SourceNodeBuilder()
-        
-        source_data = {
-            'id': 'source_001',
-            'metadata': "invalid_metadata_type"
-        }
-        
-        builder.build = Mock(return_value=source_data)
-        result = builder.build(source_data)
-        
-        assert result is not None
+class TestSourceNodeBuilderEdgeCases:
+    """Tests for source node builder edge cases."""
+
+    def test_build_nodes_empty_list(self):
+        """Verify build_nodes returns empty list for empty input."""
+        builder = _make_builder()
+        results = builder.build_nodes([])
+        assert results == []

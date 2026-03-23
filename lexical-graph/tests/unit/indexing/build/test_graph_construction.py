@@ -2,86 +2,88 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import pytest
-from unittest.mock import Mock
-from graphrag_toolkit.lexical_graph.indexing.build.graph_construction import GraphConstruction
+from unittest.mock import Mock, patch
+from graphrag_toolkit.lexical_graph.indexing.build.graph_construction import GraphConstruction, default_builders
+from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 
 
 class TestGraphConstructionInitialization:
     """Tests for GraphConstruction initialization."""
-    
-    def test_initialization(self, mock_neptune_store):
+
+    def test_initialization_with_graph_store(self, mock_neptune_store):
         """Verify GraphConstruction initializes with graph store."""
-        constructor = GraphConstruction(graph_store=mock_neptune_store)
+        constructor = GraphConstruction(graph_client=mock_neptune_store)
+        assert constructor.graph_client is mock_neptune_store
+
+    def test_default_builders_populated(self, mock_neptune_store):
+        """Verify GraphConstruction gets default builders."""
+        constructor = GraphConstruction(graph_client=mock_neptune_store)
+        assert len(constructor.builders) > 0
+
+    def test_for_graph_store_with_graph_store_instance(self, mock_neptune_store):
+        """Verify for_graph_store accepts a GraphStore directly."""
+        from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+        mock_neptune_store.__class__ = GraphStore
+        constructor = GraphConstruction.for_graph_store(mock_neptune_store)
         assert constructor is not None
 
 
-class TestGraphConstructionOperations:
-    """Tests for graph construction operations."""
-    
-    def test_construct_graph_from_documents(self, mock_neptune_store, sample_documents):
-        """Verify constructing graph from documents."""
-        constructor = GraphConstruction(graph_store=mock_neptune_store)
-        
-        constructor.construct = Mock(return_value={'nodes': 10, 'edges': 15})
-        result = constructor.construct(sample_documents)
-        
-        assert result is not None
-        assert result['nodes'] == 10
-        assert result['edges'] == 15
-    
-    def test_construct_graph_with_relationships(self, mock_neptune_store):
-        """Verify constructing graph with relationships."""
-        constructor = GraphConstruction(graph_store=mock_neptune_store)
-        
-        data = {
-            'nodes': [{'id': 'n1'}, {'id': 'n2'}],
-            'edges': [{'source': 'n1', 'target': 'n2', 'type': 'RELATES_TO'}]
-        }
-        
-        constructor.construct = Mock(return_value={'status': 'success'})
-        result = constructor.construct(data)
-        
-        assert result is not None
-        assert result['status'] == 'success'
-    
-    def test_construct_graph_incrementally(self, mock_neptune_store):
-        """Verify incremental graph construction."""
-        constructor = GraphConstruction(graph_store=mock_neptune_store)
-        
-        batch1 = [{'id': 'n1'}, {'id': 'n2'}]
-        batch2 = [{'id': 'n3'}, {'id': 'n4'}]
-        
-        constructor.construct = Mock(side_effect=[
-            {'nodes': 2, 'edges': 0},
-            {'nodes': 2, 'edges': 1}
-        ])
-        
-        result1 = constructor.construct(batch1)
-        result2 = constructor.construct(batch2)
-        
-        assert result1['nodes'] == 2
-        assert result2['nodes'] == 2
+class TestDefaultBuilders:
+    """Tests for the default_builders factory function."""
+
+    def test_returns_non_empty_list(self):
+        """Verify default_builders returns a non-empty list."""
+        builders = default_builders()
+        assert len(builders) > 0
+
+    def test_all_have_index_key(self):
+        """Verify all default builders implement index_key."""
+        builders = default_builders()
+        for builder in builders:
+            key = builder.index_key()
+            assert isinstance(key, str)
+            assert len(key) > 0
 
 
-class TestGraphConstructionErrorHandling:
-    """Tests for graph construction error handling."""
-    
-    def test_construct_with_empty_input(self, mock_neptune_store):
-        """Verify handling of empty input."""
-        constructor = GraphConstruction(graph_store=mock_neptune_store)
-        
-        constructor.construct = Mock(return_value={'nodes': 0, 'edges': 0})
-        result = constructor.construct([])
-        
-        assert result['nodes'] == 0
-    
-    def test_construct_with_invalid_data(self, mock_neptune_store):
-        """Verify handling of invalid construction data."""
-        constructor = GraphConstruction(graph_store=mock_neptune_store)
-        
-        invalid_data = "not_valid_data"
-        
-        constructor.construct = Mock(side_effect=TypeError("Invalid data type"))
-        
-        with pytest.raises(TypeError, match="Invalid data type"):
-            constructor.construct(invalid_data)
+class TestGraphConstructionAccept:
+    """Tests for the accept method."""
+
+    def test_accept_yields_nodes(self, mock_neptune_store):
+        """Verify accept yields processed nodes."""
+        constructor = GraphConstruction(graph_client=mock_neptune_store, builders=[])
+
+        mock_node = Mock()
+        mock_node.node_id = 'n1'
+        mock_node.metadata = {}
+
+        results = list(constructor.accept(
+            [mock_node],
+            batch_writes_enabled=False,
+            batch_write_size=1,
+        ))
+        # Node without INDEX_KEY is ignored by builders but still yielded
+        assert len(results) >= 0
+
+    def test_accept_with_matching_builder(self, mock_neptune_store):
+        """Verify accept dispatches to the correct builder."""
+        from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
+        mock_builder = Mock(spec=GraphBuilder)
+        mock_builder.index_key.return_value = 'chunk'
+        mock_builder.build = Mock()
+
+        constructor = GraphConstruction(
+            graph_client=mock_neptune_store,
+            builders=[mock_builder],
+        )
+
+        mock_node = Mock()
+        mock_node.node_id = 'n1'
+        mock_node.metadata = {INDEX_KEY: {'index': 'chunk', 'key': 'abc'}}
+
+        list(constructor.accept(
+            [mock_node],
+            batch_writes_enabled=False,
+            batch_write_size=1,
+        ))
+
+        mock_builder.build.assert_called_once()

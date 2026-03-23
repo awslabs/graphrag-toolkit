@@ -11,7 +11,7 @@ import logging
 import logging.config
 import tempfile
 import os
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 from graphrag_toolkit.lexical_graph.logging import (
     CompactFormatter,
     ModuleFilter,
