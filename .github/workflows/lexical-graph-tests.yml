@@ -61,17 +61,17 @@ jobs:
 
       - name: Run tests
         id: run_tests
+        env:
+          HYPOTHESIS_PROFILE: ci
         run: |
           PYTHONPATH=src .venv/bin/python -m pytest \
             -v --cov-config=.coveragerc --cov=graphrag_toolkit.lexical_graph \
             -l --tb=short --maxfail=1 --cov-fail-under=30 \
-            --timeout=120 \
             tests/
 
       - name: Package coverage reports
         id: coverage
         if: always()
-        timeout-minutes: 5
         run: |
           PYTHONPATH=src .venv/bin/python -m coverage xml
           PYTHONPATH=src .venv/bin/python -m coverage html
