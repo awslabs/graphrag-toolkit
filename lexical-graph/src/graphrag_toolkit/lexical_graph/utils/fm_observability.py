@@ -49,6 +49,7 @@ class FMObservabilityQueuePoller(threading.Thread):
                 handles observability-related statistics and functionality.
         """
         super().__init__()
+        self.daemon = True
         self._discontinue = threading.Event()
         self.fm_observability = FMObservabilityStats()
    
@@ -527,7 +528,9 @@ class FMObservabilityPublisher():
         self.poller = FMObservabilityQueuePoller()
         self.poller.start()
 
-        threading.Timer(interval_seconds, self.publish_stats).start()
+        t = threading.Timer(interval_seconds, self.publish_stats)
+        t.daemon = True
+        t.start()
 
     def close(self):
         """
@@ -580,7 +583,9 @@ class FMObservabilityPublisher():
         self.poller.start()
         if self.allow_continue:
             logging.debug('Scheduling new poller')
-            threading.Timer(self.interval_seconds, self.publish_stats).start()
+            t = threading.Timer(self.interval_seconds, self.publish_stats)
+            t.daemon = True
+            t.start()
         else:
             logging.debug('Shutting down publisher')
         for subscriber in self.subscribers:
