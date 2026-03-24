@@ -74,14 +74,14 @@ sh build-tests.sh --test-file lexical.short, lexical.versioning
 
 #### Attach integration test results to the github-release
 
-We want to include `metadata.json` and test results folders as a zip to the release. 
+We want to include `metadata.json` and `test-results` folders as a zip to the release. 
 
 ```bash
-aws s3 sync s3://your-bucket/test-results/ ./local-results/
-zip command line
+aws s3 sync s3://your-bucket/test-results/ ./test-results/ --exclude "*" --include "metadata.json" --include "test-results/*"
+zip -r test-results.zip ./test-results/
 ```
 
-Attach the above .zip to the github release. 
+Attach `test-results.zip` to the github release. 
 
 ### Step 4: Create the Final Release Tag
 
@@ -111,6 +111,6 @@ Sanity checks should be completed against the PyPI release artefacts to verify t
 Attach integration test results to the github-release (`metadata.json` and test results folders) as a zip to the release. 
 
 ```bash
-aws s3 sync s3://your-bucket/test-results/ ./local-results/
-zip command line
+aws s3 sync s3://your-bucket/test-results/ ./local-results/ --exclude "*" --include "metadata.json" --include "test-results/*"
+zip -r test-results.zip ./local-results/
 ```
