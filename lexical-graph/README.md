@@ -163,6 +163,10 @@ if __name__ == '__main__':
   - [FAQ](../docs/lexical-graph/faq.md)
 
 
+## Release
+
+Release instructions are found in the [RELEASE.md](./RELEASE.md)
+
 ## License
 
 This project is licensed under the Apache-2.0 License.

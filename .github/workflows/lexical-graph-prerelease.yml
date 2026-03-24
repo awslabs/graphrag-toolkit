@@ -12,9 +12,8 @@ permissions:
 
 jobs:
   pre-release-build:
-    # Constraint: Only run if the tag starts with 'lexical-graph/v':
-    # if: startsWith(github.ref, 'refs/tags/lexical-graph/v')
-    if: startsWith(github.ref, 'refs/tags/')
+    # Constraint: Only run if the tag starts with 'graphrag-lexical-graph/v':
+    if: startsWith(github.ref, 'refs/tags/graphrag-lexical-graph/v')
 
     runs-on: ubuntu-latest
     outputs:
@@ -54,7 +53,6 @@ jobs:
         with:
           name: lexical-graph-dist
           path: lexical-graph/dist/
-          retention-days: 30
 
       - name: Extract version
         id: version
