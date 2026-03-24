@@ -69,7 +69,7 @@ PYTHONPATH=src python -m pytest -v tests/
 The wheel artefacts should be tested against a well known release test suite to look for regressions.  Release managers should run the test suite against the "Short" and "Versioning" test suites. To run: 
 
 ```bash
-sh build-tests.sh --test-file lexical.short, lexical.versioning
+sh build-tests.sh --test-file lexical.short,lexical.versioning
 ```
 
 #### Attach integration test results to the github-release
