@@ -9,7 +9,7 @@ import uuid
 from typing import List, Any, Optional, Iterable, Dict
 from dataclasses import dataclass
 
-from llama_index.core.bridge.pydantic import PrivateAttr
+from llama_index.core.bridge.pydantic import PrivateAttr, ConfigDict
 from llama_index.core.schema import BaseNode, NodeWithScore, QueryBundle
 from llama_index.core.vector_stores.types import  VectorStoreQueryResult, VectorStoreQueryMode, MetadataFilters, MetadataFilter
 from llama_index.core.indices.utils import embed_nodes
@@ -483,25 +483,12 @@ class OpenSearchIndex(VectorIndex):
         dimensions = coalesce(dimensions, GraphRAGConfig.embed_dimensions)
 
         return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model)
-    
-    class Config:
-        """Handles configuration settings and specifies validation rules.
-
-        The Config class defines specific configuration behaviors and settings
-        used in the application. It is commonly utilized to enforce specific
-        rules or facilitate custom behavior when working with certain
-        types of data or attributes.
-
-        Attributes:
-            arbitrary_types_allowed (bool): Indicates whether the
-                configuration will allow arbitrary types.
-        """
-        arbitrary_types_allowed = True
 
     endpoint:str
     index_name:str
     dimensions:int
     embed_model:EmbeddingType
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     _client: OpensearchVectorClient = PrivateAttr(default=None)
 
