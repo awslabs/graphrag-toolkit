@@ -6,7 +6,7 @@ omit =
     */tests/*
 
 [report]
-fail_under = 30
+fail_under = 40
 show_missing = true
 skip_empty = true
 precision = 2
