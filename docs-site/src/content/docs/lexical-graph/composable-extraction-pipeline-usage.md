@@ -125,12 +125,20 @@ config = ExtractionConfig(
             threshold=0.5,
         ),
         LLMTopicExtractionStage(),
-        EntityMergeStage(),  # Merges NER entities into topics, deduplicates
+        EntityMergeStage(fuzzy_threshold=0.85),  # Merges NER entities, fuzzy dedup
     ]
 )
 ```
 
 `EntityMergeStage` performs case-insensitive deduplication — if the LLM already extracted "John" and NER also found "john", it won't be added twice.
+
+For fuzzy deduplication (e.g., "DataBridge" ≈ "DataBridge AI"), set a similarity threshold:
+
+```python
+EntityMergeStage(fuzzy_threshold=0.85)  # 0-1, higher = stricter matching
+```
+
+With `fuzzy_threshold=None` (default), only exact case-insensitive matches are deduplicated.
 
 ## Using JSON Output for Topic Extraction
 
@@ -191,7 +199,7 @@ config = ExtractionConfig(
         LLMPropositionStage(),
         NERExtractionStage(entity_labels=['Person', 'Organization', 'Technology']),
         LLMTopicExtractionStage(),
-        EntityMergeStage(),
+        EntityMergeStage(fuzzy_threshold=0.85),
         SchemaFilterStage(schema),
     ],
     schema=schema,
