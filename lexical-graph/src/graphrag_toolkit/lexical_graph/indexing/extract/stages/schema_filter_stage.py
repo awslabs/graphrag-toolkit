@@ -18,21 +18,21 @@ logger = logging.getLogger(__name__)
 class SchemaFilter(TransformComponent):
     """TransformComponent that filters extracted topics against a schema."""
 
-    schema: ExtractionSchema = Field(description='Extraction schema for filtering')
+    extraction_schema: ExtractionSchema = Field(description='Extraction schema for filtering')
 
     class Config:
         arbitrary_types_allowed = True
 
     def __call__(self, nodes: Sequence[BaseNode], **kwargs) -> Sequence[BaseNode]:
-        if not self.schema.strict:
+        if not self.extraction_schema.strict:
             return nodes
 
-        allowed_entity_types = {n.lower() for n in self.schema.entity_type_names()}
-        for config in self.schema.entity_types.values():
+        allowed_entity_types = {n.lower() for n in self.extraction_schema.entity_type_names()}
+        for config in self.extraction_schema.entity_types.values():
             for alias in config.aliases:
                 allowed_entity_types.add(alias.lower())
 
-        allowed_relationships = {r.upper() for r in self.schema.relationship_types} if self.schema.relationship_types else None
+        allowed_relationships = {r.upper() for r in self.extraction_schema.relationship_types} if self.extraction_schema.relationship_types else None
 
         for node in nodes:
             topics_data = node.metadata.get(TOPICS_KEY)
@@ -71,7 +71,7 @@ class SchemaFilterStage(ExtractionStage):
         return [TOPICS_KEY]
 
     def as_transform(self) -> TransformComponent:
-        return SchemaFilter(schema=self._schema)
+        return SchemaFilter(extraction_schema=self._schema)
 
     @property
     def stage_type(self) -> str:
