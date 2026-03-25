@@ -1,27 +1,23 @@
 
-# This workflow will upload a Python Package to PyPI when a release is created
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
+# This workflow will create a release build without uploading artefacts to PyPI.
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Lexical Graph Release
+name: Lexical Graph Pre-Release
 
 on:
   release:
-    types: [released]
+    types: [prereleased]
+
+permissions:
+  contents: write
 
 jobs:
-  release-build:
+  pre-release-build:
     # Constraint: Only run if the tag starts with 'graphrag-lexical-graph/v':
     if: startsWith(github.ref, 'refs/tags/graphrag-lexical-graph/v')
+
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.pypi_version }}
-    permissions:
-      contents: write
 
     defaults:
       run:
@@ -67,7 +63,6 @@ jobs:
             VERSION="v$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')"
           fi
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
-          echo "pypi_version=${VERSION#v}" >> $GITHUB_OUTPUT
 
       - name: Update pip install version in lexical-graph notebooks
         working-directory: examples/lexical-graph/notebooks
@@ -111,8 +106,8 @@ jobs:
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
           retention-days: 30
 
-      # Add artifacts to the GitHub Release
-      - name: Attach Artifacts to GitHub Release
+       # Add artifacts to the GitHub Release
+      - name: Attach Artifacts to GitHub Pre-Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
@@ -121,23 +116,5 @@ jobs:
             examples/lexical-graph/notebooks/lexical-graph-examples-latest.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
-          prerelease: false
+          prerelease: true
 
-  pypi-publish:
-    runs-on: ubuntu-latest
-    needs: release-build
-    permissions:
-      id-token: write
-    environment:
-      name: pypi
-      url: https://pypi.org/project/graphrag-lexical-graph/${{ needs.release-build.outputs.version }}
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: lexical-graph-dist
-          path: dist/
-      - name: Remove non-versioned dist copies
-        run: rm -f dist/*-latest.*
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1

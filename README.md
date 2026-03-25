@@ -6,9 +6,9 @@ Installation instructions and requirements are detailed separately with each too
 
 ### Lexical Graph
 
-The [lexical-graph](./lexical-graph/) provides a framework for automating the construction of a [hierarchical lexical graph](./docs/lexical-graph/graph-model.md) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
+The [lexical-graph](https://github.com/awslabs/graphrag-toolkit/tree/main/lexical-graph) provides a framework for automating the construction of a [hierarchical lexical graph](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/graph-model.md) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
 
-![Lexical graph](./images/visualisation.png)
+![Lexical graph](https://github.com/awslabs/graphrag-toolkit/raw/main/images/visualisation.png)
 
 #### Additional Resources
 
@@ -22,11 +22,11 @@ The [lexical-graph](./lexical-graph/) provides a framework for automating the co
 
 ### BYOKG-RAG
 
-[BYOKG-RAG](./byokg-rag/) is a novel approach to Knowledge Graph Question Answering (KGQA) that combines the power of Large Language Models (LLMs) with structured knowledge graphs. The system allows users to bring their own knowledge graph and perform complex question answering over it.
+[BYOKG-RAG](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag) is a novel approach to Knowledge Graph Question Answering (KGQA) that combines the power of Large Language Models (LLMs) with structured knowledge graphs. The system allows users to bring their own knowledge graph and perform complex question answering over it.
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [CONTRIBUTING](https://github.com/awslabs/graphrag-toolkit/tree/main/CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
 
