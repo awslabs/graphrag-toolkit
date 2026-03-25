@@ -853,7 +853,7 @@ class _GraphRAGConfig:
         """
         self._metadata_datetime_suffixes = metadata_datetime_suffixes
 
-    def _to_llm(self, llm: LLMType):
+    def to_llm(self, llm: LLMType):
         """
         Converts the given LLMType into an instance of LLM or BedrockConverse.
 
@@ -917,6 +917,49 @@ class _GraphRAGConfig:
         except Exception as e:
             raise ValueError(f'Failed to initialize BedrockConverse: {str(e)}') from e
 
+
+    def to_embedding_model(self, embed_model:EmbeddingType):
+
+        if isinstance(embed_model, BaseEmbedding):
+            return embed_model
+        
+        try:
+
+            boto3_session = self.session
+            botocore_session = None
+            if hasattr(boto3_session, 'get_session'):
+                botocore_session = boto3_session.get_session()
+
+            profile = self.aws_profile
+            region = self.aws_region
+
+            botocore_config = Config(
+                retries={"total_max_attempts": 10, "mode": "adaptive"},
+                connect_timeout=60.0,
+                read_timeout=60.0,
+            )
+
+            if _is_json_string(embed_model):
+                config = json.loads(embed_model)
+                return BedrockEmbedding(
+                    model_name=config['model_name'],
+                    botocore_session=botocore_session,
+                    region_name=config.get('region_name', region),
+                    profile_name=config.get('profile_name', profile),
+                    botocore_config=botocore_config
+                )
+            else:
+                return BedrockEmbedding(
+                    model_name=embed_model,
+                    botocore_session=botocore_session,
+                    region_name=region,
+                    profile_name=profile,
+                    botocore_config=botocore_config
+                )
+        except Exception as e:
+            raise ValueError(f'Failed to initialize BedrockEmbedding: {str(e)}') from e
+
+
     @property
     def extraction_llm(self) -> LLM:
         """
@@ -952,7 +995,7 @@ class _GraphRAGConfig:
                 model to be set.
         """
 
-        self._extraction_llm = self._to_llm(llm)
+        self._extraction_llm = self.to_llm(llm)
         if hasattr(self._extraction_llm, 'callback_manager'):
             self._extraction_llm.callback_manager = Settings.callback_manager
 
@@ -1000,7 +1043,7 @@ class _GraphRAGConfig:
             other errors.
         """
 
-        self._response_llm = self._to_llm(llm)
+        self._response_llm = self.to_llm(llm)
         if hasattr(self._response_llm, 'callback_manager'):
             self._response_llm.callback_manager = Settings.callback_manager
 
@@ -1042,44 +1085,8 @@ class _GraphRAGConfig:
             ValueError: If a JSON string provided via `embed_model` does not conform
                 to the expected structure or lacks required fields during parsing.
         """
-        if isinstance(embed_model, str):
-
-            boto3_session = self.session
-            botocore_session = None
-            if hasattr(boto3_session, 'get_session'):
-                botocore_session = boto3_session.get_session()
-
-            profile = self.aws_profile
-            region = self.aws_region
-
-            botocore_config = Config(
-                retries={"total_max_attempts": 10, "mode": "adaptive"},
-                connect_timeout=60.0,
-                read_timeout=60.0,
-            )
-
-            if _is_json_string(embed_model):
-                config = json.loads(embed_model)
-                self._embed_model = BedrockEmbedding(
-                    model_name=config['model_name'],
-                    botocore_session=botocore_session,
-                    region_name=config.get('region_name', region),
-                    profile_name=config.get('profile_name', profile),
-                    botocore_config=botocore_config
-                )
-            else:
-                self._embed_model = BedrockEmbedding(
-                    model_name=embed_model,
-                    botocore_session=botocore_session,
-                    region_name=region,
-                    profile_name=profile,
-                    botocore_config=botocore_config
-                )
-        else:
-            self._embed_model = embed_model
-
-        if hasattr(self._embed_model, 'callback_manager'):
-            self._embed_model.callback_manager = Settings.callback_manager
+        self._embed_model = self.to_embedding_model(embed_model)
+        
 
     @property
     def embed_dimensions(self) -> int:

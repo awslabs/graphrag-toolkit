@@ -34,13 +34,15 @@ from graphrag_toolkit.lexical_graph.indexing.build import BuildFilters
 from graphrag_toolkit.lexical_graph.indexing.build.null_builder import NullBuilder
 from graphrag_toolkit.lexical_graph.indexing.build.delete_sources import DeleteSources
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
+from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
-
-
+from llama_index.core.llms import LLM
 
 logger = logging.getLogger(__name__)
+
+ExtractionLLMType = Union[str, LLM, LLMCache]
 
 class ExtractionConfig():
     """
@@ -71,6 +73,8 @@ class ExtractionConfig():
         extraction_filters (Optional[MetadataFiltersType]): Metadata filters to
         be applied during the extraction process. Will be internally converted
         to a FilterConfig object.
+        extraction_llm (Optional[ExtractionLLMType]): LLM to be used for extracting
+        propositions and topics. If None, GraphRAGConfig.extract_llm is used. 
     """
     def __init__(self,
                  enable_proposition_extraction: bool = True,
@@ -79,7 +83,8 @@ class ExtractionConfig():
                  infer_entity_classifications: Union[InferClassificationsConfig, bool] = False,
                  extract_propositions_prompt_template: Optional[str] = None,
                  extract_topics_prompt_template: Optional[str] = None,
-                 extraction_filters: Optional[MetadataFiltersType] = None):
+                 extraction_filters: Optional[MetadataFiltersType] = None,
+                 extraction_llm: Optional[ExtractionLLMType] = None):
         self.enable_proposition_extraction = enable_proposition_extraction
         self.preferred_entity_classifications = preferred_entity_classifications if preferred_entity_classifications is not None else []
         self.preferred_topics = preferred_topics if preferred_topics is not None else []
@@ -87,6 +92,10 @@ class ExtractionConfig():
         self.extract_propositions_prompt_template = extract_propositions_prompt_template
         self.extract_topics_prompt_template = extract_topics_prompt_template
         self.extraction_filters = FilterConfig(extraction_filters)
+        if extraction_llm is not None:
+            self.extraction_llm = extraction_llm if isinstance(extraction_llm, LLMCache) else GraphRAGConfig.to_llm(extraction_llm)
+        else:
+            self.extraction_llm = None
 
 
 class BuildConfig():
@@ -136,7 +145,6 @@ class BuildConfig():
         self.include_local_entities = include_local_entities
         self.source_metadata_formatter = source_metadata_formatter or DefaultSourceMetadataFormatter()
         self.enable_versioning = enable_versioning
-
 
 class IndexingConfig():
     """
@@ -335,11 +343,13 @@ class LexicalGraphIndex():
             if config.batch_config:
                 components.append(BatchLLMPropositionExtractorSync(
                     batch_config=config.batch_config,
-                    prompt_template=config.extraction.extract_propositions_prompt_template
+                    prompt_template=config.extraction.extract_propositions_prompt_template,
+                    llm=config.extraction.extraction_llm
                 ))
             else:
                 components.append(LLMPropositionExtractor(
-                    prompt_template=config.extraction.extract_propositions_prompt_template
+                    prompt_template=config.extraction.extract_propositions_prompt_template,
+                    llm=config.extraction.extraction_llm
                 ))
 
         entity_classification_provider = None
@@ -369,7 +379,8 @@ class LexicalGraphIndex():
                     num_iterations=infer_config.num_iterations,
                     num_classifications=infer_config.num_classifications,
                     prompt_template=infer_config.prompt_template,
-                    replace_default_classifications=infer_config.replace_default_classifications
+                    replace_default_classifications=infer_config.replace_default_classifications,
+                    llm=config.extraction.extraction_llm
                 )
 
                 pre_processors.append(entity_classification_provider)
@@ -392,14 +403,16 @@ class LexicalGraphIndex():
                 source_metadata_field=PROPOSITIONS_KEY if config.extraction.enable_proposition_extraction else None,
                 entity_classification_provider=entity_classification_provider,
                 topic_provider=topic_provider,
-                prompt_template=config.extraction.extract_topics_prompt_template
+                prompt_template=config.extraction.extract_topics_prompt_template,
+                llm=config.extraction.extraction_llm
             )
         else:
             topic_extractor = TopicExtractor(
                 source_metadata_field=PROPOSITIONS_KEY if config.extraction.enable_proposition_extraction else None,
                 entity_classification_provider=entity_classification_provider,
                 topic_provider=topic_provider,
-                prompt_template=config.extraction.extract_topics_prompt_template
+                prompt_template=config.extraction.extract_topics_prompt_template,
+                llm=config.extraction.extraction_llm
             )
 
         components.append(topic_extractor)
