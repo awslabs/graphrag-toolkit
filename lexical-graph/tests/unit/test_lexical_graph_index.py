@@ -1,6 +1,9 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import os
+from unittest.mock import patch
+
 from llama_index.core.llms import LLM
 from llama_index.core.llms.mock import MockLLM
 from llama_index.llms.bedrock_converse import BedrockConverse
@@ -24,9 +27,10 @@ class TestExtractionConfig:
         assert extraction_config.extraction_llm == llm
 
     def test_extraction_lmm_configured_with_model_name_returns_bedrock_converse_llm(self):
-        extraction_config = ExtractionConfig(
-            extraction_llm = 'anthropic.claude-v2'
-        )
+        with patch.dict(os.environ, {'AWS_REGION': 'us-west-2'}):
+            extraction_config = ExtractionConfig(
+                extraction_llm = 'anthropic.claude-v2'
+            )
 
         assert isinstance(extraction_config.extraction_llm, BedrockConverse)
 
