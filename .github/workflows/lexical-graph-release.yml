@@ -1,5 +1,12 @@
-# This workflow builds the lexical-graph package on prerelease and release events,
-# and publishes to PyPI only on release.
+# This workflow builds the lexical-graph package on prerelease and release events. 
+#
+# This workflow will upload a Python Package to PyPI when a release is created (not prerelease)
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
+#
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
 
 name: Lexical Graph Release
 
@@ -44,8 +51,8 @@ jobs:
 
       - name: Create latest dist copies
         run: |
-          cp dist/*.whl dist/lexical-graph.whl
-          cp dist/*.tar.gz dist/lexical-graph.tar.gz
+          cp dist/*.whl dist/lexical-graph-latest.whl
+          cp dist/*.tar.gz dist/lexical-graph-latest.tar.gz
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
