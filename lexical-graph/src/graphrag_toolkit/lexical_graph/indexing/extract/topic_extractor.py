@@ -7,7 +7,7 @@ from typing import Tuple, List, Optional, Sequence, Dict
 
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
-from graphrag_toolkit.lexical_graph.indexing.utils.topic_utils import parse_extracted_topics, format_list, format_text
+from graphrag_toolkit.lexical_graph.indexing.utils.topic_utils import parse_extracted_topics, parse_extracted_topics_json, format_list, format_text
 from graphrag_toolkit.lexical_graph.indexing.extract.preferred_values import PreferredValuesProvider, default_preferred_values
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
@@ -44,6 +44,11 @@ class TopicExtractor(BaseExtractor):
         description='Topic provider'
     )
 
+    output_format: str = Field(
+        default='text',
+        description="Output format: 'text' for legacy parsing, 'json' for structured JSON parsing with text fallback"
+    )
+
     @classmethod
     def class_name(cls) -> str:
         """
@@ -65,7 +70,8 @@ class TopicExtractor(BaseExtractor):
                  source_metadata_field=None,
                  num_workers:Optional[int]=None,
                  entity_classification_provider=None,
-                 topic_provider=None
+                 topic_provider=None,
+                 output_format:str='text'
                  ):
         """
         Initializes the instance with the provided or default parameters to facilitate
@@ -98,7 +104,8 @@ class TopicExtractor(BaseExtractor):
             source_metadata_field=source_metadata_field,
             num_workers=coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker),
             entity_classification_provider=entity_classification_provider or default_preferred_values([]),
-            topic_provider=topic_provider or default_preferred_values([])
+            topic_provider=topic_provider or default_preferred_values([]),
+            output_format=output_format
         )
 
         logger.debug(f'Prompt template: {self.prompt_template}')
@@ -212,5 +219,11 @@ class TopicExtractor(BaseExtractor):
         
         raw_response = await coro
 
-        (topics, garbage) = parse_extracted_topics(raw_response)
+        if self.output_format == 'json':
+            (topics, garbage) = parse_extracted_topics_json(raw_response)
+            if garbage:
+                logger.debug(f'JSON parsing failed, falling back to text parser: {garbage}')
+                (topics, garbage) = parse_extracted_topics(raw_response)
+        else:
+            (topics, garbage) = parse_extracted_topics(raw_response)
         return (topics, garbage)
