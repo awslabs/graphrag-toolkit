@@ -21,6 +21,11 @@ __pycache__/
 # Byte-compiled / optimized / DLL files
 *.pyc
 
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
 # Coverage reports
 **/htmlcov/
 **/.coverage

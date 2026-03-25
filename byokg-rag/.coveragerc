@@ -7,14 +7,21 @@ omit =
     */prompts/*
 
 [report]
+fail_under = 80
 show_missing = true
 skip_empty = true
 precision = 2
 exclude_lines =
     pragma: no cover
     def __repr__
-    raise AssertionError
-    raise NotImplementedError
+    def __str__
     if __name__ == .__main__.:
-    if TYPE_CHECKING:
     @abstractmethod
+    @abc.abstractmethod
+    raise NotImplementedError
+    if TYPE_CHECKING:
+    if typing.TYPE_CHECKING:
+    raise AssertionError
+    return NotImplemented
+    ^\s*pass\s*$
+    ^\s*\.\.\.\s*$
