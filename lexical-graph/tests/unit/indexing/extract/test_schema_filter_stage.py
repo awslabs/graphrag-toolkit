@@ -74,7 +74,7 @@ class TestSchemaFilter:
             Entity(value='Acme', classification='Company'),
         ]
         node = make_topic_node(make_topics_with_entities(entities))
-        sf = SchemaFilter(schema=schema)
+        sf = SchemaFilter(extraction_schema=schema)
         result = sf([node])
         tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
         assert len(tc.topics[0].entities) == 2
@@ -90,7 +90,7 @@ class TestSchemaFilter:
             Entity(value='Acme', classification='Company'),
         ]
         node = make_topic_node(make_topics_with_entities(entities))
-        sf = SchemaFilter(schema=schema)
+        sf = SchemaFilter(extraction_schema=schema)
         result = sf([node])
         tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
         assert len(tc.topics[0].entities) == 1
@@ -124,7 +124,7 @@ class TestSchemaFilter:
             Entity(value='NYC', classification='Location'),
         ]
         node = make_topic_node(make_topics_with_entities(entities, facts))
-        sf = SchemaFilter(schema=schema)
+        sf = SchemaFilter(extraction_schema=schema)
         result = sf([node])
         tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
         assert len(tc.topics[0].statements[0].facts) == 1
@@ -143,7 +143,7 @@ class TestSchemaFilter:
             Entity(value='Acme', classification='Company'),
         ]
         node = make_topic_node(make_topics_with_entities(entities))
-        sf = SchemaFilter(schema=schema)
+        sf = SchemaFilter(extraction_schema=schema)
         result = sf([node])
         tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
         assert len(tc.topics[0].entities) == 1
@@ -160,7 +160,7 @@ class TestSchemaFilter:
             Entity(value='Jane', classification='PERSON'),
         ]
         node = make_topic_node(make_topics_with_entities(entities))
-        sf = SchemaFilter(schema=schema)
+        sf = SchemaFilter(extraction_schema=schema)
         result = sf([node])
         tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
         assert len(tc.topics[0].entities) == 2
@@ -169,7 +169,7 @@ class TestSchemaFilter:
         """Verify nodes without topics metadata are unchanged."""
         schema = ExtractionSchema(entity_types={'Person': EntityTypeConfig()}, strict=True)
         node = TextNode(text='test')
-        sf = SchemaFilter(schema=schema)
+        sf = SchemaFilter(extraction_schema=schema)
         result = sf([node])
         assert TOPICS_KEY not in result[0].metadata
 
@@ -192,7 +192,7 @@ class TestSchemaFilter:
             Entity(value='Acme', classification='Company'),
         ]
         node = make_topic_node(make_topics_with_entities(entities, facts))
-        sf = SchemaFilter(schema=schema)
+        sf = SchemaFilter(extraction_schema=schema)
         result = sf([node])
         tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
         assert len(tc.topics[0].statements[0].facts) == 1
