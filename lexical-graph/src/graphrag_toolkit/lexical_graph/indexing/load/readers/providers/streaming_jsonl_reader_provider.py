@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """
 Streaming JSONL reader provider for memory-efficient processing of large JSONL files.
 Processes files line-by-line without loading the entire file into memory.

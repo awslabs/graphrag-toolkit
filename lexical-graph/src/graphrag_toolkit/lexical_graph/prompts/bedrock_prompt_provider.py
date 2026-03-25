@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # graphrag_toolkit/lexical_graph/prompts/bedrock_prompt_provider.py
 # SPDX-License-Identifier: Apache-2.0
 

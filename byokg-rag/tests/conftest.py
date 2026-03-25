@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Shared pytest fixtures for byokg-rag tests.
 
 This module provides reusable test fixtures for mocking AWS services,

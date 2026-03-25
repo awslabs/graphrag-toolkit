@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for TenantId and to_tenant_id (tenant_id.py).
 
 TenantId wraps a tenant name string with strict validation and formatting helpers.

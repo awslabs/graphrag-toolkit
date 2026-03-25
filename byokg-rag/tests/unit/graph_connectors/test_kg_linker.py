@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for KGLinker and CypherKGLinker.
 
 This module tests KG linker functionality including initialization,
