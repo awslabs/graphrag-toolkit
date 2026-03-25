@@ -25,6 +25,9 @@ from graphrag_toolkit.lexical_graph.indexing.extract import LLMPropositionExtrac
 from graphrag_toolkit.lexical_graph.indexing.extract import TopicExtractor, BatchTopicExtractorSync
 from graphrag_toolkit.lexical_graph.indexing.extract import ExtractionPipeline
 from graphrag_toolkit.lexical_graph.indexing.extract import InferClassifications, InferClassificationsConfig
+from graphrag_toolkit.lexical_graph.indexing.extract.extraction_stage import ExtractionStage
+from graphrag_toolkit.lexical_graph.indexing.extract.extraction_schema import ExtractionSchema
+from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_builder import PipelineBuilder
 from graphrag_toolkit.lexical_graph.indexing.build import BuildPipeline
 from graphrag_toolkit.lexical_graph.indexing.build import VectorIndexing
 from graphrag_toolkit.lexical_graph.indexing.build import GraphConstruction
@@ -84,7 +87,9 @@ class ExtractionConfig():
                  extract_propositions_prompt_template: Optional[str] = None,
                  extract_topics_prompt_template: Optional[str] = None,
                  extraction_filters: Optional[MetadataFiltersType] = None,
-                 extraction_llm: Optional[ExtractionLLMType] = None):
+                 extraction_llm: Optional[ExtractionLLMType] = None,
+                 stages: Optional[List[ExtractionStage]] = None,
+                 schema: Optional[ExtractionSchema] = None):
         self.enable_proposition_extraction = enable_proposition_extraction
         self.preferred_entity_classifications = preferred_entity_classifications if preferred_entity_classifications is not None else []
         self.preferred_topics = preferred_topics if preferred_topics is not None else []
@@ -92,6 +97,8 @@ class ExtractionConfig():
         self.extract_propositions_prompt_template = extract_propositions_prompt_template
         self.extract_topics_prompt_template = extract_topics_prompt_template
         self.extraction_filters = FilterConfig(extraction_filters)
+        self.stages = stages
+        self.schema = schema
         if extraction_llm is not None:
             self.extraction_llm = extraction_llm if isinstance(extraction_llm, LLMCache) else GraphRAGConfig.to_llm(extraction_llm)
         else:
@@ -337,6 +344,14 @@ class LexicalGraphIndex():
         """
         pre_processors = []
         components = []
+
+        # If custom stages are provided, use PipelineBuilder
+        if config.extraction.stages:
+            builder = PipelineBuilder()
+            for stage in config.extraction.stages:
+                builder.add(stage)
+            components = builder.build()
+            return (pre_processors, components)
 
         if config.chunking:
             for c in config.chunking:
