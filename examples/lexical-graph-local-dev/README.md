@@ -14,6 +14,7 @@ This example provides a complete local development environment for the GraphRAG 
 - [**03-Querying-with-Prompting**](./notebooks/03-Querying-with-Prompting.ipynb) – Advanced querying with custom prompts and prompt providers
 - [**04-Advanced-Configuration-Examples**](./notebooks/04-Advanced-Configuration-Examples.ipynb) – Advanced reader configurations and metadata handling
 - [**05-S3-Directory-Reader-Provider**](./notebooks/05-S3-Directory-Reader-Provider.ipynb) – S3-based document reading and processing
+- [**06-Composable-Extraction-Pipeline**](./notebooks/06-Composable-Extraction-Pipeline.ipynb) – Customizable extraction stages, schema filtering, and NER integration
 
 ## Quick Start
 

@@ -137,3 +137,39 @@ class TestEntityMergeTransform:
         transform = EntityMergeTransform()
         result = transform([node])
         assert TOPICS_KEY not in result[0].metadata
+
+    def test_fuzzy_dedup_blocks_similar(self):
+        """Verify fuzzy matching blocks similar entity names."""
+        ner = [{'value': 'DataBridge', 'classification': 'Company'}]
+        existing = [Entity(value='DataBridge AI', classification='Company')]
+        node = self._make_node(ner, existing)
+
+        transform = EntityMergeTransform(fuzzy_threshold=0.7)
+        result = transform([node])
+
+        tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
+        assert len(tc.topics[0].entities) == 1
+
+    def test_fuzzy_dedup_allows_different(self):
+        """Verify fuzzy matching allows sufficiently different names."""
+        ner = [{'value': 'Acme Corp', 'classification': 'Company'}]
+        existing = [Entity(value='DataBridge AI', classification='Company')]
+        node = self._make_node(ner, existing)
+
+        transform = EntityMergeTransform(fuzzy_threshold=0.7)
+        result = transform([node])
+
+        tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
+        assert len(tc.topics[0].entities) == 2
+
+    def test_no_fuzzy_threshold_exact_match(self):
+        """Verify None threshold uses exact matching (similar names not deduped)."""
+        ner = [{'value': 'DataBridge', 'classification': 'Company'}]
+        existing = [Entity(value='DataBridge AI', classification='Company')]
+        node = self._make_node(ner, existing)
+
+        transform = EntityMergeTransform(fuzzy_threshold=None)
+        result = transform([node])
+
+        tc = TopicCollection(**result[0].metadata[TOPICS_KEY])
+        assert len(tc.topics[0].entities) == 2

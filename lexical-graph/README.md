@@ -160,6 +160,7 @@ if __name__ == '__main__':
   - [Indexing](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/indexing.md)
     - [Batch Extraction](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/batch-extraction.md)
     - [Configuring Batch Extraction](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/configuring-batch-extraction.md)
+    - [Composable Extraction Pipeline](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/composable-extraction-pipeline-usage.md)
     - [Versioned Updates](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/versioned-updates.md)
   - [Querying](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/querying.md)
     - [Traversal-Based Search](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/traversal-based-search.md)

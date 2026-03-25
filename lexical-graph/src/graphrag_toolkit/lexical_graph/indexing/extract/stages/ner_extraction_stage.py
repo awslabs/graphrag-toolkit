@@ -30,7 +30,8 @@ class NERTransform(TransformComponent):
                 'Install it with: pip install gliner'
             )
 
-        model = GLiNER.from_pretrained(self.model_name)
+        if not hasattr(self, '_model'):
+            self._model = GLiNER.from_pretrained(self.model_name)
 
         for node in nodes:
             text = node.get_content()
@@ -38,7 +39,7 @@ class NERTransform(TransformComponent):
                 node.metadata[PRE_EXTRACTED_ENTITIES_KEY] = []
                 continue
 
-            predictions = model.predict_entities(text, self.entity_labels, threshold=self.threshold)
+            predictions = self._model.predict_entities(text, self.entity_labels, threshold=self.threshold)
             entities = [
                 {'value': p['text'], 'classification': p['label']}
                 for p in predictions
