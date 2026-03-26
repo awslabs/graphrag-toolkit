@@ -113,6 +113,20 @@ jobs:
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
           retention-days: 30
 
+      - name: Cleanup existing release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          # Extract base version (e.g. graphrag-lexical-graph/v3.18.0 from graphrag-lexical-graph/v3.18.0.dev3)
+          BASE_VERSION="${TAG%.dev*}"
+          # Find all dev releases matching this base version and delete their assets
+          gh release list --limit 100 --json tagName --jq '.[].tagName' | grep "^${BASE_VERSION}\.dev" | while read -r tag; do
+            gh release view "$tag" --json assets --jq '.assets[].name' | while read -r name; do
+              gh release delete-asset "$tag" "$name" --yes
+            done
+          done
+
       - name: Attach Artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
