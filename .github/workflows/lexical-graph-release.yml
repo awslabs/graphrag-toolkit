@@ -113,6 +113,14 @@ jobs:
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
           retention-days: 30
 
+      - name: Cleanup existing release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "${{ github.event.release.tag_name }}" --json assets --jq '.assets[].name' | while read -r name; do
+            gh release delete-asset "${{ github.event.release.tag_name }}" "$name" --yes
+          done
+
       - name: Attach Artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
