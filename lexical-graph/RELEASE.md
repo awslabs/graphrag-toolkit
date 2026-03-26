@@ -10,6 +10,7 @@ This document describes the release process for the graphrag-toolkit components.
 ## Lexical Graph Release Process
 
 1. Create a release candidate tag for the pre-release (e.g., `graphrag-lexical-graph/vX.Y.Z.devN`).
+   NOTE: the project version is hardcoded in the [pyproject.toml](./pyproject.toml).  Ensure that the version matches.  
 2. Create a pre-release in GitHub using the release candidate tag, marking it as a pre-release.
 3. Test the pre-release artefacts via CI workflow and manual testing.
 4. Create the final release tag (e.g., `graphrag-lexical-graph/vX.Y.Z`).
