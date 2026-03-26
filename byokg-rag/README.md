@@ -1,6 +1,6 @@
 # BYOKG-RAG: Bring Your Own Knowledge Graph for Retrieval Augmented Generation
 
-![BYOKG-RAG Architecture](../images/byokg_rag.png)
+![BYOKG-RAG Architecture](https://github.com/awslabs/graphrag-toolkit/raw/main/images/byokg_rag.png)
 
 BYOKG-RAG is a novel approach to Knowledge Graph Question Answering (KGQA) that combines the power of Large Language Models (LLMs) with structured knowledge graphs. The system allows users to bring their own knowledge graph and perform complex question answering over it.
 
@@ -70,23 +70,23 @@ NOTE: Additional permissions may be required for Neptune Database (`neptune-db:*
 
 ## System Components
 
-1. **ByoKGQueryEngine** ([src/graphrag_toolkit/byokg_rag/byokg_query_engine.py](src/graphrag_toolkit/byokg_rag/byokg_query_engine.py))
+1. **ByoKGQueryEngine** ([src/graphrag_toolkit/byokg_rag/byokg_query_engine.py](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag/src/graphrag_toolkit/byokg_rag/byokg_query_engine.py))
    - Core orchestrating component with dual-mode processing
    - Implements iterative retrieval with configurable iterations
    - Combines multi-strategy and Cypher-based approaches
 
-2. **KG Linkers** ([src/graphrag_toolkit/byokg_rag/graph_connectors](src/graphrag_toolkit/byokg_rag/graph_connectors))
+2. **KG Linkers** ([src/graphrag_toolkit/byokg_rag/graph_connectors](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag/src/graphrag_toolkit/byokg_rag/graph_connectors))
    - **KGLinker**: Base class for LLM-guided graph operations
    - **CypherKGLinker**: Specialized for Cypher query generation and execution
    - Links natural language queries to graph entities and relationships
 
-3. **Graph Retrievers** ([src/graphrag_toolkit/byokg_rag/graph_retrievers](src/graphrag_toolkit/byokg_rag/graph_retrievers))
+3. **Graph Retrievers** ([src/graphrag_toolkit/byokg_rag/graph_retrievers](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag/src/graphrag_toolkit/byokg_rag/graph_retrievers))
    - **AgenticRetriever**: LLM-guided iterative exploration with entity linking
    - **PathRetriever**: Multi-hop reasoning through entity relationship paths
    - **GraphQueryRetriever**: Direct Cypher query execution and result processing
    - **Rerankers**: BGE-based semantic reranking for improving retrieval relevance
 
-4. **Graph Store** ([src/graphrag_toolkit/byokg_rag/graphstore](src/graphrag_toolkit/byokg_rag/graphstore))
+4. **Graph Store** ([src/graphrag_toolkit/byokg_rag/graphstore](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag/src/graphrag_toolkit/byokg_rag/graphstore))
    - Manages knowledge graph data structure and connectivity
    - Provides interfaces for graph traversal and querying
    - Supports multiple graph database backends
@@ -122,28 +122,28 @@ NOTE: The version number will vary based on the latest GitHub release.
 
 Run the demo notebooks:
 
-- [Local Graph Demo](../examples/byokg-rag/byokg_rag_demo_local_graph.ipynb)
-- [Neptune Analytics Demo](../examples/byokg-rag/byokg_rag_neptune_analytics_demo.ipynb)
-- [Neptune Analytics with Cypher](../examples/byokg-rag/byokg_rag_neptune_analytics_demo_cypher.ipynb)
-- [Neptune Database Demo](../examples/byokg-rag/byokg_rag_neptune_db_cluster_demo.ipynb)
+- [Local Graph Demo](https://github.com/awslabs/graphrag-toolkit/tree/main/examples/byokg-rag/byokg_rag_demo_local_graph.ipynb)
+- [Neptune Analytics Demo](https://github.com/awslabs/graphrag-toolkit/tree/main/examples/byokg-rag/byokg_rag_neptune_analytics_demo.ipynb)
+- [Neptune Analytics with Cypher](https://github.com/awslabs/graphrag-toolkit/tree/main/examples/byokg-rag/byokg_rag_neptune_analytics_demo_cypher.ipynb)
+- [Neptune Database Demo](https://github.com/awslabs/graphrag-toolkit/tree/main/examples/byokg-rag/byokg_rag_neptune_db_cluster_demo.ipynb)
 
 ## Configuration Reference
 
-Complete documentation is available in the [docs/byokg-rag/](../docs/byokg-rag/) directory:
+Complete documentation is available in the [docs/byokg-rag/](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/) directory:
 
-- [Overview](../docs/byokg-rag/overview.md) - Architecture, KGQA approach, and system components
-- [Indexing](../docs/byokg-rag/indexing.md) - Dense index, fuzzy string index, and graph-store index setup
-- [Graph Stores](../docs/byokg-rag/graph-stores.md) - Supported graph stores and connection setup
-- [Configuration](../docs/byokg-rag/configuration.md) - Complete parameter documentation
-- [FAQ](../docs/byokg-rag/faq.md) - Common questions and troubleshooting
+- [Overview](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/overview.md) - Architecture, KGQA approach, and system components
+- [Indexing](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/indexing.md) - Dense index, fuzzy string index, and graph-store index setup
+- [Graph Stores](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/graph-stores.md) - Supported graph stores and connection setup
+- [Configuration](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/configuration.md) - Complete parameter documentation
+- [FAQ](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/faq.md) - Common questions and troubleshooting
 
 ## Examples
 
-Additional examples are available in the [examples/byokg-rag/](../examples/byokg-rag/) directory.
+Additional examples are available in the [examples/byokg-rag/](https://github.com/awslabs/graphrag-toolkit/tree/main/examples/byokg-rag/) directory.
 
 ## Unit testing
 
-The complete unit tests can be found under [`tests/`](tests/), please see [`tests/README.md](tests/README.md) for more details.
+The complete unit tests can be found under [`tests/`](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag/tests/), please see [`tests/README.md](https://github.com/awslabs/graphrag-toolkit/tree/main/byokg-rag/tests/README.md) for more details.
 
 ## Citation
 
