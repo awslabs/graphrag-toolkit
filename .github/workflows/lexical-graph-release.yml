@@ -1,7 +1,8 @@
-
-# This workflow will upload a Python Package to PyPI when a release is created
+# This workflow builds the lexical-graph package on prerelease and release events. 
+#
+# This workflow will upload a Python Package to PyPI when a release is created (not prerelease)
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
-
+#
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -11,7 +12,10 @@ name: Lexical Graph Release
 
 on:
   release:
-    types: [released]
+    types: [prereleased, released]
+
+permissions:
+  contents: write
 
 jobs:
   release-build:
@@ -20,8 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.pypi_version }}
-    permissions:
-      contents: write
 
     defaults:
       run:
@@ -62,7 +64,7 @@ jobs:
         id: version
         run: |
           if [[ "$GITHUB_REF" == refs/tags/* ]]; then
-            VERSION="${GITHUB_REF_NAME#lexical-graph/}"
+            VERSION="${GITHUB_REF_NAME#graphrag-lexical-graph/}"
           else
             VERSION="v$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')"
           fi
@@ -111,7 +113,6 @@ jobs:
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
           retention-days: 30
 
-      # Add artifacts to the GitHub Release
       - name: Attach Artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -121,9 +122,10 @@ jobs:
             examples/lexical-graph/notebooks/lexical-graph-examples-latest.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
             examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
-          prerelease: false
+          prerelease: ${{ github.event.action == 'prereleased' }}
 
   pypi-publish:
+    if: github.event.action == 'released'
     runs-on: ubuntu-latest
     needs: release-build
     permissions:
