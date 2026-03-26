@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for ByoKGQueryEngine.
 
 This module tests the query engine orchestration including initialization,

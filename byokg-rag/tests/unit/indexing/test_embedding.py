@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for embedding.py module.
 
 This module tests the Embedding abstract base class and its concrete implementations

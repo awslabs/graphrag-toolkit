@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for BedrockGenerator.
 
 This module tests LLM generation functionality with mocked AWS Bedrock calls.

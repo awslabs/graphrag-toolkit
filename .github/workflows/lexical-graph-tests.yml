@@ -24,7 +24,34 @@ on:
       - ".github/workflows/lexical-graph-tests.yml"
 
 jobs:
+  license-header-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check license headers
+        run: |
+          MISSING=0
+          HEADER_LINE1="# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved."
+          HEADER_LINE2="# SPDX-License-Identifier: Apache-2.0"
+          while IFS= read -r -d '' file; do
+            HEAD=$(head -5 "$file")
+            if ! echo "$HEAD" | grep -qF "$HEADER_LINE1" || \
+               ! echo "$HEAD" | grep -qF "$HEADER_LINE2"; then
+              echo "MISSING: $file"
+              MISSING=$((MISSING + 1))
+            fi
+          done < <(find lexical-graph -name '*.py' -print0)
+          if [ "$MISSING" -gt 0 ]; then
+            echo ""
+            echo "ERROR: $MISSING file(s) missing the license header."
+            exit 1
+          fi
+          echo "All .py files have the required license header."
+
   test:
+    needs: license-header-check
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:

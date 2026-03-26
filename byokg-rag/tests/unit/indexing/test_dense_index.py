@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for DenseIndex and LocalFaissDenseIndex.
 
 This module tests dense vector indexing functionality including

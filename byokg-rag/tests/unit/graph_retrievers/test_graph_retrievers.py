@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for graph_retrievers.py.
 
 This module tests the various retriever classes including AgenticRetriever,

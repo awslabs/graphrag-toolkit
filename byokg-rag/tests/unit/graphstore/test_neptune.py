@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Tests for Neptune graph stores.
 
 This module tests Neptune Analytics and Neptune DB graph store functionality
