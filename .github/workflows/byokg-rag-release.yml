@@ -1,0 +1,124 @@
+# This workflow builds and publishes the BYOKG-RAG package to PyPI when a release is created.
+
+name: BYOKG-RAG Release
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  release-build:
+    # Constraint: Only run if the tag starts with 'graphrag-byokg-rag/v':
+    if: startsWith(github.ref, 'refs/tags/graphrag-byokg/v')
+
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.pypi_version }}
+    permissions:
+      contents: write
+
+    defaults:
+      run:
+        working-directory: byokg-rag
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create virtual environment
+        run: uv venv .venv
+
+      - name: Install build dependencies
+        run: uv pip install --python .venv/bin/python build
+
+      - name: Build package
+        run: .venv/bin/python -m build
+
+      - name: Create latest dist copies
+        run: |
+          cp dist/*.whl dist/byokg-rag-latest.whl
+          cp dist/*.tar.gz dist/byokg-rag-latest.tar.gz
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: byokg-rag-dist
+          path: byokg-rag/dist/
+
+      - name: Extract version
+        id: version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            VERSION="${GITHUB_REF_NAME#graphrag-byokg/}"
+          else
+            VERSION="v$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')"
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "pypi_version=${VERSION#v}" >> $GITHUB_OUTPUT
+
+      - name: Zip byokg-rag source
+        run: |
+          zip -r dist/byokg-rag-${{ steps.version.outputs.version }}.zip \
+            src/ pyproject.toml README.md
+          cp dist/byokg-rag-${{ steps.version.outputs.version }}.zip dist/byokg-rag-latest.zip
+
+      - name: Upload byokg-rag zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: byokg-rag-zip
+          path: |
+            byokg-rag/dist/byokg-rag-${{ steps.version.outputs.version }}.zip
+            byokg-rag/dist/byokg-rag-latest.zip
+          retention-days: 30
+
+      - name: Zip byokg-rag notebooks
+        working-directory: examples/byokg-rag
+        run: |
+          zip byokg-notebooks.zip *.ipynb
+          cp byokg-notebooks.zip byokg-notebooks-${{ steps.version.outputs.version }}.zip
+          cp byokg-notebooks.zip byokg-notebooks-latest.zip
+
+      - name: Upload byokg-notebooks zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: byokg-notebooks
+          path: |
+            examples/byokg-rag/byokg-notebooks.zip
+            examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip
+            examples/byokg-rag/byokg-notebooks-latest.zip
+          retention-days: 30
+
+      - name: Attach artifacts to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            byokg-rag/dist/*
+            examples/byokg-rag/byokg-notebooks-${{ steps.version.outputs.version }}.zip
+            examples/byokg-rag/byokg-notebooks-latest.zip
+          prerelease: false
+
+  # pypi-publish:
+  #   runs-on: ubuntu-latest
+  #   needs: release-build
+  #   permissions:
+  #     id-token: write
+  #   environment:
+  #     name: pypi
+  #     url: https://pypi.org/project/graphrag-byokg/${{ needs.release-build.outputs.version }}
+  #   steps:
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: byokg-rag-dist
+  #         path: dist/
+  #     - name: Remove non-versioned dist copies
+  #       run: rm -f dist/*-latest.*
+  #     - name: Publish to PyPI
+  #       uses: pypa/gh-action-pypi-publish@release/v1
