@@ -28,6 +28,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract import InferClassifications
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_stage import ExtractionStage
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_schema import ExtractionSchema
 from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_builder import PipelineBuilder
+from graphrag_toolkit.lexical_graph.indexing.extract.stages.llm_topic_extraction_stage import LLMTopicExtractionStage
 from graphrag_toolkit.lexical_graph.indexing.build import BuildPipeline
 from graphrag_toolkit.lexical_graph.indexing.build import VectorIndexing
 from graphrag_toolkit.lexical_graph.indexing.build import GraphConstruction
@@ -347,8 +348,12 @@ class LexicalGraphIndex():
 
         # If custom stages are provided, use PipelineBuilder
         if config.extraction.stages:
+            schema = config.extraction.schema
             builder = PipelineBuilder()
             for stage in config.extraction.stages:
+                # Auto-inject schema into LLMTopicExtractionStage if not already set
+                if schema and isinstance(stage, LLMTopicExtractionStage) and stage._schema is None:
+                    stage._schema = schema
                 builder.add(stage)
             components = builder.build()
             return (pre_processors, components)

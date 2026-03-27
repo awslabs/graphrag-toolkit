@@ -158,6 +158,8 @@ topic: topic
    - Do not provide any other explanatory text
    - Extract only information explicitly stated in the propositions
 
+{schema_constraints}
+
 Adhere strictly to the provided instructions. Non-compliance will result in termination.
    
 <propositions>
