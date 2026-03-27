@@ -17,10 +17,10 @@ The lexical-graph package provides a framework for automating the construction o
 
 The lexical-graph requires Python 3.10 or greater and [pip](http://www.pip-installer.org/en/latest/).
 
-Install from the latest release tag:
+Install from PyPI:
 
 ```
-$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.16.2.zip#subdirectory=lexical-graph
+$ pip install graphrag-lexical-graph
 ```
 
 Or install from the `main` branch to get the latest changes:
