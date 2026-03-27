@@ -40,6 +40,11 @@ class TopicExtractor(BaseExtractor):
         description='Entity classification provider'
     )
 
+    schema_constraints: str = Field(
+        default='',
+        description='Schema constraints to inject into the prompt'
+    )
+
     topic_provider:PreferredValuesProvider = Field(
         description='Topic provider'
     )
@@ -77,7 +82,8 @@ class TopicExtractor(BaseExtractor):
                  entity_classification_provider=None,
                  topic_provider=None,
                  ontology_constraints:str='',
-                 output_format:str='text'
+                 output_format:str='text',
+                 schema_constraints:str=''
                  ):
         """
         Initializes the instance with the provided or default parameters to facilitate
@@ -119,7 +125,8 @@ class TopicExtractor(BaseExtractor):
             entity_classification_provider=entity_classification_provider or default_preferred_values([]),
             topic_provider=topic_provider or default_preferred_values([]),
             ontology_constraints=ontology_constraints,
-            output_format=output_format
+            output_format=output_format,
+            schema_constraints=schema_constraints
         )
 
         logger.debug(f'Prompt template: {self.prompt_template}')
@@ -230,6 +237,7 @@ class TopicExtractor(BaseExtractor):
                 text=text,
                 preferred_entity_classifications=format_list(preferred_entity_classifications),
                 preferred_topics=format_list(preferred_topics),
+                schema_constraints=self.schema_constraints,
                 #exclude_cache_keys=['preferred_entity_classifications', 'preferred_topics']
             )
         

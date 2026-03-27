@@ -120,6 +120,7 @@ class TestLLMTopicExtractionStage:
             llm=None,
             entity_classification_provider=None,
             topic_provider=None,
+            schema_constraints='',
         )
 
     @patch('graphrag_toolkit.lexical_graph.indexing.extract.stages.llm_topic_extraction_stage.TopicExtractor')
@@ -133,4 +134,5 @@ class TestLLMTopicExtractionStage:
             llm=None,
             entity_classification_provider=None,
             topic_provider=None,
+            schema_constraints='',
         )
