@@ -105,6 +105,8 @@ config = ExtractionConfig(
 
 When `strict=False` (the default), the filter stage passes everything through unchanged — useful for soft constraints where you want the schema for prompt guidance but not hard filtering.
 
+When `schema` is provided to `ExtractionConfig`, it is automatically injected into the `LLMTopicExtractionStage` prompt — guiding the LLM to focus on your entity types and relationships during extraction, not just during filtering.
+
 ## Combining NER with LLM Extraction
 
 Augment LLM extraction with GLiNER-based NER to catch entities the LLM might miss:
