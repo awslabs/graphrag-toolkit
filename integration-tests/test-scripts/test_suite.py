@@ -245,7 +245,7 @@ def run_test_suite():
         
         results['end'] = str(datetime.datetime.utcfromtimestamp(end))
         results['duration_seconds'] = end-start
-        results['result'] = result
+        results['result_summary'] = result
         results['results'] = test_results
         
         results_json = json.dumps(results, indent=2)
