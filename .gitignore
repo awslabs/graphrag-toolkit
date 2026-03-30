@@ -1,30 +1,22 @@
-# ignore virtual environment directories
+# Virtual environments
 .venv/
 
-# ignore generated files and directories from version control
-/examples/lexical-graph/notebooks/extracted/
-/examples/lexical-graph/notebooks/output/
-/examples/lexical-graph-local-dev/notebooks/output/
-/examples/lexical-graph-hybrid-dev/notebooks/output/
-/examples/lexical-graph-hybrid-dev/notebooks/extracted/
-
-# ignore IDE files
+# IDE files
 .vscode/
 .idea/
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# cache files
-__pycache__/
+.config.kiro
 
 # Byte-compiled / optimized / DLL files
+__pycache__/
 *.pyc
+*.pyo
 
 # Build artifacts
 dist/
 build/
 *.egg-info/
+target/
+build.log
 
 # Coverage reports
 **/htmlcov/
@@ -33,8 +25,27 @@ build/
 # Hypothesis test cache
 **/.hypothesis/
 
-# kiro config
-.config.kiro
-/temp/
-examples/lexical-graph-local-dev/notebooks/.env
-examples/lexical-graph-local-dev/notebooks/output.log
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment files
+.env
+
+# OS files
+*.DS_Store
+
+# Generated notebook output
+/examples/lexical-graph/notebooks/extracted/
+/examples/lexical-graph/notebooks/output/
+/examples/lexical-graph-local-dev/notebooks/output/
+/examples/lexical-graph-local-dev/notebooks/output.log
+/examples/lexical-graph-local-dev/notebooks/.env
+/examples/lexical-graph-hybrid-dev/notebooks/output/
+/examples/lexical-graph-hybrid-dev/notebooks/extracted/
+
+# Integration test config
+temp/
+test-results/
+test-logs/
+screenlog.*
+extracted/
