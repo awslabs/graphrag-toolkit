@@ -29,7 +29,6 @@
 		"Neo4jPassword": {
 			"Description": "Neo4j password",
 			"Type": "String",
-			"Default": "j4oenneo4j",
 			"MinLength": 8,
 			"NoEcho": true
 		},
