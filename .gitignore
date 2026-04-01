@@ -23,7 +23,7 @@ __pycache__/
 
 # Build artifacts
 dist/
-build/
+/build/
 *.egg-info/
 
 # Coverage reports
