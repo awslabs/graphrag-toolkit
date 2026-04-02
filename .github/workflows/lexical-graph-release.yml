@@ -71,10 +71,6 @@ jobs:
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "pypi_version=${VERSION#v}" >> $GITHUB_OUTPUT
 
-      - name: Update pip install version in lexical-graph notebooks
-        working-directory: examples/lexical-graph/notebooks
-        run: python3 -c "import re; v='${{ steps.version.outputs.version }}'; nb=open('00-Setup.ipynb').read(); updated=re.sub(r'/refs/tags/v[^#]+\.zip','/refs/tags/'+v+'.zip',nb); assert updated!=nb,'No match in 00-Setup.ipynb'; open('00-Setup.ipynb','w').write(updated); print('Updated to',v)"
-
       - name: Zip lexical-graph notebooks
         working-directory: examples/lexical-graph/notebooks
         run: |
@@ -91,10 +87,6 @@ jobs:
             examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip
             examples/lexical-graph/notebooks/lexical-graph-examples-latest.zip
           retention-days: 30
-
-      - name: Update pip install version in lexical-graph-hybrid-dev notebooks
-        working-directory: examples/lexical-graph-hybrid-dev/notebooks
-        run: python3 -c "import re; v='${{ steps.version.outputs.version }}'; nb=open('00-Setup.ipynb').read(); updated=re.sub(r'/refs/tags/v[^#]+\.zip','/refs/tags/'+v+'.zip',nb); assert updated!=nb,'No match in 00-Setup.ipynb'; open('00-Setup.ipynb','w').write(updated); print('Updated to',v)"
 
       - name: Zip lexical-graph-hybrid-dev notebooks
         working-directory: examples/lexical-graph-hybrid-dev/notebooks

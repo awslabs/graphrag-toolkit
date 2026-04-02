@@ -73,7 +73,7 @@ The CloudFormation stack includes an input parameter, `IamPolicyArn`, that allow
 The CloudFormation stack includes an input parameter, `ExampleNotebooksURL` that specifies the URL of a zip file containing the lexical-graph example notebooks. By default this parameter is set to:
 
 ```
-https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip
+https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip
 ```
 
 Set this parameter blank if you do not want to install the notebooks in your environment.
