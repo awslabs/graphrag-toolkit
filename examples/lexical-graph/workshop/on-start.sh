@@ -8,7 +8,7 @@ source /home/ec2-user/anaconda3/bin/activate "$ENVIRONMENT"
 
 echo "Installing toolkit and dependencies..."
 
-#pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/v3.12.0.zip#subdirectory=lexical-graph
+#pip install graphrag-lexical-graph
 pip install -r /home/ec2-user/SageMaker/graphrag-toolkit/graphrag_toolkit/lexical_graph/requirements.txt
 
 pip install opensearch-py==2.8.0 llama-index-vector-stores-opensearch==0.6.2
