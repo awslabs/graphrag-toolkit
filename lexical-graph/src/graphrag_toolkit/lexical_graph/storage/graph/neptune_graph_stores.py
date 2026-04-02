@@ -129,7 +129,7 @@ def create_config(config:Optional[str]=None):
     toolkit_version = 'unknown'
 
     try:
-        toolkit_version = version('graphrag-toolkit-lexical-graph')
+        toolkit_version = version('graphrag-lexical-graph')
     except PackageNotFoundError:
         pass
 
@@ -142,7 +142,7 @@ def create_config(config:Optional[str]=None):
             'mode': 'standard'
         }, 
         read_timeout=600,
-        user_agent_appid=f'graphrag-toolkit-lexical-graph-{toolkit_version}',
+        user_agent_appid=f'graphrag-lexical-graph-{toolkit_version}',
         **config_args
     )
 

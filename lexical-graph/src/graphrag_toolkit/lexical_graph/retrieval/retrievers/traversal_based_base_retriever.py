@@ -327,7 +327,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
                 search_results.append(SearchResult.model_validate(result['result']))
 
         try:
-            toolkit_version = f" ({version('graphrag-toolkit-lexical-graph')})"
+            toolkit_version = f" ({version('graphrag-lexical-graph')})"
         except PackageNotFoundError:
             toolkit_version = ''
 
