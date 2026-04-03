@@ -87,7 +87,7 @@ Use faster models or reduce token limits:
 
 ```python
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-3-haiku-20240307-v1:0",  # Faster model
+    model_name="anthropic.claude-haiku-4-5-20251001-v1:0",  # Faster model
     max_tokens=2048  # Reduce from default of 4096
 )
 ```
@@ -96,23 +96,18 @@ llm_generator = BedrockGenerator(
 
 The byokg-rag library supports Amazon Bedrock models through the `BedrockGenerator` class. Recommended models:
 
-**Claude 3.5 Sonnet** (Recommended)
-- Model ID: `anthropic.claude-3-5-sonnet-20240620-v1:0`
+**Claude Sonnet 4** (Recommended)
+- Model ID: `anthropic.claude-sonnet-4-20250514-v1:0`
 - Best balance of performance and cost
 - Strong reasoning capabilities for KGQA
 
-**Claude 3.7 Sonnet** (Latest)
-- Model ID: `anthropic.claude-3-7-sonnet-20250219-v1:0`
-- Latest capabilities and improvements
-- Higher cost than 3.5 Sonnet
-
-**Claude 3 Opus**
-- Model ID: `anthropic.claude-3-opus-20240229-v1:0`
+**Claude Opus 4.1**
+- Model ID: `anthropic.claude-opus-4-1-20250805-v1:0`
 - Highest capability for complex reasoning
 - Highest cost and latency
 
-**Claude 3 Haiku**
-- Model ID: `anthropic.claude-3-haiku-20240307-v1:0`
+**Claude Haiku 4.5**
+- Model ID: `anthropic.claude-haiku-4-5-20251001-v1:0`
 - Fastest and lowest cost
 - Suitable for simple queries
 
@@ -120,7 +115,7 @@ To use a different model:
 
 ```python
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-3-haiku-20240307-v1:0",
+    model_name="anthropic.claude-haiku-4-5-20251001-v1:0",
     region_name="<region>"
 )
 ```

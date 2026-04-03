@@ -134,7 +134,7 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 | Parameter | Type | Default | Description | Example |
 |-----------|------|---------|-------------|---------|
-| `model_name` | str | "anthropic.claude-3-7-sonnet-20250219-v1:0" | Bedrock model identifier | "anthropic.claude-3-5-sonnet-20240620-v1:0" |
+| `model_name` | str | "anthropic.claude-sonnet-4-20250514-v1:0" | Bedrock model identifier | "anthropic.claude-sonnet-4-20250514-v1:0" |
 | `region_name` | str | "us-west-2" | AWS region for Bedrock service | "us-east-1" |
 | `max_tokens` | int | 4096 | Maximum tokens to generate in responses | 8192 |
 | `max_retries` | int | 10 | Maximum retry attempts for failed requests | 5 |
@@ -144,12 +144,11 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 **Supported Models:**
 
-- Claude 3.5 Sonnet: `anthropic.claude-3-5-sonnet-20240620-v1:0`
-- Claude 3.7 Sonnet: `anthropic.claude-3-7-sonnet-20250219-v1:0`
-- Claude 3 Opus: `anthropic.claude-3-opus-20240229-v1:0`
-- Claude 3 Haiku: `anthropic.claude-3-haiku-20240307-v1:0`
+- Claude Sonnet 4: `anthropic.claude-sonnet-4-20250514-v1:0`
+- Claude Opus 4.1: `anthropic.claude-opus-4-1-20250805-v1:0`
+- Claude Haiku 4.5: `anthropic.claude-haiku-4-5-20251001-v1:0`
 
-TIP: Claude 3.5 Sonnet provides the best balance of performance and cost for most KGQA applications. Use Claude 3.7 Sonnet for the latest capabilities.
+TIP: Claude Sonnet 4 provides the best balance of performance and cost for most KGQA applications.
 
 **Inference Configuration:**
 
@@ -191,7 +190,7 @@ graph_store = NeptuneAnalyticsGraphStore(
 
 # Step 2: Set up LLM
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-3-5-sonnet-20240620-v1:0",
+    model_name="anthropic.claude-sonnet-4-20250514-v1:0",
     region_name="<region>",
     max_tokens=4096,
     max_retries=10
