@@ -76,6 +76,7 @@ Skip LLM-based entity extraction for simple queries:
 ```python
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     direct_query_linking=True  # Use semantic similarity directly
 )
 ```
@@ -254,6 +255,7 @@ kg_linker = KGLinker(
 
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     kg_linker=kg_linker
 )
 ```
@@ -267,6 +269,7 @@ cypher_linker = CypherKGLinker(
 
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     cypher_kg_linker=cypher_linker
 )
 ```
@@ -275,6 +278,7 @@ Combined approach:
 ```python
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     kg_linker=kg_linker,
     cypher_kg_linker=cypher_linker  # Tries Cypher first, falls back to multi-strategy
 )

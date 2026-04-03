@@ -18,15 +18,15 @@ The query engine orchestrates the entire KGQA (Knowledge Graph Question Answerin
 |-----------|------|---------|-------------|---------|
 | `graph_store` | GraphStore | Required | Graph store instance providing access to knowledge graph data | `NeptuneAnalyticsGraphStore(...)` |
 | `entity_linker` | EntityLinker | Auto-created | Component for linking text mentions to graph entities | `EntityLinker(...)` |
-| `triplet_retriever` | GRetriever | Auto-created | Retriever for extracting relevant triplets from the graph | `AgenticRetriever(...)` |
+| `triplet_retriever` | GRetriever | Auto-created when `llm_generator` provided | Retriever for extracting relevant triplets from the graph | `AgenticRetriever(...)` |
 | `path_retriever` | PathRetriever | Auto-created | Retriever for finding paths between entities | `PathRetriever(...)` |
 | `graph_query_executor` | GraphQueryRetriever | Auto-created | Executor for running structured graph queries | `GraphQueryRetriever(...)` |
-| `llm_generator` | BaseGenerator | Auto-created | Language model for generating responses | `BedrockGenerator(...)` |
-| `kg_linker` | KGLinker | Auto-created | Linker for multi-strategy retrieval operations | `KGLinker(...)` |
+| `llm_generator` | BaseGenerator | None | Language model for generating responses. Required for LLM-powered retrieval and response generation. | `BedrockGenerator(...)` |
+| `kg_linker` | KGLinker | Auto-created when `llm_generator` provided | Linker for multi-strategy retrieval operations | `KGLinker(...)` |
 | `cypher_kg_linker` | CypherKGLinker | None | Specialized linker for Cypher-based retrieval | `CypherKGLinker(...)` |
 | `direct_query_linking` | bool | False | Enable direct entity linking using query embeddings | `True` |
 
-NOTE: When parameters are not provided, the query engine creates default instances with standard configurations. You can override any component to customize behavior.
+NOTE: When parameters are not provided, the query engine creates default instances with standard configurations where possible. Components that require an LLM (`triplet_retriever`, `kg_linker`) are only auto-created when `llm_generator` is explicitly provided. Without `llm_generator`, the engine can still perform graph-only operations (entity linking, path retrieval).
 
 #### Query Method Parameters
 

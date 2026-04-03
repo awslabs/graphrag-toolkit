@@ -41,9 +41,19 @@ The query engine integrates the following components:
 
 ```python
 from graphrag_toolkit.byokg_rag.byokg_query_engine import ByoKGQueryEngine
+from graphrag_toolkit.byokg_rag.llm import BedrockGenerator
 
-# Minimal initialization (uses defaults)
-query_engine = ByoKGQueryEngine(graph_store=your_graph_store)
+# Initialize LLM
+llm_generator = BedrockGenerator(
+    model_name='us.anthropic.claude-sonnet-4-20250514-v1:0',
+    region_name='us-west-2'
+)
+
+# Initialize query engine
+query_engine = ByoKGQueryEngine(
+    graph_store=your_graph_store,
+    llm_generator=llm_generator
+)
 ```
 
 #### Full initialization with custom components
@@ -64,7 +74,7 @@ query_engine = ByoKGQueryEngine(
 
 #### Default component initialization
 
-When components are not provided, the engine initializes defaults:
+When components are not provided, the engine initializes defaults where possible. Components that require an LLM (`triplet_retriever`, `kg_linker`) are only auto-created when `llm_generator` is explicitly provided:
 
 **Entity Linker**: Uses `FuzzyStringIndex` with all graph nodes
 ```python
@@ -187,8 +197,11 @@ The engine uses different prompts for different iterations:
 #### Basic usage
 
 ```python
-# Initialize with graph store
-query_engine = ByoKGQueryEngine(graph_store=graph_store)
+# Initialize with graph store and LLM
+query_engine = ByoKGQueryEngine(
+    graph_store=graph_store,
+    llm_generator=llm_generator
+)
 
 # Process a question
 question = "What are the side effects of aspirin?"
@@ -208,6 +221,7 @@ from graph_connectors import CypherKGLinker
 cypher_linker = CypherKGLinker(llm_generator, graph_store)
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     cypher_kg_linker=cypher_linker
 )
 
@@ -228,6 +242,7 @@ entity_linker = EntityLinker(semantic_index.as_entity_matcher())
 # Initialize with custom components
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     entity_linker=entity_linker,
     direct_query_linking=True  # Enable semantic entity linking
 )
@@ -260,6 +275,7 @@ for answer in answers:
 # Initialize with both KG Linker and Cypher KG Linker
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     kg_linker=kg_linker,
     cypher_kg_linker=cypher_linker
 )
@@ -278,6 +294,7 @@ Enable semantic similarity-based entity linking:
 ```python
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     direct_query_linking=True
 )
 ```
