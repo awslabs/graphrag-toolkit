@@ -63,20 +63,12 @@ class TestQueryEngineInitialization:
     
     def test_initialization_with_defaults(self, mock_graph_store_with_schema):
         """Verify query engine initializes with default components."""
-        with patch('graphrag_toolkit.byokg_rag.llm.bedrock_llms.BedrockGenerator') as mock_bedrock, \
-             patch('graphrag_toolkit.byokg_rag.indexing.FuzzyStringIndex') as mock_fuzzy, \
+        with patch('graphrag_toolkit.byokg_rag.indexing.FuzzyStringIndex') as mock_fuzzy, \
              patch('graphrag_toolkit.byokg_rag.graph_retrievers.EntityLinker') as mock_entity, \
-             patch('graphrag_toolkit.byokg_rag.graph_retrievers.AgenticRetriever') as mock_agentic, \
              patch('graphrag_toolkit.byokg_rag.graph_retrievers.PathRetriever') as mock_path, \
              patch('graphrag_toolkit.byokg_rag.graph_retrievers.GraphQueryRetriever') as mock_graph_query, \
-             patch('graphrag_toolkit.byokg_rag.graph_connectors.KGLinker') as mock_kg, \
              patch('graphrag_toolkit.byokg_rag.graph_retrievers.GTraversal'), \
-             patch('graphrag_toolkit.byokg_rag.graph_retrievers.TripletGVerbalizer'), \
              patch('graphrag_toolkit.byokg_rag.graph_retrievers.PathVerbalizer'):
-            
-            # Setup mock returns
-            mock_bedrock_instance = Mock()
-            mock_bedrock.return_value = mock_bedrock_instance
             
             mock_fuzzy_instance = Mock()
             mock_fuzzy.return_value = mock_fuzzy_instance
@@ -86,18 +78,14 @@ class TestQueryEngineInitialization:
             mock_entity_instance = Mock()
             mock_entity.return_value = mock_entity_instance
             
-            mock_kg_instance = Mock()
-            mock_kg_instance.task_prompts = "test prompts"
-            mock_kg_instance.task_prompts_iterative = "test iterative prompts"
-            mock_kg.return_value = mock_kg_instance
-            
             engine = ByoKGQueryEngine(graph_store=mock_graph_store_with_schema)
             
             assert engine.graph_store == mock_graph_store_with_schema
             assert engine.schema is not None
-            assert engine.llm_generator is not None
+            assert engine.llm_generator is None
             assert engine.entity_linker is not None
-            assert engine.kg_linker is not None
+            assert engine.kg_linker is None
+            assert engine.triplet_retriever is None
     
     def test_initialization_with_custom_components(
         self, mock_graph_store_with_schema, mock_llm_generator, 

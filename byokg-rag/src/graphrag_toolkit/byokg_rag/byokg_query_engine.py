@@ -40,11 +40,6 @@ class ByoKGQueryEngine:
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
 
-        if llm_generator is None:
-            from .llm.bedrock_llms import BedrockGenerator
-            llm_generator= BedrockGenerator(
-                model_name='us.anthropic.claude-3-5-sonnet-20240620-v1:0',
-                region_name='us-west-2')
         self.llm_generator = llm_generator
             
         if entity_linker is None:
@@ -57,7 +52,7 @@ class ByoKGQueryEngine:
         self.entity_linker = entity_linker
         self.direct_query_linking = direct_query_linking
         
-        if triplet_retriever is None:
+        if triplet_retriever is None and self.llm_generator is not None:
             from .graph_retrievers import AgenticRetriever
             from .graph_retrievers import GTraversal, TripletGVerbalizer
             graph_traversal = GTraversal(self.graph_store)
@@ -83,7 +78,7 @@ class ByoKGQueryEngine:
             graph_query_executor = GraphQueryRetriever(self.graph_store)
         self.graph_query_executor = graph_query_executor
 
-        if kg_linker is None and cypher_kg_linker is None: #initialize KGLinker as default
+        if kg_linker is None and cypher_kg_linker is None and self.llm_generator is not None:
             from .graph_connectors import KGLinker
             kg_linker = KGLinker(
                 llm_generator=self.llm_generator,
@@ -200,6 +195,9 @@ class ByoKGQueryEngine:
         
 
         # If kg_linker is provided, ByoKGQueryEngine tries to solve KGQA with multi-strategy retrieval
+        if self.kg_linker is None:
+            return cypher_context_with_feedback
+
         for iteration in range(iterations):
             # Generate response for current iteration
 
@@ -269,6 +267,9 @@ class ByoKGQueryEngine:
             NotImplementedError: If custom task_prompt is provided (not yet supported)
         """
         
+        if self.llm_generator is None:
+            raise ValueError("llm_generator is required to generate responses. Provide an llm_generator when initializing ByoKGQueryEngine.")
+
         if task_prompt is None:
             task_prompt = load_yaml("prompts/generation_prompts.yaml")["generate-response-qa"]
             user_prompt_formatted = task_prompt.format(
