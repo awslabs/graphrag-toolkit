@@ -37,7 +37,7 @@ class TestBedrockGeneratorInitialization:
         """Verify generator initializes with default parameters."""
         gen = BedrockGenerator()
         
-        assert gen.model_name == "anthropic.claude-sonnet-4-20250514-v1:0"
+        assert gen.model_name == "anthropic.claude-sonnet-4-6"
         assert gen.region_name == "us-west-2"
         assert gen.max_new_tokens == 4096
         assert gen.max_retries == 10
@@ -85,7 +85,7 @@ class TestBedrockGeneratorGenerate:
         
         # Verify the call arguments
         call_args = mock_bedrock_client.converse.call_args[1]
-        assert call_args['modelId'] == "anthropic.claude-sonnet-4-20250514-v1:0"
+        assert call_args['modelId'] == "anthropic.claude-sonnet-4-6"
         assert call_args['messages'][0]['role'] == 'user'
         assert call_args['messages'][0]['content'][0]['text'] == "Test prompt"
     

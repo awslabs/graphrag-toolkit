@@ -134,7 +134,7 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 | Parameter | Type | Default | Description | Example |
 |-----------|------|---------|-------------|---------|
-| `model_name` | str | "anthropic.claude-sonnet-4-20250514-v1:0" | Bedrock model identifier | "anthropic.claude-sonnet-4-20250514-v1:0" |
+| `model_name` | str | "anthropic.claude-sonnet-4-6" | Bedrock model identifier | "anthropic.claude-sonnet-4-6" |
 | `region_name` | str | "us-west-2" | AWS region for Bedrock service | "us-east-1" |
 | `max_tokens` | int | 4096 | Maximum tokens to generate in responses | 8192 |
 | `max_retries` | int | 10 | Maximum retry attempts for failed requests | 5 |
@@ -144,11 +144,11 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 **Supported Models:**
 
-- Claude Sonnet 4: `anthropic.claude-sonnet-4-20250514-v1:0`
-- Claude Opus 4.1: `anthropic.claude-opus-4-1-20250805-v1:0`
+- Claude Sonnet 4.6: `anthropic.claude-sonnet-4-6`
+- Claude Opus 4.6: `anthropic.claude-opus-4-6-v1`
 - Claude Haiku 4.5: `anthropic.claude-haiku-4-5-20251001-v1:0`
 
-TIP: Claude Sonnet 4 provides the best balance of performance and cost for most KGQA applications.
+TIP: Claude Sonnet 4.6 provides the best balance of performance and cost for most KGQA applications.
 
 **Inference Configuration:**
 
@@ -190,7 +190,7 @@ graph_store = NeptuneAnalyticsGraphStore(
 
 # Step 2: Set up LLM
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-sonnet-4-20250514-v1:0",
+    model_name="anthropic.claude-sonnet-4-6",
     region_name="<region>",
     max_tokens=4096,
     max_retries=10

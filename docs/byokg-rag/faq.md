@@ -96,13 +96,13 @@ llm_generator = BedrockGenerator(
 
 The byokg-rag library supports Amazon Bedrock models through the `BedrockGenerator` class. Recommended models:
 
-**Claude Sonnet 4** (Recommended)
-- Model ID: `anthropic.claude-sonnet-4-20250514-v1:0`
+**Claude Sonnet 4.6** (Recommended)
+- Model ID: `anthropic.claude-sonnet-4-6`
 - Best balance of performance and cost
 - Strong reasoning capabilities for KGQA
 
-**Claude Opus 4.1**
-- Model ID: `anthropic.claude-opus-4-1-20250805-v1:0`
+**Claude Opus 4.6**
+- Model ID: `anthropic.claude-opus-4-6-v1`
 - Highest capability for complex reasoning
 - Highest cost and latency
 
