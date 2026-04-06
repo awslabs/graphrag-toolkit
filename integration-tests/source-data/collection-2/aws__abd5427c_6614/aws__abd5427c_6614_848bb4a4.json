@@ -1,0 +1,174 @@
+{
+    "id_": "aws::abd5427c:6614:848bb4a4",
+    "embedding": null,
+    "metadata": {
+        "url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+        "pub_date": "2025-02-12",
+        "aws::graph::propositions": [
+            "Peter knows Jane",
+            "Jane knows Alice",
+            "Alice knows Tom"
+        ],
+        "aws::graph::topics": {
+            "topics": [
+                {
+                    "topicId": null,
+                    "chunkIds": [],
+                    "value": "Friendships",
+                    "entities": [
+                        {
+                            "entityId": null,
+                            "value": "Peter",
+                            "classification": "Person"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "Jane",
+                            "classification": "Person"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "Alice",
+                            "classification": "Person"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "Tom",
+                            "classification": "Person"
+                        }
+                    ],
+                    "statements": [
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Peter knows Jane",
+                            "details": [
+                                "Peter KNOWS Jane"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Peter",
+                                        "classification": "Person"
+                                    },
+                                    "predicate": {
+                                        "value": "KNOWS"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "Jane",
+                                        "classification": "Person"
+                                    },
+                                    "complement": null
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Jane knows Alice",
+                            "details": [
+                                "Jane KNOWS ALice"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Jane",
+                                        "classification": "Person"
+                                    },
+                                    "predicate": {
+                                        "value": "KNOWS"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "Alice",
+                                        "classification": "Person"
+                                    },
+                                    "complement": null
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Alice knows Tom",
+                            "details": [
+                                "Alice KNOWS Tom"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Alice",
+                                        "classification": "Person"
+                                    },
+                                    "predicate": {
+                                        "value": "KNOWS"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "Tom",
+                                        "classification": "Person"
+                                    },
+                                    "complement": null
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Tom",
+                                        "classification": "Person"
+                                    },
+                                    "predicate": {
+                                        "value": "HAS_QUALIFICATION"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "PhD",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "excluded_embed_metadata_keys": [],
+    "excluded_llm_metadata_keys": [],
+    "relationships": {
+        "1": {
+            "node_id": "aws::abd5427c:6614",
+            "node_type": "4",
+            "metadata": {
+                "url": "https://example.org/friendships.html",
+                "pub_date": "2025-02-12"
+            },
+            "hash": "54caffe2f3efab9c2b4fe8c9003d859093e92aa665e8f26ac4b04af1c79c5a0a",
+            "class_name": "RelatedNodeInfo"
+        }
+    },
+    "metadata_template": "{key}: {value}",
+    "metadata_separator": "\n",
+    "text": "Peter knows Jane, who knows ALice, who knows Tom.",
+    "mimetype": "text/plain",
+    "start_char_idx": 2837,
+    "end_char_idx": 3950,
+    "metadata_seperator": "\n",
+    "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+    "class_name": "TextNode"
+}
