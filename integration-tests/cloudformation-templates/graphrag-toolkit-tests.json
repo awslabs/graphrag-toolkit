@@ -509,7 +509,9 @@
                 "cloudformation:DeleteStack"
               ],
               "Resource": [
-                "*"
+                {
+                  "Fn::Sub": "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${ApplicationId}/*"
+                }
               ]
             },
             {
