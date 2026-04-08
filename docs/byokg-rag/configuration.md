@@ -135,7 +135,7 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 | Parameter | Type | Default | Description | Example |
 |-----------|------|---------|-------------|---------|
 | `model_name` | str | "anthropic.claude-sonnet-4-6" | Bedrock model identifier | "anthropic.claude-sonnet-4-6" |
-| `region_name` | str | "us-west-2" | AWS region for Bedrock service | "us-east-1" |
+| `region_name` | str | "us-east-1" | AWS region for Bedrock service | "us-east-1" |
 | `max_tokens` | int | 4096 | Maximum tokens to generate in responses | 8192 |
 | `max_retries` | int | 10 | Maximum retry attempts for failed requests | 5 |
 | `prefill` | bool | False | Enable response prefilling (advanced) | False |

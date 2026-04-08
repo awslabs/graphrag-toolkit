@@ -38,7 +38,7 @@ class TestBedrockGeneratorInitialization:
         gen = BedrockGenerator()
         
         assert gen.model_name == "anthropic.claude-sonnet-4-6"
-        assert gen.region_name == "us-west-2"
+        assert gen.region_name == "us-east-1"
         assert gen.max_new_tokens == 4096
         assert gen.max_retries == 10
         assert gen.prefill is False
@@ -211,7 +211,7 @@ class TestGenerateLLMResponse:
         mock_boto3_client.return_value = mock_bedrock_client
         
         result = generate_llm_response(
-            region_name="us-west-2",
+            region_name="us-east-1",
             model_id="test-model",
             system_prompt="System prompt",
             query="Test query",
@@ -220,7 +220,7 @@ class TestGenerateLLMResponse:
         )
         
         assert result == "Mock LLM response"
-        mock_boto3_client.assert_called_once_with("bedrock-runtime", region_name="us-west-2")
+        mock_boto3_client.assert_called_once_with("bedrock-runtime", region_name="us-east-1")
     
     @patch('graphrag_toolkit.byokg_rag.llm.bedrock_llms.boto3.client')
     @patch('graphrag_toolkit.byokg_rag.llm.bedrock_llms.time.sleep')
@@ -232,7 +232,7 @@ class TestGenerateLLMResponse:
         mock_boto3_client.return_value = mock_bedrock_client
         
         result = generate_llm_response(
-            region_name="us-west-2",
+            region_name="us-east-1",
             model_id="test-model",
             system_prompt="System prompt",
             query="Test query",

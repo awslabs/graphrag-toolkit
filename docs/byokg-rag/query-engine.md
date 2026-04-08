@@ -46,7 +46,7 @@ from graphrag_toolkit.byokg_rag.llm import BedrockGenerator
 # Initialize LLM
 llm_generator = BedrockGenerator(
     model_name='us.anthropic.claude-sonnet-4-6',
-    region_name='us-west-2'
+    region_name='us-east-1'
 )
 
 # Initialize query engine
@@ -306,7 +306,7 @@ from llm import BedrockGenerator
 
 custom_llm = BedrockGenerator(
     model_name='us.anthropic.claude-sonnet-4-6',
-    region_name='us-west-2'
+    region_name='us-east-1'
 )
 
 query_engine = ByoKGQueryEngine(

@@ -124,7 +124,7 @@ To use a different model:
 ```python
 llm_generator = BedrockGenerator(
     model_name="anthropic.claude-haiku-4-5-20251001-v1:0",
-    region_name="<region>"
+    region_name="us-east-1"
 )
 ```
 
