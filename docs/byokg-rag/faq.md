@@ -94,7 +94,9 @@ llm_generator = BedrockGenerator(
 
 ### What LLM models are supported?
 
-The byokg-rag library supports Amazon Bedrock models through the `BedrockGenerator` class. Recommended models:
+The byokg-rag library supports Amazon Bedrock models through the `BedrockGenerator` class. For the latest model availability and lifecycle status, see the [Amazon Bedrock model lifecycle](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html) documentation.
+
+*Active models (recommended):*
 
 **Claude Sonnet 4.6** (Recommended)
 - Model ID: `anthropic.claude-sonnet-4-6`
@@ -110,6 +112,12 @@ The byokg-rag library supports Amazon Bedrock models through the `BedrockGenerat
 - Model ID: `anthropic.claude-haiku-4-5-20251001-v1:0`
 - Fastest and lowest cost
 - Suitable for simple queries
+
+*Legacy models (available only to users who have actively used them in the last 15 days; new users are blocked):*
+
+- Claude 3.7 Sonnet: `anthropic.claude-3-7-sonnet-20250219-v1:0` (EOL: Apr 28, 2026)
+- Claude 3.5 Sonnet: `anthropic.claude-3-5-sonnet-20240620-v1:0` (EOL: Jul 30, 2026)
+- Claude 3 Haiku: `anthropic.claude-3-haiku-20240307-v1:0` (EOL: Sep 10, 2026)
 
 To use a different model:
 

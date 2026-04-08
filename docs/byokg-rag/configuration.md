@@ -144,9 +144,25 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 **Supported Models:**
 
+The following models are compatible with byokg-rag. For the latest model availability and lifecycle status, see the [Amazon Bedrock model lifecycle](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html) documentation.
+
+*Active models (recommended):*
+
 - Claude Sonnet 4.6: `anthropic.claude-sonnet-4-6`
+- Claude Sonnet 4.5: `anthropic.claude-sonnet-4-5-20250929-v1:0`
+- Claude Sonnet 4: `anthropic.claude-sonnet-4-20250514-v1:0`
 - Claude Opus 4.6: `anthropic.claude-opus-4-6-v1`
+- Claude Opus 4.5: `anthropic.claude-opus-4-5-20251101-v1:0`
+- Claude Opus 4.1: `anthropic.claude-opus-4-1-20250805-v1:0`
 - Claude Haiku 4.5: `anthropic.claude-haiku-4-5-20251001-v1:0`
+
+*Legacy models (available only to users who have actively used them in the last 15 days; new users are blocked):*
+
+- Claude 3.7 Sonnet: `anthropic.claude-3-7-sonnet-20250219-v1:0` (EOL: Apr 28, 2026)
+- Claude 3.5 Sonnet v2: `anthropic.claude-3-5-sonnet-20241022-v2:0` (EOL: Jul 30, 2026)
+- Claude 3.5 Sonnet: `anthropic.claude-3-5-sonnet-20240620-v1:0` (EOL: Jul 30, 2026)
+- Claude 3.5 Haiku: `anthropic.claude-3-5-haiku-20241022-v1:0` (EOL: Jun 19, 2026)
+- Claude 3 Haiku: `anthropic.claude-3-haiku-20240307-v1:0` (EOL: Sep 10, 2026)
 
 TIP: Claude Sonnet 4.6 provides the best balance of performance and cost for most KGQA applications.
 
@@ -191,7 +207,7 @@ graph_store = NeptuneAnalyticsGraphStore(
 # Step 2: Set up LLM
 llm_generator = BedrockGenerator(
     model_name="anthropic.claude-sonnet-4-6",
-    region_name="<region>",
+    region_name="us-east-1",
     max_tokens=4096,
     max_retries=10
 )
