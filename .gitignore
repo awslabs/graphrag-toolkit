@@ -48,3 +48,5 @@ test-results/
 test-logs/
 screenlog.*
 extracted/
+examples/lexical-graph-hybrid-dev/notebooks/.env
+examples/lexical-graph-hybrid-dev/notebooks/output.log
