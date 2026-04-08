@@ -21,22 +21,36 @@ This example provides a hybrid development environment that combines local Docke
 Before starting, ensure you have:
 - AWS CLI configured with appropriate credentials
 - Access to Amazon Bedrock models:
-  - `anthropic.claude-3-7-sonnet-20250219-v1:0`
-  - `cohere.embed-english-v3`
-- S3 bucket for data storage
-- IAM roles for batch processing (optional)
+  - `us.anthropic.claude-sonnet-4-6` (extraction, response, evaluation)
+  - `cohere.embed-english-v3` (embeddings)
 
-### 2. Configure Environment
+### 2. Create AWS Resources (Optional — for batch inference)
 
-Update `notebooks/.env` with your AWS settings:
+Run the setup script to create the S3 bucket, DynamoDB table, and IAM role:
+
 ```bash
-AWS_REGION="us-east-1"
-AWS_PROFILE="your-profile"
-AWS_ACCOUNT="123456789012"
-S3_BUCKET_EXTRACK_BUILD_BATCH_NAME="your-bucket-name"
+cd aws
+bash setup-bedrock-batch.sh
 ```
 
-### 3. Start the Environment
+This creates `graphrag-toolkit-<ACCOUNT_ID>` (S3), `graphrag-toolkit-batch-table` (DynamoDB), and `bedrock-batch-inference-role` (IAM).
+
+### 3. Configure Environment
+
+```bash
+cd notebooks
+cp .env.template .env
+```
+
+Edit `.env` — set your account ID and S3 bucket name:
+```bash
+AWS_ACCOUNT=123456789012
+S3_BUCKET_NAME=graphrag-toolkit-123456789012
+```
+
+All other values (models, DynamoDB, IAM role) match the setup script defaults.
+
+### 4. Start the Environment
 
 **Standard (x86/Intel):**
 ```bash
@@ -56,7 +70,7 @@ cd docker
 ./start-containers.sh --dev --mac
 ```
 
-### 4. Access Jupyter Lab
+### 5. Access Jupyter Lab
 
 Open your browser to: **http://localhost:8889**
 
@@ -118,9 +132,24 @@ After startup, the following services are available:
 
 The `aws/` directory contains setup scripts for cloud infrastructure:
 
-- `setup-bedrock-batch.sh` - Creates S3 buckets, DynamoDB tables, and IAM roles
+- `setup-bedrock-batch.sh` - Creates S3 bucket, DynamoDB table, and IAM role
 - `create_custom_prompt.sh` - Sets up Bedrock prompt management
 - `create_prompt_role.sh` - Creates IAM roles for prompt access
+
+### Configuring .env After Running Setup Scripts
+
+`setup-bedrock-batch.sh` creates AWS resources with names matching the `.env.template` defaults.
+After running the script, copy the template and set your account ID:
+
+```bash
+cd notebooks
+cp .env.template .env
+# Edit .env — set AWS_ACCOUNT and append your account ID to S3_BUCKET_NAME:
+#   AWS_ACCOUNT=123456789012
+#   S3_BUCKET_NAME=graphrag-toolkit-123456789012
+```
+
+The remaining values (DYNAMODB_NAME, BATCH_ROLE_NAME) already match what the script creates — no changes needed.
 
 ### Environment Variables
 
@@ -129,20 +158,21 @@ Key AWS configuration variables in `notebooks/.env`:
 ```bash
 # AWS Configuration
 AWS_REGION="us-east-1"
-AWS_PROFILE="your-profile"
+AWS_PROFILE="default"
 AWS_ACCOUNT="123456789012"
 
-# S3 Storage
-S3_BUCKET_EXTRACK_BUILD_BATCH_NAME="your-bucket-name"
-S3_BATCH_BUCKET_NAME="your-bucket-name"
+# S3 Storage (single bucket — append your account ID for global uniqueness)
+S3_BUCKET_NAME="graphrag-toolkit"
 
 # Bedrock Models
-EXTRACTION_MODEL="us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+EXTRACTION_MODEL="us.anthropic.claude-sonnet-4-6"
+RESPONSE_MODEL="us.anthropic.claude-sonnet-4-6"
+EVALUATION_MODEL="us.anthropic.claude-sonnet-4-6"
 EMBEDDINGS_MODEL="cohere.embed-english-v3"
 
 # Batch Processing
-BATCH_ROLE_NAME="GraphRAGBatchRole"
-DYNAMODB_NAME="graphrag-batch-table"
+BATCH_ROLE_NAME="bedrock-batch-inference-role"
+DYNAMODB_NAME="graphrag-toolkit-batch-table"
 ```
 
 ### S3 Integration
@@ -216,7 +246,7 @@ The hybrid environment supports AWS Bedrock batch processing for large-scale ope
 ```python
 batch_config = BatchConfig(
     region=os.environ["AWS_REGION"],
-    bucket_name=os.environ["S3_BUCKET_EXTRACK_BUILD_BATCH_NAME"],
+    bucket_name=os.environ["S3_BUCKET_NAME"],
     key_prefix=os.environ["BATCH_PREFIX"],
     role_arn=f'arn:aws:iam::{os.environ["AWS_ACCOUNT"]}:role/{os.environ["BATCH_ROLE_NAME"]}'
 )
