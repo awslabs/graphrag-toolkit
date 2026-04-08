@@ -1,6 +1,6 @@
 # Usage: .\setup-graphrag.ps1 [-Profile <aws_profile>]
 param(
-    [string]$Profile = "padmin"
+    [string]$Profile = "default"
 )
 
 function Check-AwsCredentials {
@@ -32,11 +32,11 @@ Check-AwsCredentials
 Get-AccountDetails
 
 $ApplicationId = "graphrag-toolkit"
-$BucketName = "local-rag-extract-$AccountId"
+$BucketName = "graphrag-toolkit-$AccountId"
 $RoleName = "bedrock-batch-inference-role"
 $PolicyName = "bedrock-batch-inference-policy"
 $ModelId = "anthropic.claude-v2"
-$TableName = "$ApplicationId-GraphRAGCollections"
+$TableName = "graphrag-toolkit-batch-table"
 
 # Create S3 bucket
 Write-Host "Creating S3 bucket $BucketName..."
@@ -103,6 +103,11 @@ if (-not (aws dynamodb describe-table --table-name $TableName --profile $Profile
 {
     "Version": "2012-10-17",
     "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": ["bedrock:InvokeModel"],
+            "Resource": "arn:aws:bedrock:${Region}::foundation-model/*"
+        },
         {
             "Effect": "Allow",
             "Action": ["s3:GetObject", "s3:ListBucket", "s3:PutObject"],
@@ -192,6 +197,26 @@ if (-not (aws iam get-policy --policy-arn $IdentityPolicyArn --profile $Profile 
 
 # Clean up temp files
 Remove-Item trust-policy.json, role-permissions-policy.json, identity-permissions-policy.json -Force
+
+# Upload S3 prompt files for S3PromptProvider (used by notebook 04)
+Write-Host "Uploading prompt files to S3..."
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+
+python3 -c @"
+import json, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
+"@ "$ScriptDir/system_prompt.json" | aws s3 cp - "s3://$BucketName/prompts/system_prompt.txt" --content-type text/plain --region $Region $(if ($Profile) { "--profile $Profile" })
+
+python3 -c @"
+import json, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
+"@ "$ScriptDir/user_prompt.json" | aws s3 cp - "s3://$BucketName/prompts/user_prompt.txt" --content-type text/plain --region $Region $(if ($Profile) { "--profile $Profile" })
+
+Write-Host "Prompt files uploaded to s3://$BucketName/prompts/"
 
 # Summary
 Write-Host "`nSetup complete!"

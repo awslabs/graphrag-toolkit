@@ -3,8 +3,8 @@
 # Script to set up S3 bucket, IAM role, policies, and DynamoDB table for GraphRAG
 # Usage: ./setup-graphrag.sh [--profile <profile_name>]
 
-# Default to 'padmin' profile if none specified
-PROFILE=${1:-"padmin"}
+# Default to 'default' profile if none specified
+PROFILE=${1:-"default"}
 
 # Check if AWS credentials are available
 check_aws_credentials() {
@@ -39,11 +39,11 @@ check_aws_credentials
 get_account_details
 
 APPLICATION_ID="graphrag-toolkit"
-BUCKET_NAME="local-rag-extract-${ACCOUNT_ID}"  # Using account ID to ensure uniqueness
+BUCKET_NAME="graphrag-toolkit-${ACCOUNT_ID}"  # Using account ID to ensure uniqueness
 ROLE_NAME="bedrock-batch-inference-role"
 POLICY_NAME="bedrock-batch-inference-policy"
 MODEL_ID="anthropic.claude-v2"  # Example model ID, adjust as needed
-TABLE_NAME="${APPLICATION_ID}-GraphRAGCollections"
+TABLE_NAME="graphrag-toolkit-batch-table"
 
 # Create S3 bucket with error handling
 echo "Creating S3 bucket ${BUCKET_NAME}..."
@@ -130,6 +130,13 @@ cat << EOF > role-permissions-policy.json
 {
     "Version": "2012-10-17",
     "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel"
+            ],
+            "Resource": "arn:aws:bedrock:${REGION}::foundation-model/*"
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -252,6 +259,27 @@ fi
 
 # Clean up temporary files
 rm -f trust-policy.json role-permissions-policy.json identity-permissions-policy.json
+
+# Upload S3 prompt files for S3PromptProvider (used by notebook 04)
+echo "Uploading prompt files to S3..."
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Extract prompt text from JSON and upload as .txt
+python3 -c "
+import json, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
+" "${SCRIPT_DIR}/system_prompt.json" | aws s3 cp - "s3://${BUCKET_NAME}/prompts/system_prompt.txt" --content-type text/plain --profile "${PROFILE}"
+
+python3 -c "
+import json, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
+" "${SCRIPT_DIR}/user_prompt.json" | aws s3 cp - "s3://${BUCKET_NAME}/prompts/user_prompt.txt" --content-type text/plain --profile "${PROFILE}"
+
+echo "Prompt files uploaded to s3://${BUCKET_NAME}/prompts/"
 
 echo "Setup complete!"
 echo "Bucket name: ${BUCKET_NAME}"
