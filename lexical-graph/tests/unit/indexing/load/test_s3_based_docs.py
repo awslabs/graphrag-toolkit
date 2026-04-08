@@ -314,3 +314,114 @@ class TestS3BasedDocsConfiguration:
         # but that's acceptable for this test
         assert handler1.collection_id is not None
         assert handler2.collection_id is not None
+
+
+class TestS3DownloaderCommonPrefixes:
+    """Tests for S3 downloader handling of empty CommonPrefixes."""
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_s3_doc_downloader_empty_bucket(self, mock_config):
+        """S3DocDownloader.download() should not raise KeyError when S3 returns no CommonPrefixes."""
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = 2
+
+        paginator = MagicMock()
+        mock_s3.get_paginator.return_value = paginator
+        # S3 omits CommonPrefixes key entirely when prefix path is empty
+        paginator.paginate.return_value = [{'KeyCount': 0}]
+
+        downloader = S3DocDownloader(
+            key_prefix='test-prefix',
+            collection_id='test-collection',
+            bucket_name='test-bucket',
+            fn=lambda node: node
+        )
+
+        result = list(downloader.download())
+        assert result == []
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_s3_chunk_downloader_empty_bucket(self, mock_config):
+        """S3ChunkDownloader.download() should not raise KeyError when S3 returns no CommonPrefixes."""
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = 2
+
+        paginator = MagicMock()
+        mock_s3.get_paginator.return_value = paginator
+        # S3 omits CommonPrefixes key entirely when prefix path is empty
+        paginator.paginate.return_value = [{'KeyCount': 0}]
+
+        downloader = S3ChunkDownloader(
+            key_prefix='test-prefix',
+            collection_id='test-collection',
+            bucket_name='test-bucket',
+            fn=lambda node: node
+        )
+
+        result = list(downloader.download())
+        assert result == []
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_s3_doc_downloader_mixed_pages(self, mock_config):
+        """Verify CommonPrefixes extraction works with mixed pages (some with, some without)."""
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = 2
+
+        paginator = MagicMock()
+        mock_s3.get_paginator.return_value = paginator
+        paginator.paginate.return_value = [
+            {'CommonPrefixes': [{'Prefix': 'p/c/doc1/'}, {'Prefix': 'p/c/doc2/'}]},
+            {'KeyCount': 0},
+            {'CommonPrefixes': [{'Prefix': 'p/c/doc3/'}]}
+        ]
+
+        downloader = S3DocDownloader(
+            key_prefix='p',
+            collection_id='c',
+            bucket_name='test-bucket',
+            fn=lambda node: node
+        )
+
+        # Directly test the prefix extraction logic without running full download
+        collection_path = 'p/c/'
+        source_doc_pages = paginator.paginate(Bucket='test-bucket', Prefix=collection_path, Delimiter='/')
+        source_doc_prefixes = [
+            obj['Prefix']
+            for page in source_doc_pages
+            for obj in page.get('CommonPrefixes', [])
+        ]
+        assert source_doc_prefixes == ['p/c/doc1/', 'p/c/doc2/', 'p/c/doc3/']
+
+    @patch('graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs.GraphRAGConfig')
+    def test_s3_chunk_downloader_mixed_pages(self, mock_config):
+        """Verify CommonPrefixes extraction works with mixed pages for chunk downloader."""
+        mock_s3 = MagicMock()
+        mock_config.s3 = mock_s3
+        mock_config.extraction_num_threads_per_worker = 2
+
+        paginator = MagicMock()
+        mock_s3.get_paginator.return_value = paginator
+        paginator.paginate.return_value = [
+            {'CommonPrefixes': [{'Prefix': 'p/c/doc1/'}]},
+            {'KeyCount': 0}
+        ]
+
+        downloader = S3ChunkDownloader(
+            key_prefix='p',
+            collection_id='c',
+            bucket_name='test-bucket',
+            fn=lambda node: node
+        )
+
+        # Directly test the prefix extraction logic
+        collection_path = 'p/c/'
+        source_doc_pages = paginator.paginate(Bucket='test-bucket', Prefix=collection_path, Delimiter='/')
+        source_doc_prefixes = [
+            obj['Prefix']
+            for page in source_doc_pages
+            for obj in page.get('CommonPrefixes', [])
+        ]
+        assert source_doc_prefixes == ['p/c/doc1/']

@@ -79,7 +79,7 @@ class S3DocDownloader(BaseComponent):
         source_doc_prefixes = [ 
             source_doc_obj['Prefix'] 
             for source_doc_page in source_doc_pages 
-            for source_doc_obj in source_doc_page['CommonPrefixes']           
+            for source_doc_obj in source_doc_page.get('CommonPrefixes', [])           
         ]
 
         source_doc_prefixes_batches = to_batches(source_doc_prefixes, BATCH_SIZE)
@@ -287,7 +287,7 @@ class S3ChunkDownloader(BaseComponent):
         source_doc_prefixes = [ 
             source_doc_obj['Prefix'] 
             for source_doc_page in source_doc_pages 
-            for source_doc_obj in source_doc_page['CommonPrefixes']
+            for source_doc_obj in source_doc_page.get('CommonPrefixes', [])
              
         ]
 
