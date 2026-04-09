@@ -18,15 +18,15 @@ The query engine orchestrates the entire KGQA (Knowledge Graph Question Answerin
 |-----------|------|---------|-------------|---------|
 | `graph_store` | GraphStore | Required | Graph store instance providing access to knowledge graph data | `NeptuneAnalyticsGraphStore(...)` |
 | `entity_linker` | EntityLinker | Auto-created | Component for linking text mentions to graph entities | `EntityLinker(...)` |
-| `triplet_retriever` | GRetriever | Auto-created | Retriever for extracting relevant triplets from the graph | `AgenticRetriever(...)` |
+| `triplet_retriever` | GRetriever | Auto-created when `llm_generator` provided | Retriever for extracting relevant triplets from the graph | `AgenticRetriever(...)` |
 | `path_retriever` | PathRetriever | Auto-created | Retriever for finding paths between entities | `PathRetriever(...)` |
 | `graph_query_executor` | GraphQueryRetriever | Auto-created | Executor for running structured graph queries | `GraphQueryRetriever(...)` |
-| `llm_generator` | BaseGenerator | Auto-created | Language model for generating responses | `BedrockGenerator(...)` |
-| `kg_linker` | KGLinker | Auto-created | Linker for multi-strategy retrieval operations | `KGLinker(...)` |
+| `llm_generator` | BaseGenerator | None | Language model for generating responses. Required for LLM-powered retrieval and response generation. | `BedrockGenerator(...)` |
+| `kg_linker` | KGLinker | Auto-created when `llm_generator` provided | Linker for multi-strategy retrieval operations | `KGLinker(...)` |
 | `cypher_kg_linker` | CypherKGLinker | None | Specialized linker for Cypher-based retrieval | `CypherKGLinker(...)` |
 | `direct_query_linking` | bool | False | Enable direct entity linking using query embeddings | `True` |
 
-NOTE: When parameters are not provided, the query engine creates default instances with standard configurations. You can override any component to customize behavior.
+NOTE: When parameters are not provided, the query engine creates default instances with standard configurations where possible. Components that require an LLM (`triplet_retriever`, `kg_linker`) are only auto-created when `llm_generator` is explicitly provided. Without `llm_generator`, the engine can still perform graph-only operations (entity linking, path retrieval).
 
 #### Query Method Parameters
 
@@ -134,8 +134,8 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 | Parameter | Type | Default | Description | Example |
 |-----------|------|---------|-------------|---------|
-| `model_name` | str | "anthropic.claude-3-7-sonnet-20250219-v1:0" | Bedrock model identifier | "anthropic.claude-3-5-sonnet-20240620-v1:0" |
-| `region_name` | str | "us-west-2" | AWS region for Bedrock service | "us-east-1" |
+| `model_name` | str | "anthropic.claude-sonnet-4-6" | Bedrock model identifier | "anthropic.claude-sonnet-4-6" |
+| `region_name` | str | "us-east-1" | AWS region for Bedrock service | "us-east-1" |
 | `max_tokens` | int | 4096 | Maximum tokens to generate in responses | 8192 |
 | `max_retries` | int | 10 | Maximum retry attempts for failed requests | 5 |
 | `prefill` | bool | False | Enable response prefilling (advanced) | False |
@@ -144,12 +144,27 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 **Supported Models:**
 
-- Claude 3.5 Sonnet: `anthropic.claude-3-5-sonnet-20240620-v1:0`
-- Claude 3.7 Sonnet: `anthropic.claude-3-7-sonnet-20250219-v1:0`
-- Claude 3 Opus: `anthropic.claude-3-opus-20240229-v1:0`
-- Claude 3 Haiku: `anthropic.claude-3-haiku-20240307-v1:0`
+The following models are compatible with byokg-rag. For the latest model availability and lifecycle status, see the [Amazon Bedrock model lifecycle](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html) documentation.
 
-TIP: Claude 3.5 Sonnet provides the best balance of performance and cost for most KGQA applications. Use Claude 3.7 Sonnet for the latest capabilities.
+*Active models (recommended):*
+
+- Claude Sonnet 4.6: `anthropic.claude-sonnet-4-6`
+- Claude Sonnet 4.5: `anthropic.claude-sonnet-4-5-20250929-v1:0`
+- Claude Sonnet 4: `anthropic.claude-sonnet-4-20250514-v1:0`
+- Claude Opus 4.6: `anthropic.claude-opus-4-6-v1`
+- Claude Opus 4.5: `anthropic.claude-opus-4-5-20251101-v1:0`
+- Claude Opus 4.1: `anthropic.claude-opus-4-1-20250805-v1:0`
+- Claude Haiku 4.5: `anthropic.claude-haiku-4-5-20251001-v1:0`
+
+*Legacy models (available only to users who have actively used them in the last 15 days; new users are blocked):*
+
+- Claude 3.7 Sonnet: `anthropic.claude-3-7-sonnet-20250219-v1:0` (EOL: Apr 28, 2026)
+- Claude 3.5 Sonnet v2: `anthropic.claude-3-5-sonnet-20241022-v2:0` (EOL: Jul 30, 2026)
+- Claude 3.5 Sonnet: `anthropic.claude-3-5-sonnet-20240620-v1:0` (EOL: Jul 30, 2026)
+- Claude 3.5 Haiku: `anthropic.claude-3-5-haiku-20241022-v1:0` (EOL: Jun 19, 2026)
+- Claude 3 Haiku: `anthropic.claude-3-haiku-20240307-v1:0` (EOL: Sep 10, 2026)
+
+TIP: Claude Sonnet 4.6 provides the best balance of performance and cost for most KGQA applications.
 
 **Inference Configuration:**
 
@@ -191,8 +206,8 @@ graph_store = NeptuneAnalyticsGraphStore(
 
 # Step 2: Set up LLM
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-3-5-sonnet-20240620-v1:0",
-    region_name="<region>",
+    model_name="anthropic.claude-sonnet-4-6",
+    region_name="us-east-1",
     max_tokens=4096,
     max_retries=10
 )

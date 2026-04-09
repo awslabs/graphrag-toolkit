@@ -25,7 +25,7 @@ class BedrockGenerator(BaseGenerator):
     This class provides a wrapper around AWS Bedrock's Converse API for
     generating text responses using various foundation models.
     """
-    def __init__(self, model_name="anthropic.claude-3-7-sonnet-20250219-v1:0", region_name="us-west-2", prefill=False, max_tokens = 4096, max_retries = 10, inference_config=None, reasoning_config=None):
+    def __init__(self, model_name="anthropic.claude-sonnet-4-6", region_name="us-east-1", prefill=False, max_tokens = 4096, max_retries = 10, inference_config=None, reasoning_config=None):
         """
         Initialize the BedrockGenerator.
 

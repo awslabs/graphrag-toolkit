@@ -21,7 +21,7 @@ def mock_bedrock_generator():
     mock_gen = Mock()
     mock_gen.generate.return_value = "Mock LLM response"
     mock_gen.model_name = "mock-model"
-    mock_gen.region_name = "us-west-2"
+    mock_gen.region_name = "us-east-1"
     return mock_gen
 
 

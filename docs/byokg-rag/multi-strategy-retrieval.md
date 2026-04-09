@@ -210,6 +210,7 @@ Enable semantic similarity-based entity linking:
 ```python
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     direct_query_linking=True  # Enable semantic entity linking
 )
 ```
@@ -230,6 +231,7 @@ custom_triplet_retriever = AgenticRetriever(
 
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     triplet_retriever=custom_triplet_retriever
 )
 ```
