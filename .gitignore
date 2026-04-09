@@ -38,7 +38,6 @@ build.log
 /examples/lexical-graph/notebooks/output/
 /examples/lexical-graph-local-dev/notebooks/output/
 /examples/lexical-graph-local-dev/notebooks/output.log
-/examples/lexical-graph-local-dev/notebooks/.env
 /examples/lexical-graph-hybrid-dev/notebooks/output/
 /examples/lexical-graph-hybrid-dev/notebooks/extracted/
 
@@ -48,5 +47,4 @@ test-results/
 test-logs/
 screenlog.*
 extracted/
-examples/lexical-graph-hybrid-dev/notebooks/.env
 examples/lexical-graph-hybrid-dev/notebooks/output.log
