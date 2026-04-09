@@ -9,8 +9,10 @@ This script automates the provisioning of the necessary AWS resources to perform
 
 1. **Checks AWS Credentials**  
    Validates that the AWS CLI is authenticated using either:
-   - SSO (e.g., `aws sso login --profile default`)
+   - SSO (e.g., `aws sso login`)
    - or static credentials (via `aws configure`)
+
+   Use `--profile <name>` for a specific AWS credentials profile, or set the `AWS_PROFILE` environment variable.
 
 2. **Retrieves AWS Account and Region Info**  
    Using the AWS profile, the script resolves:

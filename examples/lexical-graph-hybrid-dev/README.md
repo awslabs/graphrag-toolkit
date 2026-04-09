@@ -19,7 +19,7 @@ This example provides a hybrid development environment that combines local Docke
 ### 1. AWS Prerequisites
 
 Before starting, ensure you have:
-- AWS CLI configured with appropriate credentials
+- [AWS CLI configured with credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html) — verify with `aws sts get-caller-identity`
 - Access to Amazon Bedrock models:
   - `us.anthropic.claude-sonnet-4-6` (extraction, response, evaluation)
   - `cohere.embed-english-v3` (embeddings)
@@ -157,22 +157,22 @@ Key AWS configuration variables in `notebooks/.env`:
 
 ```bash
 # AWS Configuration
-AWS_REGION="us-east-1"
+AWS_REGION=us-east-1
 # AWS_PROFILE=your-profile
-AWS_ACCOUNT="123456789012"
+AWS_ACCOUNT=123456789012
 
 # S3 Storage (single bucket — append your account ID for global uniqueness)
-S3_BUCKET_NAME="graphrag-toolkit"
+S3_BUCKET_NAME=graphrag-toolkit
 
 # Bedrock Models
-EXTRACTION_MODEL="us.anthropic.claude-sonnet-4-6"
-RESPONSE_MODEL="us.anthropic.claude-sonnet-4-6"
-EVALUATION_MODEL="us.anthropic.claude-sonnet-4-6"
-EMBEDDINGS_MODEL="cohere.embed-english-v3"
+EXTRACTION_MODEL=us.anthropic.claude-sonnet-4-6
+RESPONSE_MODEL=us.anthropic.claude-sonnet-4-6
+EVALUATION_MODEL=us.anthropic.claude-sonnet-4-6
+EMBEDDINGS_MODEL=cohere.embed-english-v3
 
 # Batch Processing
-BATCH_ROLE_NAME="bedrock-batch-inference-role"
-DYNAMODB_NAME="graphrag-toolkit-batch-table"
+BATCH_ROLE_NAME=bedrock-batch-inference-role
+DYNAMODB_NAME=graphrag-toolkit-batch-table
 ```
 
 ### S3 Integration
