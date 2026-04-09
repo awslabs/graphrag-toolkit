@@ -158,7 +158,7 @@ Key AWS configuration variables in `notebooks/.env`:
 ```bash
 # AWS Configuration
 AWS_REGION="us-east-1"
-AWS_PROFILE="default"
+# AWS_PROFILE=your-profile
 AWS_ACCOUNT="123456789012"
 
 # S3 Storage (single bucket — append your account ID for global uniqueness)
