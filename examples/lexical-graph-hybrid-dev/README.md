@@ -136,44 +136,7 @@ The `aws/` directory contains setup scripts for cloud infrastructure:
 - `create_custom_prompt.sh` - Sets up Bedrock prompt management
 - `create_prompt_role.sh` - Creates IAM roles for prompt access
 
-### Configuring .env After Running Setup Scripts
-
-`setup-bedrock-batch.sh` creates AWS resources with names matching the `.env.template` defaults.
-After running the script, copy the template and set your account ID:
-
-```bash
-cd notebooks
-cp .env.template .env
-# Edit .env — set AWS_ACCOUNT and append your account ID to S3_BUCKET_NAME:
-#   AWS_ACCOUNT=123456789012
-#   S3_BUCKET_NAME=graphrag-toolkit-123456789012
-```
-
-The remaining values (DYNAMODB_NAME, BATCH_ROLE_NAME) already match what the script creates — no changes needed.
-
-### Environment Variables
-
-Key AWS configuration variables in `notebooks/.env`:
-
-```bash
-# AWS Configuration
-AWS_REGION=us-east-1
-# AWS_PROFILE=your-profile
-AWS_ACCOUNT=123456789012
-
-# S3 Storage (single bucket — append your account ID for global uniqueness)
-S3_BUCKET_NAME=graphrag-toolkit
-
-# Bedrock Models
-EXTRACTION_MODEL=us.anthropic.claude-sonnet-4-6
-RESPONSE_MODEL=us.anthropic.claude-sonnet-4-6
-EVALUATION_MODEL=us.anthropic.claude-sonnet-4-6
-EMBEDDINGS_MODEL=cohere.embed-english-v3
-
-# Batch Processing
-BATCH_ROLE_NAME=bedrock-batch-inference-role
-DYNAMODB_NAME=graphrag-toolkit-batch-table
-```
+See [`notebooks/.env.template`](./notebooks/.env.template) for all available configuration options.
 
 ### S3 Integration
 
