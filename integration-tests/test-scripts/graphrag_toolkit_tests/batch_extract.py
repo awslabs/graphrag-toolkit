@@ -202,6 +202,6 @@ class BatchExtractFromS3ToS3(IntegrationTestBase):
                 def test_extracted_one_doc_for_each_source_doc(self):
                     """Extracted directory in S3 contains one doc per source doc"""
                     
-                    self.assertEqual(self._expected_num_docs, self._expected_num_docs)
+                    self.assertEqual(self._num_extracted_docs, self._expected_num_docs)
                     
             handler.run_assertions(BatchExtractFromS3Assertions)
