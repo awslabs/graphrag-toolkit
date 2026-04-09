@@ -79,25 +79,15 @@ Your AWS user/role needs permissions for:
 
 ## Environment Configuration
 
-### Update .env File
+Copy the environment template and update it with your AWS account details:
 
 ```bash
-# AWS Configuration
-AWS_REGION="us-east-1"
-AWS_PROFILE="your-profile"
-AWS_ACCOUNT="123456789012"
-
-# S3 Storage
-S3_BUCKET_NAME="your-graphrag-bucket"
-
-# Bedrock Models
-EXTRACTION_MODEL="us.anthropic.claude-3-7-sonnet-20250219-v1:0"
-EMBEDDINGS_MODEL="cohere.embed-english-v3"
-
-# Batch Processing (Optional)
-BATCH_ROLE_NAME="GraphRAGBatchRole"
-DYNAMODB_NAME="graphrag-toolkit-batch-table"
+cd notebooks
+cp .env.template .env
+# Edit .env — set AWS_ACCOUNT and append your account ID to S3_BUCKET_NAME
 ```
+
+See [`notebooks/.env.template`](../notebooks/.env.template) for all available configuration options.
 
 ### AWS Credentials Mounting
 
