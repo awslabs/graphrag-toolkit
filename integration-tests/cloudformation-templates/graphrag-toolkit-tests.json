@@ -481,7 +481,7 @@
             {
               "Sid": "AllObjectActions",
               "Effect": "Allow",
-              "Action": "s3:*Object",
+              "Action": ["s3:GetObject", "s3:PutObject"],
               "Resource": [
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:s3:::${S3Bucket}/*"
