@@ -48,6 +48,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --response-llm <Model id or profile name>"
     echo "  --embeddings-model <Embeddings model id>"
     echo "  --embeddings-dimensions <Embeddings dimensions>"
+    echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
     echo "  --prev-stack <Previous stack name or ID>"
 		echo "  --delete-on-pass"
 		echo "  --fail-fast"
@@ -58,13 +59,11 @@ fi
 
 source ./.env
 
-MY_IP=$(curl ifconfig.co)
-
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 STACK_SUFFIX=$(date +%s)
 GRAPH_NAME="gr-$STACK_SUFFIX"
 TEST_DESCRIPTION="graphrag-toolkit integration test"
-SSHCIDR="$MY_IP/0"
+SSHCIDR=""
 TESTS=""
 PREV_STACK_NAME=""
 
@@ -129,6 +128,7 @@ while [[ "$#" -gt 0 ]]; do
         --embeddings-model) EMBEDDINGS_MODEL="$2"; shift ;;
         --embeddings-dimensions) EMBEDDINGS_DIMENSIONS="$2"; shift ;;
 				--toolkit-dir) GRAPHRAG_TOOLKIT_DIR="$2"; shift ;;
+        --ssh-cidr) SSHCIDR="$2"; shift ;;
         --prev-stack) PREV_STACK_NAME="$2"; shift ;;
 				--delete-on-pass) DELETE_ON_PASS=True ;;
 				--fail-fast) FAIL_FAST=True ;;
@@ -137,6 +137,17 @@ while [[ "$#" -gt 0 ]]; do
     esac
     shift
 done
+
+if [[ -z "$SSHCIDR" ]]; then
+  echo "Auto-detecting public IP address..."
+  MY_IP=$(curl -s --max-time 10 ifconfig.co)
+  if [[ -z "$MY_IP" ]]; then
+    echo "ERROR: Failed to auto-detect public IP address. Please specify --ssh-cidr manually."
+    exit 1
+  fi
+  SSHCIDR="$MY_IP/32"
+  echo "Detected IP: $MY_IP — SSH will be restricted to $SSHCIDR"
+fi
 
 S3_PREFIX="graphrag-toolkit-tests/$GRAPH_NAME"
 S3_URL_ROOT="https://$BUCKET_NAME.s3.amazonaws.com/$S3_PREFIX"
