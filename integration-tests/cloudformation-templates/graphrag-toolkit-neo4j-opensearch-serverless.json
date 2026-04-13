@@ -840,8 +840,104 @@
 				"Type": "VECTORSEARCH"
 			}
 		},
+		"OpenSearchSecurityGroup": {
+			"Type": "AWS::EC2::SecurityGroup",
+			"Properties": {
+				"GroupName": {
+					"Fn::Sub": "${ApplicationId}-opensearch-sg"
+				},
+				"VpcId": {
+					"Ref": "VPC"
+				},
+				"GroupDescription": "Security group for OpenSearch Serverless VPC endpoint",
+				"SecurityGroupIngress": [
+					{
+						"IpProtocol": "tcp",
+						"FromPort": 443,
+						"ToPort": 443,
+						"SourceSecurityGroupId": {
+							"Fn::GetAtt": [
+								"GraphRAGClientSecurityGroup",
+								"GroupId"
+							]
+						},
+						"Description": "HTTPS access from GraphRAG client"
+					}
+				],
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": {
+							"Fn::Sub": "${ApplicationId}-opensearch-sg"
+						}
+					},
+					{
+						"Key": "StackId",
+						"Value": {
+							"Fn::Sub": "${AWS::StackId}"
+						}
+					},
+					{
+						"Key": "Stack",
+						"Value": {
+							"Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+						}
+					},
+					{
+						"Key": "Application",
+						"Value": {
+							"Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+						}
+					}
+				]
+			}
+		},
+		"OpenSearchServerlessVpcEndpoint": {
+			"Type": "AWS::OpenSearchServerless::VpcEndpoint",
+			"Properties": {
+				"Name": {
+					"Fn::Sub": "${ApplicationId}-vpce"
+				},
+				"VpcId": {
+					"Ref": "VPC"
+				},
+				"SubnetIds": {
+					"Fn::If": [
+						"AZ3Present",
+						[
+							{
+								"Ref": "Subnet1"
+							},
+							{
+								"Ref": "Subnet2"
+							},
+							{
+								"Ref": "Subnet3"
+							}
+						],
+						[
+							{
+								"Ref": "Subnet1"
+							},
+							{
+								"Ref": "Subnet2"
+							}
+						]
+					]
+				},
+				"SecurityGroupIds": [
+					{
+						"Fn::GetAtt": [
+							"OpenSearchSecurityGroup",
+							"GroupId"
+						]
+					}
+				]
+			}
+		},
 		"OpenSearchServerlessNetworkPolicy": {
 			"Type": "AWS::OpenSearchServerless::SecurityPolicy",
+			"DependsOn": "OpenSearchServerlessVpcEndpoint",
 			"Properties": {
 				"Name": {
 					"Fn::Sub": "${ApplicationId}-network"
@@ -874,7 +970,14 @@
 							"        \"ResourceType\": \"collection\"",
 							"      }",
 							"    ],",
-							"    \"AllowFromPublic\": true",
+							"    \"AllowFromPublic\": false,",
+							"    \"SourceVPCEs\": [",
+							"      \"",
+							{
+								"Ref": "OpenSearchServerlessVpcEndpoint"
+							},
+							"\"",
+							"    ]",
 							"  }",
 							"]"
 						]
