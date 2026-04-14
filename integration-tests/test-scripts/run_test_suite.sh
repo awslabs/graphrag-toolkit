@@ -16,7 +16,7 @@ done
 echo "REMAINING_ARGS: ${REMAINING_ARGS[@]}"
 echo "DO_SETUP:       $DO_SETUP"
 
-declare -p > ~/all_vars
+declare -p DO_SETUP REMAINING_ARGS > ~/all_vars
 
 sudo -u ec2-user -i <<'EOF'
 
@@ -27,6 +27,7 @@ source /home/ec2-user/anaconda3/bin/activate "$ENVIRONMENT"
 pushd /home/ec2-user/SageMaker/graphrag-toolkit
 
 source ~/all_vars
+rm -f ~/all_vars
 source ./.env.testing
 source ./.env
 
