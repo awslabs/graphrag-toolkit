@@ -139,10 +139,10 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 if [[ -z "$SSHCIDR" ]]; then
-  echo "Auto-detecting public IP address..."
-  MY_IP=$(curl -s --max-time 10 ifconfig.co)
+  echo "Auto-detecting public IPv4 address..."
+  MY_IP=$(curl -4 -s --max-time 10 ifconfig.co)
   if [[ -z "$MY_IP" ]]; then
-    echo "ERROR: Failed to auto-detect public IP address. Please specify --ssh-cidr manually."
+    echo "ERROR: Failed to auto-detect public IPv4 address. Please specify --ssh-cidr manually."
     exit 1
   fi
   SSHCIDR="$MY_IP/32"
