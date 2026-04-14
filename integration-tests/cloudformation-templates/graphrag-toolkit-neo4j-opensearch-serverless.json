@@ -1146,7 +1146,6 @@
 										"echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
 										"echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
 										"echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
-										"\" >> ~/.bashrc\n",
 										"echo \"export GRAPH_STORE=",
 										{
 											"Fn::Sub": [
@@ -1181,7 +1180,6 @@
 										},
 										"\" >> ~/.bashrc\n",
 										"echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-db\" >> ~/.bashrc\n",
-										"\" >> ~/.bashrc\n",
 										"echo \"export AWS_REGION=",
 										{
 											"Ref": "AWS::Region"
