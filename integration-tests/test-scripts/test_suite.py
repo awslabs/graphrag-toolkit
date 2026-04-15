@@ -18,12 +18,15 @@ from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandl
 TIMEOUT_SECONDS = 120
 
 def get_lexical_graph_version():
+
     try:
-        return importlib.metadata.version('graphrag-toolkit-lexical-graph')
+        return importlib.metadata.version('graphrag-lexical-graph')
     except importlib.metadata.PackageNotFoundError:
-        pass
-    from graphrag_toolkit.lexical_graph import __version__
-    return __version__
+        try:
+            from graphrag_toolkit.lexical_graph._version import __version__
+            return __version__
+        except ImportError:
+            return 'unknown'
 
 def to_test_class(t):
     parts = t.split('.')
