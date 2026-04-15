@@ -1,6 +1,38 @@
 #!/bin/bash
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
+get_toml_value() {
+    # Takes three parameters:
+    # - TOML file path ($1)
+    # - section ($2)
+    # - the key ($3)
+    # 
+    # It first gets the section using the get_section function
+    # Then it finds the key within that section
+    # using grep and cut.
+
+    local file="$1"
+    local section="$2"
+    local key="$3"
+
+    get_section() {
+        # Function to get the section from a TOML file
+        # Takes two parameters:
+        # - TOML file path ($1)
+        # - section name ($2)
+        # 
+        # It uses sed to find the section
+        # A section is terminated by a line with [ in pos 0 or the end of file.
+
+        local file="$1"
+        local section="$2"
+
+        sed -n "/^\[$section\]/,/^\[/p" "$file" | sed '$d'
+    }
+        
+    get_section "$file" "$section" | grep "^$key " | cut -d "=" -f2- | tr -d ' "'
+} 
+
 if [[ "$#" -gt 0 ]]; then
 	if [[ "$1" == "--help" ]]; then
 	  echo "Usage: build-tests.sh [options]"
@@ -188,6 +220,9 @@ mkdir target
 
 pushd temp
 
+toolkit_version=$(get_toml_value "$GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/graphrag-toolkit/lexical-graph/pyproject.toml" "project" "version")
+current_timestamp=$(date +%s000)
+
 mkdir -p graphrag/assets/packages
 mkdir graphrag-toolkit
 mkdir lexical-graph-examples
@@ -199,6 +234,8 @@ cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-exa
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
 cp -r ./../source-data/* lexical-graph-examples
+
+echo "__version__ = '$toolkit_version.$current_timestamp'" >> $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/graphrag-toolkit/graphrag_toolkit/lexical_graph/_version.py
 
 echo "export GRAPHRAG_TOOLKIT_S3_URI=$GRAPHRAG_TOOLKIT_S3_URI" >> lexical-graph-examples/.env.testing
 echo "export S3_RESULTS_BUCKET=$S3_RESULTS_BUCKET" >> lexical-graph-examples/.env.testing
