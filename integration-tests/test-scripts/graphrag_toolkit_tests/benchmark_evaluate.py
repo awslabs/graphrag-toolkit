@@ -2,16 +2,12 @@
 # SPDX-License-Identifier: Apache-2.0
 import json
 import os
-import sys
 import unittest
 from typing import Dict, Any, Optional, List
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
-
-# Add benchmark-tests to path so we can import run_evaluation
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..', 'benchmark-tests'))
-from run_evaluation import CorrectnessEvaluator, IDKEvaluator
+from graphrag_toolkit_tests.benchmark_utils.run_evaluation import CorrectnessEvaluator, IDKEvaluator
 
 
 def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, Any],
