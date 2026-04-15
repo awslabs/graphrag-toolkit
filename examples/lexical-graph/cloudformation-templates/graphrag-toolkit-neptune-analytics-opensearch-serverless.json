@@ -50,7 +50,7 @@
     },
     "VpcId": {
       "Type": "String",
-      "Description": "VPC ID for OpenSearch Serverless VPC endpoint access. Required unless AllowPublicAccess is true."
+      "Description": "VPC ID for OpenSearch Serverless VPC endpoint access. Required when AllowPublicAccess is false."
     },
     "SubnetIds": {
       "Type": "CommaDelimitedList",
