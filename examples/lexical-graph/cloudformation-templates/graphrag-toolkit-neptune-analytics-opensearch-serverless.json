@@ -54,7 +54,7 @@
     },
     "SubnetIds": {
       "Type": "CommaDelimitedList",
-      "Description": "Comma-separated list of subnet IDs for OpenSearch Serverless VPC endpoint. Required unless AllowPublicAccess is true."
+      "Description": "Comma-separated list of subnet IDs for OpenSearch Serverless VPC endpoint. Required when AllowPublicAccess is false."
     },
     "SecurityGroupId": {
       "Type": "String",
