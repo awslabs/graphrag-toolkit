@@ -220,7 +220,7 @@ mkdir target
 
 pushd temp
 
-toolkit_version=$(get_toml_value "$GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/graphrag-toolkit/lexical-graph/pyproject.toml" "project" "version")
+toolkit_version=$(get_toml_value "$GRAPHRAG_TOOLKIT_DIR/lexical-graph/pyproject.toml" "project" "version")
 current_timestamp=$(date +%s000)
 
 mkdir -p graphrag/assets/packages
@@ -235,7 +235,7 @@ cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
 cp -r ./../source-data/* lexical-graph-examples
 
-echo "__version__ = '$toolkit_version.$current_timestamp'" >> $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/graphrag-toolkit/graphrag_toolkit/lexical_graph/_version.py
+echo "__version__ = '$toolkit_version.$current_timestamp'" >> ./graphrag-toolkit/graphrag_toolkit/lexical_graph/_version.py
 
 echo "export GRAPHRAG_TOOLKIT_S3_URI=$GRAPHRAG_TOOLKIT_S3_URI" >> lexical-graph-examples/.env.testing
 echo "export S3_RESULTS_BUCKET=$S3_RESULTS_BUCKET" >> lexical-graph-examples/.env.testing
