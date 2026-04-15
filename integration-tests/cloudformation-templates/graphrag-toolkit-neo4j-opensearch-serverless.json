@@ -66,6 +66,15 @@
 			"Type": "String",
 			"Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
 			"Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip"
+		},
+		"AllowPublicAccess": {
+			"Description": "Allow public access to the OpenSearch Serverless collection endpoint. Set to 'true' to enable public access, or 'false' to restrict access to the VPC (recommended)",
+			"Type": "String",
+			"Default": "false",
+			"AllowedValues": [
+				"true",
+				"false"
+			]
 		}
 	},
 	"Metadata": {
@@ -180,6 +189,21 @@
 					]
 				}
 			]
+		},
+		"EnablePublicAccess": {
+			"Fn::Equals": [
+				{
+					"Ref": "AllowPublicAccess"
+				},
+				"true"
+			]
+		},
+		"EnableVpcAccess": {
+			"Fn::Not": [
+				{
+					"Condition": "EnablePublicAccess"
+				}
+			]
 		}
 	},
 	"Resources": {
@@ -286,6 +310,28 @@
 						"GroupId"
 					]
 				}
+			}
+		},
+		"GraphRAGClientSecurityGroupSelfIngress": {
+			"Type": "AWS::EC2::SecurityGroupIngress",
+			"Condition": "EnableVpcAccess",
+			"Properties": {
+				"IpProtocol": "tcp",
+				"FromPort": 443,
+				"ToPort": 443,
+				"SourceSecurityGroupId": {
+					"Fn::GetAtt": [
+						"GraphRAGClientSecurityGroup",
+						"GroupId"
+					]
+				},
+				"GroupId": {
+					"Fn::GetAtt": [
+						"GraphRAGClientSecurityGroup",
+						"GroupId"
+					]
+				},
+				"Description": "HTTPS access to OpenSearch Serverless VPC endpoint"
 			}
 		},
 		"Neo4jSecurityGroupIngressSSH": {
@@ -893,6 +939,7 @@
 		},
 		"OpenSearchServerlessVpcEndpoint": {
 			"Type": "AWS::OpenSearchServerless::VpcEndpoint",
+			"Condition": "EnableVpcAccess",
 			"Properties": {
 				"Name": {
 					"Fn::Sub": "${ApplicationId}-vpce"
@@ -936,50 +983,85 @@
 		},
 		"OpenSearchServerlessNetworkPolicy": {
 			"Type": "AWS::OpenSearchServerless::SecurityPolicy",
-			"DependsOn": "OpenSearchServerlessVpcEndpoint",
 			"Properties": {
 				"Name": {
 					"Fn::Sub": "${ApplicationId}-network"
 				},
 				"Policy": {
-					"Fn::Join": [
-						"",
-						[
-							"[",
-							"  {",
-							"    \"Rules\": [",
-							"      {",
-							"        \"Resource\": [",
-							"          \"collection/",
-							{
-								"Fn::Sub": "${ApplicationId}-collection"
-							},
-							"\"",
-							"        ],",
-							"        \"ResourceType\": \"dashboard\"",
-							"      },",
-							"      {",
-							"        \"Resource\": [",
-							"          \"collection/",
-							{
-								"Fn::Sub": "${ApplicationId}-collection"
-							},
-							"\"",
-							"        ],",
-							"        \"ResourceType\": \"collection\"",
-							"      }",
-							"    ],",
-							"    \"AllowFromPublic\": false,",
-							"    \"SourceVPCEs\": [",
-							"      \"",
-							{
-								"Ref": "OpenSearchServerlessVpcEndpoint"
-							},
-							"\"",
-							"    ]",
-							"  }",
-							"]"
-						]
+					"Fn::If": [
+						"EnablePublicAccess",
+						{
+							"Fn::Join": [
+								"",
+								[
+									"[",
+									"  {",
+									"    \"Rules\": [",
+									"      {",
+									"        \"Resource\": [",
+									"          \"collection/",
+									{
+										"Fn::Sub": "${ApplicationId}-collection"
+									},
+									"\"",
+									"        ],",
+									"        \"ResourceType\": \"dashboard\"",
+									"      },",
+									"      {",
+									"        \"Resource\": [",
+									"          \"collection/",
+									{
+										"Fn::Sub": "${ApplicationId}-collection"
+									},
+									"\"",
+									"        ],",
+									"        \"ResourceType\": \"collection\"",
+									"      }",
+									"    ],",
+									"    \"AllowFromPublic\": true",
+									"  }",
+									"]"
+								]
+							]
+						},
+						{
+							"Fn::Join": [
+								"",
+								[
+									"[",
+									"  {",
+									"    \"Rules\": [",
+									"      {",
+									"        \"Resource\": [",
+									"          \"collection/",
+									{
+										"Fn::Sub": "${ApplicationId}-collection"
+									},
+									"\"",
+									"        ],",
+									"        \"ResourceType\": \"dashboard\"",
+									"      },",
+									"      {",
+									"        \"Resource\": [",
+									"          \"collection/",
+									{
+										"Fn::Sub": "${ApplicationId}-collection"
+									},
+									"\"",
+									"        ],",
+									"        \"ResourceType\": \"collection\"",
+									"      }",
+									"    ],",
+									"    \"SourceVPCEs\": [\"",
+									{
+										"Ref": "OpenSearchServerlessVpcEndpoint"
+									},
+									"\"]",
+									"  }",
+									"]"
+								]
+							]
+						}
 					]
 				},
 				"Type": "network"

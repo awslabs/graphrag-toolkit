@@ -69,6 +69,15 @@
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
       "Default": "https://ws-assets-prod-iad-r-iad-ed304a55c2ca1aee.s3.us-east-1.amazonaws.com/dc6fc307-a969-472c-9cdb-25480026e65b/graphrag-workshop.zip"
+    },
+    "AllowPublicAccess": {
+      "Description": "Allow public access to the OpenSearch Serverless collection endpoint. Set to 'true' to enable public access, or 'false' to restrict access to the VPC (recommended)",
+      "Type": "String",
+      "Default": "false",
+      "AllowedValues": [
+        "true",
+        "false"
+      ]
     }
   },
   "Metadata": {
@@ -191,6 +200,21 @@
           "Ref": "EnableAuditLog"
         },
         "true"
+      ]
+    },
+    "EnablePublicAccess": {
+      "Fn::Equals": [
+        {
+          "Ref": "AllowPublicAccess"
+        },
+        "true"
+      ]
+    },
+    "EnableVpcAccess": {
+      "Fn::Not": [
+        {
+          "Condition": "EnablePublicAccess"
+        }
       ]
     }
   },
@@ -357,6 +381,28 @@
             "GroupId"
           ]
         }
+      }
+    },
+    "GraphRAGClientSecurityGroupSelfIngress": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Condition": "EnableVpcAccess",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "FromPort": 443,
+        "ToPort": 443,
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "Description": "HTTPS access to OpenSearch Serverless VPC endpoint"
       }
     },
     "NeptuneSecurityGroupIngress": {
@@ -1164,6 +1210,34 @@
         "Type": "VECTORSEARCH"
       }
     },
+    "OpenSearchServerlessVpcEndpoint": {
+      "Type": "AWS::OpenSearchServerless::VpcEndpoint",
+      "Condition": "EnableVpcAccess",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "${ApplicationId}-vpce"
+        },
+        "VpcId": {
+          "Ref": "VPC"
+        },
+        "SubnetIds": [
+          {
+            "Ref": "Subnet1"
+          },
+          {
+            "Ref": "Subnet2"
+          }
+        ],
+        "SecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "GraphRAGClientSecurityGroup",
+              "GroupId"
+            ]
+          }
+        ]
+      }
+    },
     "OpenSearchServerlessNetworkPolicy": {
       "Type": "AWS::OpenSearchServerless::SecurityPolicy",
       "Properties": {
@@ -1171,37 +1245,80 @@
           "Fn::Sub": "${ApplicationId}-network"
         },
         "Policy": {
-          "Fn::Join": [
-            "",
-            [
-              "[",
-              "  {",
-              "    \"Rules\": [",
-              "      {",
-              "        \"Resource\": [",
-              "          \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "        ],",
-              "        \"ResourceType\": \"dashboard\"",
-              "      },",
-              "      {",
-              "        \"Resource\": [",
-              "          \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "        ],",
-              "        \"ResourceType\": \"collection\"",
-              "      }",
-              "    ],",
-              "    \"AllowFromPublic\": true",
-              "  }",
-              "]"
-            ]
+          "Fn::If": [
+            "EnablePublicAccess",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "[",
+                  "  {",
+                  "    \"Rules\": [",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"dashboard\"",
+                  "      },",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"collection\"",
+                  "      }",
+                  "    ],",
+                  "    \"AllowFromPublic\": true",
+                  "  }",
+                  "]"
+                ]
+              ]
+            },
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "[",
+                  "  {",
+                  "    \"Rules\": [",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"dashboard\"",
+                  "      },",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"collection\"",
+                  "      }",
+                  "    ],",
+                  "    \"SourceVPCEs\": [\"",
+                  {
+                    "Ref": "OpenSearchServerlessVpcEndpoint"
+                  },
+                  "\"]",
+                  "  }",
+                  "]"
+                ]
+              ]
+            }
           ]
         },
         "Type": "network"

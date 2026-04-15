@@ -95,7 +95,6 @@ ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 STACK_SUFFIX=$(date +%s)
 GRAPH_NAME="gr-$STACK_SUFFIX"
 TEST_DESCRIPTION="graphrag-toolkit integration test"
-SSHCIDR=""
 TESTS=""
 PREV_STACK_NAME=""
 
