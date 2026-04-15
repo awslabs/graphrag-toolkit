@@ -62,7 +62,7 @@
     },
     "AllowPublicAccess": {
       "Type": "String",
-      "Description": "Set to true to allow public access to OpenSearch Serverless (not recommended). If false, VpcId, SubnetIds, and SecurityGroupId must be provided.",
+      "Description": "Set to true to allow public access to OpenSearch Serverless (not recommended). When false: VpcId, SubnetIds, and SecurityGroupId must be defined.",
       "Default": "false",
       "AllowedValues": [
         "true",
