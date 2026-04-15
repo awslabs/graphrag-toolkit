@@ -58,7 +58,7 @@
     },
     "SecurityGroupId": {
       "Type": "String",
-      "Description": "Security group ID for OpenSearch Serverless VPC endpoint. Required unless AllowPublicAccess is true."
+      "Description": "Security group ID for OpenSearch Serverless VPC endpoint. Required when AllowPublicAccess is false."
     },
     "AllowPublicAccess": {
       "Type": "String",
