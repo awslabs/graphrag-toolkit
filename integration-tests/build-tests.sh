@@ -170,11 +170,7 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 if [[ -z "$SSHCIDR" ]]; then
-<<<<<<< HEAD
-  echo "Auto-detecting public IPv4 address..."
-=======
   echo "Auto-detecting public IP address..."
->>>>>>> f249592b (Move evaluation tools)
   MY_IP=$(curl -4 -s --max-time 10 ifconfig.co)
   if [[ -z "$MY_IP" ]]; then
     echo "ERROR: Failed to auto-detect public IPv4 address. Please specify --ssh-cidr manually."
