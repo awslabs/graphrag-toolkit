@@ -47,6 +47,27 @@
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
       "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip"
+    },
+    "VpcId": {
+      "Type": "String",
+      "Description": "VPC ID for OpenSearch Serverless VPC endpoint access. Required when AllowPublicAccess is false."
+    },
+    "SubnetIds": {
+      "Type": "CommaDelimitedList",
+      "Description": "Comma-separated list of subnet IDs for OpenSearch Serverless VPC endpoint. Required when AllowPublicAccess is false."
+    },
+    "SecurityGroupId": {
+      "Type": "String",
+      "Description": "Security group ID for OpenSearch Serverless VPC endpoint. Required when AllowPublicAccess is false."
+    },
+    "AllowPublicAccess": {
+      "Type": "String",
+      "Description": "Set to true to allow public access to OpenSearch Serverless (not recommended). When false: VpcId, SubnetIds, and SecurityGroupId must be defined.",
+      "Default": "false",
+      "AllowedValues": [
+        "true",
+        "false"
+      ]
     }
   },
   "Metadata": {
@@ -77,11 +98,38 @@
             "ExampleNotebooksURL",
             "IamPolicyArn"
           ]
+        },
+        {
+          "Label": {
+            "default": "OpenSearch Network Access"
+          },
+          "Parameters": [
+            "AllowPublicAccess",
+            "VpcId",
+            "SubnetIds",
+            "SecurityGroupId"
+          ]
         }
       ]
     }
   },
   "Conditions": {
+    "UseVpcAccess": {
+      "Fn::Equals": [
+        {
+          "Ref": "AllowPublicAccess"
+        },
+        "false"
+      ]
+    },
+    "UsePublicAccess": {
+      "Fn::Equals": [
+        {
+          "Ref": "AllowPublicAccess"
+        },
+        "true"
+      ]
+    },
     "ExampleNotebooksURLIsNotBlank": {
       "Fn::Not": [
         {
@@ -558,8 +606,81 @@
         "Type": "VECTORSEARCH"
       }
     },
-    "OpenSearchServerlessNetworkPolicy": {
+    "OpenSearchServerlessVpcEndpoint": {
+      "Type": "AWS::OpenSearchServerless::VpcEndpoint",
+      "Condition": "UseVpcAccess",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "${ApplicationId}-vpce"
+        },
+        "VpcId": {
+          "Ref": "VpcId"
+        },
+        "SubnetIds": {
+          "Ref": "SubnetIds"
+        },
+        "SecurityGroupIds": [
+          {
+            "Ref": "SecurityGroupId"
+          }
+        ]
+      }
+    },
+    "OpenSearchServerlessNetworkPolicyVpc": {
       "Type": "AWS::OpenSearchServerless::SecurityPolicy",
+      "Condition": "UseVpcAccess",
+      "DependsOn": "OpenSearchServerlessVpcEndpoint",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "${ApplicationId}-network"
+        },
+        "Policy": {
+          "Fn::Join": [
+            "",
+            [
+              "[",
+              "  {",
+              "    \"Rules\": [",
+              "      {",
+              "        \"Resource\": [",
+              "          \"collection/",
+              {
+                "Fn::Sub": "${ApplicationId}-collection"
+              },
+              "\"",
+              "        ],",
+              "        \"ResourceType\": \"dashboard\"",
+              "      },",
+              "      {",
+              "        \"Resource\": [",
+              "          \"collection/",
+              {
+                "Fn::Sub": "${ApplicationId}-collection"
+              },
+              "\"",
+              "        ],",
+              "        \"ResourceType\": \"collection\"",
+              "      }",
+              "    ],",
+              "    \"AllowFromPublic\": false,",
+              "    \"SourceVPCEs\": [",
+              "      \"",
+              {
+                "Ref": "OpenSearchServerlessVpcEndpoint"
+              },
+              "\"",
+              "    ]",
+              "  }",
+              "]"
+            ]
+          ]
+        },
+        "Type": "network"
+      }
+    },
+    "OpenSearchServerlessNetworkPolicyPublic": {
+      "Type": "AWS::OpenSearchServerless::SecurityPolicy",
+      "Condition": "UsePublicAccess",
       "Properties": {
         "Name": {
           "Fn::Sub": "${ApplicationId}-network"

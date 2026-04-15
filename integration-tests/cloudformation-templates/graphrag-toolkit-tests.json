@@ -64,6 +64,15 @@
       "MaxLength": 18,
       "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
       "ConstraintDescription": "Must be a valid CIDR range of the form x.x.x.x/x."
+    },
+    "AllowPublicAccess": {
+      "Description": "Allow public access to the OpenSearch Serverless collection endpoint (only applies to environments that use OpenSearch Serverless). Note: SageMaker notebook instances require public access as OpenSearch Serverless VPC endpoints do not support private DNS resolution",
+      "Type": "String",
+      "Default": "true",
+      "AllowedValues": [
+        "true",
+        "false"
+      ]
     }
   },
   "Mappings": {
@@ -72,49 +81,57 @@
         "TemplateName": "graphrag-toolkit-neptune-db-opensearch-serverless.json",
         "IncludeEngineVersion": "True",
         "IncludeSSHCIDR": "False",
-        "IncludeNeptuneInstanceType": "True"
+        "IncludeNeptuneInstanceType": "True",
+        "IncludeAllowPublicAccess": "True"
       },
       "neptune-db-postgresql": {
         "TemplateName": "graphrag-toolkit-neptune-db-aurora-postgres.json",
         "IncludeEngineVersion": "True",
         "IncludeSSHCIDR": "False",
-        "IncludeNeptuneInstanceType": "True"
+        "IncludeNeptuneInstanceType": "True",
+        "IncludeAllowPublicAccess": "False"
       },
       "neptune-db-s3vectors": {
         "TemplateName": "graphrag-toolkit-neptune-db-s3-vectors.json",
         "IncludeEngineVersion": "True",
         "IncludeSSHCIDR": "False",
-        "IncludeNeptuneInstanceType": "True"
+        "IncludeNeptuneInstanceType": "True",
+        "IncludeAllowPublicAccess": "False"
       },
       "neptune-graph": {
         "TemplateName": "graphrag-toolkit-neptune-analytics.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
-        "IncludeNeptuneInstanceType": "False"
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "False"
       },
       "neptune-graph-aoss": {
         "TemplateName": "graphrag-toolkit-neptune-analytics-opensearch-serverless.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
-        "IncludeNeptuneInstanceType": "False"
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "True"
       },
       "neptune-graph-postgresql": {
         "TemplateName": "graphrag-toolkit-neptune-analytics-aurora-postgres.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
-        "IncludeNeptuneInstanceType": "False"
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "False"
       },
       "neptune-graph-s3vectors": {
         "TemplateName": "graphrag-toolkit-neptune-analytics-s3-vectors.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
-        "IncludeNeptuneInstanceType": "False"
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "False"
       },
       "neo4j-aoss": {
         "TemplateName": "graphrag-toolkit-neo4j-opensearch-serverless.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "True",
-        "IncludeNeptuneInstanceType": "False"
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "True"
       }
     }
   },
@@ -192,6 +209,20 @@
               "Ref": "EnvType"
             },
             "IncludeSSHCIDR"
+          ]
+        },
+        "True"
+      ]
+    },
+    "DoIncludeAllowPublicAccess": {
+      "Fn::Equals": [
+        {
+          "Fn::FindInMap": [
+            "EnvTypeMap",
+            {
+              "Ref": "EnvType"
+            },
+            "IncludeAllowPublicAccess"
           ]
         },
         "True"
@@ -638,6 +669,17 @@
               "DoIncludeSSHCIDR",
               {
                 "Ref": "SSHCIDR"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "AllowPublicAccess": {
+            "Fn::If": [
+              "DoIncludeAllowPublicAccess",
+              {
+                "Ref": "AllowPublicAccess"
               },
               {
                 "Ref": "AWS::NoValue"
