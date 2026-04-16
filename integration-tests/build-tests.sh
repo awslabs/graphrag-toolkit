@@ -226,7 +226,11 @@ mkdir -p graphrag/assets/packages
 mkdir graphrag-toolkit
 mkdir lexical-graph-examples
 
-cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/* graphrag-toolkit
+if [[ -z "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
+    # Only copy source code to test notebook if install URI not supplied
+	cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/* graphrag-toolkit
+fi
+
 cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph-contrib/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/byokg-rag/src/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-examples
