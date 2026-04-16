@@ -9,8 +9,10 @@ This script automates the provisioning of the necessary AWS resources to perform
 
 1. **Checks AWS Credentials**  
    Validates that the AWS CLI is authenticated using either:
-   - SSO (e.g., `aws sso login --profile padmin`)
+   - SSO (e.g., `aws sso login`)
    - or static credentials (via `aws configure`)
+
+   Use `--profile <name>` for a specific AWS credentials profile, or set the `AWS_PROFILE` environment variable.
 
 2. **Retrieves AWS Account and Region Info**  
    Using the AWS profile, the script resolves:
@@ -19,7 +21,7 @@ This script automates the provisioning of the necessary AWS resources to perform
    - (Optional) Current SSO role being used
 
 3. **Creates an S3 Bucket**  
-   Creates a bucket named `ccms-rag-extract-<ACCOUNT_ID>` for uploading input/output files used in batch jobs.
+   Creates a bucket named `graphrag-toolkit-<ACCOUNT_ID>` for uploading input/output files used in batch jobs.
 
 4. **Creates an IAM Role for Bedrock (Execution Role)**  
    - Name: `bedrock-batch-inference-role`
@@ -46,7 +48,7 @@ This script automates the provisioning of the necessary AWS resources to perform
 
 | Resource | Description |
 |---------|-------------|
-| S3 Bucket | `ccms-rag-extract-<ACCOUNT_ID>` |
+| S3 Bucket | `graphrag-toolkit-<ACCOUNT_ID>` |
 | IAM Role | `bedrock-batch-inference-role` |
 | IAM Role Policy | Grants S3 access for batch inference |
 | IAM Identity Policy | Grants permission to submit and manage Bedrock batch jobs |
@@ -56,10 +58,10 @@ This script automates the provisioning of the necessary AWS resources to perform
 ## Usage
 
 ```bash
-bash setup-bedrock-batch.sh padmin
+bash setup-bedrock-batch.sh [your-profile]
 ```
 
-If no profile is specified, it defaults to `padmin`.
+If no profile is specified, the AWS CLI uses its default credential chain (environment variables, instance profile, etc.).
 
 ---
 
@@ -102,8 +104,8 @@ If you're using static credentials, you must manually attach the identity policy
 {
   "Action": ["s3:GetObject", "s3:ListBucket", "s3:PutObject"],
   "Resource": [
-    "arn:aws:s3:::ccms-rag-extract-<ACCOUNT_ID>",
-    "arn:aws:s3:::ccms-rag-extract-<ACCOUNT_ID>/*"
+    "arn:aws:s3:::graphrag-toolkit-<ACCOUNT_ID>",
+    "arn:aws:s3:::graphrag-toolkit-<ACCOUNT_ID>/*"
   ]
 }
 ```
