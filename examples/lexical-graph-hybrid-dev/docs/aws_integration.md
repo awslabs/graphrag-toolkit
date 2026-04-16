@@ -79,26 +79,15 @@ Your AWS user/role needs permissions for:
 
 ## Environment Configuration
 
-### Update .env File
+Copy the environment template and update it with your AWS account details:
 
 ```bash
-# AWS Configuration
-AWS_REGION="us-east-1"
-AWS_PROFILE="your-profile"
-AWS_ACCOUNT="123456789012"
-
-# S3 Storage
-S3_BUCKET_EXTRACK_BUILD_BATCH_NAME="your-graphrag-bucket"
-S3_BATCH_BUCKET_NAME="your-graphrag-bucket"
-
-# Bedrock Models
-EXTRACTION_MODEL="us.anthropic.claude-3-7-sonnet-20250219-v1:0"
-EMBEDDINGS_MODEL="cohere.embed-english-v3"
-
-# Batch Processing (Optional)
-BATCH_ROLE_NAME="GraphRAGBatchRole"
-DYNAMODB_NAME="graphrag-batch-jobs"
+cd notebooks
+cp .env.template .env
+# Edit .env — set AWS_ACCOUNT and append your account ID to S3_BUCKET_NAME
 ```
+
+See [`notebooks/.env.template`](../notebooks/.env.template) for all available configuration options.
 
 ### AWS Credentials Mounting
 
@@ -158,7 +147,7 @@ from graphrag_toolkit.lexical_graph.indexing.load import S3BasedDocs
 
 extracted_docs = S3BasedDocs(
     region=os.environ['AWS_REGION'],
-    bucket_name=os.environ['S3_BUCKET_EXTRACK_BUILD_BATCH_NAME'],
+    bucket_name=os.environ['S3_BUCKET_NAME'],
     key_prefix="extracted-documents",
     collection_id='my-collection'
 )
@@ -195,7 +184,7 @@ from graphrag_toolkit.lexical_graph import IndexingConfig
 # Configure batch processing
 batch_config = BatchConfig(
     region=os.environ["AWS_REGION"],
-    bucket_name=os.environ["S3_BUCKET_EXTRACK_BUILD_BATCH_NAME"],
+    bucket_name=os.environ["S3_BUCKET_NAME"],
     key_prefix=os.environ["BATCH_PREFIX"],
     role_arn=f'arn:aws:iam::{os.environ["AWS_ACCOUNT"]}:role/{os.environ["BATCH_ROLE_NAME"]}'
 )
@@ -277,7 +266,7 @@ def verify_aws_setup():
     
     # Check S3 bucket
     s3 = session.client('s3')
-    bucket = os.environ['S3_BUCKET_EXTRACK_BUILD_BATCH_NAME']
+    bucket = os.environ['S3_BUCKET_NAME']
     try:
         s3.head_bucket(Bucket=bucket)
         print(f"S3 Bucket '{bucket}': ✓ Accessible")

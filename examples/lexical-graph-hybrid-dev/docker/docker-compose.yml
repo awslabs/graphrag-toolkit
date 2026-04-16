@@ -1,5 +1,5 @@
 services:
-  neo4j:
+  neo4j-hybrid:
     image: neo4j:5.25-community
     container_name: neo4j-hybrid
     ports:
@@ -14,7 +14,7 @@ services:
     networks:
       - graphrag_network
 
-  jupyter:
+  jupyter-hybrid:
     build:
       context: ./jupyter
       dockerfile: Dockerfile
@@ -25,16 +25,15 @@ services:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
       - ../notebooks:/home/jovyan/work
-      - ../../../lexical-graph:/home/jovyan/lexical-graph-src
       - jupyter_data:/home/jovyan/.jupyter
       - ~/.aws:/home/jovyan/.aws
     networks:
       - graphrag_network
     depends_on:
-      - neo4j
-      - postgres
+      - neo4j-hybrid
+      - pgvector-hybrid
 
-  postgres:
+  pgvector-hybrid:
     image: pgvector/pgvector:0.6.2-pg16
     container_name: pgvector-hybrid
     ports:

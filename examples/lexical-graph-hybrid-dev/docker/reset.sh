@@ -17,7 +17,7 @@ echo "Stopping and removing containers, volumes, and networks..."
 docker compose -f $COMPOSE_FILE down -v --remove-orphans
 
 echo "Ensuring containers are removed..."
-docker rm -f neo4j jupyter-notebook pgvector-db 2>/dev/null
+docker rm -f neo4j-hybrid jupyter-hybrid pgvector-hybrid 2>/dev/null
 
 echo "Removing named volumes..."
 docker volume rm -f pgvector_data neo4j_data neo4j_logs jupyter_data 2>/dev/null

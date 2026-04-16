@@ -1,50 +1,61 @@
 # Usage: .\setup-graphrag.ps1 [-Profile <aws_profile>]
 param(
-    [string]$Profile = "padmin"
+    [string]$Profile = ""
 )
 
+# Build conditional profile args for splatting
+$ProfileArgs = @()
+if ($Profile) {
+    $ProfileArgs = @("--profile", $Profile)
+}
+
 function Check-AwsCredentials {
-    if (-not (aws sts get-caller-identity --profile $Profile -ErrorAction SilentlyContinue)) {
-        Write-Host "Error: No valid AWS credentials found for profile $Profile"
-        Write-Host "If using AWS SSO, run: aws sso login --profile $Profile"
-        Write-Host "If using traditional credentials, run: aws configure --profile $Profile"
+    if (-not (aws sts get-caller-identity @ProfileArgs -ErrorAction SilentlyContinue)) {
+        Write-Host "Error: No valid AWS credentials found"
+        if ($Profile) {
+            Write-Host "If using AWS SSO, run: aws sso login --profile $Profile"
+            Write-Host "If using traditional credentials, run: aws configure --profile $Profile"
+        } else {
+            Write-Host "If using AWS SSO, run: aws sso login"
+            Write-Host "If using traditional credentials, run: aws configure"
+        }
         exit 1
     }
 }
 
 function Get-AccountDetails {
-    $global:AccountId = aws sts get-caller-identity --profile $Profile --query Account --output text
+    $global:AccountId = aws sts get-caller-identity @ProfileArgs --query Account --output text
     if (-not $AccountId) {
         Write-Host "Error: Could not determine AWS Account ID"
         exit 1
     }
 
-    $global:Region = aws configure get region --profile $Profile
+    $global:Region = aws configure get region @ProfileArgs
     if (-not $Region) {
         Write-Host "Error: Could not determine AWS Region"
         exit 1
     }
 
-    $global:CurrentRole = aws sts get-caller-identity --profile $Profile --query Arn --output text | Select-String -Pattern 'AWSReservedSSO_[^/]+' | ForEach-Object { $_.Matches.Value }
+    $global:CurrentRole = aws sts get-caller-identity @ProfileArgs --query Arn --output text | Select-String -Pattern 'AWSReservedSSO_[^/]+' | ForEach-Object { $_.Matches.Value }
 }
 
 Check-AwsCredentials
 Get-AccountDetails
 
 $ApplicationId = "graphrag-toolkit"
-$BucketName = "local-rag-extract-$AccountId"
+$BucketName = "graphrag-toolkit-$AccountId"
 $RoleName = "bedrock-batch-inference-role"
 $PolicyName = "bedrock-batch-inference-policy"
 $ModelId = "anthropic.claude-v2"
-$TableName = "$ApplicationId-GraphRAGCollections"
+$TableName = "graphrag-toolkit-batch-table"
 
 # Create S3 bucket
 Write-Host "Creating S3 bucket $BucketName..."
-if (-not (aws s3api head-bucket --bucket $BucketName --profile $Profile -ErrorAction SilentlyContinue)) {
+if (-not (aws s3api head-bucket --bucket $BucketName @ProfileArgs -ErrorAction SilentlyContinue)) {
     if ($Region -eq "us-east-1") {
-        aws s3api create-bucket --bucket $BucketName --region $Region --profile $Profile
+        aws s3api create-bucket --bucket $BucketName --region $Region @ProfileArgs
     } else {
-        aws s3api create-bucket --bucket $BucketName --region $Region --create-bucket-configuration LocationConstraint=$Region --profile $Profile
+        aws s3api create-bucket --bucket $BucketName --region $Region --create-bucket-configuration LocationConstraint=$Region @ProfileArgs
     }
     Write-Host "Bucket created successfully"
 } else {
@@ -53,7 +64,7 @@ if (-not (aws s3api head-bucket --bucket $BucketName --profile $Profile -ErrorAc
 
 # Create DynamoDB table
 Write-Host "Creating DynamoDB table $TableName..."
-if (-not (aws dynamodb describe-table --table-name $TableName --profile $Profile -ErrorAction SilentlyContinue)) {
+if (-not (aws dynamodb describe-table --table-name $TableName @ProfileArgs -ErrorAction SilentlyContinue)) {
     aws dynamodb create-table `
         --table-name $TableName `
         --attribute-definitions `
@@ -66,10 +77,10 @@ if (-not (aws dynamodb describe-table --table-name $TableName --profile $Profile
         --billing-mode PAY_PER_REQUEST `
         --global-secondary-indexes "[{`"IndexName`": `"reader_type-index`", `"KeySchema`": [{`"AttributeName`": `"reader_type`", `"KeyType`": `"HASH`"}, {`"AttributeName`": `"completion_date`", `"KeyType`": `"RANGE`"}], `"Projection`": {`"ProjectionType`": `"ALL`"}}]" `
         --region $Region `
-        --profile $Profile
+        @ProfileArgs
 
     Write-Host "Waiting for DynamoDB table to become active..."
-    aws dynamodb wait table-exists --table-name $TableName --region $Region --profile $Profile
+    aws dynamodb wait table-exists --table-name $TableName --region $Region @ProfileArgs
     Write-Host "DynamoDB table created successfully"
 } else {
     Write-Host "DynamoDB table $TableName already exists"
@@ -103,6 +114,11 @@ if (-not (aws dynamodb describe-table --table-name $TableName --profile $Profile
 {
     "Version": "2012-10-17",
     "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": ["bedrock:InvokeModel"],
+            "Resource": "arn:aws:bedrock:${Region}::foundation-model/*"
+        },
         {
             "Effect": "Allow",
             "Action": ["s3:GetObject", "s3:ListBucket", "s3:PutObject"],
@@ -163,28 +179,28 @@ if (-not (aws dynamodb describe-table --table-name $TableName --profile $Profile
 
 # Create IAM role and attach policy
 Write-Host "Creating IAM role $RoleName..."
-if (-not (aws iam get-role --role-name $RoleName --profile $Profile -ErrorAction SilentlyContinue)) {
-    aws iam create-role --role-name $RoleName --assume-role-policy-document file://trust-policy.json --profile $Profile
+if (-not (aws iam get-role --role-name $RoleName @ProfileArgs -ErrorAction SilentlyContinue)) {
+    aws iam create-role --role-name $RoleName --assume-role-policy-document file://trust-policy.json @ProfileArgs
     Write-Host "Role created successfully"
 } else {
     Write-Host "Role $RoleName already exists"
 }
 
 $PolicyArn = "arn:aws:iam::$AccountId:policy/$PolicyName"
-if (-not (aws iam get-policy --policy-arn $PolicyArn --profile $Profile -ErrorAction SilentlyContinue)) {
-    aws iam create-policy --policy-name $PolicyName --policy-document file://role-permissions-policy.json --profile $Profile
+if (-not (aws iam get-policy --policy-arn $PolicyArn @ProfileArgs -ErrorAction SilentlyContinue)) {
+    aws iam create-policy --policy-name $PolicyName --policy-document file://role-permissions-policy.json @ProfileArgs
     Write-Host "Policy created successfully"
 } else {
     Write-Host "Policy $PolicyName already exists"
 }
 
-aws iam attach-role-policy --role-name $RoleName --policy-arn $PolicyArn --profile $Profile
+aws iam attach-role-policy --role-name $RoleName --policy-arn $PolicyArn @ProfileArgs
 
 # Create identity policy
 $IdentityPolicyName = "bedrock-batch-identity-policy"
 $IdentityPolicyArn = "arn:aws:iam::$AccountId:policy/$IdentityPolicyName"
-if (-not (aws iam get-policy --policy-arn $IdentityPolicyArn --profile $Profile -ErrorAction SilentlyContinue)) {
-    aws iam create-policy --policy-name $IdentityPolicyName --policy-document file://identity-permissions-policy.json --profile $Profile
+if (-not (aws iam get-policy --policy-arn $IdentityPolicyArn @ProfileArgs -ErrorAction SilentlyContinue)) {
+    aws iam create-policy --policy-name $IdentityPolicyName --policy-document file://identity-permissions-policy.json @ProfileArgs
     Write-Host "Identity policy created successfully"
 } else {
     Write-Host "Identity policy $IdentityPolicyName already exists"
@@ -192,6 +208,26 @@ if (-not (aws iam get-policy --policy-arn $IdentityPolicyArn --profile $Profile 
 
 # Clean up temp files
 Remove-Item trust-policy.json, role-permissions-policy.json, identity-permissions-policy.json -Force
+
+# Upload S3 prompt files for S3PromptProvider (used by notebook 04)
+Write-Host "Uploading prompt files to S3..."
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+
+python3 -c @"
+import json, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
+"@ "$ScriptDir/system_prompt.json" | aws s3 cp - "s3://$BucketName/prompts/system_prompt.txt" --content-type text/plain --region $Region @ProfileArgs
+
+python3 -c @"
+import json, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
+"@ "$ScriptDir/user_prompt.json" | aws s3 cp - "s3://$BucketName/prompts/user_prompt.txt" --content-type text/plain --region $Region @ProfileArgs
+
+Write-Host "Prompt files uploaded to s3://$BucketName/prompts/"
 
 # Summary
 Write-Host "`nSetup complete!"
