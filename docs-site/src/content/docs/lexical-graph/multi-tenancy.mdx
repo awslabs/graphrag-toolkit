@@ -18,7 +18,7 @@ Multi-tenancy allows you to host multiple separate lexical graphs in the same un
 
 To use the multi-tenancy feature, supply a tenant id when creating a `LexicalGraphIndex` or `LexicalGraphQueryEngine`. A tenant id is a string of 1–25 lowercase letters, numbers, and periods (periods cannot appear at the start or end). If you don't supply a tenant id, the index and query engine use the _default tenant_ (a tenant id value of `None`).
 
-See [`tenant_id.py`](../../lexical-graph/src/graphrag_toolkit/lexical_graph/tenant_id.py) for the validation logic.
+See [`tenant_id.py`](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/tenant_id.py) for the validation logic.
 
 ### Indexing and multi-tenancy
 
@@ -37,7 +37,7 @@ graph_index = LexicalGraphIndex(
 )
 ```
 
-**Important:** the extract stage always writes under the _default_ tenant, regardless of the tenant id you set. This is intentional — it lets you extract once and build for multiple tenants from the same extracted output. Only the build stage applies the tenant id. A warning is logged when a non-default tenant id is set ([`lexical_graph_index.py:445`](../../lexical-graph/src/graphrag_toolkit/lexical_graph/lexical_graph_index.py#L445)).
+**Important:** the extract stage always writes under the _default_ tenant, regardless of the tenant id you set. This is intentional — it lets you extract once and build for multiple tenants from the same extracted output. Only the build stage applies the tenant id. A warning is logged when a non-default tenant id is set ([`lexical_graph_index.py:445`](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/lexical_graph_index.py#L445)).
 
 ### Querying and multi-tenancy
 
