@@ -61,7 +61,7 @@ This script automates the provisioning of the necessary AWS resources to perform
 bash setup-bedrock-batch.sh [your-profile]
 ```
 
-If no profile is specified, it defaults to `default`.
+If no profile is specified, the AWS CLI uses its default credential chain (environment variables, instance profile, etc.).
 
 ---
 

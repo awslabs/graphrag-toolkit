@@ -30,7 +30,7 @@ Run the setup script to create the S3 bucket, DynamoDB table, and IAM role:
 
 ```bash
 cd aws
-bash setup-bedrock-batch.sh
+bash setup-bedrock-batch.sh [your-profile]
 ```
 
 This creates `graphrag-toolkit-<ACCOUNT_ID>` (S3), `graphrag-toolkit-batch-table` (DynamoDB), and `bedrock-batch-inference-role` (IAM).

@@ -1,37 +1,47 @@
 #!/bin/bash
 
 # Script to set up S3 bucket, IAM role, policies, and DynamoDB table for GraphRAG
-# Usage: ./setup-graphrag.sh [--profile <profile_name>]
+# Usage: ./setup-graphrag.sh [profile_name]
 
-# Default to 'default' profile if none specified
-PROFILE=${1:-"default"}
+PROFILE="${1:-""}"
+
+# Build conditional profile flag
+PROFILE_ARGS=""
+if [ -n "$PROFILE" ]; then
+    PROFILE_ARGS="--profile ${PROFILE}"
+fi
 
 # Check if AWS credentials are available
 check_aws_credentials() {
-    if ! aws sts get-caller-identity --profile "${PROFILE}" &>/dev/null; then
-        echo "Error: No valid AWS credentials found for profile ${PROFILE}"
-        echo "If using AWS SSO, please run 'aws sso login --profile ${PROFILE}'"
-        echo "If using traditional credentials, please configure AWS CLI with 'aws configure --profile ${PROFILE}'"
+    if ! aws sts get-caller-identity ${PROFILE_ARGS} &>/dev/null; then
+        echo "Error: No valid AWS credentials found"
+        if [ -n "$PROFILE" ]; then
+            echo "If using AWS SSO, please run 'aws sso login --profile ${PROFILE}'"
+            echo "If using traditional credentials, please configure AWS CLI with 'aws configure --profile ${PROFILE}'"
+        else
+            echo "If using AWS SSO, please run 'aws sso login'"
+            echo "If using traditional credentials, please configure AWS CLI with 'aws configure'"
+        fi
         exit 1
     fi
 }
 
 # Get account details safely
 get_account_details() {
-    ACCOUNT_ID=$(aws sts get-caller-identity --profile "${PROFILE}" --query Account --output text)
+    ACCOUNT_ID=$(aws sts get-caller-identity ${PROFILE_ARGS} --query Account --output text)
     if [ -z "$ACCOUNT_ID" ]; then
         echo "Error: Could not determine AWS Account ID"
         exit 1
     fi
 
-    REGION=$(aws configure get region --profile "${PROFILE}")
+    REGION=$(aws configure get region ${PROFILE_ARGS})
     if [ -z "$REGION" ]; then
         echo "Error: Could not determine AWS Region"
         exit 1
     fi
 
     # For SSO users, get the role name they're using
-    CURRENT_ROLE=$(aws sts get-caller-identity --profile "${PROFILE}" --query Arn --output text | grep -o 'AWSReservedSSO_[^/]*' || echo "")
+    CURRENT_ROLE=$(aws sts get-caller-identity ${PROFILE_ARGS} --query Arn --output text | grep -o 'AWSReservedSSO_[^/]*' || echo "")
 }
 
 # Configuration variables
@@ -47,18 +57,18 @@ TABLE_NAME="graphrag-toolkit-batch-table"
 
 # Create S3 bucket with error handling
 echo "Creating S3 bucket ${BUCKET_NAME}..."
-if ! aws s3api head-bucket --bucket "${BUCKET_NAME}" --profile "${PROFILE}" 2>/dev/null; then
+if ! aws s3api head-bucket --bucket "${BUCKET_NAME}" ${PROFILE_ARGS} 2>/dev/null; then
     if [[ "${REGION}" == "us-east-1" ]]; then
         aws s3api create-bucket \
             --bucket "${BUCKET_NAME}" \
             --region "${REGION}" \
-            --profile "${PROFILE}" || exit 1
+            ${PROFILE_ARGS} || exit 1
     else
         aws s3api create-bucket \
             --bucket "${BUCKET_NAME}" \
             --region "${REGION}" \
             --create-bucket-configuration LocationConstraint="${REGION}" \
-            --profile "${PROFILE}" || exit 1
+            ${PROFILE_ARGS} || exit 1
     fi
     echo "Bucket created successfully"
 else
@@ -67,7 +77,7 @@ fi
 
 # Create DynamoDB table with error handling
 echo "Creating DynamoDB table ${TABLE_NAME}..."
-if ! aws dynamodb describe-table --table-name "${TABLE_NAME}" --profile "${PROFILE}" &>/dev/null; then
+if ! aws dynamodb describe-table --table-name "${TABLE_NAME}" ${PROFILE_ARGS} &>/dev/null; then
     aws dynamodb create-table \
         --table-name "${TABLE_NAME}" \
         --attribute-definitions \
@@ -88,12 +98,12 @@ if ! aws dynamodb describe-table --table-name "${TABLE_NAME}" --profile "${PROFI
                 \"Projection\": {\"ProjectionType\": \"ALL\"}
             }]" \
         --region "${REGION}" \
-        --profile "${PROFILE}" || exit 1
+        ${PROFILE_ARGS} || exit 1
     echo "Waiting for DynamoDB table to become active..."
     aws dynamodb wait table-exists \
         --table-name "${TABLE_NAME}" \
         --region "${REGION}" \
-        --profile "${PROFILE}" || exit 1
+        ${PROFILE_ARGS} || exit 1
     echo "DynamoDB table created successfully"
 else
     echo "DynamoDB table ${TABLE_NAME} already exists"
@@ -213,11 +223,11 @@ EOF
 
 # Create the IAM role with error handling
 echo "Creating IAM role ${ROLE_NAME}..."
-if ! aws iam get-role --role-name "${ROLE_NAME}" --profile "${PROFILE}" &>/dev/null; then
+if ! aws iam get-role --role-name "${ROLE_NAME}" ${PROFILE_ARGS} &>/dev/null; then
     aws iam create-role \
         --role-name "${ROLE_NAME}" \
         --assume-role-policy-document file://trust-policy.json \
-        --profile "${PROFILE}" || exit 1
+        ${PROFILE_ARGS} || exit 1
     echo "Role created successfully"
 else
     echo "Role ${ROLE_NAME} already exists"
@@ -227,11 +237,11 @@ fi
 echo "Creating and attaching service role policy..."
 POLICY_ARN="arn:aws:iam::${ACCOUNT_ID}:policy/${POLICY_NAME}"
 
-if ! aws iam get-policy --policy-arn "${POLICY_ARN}" --profile "${PROFILE}" &>/dev/null; then
+if ! aws iam get-policy --policy-arn "${POLICY_ARN}" ${PROFILE_ARGS} &>/dev/null; then
     aws iam create-policy \
         --policy-name "${POLICY_NAME}" \
         --policy-document file://role-permissions-policy.json \
-        --profile "${PROFILE}" || exit 1
+        ${PROFILE_ARGS} || exit 1
     echo "Policy created successfully"
 else
     echo "Policy ${POLICY_NAME} already exists"
@@ -241,17 +251,17 @@ fi
 aws iam attach-role-policy \
     --role-name "${ROLE_NAME}" \
     --policy-arn "${POLICY_ARN}" \
-    --profile "${PROFILE}" || exit 1
+    ${PROFILE_ARGS} || exit 1
 
 # Create the identity permissions policy
 IDENTITY_POLICY_NAME="bedrock-batch-identity-policy"
 IDENTITY_POLICY_ARN="arn:aws:iam::${ACCOUNT_ID}:policy/${IDENTITY_POLICY_NAME}"
 
-if ! aws iam get-policy --policy-arn "${IDENTITY_POLICY_ARN}" --profile "${PROFILE}" &>/dev/null; then
+if ! aws iam get-policy --policy-arn "${IDENTITY_POLICY_ARN}" ${PROFILE_ARGS} &>/dev/null; then
     aws iam create-policy \
         --policy-name "${IDENTITY_POLICY_NAME}" \
         --policy-document file://identity-permissions-policy.json \
-        --profile "${PROFILE}" || exit 1
+        ${PROFILE_ARGS} || exit 1
     echo "Identity policy created successfully"
 else
     echo "Identity policy ${IDENTITY_POLICY_NAME} already exists"
@@ -270,14 +280,14 @@ import json, sys
 with open(sys.argv[1]) as f:
     data = json.load(f)
 print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
-" "${SCRIPT_DIR}/system_prompt.json" | aws s3 cp - "s3://${BUCKET_NAME}/prompts/system_prompt.txt" --content-type text/plain --profile "${PROFILE}"
+" "${SCRIPT_DIR}/system_prompt.json" | aws s3 cp - "s3://${BUCKET_NAME}/prompts/system_prompt.txt" --content-type text/plain ${PROFILE_ARGS}
 
 python3 -c "
 import json, sys
 with open(sys.argv[1]) as f:
     data = json.load(f)
 print(data['variants'][0]['templateConfiguration']['text']['text'], end='')
-" "${SCRIPT_DIR}/user_prompt.json" | aws s3 cp - "s3://${BUCKET_NAME}/prompts/user_prompt.txt" --content-type text/plain --profile "${PROFILE}"
+" "${SCRIPT_DIR}/user_prompt.json" | aws s3 cp - "s3://${BUCKET_NAME}/prompts/user_prompt.txt" --content-type text/plain ${PROFILE_ARGS}
 
 echo "Prompt files uploaded to s3://${BUCKET_NAME}/prompts/"
 
