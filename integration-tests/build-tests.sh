@@ -80,6 +80,7 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --response-llm <Model id or profile name>"
     echo "  --embeddings-model <Embeddings model id>"
     echo "  --embeddings-dimensions <Embeddings dimensions>"
+    echo "  --lexical-graph-wheel <path to local .whl file to upload to S3 and install>"
     echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
     echo "  --prev-stack <Previous stack name or ID>"
 		echo "  --delete-on-pass"
@@ -144,6 +145,7 @@ while [[ "$#" -gt 0 ]]; do
         --test-file) TEST_FILE="$2"; shift ;;
         --test) TESTS="$2"; shift ;;
 				--lexical-graph-install) LEXICAL_GRAPH_INSTALL_URI="$2"; shift ;;
+				--lexical-graph-wheel) LEXICAL_GRAPH_WHEEL="$2"; shift ;;
 				--byokg-rag-install) BYOKG_RAG_INSTALL_URI="$2"; shift ;;
         --bucket) BUCKET_NAME="$2"; shift ;;
         --region) REGION_NAME="$2"; shift ;;
@@ -226,6 +228,25 @@ mkdir -p graphrag/assets/packages
 mkdir graphrag-toolkit
 mkdir lexical-graph-examples
 
+if [[ "$LEXICAL_GRAPH_WHEEL" ]]; then
+    if [[ "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
+        echo "ERROR: --lexical-graph-wheel and --lexical-graph-install are mutually exclusive."
+        exit 1
+    fi
+    if [[ ! -f "$LEXICAL_GRAPH_WHEEL" ]]; then
+        echo "ERROR: Wheel file not found: $LEXICAL_GRAPH_WHEEL"
+        exit 1
+    fi
+    if [[ "$LEXICAL_GRAPH_WHEEL" != *.whl ]]; then
+        echo "ERROR: --lexical-graph-wheel expects a .whl file, got: $LEXICAL_GRAPH_WHEEL"
+        exit 1
+    fi
+    WHEEL_FILENAME=$(basename "$LEXICAL_GRAPH_WHEEL")
+    echo "Copying wheel $WHEEL_FILENAME into packages for S3 upload..."
+    cp "$LEXICAL_GRAPH_WHEEL" graphrag/assets/packages/"$WHEEL_FILENAME"
+    LEXICAL_GRAPH_INSTALL_URI="$S3_ROOT/packages/$WHEEL_FILENAME"
+fi
+
 if [[ -z "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
     # Only copy source code to test notebook if install URI not supplied
 	cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/* graphrag-toolkit
@@ -303,6 +324,7 @@ popd
 echo ""
 echo "----------------------------------------------------"
 echo "GRAPHRAG_TOOLKIT_DIR     : $GRAPHRAG_TOOLKIT_DIR"
+echo "LEXICAL_GRAPH_WHEEL      : $LEXICAL_GRAPH_WHEEL"
 echo "LEXICAL_GRAPH_INSTALL_URI: $LEXICAL_GRAPH_INSTALL_URI"
 echo "BYOKG_RAG_INSTALL_URI    : $BYOKG_RAG_INSTALL_URI"
 echo "ENV_TYPE                 : $ENV_TYPE"
