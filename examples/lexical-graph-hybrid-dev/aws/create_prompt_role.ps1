@@ -64,4 +64,4 @@ Write-Host "`nDone. Role ARN:"
 Write-Host $roleArn
 
 # Cleanup
-Remove-Item $tem
+Remove-Item $tempTrustPolicyFile

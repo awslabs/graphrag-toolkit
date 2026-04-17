@@ -19,7 +19,7 @@ The hybrid development environment combines local Docker services with AWS cloud
 
 ### Amazon Bedrock
 - **Purpose**: LLM processing for extraction and generation
-- **Models**: Claude 3.5 Sonnet, Cohere embeddings
+- **Models**: Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-6`), Cohere embeddings
 - **Features**: Batch processing, prompt management
 - **Cost**: Pay-per-token usage
 
@@ -55,17 +55,19 @@ aws configure --profile your-profile
 
 Enable required models in the [Bedrock console](https://console.aws.amazon.com/bedrock/home#/modelaccess):
 
-- `anthropic.claude-3-7-sonnet-20250219-v1:0`
+- `us.anthropic.claude-sonnet-4-6`
 - `cohere.embed-english-v3`
 
 ### 3. S3 Bucket Creation
 
+> **Note**: The `setup-bedrock-batch.sh` script creates the S3 bucket automatically. Use the manual steps below only if you need a custom bucket name.
+
 ```bash
 # Create S3 bucket for GraphRAG data
-aws s3 mb s3://your-graphrag-bucket --profile your-profile
+aws s3 mb s3://your-graphrag-bucket
 
 # Verify bucket creation
-aws s3 ls --profile your-profile
+aws s3 ls
 ```
 
 ### 4. IAM Permissions
@@ -292,7 +294,7 @@ verify_aws_setup()
 ### Understanding Costs
 
 **Bedrock Costs:**
-- **Input tokens**: ~$3 per 1M tokens (Claude 3.5 Sonnet)
+- **Input tokens**: ~$3 per 1M tokens (Claude Sonnet 4)
 - **Output tokens**: ~$15 per 1M tokens
 - **Embeddings**: ~$0.10 per 1M tokens (Cohere)
 
