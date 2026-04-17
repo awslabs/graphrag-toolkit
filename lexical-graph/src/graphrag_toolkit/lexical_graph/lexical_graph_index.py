@@ -300,6 +300,9 @@ class LexicalGraphIndex():
         self.extraction_pre_processors = pre_processors
         self.extraction_components = components
 
+        # Backend bootstrap (for example index creation) is part of object lifecycle; fail fast if unavailable.
+        self.graph_store.init()
+
     def _configure_extraction_pipeline(self, config: IndexingConfig):
         """
         Configures and initializes the extraction pipeline based on the given configuration settings. This method
@@ -783,4 +786,3 @@ class LexicalGraphIndex():
         delete_sources = DeleteSources(graph_store=self.graph_store, vector_store=self.vector_store)
 
         return delete_sources.delete_source_documents(source_ids)
-

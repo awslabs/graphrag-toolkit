@@ -2,13 +2,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import os
-from unittest.mock import patch
+from unittest.mock import Mock, patch
+import pytest
 
 from llama_index.core.llms import LLM
 from llama_index.core.llms.mock import MockLLM
 from llama_index.llms.bedrock_converse import BedrockConverse
 
 from graphrag_toolkit.lexical_graph import ExtractionConfig
+from graphrag_toolkit.lexical_graph.lexical_graph_index import LexicalGraphIndex
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 
 class TestExtractionConfig:
@@ -43,3 +45,61 @@ class TestExtractionConfig:
         )
 
         assert extraction_config.extraction_llm == llm_cache
+
+class TestLexicalGraphIndex:
+
+    def test_init_invokes_graph_store_init_hook(self):
+        graph_store = Mock()
+        vector_store = Mock()
+
+        with (
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.GraphStoreFactory.for_graph_store',
+                return_value=graph_store,
+            ),
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.MultiTenantGraphStore.wrap',
+                return_value=graph_store,
+            ),
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.VectorStoreFactory.for_vector_store',
+                return_value=vector_store,
+            ),
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.MultiTenantVectorStore.wrap',
+                return_value=vector_store,
+            ),
+            patch.object(LexicalGraphIndex, '_configure_extraction_pipeline', return_value=([], [])),
+        ):
+            LexicalGraphIndex(graph_store='dummy://', vector_store='dummy://')
+
+        graph_store.init.assert_called_once_with()
+
+    def test_init_propagates_graph_store_init_failure(self):
+        graph_store = Mock()
+        graph_store.init.side_effect = RuntimeError("Graph store init failed")
+        vector_store = Mock()
+
+        with (
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.GraphStoreFactory.for_graph_store',
+                return_value=graph_store,
+            ),
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.MultiTenantGraphStore.wrap',
+                return_value=graph_store,
+            ),
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.VectorStoreFactory.for_vector_store',
+                return_value=vector_store,
+            ),
+            patch(
+                'graphrag_toolkit.lexical_graph.lexical_graph_index.MultiTenantVectorStore.wrap',
+                return_value=vector_store,
+            ),
+            patch.object(LexicalGraphIndex, '_configure_extraction_pipeline', return_value=([], [])),
+        ):
+            with pytest.raises(RuntimeError, match="Graph store init failed"):
+                LexicalGraphIndex(graph_store='dummy://', vector_store='dummy://')
+
+        graph_store.init.assert_called_once_with()
