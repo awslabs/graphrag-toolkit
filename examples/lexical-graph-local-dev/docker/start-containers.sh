@@ -30,6 +30,9 @@ if [ "$RESET_MODE" = true ]; then
     echo "Resetting containers and data..."
     docker compose -f $COMPOSE_FILE down -v
     rm -rf extracted
+    if [ "$DEV_MODE" = false ]; then
+        echo "NOTE: This resets standard mode containers. Use --dev --reset to reset dev containers."
+    fi
     echo "Building and starting containers..."
     BUILD_FLAG="--build"
 else

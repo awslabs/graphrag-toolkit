@@ -159,8 +159,9 @@ class BedrockPromptProviderConfig(ProviderConfig):
         # Example ARN: arn:aws-us-gov:sts::123456789012:assumed-role/...
         partition = caller_arn.split(":")[1]
         account_id = self.sts.get_caller_identity()["Account"]
+        region = self.aws_region or self.session.region_name
 
-        return f"arn:{partition}:bedrock:{self.aws_region}:{account_id}:prompt/{identifier}"
+        return f"arn:{partition}:bedrock:{region}:{account_id}:prompt/{identifier}"
 
     def build(self) -> PromptProvider:
         from graphrag_toolkit.lexical_graph.prompts.bedrock_prompt_provider import BedrockPromptProvider
