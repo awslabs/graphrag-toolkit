@@ -84,7 +84,7 @@ sudo chown -R $USER:$USER notebooks/
 
 **Issue: Development mode not detected**
 ```python
-dev_mode = os.path.exists('/home/jovyan/lexical-graph-src')
+dev_mode = os.path.exists('/home/jovyan/lexical-graph')
 print(dev_mode)  # False
 ```
 
@@ -116,7 +116,7 @@ ls -la ../../../lexical-graph  # Should exist
 # 3. Verify editable installation
 import graphrag_toolkit
 print(graphrag_toolkit.__file__)
-# Should show: /home/jovyan/lexical-graph-src/...
+# Should show: /home/jovyan/lexical-graph/...
 ```
 
 ### Installation Issues
@@ -129,11 +129,11 @@ ERROR: Could not install packages due to an EnvironmentError
 **Solution:**
 ```python
 # In Jupyter, try manual installation
-!pip install -e /home/jovyan/lexical-graph-src --user
+!pip install -e /home/jovyan/lexical-graph --user
 
 # Or reinstall from scratch
 !pip uninstall graphrag-lexical-graph -y
-!pip install -e /home/jovyan/lexical-graph-src
+!pip install -e /home/jovyan/lexical-graph
 
 # Restart kernel after installation
 ```
@@ -154,11 +154,11 @@ ServiceUnavailable: Failed to establish connection
 # Check connection string in notebook
 import os
 print(os.environ.get('GRAPH_STORE'))
-# Should be: bolt://neo4j:password@neo4j:7687
+# Should be: bolt://neo4j:password@neo4j-local:7687
 
 # Test connection
 from neo4j import GraphDatabase
-driver = GraphDatabase.driver("bolt://neo4j:7687", auth=("neo4j", "password"))
+driver = GraphDatabase.driver("bolt://neo4j-local:7687", auth=("neo4j", "password"))
 with driver.session() as session:
     result = session.run("RETURN 1")
     print(result.single()[0])  # Should print: 1
@@ -175,10 +175,10 @@ http://localhost:7476 not loading
 docker ps | grep neo4j
 
 # Check logs
-docker logs neo4j
+docker logs neo4j-local
 
 # Restart if needed
-docker restart neo4j
+docker restart neo4j-local
 ```
 
 ### PostgreSQL Connection Problems
@@ -193,15 +193,15 @@ psycopg2.OperationalError: could not connect to server
 # Check connection string
 import os
 print(os.environ.get('VECTOR_STORE'))
-# Should be: postgresql://graphrag:graphragpass@postgres:5432/graphrag_db
+# Should be: postgresql://postgres:password@pgvector-local:5432/graphrag
 
 # Test connection
 import psycopg2
 conn = psycopg2.connect(
-    host="postgres",
-    database="graphrag_db",
-    user="graphrag",
-    password="graphragpass"
+    host="pgvector-local",
+    database="graphrag",
+    user="postgres",
+    password="password"
 )
 print("PostgreSQL connection successful")
 conn.close()
@@ -332,13 +332,13 @@ http://localhost:8889 loads but shows nothing
 **Solution:**
 ```bash
 # Check Jupyter logs
-docker logs jupyter-notebook
+docker logs jupyter-local
 
 # Try different browser or incognito mode
 # Clear browser cache
 
 # Restart Jupyter container
-docker restart jupyter-notebook
+docker restart jupyter-local
 ```
 
 ### Kernel Issues
@@ -348,13 +348,13 @@ docker restart jupyter-notebook
 **Solution:**
 ```bash
 # Check Jupyter container resources
-docker stats jupyter-notebook
+docker stats jupyter-local
 
 # Restart with more memory (if needed)
 # Edit docker-compose.yml to add memory limits
 
 # Clear Jupyter cache
-docker exec -it jupyter-notebook rm -rf /home/jovyan/.jupyter/runtime/*
+docker exec -it jupyter-local rm -rf /home/jovyan/.jupyter/runtime/*
 ```
 
 ---
@@ -398,10 +398,10 @@ Connection refused when connecting between containers
 **Solution:**
 ```bash
 # Check network status
-docker network ls | grep lg_graphrag
+docker network ls | grep graphrag_local
 
 # Inspect network
-docker network inspect lg_graphrag_network
+docker network inspect graphrag_local_network
 
 # Ensure all containers are on same network
 docker ps --format "table {{.Names}}\t{{.Networks}}"
@@ -467,12 +467,12 @@ Reset only specific components:
 
 ```bash
 # Reset only databases (keep Jupyter)
-docker stop neo4j postgres
-docker rm neo4j postgres
-docker volume rm neo4j_data pgvector_data
+docker stop neo4j-local pgvector-local
+docker rm neo4j-local pgvector-local
+docker volume rm neo4j_local_data pgvector_local_data
 
 # Restart databases
-docker-compose up -d neo4j postgres
+docker-compose up -d neo4j-local pgvector-local
 ```
 
 ---
@@ -485,9 +485,9 @@ When reporting issues, collect relevant logs:
 
 ```bash
 # Container logs
-docker logs neo4j > neo4j.log
-docker logs postgres > postgres.log
-docker logs jupyter-notebook > jupyter.log
+docker logs neo4j-local > neo4j.log
+docker logs pgvector-local > postgres.log
+docker logs jupyter-local > jupyter.log
 
 # System information
 docker version > system_info.txt
