@@ -34,64 +34,6 @@ Main startup script with comprehensive options:
 ./start-containers.sh --reset --mac
 ```
 
-### `build.sh`
-
-Simple build and start script for initial deployments:
-
-```bash
-./build.sh
-```
-
-**What it does:**
-- Executes `docker compose up -d --build`
-- Builds Docker images from Dockerfiles
-- Starts services in detached mode
-- Does not remove existing data or volumes
-
-### `reset.sh`
-
-Full environment reset script:
-
-```bash
-./reset.sh
-```
-
-**What it does:**
-- Stops and removes all containers
-- Removes all volumes and data
-- Cleans up networks and orphaned containers
-- Rebuilds everything from scratch
-
-**⚠️ Warning:** This script removes all persistent data
-
-### Development Mode Scripts
-
-#### `dev-start.sh`
-
-Starts the environment in development mode:
-
-```bash
-./dev-start.sh
-```
-
-**Features:**
-- Mounts local lexical-graph source code
-- Enables hot-code-injection
-- Configures auto-reload in Jupyter
-
-#### `dev-reset.sh`
-
-Resets the development environment:
-
-```bash
-./dev-reset.sh
-```
-
-**Features:**
-- Preserves development mode configuration
-- Cleans up development-specific volumes
-- Rebuilds with source code mounting
-
 ---
 
 ## Windows Scripts
@@ -106,17 +48,6 @@ Resets the development environment:
 - `-Mac`: Use ARM/Apple Silicon containers
 - `-Dev`: Enable development mode
 - `-Reset`: Reset all data
-
-### Command Prompt (`start-containers.bat`)
-
-```cmd
-start-containers.bat [OPTIONS]
-```
-
-**Options:**
-- `--mac`: ARM/Apple Silicon support
-- `--dev`: Development mode
-- `--reset`: Full reset
 
 ---
 
@@ -151,16 +82,16 @@ print(f"Development mode: {dev_mode}")
 
 ## Environment Variables
 
-Scripts use environment variables from `docker/.env`:
+Scripts use environment variables from [`notebooks/.env`](../notebooks/.env.template):
 
 ```bash
 # Database connections (Docker internal names)
 VECTOR_STORE="postgresql://postgres:password@pgvector-hybrid:5432/graphrag"
-GRAPH_STORE="neo4j://neo4j:password@neo4j-hybrid:7687"
+GRAPH_STORE="bolt://neo4j:password@neo4j-hybrid:7687"
 
 # AWS Configuration
-AWS_REGION="us-east-1"
-AWS_PROFILE="your-profile"
+AWS_REGION=us-east-1
+# AWS_PROFILE=default  # Optional — uncomment to use a specific profile
 
 # Container Configuration
 POSTGRES_USER=postgres
@@ -175,8 +106,8 @@ POSTGRES_DB=graphrag
 ### Common Issues
 
 **Port Conflicts:**
-- Hybrid-dev uses ports 7475, 7688, 8889, 5433
-- Local-dev uses ports 7476, 7687, 8889, 5432
+- Standard mode uses ports 7475, 7688, 8889, 5433
+- Dev mode uses ports 7476, 7689, 8890, 5434
 - Use `--reset` flag if containers are in inconsistent state
 
 **Development Mode Not Working:**

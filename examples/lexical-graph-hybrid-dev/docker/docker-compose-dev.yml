@@ -18,7 +18,7 @@ services:
     image: pgvector/pgvector:0.6.2-pg16
     container_name: pgvector-hybrid-dev
     ports:
-      - "5433:5432"
+      - "5434:5432"
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-postgres}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
@@ -29,28 +29,13 @@ services:
     networks:
       - graphrag_hybrid_network_dev
 
-  mysql-hybrid-dev:
-    image: mysql:8.4
-    container_name: mysql-hybrid-dev
-    ports:
-      - "3307:3306"  # Avoid conflict with host MySQL
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-graphragroot}
-      - MYSQL_DATABASE=${MYSQL_DATABASE:-graphrag_db}
-      - MYSQL_USER=${MYSQL_USER:-graphrag}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-graphragpass}
-    volumes:
-      - mysql_hybrid_data_dev:/var/lib/mysql
-    networks:
-      - graphrag_hybrid_network_dev
-
   jupyter-hybrid-dev:
     build:
-      context: .
-      dockerfile: Dockerfile.jupyter
+      context: ./jupyter
+      dockerfile: Dockerfile.dev
     container_name: jupyter-hybrid-dev
     ports:
-      - "8889:8888"
+      - "8890:8888"
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
@@ -64,7 +49,6 @@ services:
     depends_on:
       - pgvector-hybrid
       - neo4j-hybrid
-      - mysql-hybrid-dev
     command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
 
 networks:
@@ -76,4 +60,3 @@ volumes:
   neo4j_hybrid_logs_dev:
   pgvector_hybrid_data_dev:
   jupyter_hybrid_data_dev:
-  mysql_hybrid_data_dev:
