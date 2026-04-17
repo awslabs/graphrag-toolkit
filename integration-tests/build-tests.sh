@@ -81,6 +81,10 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --embeddings-model <Embeddings model id>"
     echo "  --embeddings-dimensions <Embeddings dimensions>"
     echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
+    echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
+    echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
+    echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
+    echo "  --benchmark-prototype"
     echo "  --prev-stack <Previous stack name or ID>"
 		echo "  --delete-on-pass"
 		echo "  --fail-fast"
@@ -92,8 +96,10 @@ fi
 source ./.env
 
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-STACK_SUFFIX=$(date +%s)
-GRAPH_NAME="gr-$STACK_SUFFIX"
+if [[ -z "$STACK_PREFIX" ]]; then
+	STACK_PREFIX="gr"
+fi
+GRAPH_NAME="$STACK_PREFIX-$(date +%s)"
 TEST_DESCRIPTION="graphrag-toolkit integration test"
 TESTS=""
 PREV_STACK_NAME=""
@@ -160,6 +166,10 @@ while [[ "$#" -gt 0 ]]; do
         --embeddings-dimensions) EMBEDDINGS_DIMENSIONS="$2"; shift ;;
 				--toolkit-dir) GRAPHRAG_TOOLKIT_DIR="$2"; shift ;;
         --ssh-cidr) SSHCIDR="$2"; shift ;;
+        --benchmark-data-dir) BENCHMARK_DATA_DIR="$2"; shift ;;
+        --benchmark-data-s3-uri) BENCHMARK_DATA_S3_URI="$2"; shift ;;
+        --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
+        --benchmark-prototype) BENCHMARK_IS_PROTOTYPE=true ;;
         --prev-stack) PREV_STACK_NAME="$2"; shift ;;
 				--delete-on-pass) DELETE_ON_PASS=True ;;
 				--fail-fast) FAIL_FAST=True ;;
@@ -234,6 +244,37 @@ cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
 cp -r ./../source-data/* lexical-graph-examples
 
+# Include benchmark data if local dir is specified and no S3 URI is provided
+# Only copies dataset subdirectories that match the tests being run
+if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
+	mkdir -p lexical-graph-examples/source-data
+	BENCHMARK_DATASETS=""
+	if echo "$TESTS" | grep -qi "Cuad"; then
+		if [[ "$BENCHMARK_IS_PROTOTYPE" == "true" ]]; then
+			BENCHMARK_DATASETS="$BENCHMARK_DATASETS cuad-prototype"
+		else
+			BENCHMARK_DATASETS="$BENCHMARK_DATASETS cuad"
+		fi
+	fi
+	if echo "$TESTS" | grep -qi "Pga"; then
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS pga"
+	fi
+	if echo "$TESTS" | grep -qi "Concurrentqa"; then
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS concurrentqa"
+	fi
+	if echo "$TESTS" | grep -qi "Wikihow"; then
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS wikihow"
+	fi
+	for ds in $BENCHMARK_DATASETS; do
+		if [[ -d "$BENCHMARK_DATA_DIR/$ds" ]]; then
+			echo "Including benchmark data for $ds from $BENCHMARK_DATA_DIR/$ds"
+			cp -r "$BENCHMARK_DATA_DIR/$ds" lexical-graph-examples/source-data/
+		else
+			echo "WARNING: Benchmark data directory not found: $BENCHMARK_DATA_DIR/$ds"
+		fi
+	done
+fi
+
 echo "__version__ = '$toolkit_version.$current_timestamp'" >> ./graphrag-toolkit/graphrag_toolkit/lexical_graph/_version.py
 
 echo "export GRAPHRAG_TOOLKIT_S3_URI=$GRAPHRAG_TOOLKIT_S3_URI" >> lexical-graph-examples/.env.testing
@@ -269,6 +310,18 @@ fi
 if [[ "$EMBEDDINGS_DIMENSIONS" ]]; then
 	echo "export EMBEDDINGS_DIMENSIONS='$EMBEDDINGS_DIMENSIONS'" >> lexical-graph-examples/.env.testing
 fi
+if [[ "$BENCHMARK_DATA_S3_URI" ]]; then
+	echo "export BENCHMARK_DATA_S3_URI='$BENCHMARK_DATA_S3_URI'" >> lexical-graph-examples/.env.testing
+fi
+if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
+	echo "export BENCHMARK_DATA_DIR='data'" >> lexical-graph-examples/.env.testing
+fi
+if [[ "$BENCHMARK_QA_LIMIT" ]]; then
+	echo "export BENCHMARK_QA_LIMIT=$BENCHMARK_QA_LIMIT" >> lexical-graph-examples/.env.testing
+fi
+if [[ "$BENCHMARK_IS_PROTOTYPE" ]]; then
+	echo "export BENCHMARK_IS_PROTOTYPE=$BENCHMARK_IS_PROTOTYPE" >> lexical-graph-examples/.env.testing
+fi
 
 zip -r graphrag-toolkit.zip graphrag-toolkit # zip under directory
 
@@ -288,7 +341,7 @@ zip -r graphrag.zip graphrag
 cp graphrag.zip ../target/graphrag.zip
 popd
 
-rm -rf temp
+# rm -rf temp
 
 pushd target
 unzip graphrag.zip
@@ -324,6 +377,9 @@ echo "EMBEDDINGS_MODEL         : $EMBEDDINGS_MODEL"
 echo "EMBEDDINGS_DIMENSIONS    : $EMBEDDINGS_DIMENSIONS"
 echo "SSHCIDR                  : $SSHCIDR"
 echo "TESTS                    : $TESTS"
+echo "BENCHMARK_DATA_DIR       : $BENCHMARK_DATA_DIR"
+echo "BENCHMARK_DATA_S3_URI    : $BENCHMARK_DATA_S3_URI"
+echo "BENCHMARK_QA_LIMIT       : $BENCHMARK_QA_LIMIT"
 echo "PREV_STACK_NAME"         : $PREV_STACK_NAME
 echo "----------------------------------------------------"
 echo ""

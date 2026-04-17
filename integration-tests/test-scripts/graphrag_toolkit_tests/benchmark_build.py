@@ -15,6 +15,10 @@ from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLo
 from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs
 
 DATASET_CONFIG = {
+    'cuad-prototype': {
+        'num_docs': 2,
+        'extracted_dir': os.path.join('extracted', '2026-04-16'),
+    },
     'cuad': {
         'num_docs': 510,
         'extracted_dir': os.path.join('extracted', '2026-02-17'),
@@ -27,6 +31,7 @@ DATASET_CONFIG = {
     },
 }
 
+BENCHMARK_DATA_DIR = 'source-data'
 
 def run_benchmark_build(handler: IntegrationTestHandler, dataset: str, data_dir: str,
                         graph_store_conn: Optional[str] = None, vector_store_conn: Optional[str] = None):
@@ -98,15 +103,12 @@ class CuadBenchmarkBuild(IntegrationTestBase):
         return 'Build graph and vector stores from CUAD pre-extracted chunks for benchmarking'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        data_dir = os.environ.get('BENCHMARK_DATA_DIR', 'benchmark-tests/data')
         graph_store_conn = os.environ.get('GRAPH_STORE')
         vector_store_conn = os.environ.get('VECTOR_STORE')
+        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
+        if is_prototype == 'true':
+            dataset_name = 'cuad-prototype' 
+        else:
+            dataset_name = 'cuad'
 
-        run_benchmark_build(handler, 'cuad', data_dir, graph_store_conn, vector_store_conn)
-
-        params['benchmark_dataset'] = 'cuad'
-        params['benchmark_data_dir'] = data_dir
-        if graph_store_conn:
-            params['benchmark_graph_store'] = graph_store_conn
-        if vector_store_conn:
-            params['benchmark_vector_store'] = vector_store_conn
+        run_benchmark_build(handler, dataset_name, BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)

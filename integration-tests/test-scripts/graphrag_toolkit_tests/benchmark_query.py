@@ -17,6 +17,7 @@ from llama_index.core.schema import QueryBundle
 
 QA_FILE_MAP = {
     'cuad': ['qa.json'],
+    'cuad-prototype': ['qa.json'],
     'pga': ['pga_bio.json', 'pga_stat.json'],
     'concurrentqa': ['qa.json'],
 }
@@ -144,12 +145,14 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='contract'), top_k=1)) == 0
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        data_dir = os.environ.get('BENCHMARK_DATA_DIR', 'benchmark-tests/data')
+        data_dir = os.environ.get('BENCHMARK_DATA_DIR')
         limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
+        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
+        dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
 
         run_benchmark_query(
             handler, params,
-            dataset='cuad',
+            dataset=dataset_name,
             data_dir=data_dir,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
