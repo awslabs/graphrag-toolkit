@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 type Backend =
-  | { kind: 'neptune-db'; cluster: string; region: string }
+  | { kind: 'neptune-db'; clusterUrl: string }
   | { kind: 'neptune-graph'; graphId: string }
   | { kind: 'neo4j'; host: string; port: string }
   | { kind: 'falkordb'; host: string; port: string };
@@ -16,7 +16,7 @@ const backends = [
 function buildUrl(b: Backend): string {
   switch (b.kind) {
     case 'neptune-db':
-      return `neptune-db://${b.cluster}.cluster-xxxxxxxx.${b.region}.neptune.amazonaws.com`;
+      return `neptune-db://${b.clusterUrl}`;
     case 'neptune-graph':
       return `neptune-graph://${b.graphId}`;
     case 'neo4j':
@@ -48,14 +48,13 @@ const labelStyle: React.CSSProperties = {
 
 export default function StoreUrlBuilder() {
   const [kind, setKind] = useState<Backend['kind']>('neptune-db');
-  const [cluster, setCluster] = useState('my-graph');
-  const [region, setRegion] = useState('us-east-1');
+  const [clusterUrl, setClusterUrl] = useState('my-graph.cluster-xxxxxxxx.us-east-1.neptune.amazonaws.com');
   const [graphId, setGraphId] = useState('g-abc123def456');
   const [host, setHost] = useState('localhost');
   const [port, setPort] = useState('7687');
 
   let backend: Backend;
-  if (kind === 'neptune-db') backend = { kind, cluster, region };
+  if (kind === 'neptune-db') backend = { kind, clusterUrl };
   else if (kind === 'neptune-graph') backend = { kind, graphId };
   else if (kind === 'neo4j') backend = { kind, host, port };
   else backend = { kind, host, port };
@@ -106,16 +105,10 @@ export default function StoreUrlBuilder() {
         }}
       >
         {kind === 'neptune-db' && (
-          <>
-            <div>
-              <label style={labelStyle}>Cluster name</label>
-              <input style={inputStyle} value={cluster} onChange={(e) => setCluster(e.target.value)} />
-            </div>
-            <div>
-              <label style={labelStyle}>Region</label>
-              <input style={inputStyle} value={region} onChange={(e) => setRegion(e.target.value)} />
-            </div>
-          </>
+          <div>
+            <label style={labelStyle}>Cluster URL</label>
+            <input style={inputStyle} value={clusterUrl} onChange={(e) => setClusterUrl(e.target.value)} />
+          </div>
         )}
         {kind === 'neptune-graph' && (
           <div>

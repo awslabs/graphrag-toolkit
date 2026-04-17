@@ -2,9 +2,6 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 
-// `site` and `base` together determine the public URL.
-// For the upstream awslabs project page:  site='https://awslabs.github.io', base='/graphrag-toolkit'
-// For a fork's project page:               site='https://<user>.github.io',  base='/<repo-name>'
 export default defineConfig({
   site: 'https://awslabs.github.io',
   base: '/graphrag-toolkit',
