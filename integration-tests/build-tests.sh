@@ -305,6 +305,37 @@ if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
 	done
 fi
 
+# Include benchmark data if local dir is specified and no S3 URI is provided
+# Only copies dataset subdirectories that match the tests being run
+if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
+	mkdir -p lexical-graph-examples/source-data
+	BENCHMARK_DATASETS=""
+	if echo "$TESTS" | grep -qi "Cuad"; then
+		if [[ "$BENCHMARK_IS_PROTOTYPE" == "true" ]]; then
+			BENCHMARK_DATASETS="$BENCHMARK_DATASETS cuad-prototype"
+		else
+			BENCHMARK_DATASETS="$BENCHMARK_DATASETS cuad"
+		fi
+	fi
+	if echo "$TESTS" | grep -qi "Pga"; then
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS pga"
+	fi
+	if echo "$TESTS" | grep -qi "Concurrentqa"; then
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS concurrentqa"
+	fi
+	if echo "$TESTS" | grep -qi "Wikihow"; then
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS wikihow"
+	fi
+	for ds in $BENCHMARK_DATASETS; do
+		if [[ -d "$BENCHMARK_DATA_DIR/$ds" ]]; then
+			echo "Including benchmark data for $ds from $BENCHMARK_DATA_DIR/$ds"
+			cp -r "$BENCHMARK_DATA_DIR/$ds" lexical-graph-examples/source-data/
+		else
+			echo "WARNING: Benchmark data directory not found: $BENCHMARK_DATA_DIR/$ds"
+		fi
+	done
+fi
+
 echo "__version__ = '$toolkit_version.$current_timestamp'" >> ./graphrag-toolkit/graphrag_toolkit/lexical_graph/_version.py
 
 echo "export GRAPHRAG_TOOLKIT_S3_URI=$GRAPHRAG_TOOLKIT_S3_URI" >> lexical-graph-examples/.env.testing
@@ -371,7 +402,7 @@ zip -r graphrag.zip graphrag
 cp graphrag.zip ../target/graphrag.zip
 popd
 
-rm -rf temp
+# rm -rf temp
 
 pushd target
 unzip graphrag.zip
