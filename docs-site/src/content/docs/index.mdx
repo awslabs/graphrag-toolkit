@@ -1,0 +1,67 @@
+---
+title: GraphRAG Toolkit
+description: A Python toolkit for building graph-enhanced generative AI applications on AWS.
+template: splash
+hero:
+  title: |
+    Graph-enhanced<br/>
+    retrieval for<br/>
+    generative AI.
+  tagline: An open-source Python toolkit from AWS Labs for building hierarchical lexical graphs and querying them with multi-strategy retrieval.
+  actions:
+    - text: Get started
+      link: /graphrag-toolkit/lexical-graph/overview/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/awslabs/graphrag-toolkit
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, Code } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <Card title="Lexical Graph" icon="puzzle">
+    Automate the construction of a hierarchical lexical graph from unstructured documents, then query it with semantic-guided or traversal-based retrieval.
+  </Card>
+  <Card title="BYOKG-RAG" icon="setting">
+    Bring your own knowledge graph. Plug an existing graph into a multi-strategy KGQA pipeline without re-extracting anything.
+  </Card>
+  <Card title="Pluggable storage" icon="document">
+    Graph stores: Amazon Neptune (DB and Analytics), Neo4j, FalkorDB. Vector stores: Neptune, OpenSearch, Postgres, S3 Vectors.
+  </Card>
+  <Card title="Open source" icon="github">
+    Apache 2.0, developed in the open by AWS Labs.
+  </Card>
+</CardGrid>
+
+## Install
+
+<Code code={`pip install graphrag-lexical-graph`} lang="sh" frame="terminal" />
+
+## Quickstart
+
+<Code
+  code={`from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, VectorStoreFactory
+from llama_index.readers.web import SimpleWebPageReader
+
+with (
+    GraphStoreFactory.for_graph_store(
+        'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
+    ) as graph_store,
+    VectorStoreFactory.for_vector_store(
+        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+    ) as vector_store,
+):
+    graph_index = LexicalGraphIndex(graph_store, vector_store)
+
+    docs = SimpleWebPageReader(html_to_text=True).load_data([
+        'https://docs.aws.amazon.com/neptune/latest/userguide/intro.html',
+    ])
+
+    graph_index.extract_and_build(docs, show_progress=True)`}
+  lang="python"
+  title="extract_and_build.py"
+/>
