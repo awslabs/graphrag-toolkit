@@ -1,11 +1,13 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import ast
 import json
 import logging
+import re
 import time
 import uuid
-from typing import Optional, Any, List, Union
+from typing import Optional, Any, List, Union, Iterable, Mapping, Set, Tuple
 
 from llama_index.core.bridge.pydantic import PrivateAttr
 
@@ -29,14 +31,20 @@ except ImportError as e:
 DEFAULT_DATABASE_NAME = 'graphrag'
 QUERY_RESULT_TYPE = Union[List[List[Node]], List[List[List[Path]]], List[List[Edge]]]
 
+_CREATE_INDEX_PATTERN = re.compile(
+    r"CREATE\s+(?:\w+\s+)?INDEX\s+FOR\s*\(\s*\w+\s*:\s*`?([^`)\s]+)`?\s*\)\s+ON\s*\(\s*\w+\.([A-Za-z_][A-Za-z0-9_]*)\s*\)",
+    re.IGNORECASE,
+)
+
+
 class FalkorDBDatabaseClient(GraphStore):
-    
+
     endpoint_url:str
     database:str
     username:Optional[str] = None
     password:Optional[str] = None
     ssl:Optional[bool] = False
-        
+
     _client: Optional[Any] = PrivateAttr(default=None)
 
     """
@@ -64,7 +72,7 @@ class FalkorDBDatabaseClient(GraphStore):
         """
         if username and not password:
             raise ValueError("Password is required when username is provided")
-        
+
         if endpoint_url and not isinstance(endpoint_url, str):
             raise ValueError("Endpoint URL must be a string")
 
@@ -83,7 +91,217 @@ class FalkorDBDatabaseClient(GraphStore):
     def __getstate__(self):
         self._client = None
         return super().__getstate__()
-    
+
+    def init(self, graph_store=None):
+        target = graph_store or self
+        existing_specs = self._existing_index_specs(target)
+
+        for statement in self._index_statements():
+            spec = self._statement_spec(self._rewrite_for_target(target, statement))
+            if spec and spec in existing_specs:
+                logger.debug("Index already present, skipping statement: %s", statement)
+                continue
+
+            try:
+                target.execute_query_with_retry(statement, {})
+            except Exception:
+                if spec and self._index_exists(target, spec):
+                    logger.debug(
+                        "Index appeared after create attempt (likely concurrent init), skipping statement: %s",
+                        statement,
+                    )
+                    existing_specs.add(spec)
+                    continue
+                logger.warning("FalkorDB index bootstrap statement failed: %s", statement)
+                raise
+            else:
+                if spec:
+                    existing_specs.add(spec)
+
+    def _index_statements(self) -> Iterable[str]:
+        return (
+            "CREATE INDEX FOR (n:`__Entity__`) ON (n.entityId)",
+            "CREATE INDEX FOR (n:`__Fact__`) ON (n.factId)",
+            "CREATE INDEX FOR (n:`__Statement__`) ON (n.statementId)",
+            "CREATE INDEX FOR (n:`__Topic__`) ON (n.topicId)",
+            "CREATE INDEX FOR (n:`__Chunk__`) ON (n.chunkId)",
+            "CREATE INDEX FOR (n:`__Source__`) ON (n.sourceId)",
+            "CREATE INDEX FOR (n:`__Entity__`) ON (n.search_str)",
+        )
+
+    def _existing_index_specs(self, target: Any) -> Set[Tuple[str, str]]:
+        try:
+            rows = target.execute_query_with_retry("CALL db.indexes()", {})
+        except Exception as exc:
+            logger.warning(
+                "Unable to inspect existing FalkorDB indexes, falling back to optimistic create: %s",
+                exc,
+            )
+            return set()
+
+        specs: Set[Tuple[str, str]] = set()
+        if not isinstance(rows, list):
+            return specs
+
+        for row in rows:
+            if not isinstance(row, Mapping):
+                continue
+            label = self._row_label(row)
+            if not label:
+                continue
+            for prop in self._row_properties(row):
+                specs.add((label, prop))
+
+        return specs
+
+    def _index_exists(self, target: Any, spec: Tuple[str, str]) -> bool:
+        return spec in self._existing_index_specs(target)
+
+    @staticmethod
+    def _rewrite_for_target(target: Any, statement: str) -> str:
+        rewrite_fn = getattr(target, "_rewrite_query", None)
+        if callable(rewrite_fn):
+            rewritten = rewrite_fn(statement)
+            if isinstance(rewritten, str):
+                return rewritten
+        return statement
+
+    @staticmethod
+    def _statement_spec(statement: str) -> Optional[Tuple[str, str]]:
+        match = _CREATE_INDEX_PATTERN.search(statement)
+        if not match:
+            return None
+        return str(match.group(1)), str(match.group(2))
+
+    @staticmethod
+    def _row_label(row: Mapping[str, Any]) -> Optional[str]:
+        for key in ("label", "labels"):
+            value = row.get(key)
+            label = FalkorDBDatabaseClient._extract_single_label(value)
+            if label:
+                return label
+
+        for key, value in row.items():
+            if "label" not in str(key).lower():
+                continue
+            label = FalkorDBDatabaseClient._extract_single_label(value)
+            if label:
+                return label
+
+        return None
+
+    @staticmethod
+    def _row_properties(row: Mapping[str, Any]) -> Set[str]:
+        for key in ("properties", "property", "fields"):
+            value = row.get(key)
+            properties = FalkorDBDatabaseClient._extract_tokens(value)
+            if properties:
+                return properties
+
+        for key, value in row.items():
+            lowered_key = str(key).lower()
+            if "property" not in lowered_key and "field" not in lowered_key:
+                continue
+            properties = FalkorDBDatabaseClient._extract_tokens(value)
+            if properties:
+                return properties
+
+        return set()
+
+    @staticmethod
+    def _extract_single_label(value: Any) -> Optional[str]:
+        if value is None:
+            return None
+
+        if isinstance(value, str):
+            parsed_value: Any = value.strip()
+            if parsed_value.startswith("[") and parsed_value.endswith("]"):
+                try:
+                    parsed_value = ast.literal_eval(parsed_value)
+                except (ValueError, SyntaxError):
+                    inner = parsed_value[1:-1]
+                    for part in inner.split(","):
+                        token = FalkorDBDatabaseClient._normalize_label_token(part)
+                        if token:
+                            return token
+                    return None
+            token = FalkorDBDatabaseClient._normalize_label_token(parsed_value)
+            return token
+
+        if isinstance(value, (list, tuple, set)):
+            for item in value:
+                token = FalkorDBDatabaseClient._extract_single_label(item)
+                if token:
+                    return token
+            return None
+
+        return FalkorDBDatabaseClient._normalize_label_token(value)
+
+    @staticmethod
+    def _extract_tokens(value: Any) -> Set[str]:
+        if value is None:
+            return set()
+
+        if isinstance(value, str):
+            parsed_value: Any = value.strip()
+            if parsed_value.startswith("[") and parsed_value.endswith("]"):
+                try:
+                    parsed_value = ast.literal_eval(parsed_value)
+                except (ValueError, SyntaxError):
+                    inner = parsed_value[1:-1]
+                    return {
+                        token
+                        for token in (
+                            FalkorDBDatabaseClient._normalize_token(part)
+                            for part in inner.split(",")
+                        )
+                        if token
+                    }
+            else:
+                token = FalkorDBDatabaseClient._normalize_token(parsed_value)
+                return {token} if token else set()
+            return FalkorDBDatabaseClient._extract_tokens(parsed_value)
+
+        if isinstance(value, (list, tuple, set)):
+            tokens: Set[str] = set()
+            for item in value:
+                tokens.update(FalkorDBDatabaseClient._extract_tokens(item))
+            return tokens
+
+        token = FalkorDBDatabaseClient._normalize_token(value)
+        return {token} if token else set()
+
+    @staticmethod
+    def _normalize_token(value: Any) -> Optional[str]:
+        token = str(value).strip()
+        if not token:
+            return None
+
+        token = token.strip("`")
+        token = token.strip("'\"")
+        token = token.lstrip(":")
+        if token.startswith("e."):
+            token = token[2:]
+
+        if token.startswith("[") and token.endswith("]"):
+            return None
+
+        match = re.search(r"([A-Za-z_][A-Za-z0-9_]*)$", token)
+        if match:
+            return match.group(1)
+
+        return None
+
+    @staticmethod
+    def _normalize_label_token(value: Any) -> Optional[str]:
+        token = str(value).strip()
+        if not token:
+            return None
+        token = token.strip("`")
+        token = token.strip("'\"")
+        token = token.lstrip(":")
+        return token or None
+
     @property
     def client(self) -> Graph:
         """
@@ -115,7 +333,7 @@ class FalkorDBDatabaseClient(GraphStore):
                         password=self.password,
                         ssl=self.ssl,
                     ).select_graph(self.database)
-                
+
             except ConnectionError as e:
                 logger.error(f"Failed to connect to FalkorDB: {e}")
                 raise ConnectionError(f"Could not establish connection to FalkorDB: {e}") from e
@@ -126,8 +344,8 @@ class FalkorDBDatabaseClient(GraphStore):
                 logger.error(f"Unexpected error while connecting to FalkorDB: {e}")
                 raise ConnectionError(f"Unexpected error while connecting to FalkorDB: {e}") from e
         return self._client
-        
-    
+
+
     def node_id(self, id_name: str) -> NodeId:
         """
         Format a node identifier.
@@ -137,9 +355,9 @@ class FalkorDBDatabaseClient(GraphStore):
         """
         return format_id(id_name)
 
-    def _execute_query(self, 
-                      cypher: str, 
-                      parameters: Optional[dict] = None, 
+    def _execute_query(self,
+                      cypher: str,
+                      parameters: Optional[dict] = None,
                       correlation_id: Any = None) -> QUERY_RESULT_TYPE:
         """
         Execute a Cypher query on the FalkorDB instance.
@@ -156,8 +374,8 @@ class FalkorDBDatabaseClient(GraphStore):
         query_id = uuid.uuid4().hex[:5]
 
         request_log_entry_parameters = self.log_formatting.format_log_entry(
-            self._logging_prefix(query_id, correlation_id), 
-            cypher, 
+            self._logging_prefix(query_id, correlation_id),
+            cypher,
             parameters,
         )
 
@@ -183,11 +401,11 @@ class FalkorDBDatabaseClient(GraphStore):
 
         if logger.isEnabledFor(logging.DEBUG):
             response_log_entry_parameters = self.log_formatting.format_log_entry(
-                self._logging_prefix(query_id, correlation_id), 
-                cypher, 
-                parameters, 
+                self._logging_prefix(query_id, correlation_id),
+                cypher,
+                parameters,
                 results
             )
             logger.debug(f'[{response_log_entry_parameters.query_ref}] {int((end-start) * 1000)}ms Results: [{response_log_entry_parameters.results}]')
-        
+
         return results
