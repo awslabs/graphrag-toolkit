@@ -108,6 +108,8 @@ def format_id_for_neptune(id_name:str):
     else:
         return NodeId(parts[1], f'id({parts[0]})', False)
         
+DEFAULT_MAX_POOL_CONNECTIONS = 32
+
 def create_config(config:Optional[str]=None):
     """
     Creates a configuration object for the application, including retries, timeouts, and
@@ -117,6 +119,11 @@ def create_config(config:Optional[str]=None):
     read timeouts, and user agent identifiers. If a configuration string in JSON format is
     provided, it will be parsed and applied to augment or override default settings. The
     toolkit version is dynamically fetched if available.
+
+    ``max_pool_connections`` defaults to :data:`DEFAULT_MAX_POOL_CONNECTIONS` when unset,
+    overriding botocore's default of 10 which serializes the traversal-based retrievers
+    (two sub-retrievers × ``num_workers=10`` each can drive up to 20 concurrent Neptune
+    queries).
 
     Args:
         config: A JSON-formatted string containing additional configuration settings. If not
@@ -136,11 +143,14 @@ def create_config(config:Optional[str]=None):
     config_args = {}
     if config:
         config_args = json.loads(config)
+
+    config_args.setdefault('max_pool_connections', DEFAULT_MAX_POOL_CONNECTIONS)
+
     return Config(
         retries={
-            'total_max_attempts': 1, 
+            'total_max_attempts': 1,
             'mode': 'standard'
-        }, 
+        },
         read_timeout=600,
         user_agent_appid=f'graphrag-lexical-graph-{toolkit_version}',
         **config_args
