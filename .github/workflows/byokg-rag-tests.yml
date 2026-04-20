@@ -1,0 +1,164 @@
+# Runs BYOKG-RAG unit tests with coverage on push/PR to main.
+# Tests run across Python 3.10–3.12. Coverage reports are uploaded as
+# artifacts and a PR comment is posted with the coverage summary.
+name: BYOKG-RAG Unit Tests
+
+permissions:
+  contents: read
+  pull-requests: write
+
+# NOTE: The PR comment job is skipped for fork PRs because the GITHUB_TOKEN
+# is read-only in that context. Coverage reports are still uploaded as
+# artifacts regardless.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "byokg-rag/**"
+      - ".github/workflows/byokg-rag-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "byokg-rag/**"
+      - ".github/workflows/byokg-rag-tests.yml"
+
+jobs:
+  license-header-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check license headers
+        run: |
+          MISSING=0
+          HEADER_LINE1="# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved."
+          HEADER_LINE2="# SPDX-License-Identifier: Apache-2.0"
+          while IFS= read -r -d '' file; do
+            HEAD=$(head -5 "$file")
+            if ! echo "$HEAD" | grep -qF "$HEADER_LINE1" || \
+               ! echo "$HEAD" | grep -qF "$HEADER_LINE2"; then
+              echo "MISSING: $file"
+              MISSING=$((MISSING + 1))
+            fi
+          done < <(find byokg-rag -name '*.py' -print0)
+          if [ "$MISSING" -gt 0 ]; then
+            echo ""
+            echo "ERROR: $MISSING file(s) missing the license header."
+            exit 1
+          fi
+          echo "All .py files have the required license header."
+
+  test:
+    needs: license-header-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    defaults:
+      run:
+        working-directory: byokg-rag
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create virtual environment
+        run: uv venv .venv
+
+      - name: Install dependencies
+        run: |
+          uv pip install --python .venv/bin/python \
+            pytest \
+            pytest-cov \
+            pytest-mock \
+            -r src/graphrag_toolkit/byokg_rag/requirements.txt
+
+      - name: Run tests
+        id: run_tests
+        run: |
+          PYTHONPATH=src .venv/bin/python -m pytest \
+            -v --cov-config=.coveragerc --cov=graphrag_toolkit.byokg_rag \
+            -l --tb=short --maxfail=1 --cov-fail-under=80 \
+            tests/
+
+      - name: Package coverage reports
+        id: coverage
+        if: always()
+        run: |
+          PYTHONPATH=src .venv/bin/python -m coverage xml
+          PYTHONPATH=src .venv/bin/python -m coverage html
+          COVERAGE_PCT=$(python -c "import xml.etree.ElementTree as ET; print(round(float(ET.parse('coverage.xml').getroot().get('line-rate')) * 100, 2))")
+          echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
+          echo "${COVERAGE_PCT}" > coverage-percentage.txt
+          echo "80" > coverage-target.txt
+
+      - name: Upload HTML coverage report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-report-${{ matrix.python-version }}
+          path: byokg-rag/htmlcov/
+
+      - name: Upload coverage percentage
+        if: always() && matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-percentage
+          path: |
+            byokg-rag/coverage-percentage.txt
+            byokg-rag/coverage-target.txt
+
+  comment:
+    if: >-
+      always()
+      && github.event_name == 'pull_request'
+      && github.event.pull_request.head.repo.full_name == github.repository
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download coverage percentage
+        id: download
+        uses: actions/download-artifact@v6
+        with:
+          name: coverage-percentage
+          path: coverage-data
+        continue-on-error: true
+
+      - name: Get coverage percentage
+        id: coverage
+        run: |
+          if [ "${{ steps.download.outcome }}" != "success" ]; then
+            echo "percentage=unknown" >> "$GITHUB_OUTPUT"
+            echo "target=unknown" >> "$GITHUB_OUTPUT"
+          else
+            COVERAGE_PCT=$(cat coverage-data/coverage-percentage.txt 2>/dev/null || echo "unknown")
+            COVERAGE_TARGET=$(cat coverage-data/coverage-target.txt 2>/dev/null || echo "unknown")
+            echo "percentage=${COVERAGE_PCT}" >> "$GITHUB_OUTPUT"
+            echo "target=${COVERAGE_TARGET}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Comment on PR with coverage report link
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const coverage = `${{ steps.coverage.outputs.percentage }}`;
+            const target = `${{ steps.coverage.outputs.target }}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `**BYOKG-RAG Coverage Report**: The coverage is at ${coverage}% (target: ${target}%). Download the HTML report [here](${artifactUrl}).`
+            });

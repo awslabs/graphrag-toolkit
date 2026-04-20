@@ -18,6 +18,7 @@ from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuild
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint, CheckpointWriter
 from graphrag_toolkit.lexical_graph.indexing.build.node_builders import NodeBuilders
 from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
@@ -188,13 +189,13 @@ class BuildPipeline():
             **kwargs (Any): Additional keyword arguments to configure the pipeline behavior.
         """
         components = components or []
-        num_workers = num_workers or GraphRAGConfig.build_num_workers
-        batch_size = batch_size or GraphRAGConfig.build_batch_size
-        batch_writes_enabled = batch_writes_enabled or GraphRAGConfig.batch_writes_enabled
-        batch_write_size = batch_write_size or GraphRAGConfig.build_batch_write_size
-        include_domain_labels = include_domain_labels or GraphRAGConfig.include_domain_labels
-        include_local_entities = include_local_entities or GraphRAGConfig.include_local_entities
-        include_classification_in_entity_id = include_classification_in_entity_id or GraphRAGConfig.include_classification_in_entity_id
+        num_workers = coalesce(num_workers, GraphRAGConfig.build_num_workers)
+        batch_size = coalesce(batch_size, GraphRAGConfig.build_batch_size)
+        batch_writes_enabled = coalesce(batch_writes_enabled, GraphRAGConfig.batch_writes_enabled)
+        batch_write_size = coalesce(batch_write_size, GraphRAGConfig.build_batch_write_size)
+        include_domain_labels = coalesce(include_domain_labels, GraphRAGConfig.include_domain_labels)
+        include_local_entities = coalesce(include_local_entities, GraphRAGConfig.include_local_entities)
+        include_classification_in_entity_id = coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id)
         source_metadata_formatter = source_metadata_formatter or DefaultSourceMetadataFormatter()
         
         for c in components:
@@ -291,16 +292,16 @@ class BuildPipeline():
         """
         input_source_documents = source_documents_from_source_types(inputs)
 
-        for source_documents in iter_batch(input_source_documents, self.batch_size):
+        for batch_num, source_documents in enumerate(iter_batch(input_source_documents, self.batch_size), 1):
 
             build_timestamp = int(time.time() * 1000)
 
             num_source_docs_per_batch = math.ceil(len(source_documents)/self.num_workers)
             source_doc_batches = iter_batch(source_documents, num_source_docs_per_batch)
-            
+
             node_batches:List[List[BaseNode]] = self._to_node_batches(source_doc_batches, build_timestamp)
 
-            logger.info(f'Running build pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}, job_sizes: {[len(b) for b in node_batches]}, batch_writes_enabled: {self.batch_writes_enabled}, batch_write_size: {self.batch_write_size}]')
+            logger.info(f'Running build pipeline [batch: {batch_num}, batch_size: {self.batch_size}, num_workers: {self.num_workers}, job_sizes: {[len(b) for b in node_batches]}, batch_writes_enabled: {self.batch_writes_enabled}, batch_write_size: {self.batch_write_size}]')
 
             output_nodes = run_pipeline(
                 self.inner_pipeline,

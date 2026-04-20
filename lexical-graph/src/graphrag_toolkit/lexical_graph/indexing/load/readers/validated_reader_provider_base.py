@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 from typing import Any, List
 from pydantic import BaseModel, validator
 from graphrag_toolkit.lexical_graph.logging import logging

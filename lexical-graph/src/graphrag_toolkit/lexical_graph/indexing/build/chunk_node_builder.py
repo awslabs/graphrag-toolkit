@@ -6,6 +6,7 @@ from typing import List
 from llama_index.core.schema import BaseNode, DEFAULT_TEXT_NODE_TMPL
 from llama_index.core.schema import NodeRelationship
 
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
@@ -90,13 +91,25 @@ class ChunkNodeBuilder(NodeBuilder):
                      'sourceId': source_id
                 },
                 'chunk': {
-                    'chunkId': chunk_id  
+                    'chunkId': chunk_id,
+                    'metadata': {}
                 },
                 'topics': topics 
             }  
                 
             if source_info.metadata:
-                metadata['source']['metadata'] = source_info.metadata
+
+                metadata['source'].update(self._get_source_info_metadata(source_info.metadata))
+                
+                # Add external properties if configured
+                external_props = GraphRAGConfig.chunk_external_properties
+                if external_props and isinstance(external_props, dict):
+                    valid_source_metadata = metadata['source']['metadata']
+                    chunk_metadata = metadata['chunk']['metadata']
+                    for prop_name, metadata_key in external_props.items():
+                        if metadata_key in valid_source_metadata:
+                            chunk_metadata[prop_name] = valid_source_metadata[metadata_key]
+
 
             metadata = self._update_metadata_with_versioning_info(metadata, node, build_timestamp)
             

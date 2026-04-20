@@ -4,7 +4,6 @@
 import logging
 from typing import List, Any, Optional
 from graphrag_toolkit.lexical_graph.metadata import SourceMetadataFormatter, DefaultSourceMetadataFormatter
-from graphrag_toolkit.lexical_graph.versioning import VERSIONING_METADATA_KEYS
 from graphrag_toolkit.lexical_graph.indexing import IdGenerator
 from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
@@ -130,21 +129,7 @@ class NodeBuilders():
         if len(self.builders) == 0:
             return input_nodes
         
-        def clean_relationship_metadata(node):
-            def remove_versioning_metadata(n):
-                for k in VERSIONING_METADATA_KEYS:
-                    if k in n.metadata:
-                        del n.metadata[k]
-            for _, node_info in node.relationships.items():
-                if isinstance(node_info, list):
-                    for n in node_info:
-                        remove_versioning_metadata(n) 
-                else:
-                    remove_versioning_metadata(node_info)
-                    
-            return node
-        
-        def apply_tenant_rewrites(node):
+        def apply_tenant_id_rewrites(node):
             
             node.id_ =  self.id_generator.rewrite_id_for_tenant(node.id_)
 
@@ -163,8 +148,7 @@ class NodeBuilders():
         
         def pre_process(node):
             node = clean_text(node)
-            node = apply_tenant_rewrites(node)
-            node = clean_relationship_metadata(node)
+            node = apply_tenant_id_rewrites(node)
             return node
 
         results = []

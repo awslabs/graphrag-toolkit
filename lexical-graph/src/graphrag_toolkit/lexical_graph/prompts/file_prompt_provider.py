@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 import os
 import json
 from graphrag_toolkit.lexical_graph.prompts.prompt_provider_base import PromptProvider

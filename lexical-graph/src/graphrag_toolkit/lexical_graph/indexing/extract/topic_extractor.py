@@ -12,6 +12,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.preferred_values import Pre
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
 from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import BaseNode
 from llama_index.core.bridge.pydantic import Field
@@ -95,7 +96,7 @@ class TopicExtractor(BaseExtractor):
             ),
             prompt_template=prompt_template or EXTRACT_TOPICS_PROMPT, 
             source_metadata_field=source_metadata_field,
-            num_workers=num_workers or GraphRAGConfig.extraction_num_threads_per_worker,
+            num_workers=coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker),
             entity_classification_provider=entity_classification_provider or default_preferred_values([]),
             topic_provider=topic_provider or default_preferred_values([])
         )

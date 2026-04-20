@@ -50,7 +50,7 @@ class BatchTopicExtractorSync(BatchExtractorBase):
             ),
             prompt_template=prompt_template or EXTRACT_TOPICS_PROMPT,
             source_metadata_field=source_metadata_field,
-            batch_inference_dir=batch_inference_dir or os.path.join('output', 'batch-topics'),
+            batch_inference_dir=batch_inference_dir or os.path.join(GraphRAGConfig.local_output_dir, 'batch-topics'),
             description='Topic',
             entity_classification_provider=entity_classification_provider or default_preferred_values([]),
             topic_provider=topic_provider or default_preferred_values([])

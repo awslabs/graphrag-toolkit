@@ -1,3 +1,7 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+
 from abc import ABC, abstractmethod
 from typing import Any, List
 from llama_index.core.schema import Document

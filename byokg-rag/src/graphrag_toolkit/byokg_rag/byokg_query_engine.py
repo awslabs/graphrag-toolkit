@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 from typing import List, Tuple, Optional, Set
 
 from .utils import load_yaml, parse_response
@@ -30,16 +33,13 @@ class ByoKGQueryEngine:
             path_retriever: Optional component for retrieving paths
             graph_query_executor: Optional component for executing graph queries
             llm_generator: Optional language model for generating responses
-            direct_query_linking: flag whether to use entity linker with query embedding directly and can run without KG Linker LLM call
+            kg_linker: Optional KG linker for multi-strategy retrieval
+            cypher_kg_linker: Optional Cypher KG linker for cypher-based retrieval
+            direct_query_linking: Flag whether to use entity linker with query embedding directly
         """
         self.graph_store = graph_store
         self.schema = graph_store.get_schema()
 
-        if llm_generator is None:
-            from .llm.bedrock_llms import BedrockGenerator
-            llm_generator= BedrockGenerator(
-                model_name='us.anthropic.claude-3-5-sonnet-20240620-v1:0',
-                region_name='us-west-2')
         self.llm_generator = llm_generator
             
         if entity_linker is None:
@@ -52,7 +52,7 @@ class ByoKGQueryEngine:
         self.entity_linker = entity_linker
         self.direct_query_linking = direct_query_linking
         
-        if triplet_retriever is None:
+        if triplet_retriever is None and self.llm_generator is not None:
             from .graph_retrievers import AgenticRetriever
             from .graph_retrievers import GTraversal, TripletGVerbalizer
             graph_traversal = GTraversal(self.graph_store)
@@ -78,7 +78,7 @@ class ByoKGQueryEngine:
             graph_query_executor = GraphQueryRetriever(self.graph_store)
         self.graph_query_executor = graph_query_executor
 
-        if kg_linker is None and cypher_kg_linker is None: #initialize KGLinker as default
+        if kg_linker is None and cypher_kg_linker is None and self.llm_generator is not None:
             from .graph_connectors import KGLinker
             kg_linker = KGLinker(
                 llm_generator=self.llm_generator,
@@ -105,6 +105,9 @@ class ByoKGQueryEngine:
         Args:
             context_list: The list to add items to
             new_items: New items to add
+
+        Returns:
+            None
         """
         seen = set(context_list)
         for item in new_items:
@@ -113,7 +116,7 @@ class ByoKGQueryEngine:
                 seen.add(item)
 
     
-    def query(self, query: str, iterations: int = 2, cypher_iterations: int = 2, user_input: str = "") -> Tuple[List[str], List[str]]:
+    def query(self, query: str, iterations: int = 2, cypher_iterations: int = 2, user_input: str = "") -> List[str]:
         """
         Process a query through the retrieval and generation pipeline.
 
@@ -124,7 +127,7 @@ class ByoKGQueryEngine:
             user_input: Optional user input for additional instructions or context
 
         Returns:
-            Tuple of (retrieved context, final answers)
+            List containing retrieved context and final answers
         """
         retrieved_context: List[str] = []
         explored_entities: Set[str] = set()
@@ -168,15 +171,23 @@ class ByoKGQueryEngine:
                     context, linked_entities_cypher = self.graph_query_executor.retrieve(linking_query, return_answers=True)
                     cypher_context_with_feedback += context
                     if len(linked_entities_cypher) == 0:
-                        cypher_context_with_feedback.append("No executable results for the above cypher query for entity linking. Please improve cypher generation in the future for linking.")
-                    
+                        # Check if the context contains an actual execution error
+                        has_error = any("Error" in c and "Error executing query" in c for c in context)
+                        if has_error:
+                            cypher_context_with_feedback.append("The above cypher query for entity linking failed with an error. Please review the error message and fix the query syntax or schema references.")
+                        else:
+                            cypher_context_with_feedback.append("No executable results for the above cypher query for entity linking. Please improve cypher generation in the future for linking.")
 
                 if "opencypher" in artifacts:
                     graph_query = " ".join(artifacts["opencypher"])
                     context, answers = self.graph_query_executor.retrieve(graph_query, return_answers=True)
                     cypher_context_with_feedback += context
                     if len(answers) == 0:
-                        cypher_context_with_feedback.append("No executable results for the above. Please improve cypher generation in the future by focusing more on the given schema and the relations between node types.")
+                        has_error = any("Error" in c and "Error executing query" in c for c in context)
+                        if has_error:
+                            cypher_context_with_feedback.append("The above cypher query failed with an error. Please review the error message and fix the query syntax or schema references.")
+                        else:
+                            cypher_context_with_feedback.append("No executable results for the above. Please improve cypher generation in the future by focusing more on the given schema and the relations between node types.")
             
             if self.kg_linker is None:
                 return cypher_context_with_feedback
@@ -184,6 +195,9 @@ class ByoKGQueryEngine:
         
 
         # If kg_linker is provided, ByoKGQueryEngine tries to solve KGQA with multi-strategy retrieval
+        if self.kg_linker is None:
+            return cypher_context_with_feedback
+
         for iteration in range(iterations):
             # Generate response for current iteration
 
@@ -237,7 +251,25 @@ class ByoKGQueryEngine:
         return cypher_context_with_feedback + retrieved_context
 
     def generate_response(self, query: str, graph_context: str = "", task_prompt = None, user_input: str = "") -> Tuple[List[str], str]:
+        """
+        Generate a response using the LLM based on the query and graph context.
+
+        Args:
+            query: The search query
+            graph_context: Retrieved graph context to use for generation
+            task_prompt: Optional custom task prompt. If None, uses default generation prompt
+            user_input: Optional user input for additional instructions or context
+
+        Returns:
+            tuple: (list of answers, full response text)
+
+        Raises:
+            NotImplementedError: If custom task_prompt is provided (not yet supported)
+        """
         
+        if self.llm_generator is None:
+            raise ValueError("llm_generator is required to generate responses. Provide an llm_generator when initializing ByoKGQueryEngine.")
+
         if task_prompt is None:
             task_prompt = load_yaml("prompts/generation_prompts.yaml")["generate-response-qa"]
             user_prompt_formatted = task_prompt.format(

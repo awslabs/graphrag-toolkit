@@ -17,6 +17,7 @@ from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_guided_base_ch
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_cosine_search import ChunkCosineSimilaritySearch
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_chunk_beam_search import SemanticChunkBeamGraphSearch
 from graphrag_toolkit.lexical_graph.retrieval.utils.chunk_utils import get_chunks_query, SharedChunkEmbeddingCache
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 logger = logging.getLogger(__name__)
 
@@ -214,7 +215,7 @@ class SemanticGuidedChunkRetriever(SemanticGuidedBaseChunkRetriever):
         # 8. Create final ordered list
         ordered_nodes = []
         for source_id, nodes in source_nodes.items():
-            nodes.sort(key=lambda x: x.score or 0.0, reverse=True)
+            nodes.sort(key=lambda x: coalesce(x.score, 0.0), reverse=True)
             ordered_nodes.extend(nodes)
 
         end_order = time.time()

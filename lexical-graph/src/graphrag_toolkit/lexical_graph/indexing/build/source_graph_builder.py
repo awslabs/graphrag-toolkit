@@ -91,8 +91,6 @@ class SourceGraphBuilder(GraphBuilder):
                 key = k.strip().replace(' ', '_')
                 value = v
                 accept_k_v(key, value)
-                clean_metadata[key] = value
-                metadata_assignments_fns[key] = graph_client.property_assigment_fn(key, value)
 
             if versioning_metadata:
                 accept_k_v(EXTRACT_TIMESTAMP, versioning_metadata['extract_timestamp'])

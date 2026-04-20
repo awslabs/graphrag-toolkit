@@ -33,13 +33,16 @@ from graphrag_toolkit.lexical_graph.indexing.build import Checkpoint
 from graphrag_toolkit.lexical_graph.indexing.build import BuildFilters
 from graphrag_toolkit.lexical_graph.indexing.build.null_builder import NullBuilder
 from graphrag_toolkit.lexical_graph.indexing.build.delete_sources import DeleteSources
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
+from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
-
-DEFAULT_EXTRACTION_DIR = 'output'
+from llama_index.core.llms import LLM
 
 logger = logging.getLogger(__name__)
+
+ExtractionLLMType = Union[str, LLM, LLMCache]
 
 class ExtractionConfig():
     """
@@ -56,6 +59,9 @@ class ExtractionConfig():
         preferred_entity_classifications (List[str]): A list of preferred entity
         classifications to focus on during the extraction process.
         Defaults to DEFAULT_ENTITY_CLASSIFICATIONS if not specified.
+        preferred_topics: A list of preferred topic names (or a callable that
+        returns them) used to seed the LLM during topic extraction. Defaults
+        to an empty list.
         infer_entity_classifications (Union[InferClassificationsConfig, bool]):
         Specifies whether to infer entity classifications, using either a
         configuration object or a boolean flag. Defaults to False.
@@ -67,6 +73,8 @@ class ExtractionConfig():
         extraction_filters (Optional[MetadataFiltersType]): Metadata filters to
         be applied during the extraction process. Will be internally converted
         to a FilterConfig object.
+        extraction_llm (Optional[ExtractionLLMType]): LLM to be used for extracting
+        propositions and topics. If None, GraphRAGConfig.extract_llm is used. 
     """
     def __init__(self,
                  enable_proposition_extraction: bool = True,
@@ -75,7 +83,8 @@ class ExtractionConfig():
                  infer_entity_classifications: Union[InferClassificationsConfig, bool] = False,
                  extract_propositions_prompt_template: Optional[str] = None,
                  extract_topics_prompt_template: Optional[str] = None,
-                 extraction_filters: Optional[MetadataFiltersType] = None):
+                 extraction_filters: Optional[MetadataFiltersType] = None,
+                 extraction_llm: Optional[ExtractionLLMType] = None):
         self.enable_proposition_extraction = enable_proposition_extraction
         self.preferred_entity_classifications = preferred_entity_classifications if preferred_entity_classifications is not None else []
         self.preferred_topics = preferred_topics if preferred_topics is not None else []
@@ -83,6 +92,10 @@ class ExtractionConfig():
         self.extract_propositions_prompt_template = extract_propositions_prompt_template
         self.extract_topics_prompt_template = extract_topics_prompt_template
         self.extraction_filters = FilterConfig(extraction_filters)
+        if extraction_llm is not None:
+            self.extraction_llm = extraction_llm if isinstance(extraction_llm, LLMCache) else GraphRAGConfig.to_llm(extraction_llm)
+        else:
+            self.extraction_llm = None
 
 
 class BuildConfig():
@@ -101,6 +114,9 @@ class BuildConfig():
         domain labels as part of the build output.
         source_metadata_formatter (Optional[SourceMetadataFormatter]): Formatter
         responsible for handling source metadata during the build.
+        enable_versioning (Optional[bool]): Whether to enable versioned updates
+        during the build stage. Overrides GraphRAGConfig.enable_versioning when
+        set.
     """
     def __init__(self,
                  build_filters: Optional[BuildFilters] = None,
@@ -130,7 +146,6 @@ class BuildConfig():
         self.source_metadata_formatter = source_metadata_formatter or DefaultSourceMetadataFormatter()
         self.enable_versioning = enable_versioning
 
-
 class IndexingConfig():
     """
     Configuration for indexing data.
@@ -144,7 +159,7 @@ class IndexingConfig():
         chunking (Optional[List[NodeParser]]): List of chunking strategies to be
         applied during indexing. If no chunking strategies are provided, a
         default `SentenceSplitter` is used with a chunk size of 256 and an
-        overlap of 20.
+        overlap of 25.
         extraction (Optional[ExtractionConfig]): Configuration for data extraction,
         defaulting to a new instance of `ExtractionConfig` if not provided.
         build (Optional[BuildConfig]): Build-specific configuration, defaulting to
@@ -186,25 +201,6 @@ class IndexingConfig():
         self.batch_config = batch_config  # None = do not use batch inference
 
 IndexingConfigType = Union[IndexingConfig, ExtractionConfig, BuildConfig, BatchConfig, List[NodeParser]]
-
-def to_indexing_config(indexing_config:Optional[IndexingConfigType]=None) -> IndexingConfig:
-    if not indexing_config:
-        return IndexingConfig()
-    if isinstance(indexing_config, IndexingConfig):
-        return indexing_config
-    elif isinstance(indexing_config, ExtractionConfig):
-        return IndexingConfig(extraction=indexing_config)
-    elif isinstance(indexing_config, BuildConfig):
-        return IndexingConfig(build=indexing_config)
-    elif isinstance(indexing_config, BatchConfig):
-        return IndexingConfig(batch_config=indexing_config)
-    elif isinstance(indexing_config, list):
-        for np in indexing_config:
-            if not isinstance(np, NodeParser):
-                raise ValueError(f'Invalid indexing config type: {type(np)}')
-        return IndexingConfig(chunking=indexing_config)
-    else:
-        raise ValueError(f'Invalid indexing config type: {type(indexing_config)}')
 
 def to_indexing_config(indexing_config: Optional[IndexingConfigType] = None) -> IndexingConfig:
     """
@@ -296,13 +292,16 @@ class LexicalGraphIndex():
         self.graph_store = MultiTenantGraphStore.wrap(GraphStoreFactory.for_graph_store(graph_store), tenant_id)
         self.vector_store = MultiTenantVectorStore.wrap(VectorStoreFactory.for_vector_store(vector_store), tenant_id)
         self.tenant_id = tenant_id or TenantId()
-        self.extraction_dir = extraction_dir or DEFAULT_EXTRACTION_DIR
+        self.extraction_dir = extraction_dir or GraphRAGConfig.local_output_dir
         self.indexing_config = to_indexing_config(indexing_config)
 
         (pre_processors, components) = self._configure_extraction_pipeline(self.indexing_config)
 
         self.extraction_pre_processors = pre_processors
         self.extraction_components = components
+
+        # Backend bootstrap (for example index creation) is part of object lifecycle; fail fast if unavailable.
+        self.graph_store.init()
 
     def _configure_extraction_pipeline(self, config: IndexingConfig):
         """
@@ -347,11 +346,13 @@ class LexicalGraphIndex():
             if config.batch_config:
                 components.append(BatchLLMPropositionExtractorSync(
                     batch_config=config.batch_config,
-                    prompt_template=config.extraction.extract_propositions_prompt_template
+                    prompt_template=config.extraction.extract_propositions_prompt_template,
+                    llm=config.extraction.extraction_llm
                 ))
             else:
                 components.append(LLMPropositionExtractor(
-                    prompt_template=config.extraction.extract_propositions_prompt_template
+                    prompt_template=config.extraction.extract_propositions_prompt_template,
+                    llm=config.extraction.extraction_llm
                 ))
 
         entity_classification_provider = None
@@ -381,7 +382,8 @@ class LexicalGraphIndex():
                     num_iterations=infer_config.num_iterations,
                     num_classifications=infer_config.num_classifications,
                     prompt_template=infer_config.prompt_template,
-                    replace_default_classifications=infer_config.replace_default_classifications
+                    replace_default_classifications=infer_config.replace_default_classifications,
+                    llm=config.extraction.extraction_llm
                 )
 
                 pre_processors.append(entity_classification_provider)
@@ -404,14 +406,16 @@ class LexicalGraphIndex():
                 source_metadata_field=PROPOSITIONS_KEY if config.extraction.enable_proposition_extraction else None,
                 entity_classification_provider=entity_classification_provider,
                 topic_provider=topic_provider,
-                prompt_template=config.extraction.extract_topics_prompt_template
+                prompt_template=config.extraction.extract_topics_prompt_template,
+                llm=config.extraction.extraction_llm
             )
         else:
             topic_extractor = TopicExtractor(
                 source_metadata_field=PROPOSITIONS_KEY if config.extraction.enable_proposition_extraction else None,
                 entity_classification_provider=entity_classification_provider,
                 topic_provider=topic_provider,
-                prompt_template=config.extraction.extract_topics_prompt_template
+                prompt_template=config.extraction.extract_topics_prompt_template,
+                llm=config.extraction.extraction_llm
             )
 
         components.append(topic_extractor)
@@ -502,7 +506,7 @@ class LexicalGraphIndex():
 
         build_config = self.indexing_config.build
 
-        enable_versioning =  kwargs.get('enable_versioning', None) or build_config.enable_versioning or GraphRAGConfig.enable_versioning
+        enable_versioning =  coalesce(kwargs.get('enable_versioning', None), build_config.enable_versioning, GraphRAGConfig.enable_versioning)
 
         components = []
 
@@ -566,7 +570,7 @@ class LexicalGraphIndex():
 
         build_config = self.indexing_config.build
 
-        enable_versioning =  kwargs.get('enable_versioning', None) or build_config.enable_versioning or GraphRAGConfig.enable_versioning
+        enable_versioning =  coalesce(kwargs.get('enable_versioning', None), build_config.enable_versioning, GraphRAGConfig.enable_versioning)
 
         build_components = []
 
@@ -782,4 +786,3 @@ class LexicalGraphIndex():
         delete_sources = DeleteSources(graph_store=self.graph_store, vector_store=self.vector_store)
 
         return delete_sources.delete_source_documents(source_ids)
-

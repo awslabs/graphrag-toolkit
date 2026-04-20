@@ -15,6 +15,7 @@ from graphrag_toolkit.lexical_graph.retrieval.model import Source
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorBase, ProcessorArgs
 from graphrag_toolkit.lexical_graph.retrieval.post_processors import SentenceReranker
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection, SearchResult, Topic, ScoredEntity, EntityContexts
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import QueryBundle, NodeWithScore, TextNode
 from llama_index.core.node_parser import TokenTextSplitter
@@ -127,7 +128,7 @@ class RerankStatements(ProcessorBase):
             else QueryBundle(query_str=f'{query.query_str} (keywords: {extras})')
         )
 
-        reranker = SentenceReranker(model=self.reranking_model, top_n=self.args.max_statements or len(values))
+        reranker = SentenceReranker(model=self.reranking_model, top_n=coalesce(self.args.max_statements, len(values)))
 
         reranked_values = reranker.postprocess_nodes(
             [
@@ -195,7 +196,7 @@ class RerankStatements(ProcessorBase):
                 }
             })
             
-        num_results = min(self.args.max_statements or len(values), len(values))
+        num_results = min(coalesce(self.args.max_statements, len(values)), len(values))
         
         results = rerank_text(rank_query, text_sources, num_results, model_package_arn)
                 

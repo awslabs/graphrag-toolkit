@@ -5,7 +5,6 @@ import json
 import logging
 import numpy as np
 
-from pgvector.psycopg2 import register_vector
 from typing import List, Sequence, Dict, Any, Optional, Callable
 from urllib.parse import urlparse
 
@@ -14,6 +13,7 @@ from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIME
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import BaseNode, QueryBundle
 from llama_index.core.indices.utils import embed_nodes
@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 try:
     import psycopg2
     from pgvector.psycopg2 import register_vector
-    from psycopg2.errors import UniqueViolation, UndefinedTable
+    from psycopg2.errors import UniqueViolation, UndefinedTable, DuplicateTable
 except ImportError as e:
     raise ImportError(
         "psycopg2 and/or pgvector packages not found, install with 'pip install psycopg2-binary pgvector'"
@@ -284,7 +284,7 @@ class PGIndex(VectorIndex):
         enable_iam_db_auth = compute_enable_iam_db_auth(parsed.query, enable_iam_db_auth)
         
         embed_model = embed_model or GraphRAGConfig.embed_model
-        dimensions = dimensions or GraphRAGConfig.embed_dimensions
+        dimensions = coalesce(dimensions, GraphRAGConfig.embed_dimensions)
 
         return PGIndex(index_name=index_name, 
                        database=database, 
@@ -308,6 +308,9 @@ class PGIndex(VectorIndex):
     embed_model:EmbeddingType
     enable_iam_db_auth:bool=False
     initialized:bool=False
+
+    def underlying_index_name(self) -> str:
+        return ''.join([ c if c.isalnum() else '_' for c in super().underlying_index_name() ])
 
     def _get_connection(self):
         """
@@ -382,7 +385,7 @@ class PGIndex(VectorIndex):
                             valid_to BIGINT DEFAULT {TIMESTAMP_UPPER_BOUND}
                             );'''
                         )
-                    except UniqueViolation:
+                    except (UniqueViolation, DuplicateTable):
                         # For alt approaches, see: https://stackoverflow.com/questions/29900845/create-schema-if-not-exists-raises-duplicate-key-error
                         logger.warning(f"Table already exists, so ignoring CREATE: {self.underlying_index_name()}")
 

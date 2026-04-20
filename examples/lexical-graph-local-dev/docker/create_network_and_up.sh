@@ -14,7 +14,7 @@ fi
 
 # Create data directories
 echo "Creating data directories..."
-mkdir -p data/falkordb
+mkdir -p data/neo4j
 chmod -R 755 data/
 
 # Check if network exists
@@ -42,5 +42,5 @@ fi
 
 echo " Lexical-Graph environment is ready!"
 echo "   Jupyter Lab: http://localhost:8889 (token: lexical-graph)"
-echo "   FalkorDB: localhost:6379"
+echo "   Neo4j: http://localhost:7476"
 echo "   PostgreSQL: localhost:5433"

@@ -14,8 +14,9 @@ class TenantId(BaseModel):
     This class provides functionality to validate and handle tenant identifiers,
     with optional formatting methods that adapt the given label, index name,
     hashable string, or ID based on whether the tenant is default or custom.
-    Tenant IDs are validated to ensure they are alphanumeric, lowercase,
-    and between 1 to 10 characters in length.
+    Tenant IDs are validated to ensure they consist of lowercase letters,
+    numbers, and periods (not at start/end), and are between 1 and 25
+    characters in length.
 
     Attributes:
         value (Optional[str]): The tenant identifier. None indicates the default tenant.

@@ -1,0 +1,174 @@
+/* Valkey-style theming for GraphRAG Toolkit docs.
+   Reference: https://glide.valkey.io */
+
+:root {
+  /* Brand accent — graph-purple */
+  --sl-color-accent-low: #1a0d2e;
+  --sl-color-accent: #7c3aed;
+  --sl-color-accent-high: #c4b5fd;
+
+  /* Text */
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #e6e6f0;
+  --sl-color-gray-2: #b8b8cc;
+  --sl-color-gray-3: #8a8aa3;
+  --sl-color-gray-4: #4a4a66;
+  --sl-color-gray-5: #25253a;
+  --sl-color-gray-6: #14141f;
+
+  /* Backgrounds */
+  --sl-color-black: #0a0a14;
+  --sl-color-bg: #0a0a14;
+  --sl-color-bg-nav: #0f0f1e;
+  --sl-color-bg-sidebar: #0f0f1e;
+  --sl-color-bg-inline-code: #1c1c2e;
+
+  --sl-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sl-font-system-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #ede9fe;
+  --sl-color-accent: #6d28d9;
+  --sl-color-accent-high: #4c1d95;
+
+  --sl-color-white: #0a0a14;
+  --sl-color-gray-1: #14141f;
+  --sl-color-gray-2: #25253a;
+  --sl-color-gray-3: #4a4a66;
+  --sl-color-gray-4: #8a8aa3;
+  --sl-color-gray-5: #d9d9e6;
+  --sl-color-gray-6: #f1f0f7;
+  --sl-color-gray-7: #faf9ff;
+
+  --sl-color-black: #ffffff;
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #faf9ff;
+  --sl-color-bg-sidebar: #faf9ff;
+  --sl-color-bg-inline-code: #f1f0f7;
+}
+
+:root[data-theme='light'] .hero::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124, 58, 237, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 30%, rgba(59, 130, 246, 0.14), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 40%, rgba(236, 72, 153, 0.10), transparent 60%);
+}
+
+:root[data-theme='light'] .hero h1 {
+  background: linear-gradient(180deg, #1a0d2e 0%, #6d28d9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+:root[data-theme='light'] .hero .tagline {
+  color: var(--sl-color-gray-3);
+}
+
+:root[data-theme='light'] header.header {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+:root[data-theme='light'] .card {
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.05) 0%, rgba(124, 58, 237, 0.01) 100%);
+  border-color: var(--sl-color-gray-5);
+}
+
+:root[data-theme='light'] .hero a.action.minimal {
+  color: var(--sl-color-gray-1);
+  border-color: var(--sl-color-gray-5);
+  background: #ffffff;
+}
+
+/* Splash hero — big centered, gradient backdrop, valkey-style */
+.hero {
+  padding-block: 4rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124, 58, 237, 0.25), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 30%, rgba(59, 130, 246, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 40%, rgba(236, 72, 153, 0.12), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #ffffff 0%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.05;
+}
+
+.hero .tagline {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--sl-color-gray-2);
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.hero .actions {
+  margin-top: 2rem;
+  gap: 0.75rem;
+}
+
+.hero a.action.primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  border: none;
+  box-shadow: 0 8px 24px -8px rgba(124, 58, 237, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero a.action.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(124, 58, 237, 0.8);
+}
+
+.hero a.action.minimal {
+  color: var(--sl-color-white);
+  border: 1px solid var(--sl-color-gray-4);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Feature card grid below hero */
+.card-grid {
+  margin-block: 3rem;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.06) 0%, rgba(124, 58, 237, 0.02) 100%);
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--sl-color-accent);
+  transform: translateY(-2px);
+}
+
+.card .icon {
+  color: var(--sl-color-accent-high);
+}
+
+/* Top nav polish */
+header.header {
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  backdrop-filter: blur(12px);
+  background: rgba(10, 10, 20, 0.7);
+}
+
+/* Code blocks */
+.expressive-code {
+  border-radius: 10px;
+}

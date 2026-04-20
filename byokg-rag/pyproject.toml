@@ -7,7 +7,7 @@ packages = ["src/graphrag_toolkit"]
 
 [project]
 name = "graphrag-toolkit-byokg-rag"
-version = "0.0.1"
+version = "1.0.0"
 description = "AWS GraphRAG Toolkit, BYOKG RAG"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -16,3 +16,25 @@ license = "Apache-2.0"
 
 [tool.hatch.metadata.hooks.requirements_txt]
 files = ["src/graphrag_toolkit/byokg_rag/requirements.txt"]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--cov=src/graphrag_toolkit/byokg_rag",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+]
+
+# Coverage configuration lives in .coveragerc (used by CI via --cov-config).

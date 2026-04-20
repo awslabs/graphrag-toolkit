@@ -157,17 +157,19 @@ class Checkpoint():
         checkpoint_dir (str): The directory where checkpoint files are stored.
         enabled (bool): Indicates whether the checkpointing functionality is enabled.
     """
-    def __init__(self, checkpoint_name, output_dir='output', enabled=True):
+    def __init__(self, checkpoint_name, output_dir=None, enabled=True):
         """
         Initializes an instance with the specified checkpoint name, output directory, and enabled status.
 
         Args:
             checkpoint_name: Name of the checkpoint to be used.
-            output_dir: Output directory where the results are saved. Defaults to 'output'.
+            output_dir: Output directory where the results are saved. Defaults to GraphRAGConfig.local_output_dir.
             enabled: A boolean flag indicating if the instance is enabled. Defaults to True.
         """
+        from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+        resolved_output_dir = output_dir if output_dir is not None else GraphRAGConfig.local_output_dir
         self.checkpoint_name = checkpoint_name
-        self.checkpoint_dir = self.prepare_output_directories(checkpoint_name, output_dir)
+        self.checkpoint_dir = self.prepare_output_directories(checkpoint_name, resolved_output_dir)
         self.enabled = enabled
 
     def add_filter(self, o, tenant_id:TenantId):

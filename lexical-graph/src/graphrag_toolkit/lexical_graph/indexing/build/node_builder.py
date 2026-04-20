@@ -11,6 +11,7 @@ from graphrag_toolkit.lexical_graph.versioning import EXTRACT_TIMESTAMP, VALID_F
 from graphrag_toolkit.lexical_graph.indexing import IdGenerator
 from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
 from graphrag_toolkit.lexical_graph.indexing.constants import DEFAULT_CLASSIFICATION
+from graphrag_toolkit.lexical_graph.indexing.utils.metadata_utils import remove_collection_items_from_metadata
 
 class NodeBuilder(BaseComponent):
     """
@@ -137,3 +138,11 @@ class NodeBuilder(BaseComponent):
         }
 
         return metadata
+
+    def _get_source_info_metadata(self, source_info_metadata:Dict[str, Any]):
+        results = {}
+        (valid_metadata, invalid_metadata) = remove_collection_items_from_metadata(source_info_metadata)
+        results['metadata'] = self.source_metadata_formatter.format(valid_metadata)
+        results['invalid_metadata'] = invalid_metadata
+        return results
+

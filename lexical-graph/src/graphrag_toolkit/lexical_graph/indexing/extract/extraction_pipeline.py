@@ -19,6 +19,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract.source_doc_parser import So
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint
 from graphrag_toolkit.lexical_graph.indexing.extract.docs_to_nodes import DocsToNodes
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.node_parser import NodeParser
 from llama_index.core.utils import iter_batch
@@ -229,9 +230,9 @@ class ExtractionPipeline():
                 via keyword arguments.
         """
         components = components or []
-        num_workers = num_workers or GraphRAGConfig.extraction_num_workers
-        batch_size = batch_size or GraphRAGConfig.extraction_batch_size
-        include_classification_in_entity_id = include_classification_in_entity_id or GraphRAGConfig.include_classification_in_entity_id
+        num_workers = coalesce(num_workers, GraphRAGConfig.extraction_num_workers)
+        batch_size = coalesce(batch_size, GraphRAGConfig.extraction_batch_size)
+        include_classification_in_entity_id = coalesce(include_classification_in_entity_id, GraphRAGConfig.include_classification_in_entity_id)
         extract_timestamp = kwargs.pop('extract_timestamp', None)
 
         if num_workers > multiprocessing.cpu_count():
@@ -370,7 +371,7 @@ class ExtractionPipeline():
 
         input_source_documents = source_documents_from_source_types(inputs)
 
-        for source_documents in iter_batch(input_source_documents, self.batch_size):
+        for batch_num, source_documents in enumerate(iter_batch(input_source_documents, self.batch_size), 1):
 
             for pre_processor in self.pre_processors:
                 source_documents = pre_processor.parse_source_docs(source_documents)
@@ -383,14 +384,14 @@ class ExtractionPipeline():
                 for sd in source_documents
                 for n in sd.nodes
             ]
-            
+
             filtered_input_nodes = [
-                node 
-                for node in input_nodes 
-                if self.extraction_filters.filter_source_metadata_dictionary(get_source_metadata(node)) 
+                node
+                for node in input_nodes
+                if self.extraction_filters.filter_source_metadata_dictionary(get_source_metadata(node))
             ]
 
-            logger.info(f'Running extraction pipeline [batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
+            logger.info(f'Running extraction pipeline [batch: {batch_num}, batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
             
             node_batches = node_batcher(
                 num_batches=self.num_workers, 

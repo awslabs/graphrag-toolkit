@@ -3,63 +3,11 @@
 ## FAQ
 
   - [Errors and warnings](#errors-and-warnings)
-    - [RuntimeError: Please use nest_asyncio.apply() to allow nested event loops](#runtimeerror-please-use-nest_asyncioapply-to-allow-nested-event-loops)
     - [ModelError: An error occurred (AccessDeniedException) when calling the InvokeModel operation: \<identity\> is not authorized to perform: bedrock:InvokeModel](#modelerror-an-error-occurred-accessdeniedexception-when-calling-the-invokemodel-operation-identity-is-not-authorized-to-perform-bedrockinvokemodel)
     - [ModelError: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID](#modelerror-an-error-occurred-accessdeniedexception-when-calling-the-invokemodel-operation-you-dont-have-access-to-the-model-with-the-specified-model-id)
     - [WARNING:graph_store:Retrying query in x seconds because it raised ConcurrentModificationException](#warninggraph_storeretrying-query-in-x-seconds-because-it-raised-concurrentmodificationexception)
 
 ### Errors and warnings
-
-#### RuntimeError: Please use nest_asyncio.apply() to allow nested event loops
-
-`nest_asyncio.apply()` provides a convenient solution to enable nested event loops and make it easier to handle complex asynchronous programming situations in Python. All of the code examples in the documentation include `nest_asyncio.apply()`. However, the examples are formatted to be run in a Jupyter notebook. If you’re building an application with a main entry point, you may encounter this runtime error. To fix, put your application logic inside a method, and add an `if __name__ == '__main__'` block:
-
-```python
-import os
-
-from graphrag_toolkit.lexical_graph import LexicalGraphIndex
-from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
-from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
-
-from llama_index.readers.web import SimpleWebPageReader
-
-import nest_asyncio
-nest_asyncio.apply()
-
-def run_extract_and_build():
-
-    graph_store = GraphStoreFactory.for_graph_store(
-        'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
-    )
-    
-    vector_store = VectorStoreFactory.for_vector_store(
-        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
-    )
-
-    graph_index = LexicalGraphIndex(
-        graph_store, 
-        vector_store
-    )
-
-    doc_urls = [
-        'https://docs.aws.amazon.com/neptune/latest/userguide/intro.html',
-        'https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html',
-        'https://docs.aws.amazon.com/neptune-analytics/latest/userguide/neptune-analytics-features.html',
-        'https://docs.aws.amazon.com/neptune-analytics/latest/userguide/neptune-analytics-vs-neptune-database.html'
-    ]
-
-    docs = SimpleWebPageReader(
-        html_to_text=True,
-        metadata_fn=lambda url:{'url': url}
-    ).load_data(doc_urls)
-
-    graph_index.extract_and_build(docs, show_progress=True)
-
-if __name__ == '__main__':
-    run_extract_and_build()
-```
-
----
 
 #### ModelError: An error occurred (AccessDeniedException) when calling the InvokeModel operation: \<identity\> is not authorized to perform: bedrock:InvokeModel
 
@@ -94,6 +42,12 @@ graphrag_toolkit.errors.ModelError: An error occurred (AccessDeniedException) wh
 ```
 
 To fix,  [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to the appropriate foundation models in Amazon Bedrock, and then [grant IAM permissions to the model](#modelerror-an-error-occurred-accessdeniedexception-when-calling-the-invokemodel-operation-identity-is-not-authorized-to-perform-bedrockinvokemodel).
+
+---
+
+#### Importing the package patches llama_index async internals
+
+When you import `graphrag_toolkit.lexical_graph`, the package patches `llama_index.core.async_utils.asyncio_run` unconditionally ([`__init__.py:34`](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/__init__.py#L34)). The patch makes LlamaIndex's internal async runner work inside Jupyter notebooks by re-using the existing event loop instead of creating a new one. If no running loop is found, it falls back to `asyncio.run()`. This can interact unexpectedly with other code using LlamaIndex in the same process, particularly if that code relies on `asyncio_run` starting a clean event loop. There is currently no opt-out.
 
 ---
 

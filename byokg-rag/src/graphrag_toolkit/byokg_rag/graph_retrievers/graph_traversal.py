@@ -1,5 +1,7 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 from collections import defaultdict, deque
-import heapq
 
 class GTraversal:
     """
@@ -14,12 +16,12 @@ class GTraversal:
         Expand the source nodes to their one-hop neighbors.
 
         Args:
-            source_nodes (list): List of source nodes.
-            edge_type (str): Edge type to use for expansion. If None, use all edge types.
-            return_src_id (bool): Whether to return the source node of each expanded node.
+            source_nodes: List of source nodes
+            edge_type: Edge type to use for expansion. If None, use all edge types
+            return_src_id: Whether to return the source node of each expanded node
 
         Returns:
-            set: Set of expanded nodes or Dict of expanded nodes from each source_node
+            set or dict: Set of expanded nodes, or dict of expanded nodes from each source_node if return_src_id is True
         """
         if return_src_id:
             expanded_nodes = defaultdict(set)
@@ -61,11 +63,11 @@ class GTraversal:
         Expand the triplets of the source nodes.
 
         Args:
-            source_nodes (list): List of source nodes.
-            index_type: Not used here. 
+            source_nodes: List of source nodes
+            index_type: Not used in this implementation
 
         Returns:
-            set: Set of expanded triplets for all source nodes.
+            set: Set of expanded triplets for all source nodes
         """
         source_nodes = set(source_nodes)
         triplets = set()
@@ -94,11 +96,12 @@ class GTraversal:
         Retrieve triplets by traversing the graph up to specified number of hops from source nodes.
         
         Args:
-            source_nodes (list): List of source nodes.
-            hop (int): Number of hops to traverse
+            source_nodes: List of source nodes
+            index_type: Not used in this implementation
+            hop: Number of hops to traverse
             
         Returns:
-            set: Set of expanded triplets for the number of hops.
+            set: Set of expanded triplets for the number of hops
         """
         
         expanded_nodes = source_nodes
@@ -114,11 +117,11 @@ class GTraversal:
         Follow paths in a BFS style.
 
         Args:
-            source_nodes (list): List of source nodes to start from.
-            metapaths (list): List of metapaths to follow.
+            source_nodes: List of source nodes to start from
+            metapaths: List of metapaths to follow
 
         Returns:
-            list: List of paths found.
+            list: List of paths found
         """
         result_paths = []
         for start_node in source_nodes:
@@ -152,13 +155,13 @@ class GTraversal:
     
     def shortest_paths(self, source_nodes, target_nodes, max_distance=None):
         """
-        Find shortest paths from source nodes to target nodes using Dijkstra's algorithm.
+        Find shortest paths from source nodes to target nodes using BFS.
         Returns paths in the same format as follow_paths: list of paths, where each path is a list of triplets.
 
         Args:
-            source_nodes (list): List of source nodes to start from
-            target_nodes (list): List of target nodes to find paths to
-            max_distance (int, optional): Maximum distance to search for paths. If None, no limit.
+            source_nodes: List of source nodes to start from
+            target_nodes: List of target nodes to find paths to
+            max_distance: Maximum distance to search for paths. If None, no limit
 
         Returns:
             list: List of paths, where each path is a list of triplets (src, rel, dst)
@@ -168,23 +171,21 @@ class GTraversal:
         paths = defaultdict(list)
         visited = set()
         
-        # Priority queue for Dijkstra's algorithm
-        # Format: (distance, node, path_triplets)
-        pq = []
+        # Queue for BFS
+        # Format: node (path is reconstructed from `paths[node]`)
+        q = deque()
         
         # Initialize source nodes
         for source in source_nodes:
             distances[source] = 0
             paths[source] = []  # Empty path for source node
-            heapq.heappush(pq, (0, source, []))
-        
-        while pq:
-            current_dist, current_node, current_path = heapq.heappop(pq)
-            
-            # Skip if we've already found a shorter path to this node
-            if current_dist > distances[current_node]:
-                continue
-                
+            q.append(source)
+
+        while q:
+            current_node = q.popleft()
+            current_dist = distances[current_node]
+            current_path = paths[current_node]
+
             # Skip if we've already visited this node
             if current_node in visited:
                 continue
@@ -216,7 +217,7 @@ class GTraversal:
                     distances[dst] = new_dist
                     new_path = current_path + [triplet]  # Add the entire triplet
                     paths[dst] = new_path
-                    heapq.heappush(pq, (new_dist, dst, new_path))
+                    q.append(dst)
         
         # Convert paths to list of triplet paths
         result_paths = []

@@ -1,0 +1,151 @@
+# This workflow builds the lexical-graph package on prerelease and release events. 
+#
+# This workflow will upload a Python Package to PyPI when a release is created (not prerelease)
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
+#
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Lexical Graph Release
+
+on:
+  release:
+    types: [prereleased, released]
+
+permissions:
+  contents: write
+
+jobs:
+  release-build:
+    # Constraint: Only run if the tag starts with 'graphrag-lexical-graph/v':
+    if: startsWith(github.ref, 'refs/tags/graphrag-lexical-graph/v')
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.pypi_version }}
+
+    defaults:
+      run:
+        working-directory: lexical-graph
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Create virtual environment
+        run: uv venv .venv
+
+      - name: Install build dependencies
+        run: uv pip install --python .venv/bin/python build
+
+      - name: Build package
+        run: .venv/bin/python -m build
+
+      - name: Create latest dist copies
+        run: |
+          cp dist/*.whl dist/lexical-graph-latest.whl
+          cp dist/*.tar.gz dist/lexical-graph-latest.tar.gz
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-graph-dist
+          path: lexical-graph/dist/
+
+      - name: Extract version
+        id: version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            VERSION="${GITHUB_REF_NAME#graphrag-lexical-graph/}"
+          else
+            VERSION="v$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')"
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "pypi_version=${VERSION#v}" >> $GITHUB_OUTPUT
+
+      - name: Zip lexical-graph notebooks
+        working-directory: examples/lexical-graph/notebooks
+        run: |
+          zip lexical-graph-examples.zip *.ipynb
+          cp lexical-graph-examples.zip lexical-graph-examples-${{ steps.version.outputs.version }}.zip
+          cp lexical-graph-examples.zip lexical-graph-examples-latest.zip
+
+      - name: Upload lexical-graph-examples.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-graph-examples
+          path: |
+            examples/lexical-graph/notebooks/lexical-graph-examples.zip
+            examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip
+            examples/lexical-graph/notebooks/lexical-graph-examples-latest.zip
+          retention-days: 30
+
+      - name: Zip lexical-graph-hybrid-dev notebooks
+        working-directory: examples/lexical-graph-hybrid-dev/notebooks
+        run: |
+          zip lexical-graph-hybrid-dev-examples.zip *.ipynb
+          cp lexical-graph-hybrid-dev-examples.zip lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
+          cp lexical-graph-hybrid-dev-examples.zip lexical-graph-hybrid-dev-examples-latest.zip
+
+      - name: Upload lexical-graph-hybrid-dev-examples.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-graph-hybrid-dev-examples
+          path: |
+            examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples.zip
+            examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
+            examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
+          retention-days: 30
+
+      - name: Cleanup existing release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          # Extract base version (e.g. graphrag-lexical-graph/v3.18.0 from graphrag-lexical-graph/v3.18.0.dev3)
+          BASE_VERSION="${TAG%.dev*}"
+          # Find all dev releases matching this base version and delete their assets
+          gh release list --limit 100 --json tagName --jq '.[].tagName' | grep "^${BASE_VERSION}\.dev" | while read -r tag; do
+            gh release view "$tag" --json assets --jq '.assets[].name' | while read -r name; do
+              gh release delete-asset "$tag" "$name" --yes
+            done
+          done
+
+      - name: Attach Artifacts to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            lexical-graph/dist/*
+            examples/lexical-graph/notebooks/lexical-graph-examples-${{ steps.version.outputs.version }}.zip
+            examples/lexical-graph/notebooks/lexical-graph-examples-latest.zip
+            examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-${{ steps.version.outputs.version }}.zip
+            examples/lexical-graph-hybrid-dev/notebooks/lexical-graph-hybrid-dev-examples-latest.zip
+          prerelease: ${{ github.event.action == 'prereleased' }}
+
+  pypi-publish:
+    if: github.event.action == 'released'
+    runs-on: ubuntu-latest
+    needs: release-build
+    permissions:
+      id-token: write
+    environment:
+      name: pypi
+      url: https://pypi.org/project/graphrag-lexical-graph/${{ needs.release-build.outputs.version }}
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: lexical-graph-dist
+          path: dist/
+      - name: Remove non-versioned dist copies
+        run: rm -f dist/*-latest.*
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

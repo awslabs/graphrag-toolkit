@@ -1,3 +1,7 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+
 from typing import Any, List
 from graphrag_toolkit.lexical_graph.logging import logging
 from llama_index.core.schema import Document

@@ -1,0 +1,1176 @@
+{
+    "id_": "aws::abd5427c:6614:848bb4a4",
+    "embedding": null,
+    "metadata": {
+        "url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+        "pub_date": "2025-02-12",
+        "aws::graph::propositions": [
+            "Propositions about Amazon Neptune DB clusters",
+            "Amazon Neptune DB cluster has one primary DB instance",
+            "The primary DB instance is responsible for writing graph database contents",
+            "The primary DB instance is responsible for loading graph database contents",
+            "The primary DB instance is responsible for modifying graph database contents",
+            "Neptune replica connects to the same storage volume as the primary DB instance",
+            "Neptune replica supports only read operations",
+            "Neptune DB cluster can have up to 15 Neptune Replicas in addition to the primary DB instance",
+            "Neptune Replicas provide high availability",
+            "Neptune Replicas are located in separate Availability Zones",
+            "Neptune Replicas distribute load from reading clients",
+            "Neptune data is stored in the cluster volume",
+            "The cluster volume is designed for reliability",
+            "The cluster volume is designed for high availability",
+            "A cluster volume consists of copies of the data across multiple Availability Zones in a single AWS Region",
+            "Data is automatically replicated across Availability Zones",
+            "Data is highly durable",
+            "There is little possibility of data loss",
+            "Amazon Neptune supports open graph APIs for property graphs",
+            "Amazon Neptune supports open graph APIs for RDF graphs",
+            "Amazon Neptune supports Gremlin API for property graphs",
+            "Amazon Neptune supports openCypher API for property graphs  ",
+            "Amazon Neptune supports SPARQL API for RDF graphs",
+            "Amazon Neptune provides high performance for property graph models",
+            "Amazon Neptune provides high performance for property graph query languages",
+            "Amazon Neptune provides high performance for RDF graph models",
+            "Amazon Neptune provides high performance for RDF graph query languages"
+        ],
+        "aws::graph::topics": {
+            "topics": [
+                {
+                    "topicId": null,
+                    "chunkIds": [],
+                    "value": "Amazon Neptune",
+                    "entities": [
+                        {
+                            "entityId": null,
+                            "value": "Amazon Neptune",
+                            "classification": "Service"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "DB cluster",
+                            "classification": "Product"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "DB instance",
+                            "classification": "Product"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "Neptune Replica",
+                            "classification": "Product"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "cluster volume",
+                            "classification": "Product"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "Availability Zone",
+                            "classification": "Location"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "AWS Region",
+                            "classification": "Location"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "Gremlin API",
+                            "classification": "Software"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "openCypher API",
+                            "classification": "Software"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "SPARQL API",
+                            "classification": "Software"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "property graph",
+                            "classification": "Product"
+                        },
+                        {
+                            "entityId": null,
+                            "value": "RDF graph",
+                            "classification": "Product"
+                        }
+                    ],
+                    "statements": [
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune DB cluster has one primary DB instance",
+                            "details": [
+                                "primary DB instance PART OF DB cluster"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "DB cluster",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "HAS"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "primary DB instance",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "DB cluster",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "PART OF"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "complement": null
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "primary DB instance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "PART OF"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "DB cluster",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "The primary DB instance is responsible for writing graph database contents",
+                            "details": [
+                                "primary DB instance RESPONSIBLE FOR writing graph database contents"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "primary DB instance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "RESPONSIBLE FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "writing graph database contents",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "The primary DB instance is responsible for loading graph database contents",
+                            "details": [
+                                "primary DB instance RESPONSIBLE FOR loading graph database contents"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "primary DB instance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "RESPONSIBLE FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "loading graph database contents",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "The primary DB instance is responsible for modifying graph database contents",
+                            "details": [
+                                "primary DB instance RESPONSIBLE FOR modifying graph database contents"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "primary DB instance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "RESPONSIBLE FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "modifying graph database contents",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Neptune replica connects to the same storage volume as the primary DB instance",
+                            "details": [
+                                "primary DB instance CONNECTS TO cluster volume"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Neptune Replica",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "CONNECTS TO"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "cluster volume",
+                                        "classification": "Product"
+                                    },
+                                    "complement": null
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "primary DB instance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "CONNECTS TO"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "cluster volume",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Neptune replica supports only read operations",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Neptune Replica",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "SUPPORTS"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "read operations",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Neptune DB cluster can have up to 15 Neptune Replicas in addition to the primary DB instance",
+                            "details": [
+                                "primary DB instance PART OF DB cluster"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "DB cluster",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "CAN HAVE"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "up to 15 Neptune Replicas",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Neptune Replica",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "PART OF"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "DB cluster",
+                                        "classification": "Product"
+                                    },
+                                    "complement": null
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "primary DB instance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "PART OF"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "DB cluster",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Neptune Replicas provide high availability",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Neptune Replica",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "PROVIDES"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "high availability",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Neptune Replicas are located in separate Availability Zones",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Neptune Replica",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "LOCATED IN"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "Availability Zone",
+                                        "classification": "Location"
+                                    },
+                                    "complement": null
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Neptune Replicas distribute load from reading clients",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Neptune Replica",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "DISTRIBUTES"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "load from reading clients",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Neptune data is stored in the cluster volume",
+                            "details": [
+                                "Neptune data STORED IN cluster volume"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Neptune data",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "STORED IN"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "cluster volume",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "The cluster volume is designed for reliability",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "cluster volume",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "DESIGNED FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "reliability",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "The cluster volume is designed for high availability",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "cluster volume",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "DESIGNED FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "high availability",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "A cluster volume consists of copies of the data across multiple Availability Zones in a single AWS Region",
+                            "details": [
+                                "copies of data ACROSS Availability Zone"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "cluster volume",
+                                        "classification": "Product"
+                                    },
+                                    "predicate": {
+                                        "value": "CONSISTS OF"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "copies of data",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "copies of data",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "ACROSS"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "Availability Zone",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Availability Zone",
+                                        "classification": "Location"
+                                    },
+                                    "predicate": {
+                                        "value": "PART OF"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "AWS Region",
+                                        "classification": "Location"
+                                    },
+                                    "complement": null
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Data is automatically replicated across Availability Zones",
+                            "details": [
+                                "data REPLICATED automatically",
+                                "data REPLICATED ACROSS Availability Zone"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "data",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "REPLICATED"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "automatically",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "data",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "REPLICATED ACROSS"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "Availability Zone",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Data is highly durable",
+                            "details": [
+                                "data DURABLE highly"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "data",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "DURABLE"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "highly",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "There is little possibility of data loss",
+                            "details": [
+                                "data loss POSSIBILITY little"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "data loss",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "POSSIBILITY"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "little",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune supports open graph APIs for property graphs",
+                            "details": [
+                                "open graph API FOR property graph"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "SUPPORTS"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "open graph API",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "open graph API",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "property graph",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune supports open graph APIs for RDF graphs",
+                            "details": [
+                                "open graph API FOR RDF graph"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "SUPPORTS"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "open graph API",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "open graph API",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "RDF graph",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune supports Gremlin API for property graphs",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "SUPPORTS"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "Gremlin API",
+                                        "classification": "Software"
+                                    },
+                                    "complement": null
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Gremlin API",
+                                        "classification": "Software"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "property graph",
+                                        "classification": "Product"
+                                    },
+                                    "complement": null
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune supports openCypher API for property graphs",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "SUPPORTS"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "openCypher API",
+                                        "classification": "Software"
+                                    },
+                                    "complement": null
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "openCypher API",
+                                        "classification": "Software"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "property graph",
+                                        "classification": "Product"
+                                    },
+                                    "complement": null
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune supports SPARQL API for RDF graphs",
+                            "details": [],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "SUPPORTS"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "SPARQL API",
+                                        "classification": "Software"
+                                    },
+                                    "complement": null
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "SPARQL API",
+                                        "classification": "Software"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": {
+                                        "entityId": null,
+                                        "value": "RDF graph",
+                                        "classification": "Product"
+                                    },
+                                    "complement": null
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune provides high performance for property graph models",
+                            "details": [
+                                "high performance FOR property graph model"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "PROVIDES"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "property graph model",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune provides high performance for property graph query languages",
+                            "details": [
+                                "high performance FOR property graph query language"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "PROVIDES"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "property graph query language",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune provides high performance for RDF graph models",
+                            "details": [
+                                "high performance FOR RDF graph model"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "PROVIDES"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "RDF graph model",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "statementId": null,
+                            "topicId": null,
+                            "chunkId": null,
+                            "value": "Amazon Neptune provides high performance for RDF graph query languages",
+                            "details": [
+                                "high performance FOR RDF graph query language"
+                            ],
+                            "facts": [
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "Amazon Neptune",
+                                        "classification": "Service"
+                                    },
+                                    "predicate": {
+                                        "value": "PROVIDES"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                },
+                                {
+                                    "factId": null,
+                                    "statementId": null,
+                                    "subject": {
+                                        "entityId": null,
+                                        "value": "high performance",
+                                        "classification": "__Local_Entity__"
+                                    },
+                                    "predicate": {
+                                        "value": "FOR"
+                                    },
+                                    "object": null,
+                                    "complement": {
+                                        "entityId": null,
+                                        "value": "RDF graph query language",
+                                        "classification": "__Local_Entity__"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "excluded_embed_metadata_keys": [],
+    "excluded_llm_metadata_keys": [],
+    "relationships": {
+        "1": {
+            "node_id": "aws::abd5427c:6614",
+            "node_type": "4",
+            "metadata": {
+                "url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+                "pub_date": "2025-02-12"
+            },
+            "hash": "54caffe2f3efab9c2b4fe8c9003d859093e92aa665e8f26ac4b04af1c79c5a0a",
+            "class_name": "RelatedNodeInfo"
+        }
+    },
+    "metadata_template": "{key}: {value}",
+    "metadata_separator": "\n",
+    "text": "Each Neptune DB cluster has one primary DB instance that is responsible for writing (that is, loading or modifying) graph database contents.\n\n  * _Neptune replica_ \u00e2\u0080\u0093 Connects to the same storage volume as the primary DB instance and supports only read operations. Each Neptune DB cluster can have up to 15 Neptune Replicas in addition to the primary DB instance. This provides high availability by locating Neptune Replicas in separate Availability Zones and distribution load from reading clients.\n\n  * _Cluster volume_ \u00e2\u0080\u0093 Neptune data is stored in the cluster volume, which is designed for reliability and high availability. A cluster volume consists of copies of the data across multiple Availability Zones in a single AWS Region. Because your data is automatically replicated across Availability Zones, it is highly durable, and there is little possibility of data loss.\n\n###### Supports Open Graph APIs\n\nAmazon Neptune supports open graph APIs for both property graphs (Gremlin and\nopenCypher) and RDF graphs (SPARQL). It provides high performance for both of\nthese graph models and their query languages.",
+    "mimetype": "text/plain",
+    "start_char_idx": 2837,
+    "end_char_idx": 3950,
+    "metadata_seperator": "\n",
+    "text_template": "[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n",
+    "class_name": "TextNode"
+}

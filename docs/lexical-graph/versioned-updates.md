@@ -55,7 +55,19 @@ If you have an existing graph and vector store built by a version of the graphra
 
 Indexed documents are versioned based on _extraction_ timestamps. A document will be `valid_from` the timestamp when it was extracted. If a different version of the document is subsequently indexed, the old version will be considered `valid_to` the extraction timestamp of the new version.
 
-When _extracting_ data (using `LexicalGraphIndex.extract()` or `LexicalGraphIndex.extract_and_build()`), you must add the names of _version-independent metadata fields_ to the metadata of each document you want to update and version. 
+When _extracting_ data (using `LexicalGraphIndex.extract()` or `LexicalGraphIndex.extract_and_build()`), you must add the names of _version-independent metadata fields_ to the metadata of each document you want to update and version. Use the `add_versioning_info` helper to do this ([`versioning.py:35`](https://github.com/awslabs/graphrag-toolkit/blob/main/lexical-graph/src/graphrag_toolkit/lexical_graph/versioning.py#L35)):
+
+```python
+from graphrag_toolkit.lexical_graph import add_versioning_info
+
+metadata = add_versioning_info(
+    metadata={},
+    id_fields=['url'],          # metadata fields that together identify this document across versions
+    valid_from=1761899971000    # optional: unix timestamp (ms) when this version became valid
+)
+```
+
+Both `id_fields` and `valid_from` are optional. `id_fields` accepts a string or a list of strings. 
 
 When _building_ a lexical graph (using `LexicalGraphIndex.build()` or `LexicalGraphIndex.extract_and_build()`), you must enable versioning, using either the `GraphRAGConfig.enable_versioning=True` global configuration parameter, or by passing a `BuildConfig(enable_versioning=True)` configuration object to the `LexicalGraphIndex` constructor, or by passing `enable_versioning=True` to the `LexicalGraphIndex.build()` or `LexicalGraphIndex.extract_and_build()` methods. 
 

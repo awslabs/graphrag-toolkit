@@ -1,0 +1,5 @@
+versioning.CreateVersionedData
+versioning.QueryVersionedData
+versioning.DeleteVersionedData
+versioning.AutoDeleteAllPrevVersionsData
+versioning.DoNotAutoDeleteProtectedPrevVersionsData

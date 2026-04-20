@@ -132,7 +132,7 @@ ERROR: Could not install packages due to an EnvironmentError
 !pip install -e /home/jovyan/lexical-graph-src --user
 
 # Or reinstall from scratch
-!pip uninstall graphrag-toolkit-lexical-graph -y
+!pip uninstall graphrag-lexical-graph -y
 !pip install -e /home/jovyan/lexical-graph-src
 
 # Restart kernel after installation

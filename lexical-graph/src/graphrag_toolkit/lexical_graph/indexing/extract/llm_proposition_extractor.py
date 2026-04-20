@@ -10,6 +10,7 @@ from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY
 from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import BaseNode
 from llama_index.core.bridge.pydantic import Field
@@ -87,7 +88,7 @@ class LLMPropositionExtractor(BaseExtractor):
             ),
             prompt_template=prompt_template or EXTRACT_PROPOSITIONS_PROMPT, 
             source_metadata_field=source_metadata_field,
-            num_workers=num_workers or GraphRAGConfig.extraction_num_threads_per_worker
+            num_workers=coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
         )
 
         logger.debug(f'Prompt template: {self.prompt_template}')

@@ -169,8 +169,8 @@ class TopicNodeBuilder(NodeBuilder):
                     }
 
                     if source_info.metadata:
-                        metadata['source']['metadata'] = source_info.metadata
-
+                        metadata['source'].update(self._get_source_info_metadata(source_info.metadata))
+                        
                     metadata = self._update_metadata_with_versioning_info(metadata, node, build_timestamp)
 
                     topic_node = TextNode(

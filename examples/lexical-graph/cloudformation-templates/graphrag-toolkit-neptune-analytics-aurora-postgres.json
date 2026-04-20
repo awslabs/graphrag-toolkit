@@ -72,7 +72,7 @@
     "ExampleNotebooksURL": {
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
-      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip"
+      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip"
     }
   },
   "Metadata": {
@@ -1215,7 +1215,7 @@
                                   {
                                     "Ref": "ExampleNotebooksURL"
                                   },
-                                  "\" .\n",
+                                  "\" lexical-graph-examples.zip\n",
                                   "  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
                                   "  rm -rf lexical-graph-examples.zip\n"
                                 ]
@@ -1225,11 +1225,11 @@
                               "Fn::Join": [
                                 "",
                                 [
-                                  "  curl -LO \"",
+                                  "  curl -L \"",
                                   {
                                     "Ref": "ExampleNotebooksURL"
                                   },
-                                  "\" -o lexical-graph-examples.zip\n",
+                                  "\" -o \"lexical-graph-examples.zip\"\n",
                                   "  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
                                   "  rm -rf lexical-graph-examples.zip\n"
                                 ]

@@ -61,6 +61,7 @@ config = PDFReaderConfig(
 | `MarkdownReaderProvider` | `MarkdownReaderConfig` | Markdown files | Built-in |
 | `CSVReaderProvider` | `CSVReaderConfig` | CSV files | Built-in |
 | `JSONReaderProvider` | `JSONReaderConfig` | JSON/JSONL files | Built-in |
+| `StreamingJSONLReaderProvider` | `StreamingJSONLReaderConfig` | Memory-efficient JSONL processing | Built-in |
 | `StructuredDataReaderProvider` | `StructuredDataReaderConfig` | CSV/Excel files with streaming | `pandas`, `openpyxl`, `llama-index-readers-structured-data` |
 
 ### Web and Knowledge Base Readers
@@ -160,6 +161,118 @@ config = StructuredDataReaderConfig(
 )
 ```
 
+## Streaming JSONL Processing
+
+The `StreamingJSONLReaderProvider` is designed for memory-efficient processing of large JSONL files. Unlike the standard `JSONReaderProvider` which loads all lines into memory, this provider processes files line-by-line with constant memory usage.
+
+### Key Features
+
+- **Memory Efficient**: Processes files line-by-line without loading entire file into memory
+- **Batch Processing**: Yields documents in configurable batches for efficient downstream processing
+- **S3 Support**: Works seamlessly with both local files and S3 URIs
+- **Flexible Text Extraction**: Extract text from a specific field or use entire JSON object
+- **Error Handling**: Configurable strict mode for validation or graceful error skipping
+- **Progress Logging**: Built-in progress tracking for long-running operations
+
+### Configuration Options
+
+```python
+StreamingJSONLReaderConfig(
+    batch_size=100,           # Number of documents per batch (default: 100)
+    text_field="text",        # JSON field to extract as text (default: "text")
+                              # Set to None to use entire JSON as text
+    strict_mode=False,        # If True, raise errors on invalid JSON/missing fields
+                              # If False, skip invalid lines and continue (default)
+    log_interval=10000,       # Log progress every N lines (default: 10000)
+    metadata_fn=None          # Optional function to add custom metadata
+)
+```
+
+### Usage Examples
+
+#### Basic Usage
+```python
+from graphrag_toolkit.lexical_graph.indexing.load.readers import (
+    StreamingJSONLReaderProvider, 
+    StreamingJSONLReaderConfig
+)
+
+config = StreamingJSONLReaderConfig()
+reader = StreamingJSONLReaderProvider(config)
+docs = reader.read('data.jsonl')
+```
+
+#### Custom Text Field
+```python
+# Extract text from a different field
+config = StreamingJSONLReaderConfig(
+    text_field="content",  # Use "content" field instead of "text"
+)
+reader = StreamingJSONLReaderProvider(config)
+docs = reader.read('data.jsonl')
+```
+
+#### Use Entire JSON as Text
+```python
+# Use the entire JSON object as document text
+config = StreamingJSONLReaderConfig(
+    text_field=None  # None means use full JSON
+)
+reader = StreamingJSONLReaderProvider(config)
+docs = reader.read('data.jsonl')
+```
+
+#### Lazy Loading for Large Files
+```python
+# Process large files in batches without loading all into memory
+config = StreamingJSONLReaderConfig(
+    batch_size=50,
+    log_interval=5000
+)
+reader = StreamingJSONLReaderProvider(config)
+
+for batch in reader.lazy_load_data('large-file.jsonl'):
+    # Process each batch of up to 50 documents
+    for doc in batch:
+        # Process individual document
+        print(f"Line {doc.metadata['line_number']}: {doc.text[:100]}...")
+```
+
+#### S3 Files
+```python
+# Works seamlessly with S3 URIs
+config = StreamingJSONLReaderConfig(
+    batch_size=100,
+    metadata_fn=lambda path: {'bucket': path.split('/')[2]}
+)
+reader = StreamingJSONLReaderProvider(config)
+docs = reader.read('s3://my-bucket/data/large-file.jsonl')
+```
+
+#### Strict Mode for Validation
+```python
+# Raise errors on invalid JSON or missing fields
+config = StreamingJSONLReaderConfig(
+    text_field="required_field",
+    strict_mode=True  # Will raise exception on first error
+)
+reader = StreamingJSONLReaderProvider(config)
+
+try:
+    docs = reader.read('data.jsonl')
+except (json.JSONDecodeError, ValueError) as e:
+    print(f"Validation failed: {e}")
+```
+
+### Metadata
+
+Each document includes the following metadata:
+- `file_path`: Original source path (local or S3)
+- `source`: Either "local_file" or "s3"
+- `line_number`: 1-based line number in the file
+- `document_type`: Always "jsonl"
+- Any additional fields from `metadata_fn`
+
 ## Configuration Examples
 
 ### PDF Reader
@@ -197,6 +310,29 @@ config = YouTubeReaderConfig(
 reader = YouTubeReaderProvider(config)
 docs = reader.read('https://www.youtube.com/watch?v=VIDEO_ID')
 ```
+
+#### Proxy Support
+
+For environments requiring HTTP/HTTPS proxies (corporate networks, containerized deployments):
+
+```python
+# Option 1: Configure via YouTubeReaderConfig
+config = YouTubeReaderConfig(
+    language="en",
+    proxy_url="http://proxy.example.com:8080",  # HTTP/HTTPS proxy
+    metadata_fn=lambda url: {'source': 'youtube', 'url': url}
+)
+reader = YouTubeReaderProvider(config)
+docs = reader.read('https://www.youtube.com/watch?v=VIDEO_ID')
+
+# Option 2: Configure via environment variable
+# export YOUTUBE_PROXY_URL=http://proxy.example.com:8080
+config = YouTubeReaderConfig(language="en")
+reader = YouTubeReaderProvider(config)  # Automatically uses YOUTUBE_PROXY_URL
+docs = reader.read('https://www.youtube.com/watch?v=VIDEO_ID')
+```
+
+The proxy URL should be in the format `http://proxy.example.com:port` or `https://proxy.example.com:port`. The same proxy is used for both HTTP and HTTPS requests.
 
 ### Structured Data Reader (CSV/Excel)
 ```python
@@ -237,6 +373,31 @@ config = S3DirectoryReaderConfig(
 )
 reader = S3DirectoryReaderProvider(config)
 docs = reader.read()  # No parameter needed
+```
+
+### Streaming JSONL Reader
+```python
+from graphrag_toolkit.lexical_graph.indexing.load.readers import StreamingJSONLReaderProvider, StreamingJSONLReaderConfig
+
+# Memory-efficient processing of large JSONL files
+config = StreamingJSONLReaderConfig(
+    batch_size=100,  # Process in batches
+    text_field="text",  # Field to extract as document text
+    strict_mode=False,  # Skip invalid lines instead of raising errors
+    log_interval=10000,  # Log progress every N lines
+    metadata_fn=lambda path: {'source': 'jsonl', 'file': path}
+)
+reader = StreamingJSONLReaderProvider(config)
+
+# Works with local and S3 files
+docs = reader.read('data.jsonl')
+docs = reader.read('s3://bucket/large-file.jsonl')
+
+# Or use lazy loading for streaming
+for batch in reader.lazy_load_data('large-file.jsonl'):
+    # Process each batch of documents
+    for doc in batch:
+        print(doc.text)
 ```
 
 ### Database Reader

@@ -5,9 +5,9 @@ import logging
 import abc  
 import uuid
 from dataclasses import dataclass
-from tenacity import Retrying, stop_after_attempt, wait_random
+from tenacity import Retrying, stop_after_attempt, wait_random, retry_if_not_exception_type
 from tenacity import RetryCallState
-from typing import Callable, List, Dict, Any, Optional, Union
+from typing import Callable, List, Dict, Any, Optional, Union, Tuple
 
 from graphrag_toolkit.lexical_graph import TenantId, GraphQueryError
 from graphrag_toolkit.lexical_graph.storage.graph.query_tree import QueryTree
@@ -386,6 +386,9 @@ class GraphStore(BaseModel):
     def __exit__(self, exception_type, exception_value, traceback):
         logger.debug(f'Exiting {type(self).__name__}')
         return False
+    
+    def unretriable_exception_types(self) -> Tuple:
+        return ()
 
     def execute_query_with_retry(self, query:str, parameters:Dict[str, Any], max_attempts=3, max_wait=5, **kwargs) -> Dict[str, Any]:
         """
@@ -421,6 +424,7 @@ class GraphStore(BaseModel):
 
             attempt_number = 0
             for attempt in Retrying(
+                retry=retry_if_not_exception_type(exception_types=self.unretriable_exception_types()),
                 stop=stop_after_attempt(max_attempts), 
                 wait=wait_random(min=0, max=max_wait),
                 before_sleep=on_retry_query(logger, logging.WARNING, log_entry_parameters), 

@@ -1,3 +1,7 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+
 from dataclasses import dataclass
 from typing import Optional, List, Dict, Any, Callable
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config_base import ReaderProviderConfig, AWSReaderConfigBase
@@ -35,6 +39,15 @@ class CSVReaderConfig(ReaderProviderConfig):
 class JSONReaderConfig(ReaderProviderConfig):
     is_jsonl: bool = False
     clean_json: bool = True
+    metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
+
+@dataclass
+class StreamingJSONLReaderConfig(ReaderProviderConfig):
+    """Configuration for streaming JSONL reader that processes files line-by-line."""
+    batch_size: int = 100
+    text_field: Optional[str] = "text"
+    strict_mode: bool = False
+    log_interval: int = 10000
     metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
 
 @dataclass
@@ -118,6 +131,7 @@ class WikipediaReaderConfig(ReaderProviderConfig):
 class YouTubeReaderConfig(ReaderProviderConfig):
     language: str = "en"
     metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
+    proxy_url: Optional[str] = None  # HTTP/HTTPS proxy URL (e.g., 'http://proxy.example.com:8080')
 
 @dataclass
 class StructuredDataReaderConfig(ReaderProviderConfig):
@@ -158,3 +172,20 @@ class OutlookReaderConfig(ReaderProviderConfig):
     client_id: str = ""
     client_secret: str = ""
     tenant_id: str = ""
+
+
+@dataclass
+class UniversalDirectoryReaderConfig(ReaderProviderConfig):
+    """Config for UniversalDirectoryReaderProvider - reads from local or S3."""
+    input_dir: Optional[str] = None
+    input_files: Optional[List[str]] = None
+    exclude_hidden: bool = True
+    recursive: bool = False
+    required_exts: Optional[List[str]] = None
+    file_extractor: Optional[Dict[str, Any]] = None
+    metadata_fn: Optional[Callable[[str], Dict[str, Any]]] = None
+    # S3BasedDocs params
+    region: Optional[str] = None
+    bucket_name: Optional[str] = None
+    key_prefix: Optional[str] = None
+    collection_id: Optional[str] = None

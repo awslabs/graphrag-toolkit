@@ -9,7 +9,7 @@ import uuid
 from typing import List, Any, Optional, Iterable, Dict
 from dataclasses import dataclass
 
-from llama_index.core.bridge.pydantic import PrivateAttr
+from llama_index.core.bridge.pydantic import PrivateAttr, ConfigDict
 from llama_index.core.schema import BaseNode, NodeWithScore, QueryBundle
 from llama_index.core.vector_stores.types import  VectorStoreQueryResult, VectorStoreQueryMode, MetadataFilters, MetadataFilter
 from llama_index.core.indices.utils import embed_nodes
@@ -20,6 +20,7 @@ from graphrag_toolkit.lexical_graph.versioning import  VALID_FROM, VALID_TO, TIM
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 logger = logging.getLogger(__name__)
 
@@ -500,25 +501,12 @@ class OpenSearchIndex(VectorIndex):
         dimensions = dimensions or GraphRAGConfig.embed_dimensions
 
         return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model, client_kwargs=client_kwargs)
-    
-    class Config:
-        """Handles configuration settings and specifies validation rules.
-
-        The Config class defines specific configuration behaviors and settings
-        used in the application. It is commonly utilized to enforce specific
-        rules or facilitate custom behavior when working with certain
-        types of data or attributes.
-
-        Attributes:
-            arbitrary_types_allowed (bool): Indicates whether the
-                configuration will allow arbitrary types.
-        """
-        arbitrary_types_allowed = True
 
     endpoint:str
     index_name:str
     dimensions:int
     embed_model:EmbeddingType
+    model_config = ConfigDict(arbitrary_types_allowed=True)
     client_kwargs:Optional[Dict[str, Any]]=None
 
     _client: OpensearchVectorClient = PrivateAttr(default=None)
@@ -977,6 +965,9 @@ class OpenSearchIndex(VectorIndex):
 
         return node_ids_to_embed_map
     
+    def _insufficient_ids(self, doc_id_map:Dict[str, List[str]], ids:List[str]) -> bool:
+        return len(doc_id_map.keys()) < len(set(ids));
+    
     def update_versioning(self, versioning_timestamp:int, ids:List[str]=[]) -> List[str]:
 
         allow_refresh = True
@@ -992,14 +983,14 @@ class OpenSearchIndex(VectorIndex):
 
         start = time.time()
 
-        while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
+        while self._insufficient_ids(doc_id_map, ids) and allow_refresh:
             logger.debug(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
-        if len(doc_id_map.keys()) < len(ids):
+        if self._insufficient_ids(doc_id_map, ids) :
             logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
         
@@ -1067,14 +1058,14 @@ class OpenSearchIndex(VectorIndex):
 
         start = time.time()
 
-        while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
+        while self._insufficient_ids(doc_id_map, ids) and allow_refresh:
             logger.debug('[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
-        if len(doc_id_map.keys()) < len(ids):
+        if self._insufficient_ids(doc_id_map, ids) :
             logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
         update_request = '{ "doc": {"metadata" : {"source" : {"versioning": {"valid_from": ' + str(TIMESTAMP_LOWER_BOUND) + ', "valid_to": ' + str(TIMESTAMP_UPPER_BOUND) + '}}}}}'
@@ -1169,14 +1160,14 @@ class OpenSearchIndex(VectorIndex):
 
         start = time.time()
 
-        while (len(doc_id_map.keys()) < len(ids)) and allow_refresh:
+        while self._insufficient_ids(doc_id_map, ids) and allow_refresh:
             logger.debug(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index, waiting 10 seconds')
             time.sleep(10)
             doc_id_map = self._get_existing_doc_ids_for_ids(ids)
             if int(time.time() - start) > 70:
                 allow_refresh = False
 
-        if len(doc_id_map.keys()) < len(ids):
+        if self._insufficient_ids(doc_id_map, ids):
             logger.warning(f'[{self.underlying_index_name()}] Unable to find documents for all ids in index after 70 seconds: [ids: {ids}, indexed_ids: {doc_id_map.keys()}]')
 
         requests = {}

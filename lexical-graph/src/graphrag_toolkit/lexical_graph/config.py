@@ -19,6 +19,8 @@ from typing import Optional, Union, Dict, Set, List
 from boto3 import Session as Boto3Session
 from botocore.config import Config
 
+from graphrag_toolkit.lexical_graph.errors import ConfigurationError
+
 from llama_index.llms.bedrock_converse import BedrockConverse
 from llama_index.embeddings.bedrock import BedrockEmbedding
 from llama_index.core.settings import Settings
@@ -49,6 +51,9 @@ DEFAULT_ENABLE_CACHE = False
 DEFAULT_METADATA_DATETIME_SUFFIXES = ['_date', '_datetime']
 DEFAULT_OPENSEARCH_ENGINE = 'nmslib'
 DEFAULT_ENABLE_VERSIONING = False
+DEFAULT_CHUNK_EXTERNAL_PROPERTIES = None
+DEFAULT_LOCAL_OUTPUT_DIR = 'output'  # Local staging directory for batch files (use /tmp for EKS)
+DEFAULT_LOG_OUTPUT_DIR = None  # Log file directory (None = use filename as-is, set to /tmp for EKS)
 
 def _is_json_string(s):
     """
@@ -287,6 +292,9 @@ class _GraphRAGConfig:
     _metadata_datetime_suffixes: Optional[List[str]] = None
     _opensearch_engine: Optional[str] = None
     _enable_versioning = None
+    _chunk_external_properties: Optional[Dict[str, str]] = None
+    _local_output_dir: Optional[str] = None
+    _log_output_dir: Optional[str] = None
 
     @contextlib.contextmanager
     def _validate_sso_token(self, profile):
@@ -845,7 +853,7 @@ class _GraphRAGConfig:
         """
         self._metadata_datetime_suffixes = metadata_datetime_suffixes
 
-    def _to_llm(self, llm: LLMType):
+    def to_llm(self, llm: LLMType):
         """
         Converts the given LLMType into an instance of LLM or BedrockConverse.
 
@@ -909,6 +917,49 @@ class _GraphRAGConfig:
         except Exception as e:
             raise ValueError(f'Failed to initialize BedrockConverse: {str(e)}') from e
 
+
+    def to_embedding_model(self, embed_model:EmbeddingType):
+
+        if isinstance(embed_model, BaseEmbedding):
+            return embed_model
+        
+        try:
+
+            boto3_session = self.session
+            botocore_session = None
+            if hasattr(boto3_session, 'get_session'):
+                botocore_session = boto3_session.get_session()
+
+            profile = self.aws_profile
+            region = self.aws_region
+
+            botocore_config = Config(
+                retries={"total_max_attempts": 10, "mode": "adaptive"},
+                connect_timeout=60.0,
+                read_timeout=60.0,
+            )
+
+            if _is_json_string(embed_model):
+                config = json.loads(embed_model)
+                return BedrockEmbedding(
+                    model_name=config['model_name'],
+                    botocore_session=botocore_session,
+                    region_name=config.get('region_name', region),
+                    profile_name=config.get('profile_name', profile),
+                    botocore_config=botocore_config
+                )
+            else:
+                return BedrockEmbedding(
+                    model_name=embed_model,
+                    botocore_session=botocore_session,
+                    region_name=region,
+                    profile_name=profile,
+                    botocore_config=botocore_config
+                )
+        except Exception as e:
+            raise ValueError(f'Failed to initialize BedrockEmbedding: {str(e)}') from e
+
+
     @property
     def extraction_llm(self) -> LLM:
         """
@@ -944,7 +995,7 @@ class _GraphRAGConfig:
                 model to be set.
         """
 
-        self._extraction_llm = self._to_llm(llm)
+        self._extraction_llm = self.to_llm(llm)
         if hasattr(self._extraction_llm, 'callback_manager'):
             self._extraction_llm.callback_manager = Settings.callback_manager
 
@@ -992,7 +1043,7 @@ class _GraphRAGConfig:
             other errors.
         """
 
-        self._response_llm = self._to_llm(llm)
+        self._response_llm = self.to_llm(llm)
         if hasattr(self._response_llm, 'callback_manager'):
             self._response_llm.callback_manager = Settings.callback_manager
 
@@ -1034,44 +1085,8 @@ class _GraphRAGConfig:
             ValueError: If a JSON string provided via `embed_model` does not conform
                 to the expected structure or lacks required fields during parsing.
         """
-        if isinstance(embed_model, str):
-
-            boto3_session = self.session
-            botocore_session = None
-            if hasattr(boto3_session, 'get_session'):
-                botocore_session = boto3_session.get_session()
-
-            profile = self.aws_profile
-            region = self.aws_region
-
-            botocore_config = Config(
-                retries={"total_max_attempts": 10, "mode": "adaptive"},
-                connect_timeout=60.0,
-                read_timeout=60.0,
-            )
-
-            if _is_json_string(embed_model):
-                config = json.loads(embed_model)
-                self._embed_model = BedrockEmbedding(
-                    model_name=config['model_name'],
-                    botocore_session=botocore_session,
-                    region_name=config.get('region_name', region),
-                    profile_name=config.get('profile_name', profile),
-                    botocore_config=botocore_config
-                )
-            else:
-                self._embed_model = BedrockEmbedding(
-                    model_name=embed_model,
-                    botocore_session=botocore_session,
-                    region_name=region,
-                    profile_name=profile,
-                    botocore_config=botocore_config
-                )
-        else:
-            self._embed_model = embed_model
-
-        if hasattr(self._embed_model, 'callback_manager'):
-            self._embed_model.callback_manager = Settings.callback_manager
+        self._embed_model = self.to_embedding_model(embed_model)
+        
 
     @property
     def embed_dimensions(self) -> int:
@@ -1166,6 +1181,104 @@ class _GraphRAGConfig:
     @enable_versioning.setter
     def enable_versioning(self, enable_versioning: bool) -> None:
         self._enable_versioning = enable_versioning
+
+    @property
+    def chunk_external_properties(self) -> Optional[Dict[str, str]]:
+        """
+        Gets the mapping of external property names to source metadata keys.
+        
+        This property allows you to configure which metadata fields from source documents
+        should be extracted and added as properties on chunk nodes in the graph database.
+        This enables querying and filtering chunks by business-specific identifiers.
+        
+        The mapping is a dictionary where:
+        - Key: The property name to use on the chunk node (e.g., 'article_code', 'document_id')
+        - Value: The metadata key to extract from source document (e.g., 'article_id', 'doc_ref')
+        
+        Example:
+            {
+                'article_code': 'article_id',      # chunk.article_code from metadata['article_id']
+                'document_type': 'doc_type',       # chunk.document_type from metadata['doc_type']
+                'department': 'dept_code'          # chunk.department from metadata['dept_code']
+            }
+        
+        Returns:
+            Optional[Dict[str, str]]: Dictionary mapping chunk property names to metadata keys,
+                or None if not configured.
+        """
+        if self._chunk_external_properties is None:
+            env_value = os.environ.get('CHUNK_EXTERNAL_PROPERTIES', DEFAULT_CHUNK_EXTERNAL_PROPERTIES)
+            if env_value and _is_json_string(env_value):
+                self._chunk_external_properties = json.loads(env_value)
+            else:
+                self._chunk_external_properties = env_value
+        return self._chunk_external_properties
+
+    @chunk_external_properties.setter
+    def chunk_external_properties(self, chunk_external_properties: Optional[Dict[str, str]]) -> None:
+        """
+        Sets the mapping of external property names to source metadata keys.
+        
+        Args:
+            chunk_external_properties: Dictionary mapping chunk property names to metadata keys,
+                or None to disable the feature.
+                
+        Example:
+            GraphRAGConfig.chunk_external_properties = {
+                'article_code': 'article_id',
+                'document_type': 'doc_type'
+            }
+        """
+        if chunk_external_properties and isinstance(chunk_external_properties, dict):
+            if 'text' in chunk_external_properties:
+                raise ConfigurationError("chunk_external_properties cannot contain a 'text' key")
+            if 'chunkId' in chunk_external_properties:
+                raise ConfigurationError("chunk_external_properties cannot contain a 'chunkId' key")
+        self._chunk_external_properties = chunk_external_properties
+
+    @property
+    def local_output_dir(self) -> str:
+        """
+        Local output directory for batch staging files.
+        
+        This directory is used by batch extractors to stage JSONL files before
+        uploading to S3. Default is 'output' for local development.
+        
+        For EKS/Kubernetes deployments, set to '/tmp' via environment variable
+        LOCAL_OUTPUT_DIR or programmatically via GraphRAGConfig.local_output_dir = '/tmp'
+        
+        Returns:
+            str: The local output directory path.
+        """
+        if self._local_output_dir is None:
+            self._local_output_dir = os.environ.get('LOCAL_OUTPUT_DIR', DEFAULT_LOCAL_OUTPUT_DIR)
+        return self._local_output_dir
+
+    @local_output_dir.setter
+    def local_output_dir(self, local_output_dir: str) -> None:
+        self._local_output_dir = local_output_dir
+
+    @property
+    def log_output_dir(self) -> Optional[str]:
+        """
+        Directory for log files.
+        
+        When set, log filenames passed to set_logging_config() will be prefixed
+        with this directory. Default is None (use filename as-is).
+        
+        For EKS/Kubernetes deployments, set to '/tmp' via environment variable
+        LOG_OUTPUT_DIR or programmatically via GraphRAGConfig.log_output_dir = '/tmp'
+        
+        Returns:
+            Optional[str]: The log output directory path, or None.
+        """
+        if self._log_output_dir is None:
+            self._log_output_dir = os.environ.get('LOG_OUTPUT_DIR', DEFAULT_LOG_OUTPUT_DIR)
+        return self._log_output_dir
+
+    @log_output_dir.setter
+    def log_output_dir(self, log_output_dir: Optional[str]) -> None:
+        self._log_output_dir = log_output_dir
 
 
 GraphRAGConfig = _GraphRAGConfig()

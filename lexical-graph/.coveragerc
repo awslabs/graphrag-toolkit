@@ -1,0 +1,26 @@
+[run]
+source = src/graphrag_toolkit/lexical_graph
+omit =
+    */__init__.py
+    */conftest.py
+    */tests/*
+
+[report]
+fail_under = 40
+show_missing = true
+skip_empty = true
+precision = 2
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    def __str__
+    if __name__ == .__main__.:
+    @abstractmethod
+    @abc.abstractmethod
+    raise NotImplementedError
+    if TYPE_CHECKING:
+    if typing.TYPE_CHECKING:
+    raise AssertionError
+    return NotImplemented
+    ^\s*pass\s*$
+    ^\s*\.\.\.\s*$

@@ -10,7 +10,7 @@ import boto3
 import re
 import sys
 from botocore.config import Config
-from typing import Optional, Any, Callable
+from typing import Optional, Any, Callable, Tuple
 from importlib.metadata import version, PackageNotFoundError
 from dateutil.parser import parse
 
@@ -129,7 +129,7 @@ def create_config(config:Optional[str]=None):
     toolkit_version = 'unknown'
 
     try:
-        toolkit_version = version('graphrag-toolkit-lexical-graph')
+        toolkit_version = version('graphrag-lexical-graph')
     except PackageNotFoundError:
         pass
 
@@ -142,7 +142,7 @@ def create_config(config:Optional[str]=None):
             'mode': 'standard'
         }, 
         read_timeout=600,
-        user_agent_appid=f'graphrag-toolkit-lexical-graph-{toolkit_version}',
+        user_agent_appid=f'graphrag-lexical-graph-{toolkit_version}',
         **config_args
     )
 
@@ -304,6 +304,14 @@ class NeptuneAnalyticsClient(GraphStore):
             self._client = session.client('neptune-graph', config=create_config(self.config))
         return self._client
     
+    def unretriable_exception_types(self) -> Tuple:
+        client_exceptions = self.client.exceptions
+        return (
+            client_exceptions.UnprocessableException,
+            client_exceptions.ValidationException,
+            client_exceptions.AccessDeniedException
+        )
+    
     def node_id(self, id_name:str) -> NodeId:
         """
         Formats an identifier for compatibility with Neptune.
@@ -443,6 +451,24 @@ class NeptuneDatabaseClient(GraphStore):
             self._client.meta.events.register('before-parse.neptunedata.ExecuteOpenCypherQuery', intercept_before_parse, REGISTER_FIRST)
 
         return self._client
+    
+    def unretriable_exception_types(self) -> Tuple:
+        client_exceptions = self.client.exceptions
+        return (
+            client_exceptions.QueryTooLargeException,
+            client_exceptions.InvalidNumericDataException,
+            client_exceptions.BadRequestException,
+            client_exceptions.InvalidParameterException,
+            client_exceptions.CancelledByUserException,
+            client_exceptions.IllegalArgumentException,
+            client_exceptions.UnsupportedOperationException,
+            client_exceptions.PreconditionsFailedException,
+            client_exceptions.MalformedQueryException,
+            client_exceptions.ParsingException,
+            client_exceptions.ConstraintViolationException,
+            client_exceptions.InvalidArgumentException,
+            client_exceptions.MissingParameterException
+        )
 
     def node_id(self, id_name:str) -> NodeId:
         """

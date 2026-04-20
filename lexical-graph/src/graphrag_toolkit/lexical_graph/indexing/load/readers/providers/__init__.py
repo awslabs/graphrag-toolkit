@@ -1,3 +1,7 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+
 """
 Core reader providers following AWS Ask requirements.
 All providers inherit from LlamaIndexReaderProviderBase and use config-based initialization.
@@ -13,6 +17,7 @@ _PROVIDER_MODULES = {
     "MarkdownReaderProvider": ".markdown_reader_provider",
     "CSVReaderProvider": ".csv_reader_provider",
     "JSONReaderProvider": ".json_reader_provider",
+    "StreamingJSONLReaderProvider": ".streaming_jsonl_reader_provider",
     "DocumentGraphReaderProvider": ".document_graph_reader_provider",
     # Web readers
     "WebReaderProvider": ".web_reader_provider",
@@ -23,10 +28,9 @@ _PROVIDER_MODULES = {
     # Code readers
     "GitHubReaderProvider": ".github_reader_provider",
     "DirectoryReaderProvider": ".directory_reader_provider",
+    "UniversalDirectoryReaderProvider": ".universal_directory_reader_provider",
     # Cloud storage readers
     "S3DirectoryReaderProvider": ".s3_directory_reader_provider",
-
-
     # Database readers
     "DatabaseReaderProvider": ".database_reader_provider",
 }

@@ -28,8 +28,8 @@ TIMEOUT = 60.0
 
 class LLMCache(BaseModel):
 
-    llm:LLM = Field(desc='LLM whose responses may be cached')
-    enable_cache:Optional[bool] = Field(desc='Whether the cache is enabled or disabled', default=False)
+    llm:LLM = Field(description='LLM whose responses may be cached')
+    enable_cache:Optional[bool] = Field(description='Whether the cache is enabled or disabled', default=False)
     verbose_prompt:Optional[bool] = Field(default=False)
     verbose_response:Optional[bool] = Field(default=False)
 

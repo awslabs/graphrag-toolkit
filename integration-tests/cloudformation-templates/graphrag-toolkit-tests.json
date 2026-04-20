@@ -1,0 +1,711 @@
+{
+  "Description": "Creates a graphrag-toolkit test environment and runs a suite of tests",
+  "Parameters": {
+    "ApplicationId": {
+      "Description": "Application id (used to name all resources in the environment)",
+      "Type": "String",
+      "Default": "graphrag-toolkit",
+      "AllowedPattern": "[a-z][a-z0-9-]*",
+      "MaxLength": 16,
+      "MinLength": 3,
+      "ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
+    },
+    "S3Bucket": {
+      "Description": "Amazon S3 bucket used to store assets and test results",
+      "Type": "String"
+    },
+    "EnvType": {
+      "Description": "Graph store and vector store implementations",
+      "Type": "String",
+      "Default": "neptune-db-aoss",
+      "AllowedValues": [
+        "neptune-db-aoss",
+        "neptune-db-postgresql",
+        "neptune-db-s3vectors",
+        "neptune-graph",
+        "neptune-graph-aoss",
+        "neptune-graph-postgresql",
+        "neptune-graph-s3vectors",
+        "neo4j-aoss"
+      ]
+    },
+    "TopicArn": {
+      "Description": "SNS topic arn for test results",
+      "Type": "String",
+      "Default": ""
+    },
+    "DeleteStackRoleArn": {
+      "Description": "Role arn that allows the test stack to be deleted (optional)",
+      "Type": "String",
+      "Default": ""
+    },
+    "NeptuneEngineVersion": {
+      "Description": "Neptune DB engine version",
+      "Type": "String",
+      "Default": "1.4.6.2"
+    },
+    "NeptuneInstanceType": {
+      "Description": "Neptune instance type",
+      "Type": "String"
+    },
+    "NotebookInstanceType": {
+      "Description": "Notebook instance type",
+      "Type": "String"
+    },
+    "IamPolicyArn": {
+      "Type": "String",
+      "Description": "ARN of an additional IAM policy to be attached to the GraphRAG client IAM role (optional)",
+      "Default": ""
+    },
+    "SSHCIDR": {
+      "Description": "SSH CIDR (Specify an address range from which ec2 instances are accessible on port 22. You can use 0.0.0.0/0 to allow access from any IP address)",
+      "Type": "String",
+      "MinLength": 9,
+      "MaxLength": 18,
+      "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+      "ConstraintDescription": "Must be a valid CIDR range of the form x.x.x.x/x."
+    },
+    "AllowPublicAccess": {
+      "Description": "Allow public access to the OpenSearch Serverless collection endpoint (only applies to environments that use OpenSearch Serverless). Note: SageMaker notebook instances require public access as OpenSearch Serverless VPC endpoints do not support private DNS resolution",
+      "Type": "String",
+      "Default": "true",
+      "AllowedValues": [
+        "true",
+        "false"
+      ]
+    }
+  },
+  "Mappings": {
+    "EnvTypeMap": {
+      "neptune-db-aoss": {
+        "TemplateName": "graphrag-toolkit-neptune-db-opensearch-serverless.json",
+        "IncludeEngineVersion": "True",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "True",
+        "IncludeAllowPublicAccess": "True"
+      },
+      "neptune-db-postgresql": {
+        "TemplateName": "graphrag-toolkit-neptune-db-aurora-postgres.json",
+        "IncludeEngineVersion": "True",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "True",
+        "IncludeAllowPublicAccess": "False"
+      },
+      "neptune-db-s3vectors": {
+        "TemplateName": "graphrag-toolkit-neptune-db-s3-vectors.json",
+        "IncludeEngineVersion": "True",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "True",
+        "IncludeAllowPublicAccess": "False"
+      },
+      "neptune-graph": {
+        "TemplateName": "graphrag-toolkit-neptune-analytics.json",
+        "IncludeEngineVersion": "False",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "False"
+      },
+      "neptune-graph-aoss": {
+        "TemplateName": "graphrag-toolkit-neptune-analytics-opensearch-serverless.json",
+        "IncludeEngineVersion": "False",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "True"
+      },
+      "neptune-graph-postgresql": {
+        "TemplateName": "graphrag-toolkit-neptune-analytics-aurora-postgres.json",
+        "IncludeEngineVersion": "False",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "False"
+      },
+      "neptune-graph-s3vectors": {
+        "TemplateName": "graphrag-toolkit-neptune-analytics-s3-vectors.json",
+        "IncludeEngineVersion": "False",
+        "IncludeSSHCIDR": "False",
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "False"
+      },
+      "neo4j-aoss": {
+        "TemplateName": "graphrag-toolkit-neo4j-opensearch-serverless.json",
+        "IncludeEngineVersion": "False",
+        "IncludeSSHCIDR": "True",
+        "IncludeNeptuneInstanceType": "False",
+        "IncludeAllowPublicAccess": "True"
+      }
+    }
+  },
+  "Conditions": {
+    "HasTopic": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "TopicArn"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "HasDeleteStackRole": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "DeleteStackRoleArn"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "HasIamPolicyArn": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "IamPolicyArn"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "DoIncludeEngineVersion": {
+      "Fn::Equals": [
+        {
+          "Fn::FindInMap": [
+            "EnvTypeMap",
+            {
+              "Ref": "EnvType"
+            },
+            "IncludeEngineVersion"
+          ]
+        },
+        "True"
+      ]
+    },
+    "DoIncludeNeptuneInstanceType": {
+      "Fn::Equals": [
+        {
+          "Fn::FindInMap": [
+            "EnvTypeMap",
+            {
+              "Ref": "EnvType"
+            },
+            "IncludeNeptuneInstanceType"
+          ]
+        },
+        "True"
+      ]
+    },
+    "DoIncludeSSHCIDR": {
+      "Fn::Equals": [
+        {
+          "Fn::FindInMap": [
+            "EnvTypeMap",
+            {
+              "Ref": "EnvType"
+            },
+            "IncludeSSHCIDR"
+          ]
+        },
+        "True"
+      ]
+    },
+    "DoIncludeAllowPublicAccess": {
+      "Fn::Equals": [
+        {
+          "Fn::FindInMap": [
+            "EnvTypeMap",
+            {
+              "Ref": "EnvType"
+            },
+            "IncludeAllowPublicAccess"
+          ]
+        },
+        "True"
+      ]
+    }
+  },
+  "Resources": {
+    "BatchInferenceRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::Sub": "${ApplicationId}-batch-inference-role"
+        },
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "bedrock.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                },
+                "ArnLike": {
+                  "aws:SourceArn": {
+                    "Fn::Sub": "arn:aws:bedrock:*:${AWS::AccountId}:model-invocation-job/*"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "GraphRAGTestPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-graphrag-test-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "iam:PassRole"
+              ],
+              "Resource": {
+                "Fn::GetAtt": [
+                  "BatchInferenceRole",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:CreateModelInvocationJob",
+                "bedrock:GetModelInvocationJob",
+                "bedrock:ListModelInvocationJobs",
+                "bedrock:StopModelInvocationJob"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:aws:bedrock:*:${AWS::AccountId}:model-invocation-job/*"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/openai.gpt-oss-120b-1:0"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-haiku-20241022-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-sonnet-20241022-v2:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-sonnet-20240620-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-sonnet-20240620-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-sonnet-20240229-v1:0",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "accountId": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "regionPrefix": {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Fn::Split": [
+                              "-",
+                              {
+                                "Ref": "AWS::Region"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "ListObjectsInBucket",
+              "Effect": "Allow",
+              "Action": [
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::${S3Bucket}"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::aws-neptune-customer-samples-${AWS::Region}"
+                }
+              ]
+            },
+            {
+              "Sid": "AllObjectActions",
+              "Effect": "Allow",
+              "Action": ["s3:GetObject", "s3:PutObject"],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::${S3Bucket}/*"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:s3:::aws-neptune-customer-samples-${AWS::Region}/*"
+                }
+              ]
+            },
+            {
+              "Sid": "DescribeCloudFormationStack",
+              "Effect": "Allow",
+              "Action": [
+                "cloudformation:DescribeStacks"
+              ],
+              "Resource": [
+                "*"
+              ]
+            },
+            {
+              "Sid": "DeleteCloudFormationStack",
+              "Effect": "Allow",
+              "Action": [
+                "cloudformation:DeleteStack"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${ApplicationId}/*"
+                }
+              ]
+            },
+            {
+              "Fn::If": [
+                "HasTopic",
+                {
+                  "Sid": "PublishToSNS",
+                  "Effect": "Allow",
+                  "Action": [
+                    "sns:Publish"
+                  ],
+                  "Resource": [
+                    {
+                      "Ref": "TopicArn"
+                    }
+                  ]
+                },
+                {
+                  "Ref": "AWS::NoValue"
+                }
+              ]
+            },
+            {
+              "Fn::If": [
+                "HasDeleteStackRole",
+                {
+                  "Sid": "PassDeleteStackRole",
+                  "Effect": "Allow",
+                  "Action": [
+                    "iam:PassRole"
+                  ],
+                  "Resource": [
+                    {
+                      "Ref": "DeleteStackRoleArn"
+                    }
+                  ]
+                },
+                {
+                  "Ref": "AWS::NoValue"
+                }
+              ]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "BatchInferenceRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "GraphRAGStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "TemplateURL": {
+          "Fn::Sub": [
+            "https://${bucket_name}.s3.amazonaws.com/graphrag-toolkit-tests/${application_id}/cloudformation-templates/${template_name}",
+            {
+              "bucket_name": {
+                "Ref": "S3Bucket"
+              },
+              "application_id": {
+                "Ref": "ApplicationId"
+              },
+              "template_name": {
+                "Fn::FindInMap": [
+                  "EnvTypeMap",
+                  {
+                    "Ref": "EnvType"
+                  },
+                  "TemplateName"
+                ]
+              }
+            }
+          ]
+        },
+        "Parameters": {
+          "ApplicationId": {
+            "Ref": "ApplicationId"
+          },
+          "ExampleNotebooksURL": {
+            "Fn::Sub": "s3://${S3Bucket}/graphrag-toolkit-tests/${ApplicationId}/packages/lexical-graph-examples.zip"
+          },
+          "IamPolicyArn": {
+            "Fn::If": [
+              "HasIamPolicyArn",
+              {
+                "Fn::Sub": "${GraphRAGTestPolicy} ${IamPolicyArn}"
+              },
+              {
+                "Ref": "GraphRAGTestPolicy"
+              }
+            ]
+          },
+          "NotebookInstanceType": {
+            "Ref": "NotebookInstanceType"
+          },
+          "NeptuneDbInstanceType": {
+            "Fn::If": [
+              "DoIncludeNeptuneInstanceType",
+              {
+                "Ref": "NeptuneInstanceType"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "NeptuneEngineVersion": {
+            "Fn::If": [
+              "DoIncludeEngineVersion",
+              {
+                "Ref": "NeptuneEngineVersion"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "SSHCIDR": {
+            "Fn::If": [
+              "DoIncludeSSHCIDR",
+              {
+                "Ref": "SSHCIDR"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "AllowPublicAccess": {
+            "Fn::If": [
+              "DoIncludeAllowPublicAccess",
+              {
+                "Ref": "AllowPublicAccess"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          }
+        },
+        "TimeoutInMinutes": "60"
+      }
+    }
+  },
+  "Outputs": {
+    "SagemakerNotebook": {
+      "Description": "SageMaker notebook URL",
+      "Value": {
+        "Fn::GetAtt": [
+          "GraphRAGStack",
+          "Outputs.NeptuneSagemakerNotebook"
+        ]
+      }
+    },
+    "TestResults": {
+      "Description": "S3 URI of test results",
+      "Value": {
+        "Fn::Sub": "https://${AWS::Region}.console.aws.amazon.com/s3/buckets/${S3Bucket}?region=${AWS::Region}&prefix=graphrag-toolkit-tests/${ApplicationId}/results/test-runs/"
+      }
+    }
+  }
+}

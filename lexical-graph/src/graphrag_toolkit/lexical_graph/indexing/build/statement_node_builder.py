@@ -101,7 +101,7 @@ class StatementNodeBuilder(NodeBuilder):
             }
 
             if source_info.metadata:
-                source_metadata['metadata'] = source_info.metadata
+                source_metadata.update(self._get_source_info_metadata(source_info.metadata))
 
             for topic in topics.topics:
 

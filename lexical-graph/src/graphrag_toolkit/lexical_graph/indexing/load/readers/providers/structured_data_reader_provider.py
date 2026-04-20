@@ -1,8 +1,15 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+
 from typing import List, Union
 from llama_index.core.schema import Document
 from ..reader_provider_config import StructuredDataReaderConfig
 from ..base_reader_provider import BaseReaderProvider
 from ..s3_file_mixin import S3FileMixin
+from graphrag_toolkit.lexical_graph.logging import logging
+
+logger = logging.getLogger(__name__)
 
 class StructuredDataReaderProvider(BaseReaderProvider, S3FileMixin):
     """Provider for structured data files (CSV, Excel, etc.) with S3 support."""
@@ -10,27 +17,33 @@ class StructuredDataReaderProvider(BaseReaderProvider, S3FileMixin):
     def __init__(self, config: StructuredDataReaderConfig):
         self.config = config
         self.metadata_fn = config.metadata_fn
+        logger.debug("Initialized StructuredDataReaderProvider")
 
     def read(self, input_source: Union[str, List[str]]) -> List[Document]:
         """Read structured data documents from local files or S3."""
-        import pandas as pd
-        from pathlib import Path
-
-        # Process file paths (handles S3 downloads)
-        processed_paths, temp_files, original_paths = self._process_file_paths(input_source)
+        if not input_source:
+            logger.error("No input source provided to StructuredDataReaderProvider")
+            raise ValueError("input_source cannot be None or empty")
         
+        try:
+            import pandas as pd
+        except ImportError as e:
+            logger.error("Failed to import pandas")
+            raise ImportError("StructuredDataReaderProvider requires 'pandas'. Install with: pip install pandas") from e
+        
+        from pathlib import Path
+        logger.info(f"Reading structured data from: {input_source}")
+        processed_paths, temp_files, original_paths = self._process_file_paths(input_source)
         documents = []
         
         try:
             for processed_path, original_path in zip(processed_paths, original_paths):
                 try:
-                    # Determine file type and pandas config
                     if original_path.lower().endswith('.csv'):
                         file_type = 'csv'
                         pandas_config = self.config.pandas_config or {}
                     elif original_path.lower().endswith(('.xlsx', '.xls')):
                         file_type = 'excel'
-                        # Remove CSV-specific parameters for Excel
                         pandas_config = {k: v for k, v in (self.config.pandas_config or {}).items() 
                                        if k not in ['sep', 'delimiter']}
                     elif original_path.lower().endswith('.json'):
@@ -41,42 +54,34 @@ class StructuredDataReaderProvider(BaseReaderProvider, S3FileMixin):
                         file_type = 'jsonl'
                         pandas_config = {k: v for k, v in (self.config.pandas_config or {}).items() 
                                        if k not in ['sep', 'delimiter']}
-                        pandas_config['lines'] = True  # JSONL requires lines=True
+                        pandas_config['lines'] = True
                     else:
+                        logger.error(f"Unsupported file type: {original_path}")
                         raise ValueError(f"Unsupported file type: {original_path}")
 
-                    # Check if we should stream S3 files
+                    logger.debug(f"Processing {file_type} file: {original_path}")
+                    
                     if (self._is_s3_path(original_path) and 
                         self._should_stream_s3_file(original_path, self.config.stream_s3, self.config.stream_threshold_mb)):
-                        # Stream large S3 files using presigned URL
                         stream_url = self._get_s3_stream_url(original_path)
+                        logger.debug(f"Streaming large S3 file from presigned URL")
                         
-                        # Read directly from S3 stream using pandas
                         if file_type == 'csv':
                             df = pd.read_csv(stream_url, **pandas_config)
                         elif file_type == 'excel':
                             df = pd.read_excel(stream_url, **pandas_config)
-                        elif file_type == 'json':
-                            df = pd.read_json(stream_url, encoding='utf-8', **pandas_config)
-                        elif file_type == 'jsonl':
+                        elif file_type in ['json', 'jsonl']:
                             df = pd.read_json(stream_url, encoding='utf-8', **pandas_config)
                     else:
-                        # Read local files or small S3 files
                         file_path = Path(processed_path)
                         
                         if file_type == 'csv':
                             df = pd.read_csv(file_path, **pandas_config)
                         elif file_type == 'excel':
                             df = pd.read_excel(file_path, **pandas_config)
-                        elif file_type == 'json':
-                            df = pd.read_json(file_path, encoding='utf-8', **pandas_config)
-                        elif file_type == 'jsonl':
+                        elif file_type in ['json', 'jsonl']:
                             df = pd.read_json(file_path, encoding='utf-8', **pandas_config)
 
-                    # Convert DataFrame to documents
-                    docs = []
-                    
-                    # Handle col_index
                     if isinstance(self.config.col_index, int):
                         df_text = df.iloc[:, self.config.col_index]
                     elif isinstance(self.config.col_index, list):
@@ -87,7 +92,6 @@ class StructuredDataReaderProvider(BaseReaderProvider, S3FileMixin):
                     else:
                         df_text = df[self.config.col_index]
 
-                    # Convert to text list
                     if isinstance(df_text, pd.DataFrame):
                         text_list = df_text.apply(
                             lambda row: self.config.col_joiner.join(row.astype(str).tolist()), axis=1
@@ -95,22 +99,17 @@ class StructuredDataReaderProvider(BaseReaderProvider, S3FileMixin):
                     elif isinstance(df_text, pd.Series):
                         text_list = df_text.astype(str).tolist()
 
-                    # Create documents
-                    for text in text_list:
-                        doc = Document(text=text)
-                        docs.append(doc)
+                    docs = [Document(text=text) for text in text_list]
 
-                    # Add metadata to each document
                     for doc in docs:
                         metadata = {
-                            'file_path': original_path,  # Use original path in metadata
+                            'file_path': original_path,
                             'file_type': file_type,
                             'source': self._get_file_source_type(original_path),
                             'document_type': 'structured_data',
                             'content_category': 'tabular_data'
                         }
                         
-                        # Apply custom metadata function if provided
                         if self.metadata_fn:
                             custom_metadata = self.metadata_fn(original_path)
                             metadata.update(custom_metadata)
@@ -118,13 +117,14 @@ class StructuredDataReaderProvider(BaseReaderProvider, S3FileMixin):
                         doc.metadata.update(metadata)
                     
                     documents.extend(docs)
+                    logger.info(f"Successfully processed {len(docs)} document(s) from {file_type} file")
                     
                 except Exception as e:
-                    print(f"Error processing file {original_path}: {e}")
+                    logger.error(f"Failed to process file {original_path}: {e}", exc_info=True)
                     continue
         
         finally:
-            # Always cleanup temp files
             self._cleanup_temp_files(temp_files)
         
+        logger.info(f"Total documents read: {len(documents)}")
         return documents

@@ -13,7 +13,7 @@
     "NeptuneEngineVersion": {
       "Description": "Neptune DB engine version",
       "Type": "String",
-      "Default": "1.4.6.2"
+      "Default": "1.4.7.0"
     },
     "NeptuneDbInstanceType": {
       "Description": "Neptune DB instance type (use db.serverless to provision a Neptune Serverless cluster)",
@@ -71,7 +71,16 @@
     "ExampleNotebooksURL": {
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
-      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples.zip"
+      "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip"
+    },
+    "AllowPublicAccess": {
+      "Description": "Allow public access to the OpenSearch Serverless collection endpoint. Set to 'true' to enable public access, or 'false' to restrict access to the VPC (recommended)",
+      "Type": "String",
+      "Default": "false",
+      "AllowedValues": [
+        "true",
+        "false"
+      ]
     }
   },
   "Metadata": {
@@ -194,6 +203,21 @@
           "Ref": "EnableAuditLog"
         },
         "true"
+      ]
+    },
+    "EnablePublicAccess": {
+      "Fn::Equals": [
+        {
+          "Ref": "AllowPublicAccess"
+        },
+        "true"
+      ]
+    },
+    "EnableVpcAccess": {
+      "Fn::Not": [
+        {
+          "Condition": "EnablePublicAccess"
+        }
       ]
     }
   },
@@ -360,6 +384,28 @@
             "GroupId"
           ]
         }
+      }
+    },
+    "GraphRAGClientSecurityGroupSelfIngress": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Condition": "EnableVpcAccess",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "FromPort": 443,
+        "ToPort": 443,
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "GraphRAGClientSecurityGroup",
+            "GroupId"
+          ]
+        },
+        "Description": "HTTPS access to OpenSearch Serverless VPC endpoint"
       }
     },
     "NeptuneSecurityGroupIngress": {
@@ -679,11 +725,11 @@
         "Path": "/graphrag-toolkit/"
       }
     },
-    "NeptuneDBDataAccessReadPolicy": {
+    "NeptuneDBDataAccessQueryingPolicy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
         "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-read-policy"
+          "Fn::Sub": "${ApplicationId}-neptune-db-querying-policy"
         },
         "PolicyDocument": {
           "Version": "2012-10-17",
@@ -734,11 +780,11 @@
         "Path": "/graphrag-toolkit/"
       }
     },
-    "NeptuneDBDataAccessWritePolicy": {
+    "NeptuneDBDataAccessIndexingPolicy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
         "ManagedPolicyName": {
-          "Fn::Sub": "${ApplicationId}-neptune-db-write-policy"
+          "Fn::Sub": "${ApplicationId}-neptune-db-indexing-policy"
         },
         "PolicyDocument": {
           "Version": "2012-10-17",
@@ -747,7 +793,8 @@
               "Effect": "Allow",
               "Action": [
                 "neptune-db:WriteDataViaQuery",
-                "neptune-db:DeleteDataViaQuery"
+                "neptune-db:DeleteDataViaQuery",
+                "neptune-db:ReadDataViaQuery"
               ],
               "Resource": {
                 "Fn::Join": [
@@ -1022,6 +1069,102 @@
         "Type": "VECTORSEARCH"
       }
     },
+    "OpenSearchSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupName": {
+          "Fn::Sub": "${ApplicationId}-opensearch-sg"
+        },
+        "VpcId": {
+          "Ref": "VPC"
+        },
+        "GroupDescription": "Security group for OpenSearch Serverless VPC endpoint",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "SourceSecurityGroupId": {
+              "Fn::GetAtt": [
+                "GraphRAGClientSecurityGroup",
+                "GroupId"
+              ]
+            },
+            "Description": "HTTPS access from GraphRAG client"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-opensearch-sg"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "OpenSearchServerlessVpcEndpoint": {
+      "Type": "AWS::OpenSearchServerless::VpcEndpoint",
+      "Condition": "EnableVpcAccess",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "${ApplicationId}-vpce"
+        },
+        "VpcId": {
+          "Ref": "VPC"
+        },
+        "SubnetIds": {
+          "Fn::If": [
+            "AZ3Present",
+            [
+              {
+                "Ref": "Subnet1"
+              },
+              {
+                "Ref": "Subnet2"
+              },
+              {
+                "Ref": "Subnet3"
+              }
+            ],
+            [
+              {
+                "Ref": "Subnet1"
+              },
+              {
+                "Ref": "Subnet2"
+              }
+            ]
+          ]
+        },
+        "SecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "OpenSearchSecurityGroup",
+              "GroupId"
+            ]
+          }
+        ]
+      }
+    },
     "OpenSearchServerlessNetworkPolicy": {
       "Type": "AWS::OpenSearchServerless::SecurityPolicy",
       "Properties": {
@@ -1029,37 +1172,80 @@
           "Fn::Sub": "${ApplicationId}-network"
         },
         "Policy": {
-          "Fn::Join": [
-            "",
-            [
-              "[",
-              "  {",
-              "    \"Rules\": [",
-              "      {",
-              "        \"Resource\": [",
-              "          \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "        ],",
-              "        \"ResourceType\": \"dashboard\"",
-              "      },",
-              "      {",
-              "        \"Resource\": [",
-              "          \"collection/",
-              {
-                "Fn::Sub": "${ApplicationId}-collection"
-              },
-              "\"",
-              "        ],",
-              "        \"ResourceType\": \"collection\"",
-              "      }",
-              "    ],",
-              "    \"AllowFromPublic\": true",
-              "  }",
-              "]"
-            ]
+          "Fn::If": [
+            "EnablePublicAccess",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "[",
+                  "  {",
+                  "    \"Rules\": [",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"dashboard\"",
+                  "      },",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"collection\"",
+                  "      }",
+                  "    ],",
+                  "    \"AllowFromPublic\": true",
+                  "  }",
+                  "]"
+                ]
+              ]
+            },
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "[",
+                  "  {",
+                  "    \"Rules\": [",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"dashboard\"",
+                  "      },",
+                  "      {",
+                  "        \"Resource\": [",
+                  "          \"collection/",
+                  {
+                    "Fn::Sub": "${ApplicationId}-collection"
+                  },
+                  "\"",
+                  "        ],",
+                  "        \"ResourceType\": \"collection\"",
+                  "      }",
+                  "    ],",
+                  "    \"SourceVPCEs\": [\"",
+                  {
+                    "Ref": "OpenSearchServerlessVpcEndpoint"
+                  },
+                  "\"]",
+                  "  }",
+                  "]"
+                ]
+              ]
+            }
           ]
         },
         "Type": "network"
@@ -1415,7 +1601,7 @@
                                   {
                                     "Ref": "ExampleNotebooksURL"
                                   },
-                                  "\" .\n",
+                                  "\" lexical-graph-examples.zip\n",
                                   "  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
                                   "  rm -rf lexical-graph-examples.zip\n"
                                 ]
@@ -1425,11 +1611,11 @@
                               "Fn::Join": [
                                 "",
                                 [
-                                  "  curl -LO \"",
+                                  "  curl -L \"",
                                   {
                                     "Ref": "ExampleNotebooksURL"
                                   },
-                                  "\" -o lexical-graph-examples.zip\n",
+                                  "\" -o \"lexical-graph-examples.zip\"\n",
                                   "  unzip lexical-graph-examples.zip -d graphrag-toolkit\n",
                                   "  rm -rf lexical-graph-examples.zip\n"
                                 ]

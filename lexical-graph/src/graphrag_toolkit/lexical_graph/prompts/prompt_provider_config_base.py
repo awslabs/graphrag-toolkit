@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # prompt_provider_config_base.py
 from pydantic import BaseModel
 from typing import Optional

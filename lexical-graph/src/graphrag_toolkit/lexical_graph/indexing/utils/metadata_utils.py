@@ -2,6 +2,22 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import datetime
+from typing import Dict, List, Any, Tuple
+from graphrag_toolkit.lexical_graph.versioning import VERSIONING_METADATA_KEYS
+
+def remove_collection_items_from_metadata(metadata:Dict[str, Any]) -> Tuple[Dict[str, Any], List[str]]:
+    clean_metadata = {}
+    invalid_items = {}
+    for k,v in metadata.items():
+        if isinstance(v, list):
+            invalid_items[k] = v
+        elif isinstance(v, dict):
+            invalid_items[k] = v
+        elif isinstance(v, set):
+            invalid_items[k] = v
+        else:
+            clean_metadata[k] = v
+    return (clean_metadata, invalid_items)
 
 def get_properties_str(properties, default):
     if properties:

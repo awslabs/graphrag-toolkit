@@ -6,7 +6,7 @@
 
   - [Overview](#overview)
   - [Install dependencies](#install-dependencies)
-  - [Creating an OpenSearch Serverless vector store](#creating-a-neptune-analytics-vector-store)
+  - [Creating an OpenSearch Serverless vector store](#creating-an-opensearch-serverless-vector-store)
   - [Amazon OpenSearch Serverless and custom document IDs](#amazon-opensearch-serverless-and-custom-document-ids)
     - [Verify and repair an Amazon OpenSearch Serverless vector store](#verify-and-repair-an-amazon-opensearch-serverless-vector-store)
 
