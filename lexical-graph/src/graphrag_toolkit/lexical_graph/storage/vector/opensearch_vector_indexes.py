@@ -145,18 +145,20 @@ def create_os_client(endpoint, **kwargs):
 
     auth = Urllib3AWSV4SignerAuth(credentials, region, service)
 
-    kwargs.setdefault('pool_maxsize', DEFAULT_POOL_MAXSIZE)
+    defaults = {
+        'use_ssl': True,
+        'verify_certs': True,
+        'connection_class': Urllib3HttpConnection,
+        'timeout': 300,
+        'max_retries': 10,
+        'retry_on_timeout': True,
+        'pool_maxsize': DEFAULT_POOL_MAXSIZE,
+    }
 
     return OpenSearch(
         hosts=[endpoint],
         http_auth=auth,
-        use_ssl=True,
-        verify_certs=True,
-        connection_class=Urllib3HttpConnection,
-        timeout=300,
-        max_retries=10,
-        retry_on_timeout=True,
-        **kwargs
+        **{**defaults, **kwargs},
     )
 
 def create_os_async_client(endpoint, **kwargs):
@@ -182,18 +184,20 @@ def create_os_async_client(endpoint, **kwargs):
 
     auth = AWSV4SignerAsyncAuth(credentials, region, service)
 
-    kwargs.setdefault('pool_maxsize', DEFAULT_POOL_MAXSIZE)
+    defaults = {
+        'use_ssl': True,
+        'verify_certs': True,
+        'connection_class': AsyncHttpConnection,
+        'timeout': 300,
+        'max_retries': 10,
+        'retry_on_timeout': True,
+        'pool_maxsize': DEFAULT_POOL_MAXSIZE,
+    }
 
     return AsyncOpenSearch(
         hosts=[endpoint],
         http_auth=auth,
-        use_ssl=True,
-        verify_certs=True,
-        connection_class=AsyncHttpConnection,
-        timeout=300,
-        max_retries=10,
-        retry_on_timeout=True,
-        **kwargs
+        **{**defaults, **kwargs},
     )
 
 def index_is_available(client, index_name):
