@@ -112,6 +112,8 @@ class DummyAuth:
     """
     service:str
 
+DEFAULT_POOL_MAXSIZE = 32
+
 def create_os_client(endpoint, **kwargs):
     """
     Creates an OpenSearch client configured to use AWS Signature Version 4
@@ -128,6 +130,7 @@ def create_os_client(endpoint, **kwargs):
             The OpenSearch endpoint URL to connect to.
         **kwargs: Any
             Additional keyword arguments passed to the OpenSearch client.
+            ``pool_maxsize`` defaults to :data:`DEFAULT_POOL_MAXSIZE` when unset.
 
     Returns:
         OpenSearch
@@ -140,6 +143,8 @@ def create_os_client(endpoint, **kwargs):
     service = 'aoss'
 
     auth = Urllib3AWSV4SignerAuth(credentials, region, service)
+
+    kwargs.setdefault('pool_maxsize', DEFAULT_POOL_MAXSIZE)
 
     return OpenSearch(
         hosts=[endpoint],
@@ -164,6 +169,7 @@ def create_os_async_client(endpoint, **kwargs):
     Args:
         endpoint: The URL of the OpenSearch cluster endpoint.
         **kwargs: Optional parameters for customizing the AsyncOpenSearch client.
+            ``pool_maxsize`` defaults to :data:`DEFAULT_POOL_MAXSIZE` when unset.
 
     Returns:
         AsyncOpenSearch: An instantiated asynchronous OpenSearch client.
@@ -174,6 +180,8 @@ def create_os_async_client(endpoint, **kwargs):
     service = 'aoss'
 
     auth = AWSV4SignerAsyncAuth(credentials, region, service)
+
+    kwargs.setdefault('pool_maxsize', DEFAULT_POOL_MAXSIZE)
 
     return AsyncOpenSearch(
         hosts=[endpoint],
