@@ -299,7 +299,7 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
     return index_exists
         
     
-def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model):
+def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_model, client_kwargs=None):
     """
     Creates an OpenSearch vector client for interacting with an OpenSearch cluster.
 
@@ -312,6 +312,11 @@ def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_mode
         index_name: Name of the index to be used for storing vectors.
         dimensions: Dimensions of the vector space used for embeddings.
         embed_model: Embedding model associated with the vectors.
+        client_kwargs: Optional dict of keyword arguments passed through to both the
+            synchronous and asynchronous OpenSearch clients (e.g.
+            ``{"pool_maxsize": 10, "timeout": 60}``). Defaults that are already set
+            on the clients (``use_ssl``, ``verify_certs``, ``connection_class``,
+            ``timeout``, ``max_retries``, ``retry_on_timeout``) can be overridden here.
 
     Returns:
         OpensearchVectorClient: A configured OpenSearch vector client instance.
@@ -323,20 +328,22 @@ def create_opensearch_vector_client(endpoint, index_name, dimensions, embed_mode
     text_field = 'value'
     embedding_field = 'embedding'
 
-    logger.debug(f'Creating OpenSearch vector client [index_name={index_name}, endpoint: {endpoint}, embed_model={embed_model}, dimensions={dimensions}]')
- 
+    client_kwargs = client_kwargs or {}
+
+    logger.debug(f'Creating OpenSearch vector client [index_name={index_name}, endpoint: {endpoint}, embed_model={embed_model}, dimensions={dimensions}, client_kwargs={client_kwargs}]')
+
     client = None
     retry_count = 0
     while not client:
         try:
             client = OpensearchVectorClient(
-                endpoint, 
-                index_name, 
-                dimensions, 
-                embedding_field=embedding_field, 
-                text_field=text_field, 
-                os_client=create_os_client(endpoint),
-                os_async_client=create_os_async_client(endpoint),
+                endpoint,
+                index_name,
+                dimensions,
+                embedding_field=embedding_field,
+                text_field=text_field,
+                os_client=create_os_client(endpoint, **client_kwargs),
+                os_async_client=create_os_async_client(endpoint, **client_kwargs),
                 http_auth=DummyAuth(service='aoss')
             )
 
@@ -456,7 +463,7 @@ class OpenSearchIndex(VectorIndex):
             client instance for interacting with OpenSearch, initialized on demand.
     """
     @staticmethod
-    def for_index(index_name, endpoint, embed_model=None, dimensions=None):
+    def for_index(index_name, endpoint, embed_model=None, dimensions=None, client_kwargs=None):
         """
         Creates and returns an instance of OpenSearchIndex using the provided parameters.
 
@@ -473,6 +480,9 @@ class OpenSearchIndex(VectorIndex):
                 the configuration specified in GraphRAGConfig.
             dimensions (Optional[int]): The dimensions to be used for the embeddings.
                 Defaults to the configuration specified in GraphRAGConfig.
+            client_kwargs (Optional[Dict[str, Any]]): Optional dict of keyword arguments
+                forwarded to the underlying synchronous and asynchronous OpenSearch
+                clients (e.g. ``{"pool_maxsize": 10, "timeout": 60}``).
 
         Returns:
             OpenSearchIndex: An instance of OpenSearchIndex initialized with the
@@ -481,7 +491,7 @@ class OpenSearchIndex(VectorIndex):
         embed_model = embed_model or GraphRAGConfig.embed_model
         dimensions = dimensions or GraphRAGConfig.embed_dimensions
 
-        return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model)
+        return OpenSearchIndex(index_name=index_name, endpoint=endpoint, dimensions=dimensions, embed_model=embed_model, client_kwargs=client_kwargs)
     
     class Config:
         """Handles configuration settings and specifies validation rules.
@@ -501,6 +511,7 @@ class OpenSearchIndex(VectorIndex):
     index_name:str
     dimensions:int
     embed_model:EmbeddingType
+    client_kwargs:Optional[Dict[str, Any]]=None
 
     _client: OpensearchVectorClient = PrivateAttr(default=None)
 
@@ -545,10 +556,11 @@ class OpenSearchIndex(VectorIndex):
         if not self._client:
             if index_exists(self.endpoint, self.underlying_index_name(), self.dimensions, self.writeable):
                 self._client = create_opensearch_vector_client(
-                    self.endpoint, 
-                    self.underlying_index_name(), 
-                    self.dimensions, 
-                    self.embed_model
+                    self.endpoint,
+                    self.underlying_index_name(),
+                    self.dimensions,
+                    self.embed_model,
+                    client_kwargs=self.client_kwargs,
                 )
             else:
                 self._client = DummyOpensearchVectorClient()
