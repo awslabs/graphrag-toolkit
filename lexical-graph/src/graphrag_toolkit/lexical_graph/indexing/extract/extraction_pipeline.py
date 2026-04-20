@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
+import math
 import multiprocessing
 import time
 from pipe import Pipe
@@ -371,6 +372,8 @@ class ExtractionPipeline():
 
         input_source_documents = source_documents_from_source_types(inputs)
 
+        total_batches = math.ceil(len(inputs) / self.batch_size) if hasattr(inputs, '__len__') else None
+
         for batch_num, source_documents in enumerate(iter_batch(input_source_documents, self.batch_size), 1):
 
             for pre_processor in self.pre_processors:
@@ -391,7 +394,8 @@ class ExtractionPipeline():
                 if self.extraction_filters.filter_source_metadata_dictionary(get_source_metadata(node))
             ]
 
-            logger.info(f'Running extraction pipeline [batch: {batch_num}, batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
+            batch_label = f'{batch_num}/{total_batches}' if total_batches else f'{batch_num}'
+            logger.info(f'Running extraction pipeline [batch: {batch_label}, batch_size: {self.batch_size}, num_workers: {self.num_workers}]')
             
             node_batches = node_batcher(
                 num_batches=self.num_workers, 
