@@ -135,71 +135,50 @@ class TraversalBasedBaseRetriever(BaseRetriever):
 
         chunk_metadata = 'properties(c)' if self.args.include_chunk_details else '{}'
 
+        # Single-query form: OPTIONAL MATCH attaches each statement's supporting
+        # facts inline. Before this, two serial Cypher round-trips were fired per
+        # worker and reconciled in Python — one per-worker round-trip is removed.
         statements_cypher = f'''
-        // get statements grouped by topic and source
-        MATCH (t)<-[:`__BELONGS_TO__`]-(l:`__Statement__`)   
+        // get statements grouped by topic and source, with facts inline
+        MATCH (t)<-[:`__BELONGS_TO__`]-(l:`__Statement__`)
               -[:`__MENTIONED_IN__`]->(c)
               -[:`__EXTRACTED_FROM__`]->(s)
         WHERE {self.graph_store.node_id("l.statementId")} in $statementIds
-        WITH {{ 
-                sourceId: {self.graph_store.node_id("s.sourceId")}, 
-                metadata: properties(s), 
+        OPTIONAL MATCH (f)-[:`__SUPPORTS__`]->(l)
+        WITH t, l, c, s, collect(DISTINCT f.value) AS facts
+        WITH {{
+                sourceId: {self.graph_store.node_id("s.sourceId")},
+                metadata: properties(s),
                 versioning: {{
-                    valid_from: coalesce(s.{VALID_FROM}, {TIMESTAMP_LOWER_BOUND}), 
+                    valid_from: coalesce(s.{VALID_FROM}, {TIMESTAMP_LOWER_BOUND}),
                     valid_to: coalesce(s.{VALID_TO}, {TIMESTAMP_UPPER_BOUND}),
                     extract_timestamp: coalesce(s.{EXTRACT_TIMESTAMP}, {TIMESTAMP_LOWER_BOUND}),
                     build_timestamp: coalesce(s.{BUILD_TIMESTAMP}, {TIMESTAMP_LOWER_BOUND}),
                     id_fields: split(coalesce(s.{VERSION_INDEPENDENT_ID_FIELDS}, ""), ";")
-                }}  
+                }}
             }} AS source,
-            t, l, c,
-            {{ chunkId: {self.graph_store.node_id("c.chunkId")}, value: NULL, metadata: {chunk_metadata} }} AS cc, 
-            {{ statementId: {self.graph_store.node_id("l.statementId")}, statement: l.value, facts: [], details: l.details, chunkId: {self.graph_store.node_id("c.chunkId")}, score: 0 }} as ll
-        WITH source, 
-            t, 
-            collect(distinct cc) as chunks, 
+            t, l, c, facts,
+            {{ chunkId: {self.graph_store.node_id("c.chunkId")}, value: NULL, metadata: {chunk_metadata} }} AS cc,
+            {{ statementId: {self.graph_store.node_id("l.statementId")}, statement: l.value, facts: facts, details: l.details, chunkId: {self.graph_store.node_id("c.chunkId")}, score: size(facts) }} as ll
+        WITH source,
+            t,
+            collect(distinct cc) as chunks,
             collect(ll) as statements
         WITH source,
-            {{ 
-                topic: t.value, 
+            {{
+                topic: t.value,
                 topicId: {self.graph_store.node_id("t.topicId")},
                 chunks: chunks,
                 statements: statements
             }} as topic
         WITH sum(size(topic.statements)/size(topic.chunks)) AS score, source, collect(topic) AS topics
         RETURN {{
-            score: score, 
+            score: score,
             source: source,
             topics: topics
         }} as result ORDER BY result.score DESC LIMIT $limit'''
-        
-        statements_results =  self.graph_store.execute_query(statements_cypher, statements_params)
-    
-        statement_facts_cypher = f'''// get facts for statements
-        MATCH (f)-[:`__SUPPORTS__`]->(l:`__Statement__`)
-        WHERE {self.graph_store.node_id("l.statementId")} in $statementIds
-        RETURN {self.graph_store.node_id("l.statementId")} AS statementId, collect(distinct f.value) AS facts'''
 
-        statement_facts_params = {
-            'statementIds': statement_ids
-        }
-
-        statement_facts_results = self.graph_store.execute_query(statement_facts_cypher, statement_facts_params)
-
-        statement_facts = {
-            r['statementId']:r['facts'] for r in statement_facts_results
-        }
-
-        for statements_result in statements_results:
-            result = statements_result['result']
-            for topic in result['topics']:
-                for statement in topic['statements']:
-                    facts = statement_facts.get(statement['statementId'], [])
-                    if facts:
-                        statement['facts'] = facts
-                        statement['score'] = len(facts)
-
-        return statements_results
+        return self.graph_store.execute_query(statements_cypher, statements_params)
     
     def _init(self, query_bundle: QueryBundle) -> List[str]:
 
