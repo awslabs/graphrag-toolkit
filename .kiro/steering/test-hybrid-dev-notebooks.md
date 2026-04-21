@@ -42,5 +42,6 @@ Environment variables to customize behavior:
 - 04-Cloud-Querying.ipynb — All query types (traversal, semantic, reranking, post-processors)
 
 ## Expected Results
-- 78+ cells SUCCESS, 2 SKIPPED (CUDA + batch), 0 FAILED
-- Reports in test-reports/ directory
+- All executed cells SUCCESS, 0 FAILED
+- Skipped cells depend on configuration (CUDA, batch by default)
+- Reports in test-reports/ directory (execution_report.json + execution_report.md)
