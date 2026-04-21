@@ -44,5 +44,6 @@ Environment variables to customize behavior:
 - 05-S3-Directory-Reader-Provider.ipynb — S3 directory reader with prefix filtering and metadata
 
 ## Expected Results
-- 90+ cells SUCCESS, 8 SKIPPED (GitHub + PPTX + JSON + Wikipedia), 0 FAILED
-- Reports in test-reports/ directory
+- All executed cells SUCCESS, 0 FAILED
+- Skipped cells depend on configuration (GitHub, PPTX, long-running by default)
+- Reports in test-reports/ directory (execution_report.json + execution_report.md)
