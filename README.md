@@ -1,8 +1,10 @@
 ## GraphRAG Toolkit
 
-The graphrag-toolkit is a collection of Python tools for building graph-enhanced Generative AI applications.
+[![PyPI - lexical-graph](https://img.shields.io/pypi/v/graphrag-lexical-graph?label=graphrag-lexical-graph)](https://pypi.org/project/graphrag-lexical-graph/) [![PyPI - byokg-rag](https://img.shields.io/pypi/v/graphrag-toolkit-byokg-rag?label=graphrag-toolkit-byokg-rag)](https://pypi.org/project/graphrag-toolkit-byokg-rag/) [![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
 
-Installation instructions and requirements are detailed separately with each tool.
+> Check out the graphrag-toolkit Docs found here: [Start here!](https://awslabs.github.io/graphrag-toolkit/)
+
+The graphrag-toolkit is a collection of Python tools for building graph-enhanced Generative AI applications.
 
 ### Lexical Graph
 
