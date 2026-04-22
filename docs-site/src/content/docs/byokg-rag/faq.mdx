@@ -78,6 +78,7 @@ Skip LLM-based entity extraction for simple queries:
 ```python
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     direct_query_linking=True  # Use semantic similarity directly
 )
 ```
@@ -88,41 +89,44 @@ Use faster models or reduce token limits:
 
 ```python
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-3-haiku-20240307-v1:0",  # Faster model
+    model_name="anthropic.claude-haiku-4-5-20251001-v1:0",  # Faster model
     max_tokens=2048  # Reduce from default of 4096
 )
 ```
 
 ### What LLM models are supported?
 
-The byokg-rag library supports Amazon Bedrock models through the `BedrockGenerator` class. Recommended models:
+The byokg-rag library supports Amazon Bedrock models through the `BedrockGenerator` class. For the latest model availability and lifecycle status, see the [Amazon Bedrock model lifecycle](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html) documentation.
 
-**Claude 3.5 Sonnet** (Recommended)
-- Model ID: `anthropic.claude-3-5-sonnet-20240620-v1:0`
+*Active models (recommended):*
+
+**Claude Sonnet 4.6** (Recommended)
+- Model ID: `anthropic.claude-sonnet-4-6`
 - Best balance of performance and cost
 - Strong reasoning capabilities for KGQA
 
-**Claude 3.7 Sonnet** (Latest)
-- Model ID: `anthropic.claude-3-7-sonnet-20250219-v1:0`
-- Latest capabilities and improvements
-- Higher cost than 3.5 Sonnet
-
-**Claude 3 Opus**
-- Model ID: `anthropic.claude-3-opus-20240229-v1:0`
+**Claude Opus 4.6**
+- Model ID: `anthropic.claude-opus-4-6-v1`
 - Highest capability for complex reasoning
 - Highest cost and latency
 
-**Claude 3 Haiku**
-- Model ID: `anthropic.claude-3-haiku-20240307-v1:0`
+**Claude Haiku 4.5**
+- Model ID: `anthropic.claude-haiku-4-5-20251001-v1:0`
 - Fastest and lowest cost
 - Suitable for simple queries
+
+*Legacy models (available only to users who have actively used them in the last 15 days; new users are blocked):*
+
+- Claude 3.7 Sonnet: `anthropic.claude-3-7-sonnet-20250219-v1:0` (EOL: Apr 28, 2026)
+- Claude 3.5 Sonnet: `anthropic.claude-3-5-sonnet-20240620-v1:0` (EOL: Jul 30, 2026)
+- Claude 3 Haiku: `anthropic.claude-3-haiku-20240307-v1:0` (EOL: Sep 10, 2026)
 
 To use a different model:
 
 ```python
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-3-haiku-20240307-v1:0",
-    region_name="<region>"
+    model_name="anthropic.claude-haiku-4-5-20251001-v1:0",
+    region_name="us-east-1"
 )
 ```
 
@@ -256,6 +260,7 @@ kg_linker = KGLinker(
 
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     kg_linker=kg_linker
 )
 ```
@@ -269,6 +274,7 @@ cypher_linker = CypherKGLinker(
 
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     cypher_kg_linker=cypher_linker
 )
 ```
@@ -277,6 +283,7 @@ Combined approach:
 ```python
 query_engine = ByoKGQueryEngine(
     graph_store=graph_store,
+    llm_generator=llm_generator,
     kg_linker=kg_linker,
     cypher_kg_linker=cypher_linker  # Tries Cypher first, falls back to multi-strategy
 )
