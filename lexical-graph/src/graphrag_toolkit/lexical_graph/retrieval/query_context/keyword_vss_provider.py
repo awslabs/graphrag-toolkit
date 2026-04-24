@@ -54,7 +54,7 @@ class KeywordVSSProvider(KeywordProviderBase):
         self.index_name = 'topic' if not isinstance(vector_store.get_index('topic'), DummyVectorIndex) else 'chunk'
 
         self.llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
-            llm=llm or GraphRAGConfig.extraction_llm,
+            llm=llm or GraphRAGConfig.response_llm,
             enable_cache=GraphRAGConfig.enable_cache if not args.no_cache else not args.no_cache
         )
 
