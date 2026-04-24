@@ -13,9 +13,13 @@ export default defineConfig({
         'Documentation for the AWS GraphRAG Toolkit — lexical-graph and BYOKG-RAG.',
       logo: { src: './src/assets/logo.svg' },
       customCss: ['./src/styles/custom.css'],
-      social: {
-        github: 'https://github.com/awslabs/graphrag-toolkit',
-      },
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/awslabs/graphrag-toolkit',
+        },
+      ],
       head: [
         {
           tag: 'link',
