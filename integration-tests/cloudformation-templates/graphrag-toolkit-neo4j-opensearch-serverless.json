@@ -30,7 +30,8 @@
 			"Description": "Neo4j password",
 			"Type": "String",
 			"MinLength": 8,
-			"NoEcho": true
+			"NoEcho": true, 
+      "Default": "xhu4klq!J"
 		},
 		"SSHCIDR": {
 			"Description": "SSH CIDR (Specify an address range from which ec2 instances are accessible on port 22. You can use 0.0.0.0/0 to allow access from any IP address)",
@@ -636,9 +637,21 @@
 								},
 								{
 									"Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
-								}
+								},
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.rerank-v3-5:0"
+                }
 							]
-						}
+						},
+            {
+              "Action": [
+                "bedrock:Rerank"
+              ],
+              "Resource": [
+                "*"
+              ],
+              "Effect": "Allow"
+            }
 					]
 				},
 				"Roles": [
