@@ -160,13 +160,13 @@ class Neo4jDatabaseClient(GraphStore):
         graph_store = graph_store or self
         
         #search_str_constraint = f'CREATE CONSTRAINT entity_search_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Entity__`) REQUIRE n.search_str IS :: STRING'
-        search_str_index = f'CREATE TEXT INDEX entity_text_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Entity__`) ON (n.search_str)'
-        create_entity_index = f'CREATE INDEX entity_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Entity__`) ON (n.entityId)'
-        create_fact_index = f'CREATE INDEX fact_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Fact__`) ON (n.factId)'
-        create_statement_index = f'CREATE INDEX statement_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Statement__`) ON (n.statementId)'
-        create_topic_index = f'CREATE INDEX topic_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Topic__`) ON (n.topicId)'
-        create_chunk_index = f'CREATE INDEX chunk_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Chunk__`) ON (n.chunkId)'
-        create_source_index = f'CREATE INDEX source_{graph_store.tenant_id} IF NOT EXISTS FOR (n:`__Source__`) ON (n.sourceId)'
+        search_str_index = f'CREATE TEXT INDEX `entity_text_{graph_store.tenant_id}` IF NOT EXISTS FOR (n:`__Entity__`) ON (n.search_str)'
+        create_entity_index = f'CREATE INDEX `entity_{graph_store.tenant_id}` IF NOT EXISTS FOR (n:`__Entity__`) ON (n.entityId)'
+        create_fact_index = f'CREATE INDEX `fact_{graph_store.tenant_id}` IF NOT EXISTS FOR (n:`__Fact__`) ON (n.factId)'
+        create_statement_index = f'CREATE INDEX `statement_{graph_store.tenant_id}` IF NOT EXISTS FOR (n:`__Statement__`) ON (n.statementId)'
+        create_topic_index = f'CREATE INDEX `topic_{graph_store.tenant_id}` IF NOT EXISTS FOR (n:`__Topic__`) ON (n.topicId)'
+        create_chunk_index = f'CREATE INDEX `chunk_{graph_store.tenant_id}` IF NOT EXISTS FOR (n:`__Chunk__`) ON (n.chunkId)'
+        create_source_index = f'CREATE INDEX `source_{graph_store.tenant_id}` IF NOT EXISTS FOR (n:`__Source__`) ON (n.sourceId)'
        
         ops = [
             #search_str_constraint,
