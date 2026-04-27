@@ -45,6 +45,8 @@ class OpenSearchVectorIndexFactory(VectorIndexFactoryMethod):
         endpoint = None
         if vector_index_info.startswith(OPENSEARCH_SERVERLESS):
             endpoint = vector_index_info[len(OPENSEARCH_SERVERLESS):]
+            if not endpoint.startswith('https://'):
+                endpoint = f'https://{endpoint}'
         elif vector_index_info.startswith('https://') and vector_index_info.endswith(OPENSEARCH_SERVERLESS_DNS):
             endpoint = vector_index_info
         if endpoint:
