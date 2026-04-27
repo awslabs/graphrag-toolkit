@@ -1,0 +1,10 @@
+[
+    {
+        "input": "In CO-BRANDING AGREEMENT signed by ebix.com, Inc. and About.com, Inc., is there any clause providing for joint or shared ownership of intellectual property between the parties to the contract?",
+        "output": [
+            {
+                "text": "Upon request by About, ebix       shall provide About with About Customer Data in the aggregated form, which       aggregated form shall be jointly owned by ebix and About."
+            }
+        ]
+    }
+]

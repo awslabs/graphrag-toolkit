@@ -242,28 +242,28 @@ cp -r $GRAPHRAG_TOOLKIT_DIR/byokg-rag/src/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-examples
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
-cp -r ./../source-data/* lexical-graph-examples
+cp -r ./../source-data/* lexical-graph-examples/source-data
 
 # Include benchmark data if local dir is specified and no S3 URI is provided
 # Only copies dataset subdirectories that match the tests being run
 if [[ "$BENCHMARK_DATA_DIR" ]] && [[ -z "$BENCHMARK_DATA_S3_URI" ]]; then
 	mkdir -p lexical-graph-examples/source-data
 	BENCHMARK_DATASETS=""
+	protype_string=""
+	if [[ "$BENCHMARK_IS_PROTOTYPE" == "true" ]]; then
+		protype_string="-prototype"
+	fi
 	if echo "$TESTS" | grep -qi "Cuad"; then
-		if [[ "$BENCHMARK_IS_PROTOTYPE" == "true" ]]; then
-			BENCHMARK_DATASETS="$BENCHMARK_DATASETS cuad-prototype"
-		else
-			BENCHMARK_DATASETS="$BENCHMARK_DATASETS cuad"
-		fi
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS cuad$protype_string"
 	fi
 	if echo "$TESTS" | grep -qi "Pga"; then
-		BENCHMARK_DATASETS="$BENCHMARK_DATASETS pga"
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS pga$protype_string"
 	fi
 	if echo "$TESTS" | grep -qi "Concurrentqa"; then
-		BENCHMARK_DATASETS="$BENCHMARK_DATASETS concurrentqa"
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS concurrentqa$protype_string"
 	fi
 	if echo "$TESTS" | grep -qi "Wikihow"; then
-		BENCHMARK_DATASETS="$BENCHMARK_DATASETS wikihow"
+		BENCHMARK_DATASETS="$BENCHMARK_DATASETS wikihow$protype_string"
 	fi
 	for ds in $BENCHMARK_DATASETS; do
 		if [[ -d "$BENCHMARK_DATA_DIR/$ds" ]]; then
