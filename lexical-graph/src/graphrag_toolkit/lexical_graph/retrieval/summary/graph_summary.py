@@ -51,7 +51,7 @@ class GraphSummary():
     def __init__(self, graph_store:GraphStore, llm:LLMCacheType=None, prompt_template=None, use_cached_entries=True):
         self.graph_store = graph_store
         self.llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
-            llm=llm or GraphRAGConfig.extraction_llm,
+            llm=llm or GraphRAGConfig.response_llm,
             enable_cache=GraphRAGConfig.enable_cache
         )
         self.prompt_template=prompt_template or GRAPH_SUMMARY_PROMPT
