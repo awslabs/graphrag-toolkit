@@ -624,12 +624,23 @@ class LexicalGraphIndex():
 
         stats['numStatementsPerFact'] = results
 
-        localConnectivity = round(sum([i['connectingNumChunks'] * i['numTopics'] for i in stats['numChunksPerTopic']]) / stats['topic'], 5)
-        globalConnectivity = round(sum([i['connectingNumStatements'] * i['numFacts'] for i in stats['numStatementsPerFact']]) / stats['fact'], 5)
+        localConnectivity = 0
+        globalConnectivity = 0
+
+        if stats['topic'] > 0:
+            localConnectivity = round(
+                sum([i['connectingNumChunks'] * i['numTopics'] for i in stats['numChunksPerTopic']]) / stats['topic'], 
+                5
+            )
+        
+        if stats['fact'] > 0:
+            globalConnectivity = round(
+                sum([i['connectingNumStatements'] * i['numFacts'] for i in stats['numStatementsPerFact']]) / stats['fact'], 
+                5
+            )
 
         stats['localConnectivity'] = localConnectivity
         stats['globalConnectivity'] = globalConnectivity
-
 
         return stats
 
