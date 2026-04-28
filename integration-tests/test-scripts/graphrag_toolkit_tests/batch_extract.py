@@ -36,7 +36,7 @@ class BatchExtractToS3(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.extraction_batch_size = 100
         GraphRAGConfig.extraction_num_workers = 2
 
@@ -126,7 +126,7 @@ class BatchExtractFromS3ToS3(IntegrationTestBase):
         
         from llama_index.readers.s3 import S3Reader
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.extraction_batch_size = 600
         GraphRAGConfig.extraction_num_workers = 4
 

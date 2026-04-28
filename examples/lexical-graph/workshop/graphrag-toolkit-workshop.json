@@ -706,7 +706,7 @@
               "Resource": "*"
             },
             {
-              "Sid": "GrantGlobalCrisInferenceProfileRegionAccess",
+              "Sid": "GrantCrisInferenceProfileAccess",
               "Effect": "Allow",
               "Action": [
                 "bedrock:InvokeModel",
@@ -714,45 +714,12 @@
               ],
               "Resource": [
                 {
-                  "Fn::Sub": [
-                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0",
-                    {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "regionPrefix": {
-                        "Fn::Select": [
-                          0,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::Region"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.claude-sonnet-4-6"
                 }
-              ],
-              "Condition": {
-                "StringEquals": {
-                  "aws:RequestedRegion": {
-                    "Ref": "AWS::Region"
-                  }
-                }
-              }
+              ]
             },
             {
-              "Sid": "GrantGlobalCrisInferenceProfileInRegionModelAccess",
+              "Sid": "GrantFoundationModelAccess",
               "Effect": "Allow",
               "Action": [
                 "bedrock:InvokeModel",
@@ -760,40 +727,9 @@
               ],
               "Resource": [
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-6"
                 }
-              ],
-              "Condition": {
-                "StringEquals": {
-                  "aws:RequestedRegion": {
-                    "Ref": "AWS::Region"
-                  },
-                  "bedrock:InferenceProfileArn": {
-                    "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0"
-                  }
-                }
-              }
-            },
-            {
-              "Sid": "GrantGlobalCrisInferenceProfileGlobalModelAccess",
-              "Effect": "Allow",
-              "Action": [
-                "bedrock:InvokeModel",
-                "bedrock:InvokeModelWithResponseStream"
-              ],
-              "Resource": [
-                {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
-                }
-              ],
-              "Condition": {
-                "StringEquals": {
-                  "aws:RequestedRegion": "unspecified",
-                  "bedrock:InferenceProfileArn": {
-                    "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0"
-                  }
-                }
-              }
+              ]
             },
             {
               "Effect": "Allow",
@@ -1490,14 +1426,14 @@
                       "Ref": "AWS::StackId"
                     },
                     "\" >> ~/.bashrc\n",
-                    "echo \"export EXTRACTION_MODEL=global.anthropic.claude-sonnet-4-20250514-v1:0\" >> ~/.bashrc\n",
+                    "echo \"export EXTRACTION_MODEL=anthropic.claude-sonnet-4-6\" >> ~/.bashrc\n",
                     "echo \"export ENABLE_CACHE=True\" >> ~/.bashrc\n",
                     "echo \"export OPENSEARCH_ENGINE=faiss\" >> ~/.bashrc\n",
                     "echo \"export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
-                    "echo \"export RESPONSE_MODEL=global.anthropic.claude-sonnet-4-20250514-v1:0\" >> ~/.bashrc\n",
-                    "echo \"export EVALUATION_MODEL=global.anthropic.claude-sonnet-4-20250514-v1:0\" >> ~/.bashrc\n",
+                    "echo \"export RESPONSE_MODEL=anthropic.claude-sonnet-4-6\" >> ~/.bashrc\n",
+                    "echo \"export EVALUATION_MODEL=anthropic.claude-sonnet-4-6\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
@@ -1650,14 +1586,14 @@
                       ]
                     },
                     "\" >> .env\n",
-                    "  echo \"export EXTRACTION_MODEL=global.anthropic.claude-sonnet-4-20250514-v1:0\" >> .env\n",
+                    "  echo \"export EXTRACTION_MODEL=anthropic.claude-sonnet-4-6\" >> .env\n",
                     "  echo \"export ENABLE_CACHE=True\" >> .env\n",
                     "  echo \"export OPENSEARCH_ENGINE=faiss\" >> .env\n",
                     "  echo \"export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False\" >> .env\n",
                     "  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
                     "  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
-                    "  echo \"export RESPONSE_MODEL=global.anthropic.claude-sonnet-4-20250514-v1:0\" >> .env\n",
-                    "  echo \"export EVALUATION_MODEL=global.anthropic.claude-sonnet-4-20250514-v1:0\" >> .env\n",
+                    "  echo \"export RESPONSE_MODEL=anthropic.claude-sonnet-4-6\" >> .env\n",
+                    "  echo \"export EVALUATION_MODEL=anthropic.claude-sonnet-4-6\" >> .env\n",
                     "  if [ -f \"./on-start.sh\" ]\n",
                     "  then\n",
                     "    echo \"Running startup script\"\n",

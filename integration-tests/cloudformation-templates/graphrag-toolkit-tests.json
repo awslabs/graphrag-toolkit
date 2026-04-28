@@ -301,196 +301,40 @@
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/openai.gpt-oss-120b-1:0"
                 },
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-sonnet-4-6"
                 },
                 {
-                  "Fn::Sub": [
-                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-sonnet-4-20250514-v1:0",
-                    {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "regionPrefix": {
-                        "Fn::Select": [
-                          0,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::Region"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.claude-sonnet-4-6"
                 },
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0"
                 },
                 {
-                  "Fn::Sub": [
-                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-7-sonnet-20250219-v1:0",
-                    {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "regionPrefix": {
-                        "Fn::Select": [
-                          0,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::Region"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.claude-3-7-sonnet-20250219-v1:0"
                 },
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
                 },
                 {
-                  "Fn::Sub": [
-                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-haiku-20241022-v1:0",
-                    {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "regionPrefix": {
-                        "Fn::Select": [
-                          0,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::Region"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.claude-3-5-haiku-20241022-v1:0"
                 },
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"
                 },
                 {
-                  "Fn::Sub": [
-                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-sonnet-20241022-v2:0",
-                    {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "regionPrefix": {
-                        "Fn::Select": [
-                          0,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::Region"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.claude-3-5-sonnet-20241022-v2:0"
                 },
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-5-sonnet-20240620-v1:0"
                 },
                 {
-                  "Fn::Sub": [
-                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-5-sonnet-20240620-v1:0",
-                    {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "regionPrefix": {
-                        "Fn::Select": [
-                          0,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::Region"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.claude-3-5-sonnet-20240620-v1:0"
                 },
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"
                 },
                 {
-                  "Fn::Sub": [
-                    "arn:${partition}:bedrock:${region}:${accountId}:inference-profile/${regionPrefix}.anthropic.claude-3-sonnet-20240229-v1:0",
-                    {
-                      "partition": {
-                        "Ref": "AWS::Partition"
-                      },
-                      "region": {
-                        "Ref": "AWS::Region"
-                      },
-                      "accountId": {
-                        "Ref": "AWS::AccountId"
-                      },
-                      "regionPrefix": {
-                        "Fn::Select": [
-                          0,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::Region"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.claude-3-sonnet-20240229-v1:0"
                 }
               ]
             },
