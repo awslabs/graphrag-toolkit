@@ -853,18 +853,103 @@ class _GraphRAGConfig:
         """
         self._metadata_datetime_suffixes = metadata_datetime_suffixes
 
+    def _validate_bedrock_model(self, model_id, region):
+        """Pre-flight check: validate that a Bedrock model or inference profile
+        is available and enabled before attempting to use it.
+        """
+        try:
+            bedrock_client = self.session.client('bedrock', region_name=region)
+        except Exception:
+            return
+
+        is_inference_profile = '.' in model_id and model_id.split('.')[0] in ('us', 'eu', 'au', 'jp', 'global')
+
+        if is_inference_profile:
+            try:
+                bedrock_client.get_inference_profile(
+                    inferenceProfileIdentifier=model_id
+                )
+            except bedrock_client.exceptions.ResourceNotFoundException:
+                raise ConfigurationError(
+                    f'Bedrock inference profile "{model_id}" was not found in region {region}. '
+                    f'This usually means the inference profile prefix is wrong for this region. '
+                    f'Check available profiles at: '
+                    f'https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html'
+                ) from None
+            except bedrock_client.exceptions.ValidationException as e:
+                raise ConfigurationError(
+                    f'Bedrock inference profile "{model_id}" is not valid: {e}. '
+                    f'Check the model ID format and available profiles at: '
+                    f'https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html'
+                ) from None
+            except Exception:
+                logger.debug(f'Could not validate inference profile "{model_id}": skipping pre-flight check')
+                return
+
+            try:
+                paginator = bedrock_client.get_paginator('list_inference_profiles')
+                found = False
+                for page in paginator.paginate():
+                    for profile in page.get('inferenceProfileSummaries', []):
+                        if profile.get('inferenceProfileId') == model_id:
+                            if profile.get('status') == 'ACTIVE':
+                                found = True
+                                break
+                    if found:
+                        break
+                if not found:
+                    raise ConfigurationError(
+                        f'Bedrock inference profile "{model_id}" exists but is not enabled '
+                        f'in your account in region {region}. '
+                        f'Enable model access in the Bedrock console: '
+                        f'https://{region}.console.aws.amazon.com/bedrock/home?region={region}#/modelaccess'
+                    )
+            except ConfigurationError:
+                raise
+            except Exception:
+                logger.debug(f'Could not list inference profiles to verify "{model_id}": skipping')
+
+        else:
+            try:
+                response = bedrock_client.get_foundation_model(
+                    modelIdentifier=model_id
+                )
+                status = response.get('modelDetails', {}).get('modelLifecycleStatus', '')
+                if status == 'LEGACY':
+                    logger.warning(
+                        f'Model "{model_id}" has lifecycle status LEGACY in region {region}. '
+                        f'Consider upgrading to a newer model version.'
+                    )
+            except bedrock_client.exceptions.ResourceNotFoundException:
+                raise ConfigurationError(
+                    f'Model "{model_id}" is not available in region {region}. '
+                    f'Either the model does not exist in this region, or you need to use '
+                    f'a cross-region inference profile (e.g. global.{model_id}). '
+                    f'Check regional availability at: '
+                    f'https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html'
+                ) from None
+            except bedrock_client.exceptions.ValidationException as e:
+                raise ConfigurationError(
+                    f'Model ID "{model_id}" is not valid: {e}. '
+                    f'Check available models at: '
+                    f'https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html'
+                ) from None
+            except Exception:
+                logger.debug(f'Could not validate foundation model "{model_id}": skipping pre-flight check')
+
     def to_llm(self, llm: LLMType):
         """
         Converts the given LLMType into an instance of LLM or BedrockConverse.
 
         The method accepts an LLM or a string representation of configuration,
         and converts it to an appropriate instance of BedrockConverse based
-        on the provided details. If `llm` is already an instance of LLM, it
-        is returned directly. When `llm` is a valid JSON string, a
-        BedrockConverse instance is initialized with the extracted
-        configuration. Otherwise, a default BedrockConverse instance
-        is created using specified attributes such as AWS profile and
-        region.
+        on the provided details. If ``llm`` is already an instance of LLM, it
+        is returned directly.
+
+        Before creating the client, a pre-flight check validates that the
+        model or inference profile is available and enabled in the target
+        region. If not, a ``ConfigurationError`` is raised with an actionable
+        message.
 
         Args:
             llm: An instance of LLMType which could be an LLM instance,
@@ -876,8 +961,9 @@ class _GraphRAGConfig:
             initialized based on the provided parameters.
 
         Raises:
-            ValueError: If BedrockConverse initialization fails due to
-                invalid input or unexpected errors during processing.
+            ConfigurationError: If the model is not available or not enabled
+                in the target region.
+            ValueError: If BedrockConverse initialization fails.
         """
         if isinstance(llm, LLM):
             return llm
@@ -893,17 +979,24 @@ class _GraphRAGConfig:
 
             if _is_json_string(llm):
                 config = json.loads(llm)
+                model_id = config['model']
+                model_region = config.get('region_name', region)
+
+                self._validate_bedrock_model(model_id, model_region)
+
                 return BedrockConverse(
-                    model=config['model'],
+                    model=model_id,
                     temperature=config.get('temperature', 0.0),
                     max_tokens=config.get('max_tokens', 4096),
                     botocore_session=botocore_session,
-                    region_name=config.get('region_name', region),
+                    region_name=model_region,
                     profile_name=config.get('profile_name', profile),
                     max_retries=50
                 )
 
             else:
+                self._validate_bedrock_model(llm, region)
+
                 return BedrockConverse(
                     model=llm,
                     temperature=0.0,
@@ -914,6 +1007,8 @@ class _GraphRAGConfig:
                     max_retries=50
                 )
 
+        except ConfigurationError:
+            raise
         except Exception as e:
             raise ValueError(f'Failed to initialize BedrockConverse: {str(e)}') from e
 
@@ -968,7 +1063,7 @@ class _GraphRAGConfig:
         Provides access to the `LLM` instance used for data extraction tasks. If the
         extraction model has not previously been set, it initializes the model based on
         the environment variable `EXTRACTION_MODEL`. If the environment variable is not
-        defined, it defaults to the `DEFAULT_EXTRACTION_MODEL`.
+        defined, it defaults to the ``DEFAULT_EXTRACTION_MODEL``.
 
         Attributes:
             extraction_llm (LLM): The LLM instance utilized for extraction purposes.
