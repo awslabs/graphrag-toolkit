@@ -341,7 +341,7 @@ zip -r graphrag.zip graphrag
 cp graphrag.zip ../target/graphrag.zip
 popd
 
-# rm -rf temp
+rm -rf temp
 
 pushd target
 unzip graphrag.zip
