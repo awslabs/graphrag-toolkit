@@ -8,6 +8,9 @@
     "build": "astro build",
     "preview": "astro preview"
   },
+  "overrides": {
+    "postcss": "^8.5.10"
+  },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
     "@astrojs/starlight": "0.38.3",
