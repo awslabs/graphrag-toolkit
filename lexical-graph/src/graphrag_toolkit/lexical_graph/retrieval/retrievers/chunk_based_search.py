@@ -121,15 +121,22 @@ class ChunkBasedSearch(TraversalBasedBaseRetriever):
         """
         logger.debug('Getting start node ids for chunk-based search...')
 
-        chunks = get_diverse_vss_elements(
-            'chunk', 
-            query_bundle, 
-            self.vector_store, 
-            self.args.vss_diversity_factor, 
-            self.args.vss_top_k, 
-            self.filter_config
-        )
-        
+        # CompositeTraversalBasedRetriever may attach a pre-kicked-off future
+        # for this call (see its _retrieve override). Pop to consume so a reused
+        # instance doesn't pick up a stale future on the next call.
+        prefetched = self.__dict__.pop('_prefetched_chunks', None)
+        if prefetched is not None:
+            chunks = prefetched.result()
+        else:
+            chunks = get_diverse_vss_elements(
+                'chunk',
+                query_bundle,
+                self.vector_store,
+                self.args.vss_diversity_factor,
+                self.args.vss_top_k,
+                self.filter_config
+            )
+
         return [chunk['chunk']['chunkId'] for chunk in chunks]
         
     def do_graph_search(self, query_bundle: QueryBundle, start_node_ids:List[str]) -> SearchResultCollection:
