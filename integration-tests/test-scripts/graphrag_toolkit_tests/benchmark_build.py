@@ -33,7 +33,9 @@ DATASET_CONFIG = {
 
 BENCHMARK_DATA_DIR = 'source-data'
 
-def run_benchmark_build(handler: IntegrationTestHandler, dataset: str, data_dir: str,
+def run_benchmark_build(handler: IntegrationTestHandler, 
+                        dataset: str, 
+                        data_dir: str,
                         graph_store_conn: Optional[str] = None, vector_store_conn: Optional[str] = None):
     """
     Builds graph and vector stores from pre-extracted document chunks for a benchmark dataset.

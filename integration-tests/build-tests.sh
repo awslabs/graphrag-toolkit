@@ -242,7 +242,7 @@ cp -r $GRAPHRAG_TOOLKIT_DIR/byokg-rag/src/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-examples
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/byokg-rag/* lexical-graph-examples
 cp -r ./../test-scripts/* lexical-graph-examples
-cp -r ./../source-data/* lexical-graph-examples/source-data
+cp -r ./../source-data lexical-graph-examples/source-data
 
 # Include benchmark data if local dir is specified and no S3 URI is provided
 # Only copies dataset subdirectories that match the tests being run
