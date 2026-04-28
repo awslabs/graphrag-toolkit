@@ -18,3 +18,4 @@ checkpoint.ExtractWithCheckpoint
 checkpoint.BuildWithCheckpoint
 falkordb.TestFalkorDBContrib 
 batch_fallback.BatchExtractToS3Fallback
+delete_sources.DeleteSourceDocs
