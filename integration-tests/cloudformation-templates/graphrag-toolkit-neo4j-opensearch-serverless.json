@@ -30,8 +30,7 @@
 			"Description": "Neo4j password",
 			"Type": "String",
 			"MinLength": 8,
-			"NoEcho": true,
-			"Default": "xhu4klq!J"
+			"NoEcho": true
 		},
 		"SSHCIDR": {
 			"Description": "SSH CIDR (Specify an address range from which ec2 instances are accessible on port 22. You can use 0.0.0.0/0 to allow access from any IP address)",
