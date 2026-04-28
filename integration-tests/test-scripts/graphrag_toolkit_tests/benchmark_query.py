@@ -149,7 +149,6 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='contract'), top_k=1)) == 0
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
-        data_dir = os.environ.get('BENCHMARK_DATA_DIR')
         limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
         is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
         dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
@@ -157,9 +156,10 @@ class CuadBenchmarkQuery(IntegrationTestBase):
         dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
 
         run_benchmark_query(
-            handler, params,
+            handler, 
+            params,
             dataset=dataset_name,
-            data_dir=data_dir,
+            data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
             response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
