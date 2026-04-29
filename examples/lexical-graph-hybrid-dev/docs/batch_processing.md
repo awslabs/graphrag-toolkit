@@ -57,7 +57,7 @@ Update your `.env` file with batch processing settings:
 ```bash
 # Batch Processing Configuration
 AWS_ACCOUNT="123456789012"
-BATCH_ROLE_NAME="GraphRAGBatchRole"
+BATCH_ROLE_NAME="bedrock-batch-inference-role"
 S3_BUCKET_NAME="your-batch-bucket"
 DYNAMODB_NAME="graphrag-toolkit-batch-table"
 
@@ -372,10 +372,10 @@ Error: Cross-account pass role is not allowed
 **Solution:**
 ```bash
 # Verify role exists in correct account
-aws iam get-role --role-name GraphRAGBatchRole --profile your-profile
+aws iam get-role --role-name bedrock-batch-inference-role
 
 # Check role ARN format in .env
-BATCH_ROLE_NAME="GraphRAGBatchRole"  # Just the role name, not full ARN
+BATCH_ROLE_NAME="bedrock-batch-inference-role"  # Just the role name, not full ARN
 ```
 
 **S3 Permission Errors:**

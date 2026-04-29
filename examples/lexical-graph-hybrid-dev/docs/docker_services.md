@@ -27,7 +27,6 @@ This document describes the services defined in the `docker-compose.yml` file us
   - `JUPYTER_ENABLE_LAB`: Enables Jupyter Lab interface
 - **Volumes**:
   - `../notebooks:/home/jovyan/work`: Notebook files
-  - `../../../lexical-graph:/home/jovyan/lexical-graph-src`: Source code (dev mode)
   - `~/.aws:/home/jovyan/.aws`: AWS credentials
 - **Network**: Connected to `graphrag_network`
 - **Depends On**: `neo4j-hybrid`, `pgvector-hybrid`
@@ -102,3 +101,20 @@ Services use different ports than local-dev to avoid conflicts:
 | PostgreSQL | 5432 | 5433 | Vector database |
 
 This allows running both local-dev and hybrid-dev environments simultaneously.
+
+---
+
+## Development Mode Services
+
+The `docker-compose-dev.yml` provides a development variant with hot-code-injection support. Key differences from standard mode:
+
+| Aspect | Standard (`docker-compose.yml`) | Dev (`docker-compose-dev.yml`) |
+|--------|--------------------------------|-------------------------------|
+| Neo4j ports | 7475, 7688 | 7476, 7689 |
+| Jupyter port | 8889 | 8890 |
+| PostgreSQL port | 5433 | 5434 |
+| Jupyter Dockerfile | `jupyter/Dockerfile` (full) | `jupyter/Dockerfile.dev` (minimal) |
+| Notebook mount | `/home/jovyan/work` | `/home/jovyan/notebooks` |
+| Source mounts | None | lexical-graph-src, lexical-graph-contrib |
+
+Start dev mode with: `./start-containers.sh --dev`

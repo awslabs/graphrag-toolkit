@@ -306,7 +306,20 @@ if [ -n "$CURRENT_ROLE" ]; then
     echo "2. Find your Permission Set"
     echo "3. Add the identity policy (${IDENTITY_POLICY_ARN}) to your Permission Set"
 else
-    echo ""
-    echo "NOTE: You are using traditional IAM credentials"
-    echo "Make sure to attach the identity policy to your IAM user or role"
+    # Auto-attach identity policy to the caller's IAM role
+    CALLER_ARN=$(aws sts get-caller-identity ${PROFILE_ARGS} --query Arn --output text)
+    CALLER_ROLE=$(echo "$CALLER_ARN" | sed 's|.*assumed-role/||;s|.*role/||' | cut -d/ -f1)
+    if [ -n "$CALLER_ROLE" ]; then
+        echo ""
+        echo "Attaching identity policy to your IAM role: ${CALLER_ROLE}..."
+        aws iam attach-role-policy \
+            --role-name "${CALLER_ROLE}" \
+            --policy-arn "${IDENTITY_POLICY_ARN}" \
+            ${PROFILE_ARGS} && echo "Identity policy attached successfully" \
+            || echo "WARNING: Could not attach identity policy. Attach it manually to your IAM role."
+    else
+        echo ""
+        echo "NOTE: You are using traditional IAM credentials"
+        echo "Make sure to attach the identity policy to your IAM user or role"
+    fi
 fi

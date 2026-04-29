@@ -82,10 +82,6 @@ Open your browser to: **http://localhost:8889**
 |--------|----------|-------------|
 | `start-containers.sh` | Unix/Linux/Mac | Main startup script with all options |
 | `start-containers.ps1` | Windows PowerShell | PowerShell version |
-| `start-containers.bat` | Windows CMD | Command prompt version |
-| `dev-start.sh` | Unix/Linux/Mac | Development mode startup |
-| `dev-reset.sh` | Unix/Linux/Mac | Reset development environment |
-| `reset.sh` | Unix/Linux/Mac | Reset all containers and data |
 
 ### Script Options
 
@@ -163,7 +159,7 @@ Enable development mode for active lexical-graph development:
 
 ### Neo4j (Graph Store)
 - **Container**: `neo4j-hybrid`
-- **URL**: `neo4j://neo4j:password@neo4j-hybrid:7687`
+- **URL**: `bolt://neo4j:password@neo4j-hybrid:7687`
 - **Browser**: http://localhost:7475
 - **Features**: APOC plugin enabled
 
@@ -263,7 +259,7 @@ If you have existing FalkorDB configurations:
    GRAPH_STORE="falkordb://localhost:6379"
    
    # New Neo4j
-   GRAPH_STORE="neo4j://neo4j:password@neo4j-hybrid:7687"
+   GRAPH_STORE="bolt://neo4j:password@neo4j-hybrid:7687"
    ```
 
 2. **Update imports**:
