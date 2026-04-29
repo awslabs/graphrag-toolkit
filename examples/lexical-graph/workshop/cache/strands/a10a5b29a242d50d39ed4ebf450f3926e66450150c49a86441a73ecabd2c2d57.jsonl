@@ -1,0 +1,33 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Now"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " let me get"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " more specific"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " information about common"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure points an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d accident patterns"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 172 training"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flights"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_OJoCYe2EhdU4RNWEtRxBVl", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"que"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ry\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Ce"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ssna 1"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "72 engin"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "e fa"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ilure m"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "echanica"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l fai"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "lure "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "accident cau"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ses tra"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ining fl"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ights commo"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n proble"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ms\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 6596, "outputTokens": 93, "totalTokens": 6689}, "metrics": {"latencyMs": 2793}}}

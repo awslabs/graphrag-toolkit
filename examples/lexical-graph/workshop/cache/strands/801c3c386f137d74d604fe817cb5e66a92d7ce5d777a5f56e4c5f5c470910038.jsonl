@@ -1,0 +1,48 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " you analyze accidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " involving Robinson an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d Bell helicopters manufacture"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d after 2000,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " comparing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " their"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " frequency"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and severity,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and examining"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " differences that"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " might contribute to accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " patterns."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Let me search for this"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " information using"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aviation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " safety"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " information"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " databases"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_hKilkyqGT5j9FNcOknBEs5", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Robinso"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n helicopt"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "er acciden"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ts aft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "er 200"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "0 f"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "requency"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " severity"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " compare"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "d to Bell h"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "eli"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "co"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "pte"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rs accide"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nt "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "patterns\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 1704, "outputTokens": 120, "totalTokens": 1824}, "metrics": {"latencyMs": 3355}}}

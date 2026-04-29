@@ -1,0 +1,173 @@
+topic: t3 and t4g Neptune Instance Types Information
+
+  entities:
+  
+    t3|Product
+    t4g|Product
+    t3 family|Product
+    t4g family|Product
+    t3 instances|Product
+    t4g instances|Product
+    Neptune free-tier offer|Service
+    Neptune|Service
+    t3.medium|Product
+    t4g.medium|Product
+    AWS|Company
+    AWS Organization with Consolidated Billing|Service
+    Payer Account|Service
+  
+  proposition: t3 is an instance type.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t3|IS_TYPE|instance type
+      
+  proposition: t4g is an instance type.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t4g|IS_TYPE|instance type
+    
+  proposition: The t3 family of instances offers a low-cost option for getting started using a graph database.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t3 family|OFFERS|low-cost option for getting started using a graph database
+      
+  proposition: The t4g family of instances offers a low-cost option for getting started using a graph database.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t4g family|OFFERS|low-cost option for getting started using a graph database
+    
+  proposition: The t3 family of instances offers a low-cost option for initial development and testing.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t3 family|OFFERS|low-cost option for initial development and testing
+      
+  proposition: The t4g family of instances offers a low-cost option for initial development and testing.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t4g family|OFFERS|low-cost option for initial development and testing
+    
+  proposition: The t3 instances are eligible for the Neptune free-tier offer.
+    
+    entity-entity relationships:
+    t3 instances|ELIGIBLE_FOR|Neptune free-tier offer
+    
+    entity-attributes:
+      
+  proposition: The t4g instances are eligible for the Neptune free-tier offer.
+  
+    entity-entity relationships:
+    t4g instances|ELIGIBLE_FOR|Neptune free-tier offer
+  
+    entity-attributes:
+    
+  proposition: The Neptune free-tier offer lets new customers use Neptune at no cost for the first 750 instance hours used within a standalone AWS account or rolled up underneath an AWS Organization with Consolidated Billing (Payer Account).
+    
+    entity-entity relationships:
+    Neptune free-tier offer|ALLOWS_USE_OF|Neptune
+    AWS Organization with Consolidated Billing|INCLUDES|Payer Account
+    
+    entity-attributes:
+    Neptune free-tier offer|HAS_DURATION|750 instance hours
+    Neptune free-tier offer|HAS_COST|no cost
+      
+  proposition: The t3 instances are only offered in the medium size configuration.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t3 instances|OFFERED_IN|medium size configuration
+    
+  proposition: The t4g instances are only offered in the medium size configuration.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t4g instances|OFFERED_IN|medium size configuration
+      
+  proposition: The t3 medium size configuration is t3.medium.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t3|HAS_CONFIGURATION|t3.medium
+    
+  proposition: The t4g medium size configuration is t4g.medium.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t4g|HAS_CONFIGURATION|t4g.medium
+      
+  proposition: The t3 instances are not intended for use in a production environment.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t3 instances|INTENDED_FOR|not production environment
+    
+  proposition: The t4g instances are not intended for use in a production environment.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t4g instances|INTENDED_FOR|not production environment
+      
+  proposition: The t3 instances have very constrained resources.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t3 instances|HAS_RESOURCES|very constrained resources
+    
+  proposition: The t4g instances have very constrained resources.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t4g instances|HAS_RESOURCES|very constrained resources
+      
+  proposition: The t3 instances are not recommended for testing query execution time because these instances have very constrained resources.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t3 instances|RECOMMENDED_FOR|not testing query execution time
+    
+  proposition: The t4g instances are not recommended for testing query execution time because these instances have very constrained resources.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t4g instances|RECOMMENDED_FOR|not testing query execution time
+      
+  proposition: The t3 instances are not recommended for testing overall database performance because these instances have very constrained resources.
+  
+    entity-entity relationships:
+  
+    entity-attributes:
+    t3 instances|RECOMMENDED_FOR|not testing overall database performance
+    
+  proposition: The t4g instances are not recommended for testing overall database performance because these instances have very constrained resources.
+    
+    entity-entity relationships:
+    
+    entity-attributes:
+    t4g instances|RECOMMENDED_FOR|not testing overall database performance
+      
+  proposition: To assess query performance, upgrade to one of the other instance families.
+  
+    entity-entity relationships:
+  
+    entity-attributes:

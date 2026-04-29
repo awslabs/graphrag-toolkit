@@ -63,7 +63,7 @@ class CachingClient():
         messages.sort()
         
         system_messages = [
-            system_message['text']
+            system_message['text'].strip().lower().replace(' ', '').replace('\n', '')
             for system_message in request['system']
         ]
         system_messages.sort()

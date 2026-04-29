@@ -1,0 +1,28 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " you investigate the safety issues and accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " patterns for Kitfox series experimental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aircraft and compare them with the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design specifications from Denney"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Aerocraft. Let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me search both databases for relevant information."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_WypwzFJMPKk0SShk4FmMbr", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \"K"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "itfox ser"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ies"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " experiment"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "al ai"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rcraf"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "t safe"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty issues a"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ccident patt"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "erns"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " investiga"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tion rep"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ort"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 1698, "outputTokens": 110, "totalTokens": 1808}, "metrics": {"latencyMs": 1728}}}

@@ -41,14 +41,14 @@ topic: r5d Instance Types and Neptune Lookup Cache Feature
   
     entity-attributes:
     lookup-cache feature|PURPOSE|improve the performance of queries which need to fetch and return large numbers of property values and literals
-    
+
   proposition: The lookup-cache feature is used primarily by customers with queries that need to return many attributes.
   
     entity-entity relationships:
   
     entity-attributes:
     lookup-cache feature|USED_BY|customers with queries that need to return many attributes
-    
+
   proposition: The lookup cache boosts performance of these queries by fetching these attribute values locally rather than looking up each one over and over in Neptune indexed storage.
   
     entity-entity relationships:
@@ -56,7 +56,7 @@ topic: r5d Instance Types and Neptune Lookup Cache Feature
   
     entity-attributes:
     lookup cache|FUNCTION|boosts performance of these queries by fetching these attribute values locally rather than looking up each one over and over in Neptune indexed storage
-    
+
   proposition: The lookup cache is implemented using a NVMe-attached EBS volume on an r5d instance type.
   
     entity-entity relationships:
@@ -64,14 +64,14 @@ topic: r5d Instance Types and Neptune Lookup Cache Feature
     NVMe-attached EBS volume|RUNS_ON|r5d instance type
   
     entity-attributes:
-    
+
   proposition: The lookup cache is enabled using a cluster's parameter group.
   
     entity-entity relationships:
     lookup cache|ENABLED_BY|cluster's parameter group
   
     entity-attributes:
-    
+
   proposition: As data is fetched from Neptune indexed storage, property values and RDF literals are cached within this NVMe volume.
   
     entity-entity relationships:
@@ -81,21 +81,21 @@ topic: r5d Instance Types and Neptune Lookup Cache Feature
     RDF literals|FETCHED_FROM|Neptune indexed storage
   
     entity-attributes:
-    
+
   proposition: r5d is a family of instance types.
   
     entity-entity relationships:
   
     entity-attributes:
     r5d|IS_A|family of instance types
-    
+
   proposition: r5 is a family of instance types.
   
     entity-entity relationships:
   
     entity-attributes:
     r5|IS_A|family of instance types
-    
+
   proposition: If you don't need the lookup cache feature, use a standard r5 instance type rather than an r5d, to avoid the higher cost of the r5d.
   
     entity-entity relationships:
@@ -104,35 +104,35 @@ topic: r5d Instance Types and Neptune Lookup Cache Feature
     entity-attributes:
     r5|DESCRIBED_AS|standard
     r5d|HAS_COST|higher cost
-    
+
   proposition: The r5d family has instance types in the same sizes as the r5 family.
   
     entity-entity relationships:
     r5d family|SAME_SIZES_AS|r5 family
   
     entity-attributes:
-    
+
   proposition: The r5d family ranges from r5d.large to r5d.24xlarge.
   
     entity-entity relationships:
-    r5d.large|PART_OF|r5d family
-    r5d.24xlarge|PART_OF|r5d family
+    r5d family|CONTAINS|r5d.large
+    r5d family|CONTAINS|r5d.24xlarge
   
     entity-attributes:
     r5d family|RANGES_FROM|r5d.large to r5d.24xlarge
-    
+
   proposition: r5d.large is an instance type in the r5d family.
   
     entity-entity relationships:
-    r5d.large|MEMBER_OF|r5d family
+    r5d.large|PART_OF|r5d family
   
     entity-attributes:
     r5d.large|IS_A|instance type
-    
+
   proposition: r5d.24xlarge is an instance type in the r5d family.
   
     entity-entity relationships:
-    r5d.24xlarge|MEMBER_OF|r5d family
+    r5d.24xlarge|PART_OF|r5d family
   
     entity-attributes:
     r5d.24xlarge|IS_A|instance type
