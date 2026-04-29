@@ -46,6 +46,9 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
         for line in fin:
             data.append(json.loads(line))
 
+    model_id = os.environ.get('TEST_RESPONSE_LLM')
+    assert model_id, 'TEST_RESPONSE_LLM environment variable must be set'
+
     scores = {}
 
     for metric in metrics:
@@ -65,9 +68,9 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
             score = count / total if total > 0 else 0.0
         else:
             if metric == 'correctness':
-                evaluator = CorrectnessEvaluator(model_id='anthropic.claude-3-sonnet-20240229-v1:0')
+                evaluator = CorrectnessEvaluator(model_id=model_id)
             elif metric == 'idk':
-                evaluator = IDKEvaluator(model_id='anthropic.claude-3-sonnet-20240229-v1:0')
+                evaluator = IDKEvaluator(model_id=model_id)
 
             evals = []
             for example in data:
@@ -122,10 +125,13 @@ class CuadBenchmarkEvaluate(IntegrationTestBase):
         dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
 
         responses_path = params.get('benchmark_responses_path',
-                                    os.path.join('benchmark-results', dataset_name, 'responses.jsonl'))
+                                    os.path.join('benchmark-results', 
+                                                 dataset_name, 
+                                                 'responses.jsonl'))
 
         run_benchmark_evaluate(
-            handler, params,
+            handler, 
+            params,
             dataset=dataset_name,
             responses_path=responses_path,
             metrics=['correctness', 'idk'],

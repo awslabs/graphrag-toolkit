@@ -16,42 +16,32 @@ def call_bedrock_invoke_model(prompt, bedrock, model_id, is_json_output=True):
             accept = 'application/json'
             contentType = 'application/json'
 
-            if 'anthropic.claude-3' in model_id:
-                payload_body = {
-                    "anthropic_version": "bedrock-2023-05-31",
-                    "max_tokens": 2048,
-                    "temperature": 0.0,
-                    "top_p": 1,
-                    "top_k": 50,
-                    "messages": [
-                        {
-                            "role": "user",
-                            "content": [
-                                {
-                                    "type": "text",
-                                    "text": prompt
-                                }
-                            ]
-                        }
-                    ]
-                }
-                body = json.dumps(payload_body)
-            else:
-                body = json.dumps({"prompt": prompt, "max_tokens_to_sample": 2048, "temperature": 0.0, "top_p": 1, "top_k": 50,
-                                "stop_sequences": ["\\n\\nHuman:"]})
+            payload_body = {
+                "anthropic_version": "bedrock-2023-05-31",
+                "max_tokens": 2048,
+                # Error: `temperature` and `top_p` cannot both be specified for this model. Please use only one.
+                # "temperature": 0.0,
+                "top_p": 1,
+                "top_k": 50,
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": prompt
+                            }
+                        ]
+                    }
+                ]
+            }
+            body = json.dumps(payload_body)
 
             response = bedrock.invoke_model(body=body, modelId=model_id, accept=accept, contentType=contentType)
 
-            if 'anthropic.claude-3' in model_id:
-                response = response['body'].read().decode('utf-8')
-                response = json.loads(response)
-                response_text = response['content'][0]['text']
-
-            else:
-                response_obj = response.get('body').read().decode('utf-8')
-                print("RESPONSE OBJ: " + str(response_obj))
-                json_response_obj = json.loads(response_obj)
-                response_text = json_response_obj['completion']
+            response = response['body'].read().decode('utf-8')
+            response = json.loads(response)
+            response_text = response['content'][0]['text']
             if is_json_output:
                 try:
                     start_idx = response_text.find("{")
