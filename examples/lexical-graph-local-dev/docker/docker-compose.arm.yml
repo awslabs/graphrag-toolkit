@@ -1,7 +1,7 @@
 services:
-  neo4j:
+  neo4j-local:
     image: neo4j:5.25-community
-    container_name: neo4j
+    container_name: neo4j-local
     ports:
       - "7476:7474"  # HTTP
       - "7689:7687"  # Bolt
@@ -9,37 +9,15 @@ services:
       - NEO4J_AUTH=${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-password}
       - NEO4J_PLUGINS=["apoc"]
     volumes:
-      - neo4j_data:/data
-      - neo4j_logs:/logs
+      - neo4j_local_data:/data
+      - neo4j_local_logs:/logs
     networks:
-      - graphrag_network
+      - graphrag_local_network
     platform: linux/arm64
 
-  jupyter:
-    build:
-      context: ./jupyter
-      dockerfile: Dockerfile
-    container_name: jupyter-notebook
-    ports:
-      - "8889:8888"
-    environment:
-      - JUPYTER_ENABLE_LAB=yes
-      - JUPYTER_TOKEN=''
-    volumes:
-      - ../notebooks:/home/jovyan/work
-      - jupyter_data:/home/jovyan/.jupyter
-      - ${HOME}/.aws:/home/jovyan/.aws
-      - ${LEXICAL_GRAPH_DEV_MOUNT:-/dev/null:/tmp/unused}
-    networks:
-      - graphrag_network
-    depends_on:
-      - neo4j
-      - postgres
-    platform: linux/arm64
-
-  postgres:
+  pgvector-local:
     image: pgvector/pgvector:0.6.2-pg16
-    container_name: pgvector-db
+    container_name: pgvector-local
     ports:
       - "5432:5432"
     environment:
@@ -47,18 +25,39 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
       - POSTGRES_DB=${POSTGRES_DB:-graphrag}
     volumes:
-      - pgvector_data:/var/lib/postgresql/data
+      - pgvector_local_data:/var/lib/postgresql/data
       - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
-      - graphrag_network
+      - graphrag_local_network
+    platform: linux/arm64
+
+  jupyter-local:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    container_name: jupyter-local
+    ports:
+      - "8889:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=''
+    volumes:
+      - ../notebooks:/home/jovyan/work
+      - jupyter_local_data:/home/jovyan/.jupyter
+      - ~/.aws:/home/jovyan/.aws
+    networks:
+      - graphrag_local_network
+    depends_on:
+      - neo4j-local
+      - pgvector-local
     platform: linux/arm64
 
 networks:
-  graphrag_network:
+  graphrag_local_network:
     driver: bridge
 
 volumes:
-  neo4j_data:
-  neo4j_logs:
-  pgvector_data:
-  jupyter_data:
+  neo4j_local_data:
+  neo4j_local_logs:
+  pgvector_local_data:
+  jupyter_local_data:

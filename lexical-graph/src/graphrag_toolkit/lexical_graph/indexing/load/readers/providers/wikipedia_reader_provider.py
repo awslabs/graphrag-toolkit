@@ -26,13 +26,14 @@ class WikipediaReaderProvider:
         self.lang = config.lang
         self.metadata_fn = config.metadata_fn
         self._reader = None
+        self._reader_cls = WikipediaReader
         logger.debug(f"Initialized WikipediaReaderProvider with lang={config.lang}")
 
     def _init_reader(self):
         """Lazily initialize WikipediaReader if not already created."""
         if self._reader is None:
             
-            self._reader = WikipediaReader()
+            self._reader = self._reader_cls()
 
     def read(self, input_source: Union[str, List[str]]) -> List[Document]:
         """Read Wikipedia documents with metadata handling and title correction."""

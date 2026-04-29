@@ -19,5 +19,11 @@ ENV PIP_CACHE_DIR=/tmp/pip-cache
 
 USER $NB_UID
 
+# Neo4j driver (lazy import, required by all notebooks via Neo4jGraphStoreFactory)
+RUN pip install --no-cache-dir neo4j
 
+# Build tools for packages requiring C compilation (e.g. lru-dict)
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
+USER jovyan
 

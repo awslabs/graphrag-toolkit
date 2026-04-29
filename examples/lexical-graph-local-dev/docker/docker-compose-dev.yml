@@ -1,80 +1,62 @@
 services:
-  lg-neo4j:
+  neo4j-local:
     image: neo4j:5.25-community
-    container_name: lg-neo4j-dev
+    container_name: neo4j-local-dev
     ports:
-      - "7476:7474"  # HTTP
-      - "7689:7687"  # Bolt
+      - "7477:7474"  # HTTP
+      - "7690:7687"  # Bolt
     environment:
       - NEO4J_AUTH=${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-password}
       - NEO4J_PLUGINS=["apoc"]
     volumes:
-      - lg_neo4j_data_dev:/data
-      - lg_neo4j_logs_dev:/logs
+      - neo4j_local_data_dev:/data
+      - neo4j_local_logs_dev:/logs
     networks:
-      - lg_graphrag_network_dev
+      - graphrag_local_network_dev
 
-  lg-postgres:
+  pgvector-local:
     image: pgvector/pgvector:0.6.2-pg16
-    container_name: lg-pgvector-db-dev
+    container_name: pgvector-local-dev
     ports:
-      - "5433:5432"
+      - "5434:5432"
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-postgres}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
       - POSTGRES_DB=${POSTGRES_DB:-graphrag}
     volumes:
-      - lg_pgvector_data_dev:/var/lib/postgresql/data
+      - pgvector_local_data_dev:/var/lib/postgresql/data
       - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
-      - lg_graphrag_network_dev
+      - graphrag_local_network_dev
 
-  lg-mysql-dev:
-    image: mysql:8.4
-    container_name: lg-mysql-dev
-    ports:
-      - "3307:3306"  # Avoid conflict with host MySQL
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-graphragroot}
-      - MYSQL_DATABASE=${MYSQL_DATABASE:-graphrag_db}
-      - MYSQL_USER=${MYSQL_USER:-graphrag}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-graphragpass}
-    volumes:
-      - lg_mysql_data_dev:/var/lib/mysql
-      - ./mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql  # Optional SQL init
-    networks:
-      - lg_graphrag_network_dev
-
-  lg-jupyter-dev:
+  jupyter-local-dev:
     build:
-      context: .
-      dockerfile: Dockerfile.jupyter
-    container_name: lg-jupyter-dev
+      context: ./jupyter
+      dockerfile: Dockerfile.dev
+    container_name: jupyter-local-dev
     ports:
-      - "8889:8888"
+      - "8890:8888"
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
       - ../notebooks:/home/jovyan/notebooks
       - ../../../lexical-graph:/home/jovyan/lexical-graph
       - ../../../lexical-graph-contrib:/home/jovyan/lexical-graph-contrib
-      - lg_jupyter_data_dev:/home/jovyan/work
+      - jupyter_local_data_dev:/home/jovyan/work
       - ~/.aws:/home/jovyan/.aws
     networks:
-      - lg_graphrag_network_dev
+      - graphrag_local_network_dev
     depends_on:
-      - lg-postgres
-      - lg-neo4j
-      - lg-mysql-dev
+      - pgvector-local
+      - neo4j-local
     command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
 
 networks:
-  lg_graphrag_network_dev:
+  graphrag_local_network_dev:
     driver: bridge
 
 volumes:
-  lg_neo4j_data_dev:
-  lg_neo4j_logs_dev:
-  lg_pgvector_data_dev:
-  lg_jupyter_data_dev:
-  lg_mysql_data_dev:
+  neo4j_local_data_dev:
+  neo4j_local_logs_dev:
+  pgvector_local_data_dev:
+  jupyter_local_data_dev:
