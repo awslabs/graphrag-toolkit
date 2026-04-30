@@ -1,0 +1,58 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "I'll research"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " this"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " compreh"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ensively by"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " que"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "rying both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " databases"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " simultaneously"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " -"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pulling"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " technical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specifications and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " maintenance challenges from the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge base,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " while"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gathering"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pattern"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " data at"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the same time!"}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_gqbVlBYIFmUXpbEhn9o8df", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ": "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"Lycoming"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " engine"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " t"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ec"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "hnical "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "specifi"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "cations ma"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "intenance "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "chal"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "lenge"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s aircra"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ft\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_tuqsQ6EX5zk2YnCe0688dx", "name": "ntsb"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ": "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"Lycoming "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "engine"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " aircraft ac"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "cidents"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " 20"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "10-2"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "020 failu"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "re pat"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "terns\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 2386, "outputTokens": 152, "totalTokens": 2538}, "metrics": {"latencyMs": 3042}}}

@@ -1,0 +1,766 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Based"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on the comprehensive"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " search"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " results"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gathered"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " from both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB knowledge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bases, here"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " is"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " detailed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " analysis of the correlation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " between"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Cen"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "turion variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and their"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specific"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failures or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " safety"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " incidents:\n\n---"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n#"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cess"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "na 210 Centurion"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Specific Mechanical Failures &"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Safety Incidents\n\n## Overview"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210 Family"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nThe Cessna 210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Centurion is a high"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-performance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " six"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-seat, single-engine, high"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-wing aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable landing gear,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " first"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fl"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "own in January"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 1957"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "and produced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna until"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 1986"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " KB"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " It was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " manufactured"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "26"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " model"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " which"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fall"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " into four"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " broad"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " group"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ings:\n\n|"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Variant Group"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | Models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n|---|"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "---|\n| Early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Fixed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-Gear/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "First"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Gen"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | C"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", C210A\u2013"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "D"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n|"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cen"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "turion Series"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | C210E"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\u2013H"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " &"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " J"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |\n| Tur"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "bo"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Centurion | T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210F"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\u2013H & J |\n|"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cen"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "turion II"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " &"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Tur"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "bo Centurion II"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | C"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210K"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\u2013N"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " & R"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " /"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " T210K\u2013N & R |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nEach"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " variant generation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " carries"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " distinct engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " configurations and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " structural"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " characteristics"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " correl"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ate with specific failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " modes documented"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " records"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ".\n\n---\n\n## "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "1. "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\ud83d\udd34 Cessna 210A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " System"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Interference"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " &"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Total"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Power Loss\n\n**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Profile"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":** The Cessna 210A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " manufactured"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " beginning"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in 1961 and is powered"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by a Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "IO"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-470"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Series"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine rated"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " at 260 hp"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Aircraft KB].\n\n**Documented"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " #"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "85918):**\nA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210A ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "registration"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " N9507X) experienced a **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "total"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " loss"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of engine power** on takeoff from"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " runway 22R at"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Chandler Municipal Airport,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Arizona,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on December 31, 2012"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB KB"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Key"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " findings"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " include"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n- The"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine lost power on the **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "fourth consecutive"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " takeoff**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " suggesting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " interm"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ittent or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " induced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mech"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "anic indicated"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "'s"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system had"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " been adjusted"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " prior"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flight"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " though no"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " record"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of this work"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " appeared"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in the engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " log"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "book [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " post"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " examination"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "revealed no"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ma"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "lfunctions**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and the engine started"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " normally"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " testing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- The **probable"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " cause could"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " not be determined**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " but"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " unauthorized"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " unrec"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "orded fuel system adjustments were identified"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " as a contributing factor [NTS"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "B KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- The aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " sustained"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " substantial damage to both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " wings and fuselage during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the forced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " landing in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " an open field [NTSB"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " KB].\n\n**Correlation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210A variants with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " IO"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-470 engines appear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " suscept"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ible to **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "und"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "etermined power"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " loss events"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**, particularly when"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " maintenance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel systems is performed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " outside"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " documented"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " procedures.\n\n---\n\n## 2"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ". "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\ud83d\udd34 Cessna T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210M"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Turbo Centurion II"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ") \u2014 Oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " St"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "arvation &"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Catastroph"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ic Connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Rod"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Failure\n\n**Variant Profile:**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210M is part"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of the **Turbo Cen"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "turion II** series ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210K"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\u2013N & R), powered"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by a Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "TS"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "IO-520"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Series** turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged engine ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Aircraft KB /"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB KB].\n\n**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Documented Accident (NTS"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "B Accident #90"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "347"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "):**\nA Cessna T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210M (registration N1"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "593"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "M"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " manufactured"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 1977"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ") suffered"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " catastrophic engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure near"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Jacksonville"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", Oregon"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " cruise"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flight ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB KB]. Key findings"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " include:\n\n- The engine began"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "running"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " roughly"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " cruise"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with the pilot"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " attempting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to increase"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " power"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " resulting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in severe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " sh"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aking"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB KB].\n-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "No"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 6"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod fract"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ured due"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to oil starvation**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod journal"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bearing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The No"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ". 5"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod subsequently"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fract"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ured from"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the casc"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ading damage"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Bearing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " remn"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ants recovered"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " from the oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " s"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ump showed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **thermal"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " dis"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "coloration and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " dist"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ortion**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " consistent"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with oil starvation [N"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "TSB KB].\n- The **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pressure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gauge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " dropped"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to zero**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " smoke"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " developed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the cabin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", and oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " covered"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the wind"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "shield\u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "yet"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the engine continued to run briefly"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- The aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " n"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "osed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " over"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " after"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "n"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "osewheel d"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ug"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " into mud"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " during the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " forced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " landing, causing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " substantial"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " damage [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- The engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " examination"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " conducted"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " jointly"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB and Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Motors"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n**Correlation:** The turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " TSIO-520 engine in the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " T210M variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " is specifically"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " associated with **oil starvation-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "induced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod failures**, a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " known"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " risk"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " high"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-performance turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engines. This"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mode is particularly linked"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to the mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complexity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of the tur"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "bo variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " vs"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ". the normally"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aspir"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ated "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "series."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n---\n\n## 3. "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\ud83d\udfe1 Ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable Landing Gear \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cross"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-Variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Risk"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n**Variant Profile:** All"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210 variants ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "unlike"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the related"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 205"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "206"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "207 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "family"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ") feature"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "retractable tric"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ycle landing gear**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " which is a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " core"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " element"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of the type"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [Aircraft KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nThe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB database"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " demonstrates"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable landing gear systems"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " are a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " recurring"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " source"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of non"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-power"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "component"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failures in the broader"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna family"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The Cessna T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210M accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " above"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specifically"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " notes"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that **the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " airplane"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " n"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "osed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " over after the nosewheel d"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ug into mud**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " following"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " forced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " landing, comp"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ounding"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the primary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " secondary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "related structural"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " damage"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable gear system of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210 family is also"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " highlighted"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " as a risk factor in the broader"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " context"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of gear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-up"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gear-collapse"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " incidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " documented"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " across"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " similar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " high"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-wing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable aircraft."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n---"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n## 4. "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\ud83d\udfe1 Post"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-Maintenance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Fuel System Anomal"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ies \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Concern"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nAcross"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210 models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "notably"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 210A), the IO"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-470 engine's **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "fuel injection"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system** has"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " been repeatedly"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flag"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ged in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " accident contexts"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Und"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "oc"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "umented fuel system adjustments preceded"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " power"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " loss event in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210A [NTSB KB"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "].\n- The **absence"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of log"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "book entries** for fuel system work"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " is a specific"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " documentation failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " obsc"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ures root"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " cause"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " analysis [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- Post"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-accident engine runs"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " sometimes"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " show"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **no"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " reproduc"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ible fault"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " suggesting trans"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ient fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " delivery"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " issues tied"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to calib"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ration or impro"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "per maintenance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB KB]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n---"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n## 5. "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\ud83d\udfe2"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Tur"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "bo vs"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ". Normally"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Aspirated Split"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " A Critical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Division"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nThe cle"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "arest variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " correlation separ"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ates the normally"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aspirated variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " (C"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210, "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210A\u2013"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "D,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " C"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210E"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\u2013N"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ")"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " from the **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "turbo variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "T210F\u2013H&"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "J, T210K\u2013N&"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "R)**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n| Feature"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | Normally Aspirated ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "e"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ".g., "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ") | Turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged (e.g., T"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "210M) |\n|---|"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "---|---|\n| Engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | Continental"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " IO-470 /"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " IO-520"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | Continental TSIO-520"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |\n| Key"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Failure Mode | Und"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "etermined fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "related"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " power"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " loss | Oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " starvation \u2192"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod failure |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n| Failure Severity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | Forced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " landing,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " surviv"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "able | Catastrophic engine destruction"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |\n| Post"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-Accident Findings"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | No reproduc"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ible fault | Physical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " evidence"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of oil/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "thermal"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " damage |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " KB / NTSB KB]"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nThe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " turb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ocharged"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " TSIO-520 in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the T210M and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " similar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " variants operates"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " at"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " higher"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " thermal"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and mechanical stress levels,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " making **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "lu"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "brication system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " integrity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** a more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " critical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " point"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " than in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the sim"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "pler IO"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-470-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "equipped"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " variants ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB KB].\n\n---"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n## Summary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nThe evidence"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " from"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB records"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and aircraft history"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " reveals"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " two"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " primary variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-specific failure patterns"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the Cessna 210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Centurion:\n\n1. **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Early"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " (210A,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " IO"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-470 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "engine):**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Prone"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to **unexp"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "lained or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-related power losses**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " often"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " following"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " maintenance,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with post"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-accident exam"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "inations yiel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ding incon"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "clusive findings"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n2. **Turbo variants ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "T210M, TSIO-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "520 engine):** At"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " elevated"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " risk"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **catastroph"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ic engine failures driven"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by oil starvation**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " resulting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in connecting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rod fractures,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " loss"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pressure, and severe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-flight mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " emerg"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "encies."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n3. **All"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ret"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ractable-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "gear variants:** Share"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the cross"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-cutting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " risk of **secondary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " landing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gear damage"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " forced landings, particularly"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " soft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " un"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "even terrain"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ".\n\nThese"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " correlations unders"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "core the importance of variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-specific maintenance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " practices"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", especially"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " oil"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system monitoring for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " turbocharged models"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " documented"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel system serv"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "icing for all"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " variants."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "end_turn"}}
+{"metadata": {"usage": {"inputTokens": 20239, "outputTokens": 1990, "totalTokens": 22229}, "metrics": {"latencyMs": 40988}}}

@@ -1,0 +1,40 @@
+Neptune Instance Resource Allocation Overview
+
+Amazon EC2 instance types and sizes used in Neptune offer a defined amount of compute (vCPUs) and system memory.
+Amazon EC2 is a compute service.
+Neptune is a database service.
+The primary storage for Neptune is external to the DB instances in a cluster.
+Neptune's external primary storage allows compute and storage capacity to scale independently of each other.
+In all Neptune instance families, vCPU resources are allocated to support two (2) query execution threads per vCPU.
+The number of query execution threads supported per vCPU in Neptune is dictated by the instance size.
+When determining the proper size of a Neptune DB instance, the possible concurrency of the application must be considered.
+When determining the proper size of a Neptune DB instance, the average latency of queries must be considered.
+The number of vCPUs needed for a Neptune DB instance can be estimated using the formula: vCPUs = (latency x concurrency) / 2.
+In the Neptune vCPU formula, latency is measured as the average query latency in seconds.
+In the Neptune vCPU formula, concurrency is measured as the target number of queries per second.
+SPARQL queries can, under certain circumstances, use more than one execution thread per query.
+openCypher queries can, under certain circumstances, use more than one execution thread per query.
+Gremlin read queries that use the DFE (Data Flow Engine) query engine can, under certain circumstances, use more than one execution thread per query.
+When initially sizing a Neptune DB cluster, the assumption should be that each query will consume a single execution thread per execution.
+A Neptune DB cluster should be scaled up if back pressure into the query queue is observed.
+Back pressure into the Neptune query queue can be observed using the `/gremlin/status` API.
+Back pressure into the Neptune query queue can be observed using the `/oc/status` API.
+Back pressure into the Neptune query queue can be observed using the `/sparql/status` API.
+Back pressure into the Neptune query queue can be observed using the `MainRequestsPendingRequestsQueue` CloudWatch metric.
+CloudWatch is a monitoring service.
+System memory on each Neptune instance is divided into two primary allocations: buffer pool cache and query execution thread memory.
+Approximately two thirds of the available memory in a Neptune instance is allocated for buffer pool cache.
+Buffer pool cache is used to cache the most recently used components of the graph for faster access on queries that repeatedly access those components.
+Neptune instances with a larger amount of system memory have larger buffer pool caches that can store more of the graph locally.
+A user can tune for the appropriate amount of buffer pool cache by monitoring the buffer cache hit and miss metrics available in CloudWatch.
+The size of a Neptune instance should be increased if the cache hit rate drops below 99.9% for a consistent period of time.
+A cache hit rate below 99.9% for a consistent period of time suggests that the buffer pool is not big enough.
+A cache hit rate below 99.9% for a consistent period of time suggests the Neptune engine is having to fetch data from the underlying storage volume more often than is efficient.
+The remaining third of system memory in a Neptune instance is distributed evenly across query execution threads.
+Some memory in a Neptune instance remains for the operating system.
+Some memory in a Neptune instance is reserved as a small dynamic pool for threads to use as needed.
+The memory available for each Neptune query execution thread increases slightly from one instance size to the next up to an `8xl` instance type.
+At the `8xl` instance type, the memory allocated per thread in Neptune reaches a maximum.
+The time to add more thread memory in Neptune is when an `OutOfMemoryException` (OOM) is encountered.
+An `OutOfMemoryException` (OOM) in Neptune occurs when one thread needs more than the maximum memory allocated to it.
+An `OutOfMemoryException` (OOM) in Neptune is not the same as the entire instance running out of memory.

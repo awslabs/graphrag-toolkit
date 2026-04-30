@@ -1,0 +1,128 @@
+topic: T3 and T4g Instance Types in Neptune
+
+  entities:
+
+    t3|Product
+    t4g|Product
+    Neptune|Software
+    t3.medium|Product
+    t4g.medium|Product
+    Neptune free-tier offer|Service
+    AWS account|Service
+    AWS Organization with Consolidated Billing|Service
+
+  proposition: `t3` and `t4g` are a family of instances in Neptune.
+
+    entity-entity relationships:
+    t3|PART_OF|Neptune
+    t4g|PART_OF|Neptune
+
+    entity-attributes:
+    t3|CLASSIFICATION|family of instances
+    t4g|CLASSIFICATION|family of instances
+
+  proposition: The `t3` and `t4g` family of instances offers a low-cost option for getting started using a graph database.
+
+    entity-entity relationships:
+    t3|PART_OF|Neptune
+    t4g|PART_OF|Neptune
+
+    entity-attributes:
+    t3|USE_CASE|getting started using a graph database
+    t4g|USE_CASE|getting started using a graph database
+    t3|COST|low-cost
+    t4g|COST|low-cost
+
+  proposition: The `t3` and `t4g` family of instances offers a low-cost option for initial development and testing.
+
+    entity-entity relationships:
+    t3|PART_OF|Neptune
+    t4g|PART_OF|Neptune
+
+    entity-attributes:
+    t3|USE_CASE|initial development and testing
+    t4g|USE_CASE|initial development and testing
+
+  proposition: The `t3` and `t4g` instances are eligible for the Neptune free-tier offer.
+
+    entity-entity relationships:
+    t3|ELIGIBLE_FOR|Neptune free-tier offer
+    t4g|ELIGIBLE_FOR|Neptune free-tier offer
+
+  proposition: The Neptune free-tier offer lets new customers use Neptune at no cost for the first 750 instance hours.
+
+    entity-entity relationships:
+    Neptune free-tier offer|PART_OF|Neptune
+
+    entity-attributes:
+    Neptune free-tier offer|DURATION|750 instance hours
+    Neptune free-tier offer|COST|no cost
+
+  proposition: The 750 free instance hours must be used within a standalone AWS account or rolled up underneath an AWS Organization with Consolidated Billing (Payer Account).
+
+    entity-entity relationships:
+    Neptune free-tier offer|REQUIRES|AWS account
+    Neptune free-tier offer|REQUIRES|AWS Organization with Consolidated Billing
+
+    entity-attributes:
+    Neptune free-tier offer|USAGE_SCOPE|standalone AWS account or AWS Organization with Consolidated Billing
+
+  proposition: The `t3` and `t4g` instances are only offered in the medium size configuration.
+
+    entity-entity relationships:
+    t3|HAS_CONFIGURATION|t3.medium
+    t4g|HAS_CONFIGURATION|t4g.medium
+
+    entity-attributes:
+    t3|SIZE|medium
+    t4g|SIZE|medium
+
+  proposition: The medium size configuration for `t3` instances is `t3.medium`.
+
+    entity-entity relationships:
+    t3|HAS_CONFIGURATION|t3.medium
+
+    entity-attributes:
+    t3.medium|SIZE|medium
+
+  proposition: The medium size configuration for `t4g` instances is `t4g.medium`.
+
+    entity-entity relationships:
+    t4g|HAS_CONFIGURATION|t4g.medium
+
+    entity-attributes:
+    t4g.medium|SIZE|medium
+
+  proposition: The `t3` and `t4g` instances are not intended for use in a production environment.
+
+    entity-attributes:
+    t3|INTENDED_USE|not for production environment
+    t4g|INTENDED_USE|not for production environment
+
+  proposition: The `t3` and `t4g` instances have very constrained resources.
+
+    entity-attributes:
+    t3|RESOURCE_LEVEL|very constrained
+    t4g|RESOURCE_LEVEL|very constrained
+
+  proposition: The `t3` and `t4g` instances are not recommended for testing query execution time due to their very constrained resources.
+
+    entity-attributes:
+    t3|LIMITATION|not recommended for testing query execution time
+    t4g|LIMITATION|not recommended for testing query execution time
+
+  proposition: The `t3` and `t4g` instances are not recommended for testing overall database performance due to their very constrained resources.
+
+    entity-attributes:
+    t3|LIMITATION|not recommended for testing overall database performance
+    t4g|LIMITATION|not recommended for testing overall database performance
+
+  proposition: To assess query performance, users should upgrade from `t3` or `t4g` instances to one of the other instance families.
+
+    entity-entity relationships:
+    t3|UPGRADEABLE_TO|Neptune
+    t4g|UPGRADEABLE_TO|Neptune
+
+    entity-attributes:
+    t3|RECOMMENDATION|upgrade to other instance families for query performance assessment
+    t4g|RECOMMENDATION|upgrade to other instance families for query performance assessment

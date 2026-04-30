@@ -6,9 +6,13 @@ The workshop assumes familiarity with graph concepts, vector similarity search, 
 
 ## Installation
 
-  1. Create a new AWS CloudFormation stack using the `graphrag-toolkit-workshop.json` template. Supply a unique `ApplicationId` parameter (this parameter is used to name all resources created by the stack).
-  2. Once the stack is complete, click the `NeptuneSagemakerNotebook` URI in the **Outputs** tab.
-  3. Open notebook `0-Start-Here.ipynb`
+The workshop is installed using an AWS CloudFormation stack. The stack template and workshop assets are first copied to an Amazon S3 bucket, and then installed from the bucket. Before running the install, ensure you have an existing S3 bucket in the region where you plan to run the workshop.
+
+```
+sh install.sh --region <AWS Region> --bucket <name of an existing S3 bucket>
+```
+
+Once the stack is complete, click the `NeptuneSagemakerNotebook` URI in the **Outputs** tab, then open notebook `0-Start-Here.ipynb`
   
 ## Exercises
 

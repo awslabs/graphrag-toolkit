@@ -1,0 +1,56 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me dig"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " deeper into both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bases for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specific details"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Kit"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "f"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ox variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " patterns"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Den"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ney A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ero"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "craft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specifications"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_4CwGdyLgraU5RDyQeumbgq", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"qu"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ery\": \"Kitfo"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "x airc"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "raf"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "t loss of co"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ntro"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l ground "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "loop "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "direction"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "al cont"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ro"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l acc"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ident\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_rcmcejs3oeMmZBUIDNRDYr", "name": "aircraft"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"K"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "itfox Mo"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "del 1 2 3"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " 4 5 va"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rian"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ts spe"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "cificatio"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ns STOL ta"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ildragger R"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ot"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ax engine\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 6613, "outputTokens": 160, "totalTokens": 6773}, "metrics": {"latencyMs": 5760}}}
