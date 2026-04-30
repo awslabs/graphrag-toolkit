@@ -1,0 +1,280 @@
+topic: Neptune Instance Resource Allocation Overview
+
+  entities:
+
+    Amazon EC2|Service
+    Neptune|Service
+    CloudWatch|Service
+    Data Flow Engine|Software
+    MainRequestsPendingRequestsQueue|Software
+
+  proposition: [Amazon EC2 instance types and sizes used in Neptune offer a defined amount of compute (vCPUs) and system memory.]
+
+    entity-entity relationships:
+    Amazon EC2|USED_IN|Neptune
+
+    entity-attributes:
+    Amazon EC2|PROVIDES|defined amount of compute (vCPUs) and system memory
+
+  proposition: [Amazon EC2 is a compute service.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Amazon EC2|TYPE|compute service
+
+  proposition: [Neptune is a database service.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|TYPE|database service
+
+  proposition: [The primary storage for Neptune is external to the DB instances in a cluster.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|STORAGE_LOCATION|external to the DB instances in a cluster
+
+  proposition: [Neptune's external primary storage allows compute and storage capacity to scale independently of each other.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|STORAGE_FEATURE|compute and storage capacity scale independently
+
+  proposition: [In all Neptune instance families, vCPU resources are allocated to support two (2) query execution threads per vCPU.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|THREADS_PER_VCPU|2
+
+  proposition: [The number of query execution threads supported per vCPU in Neptune is dictated by the instance size.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|THREAD_ALLOCATION|dictated by instance size
+
+  proposition: [When determining the proper size of a Neptune DB instance, the possible concurrency of the application must be considered.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|SIZING_FACTOR|possible concurrency of the application
+
+  proposition: [When determining the proper size of a Neptune DB instance, the average latency of queries must be considered.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|SIZING_FACTOR|average latency of queries
+
+  proposition: [The number of vCPUs needed for a Neptune DB instance can be estimated using the formula: vCPUs = (latency x concurrency) / 2.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|VCPU_FORMULA|vCPUs = (latency x concurrency) / 2
+
+  proposition: [In the Neptune vCPU formula, latency is measured as the average query latency in seconds.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|LATENCY_UNIT|average query latency in seconds
+
+  proposition: [In the Neptune vCPU formula, concurrency is measured as the target number of queries per second.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|CONCURRENCY_UNIT|target number of queries per second
+
+  proposition: [SPARQL queries can, under certain circumstances, use more than one execution thread per query.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|SPARQL_THREAD_USAGE|more than one execution thread per query under certain circumstances
+
+  proposition: [openCypher queries can, under certain circumstances, use more than one execution thread per query.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|OPENCYPHER_THREAD_USAGE|more than one execution thread per query under certain circumstances
+
+  proposition: [Gremlin read queries that use the DFE (Data Flow Engine) query engine can, under certain circumstances, use more than one execution thread per query.]
+
+    entity-entity relationships:
+    Neptune|USES|Data Flow Engine
+
+    entity-attributes:
+    Data Flow Engine|QUERY_TYPE|Gremlin read queries
+    Data Flow Engine|THREAD_USAGE|more than one execution thread per query under certain circumstances
+
+  proposition: [When initially sizing a Neptune DB cluster, the assumption should be that each query will consume a single execution thread per execution.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|SIZING_ASSUMPTION|each query consumes a single execution thread per execution
+
+  proposition: [A Neptune DB cluster should be scaled up if back pressure into the query queue is observed.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|SCALE_UP_TRIGGER|back pressure into the query queue
+
+  proposition: [Back pressure into the Neptune query queue can be observed using the `/gremlin/status` API.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|MONITORING_API|/gremlin/status
+
+  proposition: [Back pressure into the Neptune query queue can be observed using the `/oc/status` API.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|MONITORING_API|/oc/status
+
+  proposition: [Back pressure into the Neptune query queue can be observed using the `/sparql/status` API.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|MONITORING_API|/sparql/status
+
+  proposition: [Back pressure into the Neptune query queue can be observed using the `MainRequestsPendingRequestsQueue` CloudWatch metric.]
+
+    entity-entity relationships:
+    MainRequestsPendingRequestsQueue|PART_OF|CloudWatch
+
+    entity-attributes:
+    MainRequestsPendingRequestsQueue|MONITORS|back pressure into the Neptune query queue
+
+  proposition: [CloudWatch is a monitoring service.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    CloudWatch|TYPE|monitoring service
+
+  proposition: [System memory on each Neptune instance is divided into two primary allocations: buffer pool cache and query execution thread memory.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|MEMORY_ALLOCATIONS|buffer pool cache and query execution thread memory
+
+  proposition: [Approximately two thirds of the available memory in a Neptune instance is allocated for buffer pool cache.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|BUFFER_POOL_CACHE_ALLOCATION|approximately two thirds of available memory
+
+  proposition: [Buffer pool cache is used to cache the most recently used components of the graph for faster access on queries that repeatedly access those components.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|BUFFER_POOL_CACHE_PURPOSE|cache most recently used graph components for faster repeated access
+
+  proposition: [Neptune instances with a larger amount of system memory have larger buffer pool caches that can store more of the graph locally.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|BUFFER_POOL_CACHE_SCALING|larger system memory yields larger buffer pool cache
+
+  proposition: [A user can tune for the appropriate amount of buffer pool cache by monitoring the buffer cache hit and miss metrics available in CloudWatch.]
+
+    entity-entity relationships:
+    Neptune|MONITORED_BY|CloudWatch
+
+    entity-attributes:
+    CloudWatch|PROVIDES_METRIC|buffer cache hit and miss metrics
+
+  proposition: [The size of a Neptune instance should be increased if the cache hit rate drops below 99.9% for a consistent period of time.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|SCALE_UP_TRIGGER|cache hit rate drops below 99.9% for a consistent period of time
+
+  proposition: [A cache hit rate below 99.9% for a consistent period of time suggests that the buffer pool is not big enough.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|CACHE_HIT_RATE_THRESHOLD|99.9%
+
+  proposition: [A cache hit rate below 99.9% for a consistent period of time suggests the Neptune engine is having to fetch data from the underlying storage volume more often than is efficient.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|LOW_CACHE_HIT_IMPLICATION|frequent data fetches from underlying storage volume
+
+  proposition: [The remaining third of system memory in a Neptune instance is distributed evenly across query execution threads.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|THREAD_MEMORY_ALLOCATION|remaining third of system memory distributed evenly across query execution threads
+
+  proposition: [Some memory in a Neptune instance remains for the operating system.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|MEMORY_RESERVED_FOR|operating system
+
+  proposition: [Some memory in a Neptune instance is reserved as a small dynamic pool for threads to use as needed.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|MEMORY_RESERVED_FOR|small dynamic pool for threads
+
+  proposition: [The memory available for each Neptune query execution thread increases slightly from one instance size to the next up to an `8xl` instance type.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|THREAD_MEMORY_SCALING|increases slightly per instance size up to 8xl
+
+  proposition: [At the `8xl` instance type, the memory allocated per thread in Neptune reaches a maximum.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|MAX_THREAD_MEMORY_INSTANCE|8xl
+
+  proposition: [The time to add more thread memory in Neptune is when an `OutOfMemoryException` (OOM) is encountered.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|SCALE_UP_TRIGGER|OutOfMemoryException encountered
+
+  proposition: [An `OutOfMemoryException` (OOM) in Neptune occurs when one thread needs more than the maximum memory allocated to it.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|OOM_CAUSE|one thread needs more than maximum allocated memory
+
+  proposition: [An `OutOfMemoryException` (OOM) in Neptune is not the same as the entire instance running out of memory.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune|OOM_CLARIFICATION|not the same as the entire instance running out of memory

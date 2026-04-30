@@ -1,0 +1,83 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Good"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " results"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me now"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " dig"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " deeper into the specific fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complexity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "30,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " its"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " multi"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-tank"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " architecture"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", compar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "isons to peer"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aircraft like"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the Be"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ech"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Travel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Air"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Baron"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cess"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "na 310, and any"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " additional"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " findings"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_b7lX2hQL6W1eVzC8FqQwAp", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"quer"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\": \"Pipe"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "r PA-30"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Twin "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Comanche "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fuel tanks "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tip tanks"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " auxiliary t"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "anks "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fuel sel"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ect"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "or system co"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "mpl"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "exity\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_g6T9FMlhDDnqg3JMwvFgpu", "name": "ntsb"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "twin engi"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ne aircraft "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fu"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "el starvat"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ion "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fuel s"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "elector mis"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "managem"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ent acciden"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "t causes"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_2p0NXTjFBe5XRy73apl4AC", "name": "aircraft"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"qu"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ery"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\": \"Be"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "echcraft Tr"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "avel Air Bar"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "on Cessna 3"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "10 light t"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "win fuel sys"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tem design "}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "comp"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "arison\"}"}}, "contentBlockIndex": 3}}
+{"contentBlockStop": {"contentBlockIndex": 3}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 8343, "outputTokens": 230, "totalTokens": 8573}, "metrics": {"latencyMs": 5050}}}

@@ -1,0 +1,58 @@
+topic: r4 Instance Type Family Deprecation Details
+
+  entities:
+
+    r4 family|Product
+    Neptune|Service
+    Engine version 1.1.0.0|Software
+
+  proposition: [The `r4` family is a family of instance types.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r4 family|TYPE|instance type family
+
+  proposition: [The `r4` family is deprecated.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r4 family|STATUS|deprecated
+
+  proposition: [The `r4` family was offered when Neptune was launched in 2018.]
+
+    entity-entity relationships:
+    r4 family|OFFERED_BY|Neptune
+
+    entity-attributes:
+    Neptune|LAUNCH_YEAR|2018
+
+  proposition: [Newer instance types offer much better price/performance than the `r4` family.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r4 family|PRICE_PERFORMANCE|inferior to newer instance types
+
+  proposition: [As of engine version 1.1.0.0, Neptune no longer supports `r4` instance types.]
+
+    entity-entity relationships:
+    Neptune|DEPRECATES|r4 family
+    Neptune|USES|Engine version 1.1.0.0
+
+    entity-attributes:
+
+  proposition: [Engine version 1.1.0.0 is a Neptune engine version.]
+
+    entity-entity relationships:
+    Engine version 1.1.0.0|VERSION_OF|Neptune
+
+    entity-attributes:
+
+  proposition: [Engine version 1.1.0.0 is documented at https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.1.0.0.html.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Engine version 1.1.0.0|DOCUMENTATION_URL|https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.1.0.0.html

@@ -1,0 +1,165 @@
+topic: r7i Instance Family Overview and Characteristics
+
+  entities:
+
+    r7i|Product
+    r6i|Product
+    r5|Product
+    r7i.12xlarge|Product
+    r7i.16xlarge|Product
+    r7i.24xlarge|Product
+    4th-generation Intel Xeon Scalable processors|Product
+    Intel|Company
+
+  proposition: [The `r7i` family is a family of instance types.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i|TYPE|instance family
+
+  proposition: [The `r7i` family is powered by 4th-generation Intel Xeon Scalable processors.]
+
+    entity-entity relationships:
+    r7i|POWERED_BY|4th-generation Intel Xeon Scalable processors
+
+    entity-attributes:
+
+  proposition: [The 4th-generation Intel Xeon Scalable processors are code named Sapphire Rapids.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    4th-generation Intel Xeon Scalable processors|CODE_NAME|Sapphire Rapids
+
+  proposition: [The `r7i` family offers significant improvements over `r6i` instances.]
+
+    entity-entity relationships:
+    r7i|IMPROVES_UPON|r6i
+
+    entity-attributes:
+
+  proposition: [The `r7i` instances provide approximately 15% better compute price/performance than comparable `r6i` instance types.]
+
+    entity-entity relationships:
+    r7i|IMPROVES_UPON|r6i
+
+    entity-attributes:
+    r7i|COMPUTE_PRICE_PERFORMANCE_IMPROVEMENT|approximately 15% better than r6i
+
+  proposition: [The `r7i` instances provide up to 20% higher memory bandwidth per vCPU than comparable `r6i` instance types.]
+
+    entity-entity relationships:
+    r7i|IMPROVES_UPON|r6i
+
+    entity-attributes:
+    r7i|MEMORY_BANDWIDTH_IMPROVEMENT|up to 20% higher per vCPU than r6i
+
+  proposition: [The `r7i` instance family has a 2-socket Intel Central Processing Unit architecture.]
+
+    entity-entity relationships:
+    r7i|USES|Intel
+
+    entity-attributes:
+    r7i|CPU_ARCHITECTURE|2-socket Intel
+
+  proposition: [The `r7i` instance family has a 2-socket Intel Central Processing Unit architecture similar to the `r5` family.]
+
+    entity-entity relationships:
+    r7i|SIMILAR_TO|r5
+
+    entity-attributes:
+    r7i|CPU_ARCHITECTURE|2-socket Intel
+
+  proposition: [The `r7i.12xlarge` and smaller instance types use a single socket.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i.12xlarge|SOCKET_USAGE|single socket
+
+  proposition: [The `r7i.12xlarge` and smaller instance types use the system memory owned by that single-socket processor.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i.12xlarge|MEMORY_USAGE|system memory of single-socket processor
+
+  proposition: [The `r7i.16xlarge` instance type uses both sockets and available memory.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i.16xlarge|SOCKET_USAGE|both sockets and available memory
+
+  proposition: [The `r7i.24xlarge` instance type uses both sockets and available memory.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i.24xlarge|SOCKET_USAGE|both sockets and available memory
+
+  proposition: [A 2-socket architecture requires some memory-management overhead between two physical processors.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i|OVERHEAD|memory-management overhead between two physical processors
+
+  proposition: [The performance gains scaling up from a `r7i.12xlarge` to a `r7i.16xlarge` instance type are not as linear as scaling up at smaller sizes.]
+
+    entity-entity relationships:
+    r7i.12xlarge|SCALES_TO|r7i.16xlarge
+
+    entity-attributes:
+    r7i.16xlarge|PERFORMANCE_SCALING|non-linear from r7i.12xlarge
+
+  proposition: [The performance gains scaling up from a `r7i.12xlarge` to a `r7i.24xlarge` instance type are not as linear as scaling up at smaller sizes.]
+
+    entity-entity relationships:
+    r7i.12xlarge|SCALES_TO|r7i.24xlarge
+
+    entity-attributes:
+    r7i.24xlarge|PERFORMANCE_SCALING|non-linear from r7i.12xlarge
+
+  proposition: [Performance scales linearly with compute capacity up to `r7i.12xlarge`.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i.12xlarge|PERFORMANCE_SCALING|linear up to this instance size
+
+  proposition: [The `r7i` family features enhanced memory management between physical processors in the 2-socket architecture.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i|FEATURE|enhanced memory management between physical processors
+
+  proposition: [The `r7i` family features improved performance for memory-intensive graph operations.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i|FEATURE|improved performance for memory-intensive graph operations
+
+  proposition: [The number of virtual Central Processing Units needed can be estimated using the formula: vCPUs=(latency x concurrency)/2.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i|VCPU_ESTIMATION_FORMULA|vCPUs=(latency x concurrency)/2
+
+  proposition: [In the vCPUs formula, latency is measured as the average query latency in seconds.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i|FORMULA_LATENCY_UNIT|average query latency in seconds
+
+  proposition: [In the vCPUs formula, concurrency is measured as the target number of queries per second.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7i|FORMULA_CONCURRENCY_UNIT|target number of queries per second

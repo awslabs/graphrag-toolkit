@@ -1,0 +1,129 @@
+topic: r7g Instance Type Family Features and Characteristics
+
+  entities:
+
+    r7g|Product
+    r6g|Product
+    AWS Graviton3|Product
+    AWS Graviton2|Product
+    r7g.large|Product
+    r7g.16xlarge|Product
+
+  proposition: [The `r7g` family is a family of instance types.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|TYPE|instance type family
+
+  proposition: [The `r7g` family uses the AWS Graviton3 processor.]
+
+    entity-entity relationships:
+    r7g|USES|AWS Graviton3
+
+    entity-attributes:
+
+  proposition: [The AWS Graviton3 processor delivers better price/performance than previous Graviton2-based instances.]
+
+    entity-entity relationships:
+    AWS Graviton3|OUTPERFORMS|AWS Graviton2
+
+    entity-attributes:
+    AWS Graviton3|PERFORMANCE|better price/performance than Graviton2-based instances
+
+  proposition: [In testing, the AWS Graviton3 processor offers 25-30% better performance for OLTP-style graph queries compared to `r6g` instances.]
+
+    entity-entity relationships:
+    AWS Graviton3|OUTPERFORMS|r6g
+
+    entity-attributes:
+    AWS Graviton3|PERFORMANCE_IMPROVEMENT|25-30% better for OLTP-style graph queries compared to r6g
+
+  proposition: [The `r7g` family has a single-socket architecture.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|ARCHITECTURE|single-socket
+
+  proposition: [The `r6g` family has a single-socket architecture.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r6g|ARCHITECTURE|single-socket
+
+  proposition: [The `r7g` family's single-socket architecture means that performance scales linearly with compute capacity.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|PERFORMANCE_SCALING|linear with compute capacity
+
+  proposition: [Performance in the `r7g` family scales linearly from an `r7g.large` to an `r7g.16xlarge`.]
+
+    entity-entity relationships:
+    r7g.large|PART_OF|r7g
+    r7g.16xlarge|PART_OF|r7g
+
+    entity-attributes:
+    r7g|PERFORMANCE_SCALING|linear from r7g.large to r7g.16xlarge
+
+  proposition: [The `r7g.16xlarge` is the largest instance type in the `r7g` family.]
+
+    entity-entity relationships:
+    r7g.16xlarge|PART_OF|r7g
+
+    entity-attributes:
+    r7g.16xlarge|SIZE_RANK|largest in r7g family
+
+  proposition: [The `r7g` family is powered by AWS Graviton3 ARM-based processors.]
+
+    entity-entity relationships:
+    r7g|POWERED_BY|AWS Graviton3
+
+    entity-attributes:
+    AWS Graviton3|ARCHITECTURE|ARM-based
+
+  proposition: [The `r7g` family has improved memory-paging performance compared to `r6g`.]
+
+    entity-entity relationships:
+    r7g|OUTPERFORMS|r6g
+
+    entity-attributes:
+    r7g|MEMORY_PAGING|improved compared to r6g
+
+  proposition: [The `r7g` family's improved memory-paging performance benefits both OLTP and OLAP workloads.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|WORKLOAD_BENEFIT|OLTP and OLAP workloads
+
+  proposition: [The `r7g` family has enhanced buffer-pool cache efficiency.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|CACHE_EFFICIENCY|enhanced buffer-pool cache efficiency
+
+  proposition: [The `r7g` family has lower latency for memory-intensive operations.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|LATENCY|lower for memory-intensive operations
+
+  proposition: [The `r7g` family is well-suited for production environments with varied query patterns.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|USE_CASE|production environments with varied query patterns
+
+  proposition: [The `r7g` family is particularly effective for workloads that benefit from improved memory bandwidth.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r7g|USE_CASE|workloads benefiting from improved memory bandwidth
