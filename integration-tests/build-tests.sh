@@ -125,11 +125,11 @@ if [[ -z "$FAIL_FAST" ]]; then
 fi
 
 if [[ -z "$TEST_EXTRACTION_LLM" ]]; then
-	TEST_EXTRACTION_LLM="us.anthropic.claude-sonnet-4-20250514-v1:0"
+	TEST_EXTRACTION_LLM="us.anthropic.claude-sonnet-4-6"
 fi
 
 if [[ -z "$TEST_RESPONSE_LLM" ]]; then
-	TEST_RESPONSE_LLM="us.anthropic.claude-sonnet-4-20250514-v1:0"
+	TEST_RESPONSE_LLM="us.anthropic.claude-sonnet-4-6"
 fi
 
 if [[ -z "$NEPTUNE_INSTANCE_TYPE" ]]; then
@@ -355,6 +355,38 @@ echo "----------------------------------------------------"
 echo ""
 
 if [[ -z "$DRY_RUN" ]]; then
+
+  validate_model() {
+    local label="$1"
+    local model_id="$2"
+    local prefix="${model_id%%.*}"
+
+    echo "Validating $label: $model_id (region: $REGION_NAME)..."
+
+    if [[ "$prefix" == "us" || "$prefix" == "eu" || "$prefix" == "au" || "$prefix" == "jp" || "$prefix" == "global" ]]; then
+      if ! aws bedrock get-inference-profile --inference-profile-identifier "$model_id" --region "$REGION_NAME" > /dev/null 2>&1; then
+        echo ""
+        echo "ERROR: $label model '$model_id' is not available in region '$REGION_NAME'."
+        echo "  The inference profile could not be found or is not accessible."
+        echo "  Check the latest supported models: https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html"
+        exit 1
+      fi
+    else
+      if ! aws bedrock get-foundation-model --model-identifier "$model_id" --region "$REGION_NAME" > /dev/null 2>&1; then
+        echo ""
+        echo "ERROR: $label model '$model_id' is not available in region '$REGION_NAME'."
+        echo "  The foundation model could not be found or is not accessible."
+        echo "  Check the latest supported models: https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html"
+        exit 1
+      fi
+    fi
+
+    echo "✓ $label: $model_id"
+  }
+
+  validate_model "Extraction LLM" "$TEST_EXTRACTION_LLM"
+  validate_model "Response LLM" "$TEST_RESPONSE_LLM"
+
   if [[ "$PREV_STACK_NAME" ]]; then
     echo "Deleting previous stack: $PREV_STACK_NAME"
     aws cloudformation delete-stack --stack-name "$PREV_STACK_NAME" --region $REGION_NAME

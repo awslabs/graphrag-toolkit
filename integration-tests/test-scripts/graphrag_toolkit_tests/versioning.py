@@ -51,7 +51,7 @@ class CreateVersionedData(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.enable_versioning = True
         
         with(
@@ -107,7 +107,7 @@ class QueryVersionedData(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
            
         class VersioningAssertions(unittest.TestCase):
             
@@ -280,7 +280,7 @@ class DeleteVersionedData(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.enable_versioning = True
         
         with(
@@ -362,7 +362,7 @@ class AutoDeleteAllPrevVersionsData(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.enable_versioning = True
         
         with(
@@ -419,7 +419,7 @@ class DoNotAutoDeleteProtectedPrevVersionsData(IntegrationTestBase):
             deletion_protection = metadata.get('deletionProtection', False)
             return not deletion_protection
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.enable_versioning = True
         
         with(
