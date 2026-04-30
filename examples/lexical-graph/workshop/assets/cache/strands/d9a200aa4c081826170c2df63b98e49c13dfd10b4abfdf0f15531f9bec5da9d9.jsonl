@@ -1,35 +1,36 @@
 {"messageStart": {"role": "assistant"}}
-{"contentBlockDelta": {"delta": {"text": "I'll help you fin"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": "d information about Lycoming engines"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " and aircraft accidents. Let me search for relevant"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " data using the available tools."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " you investigate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " equippe"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d with Lycoming engines involved in accidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " between 2010-2020,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " their"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " technical specifications,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " maintenance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " challenges, and any"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " common"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure patterns identifie"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d by the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Let me search for this information."}, "contentBlockIndex": 0}}
 {"contentBlockStop": {"contentBlockIndex": 0}}
-{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_SSv6vlHUMIgbz97isiToPW", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_hcNtfokcA0B3G2ECm4BXEn", "name": "ntsb"}}, "contentBlockIndex": 1}}
 {"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": "}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"air"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "craft equip"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ped "}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "wit"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "h Lycom"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "in"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "g engines in"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "volved "}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "in accide"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "nts "}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "between 201"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "0-20"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "20, N"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "TS"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "B investigat"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ions,"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": " fa"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ilure pa"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "tterns, ma"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "int"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "enance cha"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "llen"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ges\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \"a"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ircraft "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "with Lycom"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ing"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " engine"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s involved i"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n accidents "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "betw"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "een 2010-202"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "0 NTSB i"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nvestigatio"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ns fail"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ure pa"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tterns\"}"}}, "contentBlockIndex": 1}}
 {"contentBlockStop": {"contentBlockIndex": 1}}
 {"messageStop": {"stopReason": "tool_use"}}
-{"metadata": {"usage": {"inputTokens": 1718, "outputTokens": 108, "totalTokens": 1826}, "metrics": {"latencyMs": 1783}}}
+{"metadata": {"usage": {"inputTokens": 1726, "outputTokens": 127, "totalTokens": 1853}, "metrics": {"latencyMs": 3054}}}

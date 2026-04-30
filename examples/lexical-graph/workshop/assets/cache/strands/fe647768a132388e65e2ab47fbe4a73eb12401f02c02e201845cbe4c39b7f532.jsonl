@@ -1,32 +1,47 @@
 {"messageStart": {"role": "assistant"}}
 {"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " you find information about"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " Cessna 172 "}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": "variants involved in accidents during"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " instructional flights and analyze"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " their technical specifications in relation to accident"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " patterns. Let me search both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 172 variants involved in accidents during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " instructional flights and analyze their technical specifications in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " relation to accident patterns. Let me search both"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " databases for this information."}, "contentBlockIndex": 0}}
 {"contentBlockStop": {"contentBlockIndex": 0}}
-{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_zFJBXYUrGAKhUTyH0Fuywn", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_8J2eWhq9gkMJ5ARTmhqJGx", "name": "ntsb"}}, "contentBlockIndex": 1}}
 {"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "Cessna 172 "}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "var"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "iants invol"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ved"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": " in accid"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ents durin"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "g instr"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "uctio"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "nal fligh"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ts traini"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ng lesso"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ns studen"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "t "}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "pilot in"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "structor"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Cessn"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "a 172 var"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "iants "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "acci"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "dents instr"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uctiona"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l fligh"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ts train"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ing failure"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " points"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " mec"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "hanic"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "al system"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s\"}"}}, "contentBlockIndex": 1}}
 {"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_dONvxoo2ydxcA1xtPPWrV7", "name": "aircraft"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "query\""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ": \"C"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "essna 172 v"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ariants tech"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nical spec"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ifications m"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "echanical sy"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ste"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ms com"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "pone"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nts devel"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "opmen"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "t hi"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sto"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ry\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
 {"messageStop": {"stopReason": "tool_use"}}
-{"metadata": {"usage": {"inputTokens": 1699, "outputTokens": 113, "totalTokens": 1812}, "metrics": {"latencyMs": 1720}}}
+{"metadata": {"usage": {"inputTokens": 1707, "outputTokens": 157, "totalTokens": 1864}, "metrics": {"latencyMs": 2279}}}

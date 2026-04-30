@@ -17,7 +17,7 @@ if [ -e ./.env ]; then
 fi
 
 STACK_SUFFIX=$(date +%s)
-GRAPH_NAME="fd-$STACK_SUFFIX"
+GRAPH_NAME="grw-$STACK_SUFFIX"
 STACK_DESCRIPTION="graphrag workshop"
 
 while [[ "$#" -gt 0 ]]; do

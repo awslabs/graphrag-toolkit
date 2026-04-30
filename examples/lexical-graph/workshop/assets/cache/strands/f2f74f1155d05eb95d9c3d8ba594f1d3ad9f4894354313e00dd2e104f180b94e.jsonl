@@ -1,36 +1,35 @@
 {"messageStart": {"role": "assistant"}}
-{"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " you find information about the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "I'll search for information about the"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " Piper PA-30 Twin"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " Comanche's"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " fuel system design an"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": "d any"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " safety"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " relate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d safety"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " issues"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " related to fuel starvation."}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " Let me search both"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " aviation"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " databases"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " for relevant information."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " as"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " well as compar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "isons with other twin-engine aircraft."}, "contentBlockIndex": 0}}
 {"contentBlockStop": {"contentBlockIndex": 0}}
-{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_us7VMJUcqfbWDjFrArOL0Z", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_tcbDjbI3KBFiA8sJ6NuENo", "name": "aircraft"}}, "contentBlockIndex": 1}}
 {"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"quer"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\": \"Piper P"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "A-30 Twi"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "n Co"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "manche f"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "uel syst"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "em des"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ign fe"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ature"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "s fuel starv"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ati"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "on accident"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "s twin"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": " engin"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "e airc"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "raft\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Piper PA-30"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Tw"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "in Comanche"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " f"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uel"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " sy"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "stem des"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ign "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "features f"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uel"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " starvat"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ion acc"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "idents sa"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fety issues"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"}"}}, "contentBlockIndex": 1}}
 {"contentBlockStop": {"contentBlockIndex": 1}}
 {"messageStop": {"stopReason": "tool_use"}}
-{"metadata": {"usage": {"inputTokens": 1700, "outputTokens": 118, "totalTokens": 1818}, "metrics": {"latencyMs": 2903}}}
+{"metadata": {"usage": {"inputTokens": 1708, "outputTokens": 113, "totalTokens": 1821}, "metrics": {"latencyMs": 3352}}}

@@ -8,7 +8,7 @@ source /home/ec2-user/anaconda3/bin/activate "$ENVIRONMENT"
 
 echo "Installing toolkit and dependencies..."
 
-pip install graphrag-lexical-graph
+pip install --only-binary :all: graphrag-lexical-graph
 rm -rf /home/ec2-user/SageMaker/graphrag-toolkit/graphrag_toolkit
 #pip install -r /home/ec2-user/SageMaker/graphrag-toolkit/graphrag_toolkit/lexical_graph/requirements.txt
 

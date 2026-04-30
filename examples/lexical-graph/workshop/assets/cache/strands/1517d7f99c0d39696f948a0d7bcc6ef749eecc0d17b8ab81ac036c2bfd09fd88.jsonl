@@ -1,28 +1,30 @@
 {"messageStart": {"role": "assistant"}}
 {"contentBlockDelta": {"delta": {"text": "I'll help"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " you investigate the safety issues and accident"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " patterns for Kitfox series experimental"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " aircraft and compare them with the"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " design specifications from Denney"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " Aerocraft. Let"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " me search both databases for relevant information."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " you research safety issues and accident patterns for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Kitfox series experimental aircraft an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "d compare them to the manufacturer's design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specifications. Let me search for information"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " about both the safety/accident data"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and the manufacturer details."}, "contentBlockIndex": 0}}
 {"contentBlockStop": {"contentBlockIndex": 0}}
-{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_WypwzFJMPKk0SShk4FmMbr", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_tKQiF2jjBcRKuyVX7o3aXc", "name": "ntsb"}}, "contentBlockIndex": 1}}
 {"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \"K"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "itfox ser"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ies"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": " experiment"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "al ai"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "rcraf"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "t safe"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty issues a"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ccident patt"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "erns"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": " investiga"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "tion rep"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ort"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "s\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"q"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uery\": "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"Kit"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fox ex"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "perim"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ental"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " aircr"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "aft accid"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ents sa"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "fety "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "iss"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ue"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s patte"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rn"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s incid"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ents\"}"}}, "contentBlockIndex": 1}}
 {"contentBlockStop": {"contentBlockIndex": 1}}
 {"messageStop": {"stopReason": "tool_use"}}
-{"metadata": {"usage": {"inputTokens": 1698, "outputTokens": 110, "totalTokens": 1808}, "metrics": {"latencyMs": 1728}}}
+{"metadata": {"usage": {"inputTokens": 1706, "outputTokens": 109, "totalTokens": 1815}, "metrics": {"latencyMs": 1958}}}

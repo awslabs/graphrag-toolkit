@@ -1,29 +1,23 @@
 {"messageStart": {"role": "assistant"}}
 {"contentBlockDelta": {"delta": {"text": "I'll search for information about"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " Cessna 210 Centur"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": "ion accidents and safety"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " incidents to analyze"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": " correl"}, "contentBlockIndex": 0}}
-{"contentBlockDelta": {"delta": {"text": "ations between variants"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ion accidents and their correlation with specific variants"}, "contentBlockIndex": 0}}
 {"contentBlockDelta": {"delta": {"text": " and mechanical failures."}, "contentBlockIndex": 0}}
 {"contentBlockStop": {"contentBlockIndex": 0}}
-{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_4dz9lGWsOILENl4PxSTdYL", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_JbYcVmkA68bilY2rYFalIo", "name": "ntsb"}}, "contentBlockIndex": 1}}
 {"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "Cessn"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "a 210 Centu"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "rion accide"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "nts mechani"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "cal fa"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "il"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ures "}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "safety"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": " incide"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "nts"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": " by va"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ri"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "ant mod"}}, "contentBlockIndex": 1}}
-{"contentBlockDelta": {"delta": {"toolUse": {"input": "el\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Cessna "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "210 "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Centuri"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "on accident"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s mechan"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ical failu"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "res safe"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty incide"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nts var"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "iant"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s\"}"}}, "contentBlockIndex": 1}}
 {"contentBlockStop": {"contentBlockIndex": 1}}
 {"messageStop": {"stopReason": "tool_use"}}
-{"metadata": {"usage": {"inputTokens": 1692, "outputTokens": 101, "totalTokens": 1793}, "metrics": {"latencyMs": 2564}}}
+{"metadata": {"usage": {"inputTokens": 1700, "outputTokens": 96, "totalTokens": 1796}, "metrics": {"latencyMs": 2425}}}
