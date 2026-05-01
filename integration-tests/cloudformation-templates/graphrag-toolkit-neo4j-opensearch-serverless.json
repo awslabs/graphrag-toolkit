@@ -26,7 +26,7 @@
 			],
 			"ConstraintDescription": "Must be a valid instance type."
 		},
-		"Neo4jPassword": {
+		"DbPassword": {
 			"Description": "Neo4j password",
 			"Type": "String",
 			"MinLength": 8,
@@ -100,7 +100,7 @@
 					},
 					"Parameters": [
 						"DbInstanceType",
-						"Neo4jPassword",
+						"DbPassword",
 						"SSHCIDR",
 						"DiskSize"
 					]
@@ -693,7 +693,7 @@
 								"echo Running startup script...\n",
 								"password=\"",
 								{
-									"Ref": "Neo4jPassword"
+									"Ref": "DbPassword"
 								},
 								"\"\n",
 								"stackName=",
@@ -1181,7 +1181,7 @@
 												"neo4j://neo4j:${pwd}@${host}:7687",
 												{
 													"pwd": {
-														"Ref": "Neo4jPassword"
+														"Ref": "DbPassword"
 													},
 													"host": {
 														"Fn::GetAtt": [
@@ -1287,7 +1287,7 @@
 												"neo4j://neo4j:${pwd}@${host}:7687",
 												{
 													"pwd": {
-														"Ref": "Neo4jPassword"
+														"Ref": "DbPassword"
 													},
 													"host": {
 														"Fn::GetAtt": [
