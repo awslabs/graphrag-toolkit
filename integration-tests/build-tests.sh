@@ -416,7 +416,7 @@ if [[ -z "$DRY_RUN" ]]; then
     ParameterKey=NotebookInstanceType,ParameterValue="$NOTEBOOK_INSTANCE_TYPE" \
 		ParameterKey=IamPolicyArn,ParameterValue="$ADDITIONAL_IAM_POLICY_ARN" \
 		ParameterKey=SSHCIDR,ParameterValue="$SSHCIDR" \
-    ParameterKey=DbPassword,ParameterValue="$DB_PASSWORD" \
+		ParameterKey=DbPassword,ParameterValue="$DB_PASSWORD" \
 	  --capabilities CAPABILITY_NAMED_IAM \
 	  --tags \
 	    Key=ApplicationName,Value="graphrag-toolkit test" \
