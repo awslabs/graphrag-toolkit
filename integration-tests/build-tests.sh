@@ -75,7 +75,7 @@ if [[ "$#" -gt 0 ]]; then
 		echo "             Allowed values:"
 		echo "               nmslib"
 		echo "               faiss"
-    echo "  --db-password <database password>"
+		echo "  --db-password <database password>"
 		echo "  --topic <SNS topic name>"
 		echo "  --extraction-llm <Model id or profile name>"
     echo "  --response-llm <Model id or profile name>"
