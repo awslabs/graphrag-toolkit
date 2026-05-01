@@ -73,7 +73,12 @@
         "true",
         "false"
       ]
-    }
+    },
+    "DbPassword": {
+			"Description": "Database password (used by some store providers)",
+			"Type": "String",
+			"NoEcho": true
+		}
   },
   "Mappings": {
     "EnvTypeMap": {
@@ -82,56 +87,64 @@
         "IncludeEngineVersion": "True",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "True",
-        "IncludeAllowPublicAccess": "True"
+        "IncludeAllowPublicAccess": "True",
+        "IncludeDbPassword": "False"
       },
       "neptune-db-postgresql": {
         "TemplateName": "graphrag-toolkit-neptune-db-aurora-postgres.json",
         "IncludeEngineVersion": "True",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "True",
-        "IncludeAllowPublicAccess": "False"
+        "IncludeAllowPublicAccess": "False",
+        "IncludeDbPassword": "False"
       },
       "neptune-db-s3vectors": {
         "TemplateName": "graphrag-toolkit-neptune-db-s3-vectors.json",
         "IncludeEngineVersion": "True",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "True",
-        "IncludeAllowPublicAccess": "False"
+        "IncludeAllowPublicAccess": "False",
+        "IncludeDbPassword": "False"
       },
       "neptune-graph": {
         "TemplateName": "graphrag-toolkit-neptune-analytics.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "False",
-        "IncludeAllowPublicAccess": "False"
+        "IncludeAllowPublicAccess": "False",
+        "IncludeDbPassword": "False"
       },
       "neptune-graph-aoss": {
         "TemplateName": "graphrag-toolkit-neptune-analytics-opensearch-serverless.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "False",
-        "IncludeAllowPublicAccess": "True"
+        "IncludeAllowPublicAccess": "True",
+        "IncludeDbPassword": "False"
       },
       "neptune-graph-postgresql": {
         "TemplateName": "graphrag-toolkit-neptune-analytics-aurora-postgres.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "False",
-        "IncludeAllowPublicAccess": "False"
+        "IncludeAllowPublicAccess": "False",
+        "IncludeDbPassword": "False"
       },
       "neptune-graph-s3vectors": {
         "TemplateName": "graphrag-toolkit-neptune-analytics-s3-vectors.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "False",
         "IncludeNeptuneInstanceType": "False",
-        "IncludeAllowPublicAccess": "False"
+        "IncludeAllowPublicAccess": "False",
+        "IncludeDbPassword": "False"
       },
       "neo4j-aoss": {
         "TemplateName": "graphrag-toolkit-neo4j-opensearch-serverless.json",
         "IncludeEngineVersion": "False",
         "IncludeSSHCIDR": "True",
         "IncludeNeptuneInstanceType": "False",
-        "IncludeAllowPublicAccess": "True"
+        "IncludeAllowPublicAccess": "True",
+        "IncludeDbPassword": "True"
       }
     }
   },
@@ -223,6 +236,20 @@
               "Ref": "EnvType"
             },
             "IncludeAllowPublicAccess"
+          ]
+        },
+        "True"
+      ]
+    },
+    "DoIncludeDbPassword": {
+      "Fn::Equals": [
+        {
+          "Fn::FindInMap": [
+            "EnvTypeMap",
+            {
+              "Ref": "EnvType"
+            },
+            "IncludeDbPassword"
           ]
         },
         "True"
@@ -494,6 +521,17 @@
               "DoIncludeAllowPublicAccess",
               {
                 "Ref": "AllowPublicAccess"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "DbPassword": {
+            "Fn::If": [
+              "DoIncludeDbPassword",
+              {
+                "Ref": "DbPassword"
               },
               {
                 "Ref": "AWS::NoValue"
