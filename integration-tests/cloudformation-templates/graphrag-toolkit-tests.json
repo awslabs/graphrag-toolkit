@@ -73,6 +73,11 @@
         "true",
         "false"
       ]
+    },
+    "BedrockModelId": {
+      "Description": "Bedrock model ID used for extraction, response, and evaluation LLMs",
+      "Type": "String",
+      "Default": "anthropic.claude-sonnet-4-6"
     }
   },
   "Mappings": {
@@ -301,10 +306,10 @@
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/openai.gpt-oss-120b-1:0"
                 },
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.*"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/${BedrockModelId}"
                 },
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.*"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.${BedrockModelId}"
                 }
               ]
             },
@@ -499,6 +504,9 @@
                 "Ref": "AWS::NoValue"
               }
             ]
+          },
+          "BedrockModelId": {
+            "Ref": "BedrockModelId"
           }
         },
         "TimeoutInMinutes": "60"

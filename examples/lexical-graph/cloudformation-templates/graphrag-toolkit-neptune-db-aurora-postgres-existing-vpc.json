@@ -134,6 +134,11 @@
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
       "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip"
+    },
+    "BedrockModelId": {
+      "Description": "Bedrock model ID used for extraction, response, and evaluation LLMs",
+      "Type": "String",
+      "Default": "anthropic.claude-sonnet-4-6"
     }
   },
   "Metadata": {
@@ -144,7 +149,8 @@
             "default": "Setup"
           },
           "Parameters": [
-            "ApplicationId"
+            "ApplicationId",
+            "BedrockModelId"
           ]
         },
         {
@@ -732,10 +738,10 @@
               ],
               "Resource": [
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.*"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/${BedrockModelId}"
                 },
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.*"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.${BedrockModelId}"
                 },
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
@@ -1382,15 +1388,15 @@
                       "Ref": "AWS::StackId"
                     },
                     "echo \"export EXTRACTION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {"Ref": "BedrockModelId"},
                     "\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
                     "echo \"export RESPONSE_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {"Ref": "BedrockModelId"},
                     "\" >> ~/.bashrc\n",
                     "echo \"export EVALUATION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {"Ref": "BedrockModelId"},
                     "\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
@@ -1564,15 +1570,15 @@
                     },
                     "\" >> .env\n",
                     "  echo \"export EXTRACTION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {"Ref": "BedrockModelId"},
                     "\" >> .env\n",
                     "  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
                     "  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
                     "  echo \"export RESPONSE_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {"Ref": "BedrockModelId"},
                     "\" >> .env\n",
                     "  echo \"export EVALUATION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {"Ref": "BedrockModelId"},
                     "\" >> .env\n",
                     " echo \"export LOCAL_EXTRACT_S3=",
                     {

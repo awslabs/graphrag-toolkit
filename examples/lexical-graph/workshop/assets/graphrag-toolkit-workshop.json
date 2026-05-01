@@ -477,7 +477,7 @@
               ],
               "Resource": [
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.*"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.${ModelId}"
                 }
               ]
             },
@@ -490,7 +490,7 @@
               ],
               "Resource": [
                 {
-                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.*"
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/${ModelId}"
                 }
               ]
             },

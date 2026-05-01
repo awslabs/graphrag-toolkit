@@ -411,6 +411,7 @@ if [[ -z "$DRY_RUN" ]]; then
     ParameterKey=NotebookInstanceType,ParameterValue="$NOTEBOOK_INSTANCE_TYPE" \
 		ParameterKey=IamPolicyArn,ParameterValue="$ADDITIONAL_IAM_POLICY_ARN" \
 		ParameterKey=SSHCIDR,ParameterValue="$SSHCIDR" \
+		ParameterKey=BedrockModelId,ParameterValue="${TEST_EXTRACTION_LLM#*.}" \
 	  --capabilities CAPABILITY_NAMED_IAM \
 	  --tags \
 	    Key=ApplicationName,Value="graphrag-toolkit test" \
