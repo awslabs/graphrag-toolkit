@@ -45,6 +45,9 @@ build.log
 temp/
 test-results/
 test-logs/
+execution_report.json
+execution_report.md
 screenlog.*
 extracted/
 examples/lexical-graph-hybrid-dev/notebooks/output.log
+examples/lexical-graph-local-dev/notebooks/run_notebooks.py

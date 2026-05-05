@@ -11,41 +11,53 @@ This example provides a complete local development environment for the GraphRAG 
 - [**00-Setup**](./notebooks/00-Setup.ipynb) – Environment setup, package installation, and development mode configuration
 - [**01-Combined-Extract-and-Build**](./notebooks/01-Combined-Extract-and-Build.ipynb) – Complete extraction and building pipeline using `LexicalGraphIndex.extract_and_build()`
 - [**02-Querying**](./notebooks/02-Querying.ipynb) – Graph querying examples using `LexicalGraphQueryEngine` with various retrievers
-- [**03-Querying with prompting**](./notebooks/03-Querying%20with%20prompting.ipynb) – Advanced querying with custom prompts and prompt providers
+- [**03-Querying-with-Prompting**](./notebooks/03-Querying-with-Prompting.ipynb) – Advanced querying with custom prompts and prompt providers
 - [**04-Advanced-Configuration-Examples**](./notebooks/04-Advanced-Configuration-Examples.ipynb) – Advanced reader configurations and metadata handling
 - [**05-S3-Directory-Reader-Provider**](./notebooks/05-S3-Directory-Reader-Provider.ipynb) – S3-based document reading and processing
 
 ## Quick Start
 
-### 1. Start the Environment
+> All commands below should be executed from the `lexical-graph-local-dev/` directory.
 
-**Standard (x86/Intel):**
+### 1. AWS Prerequisites
+
+Before starting, ensure you have:
+- [AWS CLI configured with credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html) — verify with `aws sts get-caller-identity`
+- Access to Amazon Bedrock models:
+  - `us.anthropic.claude-sonnet-4-6` (extraction, response, evaluation)
+  - `cohere.embed-english-v3` (embeddings)
+
+### 2. Configure Environment
+
+```bash
+cp notebooks/.env.template notebooks/.env
+```
+
+Review `notebooks/.env` — defaults work for local Docker services. Set `S3_BUCKET_NAME` if using S3 features (notebooks 03, 04, 05).
+
+### 3. Start the Environment
+
+**Standard:**
 ```bash
 cd docker
 ./start-containers.sh
 ```
 
-**Mac/ARM (Apple Silicon):**
-```bash
-cd docker
-./start-containers.sh --mac
-```
-
 **Development Mode (Hot-Code-Injection):**
 ```bash
 cd docker
-./start-containers.sh --dev --mac   # Enable live code editing
+./start-containers.sh --dev
 ```
 
-### 2. Access Jupyter Lab
+### 4. Access Jupyter Lab
 
-Open your browser to: **http://localhost:8889**
+Open your browser to: **http://localhost:8889** (or **http://localhost:8890** for dev mode)
 
 - No password required
-- Navigate to the `work` folder to find notebooks
+- Navigate to the `notebooks` folder to find notebooks
 - All dependencies are pre-installed
 
-### 3. Run the Setup Notebook
+### 5. Run the Setup Notebook
 
 Start with `00-Setup.ipynb` to configure your environment and verify all services are working.
 
@@ -56,16 +68,11 @@ Start with `00-Setup.ipynb` to configure your environment and verify all service
 | Script | Platform | Description |
 |--------|----------|-------------|
 | `start-containers.sh` | Unix/Linux/Mac | Main startup script with all options |
-| `start-containers.ps1` | Windows PowerShell | PowerShell version with same functionality |
-| `start-containers.bat` | Windows CMD | Command prompt version |
-| `dev-start.sh` | Unix/Linux/Mac | Development mode startup |
-| `dev-reset.sh` | Unix/Linux/Mac | Reset development environment |
 
 ### Script Options
 
 | Flag | Description |
 |------|-------------|
-| `--mac` | Use ARM/Apple Silicon optimized containers |
 | `--dev` | Enable development mode with hot-code-injection |
 | `--reset` | Reset all data and rebuild containers |
 
@@ -75,38 +82,32 @@ Start with `00-Setup.ipynb` to configure your environment and verify all service
 # Standard startup
 ./start-containers.sh
 
-# Apple Silicon Mac
-./start-containers.sh --mac
-
 # Development mode with hot-reload
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 
 # Reset everything and start fresh
-./start-containers.sh --reset --mac
+./start-containers.sh --reset
 
-# Windows PowerShell
-.\start-containers.ps1 -Mac -Dev
-
-# Windows Command Prompt
-start-containers.bat --mac --dev
+# Reset with dev mode
+./start-containers.sh --dev --reset
 ```
 
 ## Services
 
 After startup, the following services are available:
 
-| Service | URL | Credentials | Purpose |
-|---------|-----|-------------|---------|
-| **Jupyter Lab** | http://localhost:8889 | None required | Interactive development |
-| **Neo4j Browser** | http://localhost:7476 | neo4j/password | Graph database management |
-| **PostgreSQL** | localhost:5432 | graphrag/graphragpass | Vector storage |
+| Service | Standard URL | Dev URL | Credentials | Purpose |
+|---------|-------------|---------|-------------|---------|
+| **Jupyter Lab** | http://localhost:8889 | http://localhost:8890 | None required | Interactive development |
+| **Neo4j Browser** | http://localhost:7476 | http://localhost:7477 | neo4j/password | Graph database management |
+| **PostgreSQL** | localhost:5432 | localhost:5434 | postgres/password | Vector storage |
 
 ## Development Mode
 
 Development mode enables hot-code-injection for active lexical-graph development:
 
 ```bash
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 ```
 
 **Features:**
@@ -130,7 +131,7 @@ Development mode enables hot-code-injection for active lexical-graph development
 
 **To reset all data:**
 ```bash
-./start-containers.sh --reset --mac
+./start-containers.sh --reset
 ```
 
 ## Database Configuration
@@ -191,12 +192,12 @@ docs = reader.read('s3://my-bucket/documents/file.pdf')
 
 ## Environment Variables
 
-Key environment variables (configured in `docker/.env`):
+Key environment variables (configured in `notebooks/.env`):
 
 ```bash
 # Database connections (Docker internal names)
-VECTOR_STORE="postgresql://graphrag:graphragpass@postgres:5432/graphrag_db"
-GRAPH_STORE="bolt://neo4j:password@neo4j:7687"
+VECTOR_STORE="postgresql://postgres:password@pgvector-local:5432/graphrag"
+GRAPH_STORE="bolt://neo4j:password@neo4j-local:7687"
 
 # AWS Configuration (optional)
 AWS_REGION="us-east-1"
@@ -204,8 +205,30 @@ AWS_PROFILE="your-profile"
 
 # Model Configuration
 EMBEDDINGS_MODEL="cohere.embed-english-v3"
-EXTRACTION_MODEL="us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+EXTRACTION_MODEL="us.anthropic.claude-sonnet-4-6"
 ```
+
+## Automated Testing
+
+Run all notebooks end-to-end with a single command:
+
+```bash
+bash tests/test-local-dev-notebooks.sh
+```
+
+This handles the full lifecycle: environment setup, Docker containers, notebook execution, reporting, and cleanup.
+
+Configuration options (environment variables):
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SKIP_GITHUB` | `true` | Skip GitHub reader cells (requires token) |
+| `SKIP_PPTX` | `true` | Skip PPTX reader cells (slow, requires torch) |
+| `SKIP_LONG_RUNNING` | `true` | Skip JSON/Wikipedia extract_and_build cells |
+| `CLEANUP` | `true` | Clean up all resources after run |
+| `REPORT_DIR` | `test-results/` | Output directory for reports |
+
+Reports are generated in `test-results/` (execution_report.json + execution_report.md).
 
 ## Troubleshooting
 
@@ -214,16 +237,16 @@ EXTRACTION_MODEL="us.anthropic.claude-3-7-sonnet-20250219-v1:0"
 **Port conflicts:**
 - Jupyter: 8889 (not 8888)
 - Neo4j HTTP: 7476 (not 7474)
-- Neo4j Bolt: 7687
+- Neo4j Bolt: 7689 (not 7687)
 - PostgreSQL: 5432
 
 **Container networking:**
-- Use container names in connection strings (e.g., `neo4j:7687`, not `localhost:7687`)
+- Use container names in connection strings (e.g., `neo4j-local:7687`, not `localhost:7687`)
 - The `.env` file uses Docker internal networking
 
 **Development mode:**
 - Restart Jupyter kernel after enabling hot-reload
-- Check that lexical-graph source is mounted at `/home/jovyan/lexical-graph-src`
+- Check that lexical-graph source is mounted at `/home/jovyan/lexical-graph`
 
 ### Reset Environment
 
@@ -231,16 +254,16 @@ If you encounter persistent issues:
 
 ```bash
 # Stop and remove everything
-docker-compose down -v
+docker compose down -v
 
 # Start fresh
-./start-containers.sh --reset --mac
+./start-containers.sh --reset
 ```
 
 ## AWS Foundation Model Access (Optional)
 
 For AWS Bedrock integration, ensure your AWS account has access to:
-- `anthropic.claude-3-7-sonnet-20250219-v1:0`
+- `us.anthropic.claude-sonnet-4-6`
 - `cohere.embed-english-v3`
 
 Enable model access via the [Bedrock model access console](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html).
@@ -255,7 +278,7 @@ If you have existing FalkorDB configurations:
    GRAPH_STORE="falkordb://localhost:6379"
    
    # New Neo4j
-   GRAPH_STORE="bolt://neo4j:password@neo4j:7687"
+   GRAPH_STORE="bolt://neo4j:password@neo4j-local:7687"
    ```
 
 2. **Update imports** in your code:
@@ -266,7 +289,3 @@ If you have existing FalkorDB configurations:
    ```
 
 3. **Migrate data** if needed (contact support for migration tools)
-
----
-
-This local development environment provides everything needed to develop, test, and experiment with GraphRAG lexical-graph functionality without requiring AWS infrastructure.
