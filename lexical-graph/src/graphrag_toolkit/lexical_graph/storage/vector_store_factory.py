@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from typing import List, Union, Type, Dict
+import warnings
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore, VectorIndexFactoryMethod
 from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_index_factory import OpenSearchVectorIndexFactory
 from graphrag_toolkit.lexical_graph.storage.vector.neptune_vector_indexes import NeptuneAnalyticsVectorIndexFactory
@@ -88,6 +89,15 @@ class VectorStoreFactory():
         if vector_store_info and isinstance(vector_store_info, VectorStore):
             return vector_store_info
         index_names = index_names if isinstance(index_names, list) else [index_names]
+
+        if 'statement' in index_names:
+            warnings.warn(
+                "The 'statement' vector index is associated with the deprecated "
+                "semantic-guided retriever and may be removed in a future release. "
+                "Consider using only the 'chunk' index with the traversal-based retriever.",
+                DeprecationWarning,
+                stacklevel=2
+            )
 
         for factory in _vector_index_factories.values():
             vector_indexes = factory.try_create(index_names, vector_store_info, **kwargs)

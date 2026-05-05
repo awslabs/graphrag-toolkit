@@ -14,11 +14,12 @@ from graphrag_toolkit.lexical_graph.tenant_id import TenantIdType, to_tenant_id
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.retrieval.post_processors.bedrock_context_format import BedrockContextFormat
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import CompositeTraversalBasedRetriever, SemanticGuidedRetriever, QueryModeRetriever
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import StatementCosineSimilaritySearch, KeywordRankingSearch, SemanticBeamGraphSearch
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import WeightedTraversalBasedRetrieverType, SemanticGuidedRetrieverType
+from graphrag_toolkit.lexical_graph.retrieval.retrievers import CompositeTraversalBasedRetriever, WeightedTraversalBasedRetrieverType, QueryModeRetriever
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated import (
+    SemanticGuidedRetriever, SemanticGuidedRetrieverType,
+    StatementCosineSimilaritySearch, KeywordRankingSearch, SemanticBeamGraphSearch,
+)
 from graphrag_toolkit.lexical_graph.retrieval.model import EntityContexts
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import CompositeTraversalBasedRetriever, QueryModeRetriever
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, GraphStoreType
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory, VectorStoreType
 from graphrag_toolkit.lexical_graph.storage.graph import MultiTenantGraphStore
@@ -179,6 +180,14 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
             LexicalGraphQueryEngine: A configured instance for performing semantic-guided search
             on the provided graph and vector store.
         """
+        import warnings
+        warnings.warn(
+            "for_semantic_guided_search() is deprecated and will be removed in a future release. "
+            "Use for_traversal_based_search() instead.",
+            DeprecationWarning,
+            stacklevel=2
+        )
+
         tenant_id = to_tenant_id(tenant_id)
         
         if enable_versioning is not None:

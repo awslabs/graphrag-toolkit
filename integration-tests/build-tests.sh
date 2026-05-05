@@ -75,6 +75,7 @@ if [[ "$#" -gt 0 ]]; then
 		echo "             Allowed values:"
 		echo "               nmslib"
 		echo "               faiss"
+		echo "  --db-password <database password>"
 		echo "  --topic <SNS topic name>"
 		echo "  --extraction-llm <Model id or profile name>"
     echo "  --response-llm <Model id or profile name>"
@@ -98,7 +99,6 @@ GRAPH_NAME="gr-$STACK_SUFFIX"
 TEST_DESCRIPTION="graphrag-toolkit integration test"
 TESTS=""
 PREV_STACK_NAME=""
-
 
 if [[ -z "$ENV_TYPE" ]]; then
 	ENV_TYPE="neptune-db-aoss"
@@ -155,6 +155,7 @@ while [[ "$#" -gt 0 ]]; do
         --neptune-instance-type) NEPTUNE_INSTANCE_TYPE="$2"; shift ;;
         --notebook-instance-type) NOTEBOOK_INSTANCE_TYPE="$2"; shift ;;
         --opensearch-engine) OPENSEARCH_ENGINE="$2"; shift ;;
+        --db-password) DB_PASSWORD="$2"; shift ;;
 				--topic) TOPIC="$2"; shift ;;
 				--extraction-llm) TEST_EXTRACTION_LLM="$2"; shift ;;
         --response-llm) TEST_RESPONSE_LLM="$2"; shift ;;
@@ -180,6 +181,10 @@ if [[ -z "$SSHCIDR" ]]; then
   fi
   SSHCIDR="$MY_IP/32"
   echo "Detected IP: $MY_IP — SSH will be restricted to $SSHCIDR"
+fi
+
+if [[ -z "$DB_PASSWORD" ]]; then
+	DB_PASSWORD="p!$(uuidgen)"
 fi
 
 S3_PREFIX="graphrag-toolkit-tests/$GRAPH_NAME"
@@ -411,6 +416,7 @@ if [[ -z "$DRY_RUN" ]]; then
     ParameterKey=NotebookInstanceType,ParameterValue="$NOTEBOOK_INSTANCE_TYPE" \
 		ParameterKey=IamPolicyArn,ParameterValue="$ADDITIONAL_IAM_POLICY_ARN" \
 		ParameterKey=SSHCIDR,ParameterValue="$SSHCIDR" \
+		ParameterKey=DbPassword,ParameterValue="$DB_PASSWORD" \
 	  --capabilities CAPABILITY_NAMED_IAM \
 	  --tags \
 	    Key=ApplicationName,Value="graphrag-toolkit test" \

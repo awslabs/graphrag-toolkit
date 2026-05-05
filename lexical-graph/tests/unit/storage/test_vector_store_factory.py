@@ -7,6 +7,8 @@ This module tests the factory pattern for creating vector stores,
 including OpenSearch, in-memory (dummy), and error handling.
 """
 
+import warnings
+
 import pytest
 from unittest.mock import Mock, patch
 from graphrag_toolkit.lexical_graph.storage.vector_store_factory import VectorStoreFactory
@@ -78,13 +80,15 @@ class TestVectorStoreFactoryForVectorStore:
         assert result is mock_store
 
     def test_factory_creates_dummy_store(self):
-        """Verify factory creates dummy/in-memory store."""
-        result = VectorStoreFactory.for_vector_store("dummy://")
+        """Verify factory creates dummy/in-memory store with default indexes."""
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            result = VectorStoreFactory.for_vector_store("dummy://")
 
         assert isinstance(result, VectorStore)
-        # Check that indexes were created
-        assert len(result.indexes) > 0
-        # Check that all indexes are DummyVectorIndex
+        # Default includes both chunk and statement
+        assert "chunk" in result.indexes
+        assert "statement" in result.indexes
         for index in result.indexes.values():
             assert isinstance(index, DummyVectorIndex)
 
@@ -99,7 +103,9 @@ class TestVectorStoreFactoryForVectorStore:
     def test_factory_creates_dummy_store_with_multiple_indexes(self):
         """Verify factory creates dummy store with multiple index names."""
         index_names = ["chunk", "statement"]
-        result = VectorStoreFactory.for_vector_store("dummy://", index_names=index_names)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            result = VectorStoreFactory.for_vector_store("dummy://", index_names=index_names)
 
         assert isinstance(result, VectorStore)
         assert "chunk" in result.indexes
@@ -246,3 +252,110 @@ class TestVectorStoreFactoryCustomFactory:
         assert isinstance(result, VectorStore)
         for index in result.indexes.values():
             assert isinstance(index, DummyVectorIndex)
+
+
+class TestVectorStoreFactoryDefaultIndexes:
+    """Tests for DEFAULT_EMBEDDING_INDEXES constant and default behavior."""
+
+    def test_default_embedding_indexes_includes_chunk_and_statement(self):
+        """Verify DEFAULT_EMBEDDING_INDEXES equals ['chunk', 'statement']."""
+        assert DEFAULT_EMBEDDING_INDEXES == ['chunk', 'statement']
+
+    def test_factory_default_creates_chunk_and_statement_indexes(self):
+        """Verify for_vector_store() without index_names creates chunk and statement indexes."""
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            result = VectorStoreFactory.for_vector_store("dummy://")
+
+        assert isinstance(result, VectorStore)
+        assert "chunk" in result.indexes
+        assert "statement" in result.indexes
+        assert isinstance(result.indexes["chunk"], DummyVectorIndex)
+        assert isinstance(result.indexes["statement"], DummyVectorIndex)
+
+    def test_factory_explicit_chunk_and_statement_creates_both(self):
+        """Verify for_vector_store() with explicit ['chunk', 'statement'] creates both indexes."""
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            result = VectorStoreFactory.for_vector_store("dummy://", index_names=["chunk", "statement"])
+
+        assert isinstance(result, VectorStore)
+        assert "chunk" in result.indexes
+        assert "statement" in result.indexes
+        assert isinstance(result.indexes["chunk"], DummyVectorIndex)
+        assert isinstance(result.indexes["statement"], DummyVectorIndex)
+
+    def test_factory_chunk_only_creates_single_index(self):
+        """Verify for_vector_store() with explicit ['chunk'] creates only chunk index."""
+        result = VectorStoreFactory.for_vector_store("dummy://", index_names=["chunk"])
+
+        assert isinstance(result, VectorStore)
+        assert list(result.indexes.keys()) == ["chunk"]
+        assert isinstance(result.indexes["chunk"], DummyVectorIndex)
+
+
+class TestVectorStoreFactoryStatementDeprecationWarning:
+    """Tests for deprecation warning when index_names contains 'statement'."""
+
+    def test_statement_index_emits_deprecation_warning(self):
+        """Verify DeprecationWarning emitted when index_names contains 'statement'."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            VectorStoreFactory.for_vector_store("dummy://", index_names=["chunk", "statement"])
+
+        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
+        assert len(deprecation_warnings) == 1
+        assert "statement" in str(deprecation_warnings[0].message)
+        assert "deprecated" in str(deprecation_warnings[0].message).lower()
+
+    def test_statement_only_index_emits_deprecation_warning(self):
+        """Verify DeprecationWarning emitted when index_names is just ['statement']."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            VectorStoreFactory.for_vector_store("dummy://", index_names=["statement"])
+
+        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
+        assert len(deprecation_warnings) == 1
+        assert "statement" in str(deprecation_warnings[0].message)
+
+    def test_statement_string_index_emits_deprecation_warning(self):
+        """Verify DeprecationWarning emitted when index_names is the string 'statement'."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            VectorStoreFactory.for_vector_store("dummy://", index_names="statement")
+
+        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
+        assert len(deprecation_warnings) == 1
+        assert "statement" in str(deprecation_warnings[0].message)
+
+    def test_chunk_only_index_no_deprecation_warning(self):
+        """Verify no DeprecationWarning when index_names is chunk-only."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            VectorStoreFactory.for_vector_store("dummy://", index_names=["chunk"])
+
+        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
+        assert len(deprecation_warnings) == 0
+
+    def test_default_index_emits_deprecation_warning(self):
+        """Verify DeprecationWarning when using default index_names (includes statement)."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            VectorStoreFactory.for_vector_store("dummy://")
+
+        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
+        assert len(deprecation_warnings) == 1
+        assert "statement" in str(deprecation_warnings[0].message)
+
+    def test_deprecation_warning_message_content(self):
+        """Verify the deprecation warning message contains expected text."""
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            VectorStoreFactory.for_vector_store("dummy://", index_names=["chunk", "statement"])
+
+        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
+        assert len(deprecation_warnings) == 1
+        msg = str(deprecation_warnings[0].message)
+        assert "semantic-guided retriever" in msg
+        assert "chunk" in msg
+        assert "traversal-based retriever" in msg

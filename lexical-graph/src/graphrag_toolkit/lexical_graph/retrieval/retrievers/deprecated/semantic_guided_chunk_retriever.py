@@ -3,6 +3,7 @@
 import concurrent.futures
 import logging
 import time
+import warnings
 from collections import defaultdict
 from typing import List, Optional, Any, Union, Type
 from itertools import repeat
@@ -13,7 +14,7 @@ from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_guided_base_chunk_retriever import SemanticGuidedBaseChunkRetriever
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_chunk_retriever import SemanticGuidedBaseChunkRetriever
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_cosine_search import ChunkCosineSimilaritySearch
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_chunk_beam_search import SemanticChunkBeamGraphSearch
 from graphrag_toolkit.lexical_graph.retrieval.utils.chunk_utils import get_chunks_query, SharedChunkEmbeddingCache
@@ -35,6 +36,12 @@ class SemanticGuidedChunkRetriever(SemanticGuidedBaseChunkRetriever):
         **kwargs: Any,
     ) -> None:
 
+        warnings.warn(
+            f"{self.__class__.__name__} is deprecated and will be removed in a future release. "
+            "Use CompositeTraversalBasedRetriever instead.",
+            DeprecationWarning,
+            stacklevel=2
+        )
 
         super().__init__(vector_store, graph_store, filter_config, **kwargs)
 

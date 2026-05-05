@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 import concurrent.futures
 import logging
+import warnings
 from collections import defaultdict
 from typing import List, Optional, Any, Union, Type
 from itertools import repeat
@@ -12,11 +13,11 @@ from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.keyword_ranking_search import KeywordRankingSearch
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.statement_cosine_seach import StatementCosineSimilaritySearch
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_beam_search import SemanticBeamGraphSearch
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.rerank_beam_search import RerankingBeamGraphSearch
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.keyword_ranking_search import KeywordRankingSearch
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.statement_cosine_seach import StatementCosineSimilaritySearch
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_beam_search import SemanticBeamGraphSearch
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.rerank_beam_search import RerankingBeamGraphSearch
 from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_statements_query, SharedEmbeddingCache
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
@@ -70,6 +71,13 @@ class SemanticGuidedRetriever(SemanticGuidedBaseRetriever):
             **kwargs: Additional keyword arguments used to initialize retrievers.
 
         """
+        warnings.warn(
+            f"{self.__class__.__name__} is deprecated and will be removed in a future release. "
+            "Use CompositeTraversalBasedRetriever instead.",
+            DeprecationWarning,
+            stacklevel=2
+        )
+
         super().__init__(vector_store, graph_store, filter_config, **kwargs)
 
         self.share_results = share_results
