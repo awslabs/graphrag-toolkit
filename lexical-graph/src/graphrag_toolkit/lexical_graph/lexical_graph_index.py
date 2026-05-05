@@ -78,6 +78,9 @@ class ExtractionConfig():
     and topic or metadata filtering. It provides flexibility in customizing
     the extraction behavior and prompts to tailor it to specific use cases.
 
+    For custom composable pipelines, use the ExtractionConfig.from_stages()
+    class method instead of the constructor.
+
     Attributes:
         enable_proposition_extraction (bool): Determines whether proposition
         extraction is enabled. Defaults to True.
@@ -115,9 +118,7 @@ class ExtractionConfig():
                  extract_topics_prompt_template: Optional[str] = None,
                  extraction_filters: Optional[MetadataFiltersType] = None,
                  extraction_llm: Optional[ExtractionLLMType] = None,
-                 ontology: Optional[OntologyType] = None,
-                 stages: Optional[List[ExtractionStage]] = None,
-                 schema: Optional[ExtractionSchema] = None):
+                 ontology: Optional[OntologyType] = None):
         self.enable_proposition_extraction = enable_proposition_extraction
 
         # Whether the user named a list, asked for none, or said nothing at all.
@@ -136,8 +137,8 @@ class ExtractionConfig():
         self.extract_propositions_prompt_template = extract_propositions_prompt_template
         self.extract_topics_prompt_template = extract_topics_prompt_template
         self.extraction_filters = FilterConfig(extraction_filters)
-        self.stages = stages
-        self.schema = schema
+        self.stages = None
+        self.schema = None
         if extraction_llm is not None:
             self.extraction_llm = extraction_llm if isinstance(extraction_llm, LLMCache) else GraphRAGConfig.to_llm(extraction_llm)
         else:
@@ -147,6 +148,25 @@ class ExtractionConfig():
 
         if self.ontology is not None:
             self._validate_ontology_combination()
+
+    @classmethod
+    def from_stages(cls, stages: List['ExtractionStage'], schema: Optional['ExtractionSchema'] = None):
+        """Create config with a custom composable extraction pipeline.
+
+        When using custom stages, configure extraction behavior (LLM, prompts,
+        classifications) directly on the stage instances.
+
+        Args:
+            stages: Ordered list of ExtractionStage instances defining the pipeline.
+            schema: Optional ExtractionSchema for type constraints and filtering.
+
+        Returns:
+            ExtractionConfig configured for custom pipeline execution.
+        """
+        config = cls()
+        config.stages = stages
+        config.schema = schema
+        return config
 
     def _validate_ontology_combination(self):
         """Reject the one ontology/inference combination that has no coherent reading.
@@ -420,6 +440,10 @@ class LexicalGraphIndex():
         pre_processors = []
         components = []
 
+        if config.chunking:
+            for c in config.chunking:
+                components.append(c)
+
         # If custom stages are provided, use PipelineBuilder
         if config.extraction.stages:
             schema = config.extraction.schema
@@ -429,12 +453,12 @@ class LexicalGraphIndex():
                 if schema and isinstance(stage, LLMTopicExtractionStage) and stage._schema is None:
                     stage._schema = schema
                 builder.add(stage)
-            components = builder.build()
+            components.extend(builder.build())
+            logger.info(
+                'Custom extraction pipeline: %s',
+                ' → '.join(type(s).__name__ for s in config.extraction.stages)
+            )
             return (pre_processors, components)
-
-        if config.chunking:
-            for c in config.chunking:
-                components.append(c)
 
         # Rendered once, here in the parent process, and handed to the extractors
         # as a plain string. Rendering reads the rdflib graph, which does not
