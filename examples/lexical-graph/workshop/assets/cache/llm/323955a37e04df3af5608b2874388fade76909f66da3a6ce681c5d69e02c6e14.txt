@@ -1,0 +1,19 @@
+r5 Instance Type Family Characteristics
+
+The `r5` family is a family of instance types.
+The `r5` family contains memory-optimized instance types.
+The `r5` family works well for most graph use cases.
+The `r5` family contains instance types from `r5.large` up to `r5.24xlarge`.
+The `r5` family scales linearly in compute performance as instance size increases.
+The `r5.xlarge` instance type has 4 vCPUs and 32GiB of memory.
+The `r5.large` instance type has 2 vCPUs and 16GiB of memory.
+The `r5.xlarge` has twice the vCPUs and memory of the `r5.large`.
+The `r5.2xlarge` instance type has 8 vCPUs and 64GiB of memory.
+The `r5.2xlarge` has twice the vCPUs and memory of the `r5.xlarge`.
+Query performance on the `r5` family can be expected to scale directly with compute capacity up to the `r5.12xlarge` instance type.
+The `r5` instance family has a 2-socket Intel CPU architecture.
+The `r5.12xlarge` and smaller instance types use a single socket.
+The `r5.12xlarge` and smaller instance types use the system memory owned by that single-socket processor.
+The `r5.16xlarge` and `r5.24xlarge` instance types use both sockets and available memory.
+A 2-socket architecture requires some memory-management overhead between two physical processors.
+The performance gains scaling up from `r5.12xlarge` to `r5.16xlarge` or `r5.24xlarge` are not as linear as the performance gains when scaling up at smaller sizes.

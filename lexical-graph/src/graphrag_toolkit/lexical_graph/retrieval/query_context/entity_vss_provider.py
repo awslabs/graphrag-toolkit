@@ -1,5 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
+import concurrent.futures
 import logging
 from typing import List, Optional
 
@@ -108,10 +109,22 @@ class EntityVSSProvider(EntityProviderBase):
         def add_to_entities_map(entities):
             all_entities_map.update({e.entity.entityId:e for e in entities})
 
-        add_to_entities_map(self._get_entities_by_keyword_match(keywords, query_bundle))
-        add_to_entities_map(self._get_entities_for_values([query_bundle.query_str]))
-        add_to_entities_map(self._get_entities_for_values(keywords))
-        
+        # The three lookups are independent I/O calls — keyword match against the
+        # graph store, and two VSS top_k + Cypher pairs against the vector + graph
+        # stores. Running them concurrently removes two round-trips' worth of
+        # wall-clock time from every retrieve() that uses this provider. Overlapping
+        # entity IDs return the same ScoredEntity from any of the three calls, so
+        # dict last-writer-wins is idempotent regardless of completion order; the
+        # downstream rerank_entities re-sorts by score.
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+            futures = [
+                executor.submit(self._get_entities_by_keyword_match, keywords, query_bundle),
+                executor.submit(self._get_entities_for_values, [query_bundle.query_str]),
+                executor.submit(self._get_entities_for_values, keywords),
+            ]
+            for future in concurrent.futures.as_completed(futures):
+                add_to_entities_map(future.result())
+
         return rerank_entities(list(all_entities_map.values()), query_bundle, keywords, self.args.reranker)
         
 

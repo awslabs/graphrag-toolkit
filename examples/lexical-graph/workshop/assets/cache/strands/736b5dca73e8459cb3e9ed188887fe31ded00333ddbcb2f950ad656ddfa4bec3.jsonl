@@ -1,0 +1,87 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Now"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me gather"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specific details"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Robinson"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " helicopter"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " safety"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " features,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Bell"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " helicopter"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " characteristics"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", and additional"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " data"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_wzmWnnK2nWpS8Etk51GMfE", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\": \"Robinso"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n R22 R44 ro"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tor system s"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "afety f"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "eatures mas"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "t "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "bumping "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "low "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rotor RPM\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_n7gOkzEoEJTqy33mhj9aMS", "name": "aircraft"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"qu"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ery\": "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"Bell"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " 206"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " OH-5"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "8 heli"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "copter roto"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "r system d"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "esig"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n turbi"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ne engin"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "e "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "safet"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_4eCrZes2VGn4slTwDYMYGG", "name": "ntsb"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\":"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Ro"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "binson he"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "licopte"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "r a"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "cci"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "dent "}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "har"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "d landi"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ng los"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s of "}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "con"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "trol mast bu"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "mp"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ing "}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "low "}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "rotor RPM"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"}"}}, "contentBlockIndex": 3}}
+{"contentBlockStop": {"contentBlockIndex": 3}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_O9PNMm9BGE28sLojl5dhIt", "name": "ntsb"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\": \"B"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ell heli"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "copter a"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ccident "}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "defi"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ning event"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s causes pil"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ot er"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ror\"}"}}, "contentBlockIndex": 4}}
+{"contentBlockStop": {"contentBlockIndex": 4}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 15610, "outputTokens": 240, "totalTokens": 15850}, "metrics": {"latencyMs": 5001}}}

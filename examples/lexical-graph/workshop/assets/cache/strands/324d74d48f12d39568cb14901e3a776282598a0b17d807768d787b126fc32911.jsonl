@@ -1,0 +1,45 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Let"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " me now"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " dig"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " deeper into specific"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna 210 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "variant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " accidents across"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " wider range"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " types"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_zzugsSSRkKz8AtrYLtfKY7", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Ces"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sna 210"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " landing gea"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "r "}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "failure retr"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "actable g"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ear a"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "cci"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "den"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "t\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_PCQSR6TZcpU3bZcmgTpreg", "name": "ntsb"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Cessna T2"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "10 turb"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "o C"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ent"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "urion engine"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " failure "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "turbocharg"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "er accident"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 8685, "outputTokens": 145, "totalTokens": 8830}, "metrics": {"latencyMs": 3727}}}

@@ -48,6 +48,24 @@ class TestBedrockPromptProviderConfig:
         resolved = config._resolve_prompt_arn("my-prompt-id")
         assert resolved == "arn:aws:bedrock:us-west-2:123456789012:prompt/my-prompt-id"
     
+    @patch.object(BedrockPromptProviderConfig, 'session', new_callable=lambda: property(lambda self: Mock(region_name='us-east-1')))
+    @patch.object(BedrockPromptProviderConfig, 'sts')
+    def test_resolve_prompt_arn_without_region(self, mock_sts, mock_session):
+        """Test ARN resolution falls back to session region when aws_region is None."""
+        mock_sts.get_caller_identity.return_value = {
+            "Arn": "arn:aws:sts::123456789012:assumed-role/test-role",
+            "Account": "123456789012"
+        }
+        
+        config = BedrockPromptProviderConfig(
+            system_prompt_arn="my-prompt-id",
+            user_prompt_arn="user-prompt-id",
+        )
+        assert config.aws_region is None
+        
+        resolved = config._resolve_prompt_arn("my-prompt-id")
+        assert resolved == "arn:aws:bedrock:us-east-1:123456789012:prompt/my-prompt-id"
+    
     @patch('graphrag_toolkit.lexical_graph.prompts.bedrock_prompt_provider.BedrockPromptProvider')
     def test_build(self, mock_provider_class):
         """Test build method creates BedrockPromptProvider."""

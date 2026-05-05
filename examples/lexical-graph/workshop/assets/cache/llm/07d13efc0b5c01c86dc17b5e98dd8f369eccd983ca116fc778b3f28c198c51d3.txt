@@ -1,0 +1,22 @@
+r8g Family of Instance Types
+
+The `r8g` family is a family of instance types.
+The `r8g` family contains memory-optimized instance types.
+The `r8g` family is powered by AWS Graviton4 processors.
+AWS Graviton4 is a processor.
+AWS Graviton4 processors are ARM-based processors.
+The `r8g` family offers significant performance improvements over previous generations.
+The `r8g` family is well-suited for memory-intensive graph workloads.
+The `r8g` instances provide approximately 15-20% better performance for graph queries compared to `r7g` instances.
+The `r8g` family has a single-socket architecture.
+The single-socket architecture of the `r8g` family means that performance scales linearly with compute capacity.
+Performance in the `r8g` family scales linearly from an `r8g.large` to an `r8g.16xlarge`.
+The `r8g.large` is an instance type in the `r8g` family.
+The `r8g.16xlarge` is an instance type in the `r8g` family.
+The `r8g.16xlarge` is the largest instance type in the `r8g` family.
+The `r8g` family has higher memory bandwidth per vCPU compared to previous generations.
+The `r8g` family has an excellent price/performance ratio for OLTP-style (constrained) graph queries.
+The `r8g` family has an excellent price/performance ratio for OLAP-style analytical workloads.
+The `r8g` family has improved memory management capabilities that benefit complex graph traversals.
+The `r8g` family is ideal for production workloads that require high memory capacity and consistent performance.
+The `r8g` family is particularly effective for applications with high query concurrency requirements.

@@ -1,0 +1,91 @@
+topic: r6g Family of AWS Instance Types
+
+  entities:
+
+    AWS|Company
+    Graviton|Product
+    Graviton2|Product
+    r6g family|Product
+    r6g.large|Product
+    r6g.16xlarge|Product
+    Intel|Company
+    AMD|Company
+
+  proposition: AWS has developed its own ARM-based processor called Graviton.
+
+    entity-entity relationships:
+    AWS|DEVELOPED|Graviton
+
+    entity-attributes:
+    Graviton|ARCHITECTURE|ARM-based
+    Graviton|TYPE|processor
+
+  proposition: Graviton is designed to deliver better price/performance than Intel and AMD equivalent processors.
+
+    entity-entity relationships:
+    Graviton|COMPARED_TO|Intel
+    Graviton|COMPARED_TO|AMD
+
+    entity-attributes:
+    Graviton|DESIGN_GOAL|better price/performance than Intel and AMD equivalent processors
+
+  proposition: The `r6g` family of instance types uses the Graviton2 processor.
+
+    entity-entity relationships:
+    r6g family|USES|Graviton2
+
+    entity-attributes:
+    r6g family|TYPE|instance types
+
+  proposition: The Graviton2 processor offers 10-20% better performance for OLTP-style (constrained) graph queries.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Graviton2|PERFORMANCE_IMPROVEMENT|10-20% better for OLTP-style (constrained) graph queries
+
+  proposition: Larger, OLAP-ish queries may be slightly less performant with the Graviton2 processors than with Intel processors.
+
+    entity-entity relationships:
+    Graviton2|COMPARED_TO|Intel
+
+    entity-attributes:
+    Graviton2|PERFORMANCE_CHARACTERISTIC|slightly less performant for larger OLAP-ish queries than Intel processors
+
+  proposition: The reduced performance of Graviton2 processors for OLAP-ish queries is owing to slightly less performant memory-paging performance.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Graviton2|PERFORMANCE_LIMITATION|slightly less performant memory-paging performance for OLAP-ish queries
+
+  proposition: The `r6g` family has a single-socket architecture.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r6g family|ARCHITECTURE|single-socket
+
+  proposition: The single-socket architecture of the `r6g` family means that performance scales linearly with compute capacity.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r6g family|PERFORMANCE_CHARACTERISTIC|performance scales linearly with compute capacity
+
+  proposition: Performance in the `r6g` family scales linearly from an `r6g.large` to an `r6g.16xlarge`.
+
+    entity-entity relationships:
+    r6g family|INCLUDES|r6g.large
+    r6g family|INCLUDES|r6g.16xlarge
+
+    entity-attributes:
+    r6g family|PERFORMANCE_SCALING|linear from r6g.large to r6g.16xlarge
+
+  proposition: The `r6g.16xlarge` is the largest instance type in the `r6g` family.
+
+    entity-entity relationships:
+    r6g.16xlarge|PART_OF|r6g family
+
+    entity-attributes:
+    r6g.16xlarge|SIZE_RANK|largest in the r6g family

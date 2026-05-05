@@ -145,7 +145,7 @@ class DeleteSources(BaseComponent):
 
         cypher =  f'''// get orphaned fact ids (delete source)                                 
         MATCH (f)
-        WHERE {self.graph_store.node_id("f.statementId")} IN $factIds
+        WHERE {self.graph_store.node_id("f.factId")} IN $factIds
         AND NOT (f)-[:`__SUPPORTS__`]->()
         RETURN DISTINCT {self.graph_store.node_id("f.factId")} AS factId
         '''
@@ -165,7 +165,7 @@ class DeleteSources(BaseComponent):
         cypher =  f'''// get orphaned entity ids (delete source)                                 
         MATCH (e)
         WHERE {self.graph_store.node_id("e.entityId")} IN $entityIds
-        AND NOT (e)-[:`__SUBJECT__`|`__OBJECXT__`]->()
+        AND NOT (e)-[:`__SUBJECT__`|`__OBJECT__`]->()
         RETURN DISTINCT {self.graph_store.node_id("e.entityId")} AS entityId
         '''
 
@@ -271,7 +271,7 @@ class DeleteSources(BaseComponent):
 
         cypher =  f'''// delete chunk relationships (delete source)                                 
         MATCH (c)-[r]-()
-        WHERE {self.graph_store.node_id("c.chunkIds")} IN $chunkIds
+        WHERE {self.graph_store.node_id("c.chunkId")} IN $chunkIds
         DELETE r
         '''
 
@@ -283,7 +283,7 @@ class DeleteSources(BaseComponent):
 
         cypher =  f'''// delete chunks (delete source)                                 
         MATCH (c)
-        WHERE {self.graph_store.node_id("c.chunkIds")} IN $chunkIds
+        WHERE {self.graph_store.node_id("c.chunkId")} IN $chunkIds
         DELETE c
         '''
 

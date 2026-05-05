@@ -1,0 +1,16 @@
+T3 and T4g Instance Types in Neptune
+
+`t3` and `t4g` are a family of instances in Neptune.
+The `t3` and `t4g` family of instances offers a low-cost option for getting started using a graph database.
+The `t3` and `t4g` family of instances offers a low-cost option for initial development and testing.
+The `t3` and `t4g` instances are eligible for the Neptune free-tier offer.
+The Neptune free-tier offer lets new customers use Neptune at no cost for the first 750 instance hours.
+The 750 free instance hours must be used within a standalone AWS account or rolled up underneath an AWS Organization with Consolidated Billing (Payer Account).
+The `t3` and `t4g` instances are only offered in the medium size configuration.
+The medium size configuration for `t3` instances is `t3.medium`.
+The medium size configuration for `t4g` instances is `t4g.medium`.
+The `t3` and `t4g` instances are not intended for use in a production environment.
+The `t3` and `t4g` instances have very constrained resources.
+The `t3` and `t4g` instances are not recommended for testing query execution time due to their very constrained resources.
+The `t3` and `t4g` instances are not recommended for testing overall database performance due to their very constrained resources.
+To assess query performance, users should upgrade from `t3` or `t4g` instances to one of the other instance families.

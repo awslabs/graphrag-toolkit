@@ -1,0 +1,43 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Great"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " question! Let me search both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bases simultaneously"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to get"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " comprehensive picture of the PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30's"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel system issues"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and how they compare"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to peer"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aircraft."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_8DMYTfCkWWJhieBlUZ5Gw1", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Piper PA"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "-30"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Twin Coman"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "che f"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uel syst"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "em design"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " fea"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tures"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_mk0crwmSETytEuyZHWFvSq", "name": "ntsb"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"qu"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ery\": "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"Piper PA-3"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "0 Twin C"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "omanche f"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "uel starv"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "atio"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n accident"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s fuel "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "syste"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "m\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 2368, "outputTokens": 151, "totalTokens": 2519}, "metrics": {"latencyMs": 2479}}}

@@ -1,0 +1,846 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Excellent \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " now"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " I have very"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rich"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " data"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " from"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bases. Let me compile this"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " into a comprehensive,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " well-sour"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ced answer"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n---"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n#"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " P"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "iper PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30 Twin Comanche:"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " System Design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " St"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "arv"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ation"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Accidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", and Peer"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Compar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "isons\n\n## "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "1. Overview"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Fuel System Architecture"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nThe Piper PA-30"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Twin Comanche was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " notable"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " notorious"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014 for the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " sh"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "eer complexity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of its fuel system. At"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " its"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " maximum"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " configuration"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " FA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "A approval, **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "the PA-30 carried"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " total"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of 252"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gallons of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel across"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 11"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " separate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks**, and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tip tanks installed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " it"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " held"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **120 gallons (454 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "L)** ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " base]. This"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " multi"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-tank architecture"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " while"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " giving"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the aircraft exceptional"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " range ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "it"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " once"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flew over"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 2"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ",100"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " miles n"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "onstop between"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Mar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "rak"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ech,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Morocco and Istanbul"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", Turkey)"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge base], also"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " introduced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " serious"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " management"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bur"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "dens on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the pilot.\n\nThe system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " included"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "main"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " auxiliary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks, and tip tanks**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " all fed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " through"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " individual"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "fuel selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " valves** \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " one"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " per engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014 with strict"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " proced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ural requirements governing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " which"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " could be selected"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " under"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " what"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " conditions."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n---"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n## 2. Key"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Features"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " That"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Contributed to Fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Starvation\n\n### A."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Mandatory"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Main"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Tank-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Only"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Take"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "off"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Procedure\nThe Aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Flight"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Manual (AFM) specifically"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " required that **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " sel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ectors be positioned"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \""}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\""}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the main fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " takeoff** ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "N"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "TS"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "B report"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "89"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "541"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]. The selection"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " auxiliary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks was approved"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "only during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " level"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " cruise"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flight"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB report 89541]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " This created"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a proced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ural trap"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " if"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilot inad"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "vertently departed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " auxiliary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tip tanks, or"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to switch"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " back"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to m"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ains before take"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "off, the engine could star"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ve even"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " substantial"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel remaining on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " board"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " other"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks.\n\n### B. St"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "iff"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Det"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Unclear"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Tact"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ile Feedback\nA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " documented"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " accident"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " at"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Glacier"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Park"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " International"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Airport ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "June"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 25"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", 2"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " N"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "7"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "350"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Y"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ") illust"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "rates this"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " haz"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ard v"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ividly."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The pilot **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "stated"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " concern"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that the right"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " selector was st"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "iff**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and critically"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", **the det"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ent on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the right fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " selector was not readily"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " apparent"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** [NTSB report "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "89541]. Although"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " post"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-accident examination"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " revealed no"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mechanical"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " anom"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "al"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ies in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the selector valve"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " itself"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", the amb"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "iguous tactile feel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of the selector made"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " it genu"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "inely difficult for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the pilot to confirm"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " correct"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tank"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " selection during the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pre"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-takeoff chec"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "klist ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB report 89541"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "].\n\n### C. Three"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Gall"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ons of Unus"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "able Fuel Per"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Main"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Tank\nEach"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " main tank contained"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **3 gallons of unusable"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel** [NTSB report"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 89541]. In"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " scenario"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " where a pilot believed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " they had adequate"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the m"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ains, this"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " non"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-us"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "able reserve"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " could"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " acceler"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ate the onset"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of starvation if"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " levels"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " were"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " already"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " low and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the pilot had misc"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "alculated reserves"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ".\n\n### D. Inadequ"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ate Pre"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-flight"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Fuel Verification"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\nThe Pilot"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Operating"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Handbook required"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **visual"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " check of each"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tank"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "'s"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel quantity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gauge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the wal"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "karound inspection"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** [NTSB report "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "89541]. In"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Glacier Park accident, the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB found the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilot **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "failed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to determine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the quantity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of fuel during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pref"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "light planning"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " checks"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **did"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " not recall"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " which"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " position"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the fuel sel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ectors were set"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to for"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " takeoff** [NTSB"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " report 89541]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Post"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-accident examination found"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "main"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " appeared"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to be empty"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** despite"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilot reporting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "30"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gallons on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " board at"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " take"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "off \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " suggesting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " all"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " available"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel may"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " have been in auxiliary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks that"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " were"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " not selected"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB report 89541"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "].\n\n### E."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB Probable"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cause"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Findings"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\nThe NTSB concluded the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " probable"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " causes"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Glacier Park accident were:"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **The"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " right"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " power"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " loss"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " during"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " takeoff was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " due"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " starvation**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- **The pilot"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failed to determine"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the quantity of fuel during preflight planning"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and checks**\n- **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Inadequate pref"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "light inspection"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the pilot**\n- **Inadequ"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ate fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " planning"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by the pilot**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n- **Aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " issues"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " included"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fluid"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " management"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " problems**"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB report 89541"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]\n\n---\n\n## 3."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Comparison"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with Other Light"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Twins in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Same"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Class"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n###"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cess"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "na 310 \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Win"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "gtip Tank"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Philosophy"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\nThe Cessna 310,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " direct"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " competitor in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the same performance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " class, took"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a mark"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "edly different fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " storage"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " approach."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Rather"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " than a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " prolif"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "eration of selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "managed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna introduced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "canted wingtip \""}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "stabila-tip\" fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks** starting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the 310G (certified"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 1961) [aircraft knowledge base"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]. These"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks were"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " designed **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "to aid"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " stability"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flight"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** as"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " well"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " as store"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel, and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the win"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "gtip tank"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design became"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a hallmark of **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " majority"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cessna's"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " twin-engine product line** [aircraft"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge base]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " By"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " consolid"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ating fuel into"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fewer"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " struct"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "urally integrated"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " locations"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", Cessna reduced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the number of selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " decisions"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " required of"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilots and simplified"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel management compared"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to the PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30's"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "11-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "tank system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ".\n\n### Be"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "echcraft Travel Air and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Baron"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Contemporary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Competitors\nThe **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Beechcraft Travel Air** was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " identified"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " as a **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "contemporary competitor to the Twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Comanche** ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aircraft knowledge base],"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " it"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " evolved"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " into"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Beechcraft Baron"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The Travel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Air and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Baron were"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " derived"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " from"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Bon"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "anza components"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " DNA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Bon"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "anza family"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " maintained"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a compar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "atively"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " sim"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "pler fuel architecture"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Bonanza itself"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " carries"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "124"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gallons /"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 470"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " li"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ters** across"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " smaller"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " number of tanks) [aircraft knowledge base"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "]. While the Baron"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " added"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " capability"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Beechcraft's design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " philosophy t"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ended toward a less"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complex selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " regime"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " than"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " P"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "iper's."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n### Piper"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Aerostar \u2014 A"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Parallel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " P"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "iper Problem"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Case"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\nInter"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "estingly, the fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " management"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complexity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " was"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " not"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " unique to the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30 "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "among"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Piper twins"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ". The later"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Piper Aerostar ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "PA-60"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ")"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "** exhibited"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " analog"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ous syst"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "emic fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " challenges"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ":"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " its"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **wing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks were"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " prone to unporting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " when"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mostly"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " empty**, the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **relative"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " lack of wing dihedral caused"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " wing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks to feed unevenly**, and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **un"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "even"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " feeding created"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " imbalances** as"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flight"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " progressed [aircraft knowledge base]. The"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Aerostar required"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilots"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to use"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **cross"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "feed val"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ves** to redirect"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel from one wing to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the opposite"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " engine to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " mi"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "tigate im"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "balance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aircraft knowledge base]."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " This pattern"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " suggests"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " broader"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tendency"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in Piper's"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " designs"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " toward fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complexity requiring"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " active"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilot"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " management"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ".\n\n###"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Piper"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Semin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ole \u2014 Later"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Sim"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "pler Design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\nWhen"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " comparing"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the PA-30 to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Piper's"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " own"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " later"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Seminole**,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the Twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Comanche actually"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " **burns"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " less fuel,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " carries"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " more,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " goes"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " faster, clim"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "bs more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " rapidly,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and clim"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "bs ultimately"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " higher** [aircraft knowledge base]. Despite"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " its performance"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " advantages, the PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30's older"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "1"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "960s-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "era fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " architecture was substantially"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " more"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " complex than the sim"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "pler,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Cherokee"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-derived"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Seminole that"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " succeeded"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " it in"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Piper's training"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " role"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ".\n\n---\n\n## 4."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Summary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Table"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n| Feature"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30 Twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Comanche | Cessna "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "310 | Beechcraft Travel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Air/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "Baron | Piper Aero"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "star |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n|---|"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "---|---|---|---|\n| Max"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Capacity | 252 g"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "al /"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 11"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "FA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "A approved"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ") | Not"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " specified |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Sim"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "pler architecture"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | ~"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "160"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "+"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gal,"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " 3"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "tank"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " system |\n| Tip"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Tanks | Yes"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ("}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "120"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " gal with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tips"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ") | Yes (\""}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "stabila-tip\")"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | No"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | No |\n| Selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Complexity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | High"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " multiple"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tanks"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ", strict"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " take"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "off rules"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | Lower"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014 win"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "gtip tanks integrated"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Moderate | Moderate \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " prone"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to im"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "balance |\n| Key"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Risk"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Wrong"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tank"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " selection on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " takeoff | \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | \u2014 |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Un"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "porting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " un"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "even feed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |\n| AF"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "M Take"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "off Restriction"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | M"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ains"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ONLY | \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " | \u2014 | Active"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " cross"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "feed management"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " needed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " |"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\n---\n\n## 5. Conclusion"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nThe PA-30 Twin"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Comanche's"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " fuel st"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "arvation risk"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " was fundament"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ally ro"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "oted in **design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "induced"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilot"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " work"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "load**:"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " an"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " extraordinary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "11"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-tank system with up"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to 252 gallons ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aircraft knowledge base],"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " strict"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " AF"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "M restrictions"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " limiting"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " auxiliary"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " tank use"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " level"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " cruise"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " flight only"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "NTSB report 89541],"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " val"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "ves with"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " stiff detents that were"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " not"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " readily apparent to"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " touch"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB report 89"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "541], and "}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "3 gallons of unusable fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " per main tank adding"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to de"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "pletion risk"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " [NTSB report 89"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "541]. When"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " pilots"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " failed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to correctly confirm"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " selector"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " positions before"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " takeoff \u2014"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " as"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " documented"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " in the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " NTSB record"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " \u2014 the result"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " was fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " starvation even"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " with fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " physically"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " present in the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aircraft."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "\n\nCompared"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to peers"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": ","}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " the Cessna 310 addressed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " similar"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " multi"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-tank challenges with the"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " struct"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "urally elegant"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " stability"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-enhancing \""}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "stabila-tip\" win"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "gtip tanks ["}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aircraft knowledge base], while"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Beechcraft's designs"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " le"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "aned toward simpler systems."}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " The PA"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "-30's complexity"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " was exceptional"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " even"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " by the standards of its era, and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " it placed"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " a"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " premium"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " on rig"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "orous fuel"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " management discipline"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " that many"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " general"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " aviation pilots were"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " not"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " consistently"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " able to maintain."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"messageStop": {"stopReason": "end_turn"}}
+{"metadata": {"usage": {"inputTokens": 18431, "outputTokens": 2049, "totalTokens": 20480}, "metrics": {"latencyMs": 43371}}}

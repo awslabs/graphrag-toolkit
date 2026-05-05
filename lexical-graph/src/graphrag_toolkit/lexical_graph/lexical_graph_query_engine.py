@@ -282,6 +282,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         tenant_id = to_tenant_id(tenant_id)
 
         graph_store = MultiTenantGraphStore.wrap(GraphStoreFactory.for_graph_store(graph_store), tenant_id)
+        graph_store.init()
         vector_store = ReadOnlyVectorStore.wrap(
             MultiTenantVectorStore.wrap(VectorStoreFactory.for_vector_store(vector_store), tenant_id)
         )

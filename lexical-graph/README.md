@@ -26,13 +26,13 @@ $ pip install graphrag-lexical-graph
 To install a specific version from PyPI:
 
 ```
-$ pip install graphrag-lexical-graph==3.18.2
+$ pip install graphrag-lexical-graph==3.18.3
 ```
 
 Or install from a release zip file:
 
 ```
-$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.18.2.zip#subdirectory=lexical-graph
+$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.18.3.zip#subdirectory=lexical-graph
 ```
 
 If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/configuration.md#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.

@@ -1,0 +1,154 @@
+topic: r8g Family of Instance Types
+
+  entities:
+
+    r8g family|Product
+    AWS Graviton4|Product
+    r8g.large|Product
+    r8g.16xlarge|Product
+    r7g instances|Product
+
+  proposition: The `r8g` family is a family of instance types.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|CATEGORY|family of instance types
+
+  proposition: The `r8g` family contains memory-optimized instance types.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|OPTIMIZATION|memory-optimized
+
+  proposition: The `r8g` family is powered by AWS Graviton4 processors.
+
+    entity-entity relationships:
+    r8g family|POWERED_BY|AWS Graviton4
+
+    entity-attributes:
+
+  proposition: AWS Graviton4 is a processor.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    AWS Graviton4|TYPE|processor
+
+  proposition: AWS Graviton4 processors are ARM-based processors.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    AWS Graviton4|ARCHITECTURE|ARM-based
+
+  proposition: The `r8g` family offers significant performance improvements over previous generations.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|PERFORMANCE|significant improvements over previous generations
+
+  proposition: The `r8g` family is well-suited for memory-intensive graph workloads.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|USE_CASE|memory-intensive graph workloads
+
+  proposition: The `r8g` instances provide approximately 15-20% better performance for graph queries compared to `r7g` instances.
+
+    entity-entity relationships:
+    r8g family|COMPARED_TO|r7g instances
+
+    entity-attributes:
+    r8g family|PERFORMANCE_IMPROVEMENT|approximately 15-20% better for graph queries than r7g instances
+
+  proposition: The `r8g` family has a single-socket architecture.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|ARCHITECTURE|single-socket
+
+  proposition: The single-socket architecture of the `r8g` family means that performance scales linearly with compute capacity.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|PERFORMANCE_SCALING|linear with compute capacity
+
+  proposition: Performance in the `r8g` family scales linearly from an `r8g.large` to an `r8g.16xlarge`.
+
+    entity-entity relationships:
+    r8g family|CONTAINS|r8g.large
+    r8g family|CONTAINS|r8g.16xlarge
+
+    entity-attributes:
+    r8g family|PERFORMANCE_SCALING|linear from r8g.large to r8g.16xlarge
+
+  proposition: The `r8g.large` is an instance type in the `r8g` family.
+
+    entity-entity relationships:
+    r8g.large|MEMBER_OF|r8g family
+
+    entity-attributes:
+    r8g.large|TYPE|instance type
+
+  proposition: The `r8g.16xlarge` is an instance type in the `r8g` family.
+
+    entity-entity relationships:
+    r8g.16xlarge|MEMBER_OF|r8g family
+
+    entity-attributes:
+    r8g.16xlarge|TYPE|instance type
+
+  proposition: The `r8g.16xlarge` is the largest instance type in the `r8g` family.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g.16xlarge|SIZE_RANK|largest in r8g family
+
+  proposition: The `r8g` family has higher memory bandwidth per vCPU compared to previous generations.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|MEMORY_BANDWIDTH|higher per vCPU compared to previous generations
+
+  proposition: The `r8g` family has an excellent price/performance ratio for OLTP-style (constrained) graph queries.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|PRICE_PERFORMANCE|excellent for OLTP-style constrained graph queries
+
+  proposition: The `r8g` family has an excellent price/performance ratio for OLAP-style analytical workloads.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|PRICE_PERFORMANCE|excellent for OLAP-style analytical workloads
+
+  proposition: The `r8g` family has improved memory management capabilities that benefit complex graph traversals.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|CAPABILITY|improved memory management for complex graph traversals
+
+  proposition: The `r8g` family is ideal for production workloads that require high memory capacity and consistent performance.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|USE_CASE|production workloads requiring high memory capacity and consistent performance
+
+  proposition: The `r8g` family is particularly effective for applications with high query concurrency requirements.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r8g family|USE_CASE|applications with high query concurrency requirements

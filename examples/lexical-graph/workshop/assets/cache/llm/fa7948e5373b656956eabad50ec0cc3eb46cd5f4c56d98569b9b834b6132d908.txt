@@ -1,0 +1,72 @@
+topic: Neptune Serverless Instance Type Features and Configuration
+
+  entities:
+
+    Neptune Serverless|Service
+    Amazon Neptune|Service
+    Neptune Capacity Units|Product
+
+  proposition: [The `serverless` instance type refers to the Neptune Serverless feature.]
+
+    entity-entity relationships:
+    Neptune Serverless|INSTANCE_TYPE|serverless
+
+    entity-attributes:
+    Neptune Serverless|INSTANCE_TYPE|serverless
+
+  proposition: [Neptune Serverless is a feature of Amazon Neptune.]
+
+    entity-entity relationships:
+    Neptune Serverless|FEATURE_OF|Amazon Neptune
+
+    entity-attributes:
+
+  proposition: [Neptune Serverless can scale instance size dynamically based on a workload's resource needs.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune Serverless|CAPABILITY|dynamic instance size scaling
+
+  proposition: [Neptune Serverless lets users set lower and upper limits on compute capacity for the instances in a DB cluster.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune Serverless|CAPABILITY|configurable lower and upper compute capacity limits
+
+  proposition: [Compute capacity in Neptune Serverless is measured in Neptune Capacity Units.]
+
+    entity-entity relationships:
+    Neptune Serverless|MEASURED_BY|Neptune Capacity Units
+
+    entity-attributes:
+    Neptune Serverless|CAPACITY_UNIT|Neptune Capacity Units
+
+  proposition: [Neptune Serverless eliminates the need to calculate how many vCPUs are needed for an application.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune Serverless|CAPABILITY|eliminates manual vCPU calculation
+
+  proposition: [Workloads with varying utilization can be cost-optimized by using serverless rather than provisioned instances.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune Serverless|BENEFIT|cost optimization for varying utilization workloads
+
+  proposition: [Both provisioned and serverless instances can be set up in the same DB cluster.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune Serverless|COMPATIBILITY|can coexist with provisioned instances in same DB cluster
+
+  proposition: [Setting up both provisioned and serverless instances in the same DB cluster can achieve an optimal cost-performance configuration.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Neptune Serverless|BENEFIT|optimal cost-performance configuration when combined with provisioned instances

@@ -1,0 +1,62 @@
+topic: Amazon R6i Instance Type Family
+
+  entities:
+
+    Amazon R6i instances|Product
+    Amazon Web Services|Company
+    3rd-generation Intel Xeon Scalable processors|Product
+    R5 instance types|Product
+
+  proposition: [Amazon R6i instances are a family of instance types offered by Amazon Web Services.]
+
+    entity-entity relationships:
+    Amazon R6i instances|OFFERED_BY|Amazon Web Services
+
+    entity-attributes:
+    Amazon R6i instances|CATEGORY|family of instance types
+
+  proposition: [Amazon R6i instances are powered by 3rd-generation Intel Xeon Scalable processors.]
+
+    entity-entity relationships:
+    Amazon R6i instances|POWERED_BY|3rd-generation Intel Xeon Scalable processors
+
+    entity-attributes:
+
+  proposition: [The 3rd-generation Intel Xeon Scalable processors used in Amazon R6i instances are code named Ice Lake.]
+
+    entity-entity relationships:
+    Amazon R6i instances|USES|3rd-generation Intel Xeon Scalable processors
+
+    entity-attributes:
+    3rd-generation Intel Xeon Scalable processors|CODE_NAME|Ice Lake
+
+  proposition: [Amazon R6i instances are an ideal fit for memory-intensive workloads.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    Amazon R6i instances|USE_CASE|memory-intensive workloads
+
+  proposition: [Amazon R6i instances offer up to 15% better compute price performance than comparable R5 instance types.]
+
+    entity-entity relationships:
+    Amazon R6i instances|COMPARED_TO|R5 instance types
+
+    entity-attributes:
+    Amazon R6i instances|COMPUTE_PRICE_PERFORMANCE|up to 15% better than R5 instance types
+
+  proposition: [Amazon R6i instances offer up to 20% higher memory bandwidth per vCPU than comparable R5 instance types.]
+
+    entity-entity relationships:
+    Amazon R6i instances|COMPARED_TO|R5 instance types
+
+    entity-attributes:
+    Amazon R6i instances|MEMORY_BANDWIDTH_PER_VCPU|up to 20% higher than R5 instance types
+
+  proposition: [The R5 instance types are a family of instance types offered by Amazon Web Services.]
+
+    entity-entity relationships:
+    R5 instance types|OFFERED_BY|Amazon Web Services
+
+    entity-attributes:
+    R5 instance types|CATEGORY|family of instance types

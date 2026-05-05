@@ -1,0 +1,141 @@
+topic: r5 Instance Type Family Characteristics
+
+  entities:
+
+    r5 family|Product
+    r5.large|Product
+    r5.xlarge|Product
+    r5.2xlarge|Product
+    r5.12xlarge|Product
+    r5.16xlarge|Product
+    r5.24xlarge|Product
+    Intel|Company
+
+  proposition: The `r5` family is a family of instance types.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5 family|CATEGORY|instance type family
+
+  proposition: The `r5` family contains memory-optimized instance types.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5 family|OPTIMIZATION|memory-optimized
+
+  proposition: The `r5` family works well for most graph use cases.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5 family|USE_CASE|most graph use cases
+
+  proposition: The `r5` family contains instance types from `r5.large` up to `r5.24xlarge`.
+
+    entity-entity relationships:
+    r5 family|CONTAINS|r5.large
+    r5 family|CONTAINS|r5.24xlarge
+
+    entity-attributes:
+
+  proposition: The `r5` family scales linearly in compute performance as instance size increases.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5 family|SCALING|linear compute performance
+
+  proposition: The `r5.xlarge` instance type has 4 vCPUs and 32GiB of memory.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5.xlarge|VCPU_COUNT|4
+    r5.xlarge|MEMORY|32GiB
+
+  proposition: The `r5.large` instance type has 2 vCPUs and 16GiB of memory.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5.large|VCPU_COUNT|2
+    r5.large|MEMORY|16GiB
+
+  proposition: The `r5.xlarge` has twice the vCPUs and memory of the `r5.large`.
+
+    entity-entity relationships:
+    r5.xlarge|LARGER_THAN|r5.large
+
+    entity-attributes:
+
+  proposition: The `r5.2xlarge` instance type has 8 vCPUs and 64GiB of memory.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5.2xlarge|VCPU_COUNT|8
+    r5.2xlarge|MEMORY|64GiB
+
+  proposition: The `r5.2xlarge` has twice the vCPUs and memory of the `r5.xlarge`.
+
+    entity-entity relationships:
+    r5.2xlarge|LARGER_THAN|r5.xlarge
+
+    entity-attributes:
+
+  proposition: Query performance on the `r5` family can be expected to scale directly with compute capacity up to the `r5.12xlarge` instance type.
+
+    entity-entity relationships:
+    r5 family|SCALES_TO|r5.12xlarge
+
+    entity-attributes:
+    r5 family|PERFORMANCE_SCALING|direct with compute capacity up to r5.12xlarge
+
+  proposition: The `r5` instance family has a 2-socket Intel CPU architecture.
+
+    entity-entity relationships:
+    r5 family|USES|Intel
+
+    entity-attributes:
+    r5 family|CPU_ARCHITECTURE|2-socket Intel
+
+  proposition: The `r5.12xlarge` and smaller instance types use a single socket.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5.12xlarge|SOCKET_USAGE|single socket
+
+  proposition: The `r5.12xlarge` and smaller instance types use the system memory owned by that single-socket processor.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5.12xlarge|MEMORY_USAGE|single-socket processor memory
+
+  proposition: The `r5.16xlarge` and `r5.24xlarge` instance types use both sockets and available memory.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5.16xlarge|SOCKET_USAGE|both sockets
+    r5.24xlarge|SOCKET_USAGE|both sockets
+
+  proposition: A 2-socket architecture requires some memory-management overhead between two physical processors.
+
+    entity-entity relationships:
+
+    entity-attributes:
+    r5 family|OVERHEAD|memory-management overhead between two physical processors
+
+  proposition: The performance gains scaling up from `r5.12xlarge` to `r5.16xlarge` or `r5.24xlarge` are not as linear as the performance gains when scaling up at smaller sizes.
+
+    entity-entity relationships:
+    r5.12xlarge|SCALES_TO|r5.16xlarge
+    r5.12xlarge|SCALES_TO|r5.24xlarge
+
+    entity-attributes:
+    r5.16xlarge|PERFORMANCE_SCALING|non-linear relative to smaller instance sizes
+    r5.24xlarge|PERFORMANCE_SCALING|non-linear relative to smaller instance sizes

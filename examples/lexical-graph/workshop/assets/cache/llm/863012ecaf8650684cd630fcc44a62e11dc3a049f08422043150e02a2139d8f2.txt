@@ -1,0 +1,27 @@
+Domain: Aviation Accident Investigation and Aircraft Registry Knowledge Base
+
+Scope: The knowledge base covers civil aviation safety investigations, aircraft registration and ownership, pilot certification, and regulatory oversight within the United States aviation system. It encompasses detailed records of aircraft models, registrations, manufacturers, and technical components; pilot credentials, ratings, and certificates across all license categories (student, private, commercial, flight instructor, and pilot-in-command); airport identifiers and locations; defining events associated with aviation accidents; and the organizational relationships between regulatory and investigative bodies, principally the National Transportation Safety Board (NTSB) and the Federal Aviation Administration (FAA). The knowledge base draws on accident investigation data governed by Title 49 United States Code, covering a wide range of aircraft types from single-engine piston aircraft to helicopters and turbine-powered jets, operating under both Visual Meteorological Conditions and instrument rules.
+
+Uses:
+- Identifying aircraft involved in NTSB-investigated accidents by registration number, model, or manufacturer
+- Tracing ownership and operational responsibility for specific registered aircraft
+- Determining pilot certifications, ratings, and categories held at the time of an accident
+- Mapping regulatory and appellate relationships between the FAA and NTSB
+- Linking accident events to specific airports, runways, and geographic locations
+- Retrieving engine make and model data for accident aircraft
+- Identifying the defining events (e.g., loss of control, engine failure) associated with specific accidents
+- Establishing which flight rules (e.g., VFR) governed a flight at the time of an incident
+- Cross-referencing aircraft models with their accident history and accident numbers
+- Supporting legal and regulatory analysis by connecting charged organizations to their authorizing and appellate bodies under Title 49 USC
+
+Example questions:
+1. Which aircraft models are associated with accidents that occurred under Visual Meteorological Conditions, and what were the defining events?
+2. What are the registration numbers, manufacturers, and engine models for all Cessna aircraft recorded in the knowledge base?
+3. Which pilots hold helicopter ratings, and what specific helicopter models have they operated?
+4. What is the appellate authority relationship between the NTSB and the FAA, and under what legal authority is it established?
+5. Which registered aircraft departed from Orlando Executive Airport or Boulder Municipal Airport, and who operated them?
+6. What engine manufacturers are associated with Piper aircraft models recorded in the knowledge base?
+7. Which pilot certificates and ratings were held by the pilots involved in accidents recorded for Robinson Helicopter models?
+8. What aircraft are registered to owners who also operate aircraft under a "doing business as" designation?
+9. Which airports are associated with specific runway locations (such as Runway 36), and what accident events are linked to those locations?
+10. For a given accident registration such as N911FA or N96BM, what is the full profile of the aircraft including model, make, engine, owner, operator, and pilot credentials?
