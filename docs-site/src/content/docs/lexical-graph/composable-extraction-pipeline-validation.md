@@ -151,7 +151,7 @@ assert config.stages is None
 assert config.schema is None
 
 # Custom stages
-config = ExtractionConfig(
+config = ExtractionConfig.from_stages(
     stages=[LLMPropositionStage(), LLMTopicExtractionStage()],
     schema=ExtractionSchema(
         entity_types={'Person': EntityTypeConfig()},
