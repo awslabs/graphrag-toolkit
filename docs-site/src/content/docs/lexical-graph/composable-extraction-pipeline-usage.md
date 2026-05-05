@@ -18,12 +18,12 @@ builder.add(LLMTopicExtractionStage())
 transforms = builder.build()
 ```
 
-Or pass stages directly to `ExtractionConfig`:
+Or use `ExtractionConfig.from_stages()` for a custom composable pipeline:
 
 ```python
 from graphrag_toolkit.lexical_graph.lexical_graph_index import ExtractionConfig, LexicalGraphIndex
 
-config = ExtractionConfig(
+config = ExtractionConfig.from_stages(
     stages=[
         LLMPropositionStage(),
         LLMTopicExtractionStage(),
@@ -94,7 +94,7 @@ schema = ExtractionSchema(
 Add the filter after topic extraction:
 
 ```python
-config = ExtractionConfig(
+config = ExtractionConfig.from_stages(
     stages=[
         LLMPropositionStage(),
         LLMTopicExtractionStage(),
@@ -105,7 +105,7 @@ config = ExtractionConfig(
 
 When `strict=False` (the default), the filter stage passes everything through unchanged — useful for soft constraints where you want the schema for prompt guidance but not hard filtering.
 
-When `schema` is provided to `ExtractionConfig`, it is automatically injected into the `LLMTopicExtractionStage` prompt — guiding the LLM to focus on your entity types and relationships during extraction, not just during filtering.
+When `schema` is provided to `ExtractionConfig.from_stages()`, it is automatically injected into the `LLMTopicExtractionStage` prompt — guiding the LLM to focus on your entity types and relationships during extraction, not just during filtering.
 
 ## Combining NER with LLM Extraction
 
@@ -119,7 +119,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract import (
     EntityMergeStage,
 )
 
-config = ExtractionConfig(
+config = ExtractionConfig.from_stages(
     stages=[
         LLMPropositionStage(),
         NERExtractionStage(
@@ -164,7 +164,7 @@ from graphrag_toolkit.lexical_graph.indexing.extract import (
     LLMTopicExtractionStage,
 )
 
-config = ExtractionConfig(
+config = ExtractionConfig.from_stages(
     stages=[
         LocalPropositionStage(),  # Runs locally, no LLM cost
         LLMTopicExtractionStage(),
@@ -196,7 +196,7 @@ schema = ExtractionSchema(
     strict=True,
 )
 
-config = ExtractionConfig(
+config = ExtractionConfig.from_stages(
     stages=[
         LLMPropositionStage(),
         NERExtractionStage(entity_labels=['Person', 'Organization', 'Technology']),
@@ -243,4 +243,4 @@ The `PipelineBuilder` validates that `input_keys()` are available (from initial 
 
 ## Backward Compatibility
 
-When `stages` is not provided to `ExtractionConfig`, the existing default pipeline (LLM propositions → topic extraction) is used unchanged. All existing code continues to work without modification.
+When `ExtractionConfig.from_stages()` is not used, the existing default pipeline (LLM propositions → topic extraction) is used unchanged. All existing code continues to work without modification.

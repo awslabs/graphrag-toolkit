@@ -2,10 +2,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-from typing import List, Optional, Sequence
+from typing import Any, List, Optional, Sequence
 
 from llama_index.core.schema import BaseNode, TransformComponent
 from llama_index.core.bridge.pydantic import Field
+from pydantic import PrivateAttr
 
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_stage import ExtractionStage
 
@@ -20,6 +21,7 @@ class NERTransform(TransformComponent):
     model_name: str = Field(default='urchade/gliner_base')
     entity_labels: List[str] = Field(default_factory=list)
     threshold: float = Field(default=0.5)
+    _model: Any = PrivateAttr(default=None)
 
     def __call__(self, nodes: Sequence[BaseNode], **kwargs) -> Sequence[BaseNode]:
         try:
@@ -30,8 +32,16 @@ class NERTransform(TransformComponent):
                 'Install it with: pip install gliner'
             )
 
-        if not hasattr(self, '_model'):
-            self._model = GLiNER.from_pretrained(self.model_name)
+        if self._model is None:
+            logger.info('Loading NER model: %s', self.model_name)
+            try:
+                self._model = GLiNER.from_pretrained(self.model_name)
+            except Exception as e:
+                raise RuntimeError(
+                    f'Failed to load NER model "{self.model_name}". '
+                    f'Ensure the model name is correct and you have internet access. '
+                    f'Error: {e}'
+                ) from e
 
         for node in nodes:
             text = node.get_content()
