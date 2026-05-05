@@ -15,7 +15,6 @@ Main startup script with comprehensive options:
 ```
 
 **Options:**
-- `--mac`: Use ARM/Apple Silicon optimized containers
 - `--dev`: Enable development mode with hot-code-injection
 - `--reset`: Reset all data and rebuild containers
 
@@ -24,99 +23,14 @@ Main startup script with comprehensive options:
 # Standard startup
 ./start-containers.sh
 
-# Apple Silicon Mac
-./start-containers.sh --mac
-
 # Development mode with hot-reload
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 
 # Reset everything and start fresh
-./start-containers.sh --reset --mac
+./start-containers.sh --reset
 ```
-
-### `build.sh`
-
-Simple build and start script for initial deployments:
-
-```bash
-./build.sh
-```
-
-**What it does:**
-- Executes `docker compose up -d --build`
-- Builds Docker images from Dockerfiles
-- Starts services in detached mode
-- Does not remove existing data or volumes
-
-### `reset.sh`
-
-Full environment reset script:
-
-```bash
-./reset.sh
-```
-
-**What it does:**
-- Stops and removes all containers
-- Removes all volumes and data
-- Cleans up networks and orphaned containers
-- Rebuilds everything from scratch
-
-**⚠️ Warning:** This script removes all persistent data
-
-### Development Mode Scripts
-
-#### `dev-start.sh`
-
-Starts the environment in development mode:
-
-```bash
-./dev-start.sh
-```
-
-**Features:**
-- Mounts local lexical-graph source code
-- Enables hot-code-injection
-- Configures auto-reload in Jupyter
-
-#### `dev-reset.sh`
-
-Resets the development environment:
-
-```bash
-./dev-reset.sh
-```
-
-**Features:**
-- Preserves development mode configuration
-- Cleans up development-specific volumes
-- Rebuilds with source code mounting
 
 ---
-
-## Windows Scripts
-
-### PowerShell (`start-containers.ps1`)
-
-```powershell
-.\start-containers.ps1 [OPTIONS]
-```
-
-**Options:**
-- `-Mac`: Use ARM/Apple Silicon containers
-- `-Dev`: Enable development mode
-- `-Reset`: Reset all data
-
-### Command Prompt (`start-containers.bat`)
-
-```cmd
-start-containers.bat [OPTIONS]
-```
-
-**Options:**
-- `--mac`: ARM/Apple Silicon support
-- `--dev`: Development mode
-- `--reset`: Full reset
 
 ---
 
@@ -133,7 +47,7 @@ Development mode enables hot-code-injection for active lexical-graph development
 ### Usage
 ```bash
 # Enable development mode
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 
 # Check if dev mode is active (in Jupyter)
 import os
@@ -151,16 +65,17 @@ print(f"Development mode: {dev_mode}")
 
 ## Environment Variables
 
-Scripts use environment variables from `docker/.env`:
+Scripts use environment variables from [`notebooks/.env`](../notebooks/.env.template):
 
 ```bash
 # Database connections (Docker internal names)
 VECTOR_STORE="postgresql://postgres:password@pgvector-hybrid:5432/graphrag"
-GRAPH_STORE="neo4j://neo4j:password@neo4j-hybrid:7687"
+GRAPH_STORE="bolt://neo4j:password@neo4j-hybrid:7687"
 
 # AWS Configuration
-AWS_REGION="us-east-1"
-AWS_PROFILE="your-profile"
+# AWS region for Bedrock and other services
+AWS_REGION=us-east-1
+# AWS_PROFILE=default  # Optional — uncomment to use a specific profile
 
 # Container Configuration
 POSTGRES_USER=postgres
@@ -175,8 +90,8 @@ POSTGRES_DB=graphrag
 ### Common Issues
 
 **Port Conflicts:**
-- Hybrid-dev uses ports 7475, 7688, 8889, 5433
-- Local-dev uses ports 7476, 7687, 8889, 5432
+- Standard mode uses ports 7475, 7688, 8889, 5433
+- Dev mode uses ports 7476, 7689, 8890, 5434
 - Use `--reset` flag if containers are in inconsistent state
 
 **Development Mode Not Working:**
@@ -193,14 +108,14 @@ POSTGRES_DB=graphrag
 
 ```bash
 # Full reset (removes all data)
-./start-containers.sh --reset --mac
+./start-containers.sh --reset
 
 # Docker cleanup (if scripts fail)
-docker-compose down -v --remove-orphans
+docker compose down -v --remove-orphans
 docker system prune -f
 
 # Restart fresh
-./start-containers.sh --mac
+./start-containers.sh
 ```
 
 ---
@@ -209,10 +124,10 @@ docker system prune -f
 
 After startup, services are available at:
 
-| Service | URL | Credentials |
-|---------|-----|-------------|
-| Jupyter Lab | http://localhost:8889 | None required |
-| Neo4j Browser | http://localhost:7475 | neo4j/password |
-| PostgreSQL | localhost:5433 | postgres/password |
+| Service | Standard URL | Dev URL | Credentials |
+|---------|-------------|---------|-------------|
+| Jupyter Lab | http://localhost:8889 | http://localhost:8890 | None required |
+| Neo4j Browser | http://localhost:7475 | http://localhost:7476 | neo4j/password |
+| PostgreSQL | localhost:5433 | localhost:5434 | postgres/password |
 
-All development happens in Jupyter Lab at http://localhost:8889.
+All development happens in Jupyter Lab at http://localhost:8889 (or http://localhost:8890 in dev mode).

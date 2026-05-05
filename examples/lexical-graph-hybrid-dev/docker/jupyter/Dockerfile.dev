@@ -5,11 +5,8 @@ USER root
 # Install mamba in base environment, upgrade pip, and preinstall build tools
 RUN conda install -n base -c conda-forge mamba -y && \
     mamba update -n base -c defaults conda -y && \
-    # Clean broken 'backports' if it exists
     rm -rf /opt/conda/lib/python3.11/site-packages/backports* && \
-    # Install build tools and correct backport
     pip install --upgrade pip setuptools wheel build backports.tarfile && \
-    # Optional: configure clean pip cache location to suppress permission warnings
     mkdir -p /tmp/pip-cache && chmod 777 /tmp/pip-cache && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -20,7 +17,29 @@ ENV PIP_CACHE_DIR=/tmp/pip-cache
 USER $NB_UID
 
 # Neo4j driver (lazy import, required by all notebooks via Neo4jGraphStoreFactory)
-RUN pip install --no-cache-dir neo4j
+# psycopg2-binary + pgvector (required for PGVector store)
+RUN pip install --no-cache-dir neo4j psycopg2-binary pgvector
+
+# NLTK (imported in 00-Setup before any pip install cell)
+RUN pip install --no-cache-dir nltk && \
+    python -c "import nltk; nltk.download('punkt', quiet=True); nltk.download('stopwords', quiet=True)"
+
+# Core packages (required before notebook pip install cells run)
+RUN pip install --no-cache-dir \
+    nest_asyncio \
+    python-dotenv \
+    matplotlib \
+    plotly
+
+# LlamaIndex readers (hard imports in lexical-graph source)
+RUN pip install --no-cache-dir \
+    llama-index-readers-web \
+    llama-index-readers-file \
+    llama-index-readers-github \
+    llama-index-readers-json \
+    llama-index-readers-structured-data \
+    llama-index-readers-s3 \
+    pymupdf
 
 # Build tools for packages requiring C compilation (e.g. lru-dict)
 USER root

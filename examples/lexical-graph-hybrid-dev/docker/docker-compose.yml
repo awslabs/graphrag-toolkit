@@ -1,3 +1,4 @@
+name: hybrid-standard
 services:
   neo4j-hybrid:
     image: neo4j:5.25-community
@@ -24,7 +25,7 @@ services:
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
-      - ../notebooks:/home/jovyan/work
+      - ../notebooks:/home/jovyan/notebooks
       - jupyter_data:/home/jovyan/.jupyter
       - ~/.aws:/home/jovyan/.aws
     networks:

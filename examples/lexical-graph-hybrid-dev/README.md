@@ -16,6 +16,8 @@ This example provides a hybrid development environment that combines local Docke
 
 ## Quick Start
 
+> All commands below should be executed from the `lexical-graph-hybrid-dev/` directory.
+
 ### 1. AWS Prerequisites
 
 Before starting, ensure you have:
@@ -38,11 +40,10 @@ This creates `graphrag-toolkit-<ACCOUNT_ID>` (S3), `graphrag-toolkit-batch-table
 ### 3. Configure Environment
 
 ```bash
-cd notebooks
-cp .env.template .env
+cp notebooks/.env.template notebooks/.env
 ```
 
-Edit `.env` — set your account ID and S3 bucket name:
+Edit `notebooks/.env` — set your account ID and S3 bucket name:
 ```bash
 AWS_ACCOUNT=123456789012
 S3_BUCKET_NAME=graphrag-toolkit-123456789012
@@ -52,27 +53,21 @@ All other values (models, DynamoDB, IAM role) match the setup script defaults.
 
 ### 4. Start the Environment
 
-**Standard (x86/Intel):**
+**Standard:**
 ```bash
 cd docker
 ./start-containers.sh
 ```
 
-**Mac/ARM (Apple Silicon):**
-```bash
-cd docker
-./start-containers.sh --mac
-```
-
 **Development Mode (Hot-Code-Injection):**
 ```bash
 cd docker
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 ```
 
 ### 5. Access Jupyter Lab
 
-Open your browser to: **http://localhost:8889**
+Open your browser to: **http://localhost:8889** (or **http://localhost:8890** for dev mode)
 
 ## Docker Scripts
 
@@ -81,17 +76,11 @@ Open your browser to: **http://localhost:8889**
 | Script | Platform | Description |
 |--------|----------|-------------|
 | `start-containers.sh` | Unix/Linux/Mac | Main startup script with all options |
-| `start-containers.ps1` | Windows PowerShell | PowerShell version |
-| `start-containers.bat` | Windows CMD | Command prompt version |
-| `dev-start.sh` | Unix/Linux/Mac | Development mode startup |
-| `dev-reset.sh` | Unix/Linux/Mac | Reset development environment |
-| `reset.sh` | Unix/Linux/Mac | Reset all containers and data |
 
 ### Script Options
 
 | Flag | Description |
 |------|-------------|
-| `--mac` | Use ARM/Apple Silicon optimized containers |
 | `--dev` | Enable development mode with hot-code-injection |
 | `--reset` | Reset all data and rebuild containers |
 
@@ -101,30 +90,27 @@ Open your browser to: **http://localhost:8889**
 # Standard startup
 ./start-containers.sh
 
-# Apple Silicon Mac
-./start-containers.sh --mac
-
 # Development mode
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 
 # Reset everything
-./start-containers.sh --reset --mac
+./start-containers.sh --reset
 
-# Windows PowerShell
-.\start-containers.ps1 -Mac -Dev
+# Reset with dev mode
+./start-containers.sh --dev --reset
 ```
 
 ## Services
 
 After startup, the following services are available:
 
-| Service | URL | Credentials | Purpose |
-|---------|-----|-------------|---------|
-| **Jupyter Lab** | http://localhost:8889 | None required | Interactive development |
-| **Neo4j Browser** | http://localhost:7475 | neo4j/password | Graph database management |
-| **PostgreSQL** | localhost:5433 | postgres/password | Vector storage |
+| Service | Standard URL | Dev URL | Credentials | Purpose |
+|---------|-------------|---------|-------------|---------|
+| **Jupyter Lab** | http://localhost:8889 | http://localhost:8890 | None required | Interactive development |
+| **Neo4j Browser** | http://localhost:7475 | http://localhost:7476 | neo4j/password | Graph database management |
+| **PostgreSQL** | localhost:5433 | localhost:5434 | postgres/password | Vector storage |
 
-> **Note**: Ports are different from local-dev to avoid conflicts when running both environments simultaneously.
+> **Note**: Ports are different from local-dev to avoid conflicts when running both environments simultaneously. Dev mode uses separate ports to allow running standard and dev containers side by side.
 
 ## AWS Integration
 
@@ -150,7 +136,7 @@ The hybrid environment uses S3 for:
 Enable development mode for active lexical-graph development:
 
 ```bash
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 ```
 
 **Features:**
@@ -163,7 +149,7 @@ Enable development mode for active lexical-graph development:
 
 ### Neo4j (Graph Store)
 - **Container**: `neo4j-hybrid`
-- **URL**: `neo4j://neo4j:password@neo4j-hybrid:7687`
+- **URL**: `bolt://neo4j:password@neo4j-hybrid:7687`
 - **Browser**: http://localhost:7475
 - **Features**: APOC plugin enabled
 
@@ -221,6 +207,27 @@ batch_config = BatchConfig(
 - **Progress tracking**: DynamoDB-based job monitoring
 - **Error handling**: Retry logic and failure recovery
 
+## Automated Testing
+
+Run all notebooks end-to-end with a single command:
+
+```bash
+bash tests/test-hybrid-dev-notebooks.sh
+```
+
+This handles the full lifecycle: environment setup, AWS resource creation, Docker containers, notebook execution, reporting, and cleanup.
+
+Configuration options (environment variables):
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SKIP_CUDA` | `true` | Skip GPU/CUDA cells |
+| `SKIP_BATCH` | `true` | Skip batch processing cells |
+| `CLEANUP` | `true` | Clean up all resources after run |
+| `REPORT_DIR` | `test-results/` | Output directory for reports |
+
+Reports are generated in `test-results/` (execution_report.json + execution_report.md).
+
 ## Troubleshooting
 
 ### Common Issues
@@ -247,10 +254,10 @@ If you encounter persistent issues:
 
 ```bash
 # Stop and remove everything
-docker-compose down -v
+docker compose down -v
 
 # Start fresh
-./start-containers.sh --reset --mac
+./start-containers.sh --reset
 ```
 
 ## Migration from FalkorDB
@@ -263,7 +270,7 @@ If you have existing FalkorDB configurations:
    GRAPH_STORE="falkordb://localhost:6379"
    
    # New Neo4j
-   GRAPH_STORE="neo4j://neo4j:password@neo4j-hybrid:7687"
+   GRAPH_STORE="bolt://neo4j:password@neo4j-hybrid:7687"
    ```
 
 2. **Update imports**:
@@ -284,7 +291,3 @@ If you have existing FalkorDB configurations:
 - Enable S3 streaming for large files
 - Monitor Bedrock token usage
 - Use appropriate instance types for compute
-
----
-
-This hybrid environment provides the best of both worlds: local development speed with cloud-scale processing capabilities.
