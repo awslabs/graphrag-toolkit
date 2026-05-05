@@ -140,6 +140,7 @@ class TestSemanticGuidedRetrieverDeprecation:
         mock_store = MagicMock(spec=GraphStore)
         return mock_store
 
+    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
     def test_init_emits_deprecation_warning(self):
         """SemanticGuidedRetriever.__init__ emits DeprecationWarning."""
         from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_retriever import (
@@ -170,6 +171,7 @@ class TestSemanticGuidedRetrieverDeprecation:
         assert "CompositeTraversalBasedRetriever" in msg
         assert "deprecated" in msg
 
+    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
     def test_init_warning_mentions_removal(self):
         """Warning message mentions future removal."""
         from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_retriever import (
@@ -220,6 +222,7 @@ class TestSemanticGuidedChunkRetrieverDeprecation:
         mock_store = MagicMock(spec=GraphStore)
         return mock_store
 
+    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
     def test_init_emits_deprecation_warning(self):
         """SemanticGuidedChunkRetriever.__init__ emits DeprecationWarning."""
         from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_chunk_retriever import (
@@ -249,6 +252,7 @@ class TestSemanticGuidedChunkRetrieverDeprecation:
         assert "deprecated" in msg
         assert "CompositeTraversalBasedRetriever" in msg
 
+    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
     def test_init_warning_mentions_removal(self):
         """Warning message mentions future removal."""
         from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_chunk_retriever import (
