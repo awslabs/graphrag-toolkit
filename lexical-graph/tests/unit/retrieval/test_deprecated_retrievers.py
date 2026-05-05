@@ -4,11 +4,11 @@
 """Tests for deprecated semantic-guided retriever modules.
 
 This module verifies:
-- Each deprecated module is importable from the deprecated/ sub-package (Task 5.5)
-- SemanticGuidedRetriever.__init__ emits DeprecationWarning (Task 5.6)
-- SemanticGuidedChunkRetriever.__init__ emits DeprecationWarning (Task 5.7)
-- LexicalGraphQueryEngine.for_semantic_guided_search() emits DeprecationWarning (Task 5.8)
-- Property 1: backward-compatible imports resolve correctly and emit warnings (Task 5.9)
+- Each deprecated module is importable from the deprecated/ sub-package
+- SemanticGuidedRetriever.__init__ emits DeprecationWarning
+- SemanticGuidedChunkRetriever.__init__ emits DeprecationWarning
+- LexicalGraphQueryEngine.for_semantic_guided_search() emits DeprecationWarning
+- Property 1: backward-compatible imports resolve correctly and emit warnings
 """
 
 import importlib
@@ -19,11 +19,6 @@ from unittest.mock import Mock, patch, MagicMock
 
 from hypothesis import given, settings
 from hypothesis import strategies as st
-
-
-# ---------------------------------------------------------------------------
-# Task 5.5: Verify each deprecated module is importable from deprecated/ sub-package
-# ---------------------------------------------------------------------------
 
 class TestDeprecatedModuleImports:
     """Verify each deprecated module is importable from the deprecated/ sub-package."""
@@ -115,11 +110,6 @@ class TestDeprecatedModuleImports:
             RerankingBeamGraphSearch,
         ])
 
-
-# ---------------------------------------------------------------------------
-# Task 5.6: SemanticGuidedRetriever.__init__ emits DeprecationWarning
-# ---------------------------------------------------------------------------
-
 class TestSemanticGuidedRetrieverDeprecation:
     """Verify SemanticGuidedRetriever emits DeprecationWarning on instantiation."""
 
@@ -161,7 +151,6 @@ class TestSemanticGuidedRetrieverDeprecation:
         deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
         assert len(deprecation_warnings) >= 1
 
-        # Find the warning from SemanticGuidedRetriever specifically
         retriever_warnings = [
             x for x in deprecation_warnings
             if "SemanticGuidedRetriever" in str(x.message)
@@ -197,10 +186,6 @@ class TestSemanticGuidedRetrieverDeprecation:
         assert len(retriever_warnings) == 1
         assert "removed in a future release" in str(retriever_warnings[0].message)
 
-
-# ---------------------------------------------------------------------------
-# Task 5.7: SemanticGuidedChunkRetriever.__init__ emits DeprecationWarning
-# ---------------------------------------------------------------------------
 
 class TestSemanticGuidedChunkRetrieverDeprecation:
     """Verify SemanticGuidedChunkRetriever emits DeprecationWarning on instantiation."""
@@ -279,10 +264,6 @@ class TestSemanticGuidedChunkRetrieverDeprecation:
         assert "removed in a future release" in str(retriever_warnings[0].message)
 
 
-# ---------------------------------------------------------------------------
-# Task 5.8: LexicalGraphQueryEngine.for_semantic_guided_search() emits DeprecationWarning
-# ---------------------------------------------------------------------------
-
 class TestForSemanticGuidedSearchDeprecation:
     """Verify LexicalGraphQueryEngine.for_semantic_guided_search() emits DeprecationWarning."""
 
@@ -339,10 +320,6 @@ class TestForSemanticGuidedSearchDeprecation:
         assert "for_traversal_based_search" in msg
         assert "deprecated" in msg
 
-
-# ---------------------------------------------------------------------------
-# Task 5.9: Property-based test (Hypothesis) for Property 1
-# ---------------------------------------------------------------------------
 
 # The set of deprecated class names that should be backward-compatible
 _DEPRECATED_CLASS_NAMES = [
