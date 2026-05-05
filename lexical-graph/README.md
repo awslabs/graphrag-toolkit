@@ -1,6 +1,6 @@
 ## Lexical Graph
 
-The lexical-graph package provides a framework for automating the construction of a [hierarchical lexical graph](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/graph-model.md) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
+The lexical-graph package provides a framework for automating the construction of a [hierarchical lexical graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/graph-model/) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
 
 ### Features
 
@@ -8,9 +8,9 @@ The lexical-graph package provides a framework for automating the construction o
   - Built-in vector store support for Neptune Analytics, [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html), [Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) and Postgres with the pgvector extension.
   - Built-in support for foundation models (LLMs and embedding models) on [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/).
   - Easily extended to support additional graph and vector stores and model backends.
-  - [Multi-tenancy](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/multi-tenancy.md) – multiple separate lexical graphs in the same underlying graph and vector stores.
-  - Continuous ingest and [batch extraction](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/batch-extraction.md) (using [Bedrock batch inference](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html)) modes.
-  - [Versioned updates](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/versioned-updates.md) for updating source documents and querying the state of the graph and vector stores at a point in time.
+  - [Multi-tenancy](https://awslabs.github.io/graphrag-toolkit/lexical-graph/multi-tenancy/) – multiple separate lexical graphs in the same underlying graph and vector stores.
+  - Continuous ingest and [batch extraction](https://awslabs.github.io/graphrag-toolkit/lexical-graph/batch-extraction/) (using [Bedrock batch inference](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html)) modes.
+  - [Versioned updates](https://awslabs.github.io/graphrag-toolkit/lexical-graph/versioned-updates/) for updating source documents and querying the state of the graph and vector stores at a point in time.
   - Quickstart [AWS CloudFormation templates](https://github.com/awslabs/graphrag-toolkit/tree/main/examples/lexical-graph/cloudformation-templates/) for Neptune Database, OpenSearch Serverless, and Amazon Aurora Postgres.
 
 ## Installation
@@ -35,7 +35,7 @@ Or install from a release zip file:
 $ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.18.3.zip#subdirectory=lexical-graph
 ```
 
-If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/configuration.md#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
+If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuration/#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
 
 ### Additional dependencies
 
@@ -154,19 +154,19 @@ if __name__ == '__main__':
 
 ## Documentation
 
-  - [Overview](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/overview.md)
-  - [Graph Model](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/graph-model.md)
-  - [Storage Model](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/storage-model.md)
-  - [Indexing](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/indexing.md)
-    - [Batch Extraction](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/batch-extraction.md)
-    - [Configuring Batch Extraction](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/configuring-batch-extraction.md)
-    - [Versioned Updates](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/versioned-updates.md)
-  - [Querying](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/querying.md)
-    - [Traversal-Based Search](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/traversal-based-search.md)
-    - [Traversal-Based Search Configuration](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/traversal-based-search-configuration.md)
-  - [Configuration](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/configuration.md)
-  - [Security](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/security.md)
-  - [FAQ](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/faq.md)
+  - [Overview](https://awslabs.github.io/graphrag-toolkit/lexical-graph/overview/)
+  - [Graph Model](https://awslabs.github.io/graphrag-toolkit/lexical-graph/graph-model/)
+  - [Storage Model](https://awslabs.github.io/graphrag-toolkit/lexical-graph/storage-model/)
+  - [Indexing](https://awslabs.github.io/graphrag-toolkit/lexical-graph/indexing/)
+    - [Batch Extraction](https://awslabs.github.io/graphrag-toolkit/lexical-graph/batch-extraction/)
+    - [Configuring Batch Extraction](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuring-batch-extraction/)
+    - [Versioned Updates](https://awslabs.github.io/graphrag-toolkit/lexical-graph/versioned-updates/)
+  - [Querying](https://awslabs.github.io/graphrag-toolkit/lexical-graph/querying/)
+    - [Traversal-Based Search](https://awslabs.github.io/graphrag-toolkit/lexical-graph/traversal-based-search/)
+    - [Traversal-Based Search Configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/traversal-based-search-configuration/)
+  - [Configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuration/)
+  - [Security](https://awslabs.github.io/graphrag-toolkit/lexical-graph/security/)
+  - [FAQ](https://awslabs.github.io/graphrag-toolkit/lexical-graph/faq/)
 
 
 ## Release
