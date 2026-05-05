@@ -16,6 +16,11 @@ The recommended method for query and retrieval is to use the [traversal-based se
 
 This page contains the semantic-guided search documentation.
 
+### Enable statement indexes
+
+Semantic-guided search requires statement-level vector indexes. By default, the `VectorStoreFactory` will enable both a statement index and a chunk index. In the future, this behaviour may change so that only chunk-based indexes are created by default. Therefore, if you choose to use semantic-guided search, we recommend explictly enabling both the chunk and statement indexes using the `index_names` parameter. The examples below all include this explicit configuration.
+
+
 ### Enabling the statement index
 
 The semantic-guided retriever requires the statement vector index. While the default configuration currently includes the statement index, this may change in a future release. To ensure the statement index is always available, explicitly specify it when creating your vector store:
@@ -47,7 +52,8 @@ with (
         'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
     ) as graph_store,
     VectorStoreFactory.for_vector_store(
-        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com',
+        index_names=['chunk', 'statement']
     ) as vector_store
 ):
 
@@ -144,7 +150,8 @@ with (
         'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
     ) as graph_store,
     VectorStoreFactory.for_vector_store(
-        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com',
+        index_names=['chunk', 'statement']
     ) as vector_store
 ):
 
@@ -204,7 +211,8 @@ with (
         'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
     ) as graph_store,
     VectorStoreFactory.for_vector_store(
-        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com',
+        index_names=['chunk', 'statement']
     ) as vector_store
 ):
 
@@ -274,7 +282,8 @@ with (
         'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
     ) as graph_store,
     VectorStoreFactory.for_vector_store(
-        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com',
+        index_names=['chunk', 'statement']
     ) as vector_store
 ):
 

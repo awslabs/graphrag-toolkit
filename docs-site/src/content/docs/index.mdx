@@ -52,7 +52,8 @@ with (
         'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
     ) as graph_store,
     VectorStoreFactory.for_vector_store(
-        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com',
+        index_names=['chunk']
     ) as vector_store,
 ):
     graph_index = LexicalGraphIndex(graph_store, vector_store)

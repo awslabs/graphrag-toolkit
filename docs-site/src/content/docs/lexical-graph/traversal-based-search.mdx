@@ -6,6 +6,7 @@ title: Traversal-Based Search
 
   - [Overview](#overview)
   - [Example](#example)
+  - Enable chunk indexes(#enable-chunk-indexes)
   - [Basic concepts](#basic-concepts)
     - [Connectivity types](#connectivity-types)
     - [Entity network contexts](#entity-network-contexts)
@@ -24,6 +25,10 @@ For optimal results, users should use traversal-based search in their applicatio
 
 Traversal-based search can be used in two ways: retrieval and querying. When you perform a retrieval operation, the system searches the graph and vector stores to find the most relevant information related to your query. It then returns these raw search results directly to you. With a query operation, the system takes an extra step. After finding the relevant information, it passes these results to a Large Language Model (LLM). The LLM processes this information and generates a natural language response that answers your query.
 
+### Enable chunk indexes
+
+Traversal-based search requires chunk-level vector indexes. By default, the `VectorStoreFactory` will enable both a statement index and a chunk index. If you plan to only use traversal-based search in your application (recommended), then you should disable the creation of statement indexes, thereby saving storage space and embedding costs. Use the `index_names` argument to enable just the chunk index. The examples throughout this documentation explicitly configure only the chunk index using the `index_names` argument.
+
 ### Example
 
 The following example performs a traversal-based search using the default settings:
@@ -38,7 +43,8 @@ with (
         'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
     ) as graph_store,
     VectorStoreFactory.for_vector_store(
-        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+        'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com',
+        index_names=['chunk']
     ) as vector_store
 ):
 

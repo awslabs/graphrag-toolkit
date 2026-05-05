@@ -46,7 +46,10 @@ def batch_extract_and_load():
 
     with (
         GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-        VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+        VectorStoreFactory.for_vector_store(
+            os.environ['VECTOR_STORE'],
+            index_names=['chunk']
+        ) as vector_store
     ):
 
         graph_index = LexicalGraphIndex(
