@@ -6,6 +6,7 @@ from typing import List, Sequence
 
 from llama_index.core.schema import BaseNode, TransformComponent
 from llama_index.core.bridge.pydantic import Field
+from pydantic import ConfigDict
 
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_stage import ExtractionStage
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_schema import ExtractionSchema
@@ -20,8 +21,7 @@ class SchemaFilter(TransformComponent):
 
     extraction_schema: ExtractionSchema = Field(description='Extraction schema for filtering')
 
-    class Config:
-        arbitrary_types_allowed = True
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     def __call__(self, nodes: Sequence[BaseNode], **kwargs) -> Sequence[BaseNode]:
         if not self.extraction_schema.strict:
