@@ -94,7 +94,10 @@ def get_file_metadata(file_path):
 
 with(
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
     graph_index = LexicalGraphIndex(
         graph_store, 
@@ -151,7 +154,10 @@ GraphRAGConfig.enable_versioning = True
 
 with(
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
     query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
         graph_store, 
@@ -170,7 +176,10 @@ from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine
 
 with(
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
     query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
         graph_store, 
@@ -192,7 +201,10 @@ GraphRAGConfig.enable_versioning = True
 
 with(
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
     query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
         graph_store, 
@@ -216,7 +228,10 @@ from llama_index.core.vector_stores.types import FilterOperator, MetadataFilter
 
 with(
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
     query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
         graph_store, 
@@ -282,7 +297,10 @@ from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 
 with (
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
 
     graph_index = LexicalGraphIndex(
@@ -408,7 +426,10 @@ from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, Versioni
 
 with (
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
 
     graph_index = LexicalGraphIndex(
@@ -437,7 +458,10 @@ from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, Versioni
 
 with (
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
 
     graph_index = LexicalGraphIndex(
@@ -466,7 +490,10 @@ from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, Versioni
 
 with (
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
 
     graph_index = LexicalGraphIndex(
@@ -510,7 +537,10 @@ from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 
 with (
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
 
     graph_index = LexicalGraphIndex(
@@ -542,7 +572,10 @@ from graphrag_toolkit.lexical_graph.versioning import VersioningConfig, Versioni
 
 with (
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
 
     graph_index = LexicalGraphIndex(
@@ -578,7 +611,10 @@ from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 
 with (
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
 
     graph_index = LexicalGraphIndex(
@@ -622,7 +658,10 @@ def get_file_metadata(file_path):
 
 with(
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
     graph_index = LexicalGraphIndex(
         graph_store, 
@@ -666,7 +705,10 @@ def deletion_protection_filter_fn(metadata):
 
 with(
     GraphStoreFactory.for_graph_store(os.environ['GRAPH_STORE']) as graph_store,
-    VectorStoreFactory.for_vector_store(os.environ['VECTOR_STORE']) as vector_store
+    VectorStoreFactory.for_vector_store(
+        os.environ['VECTOR_STORE'],
+        index_names=['chunk']
+    ) as vector_store
 ):
     graph_index = LexicalGraphIndex(
         graph_store, 
