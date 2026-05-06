@@ -180,14 +180,6 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
             LexicalGraphQueryEngine: A configured instance for performing semantic-guided search
             on the provided graph and vector store.
         """
-        import warnings
-        warnings.warn(
-            "for_semantic_guided_search() is deprecated and will be removed in a future release. "
-            "Use for_traversal_based_search() instead.",
-            DeprecationWarning,
-            stacklevel=2
-        )
-
         tenant_id = to_tenant_id(tenant_id)
         
         if enable_versioning is not None:
