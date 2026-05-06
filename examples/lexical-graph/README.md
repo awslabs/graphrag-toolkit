@@ -2,16 +2,16 @@
 
 ### Notebooks
 
-  - [**00-Setup**](./notebooks/00-Setup.ipynb) – Installs the [lexical-graph](../../docs/lexical-graph/overview.md) package and additional dependencies.
-  - [**01-Combined Extract and Build**](./notebooks/01-Combined-Extract-and-Build.ipynb) – An example of [performing continuous ingest](../../docs/lexical-graph/indexing.md#continous-ingest) using the `LexicalGraphIndex.extract_and_build()` method.
-  - [**02-Separate Extract and Build**](./notebooks/02-Separate-Extract-and-Build.ipynb) – An example of [running the extract and build stages separately](../../docs/lexical-graph/indexing.md#run-the-extract-and-build-stages-separately), with intermediate chunks persisted to the local filesystem using a `FileBasedChunks` object.
-  - [**03-Traversal-Based Querying**](./notebooks/03-Traversal-Based-Querying.ipynb) – Examples of [querying the graph](../../docs/lexical-graph/querying.md) using [traversal-based search](../../docs/lexical-graph/traversal-based-search.md). Includes examples of visualising the results.
-  - [**04-Multi-Tenancy**](./notebooks/04-Multi-Tenancy.ipynb) – An example of creating and querying a [multi-tenant](../../docs/lexical-graph/multi-tenancy.md) graph.
+  - [**00-Setup**](./notebooks/00-Setup.ipynb) – Installs the [lexical-graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/overview/) package and additional dependencies.
+  - [**01-Combined Extract and Build**](./notebooks/01-Combined-Extract-and-Build.ipynb) – An example of [performing continuous ingest](https://awslabs.github.io/graphrag-toolkit/lexical-graph/indexing/#continous-ingest) using the `LexicalGraphIndex.extract_and_build()` method.
+  - [**02-Separate Extract and Build**](./notebooks/02-Separate-Extract-and-Build.ipynb) – An example of [running the extract and build stages separately](https://awslabs.github.io/graphrag-toolkit/lexical-graph/indexing/#run-the-extract-and-build-stages-separately), with intermediate chunks persisted to the local filesystem using a `FileBasedChunks` object.
+  - [**03-Traversal-Based Querying**](./notebooks/03-Traversal-Based-Querying.ipynb) – Examples of [querying the graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/querying/) using [traversal-based search](https://awslabs.github.io/graphrag-toolkit/lexical-graph/traversal-based-search/). Includes examples of visualising the results.
+  - [**04-Multi-Tenancy**](./notebooks/04-Multi-Tenancy.ipynb) – An example of creating and querying a [multi-tenant](https://awslabs.github.io/graphrag-toolkit/lexical-graph/multi-tenancy/) graph.
   - [**05-Agentic-GraphRAG**](./notebooks/05-Agentic-GraphRAG.ipynb) – Example of creating an MCP server for a multi-tenant graph, and using an agent to interact with the lexical graph tools exposed by the server.
   
 #### Environment variables
 
-The notebooks assume that the [graph store and vector store connections](../../docs/lexical-graph/storage-model.md) are stored in `GRAPH_STORE` and `VECTOR_STORE` environment variables. 
+The notebooks assume that the [graph store and vector store connections](https://awslabs.github.io/graphrag-toolkit/lexical-graph/storage-model/) are stored in `GRAPH_STORE` and `VECTOR_STORE` environment variables. 
 
 If you are running these notebooks via the Cloudformation template below, a `.env` file containing these variables will already have been installed in the Amazon SageMaker environment. If you are running these notebooks in a separate environment, you will need to populate these two environment variables.
 

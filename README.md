@@ -8,7 +8,7 @@ The graphrag-toolkit is a collection of Python tools for building graph-enhanced
 
 ### Lexical Graph
 
-The [lexical-graph](https://github.com/awslabs/graphrag-toolkit/tree/main/lexical-graph) provides a framework for automating the construction of a [hierarchical lexical graph](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/graph-model.md) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
+The [lexical-graph](https://github.com/awslabs/graphrag-toolkit/tree/main/lexical-graph) provides a framework for automating the construction of a [hierarchical lexical graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/graph-model/) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
 
 ![Lexical graph](https://github.com/awslabs/graphrag-toolkit/raw/main/images/visualisation.png)
 
