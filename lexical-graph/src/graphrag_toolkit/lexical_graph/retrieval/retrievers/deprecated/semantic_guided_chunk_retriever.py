@@ -3,7 +3,6 @@
 import concurrent.futures
 import logging
 import time
-import warnings
 from collections import defaultdict
 from typing import List, Optional, Any, Union, Type
 from itertools import repeat
@@ -35,13 +34,6 @@ class SemanticGuidedChunkRetriever(SemanticGuidedBaseChunkRetriever):
         filter_config:Optional[FilterConfig]=None,
         **kwargs: Any,
     ) -> None:
-
-        warnings.warn(
-            f"{self.__class__.__name__} is deprecated and will be removed in a future release. "
-            "Use CompositeTraversalBasedRetriever instead.",
-            DeprecationWarning,
-            stacklevel=2
-        )
 
         super().__init__(vector_store, graph_store, filter_config, **kwargs)
 

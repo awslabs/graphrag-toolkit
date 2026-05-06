@@ -1,7 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import warnings
 import importlib
 
 from .chunk_based_search import ChunkBasedSearch
@@ -33,11 +32,5 @@ def __getattr__(name):
         module_path = _DEPRECATED_NAMES[name]
         module = importlib.import_module(module_path)
         attr = getattr(module, name)
-        warnings.warn(
-            f"Importing {name} from graphrag_toolkit.lexical_graph.retrieval.retrievers is deprecated. "
-            f"Import from {module_path} instead. This import path will be removed in a future release.",
-            DeprecationWarning,
-            stacklevel=2
-        )
         return attr
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

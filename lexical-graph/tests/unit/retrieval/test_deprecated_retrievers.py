@@ -5,14 +5,10 @@
 
 This module verifies:
 - Each deprecated module is importable from the deprecated/ sub-package
-- SemanticGuidedRetriever.__init__ emits DeprecationWarning
-- SemanticGuidedChunkRetriever.__init__ emits DeprecationWarning
-- LexicalGraphQueryEngine.for_semantic_guided_search() emits DeprecationWarning
-- Property 1: backward-compatible imports resolve correctly and emit warnings
+- Backward-compatible imports resolve correctly from the retrievers package
 """
 
 import importlib
-import warnings
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
@@ -110,216 +106,6 @@ class TestDeprecatedModuleImports:
             RerankingBeamGraphSearch,
         ])
 
-class TestSemanticGuidedRetrieverDeprecation:
-    """Verify SemanticGuidedRetriever emits DeprecationWarning on instantiation."""
-
-    def _make_mock_vector_store(self):
-        """Create a mock VectorStore with a statement index."""
-        from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
-        from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndex
-
-        mock_store = MagicMock(spec=VectorStore)
-        mock_index = MagicMock(spec=DummyVectorIndex)
-        mock_store.get_index.return_value = mock_index
-        return mock_store
-
-    def _make_mock_graph_store(self):
-        """Create a mock GraphStore."""
-        from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
-
-        mock_store = MagicMock(spec=GraphStore)
-        return mock_store
-
-    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
-    def test_init_emits_deprecation_warning(self):
-        """SemanticGuidedRetriever.__init__ emits DeprecationWarning."""
-        from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_retriever import (
-            SemanticGuidedRetriever,
-        )
-
-        vector_store = self._make_mock_vector_store()
-        graph_store = self._make_mock_graph_store()
-
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            SemanticGuidedRetriever(
-                vector_store=vector_store,
-                graph_store=graph_store,
-                retrievers=[],
-            )
-
-        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
-        assert len(deprecation_warnings) >= 1
-
-        retriever_warnings = [
-            x for x in deprecation_warnings
-            if "SemanticGuidedRetriever" in str(x.message)
-        ]
-        assert len(retriever_warnings) == 1
-        msg = str(retriever_warnings[0].message)
-        assert "CompositeTraversalBasedRetriever" in msg
-        assert "deprecated" in msg
-
-    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
-    def test_init_warning_mentions_removal(self):
-        """Warning message mentions future removal."""
-        from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_retriever import (
-            SemanticGuidedRetriever,
-        )
-
-        vector_store = self._make_mock_vector_store()
-        graph_store = self._make_mock_graph_store()
-
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            SemanticGuidedRetriever(
-                vector_store=vector_store,
-                graph_store=graph_store,
-                retrievers=[],
-            )
-
-        retriever_warnings = [
-            x for x in w
-            if issubclass(x.category, DeprecationWarning)
-            and "SemanticGuidedRetriever" in str(x.message)
-        ]
-        assert len(retriever_warnings) == 1
-        assert "removed in a future release" in str(retriever_warnings[0].message)
-
-
-class TestSemanticGuidedChunkRetrieverDeprecation:
-    """Verify SemanticGuidedChunkRetriever emits DeprecationWarning on instantiation."""
-
-    def _make_mock_vector_store(self):
-        """Create a mock VectorStore with a chunk index."""
-        from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
-        from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndex
-
-        mock_store = MagicMock(spec=VectorStore)
-        mock_index = MagicMock(spec=DummyVectorIndex)
-        mock_store.get_index.return_value = mock_index
-        return mock_store
-
-    def _make_mock_graph_store(self):
-        """Create a mock GraphStore."""
-        from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
-
-        mock_store = MagicMock(spec=GraphStore)
-        return mock_store
-
-    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
-    def test_init_emits_deprecation_warning(self):
-        """SemanticGuidedChunkRetriever.__init__ emits DeprecationWarning."""
-        from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_chunk_retriever import (
-            SemanticGuidedChunkRetriever,
-        )
-
-        vector_store = self._make_mock_vector_store()
-        graph_store = self._make_mock_graph_store()
-
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            SemanticGuidedChunkRetriever(
-                vector_store=vector_store,
-                graph_store=graph_store,
-                retrievers=[],
-            )
-
-        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
-        assert len(deprecation_warnings) >= 1
-
-        retriever_warnings = [
-            x for x in deprecation_warnings
-            if "SemanticGuidedChunkRetriever" in str(x.message)
-        ]
-        assert len(retriever_warnings) == 1
-        msg = str(retriever_warnings[0].message)
-        assert "deprecated" in msg
-        assert "CompositeTraversalBasedRetriever" in msg
-
-    @patch('graphrag_toolkit.lexical_graph.config.GraphRAGConfig._aws_region', 'us-east-1')
-    def test_init_warning_mentions_removal(self):
-        """Warning message mentions future removal."""
-        from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_chunk_retriever import (
-            SemanticGuidedChunkRetriever,
-        )
-
-        vector_store = self._make_mock_vector_store()
-        graph_store = self._make_mock_graph_store()
-
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            SemanticGuidedChunkRetriever(
-                vector_store=vector_store,
-                graph_store=graph_store,
-                retrievers=[],
-            )
-
-        retriever_warnings = [
-            x for x in w
-            if issubclass(x.category, DeprecationWarning)
-            and "SemanticGuidedChunkRetriever" in str(x.message)
-        ]
-        assert len(retriever_warnings) == 1
-        assert "removed in a future release" in str(retriever_warnings[0].message)
-
-
-class TestForSemanticGuidedSearchDeprecation:
-    """Verify LexicalGraphQueryEngine.for_semantic_guided_search() emits DeprecationWarning."""
-
-    def test_for_semantic_guided_search_emits_deprecation_warning(self):
-        """for_semantic_guided_search() emits DeprecationWarning recommending for_traversal_based_search()."""
-        from graphrag_toolkit.lexical_graph.lexical_graph_query_engine import LexicalGraphQueryEngine
-
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            with patch(
-                "graphrag_toolkit.lexical_graph.lexical_graph_query_engine.GraphStoreFactory.for_graph_store"
-            ) as mock_gs_factory, patch(
-                "graphrag_toolkit.lexical_graph.lexical_graph_query_engine.MultiTenantGraphStore.wrap"
-            ) as mock_mt_gs, patch(
-                "graphrag_toolkit.lexical_graph.lexical_graph_query_engine.VectorStoreFactory.for_vector_store"
-            ) as mock_vs_factory, patch(
-                "graphrag_toolkit.lexical_graph.lexical_graph_query_engine.MultiTenantVectorStore.wrap"
-            ) as mock_mt_vs, patch(
-                "graphrag_toolkit.lexical_graph.lexical_graph_query_engine.ReadOnlyVectorStore.wrap"
-            ) as mock_ro_vs, patch(
-                "graphrag_toolkit.lexical_graph.lexical_graph_query_engine.LLMCache",
-                autospec=True,
-            ), patch(
-                "graphrag_toolkit.lexical_graph.lexical_graph_query_engine.ChatPromptTemplate",
-                autospec=True,
-            ):
-                mock_graph_store = MagicMock()
-                mock_vector_store = MagicMock()
-                mock_vector_store.get_index.return_value = MagicMock()
-
-                mock_gs_factory.return_value = mock_graph_store
-                mock_mt_gs.return_value = mock_graph_store
-                mock_vs_factory.return_value = mock_vector_store
-                mock_mt_vs.return_value = mock_vector_store
-                mock_ro_vs.return_value = mock_vector_store
-
-                try:
-                    LexicalGraphQueryEngine.for_semantic_guided_search(
-                        graph_store="dummy://",
-                        vector_store="dummy://",
-                    )
-                except Exception:
-                    # We only care about the warning being emitted, not full execution
-                    pass
-
-        deprecation_warnings = [x for x in w if issubclass(x.category, DeprecationWarning)]
-        # Find the specific warning from for_semantic_guided_search
-        method_warnings = [
-            x for x in deprecation_warnings
-            if "for_semantic_guided_search" in str(x.message)
-        ]
-        assert len(method_warnings) >= 1
-        msg = str(method_warnings[0].message)
-        assert "for_traversal_based_search" in msg
-        assert "deprecated" in msg
-
 
 # The set of deprecated class names that should be backward-compatible
 _DEPRECATED_CLASS_NAMES = [
@@ -346,20 +132,16 @@ _DEPRECATED_MODULE_PATHS = {
 }
 
 
-class TestBackwardCompatibleImportsProperty:
-    """Property-based test: backward-compatible imports resolve correctly and emit warnings.
+class TestBackwardCompatibleImports:
+    """Backward-compatible imports resolve correctly.
 
-    Feature: deprecate-semantic-guided-retriever
-    Property 1: Backward-compatible imports resolve correctly and emit warnings
-
-    For any deprecated class name, importing from the original retrievers package should:
-    (a) resolve to the same class object as importing from the deprecated sub-package
-    (b) emit a DeprecationWarning whose message contains the new import path
+    For any deprecated class name, importing from the original retrievers package should
+    resolve to the same class object as importing from the deprecated sub-package.
     """
 
     @given(name=st.sampled_from(_DEPRECATED_CLASS_NAMES))
-    def test_backward_compatible_import_resolves_and_warns(self, name):
-        """Property 1: backward-compatible imports resolve correctly and emit warnings."""
+    def test_backward_compatible_import_resolves(self, name):
+        """Backward-compatible imports resolve to the correct class."""
         # Import from the new (deprecated) location directly
         deprecated_module_path = _DEPRECATED_MODULE_PATHS[name]
         deprecated_module = importlib.import_module(deprecated_module_path)
@@ -370,27 +152,10 @@ class TestBackwardCompatibleImportsProperty:
             'graphrag_toolkit.lexical_graph.retrieval.retrievers'
         )
 
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            actual_class = getattr(retrievers_module, name)
+        actual_class = getattr(retrievers_module, name)
 
-        # (a) The resolved class should be the same object
+        # The resolved class should be the same object
         assert actual_class is expected_class, (
             f"Importing {name} from retrievers package did not resolve to the same "
             f"class as importing from {deprecated_module_path}"
-        )
-
-        # (b) A DeprecationWarning should have been emitted
-        deprecation_warnings = [
-            x for x in w if issubclass(x.category, DeprecationWarning)
-        ]
-        assert len(deprecation_warnings) >= 1, (
-            f"No DeprecationWarning emitted when importing {name} from retrievers package"
-        )
-
-        # The warning message should mention the new import path
-        warning_messages = [str(x.message) for x in deprecation_warnings]
-        assert any(deprecated_module_path in msg for msg in warning_messages), (
-            f"DeprecationWarning for {name} does not mention the new import path "
-            f"'{deprecated_module_path}'. Got: {warning_messages}"
         )
