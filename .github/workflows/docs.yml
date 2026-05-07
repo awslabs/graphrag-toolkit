@@ -2,6 +2,12 @@ name: Deploy docs site
 
 # Builds the Astro Starlight site under docs-site/ and publishes it to GitHub Pages.
 # Requires "Settings → Pages → Source: GitHub Actions" to be enabled on the repo.
+#
+# This workflow only runs in the upstream repository (awslabs/graphrag-toolkit).
+# To deploy docs from your fork:
+#   1. Enable GitHub Pages: Settings → Pages → Source → GitHub Actions
+#   2. Remove the 'if: github.repository == ...' conditions from both jobs below
+#   3. Push to your fork's main branch with changes in docs-site/
 
 on:
   push:
@@ -22,6 +28,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.repository == 'awslabs/graphrag-toolkit'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,6 +48,7 @@ jobs:
 
   deploy:
     needs: build
+    if: github.repository == 'awslabs/graphrag-toolkit'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
