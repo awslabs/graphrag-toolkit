@@ -13,7 +13,7 @@ from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_top_k, SharedEmbeddingCache
 from graphrag_toolkit.lexical_graph.retrieval.prompts import EXTRACT_KEYWORDS_PROMPT, EXTRACT_SYNONYMS_PROMPT
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
 
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
 from llama_index.core.prompts import PromptTemplate

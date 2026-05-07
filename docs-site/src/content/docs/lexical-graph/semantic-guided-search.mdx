@@ -1,8 +1,14 @@
 ---
-title: Semantic-Guided Search
+title: Semantic-Guided Search (Deprecated)
 ---
 
-The recommended method for query and retrieval is to used the [traversal-based search](/graphrag-toolkit/lexical-graph/traversal-based-search/) operation. The lexical-graph does, however, also currently support semantic-guided search, but this approach has several drawbacks:
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="danger" title="Deprecated">
+  The semantic-guided retriever is deprecated and will be removed in a future release. Use [traversal-based search](/graphrag-toolkit/lexical-graph/traversal-based-search/) instead, which provides better performance and lower storage costs.
+</Aside>
+
+The recommended method for query and retrieval is to use the [traversal-based search](/graphrag-toolkit/lexical-graph/traversal-based-search/) operation. The lexical-graph does, however, also currently support semantic-guided search, but this approach has several drawbacks:
 
   - High storage costs due to requiring an embedding for each statement
   - Poor performance with large datasets, with queries often taking minutes to complete
@@ -14,6 +20,23 @@ This page contains the semantic-guided search documentation.
 
 Semantic-guided search requires statement-level vector indexes. By default, the `VectorStoreFactory` will enable both a statement index and a chunk index. In the future, this behaviour may change so that only chunk-based indexes are created by default. Therefore, if you choose to use semantic-guided search, we recommend explictly enabling both the chunk and statement indexes using the `index_names` parameter. The examples below all include this explicit configuration.
 
+
+### Enabling the statement index
+
+The semantic-guided retriever requires the statement vector index. While the default configuration currently includes the statement index, this may change in a future release. To ensure the statement index is always available, explicitly specify it when creating your vector store:
+
+```python
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+
+vector_store = VectorStoreFactory.for_vector_store(
+    'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com',
+    index_names=['chunk', 'statement']
+)
+```
+
+<Aside type="caution">
+  The statement index is approximately 10x larger than the chunk index. Enabling it will significantly increase storage and embedding costs.
+</Aside>
 
 ### Example
 
@@ -119,7 +142,7 @@ The example below uses a `SentenceReranker` with a `RerankingBeamGraphSearch` to
 from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import RerankingBeamGraphSearch, StatementCosineSimilaritySearch, KeywordRankingSearch
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated import RerankingBeamGraphSearch, StatementCosineSimilaritySearch, KeywordRankingSearch
 from graphrag_toolkit.lexical_graph.retrieval.post_processors import SentenceReranker
 
 with (
@@ -180,7 +203,7 @@ There will be a delay the first time this runs while the reranker downloads tens
 from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import RerankingBeamGraphSearch, StatementCosineSimilaritySearch, KeywordRankingSearch
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated import RerankingBeamGraphSearch, StatementCosineSimilaritySearch, KeywordRankingSearch
 from graphrag_toolkit.lexical_graph.retrieval.post_processors import BGEReranker
 
 with (

@@ -51,7 +51,7 @@ graph_store = GraphStoreFactory.for_graph_store(
 
 ### Vector store
 
-A vector store is a collection of vector indexes. The lexical-graph uses up to two vector indexes: a chunk index and a statement index. The chunk index is typically much smaller than the statement index. If you want to use [semantic-guided search](/graphrag-toolkit/lexical-graph/semantic-guided-search/), you will need to enable the statement index. If you want to use [traversal-based-search](/graphrag-toolkit/lexical-graph/traversal-based-search/), you will need to enable the chunk index. The `VectorStoreFactory` described below enables both indexes by default.
+A vector store is a collection of vector indexes. The lexical-graph uses up to two vector indexes: a chunk index and a statement index. The chunk index is typically much smaller than the statement index. If you want to use the deprecated [semantic-guided search](/graphrag-toolkit/lexical-graph/semantic-guided-search/), you will need the statement index. If you want to use [traversal-based-search](/graphrag-toolkit/lexical-graph/traversal-based-search/), you will need the chunk index. The `VectorStoreFactory` described below enables both the chunk and statement indexes by default, but the statement index is associated with the deprecated semantic-guided retriever and may be removed from the default in a future release.
 
 You use the `VectorStoreFactory.for_vector_store()` static factory method to create a vector store.
 
@@ -62,8 +62,19 @@ The lexical-graph supports the following vector-stores:
   - [Postgres with the pgvector extension](/graphrag-toolkit/lexical-graph/vector-store-postgres/)
   - [Amazon S3 Vectors](/graphrag-toolkit/lexical-graph/vector-store-s3-vectors/)
 
-By default, the `VectorStoreFactory` will enable both the statement index and the chunk index. However, we recommend using traversal-based search, which requres only the chunk index. Use the `index_names` argument to enable just the chunk index:
+By default, the `VectorStoreFactory` enables both the chunk and statement indexes:
 
 ```python
-vector_store = VectorStoreFactory.for_vector_store(opensearch_connection_info, index_names=['chunk'])
+# Default: creates both chunk and statement indexes
+vector_store = VectorStoreFactory.for_vector_store(opensearch_connection_info)
+```
+
+If you only need the recommended traversal-based search, you can opt out of the statement index to reduce storage costs:
+
+```python
+# Opt out of the statement index (sufficient for traversal-based search)
+vector_store = VectorStoreFactory.for_vector_store(
+    opensearch_connection_info,
+    index_names=['chunk']
+)
 ```
