@@ -50,8 +50,8 @@ class LocalGReranker(GReranker):
         self.model_name = model_name
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.reranker = AutoModelForSequenceClassification.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)  # nosec B615 - model_name restricted to allowlist above
+        self.reranker = AutoModelForSequenceClassification.from_pretrained(model_name)  # nosec B615 - model_name restricted to allowlist above
         self.reranker = self.reranker.to(device)
         self.reranker.eval()
         
