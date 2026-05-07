@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import importlib
+import warnings
 
 from .chunk_based_search import ChunkBasedSearch
 from .chunk_based_semantic_search import ChunkBasedSemanticSearch
@@ -30,6 +31,12 @@ _DEPRECATED_NAMES = {
 def __getattr__(name):
     if name in _DEPRECATED_NAMES:
         module_path = _DEPRECATED_NAMES[name]
+        warnings.warn(
+            f"{name} is deprecated. Import from "
+            f"'graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated' instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
         module = importlib.import_module(module_path)
         attr = getattr(module, name)
         return attr
