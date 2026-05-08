@@ -130,7 +130,7 @@ jobs:
     steps:
       - name: Download coverage percentage
         id: download
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: coverage-percentage
           path: coverage-data

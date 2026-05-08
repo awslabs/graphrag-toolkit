@@ -141,7 +141,7 @@ jobs:
       url: https://pypi.org/project/graphrag-lexical-graph/${{ needs.release-build.outputs.version }}
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: lexical-graph-dist
           path: dist/
