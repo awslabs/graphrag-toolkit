@@ -20,7 +20,7 @@ files = ["src/graphrag_toolkit/byokg_rag/requirements.txt"]
 [project.optional-dependencies]
 test = [
     "pytest>=7.0.0",
-    "pytest-cov>=4.0.0",
+    "pytest-cov>=7.1.0",
     "pytest-mock>=3.10.0",
 ]
 
