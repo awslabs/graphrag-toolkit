@@ -55,7 +55,7 @@ jobs:
           cp dist/*.tar.gz dist/lexical-graph-latest.tar.gz
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lexical-graph-dist
           path: lexical-graph/dist/
@@ -79,7 +79,7 @@ jobs:
           cp lexical-graph-examples.zip lexical-graph-examples-latest.zip
 
       - name: Upload lexical-graph-examples.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lexical-graph-examples
           path: |
@@ -96,7 +96,7 @@ jobs:
           cp lexical-graph-hybrid-dev-examples.zip lexical-graph-hybrid-dev-examples-latest.zip
 
       - name: Upload lexical-graph-hybrid-dev-examples.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lexical-graph-hybrid-dev-examples
           path: |
