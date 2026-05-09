@@ -22,6 +22,9 @@ class DenseIndex(Index):
         Args:
             embedding: An Embedding object for generating vector embeddings
         """
+        if embedding is None:
+            from ..config import ByoKGConfig
+            embedding = ByoKGConfig.to_embedding()
         self.embedding = embedding
 
 

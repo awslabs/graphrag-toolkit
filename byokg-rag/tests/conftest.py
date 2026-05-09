@@ -7,6 +7,13 @@ This module provides reusable test fixtures for mocking AWS services,
 graph stores, LLM clients, and test data structures.
 """
 
+# Import faiss early to ensure its BLAS/OpenMP libraries load before torch's,
+# preventing segfaults from conflicting library versions in CI.
+try:
+    import faiss  # noqa: F401
+except ImportError:
+    pass
+
 import pytest
 from unittest.mock import Mock
 
