@@ -136,3 +136,27 @@ class CuadBenchmarkEvaluate(IntegrationTestBase):
             responses_path=responses_path,
             metrics=['correctness', 'idk'],
         )
+
+
+class ConcurrentQaBenchmarkEvaluate(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Evaluate ConcurrentQA benchmark responses using LLM-as-judge correctness and IDK metrics'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
+        dataset_name = 'concurrentqa-prototype' if is_prototype == 'true' else 'concurrentqa'
+
+        responses_path = params.get('benchmark_responses_path',
+                                    os.path.join('benchmark-results',
+                                                 dataset_name,
+                                                 'responses.jsonl'))
+
+        run_benchmark_evaluate(
+            handler,
+            params,
+            dataset=dataset_name,
+            responses_path=responses_path,
+            metrics=['correctness', 'idk'],
+        )

@@ -29,6 +29,10 @@ DATASET_CONFIG = {
     'concurrentqa': {
         'num_docs': 13501,
     },
+    'concurrentqa-prototype': {
+        'num_docs': 2,
+        'extracted_dir': 'extracted',
+    },
 }
 
 BENCHMARK_DATA_DIR = 'source-data'
@@ -112,5 +116,23 @@ class CuadBenchmarkBuild(IntegrationTestBase):
             dataset_name = 'cuad-prototype' 
         else:
             dataset_name = 'cuad'
+
+        run_benchmark_build(handler, dataset_name, BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)
+
+
+class ConcurrentQaBenchmarkBuild(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Build graph and vector stores from ConcurrentQA pre-extracted chunks for benchmarking'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        graph_store_conn = os.environ.get('GRAPH_STORE')
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
+        if is_prototype == 'true':
+            dataset_name = 'concurrentqa-prototype'
+        else:
+            dataset_name = 'concurrentqa'
 
         run_benchmark_build(handler, dataset_name, BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)

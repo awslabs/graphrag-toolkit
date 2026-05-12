@@ -2,9 +2,11 @@
 # SPDX-License-Identifier: Apache-2.0
 import json
 import os
+import subprocess
 import unittest
 from contextlib import nullcontext
 from typing import Dict, Any, Optional, List
+import logging
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
@@ -15,14 +17,41 @@ from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLo
 
 from llama_index.core.schema import QueryBundle
 
+logger = logging.getLogger(__name__)
+
 QA_FILE_MAP = {
     'cuad': ['qa.json'],
     'cuad-prototype': ['qa.json'],
     'pga': ['pga_bio.json', 'pga_stat.json'],
     'concurrentqa': ['qa.json'],
+    'concurrentqa-prototype': ['qa.json'],
 }
 
 BENCHMARK_DATA_DIR = 'source-data'
+
+
+def sync_benchmark_data_from_s3(dataset: str, data_dir: str):
+    """
+    If BENCHMARK_DATA_S3_URI is set and the local dataset directory doesn't exist,
+    sync the dataset from S3.
+    """
+    s3_uri = os.environ.get('BENCHMARK_DATA_S3_URI')
+    if not s3_uri:
+        return
+
+    local_dataset_dir = os.path.join(data_dir, dataset)
+    if os.path.exists(local_dataset_dir):
+        logger.info(f'Dataset directory already exists: {local_dataset_dir}')
+        return
+
+    s3_dataset_uri = s3_uri.rstrip('/') + '/' + dataset + '/'
+    logger.info(f'Syncing benchmark data from {s3_dataset_uri} to {local_dataset_dir}')
+    os.makedirs(local_dataset_dir, exist_ok=True)
+    subprocess.run(
+        ['aws', 's3', 'sync', s3_dataset_uri, local_dataset_dir],
+        check=True
+    )
+    logger.info(f'Sync complete: {local_dataset_dir}')
 
 def load_qa_pairs(data_dir: str, dataset: str, qa_files: List[str], limit: Optional[int] = None):
     pairs = []
@@ -69,6 +98,8 @@ def run_benchmark_query(handler: IntegrationTestHandler,
         response_llm: Bedrock model ID for generating query responses.
         qa_limit: Optional cap on the number of QA pairs to query (for prototype runs).
     """
+    sync_benchmark_data_from_s3(dataset, data_dir)
+
     qa_files = QA_FILE_MAP.get(dataset, ['qa.json'])
     qa_pairs = load_qa_pairs(data_dir, dataset, qa_files, qa_limit)
 
@@ -154,6 +185,36 @@ class CuadBenchmarkQuery(IntegrationTestBase):
 
         run_benchmark_query(
             handler, 
+            params,
+            dataset=dataset_name,
+            data_dir=BENCHMARK_DATA_DIR,
+            graph_store_conn=os.environ.get('GRAPH_STORE'),
+            vector_store_conn=os.environ.get('VECTOR_STORE'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
+            qa_limit=int(limit_str) if limit_str else None,
+        )
+
+
+class ConcurrentQaBenchmarkQuery(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Query ConcurrentQA benchmark QA pairs and write responses JSONL'
+
+    def wait(self) -> bool:
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+        if not vector_store_conn:
+            return False
+        with VectorStoreFactory.for_vector_store(vector_store_conn) as vector_store:
+            return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='pipeline'), top_k=1)) == 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
+        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
+        dataset_name = 'concurrentqa-prototype' if is_prototype == 'true' else 'concurrentqa'
+
+        run_benchmark_query(
+            handler,
             params,
             dataset=dataset_name,
             data_dir=BENCHMARK_DATA_DIR,
