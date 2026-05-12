@@ -122,6 +122,8 @@ query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
 
 By default, traversal-based search is configured to use a combination of `ChunkBasedSearch` and `EntityNetworkSearch`. This combination provides access to content that is both directly similar to the question and content that may be relevant but not explicitly mentioned in the query.
 
+The `EntityNetworkSearch` retriever offers a good balance of local and global searches, and may suffice for many queries: experiment with using the `EntityNetworkSearch` by itself to determine whether it meets your query needs.
+
 Consider using the `ChunkBasedSearch` retriever by itself if:
 
   - Your queries need primarily similarity-based search
@@ -133,7 +135,7 @@ This retriever uses local connectivity to find relevant statements in other chun
 The `EntityBasedSearch` and `EntityNetworkSearch` retrievers provide different ways of utilising entity networks in a search:
 
   - The `EntityBasedSearch` uses global connectivity to find statements from different sources connected by the same facts. It often produces more diverse results than other retrievers. 
-   - The `EntityNetworkSearch` retriever converts an entity network (retrieved through graph traversal) into a set of similarity searches. This approach balances global and local connectivity.
+  - The `EntityNetworkSearch` retriever converts an entity network (retrieved through graph traversal) into a set of similarity searches. This approach balances global and local connectivity.
 
 ___
 
@@ -208,7 +210,7 @@ Defines how many results each graph query returns. Each result consists of state
 
 ##### `vss_top_k`
 
-Specifies how many top matching results are used to begin similarity-based traversals. The default value is `10`.
+Specifies how many top matching results are used to begin similarity-based traversals. The default value is `10`. 
 
 ##### `vss_diversity_factor`
 
@@ -238,6 +240,8 @@ If your queries require finding highly diverse content from across multiple sour
 If you experience out of memeory issue while running user queries, reduce the `intermediate_limit` and `num_workers`. This will reduce the size of the working set for each graph query, and reduce the number of graph queries running in parallel.
 
 If your application requires a large number of search results, you should consider increasing the `intermediate_limit`, `query_limit` and/or `vss_top_k`. Note that increasing these parameters can increase query latencies, and require more memory.
+
+When using the `ChunkBasedSearch` and `EntityNetworkSearch` retrievers, `vss_top_k` affects the number of chunk-based starting points for each retrieval operation. Experiment with reducing `vss_top_k` to determine the optimal balance between the number of starting points (which in turn determine the number of backend graph queries), query latency and accuracy.
 
 ___
 
@@ -299,3 +303,5 @@ The `ec_max_score_factor` and `ec_min_score_factor` parameters allow you to filt
 `ec_max_score_factor` controls how prominently high-scoring distant entities appear in the search results. Higher values will include well-connected entities even if they're distantly related. Increase `ec_max_score_factor` when you want to see important entities that aren't directly connected.
 
 `ec_min_score_factor` controls the inclusion of less significant distant entities. Lower values will result in the inclusion of rarely mentioned entities even if they're distantly related. Decrease `ec_min_score_factor` to find niche or uncommon connections.
+
+When using the `EntityBasedSearch` and `EntityNetworkSearch` retrievers, `ec_max_contexts` affects the number of starting points for each retrieval operation. Experiment with reducing `ec_max_contexts` to determine the optimal balance between the number of starting points (which in turn determine the number of backend graph queries), query latency and accuracy.
