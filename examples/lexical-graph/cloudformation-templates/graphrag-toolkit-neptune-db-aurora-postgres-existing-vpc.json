@@ -134,6 +134,11 @@
       "Type": "String",
       "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
       "Default": "https://github.com/awslabs/graphrag-toolkit/releases/latest/download/lexical-graph-examples-latest.zip"
+    },
+    "ModelId": {
+      "Description": "Bedrock model id or profile for extraction and response LLMs",
+      "Type": "String",
+      "Default": "global.anthropic.claude-sonnet-4-6"
     }
   },
   "Metadata": {
@@ -178,6 +183,14 @@
             "PostgresDbInstanceType",
             "MinACU",
             "MaxACU"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Bedrock"
+          },
+          "Parameters": [
+            "ModelId"
           ]
         },
         {
@@ -1382,15 +1395,21 @@
                       "Ref": "AWS::StackId"
                     },
                     "echo \"export EXTRACTION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
                     "echo \"export RESPONSE_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> ~/.bashrc\n",
                     "echo \"export EVALUATION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
@@ -1564,15 +1583,21 @@
                     },
                     "\" >> .env\n",
                     "  echo \"export EXTRACTION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> .env\n",
                     "  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
                     "  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
                     "  echo \"export RESPONSE_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> .env\n",
                     "  echo \"export EVALUATION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> .env\n",
                     " echo \"export LOCAL_EXTRACT_S3=",
                     {

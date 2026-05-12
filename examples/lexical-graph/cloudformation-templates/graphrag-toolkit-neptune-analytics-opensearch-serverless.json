@@ -68,6 +68,11 @@
         "true",
         "false"
       ]
+    },
+    "ModelId": {
+      "Description": "Bedrock model id or profile for extraction and response LLMs",
+      "Type": "String",
+      "Default": "global.anthropic.claude-sonnet-4-6"
     }
   },
   "Metadata": {
@@ -87,6 +92,14 @@
           },
           "Parameters": [
             "ProvisionedMemory"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Bedrock"
+          },
+          "Parameters": [
+            "ModelId"
           ]
         },
         {
@@ -791,15 +804,21 @@
                     },
                     "\" >> ~/.bashrc\n",
                     "echo \"export EXTRACTION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
                     "echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
                     "echo \"export RESPONSE_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> ~/.bashrc\n",
                     "echo \"export EVALUATION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
                     "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
@@ -947,15 +966,21 @@
                     },
                     "\" >> .env\n",
                     "  echo \"export EXTRACTION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> .env\n",
                     "  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
                     "  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
                     "  echo \"export RESPONSE_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> .env\n",
                     "  echo \"export EVALUATION_MODEL=",
-                    "anthropic.claude-sonnet-4-6",
+                    {
+                      "Ref": "ModelId"
+                    },
                     "\" >> .env\n",
                     "  if [ -f \"./run_test_suite.sh\" ]\n",
                     "  then\n",
