@@ -82,7 +82,7 @@ class EntityNetworkSearch(TraversalBasedBaseRetriever):
         results = self.graph_store.execute_query(cypher, properties)
         statement_ids = [r['l'] for r in results]
 
-        return self.get_statements_by_topic_and_source(statement_ids)
+        return statement_ids
     
     def _get_node_ids(self, query_bundle: QueryBundle) -> List[str]:
 
@@ -136,7 +136,7 @@ class EntityNetworkSearch(TraversalBasedBaseRetriever):
 
         start = time.time()
         
-        search_results = []
+        statement_ids = []
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.args.num_workers) as executor:
 
@@ -149,7 +149,9 @@ class EntityNetworkSearch(TraversalBasedBaseRetriever):
 
             for future in futures:
                 for result in future.result():
-                    search_results.append(result)
+                    statement_ids.append(result)
+
+        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids)))
 
         end = time.time()
         duration_ms = (end-start) * 1000

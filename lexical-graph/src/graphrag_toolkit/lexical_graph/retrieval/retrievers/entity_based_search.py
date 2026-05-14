@@ -167,7 +167,7 @@ class EntityBasedSearch(TraversalBasedBaseRetriever):
         results = self.graph_store.execute_query(cypher, properties)
         statement_ids = [r['l'] for r in results]
 
-        return self.get_statements_by_topic_and_source(statement_ids)
+        return statement_ids
            
 
     def _single_entity_based_graph_search(self, entity_id, query:QueryBundle):
@@ -203,7 +203,7 @@ class EntityBasedSearch(TraversalBasedBaseRetriever):
         results = self.graph_store.execute_query(cypher, properties)
         statement_ids = [r['l'] for r in results]
 
-        return self.get_statements_by_topic_and_source(statement_ids)
+        return statement_ids
     
     def do_graph_search(self, query_bundle:QueryBundle, start_node_ids:List[str]) -> SearchResultCollection:
         """
@@ -225,7 +225,7 @@ class EntityBasedSearch(TraversalBasedBaseRetriever):
         """
         logger.debug('Running entity-based search...')
         
-        search_results = []
+        statement_ids = []
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.args.num_workers) as executor:
             
@@ -243,9 +243,9 @@ class EntityBasedSearch(TraversalBasedBaseRetriever):
 
             for future in futures:
                 for result in future.result():
-                    search_results.append(result)
+                    statement_ids.append(result)
                     
-                
+        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids)))         
         search_results_collection = self._to_search_results_collection(search_results) 
         
         retriever_name = type(self).__name__
