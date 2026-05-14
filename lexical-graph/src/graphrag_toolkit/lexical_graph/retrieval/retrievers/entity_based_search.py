@@ -190,7 +190,7 @@ class EntityBasedSearch(TraversalBasedBaseRetriever):
             
         cypher = f'''// single entity-based graph search                            
         MATCH (:`__Entity__`{{{self.graph_store.node_id("entityId")}:$startId}})
-            -[:`__SUBJECT__`]->()-[:`__NEXT__`*0..1]-()
+            -[:`__SUBJECT__`]->()
             -[:`__SUPPORTS__`]->()
             -[:`__PREVIOUS__`*0..1]-(l)
         RETURN DISTINCT {self.graph_store.node_id("l.statementId")} AS l LIMIT $statementLimit'''

@@ -80,7 +80,7 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
         query to traverse a graph database, retrieving relevant `__Fact__` and associated
         `__Statement__` nodes connected to a specific topic.
 
-        The query traverses relationships such as `__NEXT__`, `__SUPPORTS__`, and
+        The query traverses relationships such as `__SUPPORTS__`, and
         `__BELONGS_TO__` to ensure that all relevant nodes and their connections are
         retrieved based on the provided topic ID and query limits.
 
@@ -99,7 +99,7 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
         MATCH (f)-[:`__SUPPORTS__`]->()-[:`__BELONGS_TO__`]->(tt:`__Topic__`)
         WHERE {self.graph_store.node_id("tt.topicId")} = $topicId
         WITH f LIMIT $statementLimit
-        MATCH (f)-[:`__NEXT__`*0..1]-()-[:`__SUPPORTS__`]->(l)
+        MATCH (f)-[:`__SUPPORTS__`]->(l)
         RETURN DISTINCT {self.graph_store.node_id("l.statementId")} AS l LIMIT $statementLimit
         '''
                             
