@@ -23,6 +23,9 @@ test = [
     "pytest-cov>=7.1.0",
     "pytest-mock>=3.15.1",
 ]
+dev = [
+    "pre-commit>=3.5.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
