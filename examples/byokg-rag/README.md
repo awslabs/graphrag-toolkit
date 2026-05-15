@@ -9,13 +9,13 @@ This directory contains notebooks demonstrating Knowledge Graph Question Answeri
 
 ## Environment Configuration
 
-Copy the environment template and fill in your values:
+Copy the environment template and edit it with your values:
 
 ```
 cp .env.template .env
 ```
 
-Edit `.env` and set your AWS region, graph identifier or endpoint, and model names. 
+Edit `.env` and set your AWS region, graph identifier or endpoint, and model names.
 
 ## Notebooks
 

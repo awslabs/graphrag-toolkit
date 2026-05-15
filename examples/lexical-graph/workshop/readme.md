@@ -16,13 +16,13 @@ Once the stack is complete, click the `NeptuneSagemakerNotebook` URI in the **Ou
   
 ## Environment Configuration
 
-Copy the environment template and fill in your values:
+Copy the environment template and edit it with your values:
 
 ```
 cp .env.template .env
 ```
 
-Edit `.env` and set your connection strings and model configuration. 
+Edit `.env` and set your connection strings and model configuration.
 
 ## Exercises
 

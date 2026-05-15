@@ -9,7 +9,6 @@ langchain_aws==0.2.33
 llama-index-embeddings-bedrock==0.6.2
 numpy>=1.24.0,<2.0.0
 pydantic>=2.8.2
-python-dotenv>=1.0.0
 pyyaml==6.0.3
 sentence-transformers>=2.4.0
 tiktoken==0.11.0
