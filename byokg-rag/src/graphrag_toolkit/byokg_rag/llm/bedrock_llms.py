@@ -31,7 +31,9 @@ class BedrockGenerator(BaseGenerator):
 
         Args:
             model_name: The name or ID of the Bedrock model to use
-            region_name: AWS region name where Bedrock is available
+            region_name: AWS region name where Bedrock is available.
+                If None, resolves from ByoKGConfig (BYOKG_REGION env var),
+                then falls back to boto3 defaults (~/.aws/config, AWS_DEFAULT_REGION).
             prefill: Whether to use prefill functionality (not currently implemented)
             max_tokens: Maximum number of tokens to generate in the response
             max_retries: Maximum number of retry attempts for failed requests
