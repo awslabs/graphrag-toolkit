@@ -16,8 +16,6 @@ Once the stack is complete, click the `NeptuneSagemakerNotebook` URI in the **Ou
   
 ## Environment Configuration
 
-Copy the environment template and edit it with your values:
-
 ```
 cp .env.template .env
 ```
