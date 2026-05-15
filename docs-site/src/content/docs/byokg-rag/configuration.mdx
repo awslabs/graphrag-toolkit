@@ -126,6 +126,73 @@ The Cypher KG linker specializes in generating and executing openCypher queries.
 
 NOTE: The graph store must support openCypher query execution. Use Neptune Analytics or Neptune Database graph stores.
 
+## Global Configuration (ByoKGConfig)
+
+`ByoKGConfig` is a module-level singleton that centralizes foundation model configuration for BYOKG-RAG. It is created at import time and shared across the process.
+
+```python
+from graphrag_toolkit.byokg_rag import ByoKGConfig
+```
+
+### Configuring the LLM
+
+Set the LLM model by assigning directly to the `llm_model` property:
+
+```python
+ByoKGConfig.llm_model = "global.anthropic.claude-sonnet-4-6"
+```
+
+### Configuring the embedding model
+
+```python
+ByoKGConfig.embed_model = "cohere.embed-english-v3"
+ByoKGConfig.embed_dimensions = 1024
+```
+
+### Configuring the reranking model
+
+```python
+ByoKGConfig.reranking_model = "BAAI/bge-reranker-base"
+```
+
+### Region configuration
+
+If your Bedrock endpoint is in a specific region, set it explicitly. Otherwise, boto3 resolves the region from your AWS configuration automatically.
+
+```python
+ByoKGConfig.region_name = "us-west-2"
+```
+
+### Factory methods
+
+`ByoKGConfig` provides factory methods that create fully configured instances:
+
+```python
+generator = ByoKGConfig.to_generator()
+embedding = ByoKGConfig.to_embedding()
+reranker = ByoKGConfig.to_reranker()
+```
+
+Components such as `KGLinker`, `AgenticRetriever`, and `DenseIndex` automatically create instances from `ByoKGConfig` when no explicit generator or embedding is passed.
+
+### Resilient clients and credential refresh
+
+Generators created via `ByoKGConfig.to_generator()` use a `ResilientClient` that automatically refreshes expired AWS credentials and SSO tokens mid-session.
+
+### Environment variables
+
+All properties can be configured via environment variables. Values are read once on first access:
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `BYOKG_LLM_MODEL` | LLM model ID | `global.anthropic.claude-sonnet-4-6` |
+| `BYOKG_REGION` | AWS region override | boto3 default |
+| `BYOKG_EMBED_MODEL` | Embedding model ID | `cohere.embed-english-v3` |
+| `BYOKG_EMBED_DIMENSIONS` | Embedding dimensions | `1024` |
+| `BYOKG_RERANKING_MODEL` | Reranking model ID | `BAAI/bge-reranker-base` |
+| `BYOKG_MAX_TOKENS` | Max generation tokens | `4096` |
+| `BYOKG_MAX_RETRIES` | Max retry attempts | `10` |
+
 ## LLM Configuration
 
 ### BedrockGenerator
@@ -136,10 +203,10 @@ The Bedrock generator provides access to foundation models through Amazon Bedroc
 
 | Parameter | Type | Default | Description | Example |
 |-----------|------|---------|-------------|---------|
-| `model_name` | str | "anthropic.claude-sonnet-4-6" | Bedrock model identifier | "anthropic.claude-sonnet-4-6" |
-| `region_name` | str | "us-east-1" | AWS region for Bedrock service | "us-east-1" |
-| `max_tokens` | int | 4096 | Maximum tokens to generate in responses | 8192 |
-| `max_retries` | int | 10 | Maximum retry attempts for failed requests | 5 |
+| `model_name` | str | From ByoKGConfig | Bedrock model identifier | "global.anthropic.claude-sonnet-4-6" |
+| `region_name` | str | From ByoKGConfig | AWS region for Bedrock service | "us-east-1" |
+| `max_tokens` | int | From ByoKGConfig | Maximum tokens to generate in responses | 8192 |
+| `max_retries` | int | From ByoKGConfig | Maximum retry attempts for failed requests | 5 |
 | `prefill` | bool | False | Enable response prefilling (advanced) | False |
 | `inference_config` | dict | None | Custom inference configuration | `{"temperature": 0.7}` |
 | `reasoning_config` | dict | None | Reasoning configuration for supported models | None |
@@ -167,6 +234,11 @@ The following models are compatible with byokg-rag. For the latest model availab
 - Claude 3 Haiku: `anthropic.claude-3-haiku-20240307-v1:0` (EOL: Sep 10, 2026)
 
 TIP: Claude Sonnet 4.6 provides the best balance of performance and cost for most KGQA applications.
+
+> **Inference profiles:** Prefix model IDs with `global.` (e.g., `global.anthropic.claude-sonnet-4-6`)
+> to enable cross-region inference, which routes requests to the nearest available region.
+> Use `us.` or `eu.` prefixes to restrict to specific regions.
+> Bare model IDs (without prefix) access the model directly in your configured region.
 
 **Inference Configuration:**
 
@@ -208,7 +280,7 @@ graph_store = NeptuneAnalyticsGraphStore(
 
 # Step 2: Set up LLM
 llm_generator = BedrockGenerator(
-    model_name="anthropic.claude-sonnet-4-6",
+    model_name="global.anthropic.claude-sonnet-4-6",
     region_name="us-east-1",
     max_tokens=4096,
     max_retries=10

@@ -33,21 +33,24 @@ class AgenticRetriever(GRetriever):
     5. Continue until max iterations or early finish condition
     """
 
-    def __init__(self, llm_generator, graph_traversal, graph_verbalizer, pruning_reranker=None, 
+    def __init__(self, graph_traversal, graph_verbalizer, llm_generator=None, pruning_reranker=None, 
                  max_num_relations=5, max_num_entities=3, max_num_iterations=3, max_num_triplets=50):
         """
         Initialize the AgenticRetriever.
 
         Args:
-            llm_generator: Language model for generating responses
             graph_traversal: Component for traversing the graph
             graph_verbalizer: Component for converting graph elements to text
+            llm_generator: Language model for generating responses
             pruning_reranker: Component for pruning and reranking results
             max_num_relations (int): Maximum number of relations to consider
             max_num_entities (int): Maximum number of entities to explore
             max_num_iterations (int): Maximum number of exploration iterations
             max_num_triplets (int): Maximum number of triplets to keep after pruning
         """
+        if llm_generator is None:
+            from ..config import ByoKGConfig
+            llm_generator = ByoKGConfig.to_generator()
         self.llm_generator = llm_generator
         self.graph_traversal = graph_traversal
         self.graph_verbalizer = graph_verbalizer

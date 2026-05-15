@@ -38,7 +38,7 @@ class TestBedrockGeneratorInitialization:
         gen = BedrockGenerator()
         
         assert gen.model_name == "global.anthropic.claude-sonnet-4-6"
-        assert gen.region_name == "us-east-1"
+        assert gen.region_name is None
         assert gen.max_new_tokens == 4096
         assert gen.max_retries == 10
         assert gen.prefill is False
