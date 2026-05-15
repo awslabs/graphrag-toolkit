@@ -14,6 +14,14 @@ sh install.sh --region <AWS Region> --bucket <name of an existing S3 bucket>
 
 Once the stack is complete, click the `NeptuneSagemakerNotebook` URI in the **Outputs** tab, then open notebook `0-Start-Here.ipynb`
   
+## Environment Configuration
+
+```
+cp .env.template .env
+```
+
+Edit `.env` and set your connection strings and model configuration.
+
 ## Exercises
 
 In this workshop you are going to learn how to build a graph-enhanced generative AI question-answering solution using the AWS GraphRAG Toolkit open source library.

@@ -11,9 +11,15 @@
   
 #### Environment variables
 
-The notebooks assume that the [graph store and vector store connections](https://awslabs.github.io/graphrag-toolkit/lexical-graph/storage-model/) are stored in `GRAPH_STORE` and `VECTOR_STORE` environment variables. 
+The notebooks use a `.env` file to load [graph store and vector store connections](https://awslabs.github.io/graphrag-toolkit/lexical-graph/storage-model/). To configure:
 
-If you are running these notebooks via the Cloudformation template below, a `.env` file containing these variables will already have been installed in the Amazon SageMaker environment. If you are running these notebooks in a separate environment, you will need to populate these two environment variables.
+```
+cp notebooks/.env.template notebooks/.env
+```
+
+Edit `notebooks/.env` and set your `GRAPH_STORE` and `VECTOR_STORE` connection strings. See `notebooks/.env.template` for examples.
+
+If you are running these notebooks via the CloudFormation template below, a `.env` file containing these variables will already have been installed in the Amazon SageMaker environment.
 
 ### Cloudformation templates
 
