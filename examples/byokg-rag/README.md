@@ -15,7 +15,7 @@ Copy the environment template and fill in your values:
 cp .env.template .env
 ```
 
-Edit `.env` and set your AWS region, graph identifier or endpoint, and model names. See `.env.template` for all available options.
+Edit `.env` and set your AWS region, graph identifier or endpoint, and model names. 
 
 ## Notebooks
 
