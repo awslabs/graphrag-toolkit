@@ -102,7 +102,7 @@ class _ByoKGConfig:
     _reranking_model: Optional[str] = None
     _max_tokens: Optional[int] = None
     _max_retries: Optional[int] = None
-    _aws_clients: Dict = field(default_factory=dict)
+    _aws_clients: Dict[str, ResilientClient] = field(default_factory=dict)
     _boto3_session: Optional[Boto3Session] = field(default=None, init=False, repr=False)
 
     @property
@@ -194,6 +194,19 @@ class _ByoKGConfig:
         if service_name not in self._aws_clients:
             self._aws_clients[service_name] = ResilientClient(self, service_name)
         return self._aws_clients[service_name]
+
+    def reset(self):
+        """Reset all cached config values to defaults. Useful for test isolation."""
+        self._llm_model = None
+        self._region_name = None
+        self._region_checked = False
+        self._embed_model = None
+        self._embed_dimensions = None
+        self._reranking_model = None
+        self._max_tokens = None
+        self._max_retries = None
+        self._aws_clients.clear()
+        self._boto3_session = None
 
     def to_generator(self, **kwargs):
         """
