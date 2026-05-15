@@ -6,6 +6,7 @@ This directory contains notebooks demonstrating Knowledge Graph Question Answeri
 
 - AWS credentials configured with access to Bedrock and Neptune Analytics/Database
 - Python 3.10+
+- python-dotenv (`pip install python-dotenv`)
 
 ## Environment Configuration
 
