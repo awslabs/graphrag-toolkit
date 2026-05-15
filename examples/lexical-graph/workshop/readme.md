@@ -22,7 +22,7 @@ Copy the environment template and fill in your values:
 cp .env.template .env
 ```
 
-Edit `.env` and set your connection strings and model configuration. See `.env.template` for all available options.
+Edit `.env` and set your connection strings and model configuration. 
 
 ## Exercises
 
