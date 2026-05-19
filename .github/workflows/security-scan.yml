@@ -9,6 +9,7 @@ on:
   pull_request:
     paths:
       - 'byokg-rag/**'
+      - 'lexical-graph/**'
   schedule:
     - cron: '0 9 * * 1'
 
@@ -16,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  bandit:
+  bandit-byokg-rag:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -26,3 +27,14 @@ jobs:
       - run: pip install bandit
       - run: bandit -r byokg-rag/src/ -f json -o bandit-report.json || true
       - run: bandit -r byokg-rag/src/ -ll
+
+  bandit-lexical-graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install bandit
+      - run: bandit -r lexical-graph/src/ -f json -o bandit-report.json || true
+      - run: bandit -r lexical-graph/src/ -ll
