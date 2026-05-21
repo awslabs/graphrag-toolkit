@@ -1,0 +1,35 @@
+@prefix : <https://example.com/kg/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Person a owl:Class ;
+    rdfs:label "Person" .
+
+:Employee a owl:Class ;
+    rdfs:subClassOf :Person ;
+    rdfs:label "Employee" .
+
+:Manager a owl:Class ;
+    rdfs:subClassOf :Employee ;
+    rdfs:label "Manager" .
+
+:Company a owl:Class ;
+    rdfs:label "Company" .
+
+:worksFor a owl:ObjectProperty ;
+    rdfs:label "works for" ;
+    rdfs:domain :Employee ;
+    rdfs:range :Company .
+
+:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
+
+:age a owl:DatatypeProperty ;
+    rdfs:label "age" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:integer .

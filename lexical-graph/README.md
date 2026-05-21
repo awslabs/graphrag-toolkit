@@ -152,6 +152,115 @@ if __name__ == '__main__':
     run_query()
 ```
 
+### Ontology-guided extraction
+
+You can constrain entity and relationship extraction to a user-provided OWL/Turtle ontology. An `OntologySchema` parses the ontology once, computes the `rdfs:subClassOf` closure, and surfaces two complementary behaviors:
+
+  - **Suggestion mode** — the ontology reaches the LLM as prompt guidance. Wire `ontology.as_extraction_schema()` into `ExtractionConfig.from_stages(..., schema=...)` and the existing `LLMTopicExtractionStage` picks up the richer class hierarchy, domain/range, and datatype-property text automatically. No post-extraction filtering runs; the LLM is encouraged, not required, to draw from the declared vocabulary.
+  - **Strict mode** — add `OntologyFilterStage(ontology)` after `LLMTopicExtractionStage` in the stage list. Post-extraction, entities whose class is not in the ontology are dropped, and facts whose (predicate, subject class, object class) tuple is not covered by a declared `owl:ObjectProperty` or `owl:DatatypeProperty` are dropped. Subclass closure is honored throughout.
+
+Mode selection is pipeline composition, not configuration — the same `OntologySchema` instance serves both.
+
+`rdflib` is a soft dependency. Callers that never load a Turtle file do not need it installed; install it when you do:
+
+```
+$ pip install rdflib
+```
+
+#### Suggestion mode
+
+```python
+from pathlib import Path
+
+from graphrag_toolkit.lexical_graph import ExtractionConfig, LexicalGraphIndex
+from graphrag_toolkit.lexical_graph.indexing.extract import (
+    LLMPropositionStage,
+    LLMTopicExtractionStage,
+    OntologySchema,
+)
+from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
+from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
+
+# requires pip install llama-index-readers-web
+from llama_index.readers.web import SimpleWebPageReader
+
+def run_extract_and_build_with_ontology():
+
+    ontology = OntologySchema.from_turtle(Path('example_ontology.ttl'))
+
+    extraction_config = ExtractionConfig.from_stages(
+        stages=[
+            LLMPropositionStage(),
+            LLMTopicExtractionStage(),
+        ],
+        schema=ontology.as_extraction_schema(),
+    )
+
+    with (
+        GraphStoreFactory.for_graph_store(
+            'neptune-db://my-graph.cluster-abcdefghijkl.us-east-1.neptune.amazonaws.com'
+        ) as graph_store,
+        VectorStoreFactory.for_vector_store(
+            'aoss://https://abcdefghijkl.us-east-1.aoss.amazonaws.com'
+        ) as vector_store
+    ):
+
+        graph_index = LexicalGraphIndex(
+            graph_store,
+            vector_store,
+            indexing_config=extraction_config,
+        )
+
+        docs = SimpleWebPageReader(
+            html_to_text=True,
+            metadata_fn=lambda url:{'url': url}
+        ).load_data([
+            'https://docs.aws.amazon.com/neptune/latest/userguide/intro.html',
+        ])
+
+        graph_index.extract_and_build(docs, show_progress=True)
+
+if __name__ == '__main__':
+    run_extract_and_build_with_ontology()
+```
+
+#### Strict mode
+
+Append `OntologyFilterStage(ontology)` to the stage list. The rest of the pipeline is unchanged.
+
+```python
+from pathlib import Path
+
+from graphrag_toolkit.lexical_graph import ExtractionConfig
+from graphrag_toolkit.lexical_graph.indexing.extract import (
+    LLMPropositionStage,
+    LLMTopicExtractionStage,
+    OntologyFilterStage,
+    OntologySchema,
+)
+
+ontology = OntologySchema.from_turtle(Path('example_ontology.ttl'))
+
+extraction_config = ExtractionConfig.from_stages(
+    stages=[
+        LLMPropositionStage(),
+        LLMTopicExtractionStage(),
+        OntologyFilterStage(ontology),  # strict mode
+    ],
+    schema=ontology.as_extraction_schema(),
+)
+```
+
+#### Opting out of XSD literal validation
+
+Strict mode validates SPC facts (entity-to-literal) against the XSD datatype declared on the matching `owl:DatatypeProperty`. If the LLM emits correctly-classed facts with mistyped literals (for example `"forty-two"` where `xsd:integer` is declared), those facts are dropped. Pass `validate_datatypes=False` to keep them while preserving every other strict-mode check:
+
+```python
+OntologyFilterStage(ontology, validate_datatypes=False)
+```
+
+The opt-out disables only the XSD literal check. Subject-class membership and predicate-in-ontology checks still apply, so facts whose predicate is not declared as a `DatatypeProperty`, or whose subject class is outside that property's domain, are still dropped.
+
 ## Documentation
 
   - [Overview](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/lexical-graph/overview.md)
