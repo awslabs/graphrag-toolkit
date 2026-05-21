@@ -108,7 +108,7 @@ class ChunkBasedSemanticSearch(TraversalBasedBaseRetriever):
         results = self.graph_store.execute_query(cypher, properties)
         statement_ids = [r['l'] for r in results]
 
-        return self.get_statements_by_topic_and_source(statement_ids)
+        return statement_ids
 
 
     def get_start_node_ids(self, query_bundle: QueryBundle) -> List[str]:
@@ -200,7 +200,7 @@ class ChunkBasedSemanticSearch(TraversalBasedBaseRetriever):
 
         logger.debug('Running chunk-based semantic search...')
         
-        search_results = []
+        statement_ids = []
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.args.num_workers) as executor:
 
@@ -213,8 +213,9 @@ class ChunkBasedSemanticSearch(TraversalBasedBaseRetriever):
 
             for future in futures:
                 for result in future.result():
-                    search_results.append(result)
+                    statement_ids.append(result)
                     
+        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids))) 
         search_results_collection = self._to_search_results_collection(search_results) 
         
         retriever_name = type(self).__name__

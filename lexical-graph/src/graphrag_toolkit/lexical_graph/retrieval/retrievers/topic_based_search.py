@@ -80,7 +80,7 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
         query to traverse a graph database, retrieving relevant `__Fact__` and associated
         `__Statement__` nodes connected to a specific topic.
 
-        The query traverses relationships such as `__NEXT__`, `__SUPPORTS__`, and
+        The query traverses relationships such as `__SUPPORTS__`, and
         `__BELONGS_TO__` to ensure that all relevant nodes and their connections are
         retrieved based on the provided topic ID and query limits.
 
@@ -99,7 +99,7 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
         MATCH (f)-[:`__SUPPORTS__`]->()-[:`__BELONGS_TO__`]->(tt:`__Topic__`)
         WHERE {self.graph_store.node_id("tt.topicId")} = $topicId
         WITH f LIMIT $statementLimit
-        MATCH (f)-[:`__NEXT__`*0..1]-()-[:`__SUPPORTS__`]->(l)
+        MATCH (f)-[:`__SUPPORTS__`]->(l)
         RETURN DISTINCT {self.graph_store.node_id("l.statementId")} AS l LIMIT $statementLimit
         '''
                             
@@ -111,7 +111,7 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
         results = self.graph_store.execute_query(cypher, properties)
         statement_ids = [r['l'] for r in results]
 
-        return self.get_statements_by_topic_and_source(statement_ids)
+        return statement_ids
         
 
     def get_start_node_ids(self, query_bundle: QueryBundle) -> List[str]:
@@ -165,7 +165,7 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
 
         logger.debug('Running topic-based search...')
         
-        search_results = []
+        statement_ids = []
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.args.num_workers) as executor:
 
@@ -178,8 +178,9 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
 
             for future in futures:
                 for result in future.result():
-                    search_results.append(result)
+                    statement_ids.append(result)
                     
+        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids))) 
         search_results_collection = self._to_search_results_collection(search_results) 
         
         retriever_name = type(self).__name__

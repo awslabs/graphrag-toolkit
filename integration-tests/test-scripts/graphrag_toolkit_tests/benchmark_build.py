@@ -1,18 +1,48 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 import os
+import subprocess
 import unittest
 from contextlib import nullcontext
 from typing import Dict, Any, Optional
+import logging
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
 
 from graphrag_toolkit.lexical_graph import LexicalGraphIndex
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
 from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs
+
+logger = logging.getLogger(__name__)
+
+
+def sync_benchmark_data_from_s3(dataset: str, data_dir: str):
+    """
+    If BENCHMARK_DATA_S3_URI is set and the local dataset directory doesn't exist,
+    sync the dataset from S3.
+    """
+    s3_uri = os.environ.get('BENCHMARK_DATA_S3_URI')
+    if not s3_uri:
+        return
+
+    local_dataset_dir = os.path.join(data_dir, dataset)
+    if os.path.exists(local_dataset_dir):
+        logger.info(f'Dataset directory already exists: {local_dataset_dir}')
+        return
+
+    s3_dataset_uri = s3_uri.rstrip('/') + '/' + dataset + '/'
+    logger.info(f'Syncing benchmark data from {s3_dataset_uri} to {local_dataset_dir}')
+    os.makedirs(local_dataset_dir, exist_ok=True)
+    subprocess.run(
+        ['aws', 's3', 'sync', s3_dataset_uri, local_dataset_dir],
+        check=True
+    )
+    logger.info(f'Sync complete: {local_dataset_dir}')
+
 
 DATASET_CONFIG = {
     'cuad-prototype': {
@@ -28,6 +58,15 @@ DATASET_CONFIG = {
     },
     'concurrentqa': {
         'num_docs': 13501,
+        'extracted_dir': 'extracted',
+        'collection_id': '20260513-174224',
+    },
+    'concurrentqa-prototype': {
+        'num_docs': 2,
+        'extracted_dir': 'extracted',
+    },
+    'wikihow': {
+        'num_docs': 5000,
     },
 }
 
@@ -54,14 +93,21 @@ def run_benchmark_build(handler: IntegrationTestHandler,
             'neptune-graph://<graph-id>').
         vector_store_conn: Optional vector store connection string (e.g. 'aoss://...').
     """
+    sync_benchmark_data_from_s3(dataset, data_dir)
+
     config = DATASET_CONFIG.get(dataset, {})
+
+    GraphRAGConfig.build_num_workers = 2
+    GraphRAGConfig.build_batch_size = 25
+    GraphRAGConfig.build_batch_write_size = 50
 
     extracted_subdir = config.get('extracted_dir', 'extracted')
     docs_directory = os.path.join(data_dir, dataset, extracted_subdir)
+    collection_id = config.get('collection_id', dataset)
 
     docs = FileBasedDocs(
         docs_directory=docs_directory,
-        collection_id=dataset
+        collection_id=collection_id
     )
 
     graph_ctx = GraphStoreFactory.for_graph_store(
@@ -114,3 +160,47 @@ class CuadBenchmarkBuild(IntegrationTestBase):
             dataset_name = 'cuad'
 
         run_benchmark_build(handler, dataset_name, BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)
+
+
+class ConcurrentQaBenchmarkBuild(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Build graph and vector stores from ConcurrentQA pre-extracted chunks for benchmarking'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        graph_store_conn = os.environ.get('GRAPH_STORE')
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
+        if is_prototype == 'true':
+            dataset_name = 'concurrentqa-prototype'
+        else:
+            dataset_name = 'concurrentqa'
+
+        run_benchmark_build(handler, dataset_name, BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)
+
+
+class WikihowBenchmarkBuild(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Build graph and vector stores from WikiHow pre-extracted chunks for benchmarking'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        graph_store_conn = os.environ.get('GRAPH_STORE')
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+
+        run_benchmark_build(handler, 'wikihow', BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)
+
+
+class PgaBenchmarkBuild(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Build graph and vector stores from PGA pre-extracted chunks for benchmarking'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        graph_store_conn = os.environ.get('GRAPH_STORE')
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+
+        run_benchmark_build(handler, 'pga', BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)

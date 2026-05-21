@@ -118,14 +118,6 @@ class BuildWithLocalEntities(IntegrationTestBase):
                 
                 self.assertEqual(relationship_count, 43)
                 
-            def test_fact_next_fact_relationships(self):
-                """Graph contains expected fact NEXT fact relationships"""
-                
-                results = self._graph_store.execute_query('MATCH (:`__Fact__`)<-[r:`__NEXT__`]-(:`__Fact__`) RETURN count(r) AS count')
-                relationship_count = results[0]['count']
-                
-                self.assertEqual(relationship_count, 27)
-                
             def test_entity_subject_fact_relationships(self):
                 """Graph contains expected entity SUBJECT fact relationships"""
                 
@@ -249,14 +241,6 @@ class BuildWithoutLocalEntities(IntegrationTestBase):
                 relationship_count = results[0]['count']
                 
                 self.assertEqual(relationship_count, 43)
-                
-            def test_fact_next_fact_relationships(self):
-                """Graph contains expected fact NEXT fact relationships"""
-                
-                results = self._graph_store.execute_query('MATCH (:`__Fact__`)<-[r:`__NEXT__`]-(:`__Fact__`) RETURN count(r) AS count')
-                relationship_count = results[0]['count']
-                
-                self.assertEqual(relationship_count, 15)
                 
             def test_entity_subject_fact_relationships(self):
                 """Graph contains expected entity SUBJECT fact relationships"""

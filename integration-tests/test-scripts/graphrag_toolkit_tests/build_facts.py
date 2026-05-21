@@ -61,12 +61,4 @@ class BuildFacts(IntegrationTestBase):
                     
                     self.assertEqual(4, fact_node_count)
                     
-                def test_contains_correct_number_of_next_relationships(self):
-                    """Graph contains correct number of next relationships"""
-                    
-                    results = self._graph_store.execute_query('MATCH (:`__Fact__`)-[r:`__NEXT__`]->() RETURN count(r) AS count')
-                    next_relationship_count = results[0]['count']
-                    
-                    self.assertEqual(3, next_relationship_count)
-                    
             handler.run_assertions(BuildFactsAssertions)
