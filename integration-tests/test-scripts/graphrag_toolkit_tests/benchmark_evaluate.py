@@ -160,3 +160,24 @@ class ConcurrentQaBenchmarkEvaluate(IntegrationTestBase):
             responses_path=responses_path,
             metrics=['correctness', 'idk'],
         )
+
+
+class WikihowBenchmarkEvaluate(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Evaluate WikiHow benchmark responses using LLM-as-judge correctness and IDK metrics'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        responses_path = params.get('benchmark_responses_path',
+                                    os.path.join('benchmark-results',
+                                                 'wikihow',
+                                                 'responses.jsonl'))
+
+        run_benchmark_evaluate(
+            handler,
+            params,
+            dataset='wikihow',
+            responses_path=responses_path,
+            metrics=['correctness', 'idk'],
+        )
