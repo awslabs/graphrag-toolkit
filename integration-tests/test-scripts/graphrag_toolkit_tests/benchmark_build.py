@@ -97,7 +97,7 @@ def run_benchmark_build(handler: IntegrationTestHandler,
 
     config = DATASET_CONFIG.get(dataset, {})
 
-    GraphRAGConfig.build_num_workers = 4
+    GraphRAGConfig.build_num_workers = 2
     GraphRAGConfig.build_batch_size = 25
     GraphRAGConfig.build_batch_write_size = 50
 
@@ -191,3 +191,16 @@ class WikihowBenchmarkBuild(IntegrationTestBase):
         vector_store_conn = os.environ.get('VECTOR_STORE')
 
         run_benchmark_build(handler, 'wikihow', BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)
+
+
+class PgaBenchmarkBuild(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Build graph and vector stores from PGA pre-extracted chunks for benchmarking'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        graph_store_conn = os.environ.get('GRAPH_STORE')
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+
+        run_benchmark_build(handler, 'pga', BENCHMARK_DATA_DIR, graph_store_conn, vector_store_conn)

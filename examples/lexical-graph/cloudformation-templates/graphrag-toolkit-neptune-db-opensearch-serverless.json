@@ -1794,7 +1794,7 @@
                     "  if [ -f \"./run_test_suite.sh\" ]\n",
                     "  then\n",
                     "    echo \"Running test suite\"\n",
-                    "    screen -L -m -d sh run_test_suite.sh\n",
+                    "    screen -m -d sh run_test_suite.sh\n",
                     "  else\n",
                     "    echo \"No test suite\"\n",
                     "  fi\n",

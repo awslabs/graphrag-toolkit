@@ -252,3 +252,31 @@ class WikihowBenchmarkQuery(IntegrationTestBase):
             response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
             qa_limit=int(limit_str) if limit_str else None,
         )
+
+
+class PgaBenchmarkQuery(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Query PGA benchmark QA pairs and write responses JSONL'
+
+    def wait(self) -> bool:
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+        if not vector_store_conn:
+            return False
+        with VectorStoreFactory.for_vector_store(vector_store_conn) as vector_store:
+            return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='golf'), top_k=1)) == 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
+
+        run_benchmark_query(
+            handler,
+            params,
+            dataset='pga',
+            data_dir=BENCHMARK_DATA_DIR,
+            graph_store_conn=os.environ.get('GRAPH_STORE'),
+            vector_store_conn=os.environ.get('VECTOR_STORE'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
+            qa_limit=int(limit_str) if limit_str else None,
+        )

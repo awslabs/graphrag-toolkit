@@ -181,3 +181,24 @@ class WikihowBenchmarkEvaluate(IntegrationTestBase):
             responses_path=responses_path,
             metrics=['correctness', 'idk'],
         )
+
+
+class PgaBenchmarkEvaluate(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Evaluate PGA benchmark responses using LLM-as-judge correctness and IDK metrics'
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        responses_path = params.get('benchmark_responses_path',
+                                    os.path.join('benchmark-results',
+                                                 'pga',
+                                                 'responses.jsonl'))
+
+        run_benchmark_evaluate(
+            handler,
+            params,
+            dataset='pga',
+            responses_path=responses_path,
+            metrics=['correctness', 'idk'],
+        )
