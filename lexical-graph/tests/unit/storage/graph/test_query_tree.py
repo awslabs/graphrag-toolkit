@@ -1,12 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-"""Tests for storage.graph.query_tree.
-
-Covers the default params adapter (dict / list / generator / invalid),
-Query construction defaults, Job.run delegation, and QueryTree iteration
-over child queries and yielded leaf results.
-"""
+"""Tests for query_tree."""
 
 from unittest.mock import MagicMock
 
@@ -22,8 +17,6 @@ from graphrag_toolkit.lexical_graph.storage.graph.query_tree import (
 
 
 class TestDefaultParamsAdapter:
-    """Tests for _default_params_adapter."""
-
     def test_dict_passthrough(self):
         assert _default_params_adapter({'a': 1}) == {'a': 1}
 
@@ -36,7 +29,7 @@ class TestDefaultParamsAdapter:
         result = _default_params_adapter(['Foo', 'foo', 'BAR'])
         assert result == {'params': ['foo', 'BAR']}
 
-    def test_generator_drained_and_dedupd(self):
+    def test_generator_drained_and_deduped(self):
         def gen():
             yield 'Foo'
             yield 'foo'
@@ -52,13 +45,11 @@ class TestDefaultParamsAdapter:
         with pytest.raises(ValueError, match='Invalid input parameters'):
             _default_params_adapter('not-a-list')
 
-    def test_default_constant_is_function(self):
+    def test_default_constant_aliases_underscore_function(self):
         assert DEFAULT_PARAMS_ADAPTER is _default_params_adapter
 
 
 class TestQuery:
-    """Tests for Query construction."""
-
     def test_defaults(self):
         q = Query('MATCH (n) RETURN n')
         assert q.query == 'MATCH (n) RETURN n'
@@ -77,8 +68,6 @@ class TestQuery:
 
 
 class TestJob:
-    """Tests for Job.run delegation."""
-
     def test_run_invokes_store_with_adapted_params(self):
         q = Query('MATCH (n) RETURN n')
         job = Job(q, params=['Foo', 'foo'])
@@ -101,8 +90,6 @@ class TestJob:
 
 
 class TestQueryTree:
-    """Tests for QueryTree.run end-to-end iteration."""
-
     def test_id_is_prefixed(self):
         tree = QueryTree('lookup', Query('MATCH (n)'))
         assert tree.id == 'query-tree-lookup'
@@ -114,7 +101,6 @@ class TestQueryTree:
 
         results = list(tree.run({'k': 'v'}, store))
 
-        # dict params pass through unchanged
         store.assert_called_once_with('MATCH (n) RETURN n', {'k': 'v'})
         assert results == [{'n': 1}, {'n': 2}, {'n': 3}]
 
@@ -122,19 +108,14 @@ class TestQueryTree:
         child = Query('MATCH (c)')
         root = Query('MATCH (n)', child_queries=[child])
 
-        # Root returns a list; the child query is invoked with that list as its params,
-        # which the default adapter wraps under 'params'.
         store = MagicMock(side_effect=[['Foo', 'foo', 'Bar'], [{'c': 'final'}]])
         tree = QueryTree('with-child', root)
 
         results = list(tree.run({'k': 'v'}, store))
 
         assert store.call_count == 2
-        # First call uses root's dict params verbatim
         assert store.call_args_list[0].args == ('MATCH (n)', {'k': 'v'})
-        # Second call uses the deduped+lowered parent results
         assert store.call_args_list[1].args == ('MATCH (c)', {'params': ['foo', 'Bar']})
-        # Only leaf-level results yield
         assert results == [{'c': 'final'}]
 
     def test_multiple_child_queries_all_run(self):
@@ -144,9 +125,9 @@ class TestQueryTree:
 
         store = MagicMock(
             side_effect=[
-                [{'r': 1}],  # root
-                [{'b': 'leaf-b'}],  # child_b runs first (LIFO via pop())
-                [{'a': 'leaf-a'}],  # then child_a
+                [{'r': 1}],
+                [{'b': 'leaf-b'}],
+                [{'a': 'leaf-a'}],
             ]
         )
         tree = QueryTree('multi-child', root)

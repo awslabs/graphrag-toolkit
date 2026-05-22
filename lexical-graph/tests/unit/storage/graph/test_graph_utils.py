@@ -1,14 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-"""Tests for storage.graph.graph_utils helpers.
-
-Covers string/label normalisation, node_result formatting, the
-FilterOperator → OpenCypher mapping, and the recursive MetadataFilters →
-OpenCypher filter conversion used by retrievers and the visualisation module.
-"""
-
-from datetime import datetime
+"""Tests for graph_utils."""
 
 import pytest
 from llama_index.core.vector_stores.types import (
@@ -34,8 +27,6 @@ from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import (
 
 
 class TestNewQueryVar:
-    """Tests for new_query_var."""
-
     def test_starts_with_n_prefix(self):
         assert new_query_var().startswith('n')
 
@@ -46,12 +37,10 @@ class TestNewQueryVar:
         var = new_query_var()
         # 'n' + 32 hex chars
         assert len(var) == 33
-        int(var[1:], 16)  # parses as hex
+        int(var[1:], 16)
 
 
 class TestSearchStringFrom:
-    """Tests for search_string_from."""
-
     def test_lowercases(self):
         assert search_string_from('Hello') == 'hello'
 
@@ -75,8 +64,6 @@ class TestSearchStringFrom:
 
 
 class TestLabelFrom:
-    """Tests for label_from."""
-
     def test_capwords_and_joins(self):
         assert label_from('source document') == 'SourceDocument'
 
@@ -91,15 +78,11 @@ class TestLabelFrom:
 
 
 class TestRelationshipNameFrom:
-    """Tests for relationship_name_from."""
-
     def test_uppercases(self):
         assert relationship_name_from('next') == 'NEXT'
 
     def test_replaces_non_alnum_with_underscore(self):
         assert relationship_name_from('mentioned in') == 'MENTIONED_IN'
-
-    def test_dashes_become_underscores(self):
         assert relationship_name_from('belongs-to') == 'BELONGS_TO'
 
     def test_keeps_digits(self):
@@ -107,8 +90,6 @@ class TestRelationshipNameFrom:
 
 
 class TestNodeResult:
-    """Tests for node_result formatter."""
-
     def test_default_star_properties(self):
         result = node_result('source')
         assert result == 'source: source{.*}'
@@ -121,13 +102,13 @@ class TestNodeResult:
         result = node_result('chunk', properties=['value', 'text'])
         assert result == 'chunk: chunk{.value, .text}'
 
-    def test_property_based_node_id_in_star_properties(self):
+    def test_property_based_node_id_with_star_omits_key(self):
         # is_property_based=True and '*' in properties -> no extra selector for key
         node_id = NodeId('chunkId', 'c.chunkId', is_property_based=True)
         result = node_result('chunk', node_id=node_id, properties=['*'])
         assert result == 'chunk: chunk{.*}'
 
-    def test_property_based_node_id_missing_from_explicit_properties(self):
+    def test_property_based_node_id_prepends_key_when_absent(self):
         # is_property_based and key not in properties -> prepend .key
         node_id = NodeId('chunkId', 'c.chunkId', is_property_based=True)
         result = node_result('chunk', node_id=node_id, properties=['text'])
@@ -141,8 +122,6 @@ class TestNodeResult:
 
 
 class TestToOpencypherOperator:
-    """Tests for to_opencypher_operator mapping."""
-
     @pytest.mark.parametrize(
         'op,expected',
         [
@@ -175,8 +154,6 @@ class TestToOpencypherOperator:
 
 
 class TestFormatterForType:
-    """Tests for formatter_for_type."""
-
     def test_text_wraps_in_quotes(self):
         assert formatter_for_type('text')('hello') == "'hello'"
 
@@ -204,9 +181,7 @@ def _eq_filter(key: str, value):
 
 
 class TestParseMetadataFiltersRecursive:
-    """Tests for parse_metadata_filters_recursive."""
-
-    def test_single_eq_filter_and(self):
+    def test_single_eq_filter_with_and_condition(self):
         filters = MetadataFilters(
             filters=[_eq_filter('category', 'tech')],
             condition=FilterCondition.AND,
@@ -230,7 +205,7 @@ class TestParseMetadataFiltersRecursive:
         result = parse_metadata_filters_recursive(filters)
         assert "source.ratio <= 0.5" in result
 
-    def test_and_joins_with_AND(self):
+    def test_and_condition_joins_with_and_keyword(self):
         filters = MetadataFilters(
             filters=[_eq_filter('category', 'tech'), _eq_filter('lang', 'en')],
             condition=FilterCondition.AND,
@@ -240,7 +215,7 @@ class TestParseMetadataFiltersRecursive:
         assert "source.category = 'tech'" in result
         assert "source.lang = 'en'" in result
 
-    def test_or_joins_with_OR(self):
+    def test_or_condition_joins_with_or_keyword(self):
         filters = MetadataFilters(
             filters=[_eq_filter('category', 'tech'), _eq_filter('category', 'science')],
             condition=FilterCondition.OR,
@@ -258,7 +233,6 @@ class TestParseMetadataFiltersRecursive:
         assert result.startswith('(NOT ')
 
     def test_not_rejects_bare_metadata_filter(self):
-        # FilterCondition.NOT must wrap a MetadataFilters, not a bare MetadataFilter
         filters = MetadataFilters(
             filters=[_eq_filter('category', 'tech')],
             condition=FilterCondition.NOT,
@@ -276,7 +250,7 @@ class TestParseMetadataFiltersRecursive:
         result = parse_metadata_filters_recursive(filters)
         assert 'source.archived_at IS NULL' in result
 
-    def test_text_match_insensitive_lowercases_value_and_key(self):
+    def test_text_match_insensitive_emits_tolower_on_key_and_lowercased_value(self):
         filters = MetadataFilters(
             filters=[
                 MetadataFilter(
@@ -303,19 +277,15 @@ class TestParseMetadataFiltersRecursive:
         result = parse_metadata_filters_recursive(outer)
         assert 'source.category' in result
         assert 'source.lang' in result
-        # outer AND wraps both, inner OR appears as a sub-expression
         assert ' AND ' in result
         assert ' OR ' in result
 
 
 class TestFilterConfigToOpencypherFilters:
-    """Tests for filter_config_to_opencypher_filters."""
-
     def test_none_config_returns_empty_string(self):
         assert filter_config_to_opencypher_filters(None) == ''
 
     def test_empty_source_filters_returns_empty_string(self):
-        # FilterConfig with no filters specified -> source_filters is None
         config = FilterConfig()
         assert filter_config_to_opencypher_filters(config) == ''
 
