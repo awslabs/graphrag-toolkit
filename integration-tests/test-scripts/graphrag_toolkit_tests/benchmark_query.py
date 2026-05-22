@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 import json
 import os
-import subprocess
 import unittest
 from contextlib import nullcontext
 from typing import Dict, Any, Optional, List
@@ -10,6 +9,7 @@ import logging
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
+from graphrag_toolkit_tests.benchmark_utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine, GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, VectorStoreFactory
@@ -31,29 +31,6 @@ QA_FILE_MAP = {
 BENCHMARK_DATA_DIR = 'source-data'
 
 
-def sync_benchmark_data_from_s3(dataset: str, data_dir: str):
-    """
-    If BENCHMARK_DATA_S3_URI is set and the local dataset directory doesn't exist,
-    sync the dataset from S3.
-    """
-    s3_uri = os.environ.get('BENCHMARK_DATA_S3_URI')
-    if not s3_uri:
-        return
-
-    local_dataset_dir = os.path.join(data_dir, dataset)
-    if os.path.exists(local_dataset_dir):
-        logger.info(f'Dataset directory already exists: {local_dataset_dir}')
-        return
-
-    s3_dataset_uri = s3_uri.rstrip('/') + '/' + dataset + '/'
-    logger.info(f'Syncing benchmark data from {s3_dataset_uri} to {local_dataset_dir}')
-    os.makedirs(local_dataset_dir, exist_ok=True)
-    subprocess.run(
-        ['aws', 's3', 'sync', s3_dataset_uri, local_dataset_dir],
-        check=True
-    )
-    logger.info(f'Sync complete: {local_dataset_dir}')
-
 def load_qa_pairs(data_dir: str, dataset: str, qa_files: List[str], limit: Optional[int] = None):
     pairs = []
     for f in qa_files:
@@ -71,7 +48,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                         data_dir: str,
                         graph_store_conn: Optional[str] = None,
                         vector_store_conn: Optional[str] = None,
-                        response_llm: str = 'anthropic.claude-sonnet-4-20250514-v1:0',
+                        response_llm: str = 'us.anthropic.claude-sonnet-4-6',
                         qa_limit: Optional[int] = None):
     """
     Queries a benchmark dataset's QA pairs and writes responses in run_evaluation.py format.
@@ -191,7 +168,7 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
             qa_limit=int(limit_str) if limit_str else None,
         )
 
@@ -221,7 +198,7 @@ class ConcurrentQaBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
             qa_limit=int(limit_str) if limit_str else None,
         )
 
@@ -249,7 +226,7 @@ class WikihowBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
             qa_limit=int(limit_str) if limit_str else None,
         )
 
@@ -277,6 +254,6 @@ class PgaBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
             qa_limit=int(limit_str) if limit_str else None,
         )
