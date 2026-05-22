@@ -35,7 +35,7 @@ class ToolParameters():
             update_params_function:UpdateParametersFunction = lambda _, query_engine_params: query_engine_params
         ):
 
-        if len(parameters) == 3:
+        if len(parameters) > 3:
             raise ValueError('Maximum number of tool parameters exceeded. You can only supply up to 3 tool parameters.')
         
         self.parameters = parameters
