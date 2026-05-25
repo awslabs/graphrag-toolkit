@@ -17,4 +17,4 @@ def get_hash(s):
         Returns:
             The hexadecimal representation of the MD5 hash of the input string.
         """
-        return hashlib.md5(s.encode('utf-8')).digest().hex()
+        return hashlib.md5(s.encode('utf-8'), usedforsecurity=False).digest().hex()
