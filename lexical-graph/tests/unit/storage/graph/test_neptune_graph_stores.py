@@ -345,5 +345,79 @@ class TestNeptuneGraphStoreConfiguration:
         log_formatting = RedactedGraphQueryLogFormatting()
         
         store = factory.try_create("neptune-graph://test-graph", log_formatting=log_formatting)
-        
+
         assert store.log_formatting == log_formatting
+
+
+from graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores import (
+    DEFAULT_MAX_POOL_CONNECTIONS,
+    NEPTUNE_DB_DNS,
+    NeptuneDatabaseClient,
+    create_config,
+    create_property_assigment_fn_for_neptune,
+    format_id_for_neptune,
+)
+import json as _json
+
+
+class TestFormatIdForNeptune:
+    def test_single_part_uses_id_pseudo_property(self):
+        node_id = format_id_for_neptune('chunkId')
+        assert node_id.key == 'chunkId'
+        assert node_id.value == '`~id`'
+        assert node_id.is_property_based is False
+
+    def test_two_parts_use_id_function(self):
+        node_id = format_id_for_neptune('chunk.chunkId')
+        assert node_id.key == 'chunkId'
+        assert node_id.value == 'id(chunk)'
+
+
+class TestCreateConfig:
+    def test_defaults_max_pool_connections(self):
+        cfg = create_config()
+        assert cfg.max_pool_connections == DEFAULT_MAX_POOL_CONNECTIONS
+
+    def test_user_args_override_default(self):
+        cfg = create_config(_json.dumps({'max_pool_connections': 100}))
+        assert cfg.max_pool_connections == 100
+
+    def test_user_agent_set(self):
+        cfg = create_config()
+        assert 'graphrag-lexical-graph' in cfg.user_agent_appid
+
+
+class TestCreatePropertyAssignmentFn:
+    def test_non_datetime_key_returns_identity(self):
+        fn = create_property_assigment_fn_for_neptune('value', 'hello')
+        assert fn('x') == 'x'
+
+    def test_datetime_key_with_valid_value_wraps_in_datetime(self):
+        fn = create_property_assigment_fn_for_neptune('extract_date', '2024-01-15')
+        assert fn('$x') == 'datetime($x)'
+
+    def test_datetime_key_with_invalid_value_falls_back_to_identity(self):
+        fn = create_property_assigment_fn_for_neptune('extract_date', 'not-a-date')
+        assert fn('y') == 'y'
+
+
+class TestNeptuneDatabaseFactoryEndpointHandling:
+    def test_neptune_db_prefix_creates_client_with_default_port(self):
+        result = NeptuneDatabaseGraphStoreFactory().try_create(
+            f'neptune-db://cluster.abc.{NEPTUNE_DB_DNS}',
+        )
+        assert isinstance(result, NeptuneDatabaseClient)
+        assert ':8182' in result.endpoint_url
+
+    def test_uri_ending_in_neptune_dns_creates_client(self):
+        result = NeptuneDatabaseGraphStoreFactory().try_create(
+            f'cluster.abc.{NEPTUNE_DB_DNS}',
+        )
+        assert isinstance(result, NeptuneDatabaseClient)
+
+    def test_explicit_endpoint_url_kwarg_wins(self):
+        result = NeptuneDatabaseGraphStoreFactory().try_create(
+            f'neptune-db://cluster.abc.{NEPTUNE_DB_DNS}',
+            endpoint_url='https://override.example.com',
+        )
+        assert result.endpoint_url == 'https://override.example.com'
