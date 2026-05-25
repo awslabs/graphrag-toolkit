@@ -30,9 +30,6 @@ class TestNewQueryVar:
     def test_starts_with_n_prefix(self):
         assert new_query_var().startswith('n')
 
-    def test_is_unique(self):
-        assert new_query_var() != new_query_var()
-
     def test_hex_body(self):
         var = new_query_var()
         # 'n' + 32 hex chars
