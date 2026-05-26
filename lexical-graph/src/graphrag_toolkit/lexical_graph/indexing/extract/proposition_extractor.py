@@ -86,7 +86,7 @@ class PropositionExtractor(BaseExtractor):
         if self._proposition_tokenizer is None:
             try:
                 from transformers import AutoTokenizer
-                self._proposition_tokenizer = AutoTokenizer.from_pretrained(self.proposition_model_name)
+                self._proposition_tokenizer = AutoTokenizer.from_pretrained(self.proposition_model_name)  # nosec B615 - model name is user-configurable; pinning not feasible
             except ImportError as e:
                 raise ImportError(
                         "transformers package not found, install with 'pip install transformers'"
@@ -114,7 +114,7 @@ class PropositionExtractor(BaseExtractor):
                 import torch
                 from transformers import AutoModelForSeq2SeqLM
                 device = self.device or ('cuda' if torch.cuda.is_available() else 'cpu')
-                self._proposition_model = AutoModelForSeq2SeqLM.from_pretrained(self.proposition_model_name).to(device)
+                self._proposition_model = AutoModelForSeq2SeqLM.from_pretrained(self.proposition_model_name).to(device)  # nosec B615 - model name is user-configurable; pinning not feasible
             except ImportError as e:
                 raise ImportError(
                         "torch and/or transformers packages not found, install with 'pip install torch transformers'"

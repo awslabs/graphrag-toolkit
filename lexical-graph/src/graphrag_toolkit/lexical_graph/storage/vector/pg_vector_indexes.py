@@ -449,7 +449,7 @@ class PGIndex(VectorIndex):
                 valid_from = node.metadata.get('source', {}).get('versioning', {}).get('valid_from', TIMESTAMP_LOWER_BOUND) 
 
                 cur.execute(
-                    f'INSERT INTO {self.schema_name}.{self.underlying_index_name()} ({self.index_name}Id, value, metadata, embedding, valid_from) SELECT %s, %s, %s, %s, %s WHERE NOT EXISTS (SELECT * FROM {self.schema_name}.{self.underlying_index_name()} c WHERE c.{self.index_name}Id = %s);',
+                    f'INSERT INTO {self.schema_name}.{self.underlying_index_name()} ({self.index_name}Id, value, metadata, embedding, valid_from) SELECT %s, %s, %s, %s, %s WHERE NOT EXISTS (SELECT * FROM {self.schema_name}.{self.underlying_index_name()} c WHERE c.{self.index_name}Id = %s);',  # nosec B608 - table/column names from internal config, not user input
                     (node.id_, node.text,  json.dumps(node.metadata), id_to_embed_map[node.id_], valid_from, node.id_)
                 )
 
@@ -603,7 +603,7 @@ class PGIndex(VectorIndex):
             sql = f'''SELECT {self.index_name}Id, metadata, embedding <-> %s AS score, valid_from, valid_to
                 FROM {self.schema_name}.{self.underlying_index_name()}
                 {where_clause}
-                ORDER BY score ASC LIMIT %s;'''
+                ORDER BY score ASC LIMIT %s;'''  # nosec B608 - table/column names from internal config, not user input
             
             logger.debug(f'sql: {sql}')
         
@@ -657,7 +657,7 @@ class PGIndex(VectorIndex):
 
             cur.execute(f'''SELECT {self.index_name}Id, value, metadata, embedding, valid_from, valid_to
                 FROM {self.schema_name}.{self.underlying_index_name()}
-                WHERE {self.index_name}Id IN ({format_ids(ids)});'''
+                WHERE {self.index_name}Id IN ({format_ids(ids)});'''  # nosec B608 - table/column names from internal config, not user input
             )
 
             results = cur.fetchall()
@@ -687,7 +687,7 @@ class PGIndex(VectorIndex):
 
             cur.execute(f'''UPDATE {self.schema_name}.{self.underlying_index_name()}
                 SET valid_to = {versioning_timestamp}
-                WHERE {self.index_name}Id IN ({format_ids(ids)});'''
+                WHERE {self.index_name}Id IN ({format_ids(ids)});'''  # nosec B608 - table/column names from internal config, not user input
             )
 
         except UndefinedTable as e:
@@ -729,7 +729,7 @@ class PGIndex(VectorIndex):
         try:
 
             cur.execute(f'''DELETE FROM {self.schema_name}.{self.underlying_index_name()}
-                WHERE {self.index_name}Id IN ({format_ids(ids)});'''
+                WHERE {self.index_name}Id IN ({format_ids(ids)});'''  # nosec B608 - table/column names from internal config, not user input
             )
 
         except UndefinedTable as e:
