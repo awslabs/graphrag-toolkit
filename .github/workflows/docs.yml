@@ -42,9 +42,10 @@ jobs:
           cache-dependency-path: docs-site/package-lock.json
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: docs-site/dist
+          include-hidden-files: true
 
   deploy:
     needs: build
