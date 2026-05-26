@@ -132,20 +132,36 @@ class TestProcessResults:
         assert statements[0].score == 0.9
         assert statements[1].score == 0.2
 
-    def test_model_reranker_dispatches_to_score_values(self):
+    def test_model_reranker_dispatches_and_applies_scores(self):
         processor = RerankStatements(
-            ProcessorArgs(reranker='model', debug_results=[]), FilterConfig(),
+            ProcessorArgs(reranker='model', debug_results=[], max_statements=10),
+            FilterConfig(),
         )
         with patch.object(processor, '_score_values') as scorer:
-            scorer.return_value = {}
-            processor._process_results(_collection_with_statements(), QueryBundle('q'))
+            scorer.side_effect = lambda values, *_a, **_kw: {
+                values[0]: 0.1, values[1]: 0.8,
+            }
+            result = processor._process_results(
+                _collection_with_statements(), QueryBundle('q'),
+            )
         scorer.assert_called_once()
+        statements = result.results[0].topics[0].statements
+        assert {s.score for s in statements} == {0.1, 0.8}
+        assert statements[0].score >= statements[1].score
 
-    def test_bedrock_reranker_dispatches_to_score_values_with_bedrock(self):
+    def test_bedrock_reranker_dispatches_and_applies_scores(self):
         processor = RerankStatements(
-            ProcessorArgs(reranker='bedrock', debug_results=[]), FilterConfig(),
+            ProcessorArgs(reranker='bedrock', debug_results=[], max_statements=10),
+            FilterConfig(),
         )
         with patch.object(processor, '_score_values_with_bedrock') as scorer:
-            scorer.return_value = {}
-            processor._process_results(_collection_with_statements(), QueryBundle('q'))
+            scorer.side_effect = lambda values, *_a, **_kw: {
+                values[0]: 0.3, values[1]: 0.7,
+            }
+            result = processor._process_results(
+                _collection_with_statements(), QueryBundle('q'),
+            )
         scorer.assert_called_once()
+        statements = result.results[0].topics[0].statements
+        assert {s.score for s in statements} == {0.3, 0.7}
+        assert statements[0].score >= statements[1].score

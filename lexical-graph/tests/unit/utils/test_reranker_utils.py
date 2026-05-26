@@ -96,3 +96,18 @@ class TestScoreValuesWithTfidf:
             result = score_values_with_tfidf(['a'], ['x', 'y'])
         import pytest
         assert result['a'] == pytest.approx(0.6)
+
+    def test_ranks_matching_content_higher_with_real_tfidf(self):
+        # End-to-end against the real tfidf_matcher backend (no mocks),
+        # confirming relevance ranking on plain English input.
+        values = [
+            'Python is a programming language',
+            'The weather is sunny today',
+        ]
+        match_values = ['Python programming']
+        result = score_values_with_tfidf(values, match_values)
+        assert (
+            result['Python is a programming language']
+            > result['The weather is sunny today']
+        )
+        assert result['The weather is sunny today'] == 0.0

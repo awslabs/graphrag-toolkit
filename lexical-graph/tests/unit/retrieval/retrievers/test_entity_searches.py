@@ -101,6 +101,25 @@ class TestEntityBasedSearch:
         assert single.call_count == 2
         assert multi.call_count == 2
 
+    def test_single_entity_based_graph_search_handles_empty_results(self):
+        graph_store, vector_store = _stores()
+        graph_store.execute_query.return_value = []
+        retriever = EntityBasedSearch(graph_store, vector_store)
+        assert retriever._single_entity_based_graph_search('e1', QueryBundle('q')) == []
+
+    def test_single_entity_based_graph_search_propagates_store_exception(self):
+        import pytest
+        graph_store, vector_store = _stores()
+        graph_store.execute_query.side_effect = RuntimeError('graph store down')
+        retriever = EntityBasedSearch(graph_store, vector_store)
+        with pytest.raises(RuntimeError, match='graph store down'):
+            retriever._single_entity_based_graph_search('e1', QueryBundle('q'))
+
+    def test_get_start_node_ids_returns_empty_when_no_entity_contexts(self):
+        graph_store, vector_store = _stores()
+        retriever = EntityBasedSearch(graph_store, vector_store)
+        assert retriever.get_start_node_ids(QueryBundle('q')) == []
+
 
 class TestEntityNetworkSearch:
     def test_index_name_falls_back_to_chunk(self):
