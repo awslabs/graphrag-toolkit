@@ -76,6 +76,7 @@ if [[ "$DO_SETUP" = true ]]; then
         pip install -r graphrag_toolkit/lexical_graph/requirements.txt
     fi
     
+    pip install thefuzz
     pip install opensearch-py llama-index-vector-stores-opensearch
     pip install psycopg2-binary pgvector
     pip install neo4j
