@@ -31,7 +31,13 @@ def _make_index(index_name='chunk', tenant_value=None):
     client = _stub_neptune_client()
     with patch.object(mod, 'GraphStoreFactory') as factory:
         factory.for_graph_store.return_value = client
-        idx = NeptuneIndex.for_index(index_name, f'{NEPTUNE_ANALYTICS}my-graph')
+        # Inject embed_model/dimensions so for_index doesn't fall back to
+        # GraphRAGConfig.embed_model, which builds a real BedrockEmbedding
+        # (and needs an AWS region) — keeps the test offline.
+        idx = NeptuneIndex.for_index(
+            index_name, f'{NEPTUNE_ANALYTICS}my-graph',
+            embed_model=MagicMock(), dimensions=1024,
+        )
     if tenant_value is not None:
         idx.tenant_id = TenantId(value=tenant_value)
     return idx, client
@@ -71,7 +77,10 @@ class TestForIndex:
         with patch.object(mod, 'GraphStoreFactory') as factory:
             factory.for_graph_store.return_value = client
             with pytest.raises(ValueError, match='Invalid index name'):
-                NeptuneIndex.for_index('bogus', f'{NEPTUNE_ANALYTICS}g')
+                NeptuneIndex.for_index(
+                    'bogus', f'{NEPTUNE_ANALYTICS}g',
+                    embed_model=MagicMock(), dimensions=1024,
+                )
 
 
 class TestNeptuneClientWrapping:

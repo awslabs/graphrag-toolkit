@@ -5,6 +5,7 @@
 
 from unittest.mock import MagicMock, patch
 
+import pytest
 from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
 
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.composite_traversal_based_retriever import (
@@ -37,6 +38,17 @@ _VALID_SEARCH_RESULT = (
 
 
 class TestCompositeTraversalBasedRetriever:
+    @pytest.fixture(autouse=True)
+    def _stub_query_decomposition(self):
+        # The constructor builds a default QueryDecomposition when none is passed,
+        # which reads GraphRAGConfig.response_llm and tries to init BedrockConverse
+        # (needs an AWS region). Stub it so these tests stay offline.
+        with patch(
+            "graphrag_toolkit.lexical_graph.retrieval.retrievers."
+            "composite_traversal_based_retriever.QueryDecomposition"
+        ):
+            yield
+
     def test_wraps_bare_retrievers_with_weight_1(self):
         gs, vs = _stores()
         sub = _sub_retriever(_VALID_SEARCH_RESULT)
