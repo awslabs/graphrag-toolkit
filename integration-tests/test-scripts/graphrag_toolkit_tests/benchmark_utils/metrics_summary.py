@@ -6,6 +6,8 @@ from typing import List, Dict, Any, Optional
 
 logger = logging.getLogger(__name__)
 
+# Bedrock model pricing as of May 2026 (USD per 1M tokens).
+# Source: https://aws.amazon.com/bedrock/pricing/
 BEDROCK_PRICING = {
     'us.anthropic.claude-haiku-4-5-20251001-v1:0': {
         'input_per_million': 1.00,
