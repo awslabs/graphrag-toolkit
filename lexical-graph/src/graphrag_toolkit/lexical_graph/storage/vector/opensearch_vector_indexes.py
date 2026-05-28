@@ -249,6 +249,7 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
         idx_conf = {
             "settings": {"index": {"knn": True}},
             "mappings": {
+                "date_detection": False,
                 "properties": {
                     embedding_field: {
                         "type": "knn_vector",
@@ -271,6 +272,7 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
         idx_conf = {
             "settings": {"index": {"knn": True, "knn.algo_param.ef_search": 100}},
             "mappings": {
+                "date_detection": False,
                 "properties": {
                     embedding_field: {
                         "type": "knn_vector",

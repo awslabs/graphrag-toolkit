@@ -18,11 +18,12 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
 
     Reads the responses JSONL file produced by run_benchmark_query, runs each specified
     metric evaluator (correctness, idk, correctness_on_answerable), and writes per-item
-    grades and aggregate scores to benchmark-results/<dataset>/.
+    grades and aggregate scores to the retriever-specific directory
+    benchmark-results/<dataset>/<retriever>/.
 
     Output files per metric:
-        - benchmark-results/<dataset>/<metric>_evals.json — per-item grading array
-        - benchmark-results/<dataset>/<metric>.json — aggregate score, e.g. {"correctness": 0.72}
+        - benchmark-results/<dataset>/<retriever>/<metric>_evals.json — per-item grading array
+        - benchmark-results/<dataset>/<retriever>/<metric>.json — aggregate score, e.g. {"correctness": 0.72}
 
     The 'correctness_on_answerable' metric requires both 'correctness' and 'idk' to have
     been run first (it reads their output files). If included in the metrics list, it must
@@ -32,17 +33,33 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
         handler: Integration test handler for recording assertions and output.
         params: Shared params dict passed between pipeline stages.
         dataset: Dataset key (e.g. 'cuad', 'pga', 'concurrentqa').
-        responses_path: Path to the responses JSONL file from the query stage.
+        responses_path: Path to the retriever-specific results directory or responses JSONL
+            file from the query stage. If a directory, responses.jsonl is read from it.
         metrics: List of metrics to run. Defaults to ['correctness', 'idk'].
     """
     if metrics is None:
         metrics = ['correctness', 'idk']
 
-    results_dir = os.path.join('benchmark-results', dataset)
+    # Determine the retriever-specific results directory
+    retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
+
+    if params.get('benchmark_responses_path'):
+        # benchmark_responses_path is set by the query phase (points to retriever-specific dir)
+        results_dir = params['benchmark_responses_path']
+    else:
+        # Standalone run: construct from BENCHMARK_RETRIEVER env var
+        results_dir = os.path.join('benchmark-results', dataset, retriever_id)
+
     os.makedirs(results_dir, exist_ok=True)
 
+    # Determine the responses.jsonl path
+    if os.path.isdir(responses_path):
+        responses_file = os.path.join(responses_path, 'responses.jsonl')
+    else:
+        responses_file = responses_path
+
     data = []
-    with open(responses_path) as fin:
+    with open(responses_file) as fin:
         for line in fin:
             data.append(json.loads(line))
 
@@ -123,11 +140,12 @@ class CuadBenchmarkEvaluate(IntegrationTestBase):
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
         is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
         dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
+        retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
 
         responses_path = params.get('benchmark_responses_path',
-                                    os.path.join('benchmark-results', 
-                                                 dataset_name, 
-                                                 'responses.jsonl'))
+                                    os.path.join('benchmark-results',
+                                                 dataset_name,
+                                                 retriever_id))
 
         run_benchmark_evaluate(
             handler, 
@@ -147,11 +165,12 @@ class ConcurrentQaBenchmarkEvaluate(IntegrationTestBase):
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
         is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
         dataset_name = 'concurrentqa-prototype' if is_prototype == 'true' else 'concurrentqa'
+        retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
 
         responses_path = params.get('benchmark_responses_path',
                                     os.path.join('benchmark-results',
                                                  dataset_name,
-                                                 'responses.jsonl'))
+                                                 retriever_id))
 
         run_benchmark_evaluate(
             handler,
@@ -169,10 +188,12 @@ class WikihowBenchmarkEvaluate(IntegrationTestBase):
         return 'Evaluate WikiHow benchmark responses using LLM-as-judge correctness and IDK metrics'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
+
         responses_path = params.get('benchmark_responses_path',
                                     os.path.join('benchmark-results',
                                                  'wikihow',
-                                                 'responses.jsonl'))
+                                                 retriever_id))
 
         run_benchmark_evaluate(
             handler,
@@ -190,10 +211,12 @@ class PgaBenchmarkEvaluate(IntegrationTestBase):
         return 'Evaluate PGA benchmark responses using LLM-as-judge correctness and IDK metrics'
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
+
         responses_path = params.get('benchmark_responses_path',
                                     os.path.join('benchmark-results',
                                                  'pga',
-                                                 'responses.jsonl'))
+                                                 retriever_id))
 
         run_benchmark_evaluate(
             handler,
