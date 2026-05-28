@@ -3,9 +3,6 @@
 
 """
 Property-based tests for the metrics_summary module.
-
-# Feature: retriever-comparison-benchmarks, Property 6: Aggregate latency statistics computation
-# Feature: retriever-comparison-benchmarks, Property 8: Null-token exclusion in aggregation
 """
 
 from unittest.mock import patch
@@ -19,9 +16,6 @@ from graphrag_toolkit_tests.benchmark_utils.metrics_summary import (
     compute_metrics_summary,
     BEDROCK_PRICING,
 )
-
-
-# --- Property 6: Aggregate latency statistics computation ---
 
 
 def _reference_percentile(sorted_values, p):
@@ -43,17 +37,14 @@ def _reference_percentile(sorted_values, p):
     return sorted_values[lower] + fraction * (sorted_values[upper] - sorted_values[lower])
 
 
-# Feature: retriever-comparison-benchmarks, Property 6: Aggregate latency statistics computation
 class TestAggregateLatencyStatistics:
     """
-    Property 6: Aggregate latency statistics computation
+    Aggregate latency statistics computation
 
     For any non-empty list of non-null integer latency values, the computed aggregate
     statistics shall satisfy: avg equals the arithmetic mean rounded to 2 decimal places,
     p50 equals the median rounded to 2 decimal places, and p95 equals the 95th percentile
     rounded to 2 decimal places.
-
-    **Validates: Requirements 4.2**
     """
 
     @settings(max_examples=100)
@@ -89,9 +80,6 @@ class TestAggregateLatencyStatistics:
         assert result['p95'] == expected_p95
 
 
-# --- Property 8: Null-token exclusion in aggregation ---
-
-
 # Strategy to generate a per-query entry with either valid token counts or None
 def per_query_entry_strategy():
     """Generate a per-query dict where input_tokens and output_tokens may be None."""
@@ -104,16 +92,13 @@ def per_query_entry_strategy():
     })
 
 
-# Feature: retriever-comparison-benchmarks, Property 8: Null-token exclusion in aggregation
 class TestNullTokenExclusionProperty:
     """
-    Property 8: Null-token exclusion in aggregation
+    Null-token exclusion in aggregation
 
     For any list of per-query results where some entries have null token counts,
     the aggregate token sums SHALL include only non-null entries, and the
     num_missing_token_metadata count SHALL equal the number of entries with null tokens.
-
-    **Validates: Requirements 4.5, 4.7**
     """
 
     @settings(max_examples=100)
@@ -128,8 +113,6 @@ class TestNullTokenExclusionProperty:
         """
         Generate lists with random null positions, verify sums include only non-null
         entries and num_missing_token_metadata equals count of null entries.
-
-        **Validates: Requirements 4.5, 4.7**
         """
         result = compute_metrics_summary(
             per_query_data=per_query_data,
@@ -171,20 +154,14 @@ class TestNullTokenExclusionProperty:
         )
 
 
-# --- Property 7: Aggregate cost computation ---
-
-
-# Feature: retriever-comparison-benchmarks, Property 7: Aggregate cost computation
 class TestAggregateCostComputationProperty:
     """
-    Property 7: Aggregate cost computation
+    Aggregate cost computation
 
     For any list of per-query token counts (excluding null entries) and a known
     model pricing entry, the estimated cost SHALL equal
     (total_input_tokens / 1,000,000 * input_price_per_million) +
     (total_output_tokens / 1,000,000 * output_price_per_million).
-
-    **Validates: Requirements 4.3**
     """
 
     @settings(max_examples=100)
@@ -202,8 +179,6 @@ class TestAggregateCostComputationProperty:
     )
     def test_cost_equals_formula(self, per_query_tokens, input_price, output_price):
         """
-        **Validates: Requirements 4.3**
-
         Generate random token counts and pricing entries, verify
         cost = (total_input / 1M * input_price) + (total_output / 1M * output_price)
         """
@@ -263,8 +238,6 @@ class TestAggregateCostComputationProperty:
     )
     def test_unknown_model_produces_null_cost(self, per_query_tokens):
         """
-        **Validates: Requirements 4.3**
-
         Verify that unknown model IDs produce null cost regardless of token counts.
         """
         unknown_model_id = '__unknown_model_not_in_pricing__'

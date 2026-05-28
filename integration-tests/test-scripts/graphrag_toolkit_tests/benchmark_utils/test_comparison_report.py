@@ -3,11 +3,6 @@
 
 """
 Property-based tests for the comparison_report module.
-
-# Feature: retriever-comparison-benchmarks, Property 12: Hop-specific score partitioning
-# Feature: retriever-comparison-benchmarks, Property 13: Efficiency calculation with null handling
-# Feature: retriever-comparison-benchmarks, Property 14: Efficiency ranking sort order
-# Feature: retriever-comparison-benchmarks, Property 15: Multi-hop warning threshold
 """
 
 import json
@@ -26,9 +21,6 @@ from graphrag_toolkit_tests.benchmark_utils.comparison_report import (
 )
 
 
-# --- Property 12: Hop-specific score partitioning ---
-
-
 def evaluated_result_strategy():
     """Generate a single evaluated result with hop classification and correctness grade."""
     return st.fixed_dictionaries({
@@ -37,17 +29,14 @@ def evaluated_result_strategy():
     })
 
 
-# Feature: retriever-comparison-benchmarks, Property 12: Hop-specific score partitioning
 class TestHopSpecificScorePartitioning:
     """
-    Property 12: Hop-specific score partitioning
+    Hop-specific score partitioning
 
     For any list of evaluated results with hop classifications, the single-hop
     correctness score SHALL be computed exclusively from results classified as
     'single-hop', the multi-hop correctness score exclusively from 'multi-hop'
     results, and results classified as 'unknown' SHALL be excluded from both.
-
-    **Validates: Requirements 12.2, 12.4**
     """
 
     @settings(max_examples=100)
@@ -61,8 +50,6 @@ class TestHopSpecificScorePartitioning:
     def test_multi_hop_score_computed_only_from_multi_hop_results(self, results):
         """
         Verify multi-hop correctness is computed exclusively from 'multi-hop' results.
-
-        **Validates: Requirements 12.2, 12.4**
         """
         # Filter to only multi-hop results
         multi_hop_results = [r for r in results if r['hop_classification'] == 'multi-hop']
@@ -120,8 +107,6 @@ class TestHopSpecificScorePartitioning:
     def test_unknown_results_excluded_from_multi_hop_score(self, results):
         """
         Verify 'unknown' classified results are excluded from multi-hop correctness.
-
-        **Validates: Requirements 12.2, 12.4**
         """
         # Ensure we have at least one multi-hop and one unknown result
         multi_hop_results = [r for r in results if r['hop_classification'] == 'multi-hop']
@@ -174,8 +159,6 @@ class TestHopSpecificScorePartitioning:
     def test_single_hop_results_excluded_from_multi_hop_score(self, results):
         """
         Verify 'single-hop' classified results are excluded from multi-hop correctness.
-
-        **Validates: Requirements 12.2, 12.4**
         """
         multi_hop_results = [r for r in results if r['hop_classification'] == 'multi-hop']
         single_hop_results = [r for r in results if r['hop_classification'] == 'single-hop']
@@ -230,8 +213,6 @@ class TestHopSpecificScorePartitioning:
     def test_no_multi_hop_results_returns_none(self, results):
         """
         Verify that when no multi-hop results exist, breakdown returns None (no data).
-
-        **Validates: Requirements 12.2, 12.4**
         """
         # Ensure no multi-hop results
         assert all(r['hop_classification'] != 'multi-hop' for r in results)
@@ -272,8 +253,6 @@ class TestHopSpecificScorePartitioning:
     def test_multi_hop_count_reflects_only_multi_hop_results(self, results):
         """
         Verify multi_hop_count equals the number of 'multi-hop' classified results.
-
-        **Validates: Requirements 12.2, 12.4**
         """
         multi_hop_results = [r for r in results if r['hop_classification'] == 'multi-hop']
         assume(len(multi_hop_results) > 0)
@@ -305,9 +284,6 @@ class TestHopSpecificScorePartitioning:
             )
 
 
-# --- Property 14: Efficiency ranking sort order ---
-
-
 def retriever_with_efficiency_strategy(key='cost_efficiency'):
     """Generate a retriever dict with a random efficiency value (possibly None)."""
     return st.fixed_dictionaries({
@@ -320,16 +296,13 @@ def retriever_with_efficiency_strategy(key='cost_efficiency'):
     })
 
 
-# Feature: retriever-comparison-benchmarks, Property 14: Efficiency ranking sort order
 class TestEfficiencyRankingSortOrder:
     """
-    Property 14: Efficiency ranking sort order
+    Efficiency ranking sort order
 
     For any list of retrievers with computed efficiency scores, the ranking SHALL
     be sorted in descending order of efficiency value, with null-valued entries
     placed last.
-
-    **Validates: Requirements 13.4**
     """
 
     @settings(max_examples=100)
@@ -343,8 +316,6 @@ class TestEfficiencyRankingSortOrder:
     def test_non_null_values_sorted_descending(self, retrievers):
         """
         Verify non-null efficiency values appear in descending order in the ranking.
-
-        **Validates: Requirements 13.4**
         """
         # Ensure unique retriever names
         seen = set()
@@ -384,8 +355,6 @@ class TestEfficiencyRankingSortOrder:
     def test_null_values_placed_last(self, retrievers):
         """
         Verify null-valued entries are placed last in the ranking.
-
-        **Validates: Requirements 13.4**
         """
         # Ensure unique retriever names
         seen = set()
@@ -432,8 +401,6 @@ class TestEfficiencyRankingSortOrder:
     def test_all_retriever_names_appear_exactly_once(self, retrievers):
         """
         Verify all retriever names appear exactly once in the ranking.
-
-        **Validates: Requirements 13.4**
         """
         # Ensure unique retriever names
         seen = set()
@@ -468,8 +435,6 @@ class TestEfficiencyRankingSortOrder:
     def test_latency_efficiency_ranking_descending_with_nulls_last(self, retrievers):
         """
         Verify ranking works correctly for latency_efficiency key as well.
-
-        **Validates: Requirements 13.4**
         """
         # Ensure unique retriever names
         seen = set()
@@ -510,13 +475,9 @@ class TestEfficiencyRankingSortOrder:
             )
 
 
-# --- Property 13: Efficiency calculation with null handling ---
-
-
-# Feature: retriever-comparison-benchmarks, Property 13: Efficiency calculation with null handling
 class TestEfficiencyCalculationWithNullHandling:
     """
-    Property 13: Efficiency calculation with null handling
+    Efficiency calculation with null handling
 
     For any retriever with a correctness score and cost/latency values,
     cost-efficiency SHALL equal correctness / cost_per_query and
@@ -524,8 +485,6 @@ class TestEfficiencyCalculationWithNullHandling:
     If cost_per_query is zero or null, or correctness is zero or negative,
     cost-efficiency SHALL be null. If avg_total_ms is zero or null,
     latency-efficiency SHALL be null.
-
-    **Validates: Requirements 13.2, 13.3**
     """
 
     @settings(max_examples=100)
@@ -536,8 +495,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_cost_efficiency_formula_positive_inputs(self, correctness, cost_per_query):
         """
         Verify cost_efficiency == correctness / cost_per_query for positive inputs.
-
-        **Validates: Requirements 13.2**
         """
         result = _compute_cost_efficiency(correctness, cost_per_query)
         expected = correctness / cost_per_query
@@ -554,8 +511,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_latency_efficiency_formula_positive_inputs(self, correctness, avg_total_ms):
         """
         Verify latency_efficiency == correctness / (avg_total_ms / 1000) for positive inputs.
-
-        **Validates: Requirements 13.3**
         """
         result = _compute_latency_efficiency(correctness, avg_total_ms)
         expected = correctness / (avg_total_ms / 1000.0)
@@ -571,8 +526,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_cost_efficiency_null_when_cost_per_query_is_none(self, correctness):
         """
         Verify cost_efficiency is None when cost_per_query is None.
-
-        **Validates: Requirements 13.2**
         """
         result = _compute_cost_efficiency(correctness, None)
         assert result is None, (
@@ -586,8 +539,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_cost_efficiency_null_when_cost_per_query_is_zero(self, correctness):
         """
         Verify cost_efficiency is None when cost_per_query is zero.
-
-        **Validates: Requirements 13.2**
         """
         result = _compute_cost_efficiency(correctness, 0.0)
         assert result is None, (
@@ -601,8 +552,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_cost_efficiency_null_when_correctness_is_zero(self, cost_per_query):
         """
         Verify cost_efficiency is None when correctness is zero.
-
-        **Validates: Requirements 13.2**
         """
         result = _compute_cost_efficiency(0.0, cost_per_query)
         assert result is None, (
@@ -617,8 +566,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_cost_efficiency_null_when_correctness_is_negative(self, correctness, cost_per_query):
         """
         Verify cost_efficiency is None when correctness is negative.
-
-        **Validates: Requirements 13.2**
         """
         result = _compute_cost_efficiency(correctness, cost_per_query)
         assert result is None, (
@@ -632,8 +579,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_latency_efficiency_null_when_avg_total_ms_is_none(self, correctness):
         """
         Verify latency_efficiency is None when avg_total_ms is None.
-
-        **Validates: Requirements 13.3**
         """
         result = _compute_latency_efficiency(correctness, None)
         assert result is None, (
@@ -647,8 +592,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_latency_efficiency_null_when_avg_total_ms_is_zero(self, correctness):
         """
         Verify latency_efficiency is None when avg_total_ms is zero.
-
-        **Validates: Requirements 13.3**
         """
         result = _compute_latency_efficiency(correctness, 0.0)
         assert result is None, (
@@ -663,8 +606,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_latency_efficiency_null_when_correctness_is_negative(self, correctness, avg_total_ms):
         """
         Verify latency_efficiency is None when correctness is negative.
-
-        **Validates: Requirements 13.3**
         """
         result = _compute_latency_efficiency(correctness, avg_total_ms)
         assert result is None, (
@@ -678,8 +619,6 @@ class TestEfficiencyCalculationWithNullHandling:
     def test_latency_efficiency_null_when_correctness_is_zero(self, avg_total_ms):
         """
         Verify latency_efficiency is None when correctness is zero.
-
-        **Validates: Requirements 13.3**
         """
         result = _compute_latency_efficiency(0.0, avg_total_ms)
         assert result is None, (
@@ -687,19 +626,13 @@ class TestEfficiencyCalculationWithNullHandling:
         )
 
 
-# --- Property 15: Multi-hop warning threshold ---
-
-
-# Feature: retriever-comparison-benchmarks, Property 15: Multi-hop warning threshold
 class TestMultiHopWarningThreshold:
     """
-    Property 15: Multi-hop warning threshold
+    Multi-hop warning threshold
 
     For any dataset where the count of multi-hop classified questions is less than 10,
     the comparison report SHALL include a warning flag for that dataset. For counts >= 10,
     no warning SHALL be present.
-
-    **Validates: Requirements 12.6**
     """
 
     @settings(max_examples=100)
@@ -710,8 +643,6 @@ class TestMultiHopWarningThreshold:
     def test_warning_present_when_count_below_threshold(self, multi_hop_count, single_hop_count):
         """
         Verify warning is present when multi-hop count < 10.
-
-        **Validates: Requirements 12.6**
         """
         with tempfile.TemporaryDirectory() as tmpdir:
             dataset = 'test_dataset'
@@ -766,8 +697,6 @@ class TestMultiHopWarningThreshold:
     def test_warning_absent_when_count_at_or_above_threshold(self, multi_hop_count, single_hop_count):
         """
         Verify warning is absent (None) when multi-hop count >= 10.
-
-        **Validates: Requirements 12.6**
         """
         with tempfile.TemporaryDirectory() as tmpdir:
             dataset = 'test_dataset'
@@ -822,8 +751,6 @@ class TestMultiHopWarningThreshold:
     def test_warning_present_regardless_of_correctness_distribution(self, multi_hop_count, correctness_grades):
         """
         Verify warning is based solely on count, not on correctness distribution.
-
-        **Validates: Requirements 12.6**
         """
         # Use the smaller of multi_hop_count and len(correctness_grades)
         actual_count = min(multi_hop_count, len(correctness_grades))
@@ -875,8 +802,6 @@ class TestMultiHopWarningThreshold:
     def test_no_warning_regardless_of_correctness_distribution(self, multi_hop_count, correctness_grades):
         """
         Verify no warning when count >= 10, regardless of correctness distribution.
-
-        **Validates: Requirements 12.6**
         """
         actual_count = min(multi_hop_count, len(correctness_grades))
         assume(actual_count >= 10)
@@ -925,8 +850,6 @@ class TestMultiHopWarningThreshold:
     def test_warning_threshold_boundary_exact_at_10(self, multi_hop_count, single_hop_count, unknown_count):
         """
         Verify the exact boundary: count=10 means no warning, count=9 means warning.
-
-        **Validates: Requirements 12.6**
         """
         with tempfile.TemporaryDirectory() as tmpdir:
             dataset = 'test_dataset'

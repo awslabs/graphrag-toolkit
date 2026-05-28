@@ -3,8 +3,6 @@
 
 """
 Property-based tests for the retriever_factory module.
-
-# Feature: retriever-comparison-benchmarks, Property 5: Sub-retriever factory correctness
 """
 
 from unittest.mock import patch, MagicMock
@@ -45,23 +43,19 @@ EXPECTED_CLASS_MAP = {
 
 class TestSubRetrieverFactoryCorrectnessProperty:
     """
-    Property 5: Sub-retriever factory correctness
+    Sub-retriever factory correctness
 
     For any sub-retriever identifier in {topic_based, entity_based, chunk_based,
     entity_network, chunk_based_semantic}, the factory SHALL create a
     CompositeTraversalBasedRetriever with exactly one retriever of the corresponding
     type, weight 1.0, and ProcessorArgs with reranker='tfidf', vss_top_k=10,
     max_search_results=5, max_statements=200, derive_subqueries=False.
-
-    **Validates: Requirements 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7**
     """
 
     @settings(max_examples=100)
     @given(retriever_id=sampled_from(SUB_RETRIEVER_IDS))
     def test_sub_retriever_factory_creates_correct_configuration(self, retriever_id):
         """
-        **Validates: Requirements 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7**
-
         For each sub-retriever ID, verify the factory calls for_traversal_based_search
         with exactly one retriever of the corresponding type, weight 1.0, and correct
         ProcessorArgs (reranker='tfidf', vss_top_k=10, max_search_results=5,
@@ -146,8 +140,6 @@ class TestSubRetrieverFactoryCorrectnessProperty:
         assert result is mock_query_engine
 
 
-# --- Property 9: Retriever ID validation ---
-
 import pytest
 from hypothesis import given, settings, assume
 from hypothesis.strategies import text
@@ -157,24 +149,19 @@ from graphrag_toolkit_tests.benchmark_utils.retriever_factory import (
 )
 
 
-# Feature: retriever-comparison-benchmarks, Property 9: Retriever ID validation
 class TestRetrieverIDValidationProperty:
     """
-    Property 9: Retriever ID validation
+    Retriever ID validation
 
     For any string that is not a member of the valid retriever identifier set,
     the factory SHALL raise a ValueError whose message contains the invalid
     identifier and lists all valid identifiers.
-
-    **Validates: Requirements 1.4**
     """
 
     @settings(max_examples=100)
     @given(invalid_id=text(min_size=1))
     def test_invalid_retriever_id_raises_value_error(self, invalid_id):
         """
-        **Validates: Requirements 1.4**
-
         For any string not in VALID_RETRIEVER_IDS, verify ValueError is raised
         with message containing the invalid ID and listing all valid IDs.
         """

@@ -3,8 +3,6 @@
 
 """
 Property-based tests for the hop_classifier module.
-
-# Feature: retriever-comparison-benchmarks, Property 11: Hop classification output validity
 """
 
 from hypothesis import given, settings
@@ -18,21 +16,17 @@ from graphrag_toolkit_tests.benchmark_utils.hop_classifier import (
 
 class TestHopClassificationOutputValidityProperty:
     """
-    Property 11: Hop classification output validity
+    Hop classification output validity
 
     For any question string, the hop classifier SHALL return exactly one of
     {'single-hop', 'multi-hop', 'unknown'}, and the hop_classification field
     in the JSONL output SHALL contain that value.
-
-    **Validates: Requirements 12.1, 12.3, 12.4**
     """
 
     @settings(max_examples=100)
     @given(question=text())
     def test_classify_hop_returns_valid_classification_for_any_string(self, question):
         """
-        **Validates: Requirements 12.1, 12.3, 12.4**
-
         For each generated random question string, call classify_hop(question)
         and verify the result is exactly one of {'single-hop', 'multi-hop', 'unknown'}.
         The function should never raise an exception for any input string.
@@ -60,8 +54,6 @@ class TestHopClassificationOutputValidityProperty:
     )
     def test_classify_hop_returns_valid_classification_with_metadata(self, question, metadata):
         """
-        **Validates: Requirements 12.1, 12.3, 12.4**
-
         For each generated random question string with random metadata dict,
         call classify_hop(question, dataset_metadata=metadata) and verify the
         result is exactly one of {'single-hop', 'multi-hop', 'unknown'}.
@@ -79,8 +71,6 @@ class TestHopClassificationOutputValidityProperty:
     @given(question=text())
     def test_classify_hop_with_none_metadata_returns_valid_classification(self, question):
         """
-        **Validates: Requirements 12.1, 12.3, 12.4**
-
         Verify that passing None as dataset_metadata (the default) still
         produces a valid classification for any question string.
         """

@@ -3,8 +3,6 @@
 
 """
 Property-based tests for the agentic_retriever module.
-
-# Feature: retriever-comparison-benchmarks, Property 10: Agentic iteration bound invariant
 """
 
 import pytest
@@ -16,22 +14,18 @@ from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import _validate_m
 
 class TestAgenticIterationBoundProperty:
     """
-    Property 10: Agentic iteration bound invariant
+    Agentic iteration bound invariant
 
     For any agentic retrieval execution with a configured max_iterations value (1-10),
     the recorded retrieval_iterations SHALL be a positive integer less than or equal to
     max_iterations, and AGENTIC_MAX_ITERATIONS values outside the range [1, 10] SHALL
     cause a ValueError.
-
-    **Validates: Requirements 10.5, 10.6, 10.7**
     """
 
     @settings(max_examples=100)
     @given(max_iterations=integers(min_value=1, max_value=10))
     def test_valid_max_iterations_does_not_raise(self, max_iterations):
         """
-        **Validates: Requirements 10.5, 10.6, 10.7**
-
         Generate random integers in [1, 10], verify _validate_max_iterations()
         does NOT raise ValueError.
         """
@@ -42,8 +36,6 @@ class TestAgenticIterationBoundProperty:
     @given(max_iterations=integers())
     def test_invalid_max_iterations_raises_value_error(self, max_iterations):
         """
-        **Validates: Requirements 10.5, 10.6, 10.7**
-
         Generate random integers outside [1, 10], verify _validate_max_iterations()
         raises ValueError.
         """

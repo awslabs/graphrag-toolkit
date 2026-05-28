@@ -3,10 +3,6 @@
 
 """
 Property-based tests for benchmark_query module.
-
-# Feature: retriever-comparison-benchmarks, Property 1: Timing metadata floor transformation
-# Feature: retriever-comparison-benchmarks, Property 3: JSONL structural completeness
-# Feature: retriever-comparison-benchmarks, Property 4: Output path construction
 """
 
 import json
@@ -23,20 +19,14 @@ from hypothesis.strategies import (
 )
 
 
-# --- Property 1: Timing metadata floor transformation ---
-
-
-# Feature: retriever-comparison-benchmarks, Property 1: Timing metadata floor transformation
 class TestTimingFloorTransformation:
     """
-    Property 1: Timing metadata floor transformation
+    Timing metadata floor transformation
 
     For any non-negative float value in the query engine response metadata
     (retrieve_ms, answer_ms, total_ms), the corresponding integer field written
     to the JSONL output (retrieval_ms, response_ms, total_ms) SHALL equal
     math.floor() of that float value.
-
-    **Validates: Requirements 2.1, 2.2, 2.3**
     """
 
     @settings(max_examples=100)
@@ -57,8 +47,6 @@ class TestTimingFloorTransformation:
 
         This verifies that the result is an integer and equals the largest
         integer less than or equal to the input float.
-
-        **Validates: Requirements 2.1, 2.2, 2.3**
         """
         result = math.floor(value)
 
@@ -108,8 +96,6 @@ class TestTimingFloorTransformation:
         Given three non-negative floats representing retrieve_ms, answer_ms, and total_ms,
         applying math.floor to each produces correct integer values matching the
         transformation in benchmark_query.py.
-
-        **Validates: Requirements 2.1, 2.2, 2.3**
         """
         # Apply the same transformation as benchmark_query.py
         retrieval_ms = math.floor(retrieve_ms)
@@ -131,12 +117,6 @@ class TestTimingFloorTransformation:
         assert response_ms >= 0
         assert total_ms_int >= 0
 
-
-# --- Property 3: JSONL structural completeness ---
-
-
-# Feature: retriever-comparison-benchmarks, Property 3: JSONL structural completeness
-# Validates: Requirements 2.4, 3.4
 
 REQUIRED_FIELDS = [
     'raw_example',
@@ -184,7 +164,7 @@ def build_jsonl_record(
 
 class TestJSONLStructuralCompletenessProperty:
     """
-    Property 3: JSONL structural completeness
+    JSONL structural completeness
 
     For any query result (whether timing/token metadata is available or not),
     the corresponding JSONL line SHALL contain all required fields
@@ -215,8 +195,6 @@ class TestJSONLStructuralCompletenessProperty:
         output_tokens,
     ):
         """
-        **Validates: Requirements 2.4, 3.4**
-
         Generate query results with various combinations of available/missing
         metadata, verify all required fields are present (either valid value or null).
         """
@@ -268,8 +246,6 @@ class TestJSONLStructuralCompletenessProperty:
             )
 
 
-# --- Property 4: Output path construction ---
-
 import os
 
 from hypothesis.strategies import sampled_from, tuples
@@ -286,16 +262,13 @@ _dataset_names = text(
 )
 
 
-# Feature: retriever-comparison-benchmarks, Property 4: Output path construction
 class TestOutputPathConstructionProperty:
     """
-    Property 4: Output path construction
+    Output path construction
 
     For any valid retriever identifier and any dataset name, the output directory
     path SHALL equal `benchmark-results/{dataset}/{retriever}/`, and any two distinct
     (dataset, retriever) pairs SHALL produce distinct paths.
-
-    **Validates: Requirements 5.3, 5.4, 9.3**
     """
 
     @settings(max_examples=100)
@@ -305,8 +278,6 @@ class TestOutputPathConstructionProperty:
     )
     def test_output_path_equals_expected_format(self, retriever_id, dataset):
         """
-        **Validates: Requirements 5.3, 5.4, 9.3**
-
         For any valid retriever ID and dataset name, verify the constructed path
         equals benchmark-results/{dataset}/{retriever_id}.
         """
@@ -326,8 +297,6 @@ class TestOutputPathConstructionProperty:
     )
     def test_distinct_pairs_produce_distinct_paths(self, pair1, pair2):
         """
-        **Validates: Requirements 5.3, 5.4, 9.3**
-
         For any two distinct (dataset, retriever_id) pairs, verify they produce
         distinct output paths.
         """

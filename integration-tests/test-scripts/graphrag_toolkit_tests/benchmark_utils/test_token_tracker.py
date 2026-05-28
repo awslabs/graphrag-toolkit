@@ -307,16 +307,13 @@ class TestTokenTrackingLLMCachePredict:
         assert extract_token_usage(cache) == (None, None)
 
 
-# Feature: retriever-comparison-benchmarks, Property 2: Token count preservation
-# Validates: Requirements 3.1, 3.2
-
 from hypothesis import given, settings
 from hypothesis.strategies import integers
 
 
 class TestTokenCountPreservationProperty:
     """
-    Property 2: Token count preservation
+    Token count preservation
 
     For any non-negative integer token count present in the Bedrock converse API
     response (usage.inputTokens, usage.outputTokens), the corresponding field
@@ -331,8 +328,6 @@ class TestTokenCountPreservationProperty:
     )
     def test_token_counts_preserved_exactly(self, input_tokens, output_tokens):
         """
-        **Validates: Requirements 3.1, 3.2**
-
         For any non-negative integer token counts, verify they are preserved
         exactly after extraction from a ChatResponse via
         TokenTrackingLLMCache._extract_tokens_from_response().
