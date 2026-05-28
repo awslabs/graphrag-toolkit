@@ -356,6 +356,7 @@ from graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores import (
     create_config,
     create_property_assigment_fn_for_neptune,
     format_id_for_neptune,
+    intercept_before_parse,
 )
 import json as _json
 
@@ -421,3 +422,80 @@ class TestNeptuneDatabaseFactoryEndpointHandling:
             endpoint_url='https://override.example.com',
         )
         assert result.endpoint_url == 'https://override.example.com'
+
+
+class TestInterceptBeforeParse:
+    def test_non_200_status_returns_early(self):
+        resp = {'status_code': 500, 'body': b'irrelevant'}
+        assert intercept_before_parse(Mock(), resp) is None
+
+    def test_valid_json_populates_customized_response(self):
+        body = _json.dumps({'results': [{'a': 1}]}).encode('utf-8')
+        resp = {'status_code': 200, 'body': body}
+        customized = {}
+        intercept_before_parse(Mock(), resp, customized_response_dict=customized)
+        assert customized['results'] == [{'a': 1}]
+        assert resp['body'] == b'{"results":[]}'
+
+    @patch('graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores.boto3')
+    def test_matched_error_pattern_raises_internal_failure(self, mock_boto3):
+        class FakeError(Exception):
+            pass
+        mock_boto3.client.return_value.exceptions.from_code.return_value = FakeError
+
+        error_block = (
+            '{"code":"InternalFailureException","detailedMessage":"d",'
+            '"requestId":"r","message":"m"}'
+        )
+        # Leading junk makes the whole body invalid JSON while the trailing
+        # block still matches the streamed-error pattern.
+        resp = {'status_code': 200, 'body': ('garbage' + error_block).encode('utf-8')}
+        with pytest.raises(FakeError):
+            intercept_before_parse(Mock(), resp, customized_response_dict={})
+        assert resp['status_code'] == 500
+
+    @patch('graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores.boto3')
+    def test_unmatched_invalid_json_raises_generic_failure(self, mock_boto3):
+        class FakeError(Exception):
+            pass
+        mock_boto3.client.return_value.exceptions.from_code.return_value = FakeError
+
+        resp = {'status_code': 200, 'body': b'totally broken not json'}
+        with pytest.raises(FakeError):
+            intercept_before_parse(Mock(), resp, customized_response_dict={})
+        assert resp['status_code'] == 500
+
+
+class TestNeptuneDatabaseClient:
+    def _db_client(self, mock_config):
+        mock_session = Mock()
+        mock_client = Mock()
+        mock_session.client.return_value = mock_client
+        mock_config.session = mock_session
+        store = NeptuneDatabaseGraphStoreFactory().try_create(
+            f'neptune-db://cluster.abc.{NEPTUNE_DB_DNS}',
+        )
+        return store, mock_client
+
+    @patch('graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores.GraphRAGConfig')
+    def test_execute_query_returns_results(self, mock_config):
+        store, mock_client = self._db_client(mock_config)
+        mock_client.execute_open_cypher_query.return_value = {'results': [{'n': 1}]}
+
+        results = store.execute_query('MATCH (n) RETURN n', {'k': 'v'})
+
+        assert results == [{'n': 1}]
+        mock_client.execute_open_cypher_query.assert_called_once()
+        assert mock_client.meta.events.register.called
+
+    @patch('graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores.GraphRAGConfig')
+    def test_unretriable_exception_types_pulls_from_client(self, mock_config):
+        store, _ = self._db_client(mock_config)
+        types = store.unretriable_exception_types()
+        assert len(types) == 13
+
+    @patch('graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores.GraphRAGConfig')
+    def test_node_id_and_property_fn(self, mock_config):
+        store, _ = self._db_client(mock_config)
+        assert store.node_id('chunk.chunkId').value == 'id(chunk)'
+        assert store.property_assigment_fn('value', 'x')('y') == 'y'

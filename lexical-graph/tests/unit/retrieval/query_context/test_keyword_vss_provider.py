@@ -81,3 +81,27 @@ class TestKeywordVSSProvider:
         g1.assert_called_once()
         g2.assert_called_once_with(['c1'])
         assert result == ['apple', 'orange']
+
+    def test_get_topic_content_runs_per_topic(self):
+        provider, store, _ = _provider()  # topic index
+        store.execute_query.return_value = [{'statement': 'fact', 'details': 'a/nb'}]
+        result = provider._get_topic_content(['t1'])
+        assert isinstance(result, list)
+        store.execute_query.assert_called()
+
+    def test_get_content_dispatches_to_topic_index(self):
+        provider, store, _ = _provider()  # topic index
+        store.execute_query.return_value = []
+        assert provider._get_content(['t1']) == []
+
+    def test_get_node_ids_emits_debug_when_enabled(self):
+        provider, _, _ = _provider()
+        provider.args.debug_results = ['KeywordVSSProvider']
+        with patch.object(mod, 'get_diverse_vss_elements') as gd:
+            gd.return_value = [{'topic': {'topicId': 't1'}}]
+            assert provider._get_node_ids(QueryBundle('q')) == ['t1']
+
+    def test_get_keywords_from_content_emits_debug_when_enabled(self):
+        provider, _, _ = _provider(llm_response='apple')
+        provider.args.debug_results = ['KeywordVSSProvider']
+        assert provider._get_keywords_from_content('q', ['ctx']) == ['apple']

@@ -3,7 +3,7 @@
 
 """Tests for retrieval/processors/rerank_statements."""
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 from llama_index.core.schema import QueryBundle
@@ -76,6 +76,65 @@ class TestDefaultRerankingSourceMetadataFn:
         result = default_reranking_source_metadata_fn(source)
         assert 'Hello' in result and 'Alice' in result
         assert ', ' in result
+
+    def test_none_value_stringified_via_typeerror(self):
+        # parse(None) raises TypeError, which falls back to str(None).
+        source = Source(
+            sourceId='s', metadata={'x': None},
+            versioning=Versioning(valid_from=0, valid_to=9),
+        )
+        assert default_reranking_source_metadata_fn(source) == 'None'
+
+
+def _entity_contexts():
+    return EntityContexts(contexts=[], keywords=[])
+
+
+class TestScoreValuesWithTfidf:
+    def test_delegates_to_tfidf_scorer(self):
+        processor = RerankStatements(
+            ProcessorArgs(reranker='tfidf', debug_results=[], max_statements=5),
+            FilterConfig(),
+        )
+        with patch.object(mod, 'score_values_with_tfidf', return_value={'a': 0.5}) as scorer:
+            out = processor._score_values_with_tfidf(
+                ['a', 'b'], QueryBundle('hello world'), _entity_contexts(),
+            )
+        assert out == {'a': 0.5}
+        scorer.assert_called_once()
+
+
+class TestScoreValuesWithModel:
+    def test_builds_score_map_from_reranker(self):
+        processor = RerankStatements(
+            ProcessorArgs(reranker='model', debug_results=[], max_statements=5),
+            FilterConfig(),
+            reranking_model=Mock(),
+        )
+        node = Mock(text='a', score=0.9)
+        with patch.object(mod, 'SentenceReranker') as reranker_cls:
+            reranker_cls.return_value.postprocess_nodes.return_value = [node]
+            out = processor._score_values(['a'], QueryBundle('q'), _entity_contexts())
+        assert out == {'a': 0.9}
+
+
+class TestScoreValuesWithBedrock:
+    def test_maps_results_back_to_values(self):
+        processor = RerankStatements(
+            ProcessorArgs(reranker='bedrock', debug_results=[], max_statements=5),
+            FilterConfig(),
+        )
+        with patch.object(mod, 'boto3') as boto3_mod, \
+             patch.object(mod, 'GraphRAGConfig') as config:
+            boto3_mod.Session.return_value.region_name = 'us-east-1'
+            config.bedrock_reranking_model = 'model-x'
+            boto3_mod.client.return_value.rerank.return_value = {
+                'results': [{'index': 0, 'relevanceScore': 0.7}],
+            }
+            out = processor._score_values_with_bedrock(
+                ['a', 'b'], QueryBundle('q'), _entity_contexts(),
+            )
+        assert out == {'a': 0.7}
 
 
 class TestProcessResults:

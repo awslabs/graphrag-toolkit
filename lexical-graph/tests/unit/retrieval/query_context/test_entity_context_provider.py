@@ -117,6 +117,49 @@ class TestGetNeighbourEntities:
         assert set(ids) == {'n1', 'n2', 'n3'}
 
 
+class TestGetEntityIdContextTree:
+    def test_builds_tree_from_graph_results(self):
+        provider, store = _provider(ec_max_depth=2)
+        store.execute_query.return_value = [
+            {'result': {'entity': {'entityId': 'e1'}, 'others': ['c1', 'c2']}},
+        ]
+        tree = provider._get_entity_id_context_tree([_se('e1', 'apple', score=1.0)])
+        assert 'e1' in tree
+        assert 'c1' in tree['e1'] and 'c2' in tree['e1']
+
+    def test_skips_entities_with_non_positive_score(self):
+        provider, store = _provider(ec_max_depth=2)
+        store.execute_query.return_value = []
+        tree = provider._get_entity_id_context_tree([_se('e1', 'apple', score=0.0)])
+        assert tree == {}
+        store.execute_query.assert_not_called()
+
+    def test_emits_debug_when_enabled(self):
+        provider, store = _provider(ec_max_depth=2, debug_results=['EntityContextProvider'])
+        store.execute_query.return_value = []
+        tree = provider._get_entity_id_context_tree([_se('e1', 'apple', score=1.0)])
+        assert 'e1' in tree
+
+
+class TestGetEntityContexts:
+    def test_builds_contexts_from_tree(self):
+        provider, _ = _provider(ec_max_contexts=5)
+        entities = [_se('e1', 'apple'), _se('c1', 'pie')]
+        tree = {'e1': {'c1': {}}}
+        contexts = provider._get_entity_contexts(entities, tree, QueryBundle('q'))
+        assert isinstance(contexts, list)
+        assert contexts
+        ids = [se.entity.entityId for se in contexts[0]]
+        assert ids == ['e1', 'c1']
+
+    def test_respects_max_contexts_limit(self):
+        provider, _ = _provider(ec_max_contexts=1, debug_results=['EntityContextProvider'])
+        entities = [_se('e1', 'apple'), _se('c1', 'pie'), _se('c2', 'tart')]
+        tree = {'e1': {'c1': {}}, 'c2': {}}
+        contexts = provider._get_entity_contexts(entities, tree, QueryBundle('q'))
+        assert len(contexts) <= 1
+
+
 class TestGetEntityContextsEntryPoint:
     def test_returns_empty_when_max_contexts_zero(self):
         provider, _ = _provider(ec_max_contexts=0)
