@@ -4,6 +4,7 @@
 from abc import ABC
 import re
 import logging
+import unicodedata
 
 from ..utils import load_yaml, parse_response
 
@@ -382,17 +383,24 @@ class GraphQueryRetriever(GRetriever):
         Returns:
             bool: True if query is safe, False if it contains blocked keywords
         """
-        # if not self.block_graph_modification:
-        #     return True
+        if not self.block_graph_modification:
+            return True
         
         # Keywords that indicate graph modification operations
         modification_keywords = [
             'CREATE', 'MERGE', 'SET', 'REMOVE', 'DELETE', 'DETACH DELETE',
-            'DROP', 'DETACH'
+            'DROP', 'DETACH', 'CALL'
         ]
         
-        # Normalize query for case-insensitive matching, preserve newlines
-        query_upper = graph_query.upper()
+        # Strip inline comments (/* ... */) and single-line comments (// ...)
+        query = re.sub(r'/\*.*?\*/', '', graph_query, flags=re.DOTALL)
+        query = re.sub(r'//[^\n]*', '', query)
+        
+        # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
+        query = unicodedata.normalize('NFKC', query)
+        
+        # Normalize query for case-insensitive matching
+        query_upper = query.upper()
         
         # Check for each blocked keyword
         for keyword in modification_keywords:
@@ -433,7 +441,7 @@ class GraphQueryRetriever(GRetriever):
                     return [error_msg]
             
             # Execute the query
-            results = self.graph_store.execute_query(graph_query)
+            results = self.graph_store.execute_query(graph_query, read_only=self.block_graph_modification)
             
             # Verbalize the results
             import json
