@@ -21,7 +21,8 @@ def setup_datasets():
         
         docs_1 = FileBasedDocs(
             docs_directory='/home/ec2-user/SageMaker/graphrag-toolkit/source-data',
-            collection_id='wiki-aircraft'
+            collection_id='wiki-aircraft',
+            zip_source='/home/ec2-user/SageMaker/graphrag-toolkit/source-data/wiki-aircraft.zip'
         )
         
         checkpoint_1 = Checkpoint('3-build-1')
@@ -40,7 +41,8 @@ def setup_datasets():
         
         docs_2 = FileBasedDocs(
             docs_directory='/home/ec2-user/SageMaker/graphrag-toolkit/source-data',
-            collection_id='ntsb'
+            collection_id='ntsb',
+            zip_source='/home/ec2-user/SageMaker/graphrag-toolkit/source-data/ntsb.zip'
         )
         
         checkpoint_2 = Checkpoint('3-build-2')
