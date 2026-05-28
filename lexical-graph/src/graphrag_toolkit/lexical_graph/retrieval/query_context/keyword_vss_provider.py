@@ -130,9 +130,10 @@ class KeywordVSSProvider(KeywordProviderBase):
             executor.shutdown()
 
             for future in futures:
-                for result in future.result():
+                result = future.result()
+                if result:
                     content.append(result)
-        
+
         return content
     
     def _get_content(self, node_ids:List[str]) -> List[str]:

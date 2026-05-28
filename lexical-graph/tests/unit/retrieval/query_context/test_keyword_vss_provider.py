@@ -82,12 +82,16 @@ class TestKeywordVSSProvider:
         g2.assert_called_once_with(['c1'])
         assert result == ['apple', 'orange']
 
-    def test_get_topic_content_runs_per_topic(self):
+    def test_get_topic_content_returns_one_string_per_topic(self):
         provider, store, _ = _provider()  # topic index
         store.execute_query.return_value = [{'statement': 'fact', 'details': 'a/nb'}]
         result = provider._get_topic_content(['t1'])
-        assert isinstance(result, list)
-        store.execute_query.assert_called()
+        assert result == ['fact (a, b)']
+
+    def test_get_topic_content_skips_topics_with_no_statements(self):
+        provider, store, _ = _provider()  # topic index
+        store.execute_query.return_value = []
+        assert provider._get_topic_content(['t1']) == []
 
     def test_get_content_dispatches_to_topic_index(self):
         provider, store, _ = _provider()  # topic index
