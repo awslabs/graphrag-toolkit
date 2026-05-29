@@ -213,41 +213,58 @@ class AgenticRetriever:
         Returns:
             Tuple of (analysis_response_text, input_tokens, output_tokens)
         """
+        from llama_index.core.base.llms.types import ChatMessage, MessageRole
+
         input_tokens = 0
         output_tokens = 0
 
-        # Use the analysis LLM to analyze results
-        # Wrap the chat method to capture token usage
-        original_chat = None
-        captured_usage = {}
+        # Format the prompt
+        formatted_prompt = _ANALYSIS_PROMPT.format(
+            question=question,
+            context=context[:8000],  # Truncate context to avoid token limits
+        )
 
-        if hasattr(self._analysis_llm, 'llm') and hasattr(self._analysis_llm.llm, 'chat'):
-            original_chat = self._analysis_llm.llm.chat
+        # Call chat() directly on the LLM to get the full ChatResponse with token usage
+        llm = self._analysis_llm.llm if hasattr(self._analysis_llm, 'llm') else None
 
-            def tracking_chat(*args, **kwargs):
-                chat_response = original_chat(*args, **kwargs)
+        if llm is not None:
+            from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+            from llama_index.llms.bedrock_converse import BedrockConverse
+            from botocore.config import Config
+
+            if isinstance(llm, BedrockConverse):
+                if not hasattr(llm, '_client') or llm._client is None:
+                    config = Config(
+                        retries={'max_attempts': 10, 'mode': 'standard'},
+                        connect_timeout=60.0,
+                        read_timeout=60.0,
+                    )
+                    session = GraphRAGConfig.session
+                    llm._client = session.client('bedrock-runtime', config=config)
+
+                messages = [ChatMessage(role=MessageRole.USER, content=formatted_prompt)]
+                chat_response = llm.chat(messages)
+                response_text = chat_response.message.content if chat_response.message else ''
+
+                # Extract token usage
                 raw = getattr(chat_response, 'raw', None)
                 if raw and isinstance(raw, dict):
                     usage = raw.get('usage')
                     if usage and isinstance(usage, dict):
-                        captured_usage['input'] = usage.get('inputTokens', 0)
-                        captured_usage['output'] = usage.get('outputTokens', 0)
-                return chat_response
-
-            self._analysis_llm.llm.chat = tracking_chat
-
-        try:
+                        input_tokens = usage.get('inputTokens', 0)
+                        output_tokens = usage.get('outputTokens', 0)
+            else:
+                response_text = self._analysis_llm.predict(
+                    _ANALYSIS_PROMPT,
+                    question=question,
+                    context=context[:8000],
+                )
+        else:
             response_text = self._analysis_llm.predict(
                 _ANALYSIS_PROMPT,
                 question=question,
-                context=context[:8000],  # Truncate context to avoid token limits
+                context=context[:8000],
             )
-        finally:
-            if original_chat is not None:
-                self._analysis_llm.llm.chat = original_chat
-
-        input_tokens = captured_usage.get('input', 0)
-        output_tokens = captured_usage.get('output', 0)
 
         return response_text, input_tokens, output_tokens
 

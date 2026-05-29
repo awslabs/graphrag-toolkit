@@ -21,23 +21,14 @@ The benchmarking pipeline has up to four stages:
 
 ## Configuration
 
-Create a `.env` file in the `integration-tests/` directory (see `env.template`):
+Create a `.env` file in the `integration-tests/` directory based on `env.template`:
 
 ```bash
-export GRAPHRAG_TOOLKIT_DIR=/path/to/graphrag-toolkit
-export BUCKET_NAME=my-benchmarking-bucket
-export REGION_NAME=us-west-2
-
-# LLM models for extraction and response generation
-export TEST_EXTRACTION_LLM=us.anthropic.claude-sonnet-4-20250514-v1:0
-export TEST_RESPONSE_LLM=us.anthropic.claude-sonnet-4-20250514-v1:0
-
-# S3 location of pre-extracted benchmark data
-export BENCHMARK_DATA_S3_URI=s3://my-benchmarking-bucket/benchmark-data/
-
-# Stack prefix (used to name CloudFormation stacks)
-export STACK_PREFIX=cuad
+cp env.template .env
+# Edit .env with your bucket name, region, and model preferences
 ```
+
+See `env.template` for all available configuration options.
 
 ## S3 Data Layout
 
@@ -204,23 +195,21 @@ aws sagemaker create-presigned-notebook-instance-url \
 
 Open a terminal on the notebook and run:
 
+Replace `<Dataset>` with the appropriate class name:
+- CUAD: `Cuad`
+- ConcurrentQA: `ConcurrentQa`
+- WikiHow: `Wikihow`
+- PGA: `Pga`
+
 ```bash
 source /home/ec2-user/anaconda3/bin/activate JupyterSystemEnv
 cd /home/ec2-user/SageMaker/graphrag-toolkit
 
-# Source environment (use .env.testing if available, otherwise set vars manually)
-source .env.testing 2>/dev/null
-source .env 2>/dev/null
+# Source environment files (created by build-tests.sh during stack deployment)
+source .env.testing
+source .env
 
-# If .env.testing doesn't exist, set these manually:
-# export S3_RESULTS_BUCKET=<your-bucket>
-# export S3_RESULTS_PREFIX=graphrag-toolkit-tests/<stack-id>/results
-# export GRAPHRAG_TOOLKIT_S3_URI=s3://<your-bucket>/graphrag-toolkit-tests/<stack-id>/packages/graphrag-toolkit.zip
-# export BENCHMARK_DATA_S3_URI=s3://<your-bucket>/benchmark-data/
-# export TEST_RESPONSE_LLM=us.anthropic.claude-haiku-4-5-20251001-v1:0
-# export AWS_REGION_NAME=us-west-2
-
-# Loop through all retrievers (replace Dataset class names as needed)
+# Loop through all retrievers
 for RETRIEVER in topic_based entity_based chunk_based entity_network chunk_based_semantic semantic_guided topic-beam-chunk_only semantic-path_weighted; do
   export BENCHMARK_RETRIEVER=$RETRIEVER
   export TESTS="benchmark_query.<Dataset>BenchmarkQuery benchmark_evaluate.<Dataset>BenchmarkEvaluate"
@@ -228,12 +217,6 @@ for RETRIEVER in topic_based entity_based chunk_based entity_network chunk_based
   python test_suite.py
 done
 ```
-
-Replace `<Dataset>` with the appropriate class name:
-- CUAD: `Cuad`
-- ConcurrentQA: `ConcurrentQa`
-- WikiHow: `Wikihow`
-- PGA: `Pga`
 
 ### Available Retrievers
 
@@ -391,7 +374,7 @@ After running all retrievers, generate `comparison_report.json` at `benchmark-re
 | Empty `.FAIL.json` file | Process killed before writing results | Check `dmesg` for OOM kills; increase notebook instance type |
 | `BulkIndexError` during build | OpenSearch Serverless rate limiting | Reduce `build_num_workers` to 2 and `build_batch_write_size` to 25 |
 | VPC limit exceeded | Account VPC quota reached | Delete old stacks before creating new ones |
-| Batch inference model error | Model not supported for batch | Use a non-legacy model ID (e.g., `us.anthropic.claude-sonnet-4-20250514-v1:0`) |
+| Batch inference model error | Model not supported for batch | Use a non-legacy model ID (e.g., `us.anthropic.claude-sonnet-4-6`) |
 | IAM permission denied for model | Model not in CFN IAM policy | Add the model ARN to `graphrag-toolkit-tests.json` |
 | Notebook crashes on ConcurrentQA | Insufficient memory | Use `ml.m5.4xlarge` (64GB) or reduce `build_batch_size` |
 

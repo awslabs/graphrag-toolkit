@@ -259,7 +259,7 @@ def _create_byokg_agentic(graph_store, vector_store, byokg_max_iterations: int =
 
     # Create the LLM generator for BYOKG
     import os
-    region = os.environ.get('AWS_REGION', os.environ.get('AWS_DEFAULT_REGION', 'us-east-1'))
+    region = os.environ.get('AWS_REGION', os.environ.get('AWS_DEFAULT_REGION', os.environ.get('AWS_REGION_NAME', 'us-west-2')))
     llm_generator = BedrockGenerator(
         model_name=response_llm,
         region_name=region,
@@ -305,7 +305,7 @@ def _create_byokg_graph_store(graph_store):
     # Try to extract connection info from the existing graph store
     # The lexical graph store wraps Neptune connections; we need to determine
     # whether it's Neptune Analytics or Neptune DB and get the endpoint.
-    region = os.environ.get('AWS_REGION', os.environ.get('AWS_DEFAULT_REGION', 'us-east-1'))
+    region = os.environ.get('AWS_REGION', os.environ.get('AWS_DEFAULT_REGION', os.environ.get('AWS_REGION_NAME', 'us-west-2')))
 
     # Check if the graph store has a graph_identifier (Neptune Analytics)
     if hasattr(graph_store, 'graph_identifier'):
