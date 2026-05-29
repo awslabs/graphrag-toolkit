@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 
 
 def windows_safe_filename(name: str) -> str:
-    """Sanitize a filename for Windows compatibility by replacing :: with __."""
-    return name.replace('::', '__')
+    """Sanitize a filename for Windows compatibility by replacing :: with __ and : with _."""
+    return name.replace('::', '__').replace(':', '_')
 
 
 class FileBasedDocs(NodeHandler):

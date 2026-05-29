@@ -25,7 +25,7 @@ class TestWindowsSafeFilename:
 
     def test_windows_safe_filename(self):
         """Verify windows_safe_filename replaces :: with __."""
-        assert windows_safe_filename('aws::abc:1234') == 'aws__abc:1234'
+        assert windows_safe_filename('aws::abc:1234') == 'aws__abc_1234'
 
     def test_windows_safe_filename_no_double_colon(self):
         """Verify strings without :: are unchanged."""
