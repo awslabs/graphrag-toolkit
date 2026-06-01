@@ -260,8 +260,12 @@ def _create_byokg_agentic(graph_store, vector_store, byokg_max_iterations: int =
     # Create the LLM generator for BYOKG
     import os
     region = os.environ.get('AWS_REGION', os.environ.get('AWS_DEFAULT_REGION', os.environ.get('AWS_REGION_NAME', 'us-west-2')))
+    
+    # Ensure we pass the model ID string, not a BedrockConverse object
+    model_id = response_llm if isinstance(response_llm, str) else getattr(response_llm, 'model', str(response_llm))
+    
     llm_generator = BedrockGenerator(
-        model_name=response_llm,
+        model_name=model_id,
         region_name=region,
     )
 
