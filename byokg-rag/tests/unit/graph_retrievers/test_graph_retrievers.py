@@ -789,24 +789,21 @@ def unicode_bypass_queries(draw):
 
 
 class TestBugConditionExploration:
-    """Bug condition exploration tests - these MUST FAIL on unfixed code.
-    
-    **Validates: Requirements 1.1, 1.2, 1.3, 1.4, 1.5, 2.1, 2.2, 2.3, 2.4, 2.5**
-    
-    These tests encode the EXPECTED behavior after the fix is applied.
-    When run on unfixed code, they will fail - proving the bypass vulnerabilities exist.
+    """Property-based tests for Cypher query safety bypass vectors.
+
+    These tests use Hypothesis to generate obfuscated Cypher queries that
+    attempt to bypass the is_query_safe() blocklist through various techniques:
+    - Embedding comments within keywords (CRE/**/ATE)
+    - Using APOC write procedures (CALL apoc.create.node(...))
+    - Wrapping writes in CALL subqueries (CALL { CREATE ... })
+    - Using fullwidth Unicode characters that resemble ASCII keywords
+    - Verifying the block_graph_modification flag disables checks when False
     """
 
     @given(query=comment_bypass_queries())
     @settings(max_examples=50)
     def test_comment_bypass_detected(self, query):
-        """Property: Queries with comment-split keywords should be detected as unsafe.
-        
-        **Validates: Requirements 1.1, 2.1**
-        
-        Bug condition: CRE/**/ATE, DE/**/LETE, ME/**/RGE etc. bypass word-boundary regex.
-        Expected: is_query_safe() returns False for all comment-obfuscated queries.
-        """
+        """Queries with comment-split keywords (e.g. CRE/**/ATE) are detected as unsafe."""
         mock_store = Mock()
         mock_store.execute_query = Mock()
         retriever = GraphQueryRetriever(graph_store=mock_store)
@@ -820,13 +817,7 @@ class TestBugConditionExploration:
     @given(query=apoc_bypass_queries())
     @settings(max_examples=50)
     def test_apoc_procedure_bypass_detected(self, query):
-        """Property: APOC procedure calls should be detected as unsafe.
-        
-        **Validates: Requirements 1.2, 2.2**
-        
-        Bug condition: CALL apoc.create.node(...) etc. are not in the blocklist.
-        Expected: is_query_safe() returns False for all APOC write procedures.
-        """
+        """APOC procedure calls (e.g. CALL apoc.create.node) are detected as unsafe."""
         mock_store = Mock()
         mock_store.execute_query = Mock()
         retriever = GraphQueryRetriever(graph_store=mock_store)
@@ -840,13 +831,7 @@ class TestBugConditionExploration:
     @given(query=call_subquery_bypass_queries())
     @settings(max_examples=50)
     def test_call_subquery_bypass_detected(self, query):
-        """Property: CALL subqueries wrapping writes should be detected as unsafe.
-        
-        **Validates: Requirements 1.3, 2.3**
-        
-        Bug condition: CALL { CREATE ... } wraps write ops, CALL not in blocklist.
-        Expected: is_query_safe() returns False for all CALL subquery write operations.
-        """
+        """CALL subqueries wrapping writes (e.g. CALL { CREATE ... }) are detected as unsafe."""
         mock_store = Mock()
         mock_store.execute_query = Mock()
         retriever = GraphQueryRetriever(graph_store=mock_store)
@@ -860,13 +845,7 @@ class TestBugConditionExploration:
     @given(query=unicode_bypass_queries())
     @settings(max_examples=50)
     def test_unicode_bypass_detected(self, query):
-        """Property: Unicode lookalike keywords should be detected as unsafe.
-        
-        **Validates: Requirements 1.4, 2.4**
-        
-        Bug condition: Fullwidth Unicode chars (U+FF21-U+FF3A) bypass ASCII regex.
-        Expected: is_query_safe() returns False for all Unicode-obfuscated queries.
-        """
+        """Fullwidth Unicode lookalike keywords (e.g. ＣＲＥＡＴＥ) are detected as unsafe."""
         mock_store = Mock()
         mock_store.execute_query = Mock()
         retriever = GraphQueryRetriever(graph_store=mock_store)
@@ -878,14 +857,7 @@ class TestBugConditionExploration:
         )
 
     def test_block_graph_modification_flag_bypass(self):
-        """Property: block_graph_modification=False should skip safety check.
-        
-        **Validates: Requirements 1.5, 2.5**
-        
-        Bug condition: The flag is commented out, so safety check always runs.
-        Expected: When block_graph_modification=False, is_query_safe() returns True
-        for ALL queries (including modification queries).
-        """
+        """When block_graph_modification=False, is_query_safe() allows all queries."""
         mock_store = Mock()
         mock_store.execute_query = Mock()
         retriever = GraphQueryRetriever(
@@ -995,26 +967,17 @@ def substring_keyword_queries(draw):
 
 
 class TestPreservationReadOnlyQueries:
-    """Preservation property tests - read-only queries must continue to work.
+    """Property-based tests ensuring read-only queries are not false-positive blocked.
 
-    **Validates: Requirements 3.1, 3.2**
-
-    These tests verify that legitimate read-only Cypher queries are NOT
-    false-positive blocked by is_query_safe(). They must pass on BOTH
-    unfixed and fixed code.
+    These tests verify that legitimate read-only Cypher queries and queries
+    containing blocked keywords as substrings (e.g. CREATED_AT, SETTINGS)
+    continue to pass is_query_safe() without being incorrectly rejected.
     """
 
     @given(query=read_only_cypher_queries())
     @settings(max_examples=100)
     def test_read_only_queries_are_safe(self, query):
-        """Property: All read-only Cypher queries return True from is_query_safe().
-
-        **Validates: Requirements 3.1**
-
-        For all queries using only MATCH, RETURN, WHERE, WITH, OPTIONAL MATCH,
-        UNWIND, ORDER BY, LIMIT that do NOT contain modification keywords,
-        is_query_safe() must return True.
-        """
+        """Read-only queries (MATCH/RETURN/WHERE/WITH) are allowed by is_query_safe()."""
         mock_store = Mock()
         mock_store.execute_query = Mock()
         retriever = GraphQueryRetriever(graph_store=mock_store)
@@ -1028,14 +991,7 @@ class TestPreservationReadOnlyQueries:
     @given(query=substring_keyword_queries())
     @settings(max_examples=100)
     def test_substring_keywords_are_safe(self, query):
-        """Property: Queries with blocked keywords as substrings return True.
-
-        **Validates: Requirements 3.2**
-
-        For all queries containing blocked keywords as substrings of property
-        names or labels (e.g., CREATED_AT, SETTINGS, REMOVED_DATE),
-        is_query_safe() must return True (no false positives).
-        """
+        """Blocked keywords as substrings (CREATED_AT, SETTINGS) don't trigger false positives."""
         mock_store = Mock()
         mock_store.execute_query = Mock()
         retriever = GraphQueryRetriever(graph_store=mock_store)
@@ -1048,26 +1004,18 @@ class TestPreservationReadOnlyQueries:
 
 
 class TestPreservationRetrieveFormat:
-    """Preservation property tests - retrieve() returns correct format.
+    """Property-based tests for retrieve() return format consistency.
 
-    **Validates: Requirements 3.3, 3.4, 3.5, 3.6**
-
-    These tests verify that retrieve() returns results in the correct format:
-    - list for return_answers=False
-    - tuple of (context_list, answers_list) for return_answers=True
-    - Error messages include query and exception details
+    Verifies that retrieve() returns:
+    - A list when return_answers=False
+    - A tuple of (context_list, answers_list) when return_answers=True
+    - Error messages containing the query and exception details on failure
     """
 
     @given(query=read_only_cypher_queries(), return_answers=st.booleans())
     @settings(max_examples=100)
     def test_retrieve_returns_correct_format(self, query, return_answers):
-        """Property: retrieve() returns correct format for all valid read queries.
-
-        **Validates: Requirements 3.5, 3.6**
-
-        For return_answers=False: returns a list
-        For return_answers=True: returns a tuple of (list, list)
-        """
+        """retrieve() returns list or (list, list) tuple based on return_answers flag."""
         mock_store = Mock()
         mock_store.execute_query = Mock(return_value=[{'id': 1, 'name': 'Test'}])
         retriever = GraphQueryRetriever(graph_store=mock_store)
@@ -1096,13 +1044,7 @@ class TestPreservationRetrieveFormat:
     @given(query=read_only_cypher_queries())
     @settings(max_examples=50)
     def test_retrieve_error_format(self, query):
-        """Property: Query execution errors return error message with details.
-
-        **Validates: Requirements 3.4**
-
-        When query execution raises an exception, the returned context must
-        contain the query string and exception details.
-        """
+        """Query execution errors return a message containing the query and exception details."""
         mock_store = Mock()
         mock_store.execute_query = Mock(side_effect=RuntimeError("Connection timeout"))
         retriever = GraphQueryRetriever(graph_store=mock_store)
