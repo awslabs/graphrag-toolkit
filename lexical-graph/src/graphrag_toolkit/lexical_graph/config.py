@@ -22,7 +22,7 @@ from botocore.config import Config
 from graphrag_toolkit.lexical_graph.errors import ConfigurationError
 
 from llama_index.llms.bedrock_converse import BedrockConverse
-from llama_index.embeddings.bedrock import BedrockEmbedding
+from graphrag_toolkit.lexical_graph.utils.bedrock_embedding import BedrockDirectEmbedding
 from llama_index.core.settings import Settings
 from llama_index.core.llms import LLM
 from llama_index.core.base.embeddings.base import BaseEmbedding
@@ -941,7 +941,7 @@ class _GraphRAGConfig:
 
             if _is_json_string(embed_model):
                 config = json.loads(embed_model)
-                return BedrockEmbedding(
+                return BedrockDirectEmbedding(
                     model_name=config['model_name'],
                     botocore_session=botocore_session,
                     region_name=config.get('region_name', region),
@@ -949,7 +949,7 @@ class _GraphRAGConfig:
                     botocore_config=botocore_config
                 )
             else:
-                return BedrockEmbedding(
+                return BedrockDirectEmbedding(
                     model_name=embed_model,
                     botocore_session=botocore_session,
                     region_name=region,
@@ -957,7 +957,7 @@ class _GraphRAGConfig:
                     botocore_config=botocore_config
                 )
         except Exception as e:
-            raise ValueError(f'Failed to initialize BedrockEmbedding: {str(e)}') from e
+            raise ValueError(f'Failed to initialize BedrockDirectEmbedding: {str(e)}') from e
 
 
     @property

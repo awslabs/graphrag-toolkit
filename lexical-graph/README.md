@@ -59,6 +59,26 @@ $ pip install psycopg2-binary pgvector
 $ pip install neo4j
 ```
 
+#### Bedrock embeddings (optional llama-index wrapper)
+
+By default, graphrag-lexical-graph uses a built-in Bedrock embedding implementation that calls the `invoke_model` API directly via boto3. This supports Amazon Titan and Cohere embedding model families with no additional dependencies.
+
+If you prefer to use the `llama-index-embeddings-bedrock` wrapper (e.g., for async embedding support), install the optional extra and pass your own embedding instance:
+
+```bash
+$ pip install graphrag-lexical-graph[bedrock-embeddings]
+```
+
+```python
+from llama_index.embeddings.bedrock import BedrockEmbedding
+from graphrag_toolkit.lexical_graph import GraphRAGConfig
+
+GraphRAGConfig.embed_model = BedrockEmbedding(
+    model_name='cohere.embed-english-v3',
+    region_name='us-east-1'
+)
+```
+
 ### Connection strings
 
 Pass a connection string to `GraphStoreFactory.for_graph_store()` or `VectorStoreFactory.for_vector_store()` to select a backend:
