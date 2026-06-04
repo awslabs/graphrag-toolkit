@@ -91,6 +91,14 @@ NOTE: Additional permissions may be required for Neptune Database (`neptune-db:*
    - Provides interfaces for graph traversal and querying
    - Supports multiple graph database backends
 
+## Security: Query Modification Protection
+
+The `GraphQueryRetriever` includes a safety layer (`is_query_safe()`) that blocks Cypher queries containing modification keywords (CREATE, MERGE, DELETE, SET, REMOVE, DROP, DETACH, CALL). This protects against LLM-generated or user-supplied queries that could modify graph data.
+
+**Neptune Analytics**: Write protection is enforced at two levels — application-level Cypher validation and server-enforced `readOnly=True` on the query API. Even if a query bypasses the keyword blocklist, Neptune Analytics will reject the write operation.
+
+**Neptune Database**: Write protection relies solely on application-level Cypher validation (`is_query_safe()`). Neptune DB's openCypher API does not support a `readOnly` parameter. For stronger guarantees, use Neptune Analytics (which supports server-enforced `readOnly=True`) or restrict the IAM role to `neptune-db:ReadDataViaQuery`.
+
 ## Performance
 
 Our results show that BYOKG-RAG outperforms existing approaches across multiple knowledge graph benchmarks:

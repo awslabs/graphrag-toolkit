@@ -1081,3 +1081,158 @@ class TestBaseNeptuneGraphStore:
         call_args = mock_s3_client.put_object.call_args[1]
         assert call_args['Bucket'] == 'test-bucket'
         assert call_args['Body'] == 'test,data\n1,2'
+
+
+class TestNeptuneReadOnlyPropagation:
+    """Tests for read_only parameter propagation in execute_query."""
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_analytics_read_only_true_passes_to_api(self, mock_session, mock_neptune_client, mock_s3_client):
+        """When read_only=True, readOnly=True is passed to Neptune Analytics API."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_client.execute_query.return_value = {
+            'payload': Mock(read=lambda: json.dumps({'results': []}).encode())
+        }
+
+        store = NeptuneAnalyticsGraphStore(
+            graph_identifier='test-graph-id',
+            region='us-west-2'
+        )
+
+        store.execute_query("MATCH (n) RETURN n", read_only=True)
+
+        call_args = mock_neptune_client.execute_query.call_args[1]
+        assert call_args['readOnly'] is True
+        assert call_args['queryString'] == "MATCH (n) RETURN n"
+        assert call_args['language'] == 'OPEN_CYPHER'
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_analytics_read_only_false_omits_param(self, mock_session, mock_neptune_client, mock_s3_client):
+        """When read_only=False, readOnly is not passed to Neptune Analytics API."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_client.execute_query.return_value = {
+            'payload': Mock(read=lambda: json.dumps({'results': []}).encode())
+        }
+
+        store = NeptuneAnalyticsGraphStore(
+            graph_identifier='test-graph-id',
+            region='us-west-2'
+        )
+
+        store.execute_query("MATCH (n) RETURN n", read_only=False)
+
+        call_args = mock_neptune_client.execute_query.call_args[1]
+        assert 'readOnly' not in call_args
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_analytics_read_only_default_omits_param(self, mock_session, mock_neptune_client, mock_s3_client):
+        """When read_only is not specified, readOnly is not passed to Neptune Analytics API."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_client.execute_query.return_value = {
+            'payload': Mock(read=lambda: json.dumps({'results': []}).encode())
+        }
+
+        store = NeptuneAnalyticsGraphStore(
+            graph_identifier='test-graph-id',
+            region='us-west-2'
+        )
+
+        store.execute_query("MATCH (n) RETURN n")
+
+        call_args = mock_neptune_client.execute_query.call_args[1]
+        assert 'readOnly' not in call_args
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_db_read_only_true_logs_warning(self, mock_session, mock_neptune_data_client, mock_s3_client, caplog):
+        """When read_only=True, Neptune DB logs a warning and still executes."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptunedata': mock_neptune_data_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_data_client.execute_open_cypher_query.return_value = {
+            'results': [{'n': 'test'}]
+        }
+
+        store = NeptuneDBGraphStore(
+            endpoint_url='https://test-cluster.us-west-2.neptune.amazonaws.com:8182',
+            region='us-west-2'
+        )
+
+        import logging
+        with caplog.at_level(logging.WARNING):
+            result = store.execute_query("MATCH (n) RETURN n", read_only=True)
+
+        assert 'does not support read-only' in caplog.text
+        assert result == [{'n': 'test'}]
+        mock_neptune_data_client.execute_open_cypher_query.assert_called_once()
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_db_read_only_false_no_warning(self, mock_session, mock_neptune_data_client, mock_s3_client, caplog):
+        """When read_only=False, Neptune DB does not log a warning."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptunedata': mock_neptune_data_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_data_client.execute_open_cypher_query.return_value = {
+            'results': [{'n': 'test'}]
+        }
+
+        store = NeptuneDBGraphStore(
+            endpoint_url='https://test-cluster.us-west-2.neptune.amazonaws.com:8182',
+            region='us-west-2'
+        )
+
+        import logging
+        with caplog.at_level(logging.WARNING):
+            store.execute_query("MATCH (n) RETURN n", read_only=False)
+
+        assert 'does not support read-only' not in caplog.text
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_neptune_db_read_only_does_not_pass_to_api(self, mock_session, mock_neptune_data_client, mock_s3_client):
+        """Neptune DB never passes readOnly to the openCypher API regardless of the flag."""
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptunedata': mock_neptune_data_client,
+            's3': mock_s3_client
+        }[service]
+
+        mock_neptune_data_client.execute_open_cypher_query.return_value = {
+            'results': []
+        }
+
+        store = NeptuneDBGraphStore(
+            endpoint_url='https://test-cluster.us-west-2.neptune.amazonaws.com:8182',
+            region='us-west-2'
+        )
+
+        store.execute_query("MATCH (n) RETURN n", read_only=True)
+
+        call_args = mock_neptune_data_client.execute_open_cypher_query.call_args[1]
+        assert 'readOnly' not in call_args
+        assert call_args['openCypherQuery'] == "MATCH (n) RETURN n"
