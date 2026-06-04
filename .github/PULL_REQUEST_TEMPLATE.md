@@ -20,6 +20,7 @@ Related issue (if any): #
 <!-- How was this tested? -->
 
 - [ ] Unit tests added/updated
+- [ ] Integration tests added (as appropriate)
 - [ ] Existing tests pass (`pytest`)
 - [ ] Tested manually (describe below)
 
