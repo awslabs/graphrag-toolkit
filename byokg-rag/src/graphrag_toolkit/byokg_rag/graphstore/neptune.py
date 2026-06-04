@@ -553,8 +553,6 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         
     def execute_query(self, cypher, parameters={}, read_only=False):
         logger.info(f"GraphQuery:: {cypher}")
-        if read_only:
-            logger.warning("read_only mode is not natively supported by Neptune DB. Query will execute without read-only enforcement.")
         response = self.neptune_data_client.execute_open_cypher_query(
             openCypherQuery=cypher,
             parameters=json.dumps(parameters)
