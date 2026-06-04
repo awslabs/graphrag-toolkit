@@ -1,12 +1,14 @@
 name: Bug Report
 description: Report a bug or unexpected behavior
 title: "[BUG] "
-labels: ["bug"]
+labels: ["bug", "triage_needed"]
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for reporting a bug! Please fill out the sections below.
+
+        If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do not create a public github issue.
   - type: input
     id: version
     attributes:
