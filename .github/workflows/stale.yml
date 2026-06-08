@@ -1,0 +1,26 @@
+name: Close stale issues
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC
+
+permissions:
+  issues: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v10
+        with:
+          stale-issue-message: >
+            This issue has been automatically marked as stale because it has not had
+            activity in the last 60 days. It will be closed in 30 days if no further
+            activity occurs. If this issue is still relevant, please comment to keep it open.
+          close-issue-message: >
+            This issue was closed because it has been inactive for 90 days.
+            Please open a new issue if the problem persists.
+          days-before-stale: 60
+          days-before-close: 30
+          stale-issue-label: 'stale'
+          exempt-issue-labels: 'pinned,security,roadmap'

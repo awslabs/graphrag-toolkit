@@ -1,6 +1,7 @@
 ## Lexical Graph
 
 The lexical-graph package provides a framework for automating the construction of a [hierarchical lexical graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/graph-model/) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
+The lexical-graph package provides a framework for automating the construction of a [hierarchical lexical graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/graph-model/) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
 
 ### Features
 
@@ -26,13 +27,13 @@ $ pip install graphrag-lexical-graph
 To install a specific version from PyPI:
 
 ```
-$ pip install graphrag-lexical-graph==3.18.3
+$ pip install graphrag-lexical-graph==3.18.5
 ```
 
 Or install from a release zip file:
 
 ```
-$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.18.3.zip#subdirectory=lexical-graph
+$ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.18.5.zip#subdirectory=lexical-graph
 ```
 
 If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuration/#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
