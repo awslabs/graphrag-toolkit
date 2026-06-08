@@ -28,6 +28,9 @@ test = [
 dev = [
     "pre-commit>=3.5.0",
 ]
+bedrock-embeddings = [
+    "llama-index-embeddings-bedrock==0.8.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

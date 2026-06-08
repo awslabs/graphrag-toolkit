@@ -8,7 +8,7 @@ from botocore.config import Config
 from hashlib import sha256
 from typing import Optional, Any, Union
 
-from graphrag_toolkit.lexical_graph import ModelError
+from graphrag_toolkit.lexical_graph.errors import ModelError
 from graphrag_toolkit.lexical_graph.utils.bedrock_utils import *
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 
