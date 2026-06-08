@@ -252,6 +252,30 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
         response = self.neptune_client.get_graph(graphIdentifier=neptune_graph_id)
         return response['id']
 
+
+    @staticmethod
+    def _validate_s3_path(s3_path: str) -> str:
+        """Validate S3 path to prevent Cypher injection.
+        
+        Only allows standard S3 bucket naming rules:
+        - 3-63 characters, lowercase letters, numbers, hyphens
+        - Must start with letter or number
+        - Path component allows letters, numbers, hyphens, underscores, dots, slashes
+        """
+        import re
+        pattern = r'^s3://[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]/[a-zA-Z0-9._/+-]+$'
+        if not re.match(pattern, s3_path):
+            raise ValueError(
+                f"Invalid S3 path format: {s3_path}. "
+                "Expected: s3://bucket-name/path/to/file"
+            )
+        return s3_path
+
+    @staticmethod
+    def _escape_cypher_label(label: str) -> str:
+        """Escape backticks in Cypher labels to prevent injection."""
+        return label.replace('`', '``')
+
     def read_from_csv(self, csv_file=None, s3_path=None, format='CSV'):
         """
         Upload a CSV file or folder of csv files to s3 and uses Neptune Analytics bulk import to read into the graph.
@@ -272,9 +296,12 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
 
         logger.info(f'Loading data from source : {s3_path} into graph: {self.neptune_graph_id}')
 
+        # SECURITY: Validate S3 path to prevent Cypher injection (CWE-89)
+        validated_s3_path = self._validate_s3_path(s3_path)
+
         load_cypher = f'''CALL neptune.load(
                     {{
-                        source: '{s3_path}',
+                        source: '{validated_s3_path}',
                         region: '{self.region}',
                         format: '{format}',
                         failOnError: false,
@@ -452,7 +479,9 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         """
         propertyGraphSummary["edgeLabelDetails"] = {}
         for label in propertyGraphSummary["edgeLabels"]:
-            q = edge_properties_query.format(e_label=label)
+            # SECURITY: Escape backticks to prevent Cypher injection (CWE-89)
+            safe_label = self._escape_cypher_label(label)
+            q = edge_properties_query.format(e_label=safe_label)
             data = {"label": label, "properties": self.execute_query(q)} 
             prop_types = {}
             for p in data["properties"]:
