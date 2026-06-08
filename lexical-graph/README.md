@@ -1,7 +1,6 @@
 ## Lexical Graph
 
 The lexical-graph package provides a framework for automating the construction of a [hierarchical lexical graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/graph-model/) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
-The lexical-graph package provides a framework for automating the construction of a [hierarchical lexical graph](https://awslabs.github.io/graphrag-toolkit/lexical-graph/graph-model/) from unstructured data, and composing question-answering strategies that query this graph when answering user questions.
 
 ### Features
 
