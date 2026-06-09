@@ -86,6 +86,87 @@
       "Description": "Bedrock model id or profile for extraction and response LLMs",
       "Type": "String",
       "Default": "global.anthropic.claude-sonnet-4-6"
+    },
+    "ExistingVpcId": {
+      "Description": "Optional existing VPC ID to reuse. If provided, ExistingSubnetIds must also be provided. Leave empty to create a new VPC.",
+      "Type": "String",
+      "Default": ""
+    },
+    "ExistingSubnetIds": {
+      "Description": "Optional comma-separated list of existing subnet IDs (minimum 2, spanning at least 2 AZs). If provided, ExistingVpcId must also be provided. Leave empty to create new subnets.",
+      "Type": "CommaDelimitedList",
+      "Default": ""
+    }
+  },
+  "Rules": {
+    "VpcAndSubnetsBothOrNeither": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Or": [
+              {
+                "Fn::And": [
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "ExistingVpcId"
+                      },
+                      ""
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Fn::Select": [
+                          0,
+                          {
+                            "Ref": "ExistingSubnetIds"
+                          }
+                        ]
+                      },
+                      ""
+                    ]
+                  }
+                ]
+              },
+              {
+                "Fn::And": [
+                  {
+                    "Fn::Not": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "ExistingVpcId"
+                          },
+                          ""
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Fn::Not": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Ref": "ExistingSubnetIds"
+                              }
+                            ]
+                          },
+                          ""
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "Both ExistingVpcId and ExistingSubnetIds must be provided together, or both must be left empty."
+        }
+      ]
     }
   },
   "Metadata": {
@@ -128,11 +209,28 @@
             "ExampleNotebooksURL",
             "IamPolicyArn"
           ]
+        },
+        {
+          "Label": {
+            "default": "Networking"
+          },
+          "Parameters": [
+            "ExistingVpcId",
+            "ExistingSubnetIds"
+          ]
         }
       ]
     }
   },
   "Conditions": {
+    "CreateVPC": {
+      "Fn::Equals": [
+        {
+          "Ref": "ExistingVpcId"
+        },
+        ""
+      ]
+    },
     "ExampleNotebooksURLIsNotBlank": {
       "Fn::Not": [
         {
@@ -198,6 +296,16 @@
         }
       ]
     },
+    "AZ3PresentAndCreateVPC": {
+      "Fn::And": [
+        {
+          "Condition": "AZ3Present"
+        },
+        {
+          "Condition": "CreateVPC"
+        }
+      ]
+    },
     "AddIamPolicyArn": {
       "Fn::Not": [
         {
@@ -244,26 +352,34 @@
         },
         "SubnetIds": {
           "Fn::If": [
-            "AZ3NotPresent",
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              }
-            ],
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              },
-              {
-                "Ref": "Subnet3"
-              }
-            ]
+            "CreateVPC",
+            {
+              "Fn::If": [
+                "AZ3NotPresent",
+                [
+                  {
+                    "Ref": "Subnet1"
+                  },
+                  {
+                    "Ref": "Subnet2"
+                  }
+                ],
+                [
+                  {
+                    "Ref": "Subnet1"
+                  },
+                  {
+                    "Ref": "Subnet2"
+                  },
+                  {
+                    "Ref": "Subnet3"
+                  }
+                ]
+              ]
+            },
+            {
+              "Ref": "ExistingSubnetIds"
+            }
           ]
         },
         "Tags": [
@@ -301,7 +417,15 @@
           "Fn::Sub": "${ApplicationId}-client-sg"
         },
         "VpcId": {
-          "Ref": "VPC"
+          "Fn::If": [
+            "CreateVPC",
+            {
+              "Ref": "VPC"
+            },
+            {
+              "Ref": "ExistingVpcId"
+            }
+          ]
         },
         "GroupDescription": "GraphRAG client security group",
         "SecurityGroupEgress": [
@@ -348,7 +472,15 @@
           "Fn::Sub": "${ApplicationId}-neptune-sg"
         },
         "VpcId": {
-          "Ref": "VPC"
+          "Fn::If": [
+            "CreateVPC",
+            {
+              "Ref": "VPC"
+            },
+            {
+              "Ref": "ExistingVpcId"
+            }
+          ]
         },
         "GroupDescription": "GraphRAG Neptune security group",
         "Tags": [
@@ -999,7 +1131,15 @@
           "Fn::Sub": "${ApplicationId}-opensearch-sg"
         },
         "VpcId": {
-          "Ref": "VPC"
+          "Fn::If": [
+            "CreateVPC",
+            {
+              "Ref": "VPC"
+            },
+            {
+              "Ref": "ExistingVpcId"
+            }
+          ]
         },
         "GroupDescription": "Security group for OpenSearch Serverless VPC endpoint",
         "SecurityGroupIngress": [
@@ -1052,30 +1192,46 @@
           "Fn::Sub": "${ApplicationId}-vpce"
         },
         "VpcId": {
-          "Ref": "VPC"
+          "Fn::If": [
+            "CreateVPC",
+            {
+              "Ref": "VPC"
+            },
+            {
+              "Ref": "ExistingVpcId"
+            }
+          ]
         },
         "SubnetIds": {
           "Fn::If": [
-            "AZ3Present",
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              },
-              {
-                "Ref": "Subnet3"
-              }
-            ],
-            [
-              {
-                "Ref": "Subnet1"
-              },
-              {
-                "Ref": "Subnet2"
-              }
-            ]
+            "CreateVPC",
+            {
+              "Fn::If": [
+                "AZ3Present",
+                [
+                  {
+                    "Ref": "Subnet1"
+                  },
+                  {
+                    "Ref": "Subnet2"
+                  },
+                  {
+                    "Ref": "Subnet3"
+                  }
+                ],
+                [
+                  {
+                    "Ref": "Subnet1"
+                  },
+                  {
+                    "Ref": "Subnet2"
+                  }
+                ]
+              ]
+            },
+            {
+              "Ref": "ExistingSubnetIds"
+            }
           ]
         },
         "SecurityGroupIds": [
@@ -1280,7 +1436,20 @@
           "Fn::Sub": "aws-neptune-${ApplicationId}"
         },
         "SubnetId": {
-          "Ref": "Subnet4"
+          "Fn::If": [
+            "CreateVPC",
+            {
+              "Ref": "Subnet4"
+            },
+            {
+              "Fn::Select": [
+                0,
+                {
+                  "Ref": "ExistingSubnetIds"
+                }
+              ]
+            }
+          ]
         },
         "SecurityGroupIds": [
           {
@@ -1545,12 +1714,14 @@
     },
     "ElasticIP1": {
       "Type": "AWS::EC2::EIP",
+      "Condition": "CreateVPC",
       "Properties": {
         "Domain": "VPC"
       }
     },
     "VPC": {
       "Type": "AWS::EC2::VPC",
+      "Condition": "CreateVPC",
       "Properties": {
         "CidrBlock": "172.30.0.0/16",
         "EnableDnsSupport": "true",
@@ -1579,6 +1750,7 @@
     },
     "PublicRouteTable": {
       "Type": "AWS::EC2::RouteTable",
+      "Condition": "CreateVPC",
       "Properties": {
         "VpcId": {
           "Ref": "VPC"
@@ -1590,6 +1762,7 @@
     },
     "PrivateRouteTable": {
       "Type": "AWS::EC2::RouteTable",
+      "Condition": "CreateVPC",
       "Properties": {
         "VpcId": {
           "Ref": "VPC"
@@ -1601,6 +1774,7 @@
     },
     "IGWAtt": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Condition": "CreateVPC",
       "Properties": {
         "InternetGatewayId": {
           "Ref": "IGW"
@@ -1616,6 +1790,7 @@
     },
     "IGW": {
       "Type": "AWS::EC2::InternetGateway",
+      "Condition": "CreateVPC",
       "Properties": {
         "Tags": [
           {
@@ -1647,6 +1822,7 @@
     },
     "NATGW": {
       "Type": "AWS::EC2::NatGateway",
+      "Condition": "CreateVPC",
       "Properties": {
         "AllocationId": {
           "Fn::GetAtt": [
@@ -1661,6 +1837,7 @@
     },
     "PublicRoute": {
       "Type": "AWS::EC2::Route",
+      "Condition": "CreateVPC",
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
         "GatewayId": {
@@ -1676,6 +1853,7 @@
     },
     "PrivateRoute": {
       "Type": "AWS::EC2::Route",
+      "Condition": "CreateVPC",
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
         "NatGatewayId": {
@@ -1691,6 +1869,7 @@
     },
     "Subnet1": {
       "Type": "AWS::EC2::Subnet",
+      "Condition": "CreateVPC",
       "Properties": {
         "CidrBlock": "172.30.1.0/24",
         "VpcId": {
@@ -1708,6 +1887,7 @@
     },
     "Subnet2": {
       "Type": "AWS::EC2::Subnet",
+      "Condition": "CreateVPC",
       "Properties": {
         "CidrBlock": "172.30.2.0/24",
         "VpcId": {
@@ -1725,7 +1905,7 @@
     },
     "Subnet3": {
       "Type": "AWS::EC2::Subnet",
-      "Condition": "AZ3Present",
+      "Condition": "AZ3PresentAndCreateVPC",
       "Properties": {
         "CidrBlock": "172.30.3.0/24",
         "VpcId": {
@@ -1743,6 +1923,7 @@
     },
     "Subnet4": {
       "Type": "AWS::EC2::Subnet",
+      "Condition": "CreateVPC",
       "Properties": {
         "CidrBlock": "172.30.4.0/24",
         "MapPublicIpOnLaunch": "true",
@@ -1761,6 +1942,7 @@
     },
     "SubnetRTAssociation1": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Condition": "CreateVPC",
       "DependsOn": [
         "Subnet1",
         "PrivateRouteTable"
@@ -1776,6 +1958,7 @@
     },
     "SubnetRTAssociation2": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Condition": "CreateVPC",
       "DependsOn": [
         "Subnet2",
         "PrivateRouteTable"
@@ -1791,7 +1974,7 @@
     },
     "SubnetRTAssociation3": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Condition": "AZ3Present",
+      "Condition": "AZ3PresentAndCreateVPC",
       "DependsOn": [
         "Subnet3",
         "PrivateRouteTable"
@@ -1807,6 +1990,7 @@
     },
     "SubnetRTAssociation4": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Condition": "CreateVPC",
       "DependsOn": [
         "Subnet4",
         "PublicRouteTable"
@@ -1884,7 +2068,15 @@
     "VPC": {
       "Description": "VPC",
       "Value": {
-        "Ref": "VPC"
+        "Fn::If": [
+          "CreateVPC",
+          {
+            "Ref": "VPC"
+          },
+          {
+            "Ref": "ExistingVpcId"
+          }
+        ]
       }
     }
   }

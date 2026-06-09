@@ -87,6 +87,8 @@ if [[ "$#" -gt 0 ]]; then
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
     echo "  --benchmark-qa-limit <max number of QA pairs to evaluate (for prototype runs)>"
     echo "  --benchmark-prototype"
+    echo "  --existing-vpc-id <Existing VPC ID to reuse (skip VPC creation)>"
+    echo "  --existing-subnet-ids <Comma-separated existing subnet IDs (min 2, spanning 2 AZs)>"
     echo "  --prev-stack <Previous stack name or ID>"
 		echo "  --delete-on-pass"
 		echo "  --fail-fast"
@@ -173,6 +175,8 @@ while [[ "$#" -gt 0 ]]; do
         --benchmark-data-s3-uri) BENCHMARK_DATA_S3_URI="$2"; shift ;;
         --benchmark-qa-limit) BENCHMARK_QA_LIMIT="$2"; shift ;;
         --benchmark-prototype) BENCHMARK_IS_PROTOTYPE=true ;;
+        --existing-vpc-id) EXISTING_VPC_ID="$2"; shift ;;
+        --existing-subnet-ids) EXISTING_SUBNET_IDS="$2"; shift ;;
         --prev-stack) PREV_STACK_NAME="$2"; shift ;;
 				--delete-on-pass) DELETE_ON_PASS=True ;;
 				--fail-fast) FAIL_FAST=True ;;
@@ -411,6 +415,8 @@ echo "TESTS                    : $TESTS"
 echo "BENCHMARK_DATA_DIR       : $BENCHMARK_DATA_DIR"
 echo "BENCHMARK_DATA_S3_URI    : $BENCHMARK_DATA_S3_URI"
 echo "BENCHMARK_QA_LIMIT       : $BENCHMARK_QA_LIMIT"
+echo "EXISTING_VPC_ID          : $EXISTING_VPC_ID"
+echo "EXISTING_SUBNET_IDS      : $EXISTING_SUBNET_IDS"
 echo "PREV_STACK_NAME"         : $PREV_STACK_NAME
 echo "----------------------------------------------------"
 echo ""
@@ -473,6 +479,8 @@ if [[ -z "$DRY_RUN" ]]; then
 		ParameterKey=IamPolicyArn,ParameterValue="$ADDITIONAL_IAM_POLICY_ARN" \
 		ParameterKey=SSHCIDR,ParameterValue="$SSHCIDR" \
 		ParameterKey=DbPassword,ParameterValue="$DB_PASSWORD" \
+		ParameterKey=ExistingVpcId,ParameterValue="${EXISTING_VPC_ID:-}" \
+		ParameterKey=ExistingSubnetIds,ParameterValue="${EXISTING_SUBNET_IDS:-}" \
 	  --capabilities CAPABILITY_NAMED_IAM \
 	  --tags \
 	    Key=ApplicationName,Value="graphrag-toolkit test" \

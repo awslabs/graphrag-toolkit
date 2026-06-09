@@ -78,7 +78,17 @@
 			"Description": "Database password (used by some store providers)",
 			"Type": "String",
 			"NoEcho": true
-		}
+		},
+    "ExistingVpcId": {
+      "Description": "Optional existing VPC ID to reuse (leave empty to create a new VPC)",
+      "Type": "String",
+      "Default": ""
+    },
+    "ExistingSubnetIds": {
+      "Description": "Optional existing subnet IDs to reuse (comma-delimited, min 2 across 2 AZs). Must be provided together with ExistingVpcId",
+      "Type": "CommaDelimitedList",
+      "Default": ""
+    }
   },
   "Mappings": {
     "EnvTypeMap": {
@@ -535,6 +545,17 @@
               },
               {
                 "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "ExistingVpcId": {
+            "Ref": "ExistingVpcId"
+          },
+          "ExistingSubnetIds": {
+            "Fn::Join": [
+              ",",
+              {
+                "Ref": "ExistingSubnetIds"
               }
             ]
           }
