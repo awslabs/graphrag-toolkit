@@ -18,7 +18,6 @@ from llama_index.core.schema import QueryBundle
 QA_FILE_MAP = {
     'cuad': ['qa.json'],
     'cuad-prototype': ['qa.json'],
-    'cuad-prototype': ['qa.json'],
     'pga': ['pga_bio.json', 'pga_stat.json'],
     'concurrentqa': ['qa.json'],
 }
@@ -150,8 +149,6 @@ class CuadBenchmarkQuery(IntegrationTestBase):
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
         limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
         is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
         dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
 

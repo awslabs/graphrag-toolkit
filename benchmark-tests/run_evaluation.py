@@ -10,8 +10,9 @@ import time
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def call_bedrock_invoke_model(prompt, bedrock, model_id, is_json_output=True):
-    while True:
+def call_bedrock_invoke_model(prompt, bedrock, model_id, is_json_output=True, max_retries=10):
+    last_exception = None
+    for _attempt in range(max_retries):
         try:
             accept = 'application/json'
             contentType = 'application/json'
@@ -70,9 +71,10 @@ def call_bedrock_invoke_model(prompt, bedrock, model_id, is_json_output=True):
             else:
                 return response_text
         except Exception as e:
+            last_exception = e
             logger.error(str(e))
             time.sleep(3)
-        
+    raise last_exception
 
 
 BKB_CORRECTNESS_GRADING = """
@@ -107,20 +109,19 @@ IDK_DETECTION = """You are a teacher grading a quiz. Based on students' response
 Response: {response}
 Please output "Unanswerable" if the students identify that they can not answer the question. Otherwise, output "Answerable".
 """
-import os
-os.environ["AWS_REGION_NAME"] = "us-west-2"
-    
+_REGION = os.environ.get('AWS_REGION', os.environ.get('REGION_NAME', 'us-west-2'))
+
 
 class GenerationEvaluator:
     bedrock = Session().client(
         service_name='bedrock-runtime',
-        region_name="us-west-2",
+        region_name=_REGION,
         config=Config(
             max_pool_connections=50,
             retries={"max_attempts": 10, "mode": "standard"},
             connect_timeout=500,
             read_timeout=500,
-            region_name="us-west-2"  
+            region_name=_REGION
         ))
     
 

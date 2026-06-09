@@ -124,9 +124,6 @@ class CuadBenchmarkEvaluate(IntegrationTestBase):
         is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
         dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
 
-        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
-        dataset_name = 'cuad-prototype' if is_prototype == 'true' else 'cuad'
-
         responses_path = params.get('benchmark_responses_path',
                                     os.path.join('benchmark-results', dataset_name, 'responses.jsonl'))
 
