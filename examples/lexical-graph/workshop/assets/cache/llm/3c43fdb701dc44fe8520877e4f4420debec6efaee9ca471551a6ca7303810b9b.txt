@@ -1,0 +1,91 @@
+topic: x2g Family of Instance Types
+
+  entities:
+
+    x2g family|Product
+    r5 family|Product
+    r6g family|Product
+    Graviton2|Product
+
+  proposition: [The `x2g` family is a family of instance types.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    x2g family|CATEGORY|instance types
+
+  proposition: [The `x2g` family was launched to better support graph use cases that see better performance when instances have larger buffer-pool caches.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+    x2g family|PURPOSE|support graph use cases with larger buffer-pool caches
+
+  proposition: [Some graph use cases see better performance when instances have larger buffer-pool caches.]
+
+    entity-entity relationships:
+
+    entity-attributes:
+
+  proposition: [The `x2g` family has a larger memory-to-vCPU ratio than the `r5` family.]
+
+    entity-entity relationships:
+    x2g family|COMPARED_TO|r5 family
+
+    entity-attributes:
+    x2g family|MEMORY_TO_VCPU_RATIO|larger than r5 family
+
+  proposition: [The `x2g` family has a larger memory-to-vCPU ratio than the `r6g` family.]
+
+    entity-entity relationships:
+    x2g family|COMPARED_TO|r6g family
+
+    entity-attributes:
+    x2g family|MEMORY_TO_VCPU_RATIO|larger than r6g family
+
+  proposition: [The `x2g` instances use the Graviton2 processor.]
+
+    entity-entity relationships:
+    x2g family|USES|Graviton2
+
+    entity-attributes:
+
+  proposition: [The `x2g` instances have many of the same performance characteristics as `r6g` instance types.]
+
+    entity-entity relationships:
+    x2g family|SIMILAR_TO|r6g family
+
+    entity-attributes:
+
+  proposition: [The `x2g` instances have a larger buffer-pool cache compared to `r6g` instance types.]
+
+    entity-entity relationships:
+    x2g family|COMPARED_TO|r6g family
+
+    entity-attributes:
+    x2g family|BUFFER_POOL_CACHE|larger than r6g family
+
+  proposition: [If using `r5` instance types with low CPU utilization and a high buffer-pool cache miss rate, using the `x2g` family instead is recommended.]
+
+    entity-entity relationships:
+    x2g family|RECOMMENDED_OVER|r5 family
+
+    entity-attributes:
+    r5 family|USE_CONDITION|low CPU utilization and high buffer-pool cache miss rate
+
+  proposition: [If using `r6g` instance types with low CPU utilization and a high buffer-pool cache miss rate, using the `x2g` family instead is recommended.]
+
+    entity-entity relationships:
+    x2g family|RECOMMENDED_OVER|r6g family
+
+    entity-attributes:
+    r6g family|USE_CONDITION|low CPU utilization and high buffer-pool cache miss rate
+
+  proposition: [Using the `x2g` family instead of `r5` or `r6g` instance types provides additional memory without paying for more CPU capacity.]
+
+    entity-entity relationships:
+    x2g family|RECOMMENDED_OVER|r5 family
+    x2g family|RECOMMENDED_OVER|r6g family
+
+    entity-attributes:
+    x2g family|BENEFIT|additional memory without paying for more CPU capacity

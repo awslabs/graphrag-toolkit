@@ -1,0 +1,40 @@
+# Bandit is a Python static analysis tool that finds common security issues
+# such as hardcoded passwords, SQL injection, use of unsafe functions, and
+# insecure cryptographic practices. It scans source code and reports findings
+# by severity (low/medium/high). This workflow fails if medium+ issues are found.
+
+name: Security Scan
+
+on:
+  pull_request:
+    paths:
+      - 'byokg-rag/**'
+      - 'lexical-graph/**'
+  schedule:
+    - cron: '0 9 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  bandit-byokg-rag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install bandit
+      - run: bandit -r byokg-rag/src/ -f json -o bandit-report.json || true
+      - run: bandit -r byokg-rag/src/ -ll
+
+  bandit-lexical-graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install bandit
+      - run: bandit -r lexical-graph/src/ -f json -o bandit-report.json || true
+      - run: bandit -r lexical-graph/src/ -ll

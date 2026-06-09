@@ -1,0 +1,873 @@
+{
+  "Description": "Creates a GraphRAG Toolkit workshop environment (VPC, Neptune Database, OpenSearch Serverless collection, and SageMaker notebook)",
+  "Parameters": {
+    "ApplicationId": {
+      "Description": "Application id (used to name all resources in the environment)",
+      "Type": "String",
+      "Default": "dat419",
+      "AllowedPattern": "[a-z][a-z0-9-]*",
+      "MaxLength": 16,
+      "MinLength": 3,
+      "ConstraintDescription": "Must start with a lowercase letter, contain between 3 and 16 characters, and contain only lowercase letters, numbers and the hyphen"
+    },
+    "ProvisionedMemory": {
+      "Description": "Number of m-NCUs to be allocated to the graph",
+      "Type": "String",
+      "Default": "16",
+      "AllowedValues": [
+        "16",
+        "32",
+        "64",
+        "128",
+        "256",
+        "384",
+        "512",
+        "768",
+        "1024"
+      ]
+    },
+    "IamPolicyArn": {
+      "Type": "String",
+      "Description": "Space-separated ARNs of one or more additional IAM policies to be attached to the GraphRAG client IAM role (optional)",
+      "Default": ""
+    },
+    "NotebookInstanceType": {
+      "Description": "SageMaker notebook instance type (use ml.p3.2xlarge to provision a GPU instance)",
+      "Type": "String",
+      "Default": "ml.m5.xlarge",
+      "AllowedValues": [
+        "ml.m5.xlarge",
+        "ml.p3.2xlarge"
+      ],
+      "ConstraintDescription": "Must be a valid SageMaker instance type."
+    },
+    "ExampleNotebooksURL": {
+      "Type": "String",
+      "Description": "URL of a zip file containing example notebooks to be installed on SageMaker instance (optional)",
+      "Default": "https://ws-assets-prod-iad-r-iad-ed304a55c2ca1aee.s3.us-east-1.amazonaws.com/dc6fc307-a969-472c-9cdb-25480026e65b/graphrag-workshop.zip"
+    },
+    "ModelId": {
+      "Type": "String",
+      "Description": "Bedrock model id or profile for extraction and response LLMs",
+      "Default": "global.anthropic.claude-sonnet-4-6"
+    }
+  },
+  "Metadata": {
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [
+        {
+          "Label": {
+            "default": "Setup"
+          },
+          "Parameters": [
+            "ApplicationId"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Neptune"
+          },
+          "Parameters": [
+            "ProvisionedMemory"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Bedrock"
+          },
+          "Parameters": [
+            "ModelId"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Notebook"
+          },
+          "Parameters": [
+            "NotebookInstanceType",
+            "ExampleNotebooksURL",
+            "IamPolicyArn"
+          ]
+        }
+      ]
+    }
+  },
+  "Conditions": {
+    "ExampleNotebooksURLIsNotBlank": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "ExampleNotebooksURL"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "IsS3ExampleNotebooksURL": {
+      "Fn::Equals": [
+        {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::Split": [
+                ":",
+                {
+                  "Ref": "ExampleNotebooksURL"
+                }
+              ]
+            }
+          ]
+        },
+        "s3"
+      ]
+    },
+    "IsIadRegion": {
+      "Fn::Equals": [
+        {
+          "Ref": "AWS::Region"
+        },
+        "us-east-1"
+      ]
+    },
+    "AddIamPolicyArn": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "IamPolicyArn"
+            },
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "Resources": {
+    "Graph": {
+      "Type": "AWS::NeptuneGraph::Graph",
+      "Properties": {
+        "GraphName": {
+          "Fn::Sub": "${ApplicationId}-graph"
+        },
+        "DeletionProtection": false,
+        "ProvisionedMemory": {
+          "Ref": "ProvisionedMemory"
+        },
+        "PublicConnectivity": true,
+        "ReplicaCount": 1,
+        "VectorSearchConfiguration": {
+          "VectorSearchDimension": 1024
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${ApplicationId}-graph"
+            }
+          },
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "GraphRAGClientRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "sagemaker.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "ManagedPolicyArns": {
+          "Fn::If": [
+            "AddIamPolicyArn",
+            {
+              "Fn::Split": [
+                " ",
+                {
+                  "Ref": "IamPolicyArn"
+                }
+              ]
+            },
+            [
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          ]
+        },
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "GraphRAGTestPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Condition": "IsS3ExampleNotebooksURL",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-graphrag-workshop-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "ListObjectsInBucket",
+              "Effect": "Allow",
+              "Action": [
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:s3:::${bucket}",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "bucket": {
+                        "Fn::Select": [
+                          2,
+                          {
+                            "Fn::Split": [
+                              "/",
+                              {
+                                "Ref": "ExampleNotebooksURL"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "AllObjectActions",
+              "Effect": "Allow",
+              "Action": "s3:*Object",
+              "Resource": [
+                {
+                  "Fn::Sub": [
+                    "arn:${partition}:s3:::${bucket}/*",
+                    {
+                      "partition": {
+                        "Ref": "AWS::Partition"
+                      },
+                      "bucket": {
+                        "Fn::Select": [
+                          2,
+                          {
+                            "Fn::Split": [
+                              "/",
+                              {
+                                "Ref": "ExampleNotebooksURL"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "GraphRAGClientRolePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-graphrag-client-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "S3ListBucketAndGetObject",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Fn::If": [
+                    "IsIadRegion",
+                    "arn:aws:s3:::aws-neptune-notebook",
+                    {
+                      "Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}"
+                    }
+                  ]
+                },
+                {
+                  "Fn::If": [
+                    "IsIadRegion",
+                    "arn:aws:s3:::aws-neptune-notebook/*",
+                    {
+                      "Fn::Sub": "arn:aws:s3:::aws-neptune-notebook-${AWS::Region}/*"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "LogGroupAccess",
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/sagemaker/*"
+                }
+              ]
+            },
+            {
+              "Sid": "SageMakerNotebookAccess",
+              "Effect": "Allow",
+              "Action": "sagemaker:DescribeNotebookInstance",
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:sagemaker:${AWS::Region}:${AWS::AccountId}:notebook-instance/*"
+                }
+              ]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "BedrockInvokeModelPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-bedrock-invoke-model-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "BedrockAPIs",
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:Get*",
+                "bedrock:List*",
+                "bedrock:CallWithBearerToken",
+                "bedrock:BatchDeleteEvaluationJob",
+                "bedrock:CreateEvaluationJob",
+                "bedrock:CreateGuardrail",
+                "bedrock:CreateGuardrailVersion",
+                "bedrock:CreateInferenceProfile",
+                "bedrock:CreateModelCopyJob",
+                "bedrock:CreateModelCustomizationJob",
+                "bedrock:CreateModelImportJob",
+                "bedrock:CreateModelInvocationJob",
+                "bedrock:CreatePromptRouter",
+                "bedrock:CreateProvisionedModelThroughput",
+                "bedrock:DeleteCustomModel",
+                "bedrock:DeleteGuardrail",
+                "bedrock:DeleteImportedModel",
+                "bedrock:DeleteInferenceProfile",
+                "bedrock:DeletePromptRouter",
+                "bedrock:DeleteProvisionedModelThroughput",
+                "bedrock:StopEvaluationJob",
+                "bedrock:StopModelCustomizationJob",
+                "bedrock:StopModelInvocationJob",
+                "bedrock:TagResource",
+                "bedrock:UntagResource",
+                "bedrock:UpdateGuardrail",
+                "bedrock:UpdateProvisionedModelThroughput",
+                "bedrock:ApplyGuardrail",
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Sid": "DescribeKey",
+              "Effect": "Allow",
+              "Action": [
+                "kms:DescribeKey"
+              ],
+              "Resource": "arn:*:kms:*:::*"
+            },
+            {
+              "Sid": "APIsWithAllResourceAccess",
+              "Effect": "Allow",
+              "Action": [
+                "iam:ListRoles",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeSecurityGroups"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Sid": "MarketplaceOperationsFromBedrockFor3pModels",
+              "Effect": "Allow",
+              "Action": [
+                "aws-marketplace:Subscribe",
+                "aws-marketplace:ViewSubscriptions",
+                "aws-marketplace:Unsubscribe"
+              ],
+              "Resource": "*",
+              "Condition": {
+                "StringEquals": {
+                  "aws:CalledViaLast": "bedrock.amazonaws.com"
+                }
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:Rerank"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Sid": "GrantCrisInferenceProfileAccess",
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.*"
+                }
+              ]
+            },
+            {
+              "Sid": "GrantFoundationModelAccess",
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.*"
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+              ],
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.rerank-v3-5:0"
+                }
+              ]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "NeptuneAnalyticsDataAccessPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "ManagedPolicyName": {
+          "Fn::Sub": "${ApplicationId}-neptune-analytics-policy"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "neptune-graph:ReadDataViaQuery",
+                "neptune-graph:WriteDataViaQuery",
+                "neptune-graph:DeleteDataViaQuery",
+                "neptune-graph:GetGraph"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:${partition}:neptune-graph:${region}:${account_id}:graph/${resource_id}",
+                  {
+                    "partition": {
+                      "Ref": "AWS::Partition"
+                    },
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account_id": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "resource_id": {
+                      "Ref": "Graph"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "GraphRAGClientRole"
+          }
+        ],
+        "Path": "/graphrag-toolkit/"
+      }
+    },
+    "NeptuneNotebookInstance": {
+      "Type": "AWS::SageMaker::NotebookInstance",
+      "Properties": {
+        "InstanceType": {
+          "Ref": "NotebookInstanceType"
+        },
+        "PlatformIdentifier": "notebook-al2-v3",
+        "NotebookInstanceName": {
+          "Fn::Sub": "aws-neptune-${ApplicationId}"
+        },
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "GraphRAGClientRole",
+            "Arn"
+          ]
+        },
+        "LifecycleConfigName": {
+          "Fn::GetAtt": [
+            "NeptuneNotebookInstanceLifecycleConfig",
+            "NotebookInstanceLifecycleConfigName"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "StackId",
+            "Value": {
+              "Fn::Sub": "${AWS::StackId}"
+            }
+          },
+          {
+            "Key": "Stack",
+            "Value": {
+              "Fn::Sub": "${AWS::Region}-${AWS::StackName}"
+            }
+          },
+          {
+            "Key": "Application",
+            "Value": {
+              "Fn::Sub": "graphrag-toolkit:application-id:${ApplicationId}"
+            }
+          }
+        ]
+      }
+    },
+    "NeptuneNotebookInstanceLifecycleConfig": {
+      "Type": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+      "Properties": {
+        "OnStart": [
+          {
+            "Content": {
+              "Fn::Base64": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "#!/bin/bash\n\n",
+                    "sudo -u ec2-user -i <<'EOF'\n",
+                    "\n",
+                    "sudo pip install packaging==24.2\n",
+                    "echo \"export STACK_ID=",
+                    {
+                      "Ref": "AWS::StackId"
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export EXTRACTION_MODEL=",
+                    {
+                      "Ref": "ModelId"
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export ENABLE_CACHE=True\" >> ~/.bashrc\n",
+                    "echo \"export OPENSEARCH_ENGINE=faiss\" >> ~/.bashrc\n",
+                    "echo \"export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False\" >> ~/.bashrc\n",
+                    "echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> ~/.bashrc\n",
+                    "echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> ~/.bashrc\n",
+                    "echo \"export RESPONSE_MODEL=",
+                    {
+                      "Ref": "ModelId"
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export EVALUATION_MODEL=",
+                    {
+                      "Ref": "ModelId"
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_AUTH_MODE=IAM\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SSL=True\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_IAM_PROVIDER=ROLE\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_PORT=8182\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export VECTOR_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_SERVICE=neptune-graph\" >> ~/.bashrc\n",
+                    "echo \"export GRAPH_NOTEBOOK_HOST=",
+                    {
+                      "Fn::GetAtt": [
+                        "Graph",
+                        "Endpoint"
+                      ]
+                    },
+                    "\" >> ~/.bashrc\n",
+                    "echo \"export AWS_REGION=",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "\" >> ~/.bashrc\n\n",
+                    "aws s3 cp s3://",
+                    {
+                      "Fn::If": [
+                        "IsIadRegion",
+                        "aws-neptune-notebook",
+                        {
+                          "Fn::Sub": "aws-neptune-notebook-${AWS::Region}"
+                        }
+                      ]
+                    },
+                    "/graph_notebook.tar.gz /tmp/graph_notebook.tar.gz\n",
+                    "rm -rf /tmp/graph_notebook\n",
+                    "tar -zxvf /tmp/graph_notebook.tar.gz -C /tmp\n",
+                    "chmod +x /tmp/graph_notebook/install_jl4x.sh\n",
+                    "/tmp/graph_notebook/install_jl4x.sh\n",
+                    "\n",
+                    "cd /home/ec2-user/SageMaker\n",
+                    "if [ ! -d graphrag-toolkit ]; then\n",
+                    "  mkdir graphrag-toolkit\n",
+                    "  chmod -R 777 graphrag-toolkit\n",
+                    {
+                      "Fn::If": [
+                        "ExampleNotebooksURLIsNotBlank",
+                        {
+                          "Fn::If": [
+                            "IsS3ExampleNotebooksURL",
+                            {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "  aws s3 cp \"",
+                                  {
+                                    "Ref": "ExampleNotebooksURL"
+                                  },
+                                  "\" .\n",
+                                  "  unzip graphrag-workshop.zip -d graphrag-toolkit\n",
+                                  "  rm -rf graphrag-workshop.zip\n"
+                                ]
+                              ]
+                            },
+                            {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "  curl -LO \"",
+                                  {
+                                    "Ref": "ExampleNotebooksURL"
+                                  },
+                                  "\" -o graphrag-workshop.zip\n",
+                                  "  unzip graphrag-workshop.zip -d graphrag-toolkit\n",
+                                  "  rm -rf graphrag-workshop.zip\n"
+                                ]
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Ref": "AWS::NoValue"
+                        }
+                      ]
+                    },
+                    "  cd graphrag-toolkit\n",
+                    "  echo \"export STACK_ID=",
+                    {
+                      "Ref": "AWS::StackId"
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export GRAPH_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export VECTOR_STORE=",
+                    {
+                      "Fn::Sub": [
+                        "neptune-graph://${graphid}",
+                        {
+                          "graphid": {
+                            "Fn::GetAtt": [
+                              "Graph",
+                              "GraphId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EXTRACTION_MODEL=",
+                    {
+                      "Ref": "ModelId"
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export ENABLE_CACHE=True\" >> .env\n",
+                    "  echo \"export INCLUDE_CLASSIFICATION_IN_ENTITY_ID=False\" >> .env\n",
+                    "  echo \"export EMBEDDINGS_MODEL=cohere.embed-english-v3\" >> .env\n",
+                    "  echo \"export EMBEDDINGS_DIMENSIONS=1024\" >> .env\n",
+                    "  echo \"export RESPONSE_MODEL=",
+                    {
+                      "Ref": "ModelId"
+                    },
+                    "\" >> .env\n",
+                    "  echo \"export EVALUATION_MODEL=",
+                    {
+                      "Ref": "ModelId"
+                    },
+                    "\" >> .env\n",
+                    "  if [ -f \"./on-start.sh\" ]\n",
+                    "  then\n",
+                    "    echo \"Running startup script\"\n",
+                    "    screen -L -m -d sh on-start.sh\n",
+                    "  else\n",
+                    "    echo \"No startup script\"\n",
+                    "  fi\n",
+                    "fi\n",
+                    "EOF"
+                  ]
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "NeptuneAnalyticsGraphId": {
+      "Value": {
+        "Fn::GetAtt": [
+          "Graph",
+          "GraphId"
+        ]
+      }
+    },
+    "NeptuneSagemakerNotebook": {
+      "Description": "SageMaker notebook URL",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Fn::Select": [
+                1,
+                {
+                  "Fn::Split": [
+                    "/",
+                    {
+                      "Ref": "NeptuneNotebookInstance"
+                    }
+                  ]
+                }
+              ]
+            },
+            ".notebook.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".sagemaker.aws/nbclassic/tree/graphrag-toolkit"
+          ]
+        ]
+      }
+    }
+  }
+}

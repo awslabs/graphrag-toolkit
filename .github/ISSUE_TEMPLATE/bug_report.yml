@@ -1,0 +1,69 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the sections below.
+
+        If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do not create a public github issue.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: Output of `pip show graphrag-lexical-graph` or `pip show graphrag-toolkit-byokg-rag`
+      placeholder: "0.8.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - lexical-graph
+        - byokg-rag
+        - both
+    validations:
+      required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: "3.12.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - SageMaker Notebook
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps to reproduce the issue
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error output / stack trace
+      render: shell
+    validations:
+      required: false

@@ -1,0 +1,50 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Sure"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "! Let me query"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bases simultaneously"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to get"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " comprehensive"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " information about the Cessna 210"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Centurion's variants and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " their"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " associated"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " accidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "/"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "incidents"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_UNuAEq3Eufvw4rt42M1qOX", "name": "aircraft"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"quer"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\": \""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Cess"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "na 210"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " Ce"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nturi"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "on varian"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ts a"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nd devel"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "opmental"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " history\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_rTW8ibxjUl9kWzVlRMOTUR", "name": "ntsb"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"quer"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\": \"Ces"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sna 210 "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "Centurio"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n accident"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s mecha"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ni"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ca"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l fai"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "lures s"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "afe"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty inc"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "idents varia"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "nts\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 2360, "outputTokens": 150, "totalTokens": 2510}, "metrics": {"latencyMs": 3072}}}

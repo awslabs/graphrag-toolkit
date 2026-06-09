@@ -179,8 +179,8 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
             for future in futures:
                 for result in future.result():
                     statement_ids.append(result)
-                    
-        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids))) 
+
+        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids)))           
         search_results_collection = self._to_search_results_collection(search_results) 
         
         retriever_name = type(self).__name__

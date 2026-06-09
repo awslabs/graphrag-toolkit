@@ -290,47 +290,6 @@ def create_entity_entity_relation(graph_store, facts):
     graph_store.execute_query_with_retry(cypher, parameters)
     
     
-    
-def create_fact_next_relation(graph_store, facts):
-
-    params = []
-    
-    for fact in facts:
-        params.append({
-            'fact_id': fact['fact_id']
-        })
-    
-    parameters = {
-        'params': params    
-    }
-    
-    
-    statements_prev = [
-        '// insert connection to prev facts',
-        'UNWIND $params AS params',
-        f'MATCH (fact:`__Fact__`{{{graph_store.node_id("factId")}: params.fact_id}})<-[:`__SUBJECT__`]-(:`__Entity__`)-[:`__OBJECT__`]->(prevFact:`__Fact__`)',
-        'WHERE fact <> prevFact // and NOT ((fact)<-[:`__NEXT__`]-(prevFact))',
-        'WITH DISTINCT fact, prevFact',
-        'MERGE (fact)<-[:`__NEXT__`]-(prevFact)'
-    ]
-
-    query_prev = '\n'.join(statements_prev)
-        
-    graph_store.execute_query_with_retry(query_prev, parameters, max_attempts=5, max_wait=7)
-    
-    statements_next = [
-        '// insert connection to next facts',
-        'UNWIND $params AS params',
-        f'MATCH (fact:`__Fact__`{{{graph_store.node_id("factId")}: params.fact_id}})<-[:`__OBJECT__`]-(:`__Entity__`)-[:`__SUBJECT__`]->(nextFact:`__Fact__`)',
-        'WHERE fact <> nextFact // and NOT ((fact)-[:`__NEXT__`]->(nextFact))',
-        'WITH DISTINCT fact, nextFact',
-        'MERGE (fact)-[:`__NEXT__`]->(nextFact)'
-    ]
-
-    query_next = '\n'.join(statements_next)
-        
-    graph_store.execute_query_with_retry(query_next, parameters, max_attempts=5, max_wait=7)
-    
 def get_stats(graph_store, fact_ids, batch_size):
 
     stats = {}
@@ -376,57 +335,6 @@ def get_stats(graph_store, fact_ids, batch_size):
         progress_bar_1.update(len(fact_id_batch))
     
     stats['num_object_relationships'] = total_object
-    
-    
-    
-
-    #cypher = '''
-    #MATCH (:`__Entity__`)-[r:`__SUBJECT__`]->()
-    #RETURN count(r) AS count
-    #'''
-    #
-    #results = graph_store.execute_query_with_retry(cypher, {})
-    #
-    #stats['num_subject_relationships'] = results[0]['count']
-    #
-    #cypher = '''
-    #MATCH (:`__Entity__`)-[r:`__OBJECT__`]->()
-    #RETURN count(r) AS count
-    #'''
-    #
-    #results = graph_store.execute_query_with_retry(cypher, {})
-    #
-    #stats['num_object_relationships'] = results[0]['count']
-    
-    #cypher = '''
-    #MATCH (:`__Entity__`)-[r:`__RELATION__`]->(:`__Entity__`)
-    #RETURN count(r) AS count
-    #'''
-    #
-    #results = graph_store.execute_query_with_retry(cypher, {})
-    #
-    #stats['num_relation_relationships'] = results[0]['count']
-    
-    total_next = 0
-
-    progress_bar_1 = tqdm(total=len(fact_ids), desc='Counting NEXT relationships')
-    for fact_id_batch in iter_batch(fact_ids, batch_size=batch_size):
-        cypher = '''
-        MATCH (f)-[r:`__NEXT__`]->() WHERE id(f) in $fact_ids
-        RETURN count(r) AS count
-        '''
-    
-        params = {
-            'fact_ids': fact_id_batch
-        }
-    
-        results = graph_store.execute_query_with_retry(cypher, params)
-    
-        counts = [r['count'] for r in results]
-        total_next += sum(counts)
-        progress_bar_1.update(len(fact_id_batch))
-    
-    stats['num_next_relationships'] = total_next
     
     return stats
 
@@ -476,23 +384,6 @@ def repair(graph_store_info, batch_size, skip_invalid_relationships, skip_entity
             create_entity_fact_relation(graph_store, facts, 'subject')
             create_entity_fact_relation(graph_store, facts, 'object')
             progress_bar_1.update(len(fact_id_batch))
-
-    #print()
-    #print('Creating RELATION entity-entity relationships...')
-    #total = 0
-    #for fact_id_batch in iter_batch(fact_ids, batch_size=batch_size):
-    #    facts = get_facts(graph_store, fact_id_batch)
-    #    create_entity_entity_relation(graph_store, facts)
-    #    total += len(fact_id_batch)
-    #    if total % TOTAL_MOD == 0:
-    #        print(f'  {total}')
-    #print(f'  Done')
-
-    progress_bar_2 = tqdm(total=len(fact_ids_to_process), desc='Creating NEXT fact-fact relationships')
-    for fact_id_batch in iter_batch(fact_ids_to_process, batch_size=batch_size):    
-        facts = get_facts(graph_store, fact_id_batch)
-        create_fact_next_relation(graph_store, facts)
-        progress_bar_2.update(len(fact_id_batch))
 
     stats['after'] = get_stats(graph_store, fact_ids, batch_size)
 

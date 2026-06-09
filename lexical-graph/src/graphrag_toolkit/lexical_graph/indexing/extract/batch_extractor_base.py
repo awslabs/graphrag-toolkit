@@ -238,7 +238,7 @@ class BatchExtractorBase(BaseExtractor):
 
         if len(node_file_paths.keys()) < BEDROCK_MIN_BATCH_SIZE:
 
-            logger.info(f'[{self.description} batch] Not enough records to run batch extraction. List of nodes contains fewer records ({len(node_file_paths.keys())}) than the minimum required by Bedrock ({BEDROCK_MIN_BATCH_SIZE}), so running non-batch extractor instead.')
+            logger.warning(f'[{self.description} batch] Not enough records to run batch extraction. List of nodes contains fewer records ({len(node_file_paths.keys())}) than the minimum required by Bedrock ({BEDROCK_MIN_BATCH_SIZE}), so running non-batch extractor instead.')
             results_generators.append(self._to_results_generator(self._run_non_batch_extractor(self._get_nodes_from_temp_dir(node_file_paths.keys()))))
 
         else:

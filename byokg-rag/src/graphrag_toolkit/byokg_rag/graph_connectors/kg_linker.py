@@ -13,8 +13,8 @@ class KGLinker:
     """
 
     def __init__(self,
-            llm_generator, 
-            graph_store,
+            llm_generator=None, 
+            graph_store=None,
             max_input_tokens: int = 32000
             ):
         """
@@ -25,6 +25,8 @@ class KGLinker:
             graph_store: Component that provides access to graph data
             max_input_tokens: Maximum allowed tokens for inputs (default: 32000)
         """
+        if graph_store is None:
+            raise ValueError("graph_store is required. Pass a graph store instance.")
         self.max_input_tokens = max_input_tokens
         self.AVAILABLE_TASKS = {
             "entity-extraction": {"pattern": r"<entities>(.*?)</entities>"},
@@ -40,6 +42,9 @@ class KGLinker:
         self.task_prompts = self._finalize_prompt()
         self.task_prompts_iterative = self._finalize_prompt_iterative_prompt()
 
+        if llm_generator is None:
+            from ..config import ByoKGConfig
+            llm_generator = ByoKGConfig.to_generator()
         self.llm_generator = llm_generator
 
     def get_tasks(self, graph_store):
@@ -135,8 +140,8 @@ class CypherKGLinker(KGLinker):
     This class focuses on generating and parsing LLM responses for cypher queries.
     """
     def __init__(self,
-            llm_generator, 
-            graph_store,
+            llm_generator=None, 
+            graph_store=None,
             max_input_tokens: int = 32000
             ):
         

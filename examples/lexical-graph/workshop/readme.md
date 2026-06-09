@@ -4,12 +4,48 @@ Retrieval Augmented Generation (RAG) applications use the power of generative AI
 
 The workshop assumes familiarity with graph concepts, vector similarity search, and retrieval augmented generation (RAG) techniques.
 
+## Windows Compatibility
+
+The workshop source data files use the graphrag-toolkit's internal node ID format (containing `::`) as filenames. Since `::` is not valid in Windows (NTFS) filenames, the source data is distributed as ZIP archives. Use the `zip_source` parameter to read from these archives.
+
+If you need to write processed data to disk on Windows, use the `filename_sanitizer` parameter:
+
+```python
+from graphrag_toolkit.lexical_graph.indexing.load import FileBasedDocs, windows_safe_filename
+
+# Read from ZIP archive (cross-platform)
+docs = FileBasedDocs(
+    docs_directory='./source-data',
+    collection_id='my-collection',
+    zip_source='./source-data/my-collection.zip'
+)
+
+# Write with Windows-safe filenames
+docs = FileBasedDocs(
+    docs_directory='./source-data',
+    collection_id='my-collection',
+    filename_sanitizer=windows_safe_filename  # Replaces :: with __ in filenames
+)
+```
+
 ## Installation
 
-  1. Create a new AWS CloudFormation stack using the `graphrag-toolkit-workshop.json` template. Supply a unique `ApplicationId` parameter (this parameter is used to name all resources created by the stack).
-  2. Once the stack is complete, click the `NeptuneSagemakerNotebook` URI in the **Outputs** tab.
-  3. Open notebook `0-Start-Here.ipynb`
+The workshop is installed using an AWS CloudFormation stack. The stack template and workshop assets are first copied to an Amazon S3 bucket, and then installed from the bucket. Before running the install, ensure you have an existing S3 bucket in the region where you plan to run the workshop.
+
+```
+sh install.sh --region <AWS Region> --bucket <name of an existing S3 bucket>
+```
+
+Once the stack is complete, click the `NeptuneSagemakerNotebook` URI in the **Outputs** tab, then open notebook `0-Start-Here.ipynb`
   
+## Environment Configuration
+
+```
+cp .env.template .env
+```
+
+Edit `.env` and set your connection strings and model configuration.
+
 ## Exercises
 
 In this workshop you are going to learn how to build a graph-enhanced generative AI question-answering solution using the AWS GraphRAG Toolkit open source library.

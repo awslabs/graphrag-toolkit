@@ -29,7 +29,7 @@ class RerankingBeamGraphSearchGPU(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         if os.environ.get('USE_GPU', 'False') == 'False':
             print('Non-GPU instance, so skipping test')

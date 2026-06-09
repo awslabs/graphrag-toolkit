@@ -26,7 +26,7 @@ class BatchExtractToS3Fallback(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.extraction_llm = os.environ.get('TEST_EXTRACTION_LLM', 'anthropic.claude-sonnet-4-6')
         GraphRAGConfig.extraction_batch_size = 100
         GraphRAGConfig.extraction_num_workers = 2
 

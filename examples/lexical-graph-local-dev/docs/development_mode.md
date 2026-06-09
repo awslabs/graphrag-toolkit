@@ -21,13 +21,7 @@ cd docker
 ### Apple Silicon Mac
 ```bash
 cd docker
-./start-containers.sh --dev --mac
-```
-
-### Windows PowerShell
-```powershell
-cd docker
-.\start-containers.ps1 -Dev -Mac
+./start-containers.sh --dev
 ```
 
 ---
@@ -35,7 +29,7 @@ cd docker
 ## What Development Mode Does
 
 ### 1. Source Code Mounting
-- Mounts `../../../lexical-graph` to `/home/jovyan/lexical-graph-src` in Jupyter container
+- Mounts `../../../lexical-graph` to `/home/jovyan/lexical-graph` in Jupyter container
 - Provides direct access to lexical-graph source code
 - Changes to source files are immediately visible
 
@@ -55,11 +49,11 @@ cd docker
 
 ### 1. Start Development Environment
 ```bash
-./start-containers.sh --dev --mac
+./start-containers.sh --dev
 ```
 
 ### 2. Access Jupyter Lab
-Open http://localhost:8889 in your browser
+Open http://localhost:8890 in your browser
 
 ### 3. Run Setup Notebook
 Execute `00-Setup.ipynb` which will:
@@ -71,7 +65,7 @@ Execute `00-Setup.ipynb` which will:
 ### 4. Verify Development Mode
 ```python
 import os
-dev_mode = os.path.exists('/home/jovyan/lexical-graph-src')
+dev_mode = os.path.exists('/home/jovyan/lexical-graph')
 print(f"Development mode: {dev_mode}")
 
 # Check if auto-reload is active
@@ -103,8 +97,8 @@ lexical-graph-local-dev/
 In Jupyter container:
 ```
 /home/jovyan/
-├── work/                           # notebooks/ mounted here
-└── lexical-graph-src/             # lexical-graph/ mounted here (dev mode only)
+├── notebooks/                      # notebooks/ mounted here
+└── lexical-graph/             # lexical-graph/ mounted here (dev mode only)
     ├── src/
     │   └── graphrag_toolkit/
     └── pyproject.toml
@@ -187,13 +181,13 @@ ls -la ../../../lexical-graph
 # Check installation mode
 import graphrag_toolkit
 print(graphrag_toolkit.__file__)
-# Should show path to /home/jovyan/lexical-graph-src/...
+# Should show path to /home/jovyan/lexical-graph/...
 ```
 
 ### Issue: Import Errors
 ```python
 # Reinstall in editable mode
-!pip install -e /home/jovyan/lexical-graph-src
+!pip install -e /home/jovyan/lexical-graph
 
 # Restart kernel after installation
 ```
@@ -254,7 +248,7 @@ Use proper shutdown to avoid container state issues:
 ## Contributing Workflow
 
 1. **Fork and Clone**: Fork graphrag-toolkit, clone locally
-2. **Start Dev Mode**: `./start-containers.sh --dev --mac`
+2. **Start Dev Mode**: `./start-containers.sh --dev`
 3. **Make Changes**: Edit source code in your IDE
 4. **Test in Jupyter**: Verify changes work in notebooks
 5. **Commit and Push**: Standard git workflow

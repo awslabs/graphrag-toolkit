@@ -52,14 +52,25 @@ if [[ "$DO_SETUP" = true ]]; then
     if [[ "$BYOKG_RAG_INSTALL_URI" ]]; then
         echo "Installing byokg_rag from $BYOKG_RAG_INSTALL_URI"
         pip install $BYOKG_RAG_INSTALL_URI
-    else
-        echo "Installing byokg_rag from local install"
-        pip install -r graphrag_toolkit/byokg_rag/requirements.txt
     fi
+
+    echo "Installing byokg_rag dependencies"
+    pip install -r graphrag_toolkit/byokg_rag/requirements.txt
 
     if [[ "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
         echo "Installing lexical graph from $LEXICAL_GRAPH_INSTALL_URI"
-        pip install $LEXICAL_GRAPH_INSTALL_URI
+        if [[ "$LEXICAL_GRAPH_INSTALL_URI" == s3://* && "$LEXICAL_GRAPH_INSTALL_URI" == *.whl ]]; then
+            WHEEL_FILENAME=$(basename "$LEXICAL_GRAPH_INSTALL_URI")
+            echo "Downloading wheel from S3: $LEXICAL_GRAPH_INSTALL_URI"
+            if ! aws s3 cp "$LEXICAL_GRAPH_INSTALL_URI" "./$WHEEL_FILENAME"; then
+                echo "ERROR: Failed to download wheel from S3: $LEXICAL_GRAPH_INSTALL_URI"
+                exit 1
+            fi
+            pip install "./$WHEEL_FILENAME"
+            rm -f "./$WHEEL_FILENAME"
+        else
+            pip install $LEXICAL_GRAPH_INSTALL_URI
+        fi
     else
         echo "Installing lexical graph from local install"
         pip install -r graphrag_toolkit/lexical_graph/requirements.txt

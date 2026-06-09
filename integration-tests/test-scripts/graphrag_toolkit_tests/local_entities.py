@@ -118,6 +118,7 @@ class BuildWithLocalEntities(IntegrationTestBase):
                 
                 self.assertEqual(relationship_count, 43)
                 
+                
             def test_entity_subject_fact_relationships(self):
                 """Graph contains expected entity SUBJECT fact relationships"""
                 
@@ -241,6 +242,7 @@ class BuildWithoutLocalEntities(IntegrationTestBase):
                 relationship_count = results[0]['count']
                 
                 self.assertEqual(relationship_count, 43)
+                
                 
             def test_entity_subject_fact_relationships(self):
                 """Graph contains expected entity SUBJECT fact relationships"""

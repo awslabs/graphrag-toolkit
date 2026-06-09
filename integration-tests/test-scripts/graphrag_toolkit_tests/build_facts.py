@@ -61,4 +61,5 @@ class BuildFacts(IntegrationTestBase):
                     
                     self.assertEqual(4, fact_node_count)
                     
+                    
             handler.run_assertions(BuildFactsAssertions)
