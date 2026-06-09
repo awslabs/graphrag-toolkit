@@ -5,9 +5,11 @@ import os
 import unittest
 from contextlib import nullcontext
 from typing import Dict, Any, Optional, List
+import logging
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
+from graphrag_toolkit_tests.benchmark_utils.s3_utils import sync_benchmark_data_from_s3
 
 from graphrag_toolkit.lexical_graph import LexicalGraphQueryEngine, GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, VectorStoreFactory
@@ -15,14 +17,19 @@ from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLo
 
 from llama_index.core.schema import QueryBundle
 
+logger = logging.getLogger(__name__)
+
 QA_FILE_MAP = {
     'cuad': ['qa.json'],
     'cuad-prototype': ['qa.json'],
     'pga': ['pga_bio.json', 'pga_stat.json'],
     'concurrentqa': ['qa.json'],
+    'concurrentqa-prototype': ['qa.json'],
+    'wikihow': ['qa.json'],
 }
 
 BENCHMARK_DATA_DIR = 'source-data'
+
 
 def load_qa_pairs(data_dir: str, dataset: str, qa_files: List[str], limit: Optional[int] = None):
     pairs = []
@@ -41,7 +48,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                         data_dir: str,
                         graph_store_conn: Optional[str] = None,
                         vector_store_conn: Optional[str] = None,
-                        response_llm: str = 'anthropic.claude-sonnet-4-20250514-v1:0',
+                        response_llm: str = 'us.anthropic.claude-sonnet-4-6',
                         qa_limit: Optional[int] = None):
     """
     Queries a benchmark dataset's QA pairs and writes responses in run_evaluation.py format.
@@ -69,6 +76,8 @@ def run_benchmark_query(handler: IntegrationTestHandler,
         response_llm: Bedrock model ID for generating query responses.
         qa_limit: Optional cap on the number of QA pairs to query (for prototype runs).
     """
+    sync_benchmark_data_from_s3(dataset, data_dir)
+
     qa_files = QA_FILE_MAP.get(dataset, ['qa.json'])
     qa_pairs = load_qa_pairs(data_dir, dataset, qa_files, qa_limit)
 
@@ -159,6 +168,92 @@ class CuadBenchmarkQuery(IntegrationTestBase):
             data_dir=BENCHMARK_DATA_DIR,
             graph_store_conn=os.environ.get('GRAPH_STORE'),
             vector_store_conn=os.environ.get('VECTOR_STORE'),
-            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
+            qa_limit=int(limit_str) if limit_str else None,
+        )
+
+
+class ConcurrentQaBenchmarkQuery(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Query ConcurrentQA benchmark QA pairs and write responses JSONL'
+
+    def wait(self) -> bool:
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+        if not vector_store_conn:
+            return False
+        with VectorStoreFactory.for_vector_store(vector_store_conn) as vector_store:
+            return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='pipeline'), top_k=1)) == 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
+        is_prototype = os.environ.get('BENCHMARK_IS_PROTOTYPE')
+        dataset_name = 'concurrentqa-prototype' if is_prototype == 'true' else 'concurrentqa'
+
+        run_benchmark_query(
+            handler,
+            params,
+            dataset=dataset_name,
+            data_dir=BENCHMARK_DATA_DIR,
+            graph_store_conn=os.environ.get('GRAPH_STORE'),
+            vector_store_conn=os.environ.get('VECTOR_STORE'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
+            qa_limit=int(limit_str) if limit_str else None,
+        )
+
+
+class WikihowBenchmarkQuery(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Query WikiHow benchmark QA pairs and write responses JSONL'
+
+    def wait(self) -> bool:
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+        if not vector_store_conn:
+            return False
+        with VectorStoreFactory.for_vector_store(vector_store_conn) as vector_store:
+            return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='how to'), top_k=1)) == 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
+
+        run_benchmark_query(
+            handler,
+            params,
+            dataset='wikihow',
+            data_dir=BENCHMARK_DATA_DIR,
+            graph_store_conn=os.environ.get('GRAPH_STORE'),
+            vector_store_conn=os.environ.get('VECTOR_STORE'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
+            qa_limit=int(limit_str) if limit_str else None,
+        )
+
+
+class PgaBenchmarkQuery(IntegrationTestBase):
+
+    @property
+    def description(self):
+        return 'Query PGA benchmark QA pairs and write responses JSONL'
+
+    def wait(self) -> bool:
+        vector_store_conn = os.environ.get('VECTOR_STORE')
+        if not vector_store_conn:
+            return False
+        with VectorStoreFactory.for_vector_store(vector_store_conn) as vector_store:
+            return len(vector_store.get_index('chunk').top_k(QueryBundle(query_str='golf'), top_k=1)) == 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+        limit_str = os.environ.get('BENCHMARK_QA_LIMIT')
+
+        run_benchmark_query(
+            handler,
+            params,
+            dataset='pga',
+            data_dir=BENCHMARK_DATA_DIR,
+            graph_store_conn=os.environ.get('GRAPH_STORE'),
+            vector_store_conn=os.environ.get('VECTOR_STORE'),
+            response_llm=os.environ.get('TEST_RESPONSE_LLM', 'us.anthropic.claude-sonnet-4-6'),
             qa_limit=int(limit_str) if limit_str else None,
         )
