@@ -57,9 +57,9 @@ Update your `.env` file with batch processing settings:
 ```bash
 # Batch Processing Configuration
 AWS_ACCOUNT="123456789012"
-BATCH_ROLE_NAME="GraphRAGBatchRole"
-S3_BATCH_BUCKET_NAME="your-batch-bucket"
-DYNAMODB_NAME="graphrag-batch-jobs"
+BATCH_ROLE_NAME="bedrock-batch-inference-role"
+S3_BUCKET_NAME="your-batch-bucket"
+DYNAMODB_NAME="graphrag-toolkit-batch-table"
 
 # Batch Settings
 EXTRACTION_BATCH_SIZE=100        # Documents per batch
@@ -113,7 +113,7 @@ from graphrag_toolkit.lexical_graph import IndexingConfig, GraphRAGConfig
 # Configure batch processing
 batch_config = BatchConfig(
     region=os.environ["AWS_REGION"],
-    bucket_name=os.environ["S3_BATCH_BUCKET_NAME"],
+    bucket_name=os.environ["S3_BUCKET_NAME"],
     key_prefix=os.environ["BATCH_PREFIX"],
     role_arn=f'arn:aws:iam::{os.environ["AWS_ACCOUNT"]}:role/{os.environ["BATCH_ROLE_NAME"]}'
 )
@@ -141,7 +141,7 @@ from graphrag_toolkit.lexical_graph.indexing.build import Checkpoint
 # Setup S3-based document storage
 extracted_docs = S3BasedDocs(
     region=os.environ['AWS_REGION'],
-    bucket_name=os.environ['S3_BATCH_BUCKET_NAME'],
+    bucket_name=os.environ['S3_BUCKET_NAME'],
     key_prefix="extracted-documents",
     collection_id='batch-processing-demo'
 )
@@ -372,10 +372,10 @@ Error: Cross-account pass role is not allowed
 **Solution:**
 ```bash
 # Verify role exists in correct account
-aws iam get-role --role-name GraphRAGBatchRole --profile your-profile
+aws iam get-role --role-name bedrock-batch-inference-role
 
 # Check role ARN format in .env
-BATCH_ROLE_NAME="GraphRAGBatchRole"  # Just the role name, not full ARN
+BATCH_ROLE_NAME="bedrock-batch-inference-role"  # Just the role name, not full ARN
 ```
 
 **S3 Permission Errors:**
@@ -389,7 +389,7 @@ Error: Access Denied when uploading to S3
 import boto3
 s3 = boto3.client('s3')
 s3.put_object(
-    Bucket=os.environ['S3_BATCH_BUCKET_NAME'],
+    Bucket=os.environ['S3_BUCKET_NAME'],
     Key='test-file.txt',
     Body=b'test content'
 )
@@ -475,7 +475,7 @@ async def process_multiple_batches(document_batches, max_concurrent=3):
             # Create batch-specific configuration
             batch_config = BatchConfig(
                 region=os.environ["AWS_REGION"],
-                bucket_name=os.environ["S3_BATCH_BUCKET_NAME"],
+                bucket_name=os.environ["S3_BUCKET_NAME"],
                 key_prefix=f"batch-{batch_id}",
                 role_arn=f'arn:aws:iam::{os.environ["AWS_ACCOUNT"]}:role/{os.environ["BATCH_ROLE_NAME"]}'
             )

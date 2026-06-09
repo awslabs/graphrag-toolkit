@@ -78,13 +78,13 @@ class TestVectorStoreFactoryForVectorStore:
         assert result is mock_store
 
     def test_factory_creates_dummy_store(self):
-        """Verify factory creates dummy/in-memory store."""
+        """Verify factory creates dummy/in-memory store with default indexes."""
         result = VectorStoreFactory.for_vector_store("dummy://")
 
         assert isinstance(result, VectorStore)
-        # Check that indexes were created
-        assert len(result.indexes) > 0
-        # Check that all indexes are DummyVectorIndex
+        # Default includes both chunk and statement
+        assert "chunk" in result.indexes
+        assert "statement" in result.indexes
         for index in result.indexes.values():
             assert isinstance(index, DummyVectorIndex)
 
@@ -246,3 +246,39 @@ class TestVectorStoreFactoryCustomFactory:
         assert isinstance(result, VectorStore)
         for index in result.indexes.values():
             assert isinstance(index, DummyVectorIndex)
+
+
+class TestVectorStoreFactoryDefaultIndexes:
+    """Tests for DEFAULT_EMBEDDING_INDEXES constant and default behavior."""
+
+    def test_default_embedding_indexes_includes_chunk_and_statement(self):
+        """Verify DEFAULT_EMBEDDING_INDEXES equals ['chunk', 'statement']."""
+        assert DEFAULT_EMBEDDING_INDEXES == ['chunk', 'statement']
+
+    def test_factory_default_creates_chunk_and_statement_indexes(self):
+        """Verify for_vector_store() without index_names creates chunk and statement indexes."""
+        result = VectorStoreFactory.for_vector_store("dummy://")
+
+        assert isinstance(result, VectorStore)
+        assert "chunk" in result.indexes
+        assert "statement" in result.indexes
+        assert isinstance(result.indexes["chunk"], DummyVectorIndex)
+        assert isinstance(result.indexes["statement"], DummyVectorIndex)
+
+    def test_factory_explicit_chunk_and_statement_creates_both(self):
+        """Verify for_vector_store() with explicit ['chunk', 'statement'] creates both indexes."""
+        result = VectorStoreFactory.for_vector_store("dummy://", index_names=["chunk", "statement"])
+
+        assert isinstance(result, VectorStore)
+        assert "chunk" in result.indexes
+        assert "statement" in result.indexes
+        assert isinstance(result.indexes["chunk"], DummyVectorIndex)
+        assert isinstance(result.indexes["statement"], DummyVectorIndex)
+
+    def test_factory_chunk_only_creates_single_index(self):
+        """Verify for_vector_store() with explicit ['chunk'] creates only chunk index."""
+        result = VectorStoreFactory.for_vector_store("dummy://", index_names=["chunk"])
+
+        assert isinstance(result, VectorStore)
+        assert list(result.indexes.keys()) == ["chunk"]
+        assert isinstance(result.indexes["chunk"], DummyVectorIndex)

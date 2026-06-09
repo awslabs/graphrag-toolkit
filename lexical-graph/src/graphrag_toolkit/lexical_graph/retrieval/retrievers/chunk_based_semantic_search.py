@@ -13,7 +13,7 @@ from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorSto
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorBase, ProcessorArgs
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.traversal_based_base_retriever import TraversalBasedBaseRetriever
-from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_guided_base_chunk_retriever import SemanticGuidedBaseChunkRetriever
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_chunk_retriever import SemanticGuidedBaseChunkRetriever
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_cosine_search import ChunkCosineSimilaritySearch
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_chunk_beam_search import SemanticChunkBeamGraphSearch
 from graphrag_toolkit.lexical_graph.retrieval.utils.chunk_utils import SharedChunkEmbeddingCache
@@ -214,8 +214,8 @@ class ChunkBasedSemanticSearch(TraversalBasedBaseRetriever):
             for future in futures:
                 for result in future.result():
                     statement_ids.append(result)
-                    
-        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids))) 
+
+        search_results = self.get_statements_by_topic_and_source(list(set(statement_ids)))       
         search_results_collection = self._to_search_results_collection(search_results) 
         
         retriever_name = type(self).__name__

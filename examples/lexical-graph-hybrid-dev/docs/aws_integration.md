@@ -19,7 +19,7 @@ The hybrid development environment combines local Docker services with AWS cloud
 
 ### Amazon Bedrock
 - **Purpose**: LLM processing for extraction and generation
-- **Models**: Claude 3.5 Sonnet, Cohere embeddings
+- **Models**: Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-6`), Cohere embeddings
 - **Features**: Batch processing, prompt management
 - **Cost**: Pay-per-token usage
 
@@ -55,17 +55,19 @@ aws configure --profile your-profile
 
 Enable required models in the [Bedrock console](https://console.aws.amazon.com/bedrock/home#/modelaccess):
 
-- `anthropic.claude-3-7-sonnet-20250219-v1:0`
+- `us.anthropic.claude-sonnet-4-6`
 - `cohere.embed-english-v3`
 
 ### 3. S3 Bucket Creation
 
+> **Note**: The `setup-bedrock-batch.sh` script creates the S3 bucket automatically. Use the manual steps below only if you need a custom bucket name.
+
 ```bash
 # Create S3 bucket for GraphRAG data
-aws s3 mb s3://your-graphrag-bucket --profile your-profile
+aws s3 mb s3://your-graphrag-bucket
 
 # Verify bucket creation
-aws s3 ls --profile your-profile
+aws s3 ls
 ```
 
 ### 4. IAM Permissions
@@ -79,26 +81,15 @@ Your AWS user/role needs permissions for:
 
 ## Environment Configuration
 
-### Update .env File
+Copy the environment template and update it with your AWS account details:
 
 ```bash
-# AWS Configuration
-AWS_REGION="us-east-1"
-AWS_PROFILE="your-profile"
-AWS_ACCOUNT="123456789012"
-
-# S3 Storage
-S3_BUCKET_EXTRACK_BUILD_BATCH_NAME="your-graphrag-bucket"
-S3_BATCH_BUCKET_NAME="your-graphrag-bucket"
-
-# Bedrock Models
-EXTRACTION_MODEL="us.anthropic.claude-3-7-sonnet-20250219-v1:0"
-EMBEDDINGS_MODEL="cohere.embed-english-v3"
-
-# Batch Processing (Optional)
-BATCH_ROLE_NAME="GraphRAGBatchRole"
-DYNAMODB_NAME="graphrag-batch-jobs"
+cd notebooks
+cp .env.template .env
+# Edit .env — set AWS_ACCOUNT and append your account ID to S3_BUCKET_NAME
 ```
+
+See [`notebooks/.env.template`](../notebooks/.env.template) for all available configuration options.
 
 ### AWS Credentials Mounting
 
@@ -158,7 +149,7 @@ from graphrag_toolkit.lexical_graph.indexing.load import S3BasedDocs
 
 extracted_docs = S3BasedDocs(
     region=os.environ['AWS_REGION'],
-    bucket_name=os.environ['S3_BUCKET_EXTRACK_BUILD_BATCH_NAME'],
+    bucket_name=os.environ['S3_BUCKET_NAME'],
     key_prefix="extracted-documents",
     collection_id='my-collection'
 )
@@ -195,7 +186,7 @@ from graphrag_toolkit.lexical_graph import IndexingConfig
 # Configure batch processing
 batch_config = BatchConfig(
     region=os.environ["AWS_REGION"],
-    bucket_name=os.environ["S3_BUCKET_EXTRACK_BUILD_BATCH_NAME"],
+    bucket_name=os.environ["S3_BUCKET_NAME"],
     key_prefix=os.environ["BATCH_PREFIX"],
     role_arn=f'arn:aws:iam::{os.environ["AWS_ACCOUNT"]}:role/{os.environ["BATCH_ROLE_NAME"]}'
 )
@@ -221,8 +212,8 @@ from graphrag_toolkit.lexical_graph.prompts.prompt_provider_config import Bedroc
 prompt_provider = BedrockPromptProviderConfig(
     aws_region="us-east-1",
     aws_profile="your-profile",
-    system_prompt_arn="KEOXPXUM00",  # Your prompt ARN
-    user_prompt_arn="TSF4PI4A6C",
+    system_prompt_arn="your-system-prompt-id",  # Your prompt ARN or ID
+    user_prompt_arn="your-user-prompt-id",
     system_prompt_version="1",
     user_prompt_version="1"
 ).build()
@@ -277,7 +268,7 @@ def verify_aws_setup():
     
     # Check S3 bucket
     s3 = session.client('s3')
-    bucket = os.environ['S3_BUCKET_EXTRACK_BUILD_BATCH_NAME']
+    bucket = os.environ['S3_BUCKET_NAME']
     try:
         s3.head_bucket(Bucket=bucket)
         print(f"S3 Bucket '{bucket}': ✓ Accessible")
@@ -303,7 +294,7 @@ verify_aws_setup()
 ### Understanding Costs
 
 **Bedrock Costs:**
-- **Input tokens**: ~$3 per 1M tokens (Claude 3.5 Sonnet)
+- **Input tokens**: ~$3 per 1M tokens (Claude Sonnet 4)
 - **Output tokens**: ~$15 per 1M tokens
 - **Embeddings**: ~$0.10 per 1M tokens (Cohere)
 

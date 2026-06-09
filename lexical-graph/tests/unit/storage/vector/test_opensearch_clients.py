@@ -90,6 +90,26 @@ class TestCreateOsClient:
                     result = ovi.create_os_client("https://my-endpoint.aoss.amazonaws.com")
                     assert result is mock_os_instance
 
+    def test_caller_kwargs_override_defaults(self):
+        mock_session = MagicMock()
+        mock_session.get_credentials.return_value = MagicMock()
+
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.session = mock_session
+            mock_cfg.aws_region = "us-east-1"
+            with patch.object(ovi, "OpenSearch") as mock_os:
+                with patch.object(ovi, "Urllib3AWSV4SignerAuth"):
+                    ovi.create_os_client(
+                        "https://my-endpoint.aoss.amazonaws.com",
+                        pool_maxsize=64,
+                        timeout=60,
+                    )
+                    _, kwargs = mock_os.call_args
+                    assert kwargs['pool_maxsize'] == 64
+                    assert kwargs['timeout'] == 60
+                    assert kwargs['use_ssl'] is True
+                    assert kwargs['max_retries'] == 10
+
 
 # ---------------------------------------------------------------------------
 # create_os_async_client
@@ -109,6 +129,26 @@ class TestCreateOsAsyncClient:
                 with patch.object(ovi, "AWSV4SignerAsyncAuth"):
                     result = ovi.create_os_async_client("https://my-endpoint.aoss.amazonaws.com")
                     assert result is mock_async_instance
+
+    def test_caller_kwargs_override_defaults(self):
+        mock_session = MagicMock()
+        mock_session.get_credentials.return_value = MagicMock()
+
+        with patch.object(ovi, "GraphRAGConfig") as mock_cfg:
+            mock_cfg.session = mock_session
+            mock_cfg.aws_region = "us-east-1"
+            with patch.object(ovi, "AsyncOpenSearch") as mock_async:
+                with patch.object(ovi, "AWSV4SignerAsyncAuth"):
+                    ovi.create_os_async_client(
+                        "https://my-endpoint.aoss.amazonaws.com",
+                        pool_maxsize=64,
+                        timeout=60,
+                    )
+                    _, kwargs = mock_async.call_args
+                    assert kwargs['pool_maxsize'] == 64
+                    assert kwargs['timeout'] == 60
+                    assert kwargs['use_ssl'] is True
+                    assert kwargs['max_retries'] == 10
 
 
 # ---------------------------------------------------------------------------

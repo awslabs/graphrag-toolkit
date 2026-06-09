@@ -1,5 +1,6 @@
 [
     {
+        "_note": "Intentional smoke test: the graph may not contain the answer for this ebix.com question. Tests that the system handles missing context gracefully.",
         "input": "In CO-BRANDING AGREEMENT signed by ebix.com, Inc. and About.com, Inc., is there any clause providing for joint or shared ownership of intellectual property between the parties to the contract?",
         "output": [
             {

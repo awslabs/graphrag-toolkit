@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Check license headers
         run: |
@@ -63,15 +63,15 @@ jobs:
         working-directory: byokg-rag
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@v7
 
       - name: Create virtual environment
         run: uv venv .venv
@@ -82,6 +82,7 @@ jobs:
             pytest \
             pytest-cov \
             pytest-mock \
+            hypothesis \
             -r src/graphrag_toolkit/byokg_rag/requirements.txt
 
       - name: Run tests
@@ -105,14 +106,14 @@ jobs:
 
       - name: Upload HTML coverage report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-report-${{ matrix.python-version }}
           path: byokg-rag/htmlcov/
 
       - name: Upload coverage percentage
         if: always() && matrix.python-version == '3.12'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-percentage
           path: |
@@ -130,7 +131,7 @@ jobs:
     steps:
       - name: Download coverage percentage
         id: download
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: coverage-percentage
           path: coverage-data
@@ -150,7 +151,7 @@ jobs:
           fi
 
       - name: Comment on PR with coverage report link
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;

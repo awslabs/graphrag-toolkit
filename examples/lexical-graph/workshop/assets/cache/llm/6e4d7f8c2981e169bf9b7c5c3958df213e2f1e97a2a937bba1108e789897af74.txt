@@ -1,0 +1,13 @@
+x2g Family of Instance Types
+
+The `x2g` family is a family of instance types.
+The `x2g` family was launched to better support graph use cases that see better performance when instances have larger buffer-pool caches.
+Some graph use cases see better performance when instances have larger buffer-pool caches.
+The `x2g` family has a larger memory-to-vCPU ratio than the `r5` family.
+The `x2g` family has a larger memory-to-vCPU ratio than the `r6g` family.
+The `x2g` instances use the Graviton2 processor.
+The `x2g` instances have many of the same performance characteristics as `r6g` instance types.
+The `x2g` instances have a larger buffer-pool cache compared to `r6g` instance types.
+If using `r5` instance types with low CPU utilization and a high buffer-pool cache miss rate, using the `x2g` family instead is recommended.
+If using `r6g` instance types with low CPU utilization and a high buffer-pool cache miss rate, using the `x2g` family instead is recommended.
+Using the `x2g` family instead of `r5` or `r6g` instance types provides additional memory without paying for more CPU capacity.

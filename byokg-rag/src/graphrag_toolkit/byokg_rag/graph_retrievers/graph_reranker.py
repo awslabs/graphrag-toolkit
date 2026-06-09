@@ -33,7 +33,7 @@ class LocalGReranker(GReranker):
     """
         Local reranker on single machine with BGE-reranker-base models.
     """
-    def __init__(self, model_name="BAAI/bge-reranker-base", topk=10, device="cuda"):
+    def __init__(self, model_name=None, topk=10, device="cuda"):
         """
         Initialize the LocalGReranker.
 
@@ -46,12 +46,16 @@ class LocalGReranker(GReranker):
         Raises:
             AssertionError: If model_name is not supported
         """
-        assert model_name in ["BAAI/bge-reranker-base", "BAAI/bge-reranker-large", "BAAI/bge-reranker-v2-m3"], "Model name not supported"
+        from ..config import ByoKGConfig
+        model_name = model_name if model_name is not None else ByoKGConfig.reranking_model
+        supported_models = ["BAAI/bge-reranker-base", "BAAI/bge-reranker-large", "BAAI/bge-reranker-v2-m3"]
+        if model_name not in supported_models:
+            raise ValueError(f"Unsupported reranking model: {model_name!r}. Supported models: {supported_models}")
         self.model_name = model_name
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.reranker = AutoModelForSequenceClassification.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)  # nosec B615 - model_name restricted to allowlist above
+        self.reranker = AutoModelForSequenceClassification.from_pretrained(model_name)  # nosec B615 - model_name restricted to allowlist above
         self.reranker = self.reranker.to(device)
         self.reranker.eval()
         

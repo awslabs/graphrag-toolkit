@@ -14,11 +14,12 @@ from graphrag_toolkit.lexical_graph.tenant_id import TenantIdType, to_tenant_id
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.retrieval.post_processors.bedrock_context_format import BedrockContextFormat
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import CompositeTraversalBasedRetriever, SemanticGuidedRetriever, QueryModeRetriever
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import StatementCosineSimilaritySearch, KeywordRankingSearch, SemanticBeamGraphSearch
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import WeightedTraversalBasedRetrieverType, SemanticGuidedRetrieverType
+from graphrag_toolkit.lexical_graph.retrieval.retrievers import CompositeTraversalBasedRetriever, WeightedTraversalBasedRetrieverType, QueryModeRetriever
+from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated import (
+    SemanticGuidedRetriever, SemanticGuidedRetrieverType,
+    StatementCosineSimilaritySearch, KeywordRankingSearch, SemanticBeamGraphSearch,
+)
 from graphrag_toolkit.lexical_graph.retrieval.model import EntityContexts
-from graphrag_toolkit.lexical_graph.retrieval.retrievers import CompositeTraversalBasedRetriever, QueryModeRetriever
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, GraphStoreType
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory, VectorStoreType
 from graphrag_toolkit.lexical_graph.storage.graph import MultiTenantGraphStore
@@ -282,6 +283,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         tenant_id = to_tenant_id(tenant_id)
 
         graph_store = MultiTenantGraphStore.wrap(GraphStoreFactory.for_graph_store(graph_store), tenant_id)
+        graph_store.init()
         vector_store = ReadOnlyVectorStore.wrap(
             MultiTenantVectorStore.wrap(VectorStoreFactory.for_vector_store(vector_store), tenant_id)
         )

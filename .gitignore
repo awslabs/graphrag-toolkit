@@ -38,7 +38,6 @@ build.log
 /examples/lexical-graph/notebooks/output/
 /examples/lexical-graph-local-dev/notebooks/output/
 /examples/lexical-graph-local-dev/notebooks/output.log
-/examples/lexical-graph-local-dev/notebooks/.env
 /examples/lexical-graph-hybrid-dev/notebooks/output/
 /examples/lexical-graph-hybrid-dev/notebooks/extracted/
 
@@ -46,5 +45,11 @@ build.log
 temp/
 test-results/
 test-logs/
+execution_report.json
+execution_report.md
 screenlog.*
 extracted/
+examples/lexical-graph-hybrid-dev/notebooks/output.log
+examples/lexical-graph-hybrid-dev/notebooks/run_notebooks.py
+examples/lexical-graph-local-dev/notebooks/run_notebooks.py
+.kiro/

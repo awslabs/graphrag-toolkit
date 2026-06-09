@@ -1,0 +1,23 @@
+r7i Instance Family Overview and Characteristics
+
+The `r7i` family is a family of instance types.
+The `r7i` family is powered by 4th-generation Intel Xeon Scalable processors.
+The 4th-generation Intel Xeon Scalable processors are code named Sapphire Rapids.
+The `r7i` family offers significant improvements over `r6i` instances.
+The `r7i` instances provide approximately 15% better compute price/performance than comparable `r6i` instance types.
+The `r7i` instances provide up to 20% higher memory bandwidth per vCPU than comparable `r6i` instance types.
+The `r7i` instance family has a 2-socket Intel Central Processing Unit architecture.
+The `r7i` instance family has a 2-socket Intel Central Processing Unit architecture similar to the `r5` family.
+The `r7i.12xlarge` and smaller instance types use a single socket.
+The `r7i.12xlarge` and smaller instance types use the system memory owned by that single-socket processor.
+The `r7i.16xlarge` instance type uses both sockets and available memory.
+The `r7i.24xlarge` instance type uses both sockets and available memory.
+A 2-socket architecture requires some memory-management overhead between two physical processors.
+The performance gains scaling up from a `r7i.12xlarge` to a `r7i.16xlarge` instance type are not as linear as scaling up at smaller sizes.
+The performance gains scaling up from a `r7i.12xlarge` to a `r7i.24xlarge` instance type are not as linear as scaling up at smaller sizes.
+Performance scales linearly with compute capacity up to `r7i.12xlarge`.
+The `r7i` family features enhanced memory management between physical processors in the 2-socket architecture.
+The `r7i` family features improved performance for memory-intensive graph operations.
+The number of virtual Central Processing Units needed can be estimated using the formula: vCPUs=(latency x concurrency)/2.
+In the vCPUs formula, latency is measured as the average query latency in seconds.
+In the vCPUs formula, concurrency is measured as the target number of queries per second.

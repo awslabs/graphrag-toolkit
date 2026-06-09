@@ -22,6 +22,9 @@ class DenseIndex(Index):
         Args:
             embedding: An Embedding object for generating vector embeddings
         """
+        if embedding is None:
+            from ..config import ByoKGConfig
+            embedding = ByoKGConfig.to_embedding()
         self.embedding = embedding
 
 
@@ -68,7 +71,7 @@ class LocalFaissDenseIndex(DenseIndex):
         :return:
         """
 
-        query_emb = np.array(self.embedding.embed(input)).reshape(1, -1)
+        query_emb = np.array(self.embedding.embed(input), dtype=np.float32).reshape(1, -1)
 
         if id_selector is None:
             D, I = self.faiss_index.search(query_emb, topk)
@@ -94,7 +97,7 @@ class LocalFaissDenseIndex(DenseIndex):
         if id_selector is not None:
             raise NotImplementedError(f"id_selector not implemented for {self.__class__.__name__}")
 
-        query_emb = np.array(self.embedding.batch_embed(inputs)).reshape(len(inputs), -1)
+        query_emb = np.array(self.embedding.batch_embed(inputs), dtype=np.float32).reshape(len(inputs), -1)
 
         D, I = self.faiss_index.search(query_emb, topk)
 
@@ -133,9 +136,9 @@ class LocalFaissDenseIndex(DenseIndex):
             None
         """
         if isinstance(embeddings, np.ndarray):
-            doc_embs = embeddings
+            doc_embs = embeddings.astype(np.float32)
         else:
-            doc_embs = np.array(self.embedding.batch_embed(documents))
+            doc_embs = np.array(self.embedding.batch_embed(documents), dtype=np.float32)
         self.doc_store.extend(documents)
         self.doc_ids.extend(ids)
         for _id in ids:

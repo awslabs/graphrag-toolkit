@@ -36,6 +36,25 @@ To send us a pull request, please:
 5. Send us a pull request, answering any default questions in the pull request interface.
 6. Pay attention to any automated CI failures reported in the pull request, and stay involved in the conversation.
 
+### Setting up pre-commit hooks
+
+This repository uses [pre-commit](https://pre-commit.com/) to run security checks (e.g., secrets scanning via [git-secrets](https://github.com/awslabs/git-secrets)) before each commit. To set it up:
+
+```bash
+# Install git-secrets
+brew install git-secrets  # macOS
+# or: git clone https://github.com/awslabs/git-secrets && cd git-secrets && make install
+
+# Install pre-commit and activate hooks
+pip install pre-commit
+pre-commit install
+
+# Register AWS secret patterns
+git secrets --register-aws
+```
+
+The pre-commit framework will automatically run git-secrets on staged files before each commit, preventing accidental secret leaks.
+
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 

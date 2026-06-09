@@ -1,18 +1,18 @@
 --only-binary :all:
 
-boto3>=1.39.11
-botocore>=1.39.11
+boto3>=1.40.61
+botocore>=1.40.61
 colorama==0.4.6
 faiss-cpu==1.9.0
 langchain_huggingface==0.3.1
 langchain_aws==0.2.33
-llama-index-embeddings-bedrock==0.6.2
+llama-index-embeddings-bedrock==0.8.0
 numpy>=1.24.0,<2.0.0
 pydantic>=2.8.2
 pyyaml==6.0.3
 sentence-transformers>=2.4.0
 tiktoken==0.11.0
 thefuzz==0.22.1
-torch
+torch>=2.0.0
 transformers>=4.44.2
 xmltodict==1.0.2

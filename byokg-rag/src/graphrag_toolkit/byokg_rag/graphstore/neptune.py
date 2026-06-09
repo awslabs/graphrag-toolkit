@@ -298,14 +298,17 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
         logger.info(response)
         return response
 
-    def execute_query(self, cypher, parameters={}):
+    def execute_query(self, cypher, parameters={}, read_only=False):
         logger.info(f"GraphQuery:: {cypher}")
-        response =  self.neptune_client.execute_query(
+        query_args = dict(
             graphIdentifier=self.neptune_graph_id,
             queryString=cypher,
             parameters=parameters,
             language='OPEN_CYPHER'
         )
+        if read_only:
+            query_args['readOnly'] = True
+        response = self.neptune_client.execute_query(**query_args)
         return json.loads(response['payload'].read())['results']
 
     def as_embedding_index(self, embedding:Embedding=None, node_embedding_text_props=None, load=True, embedding_s3_save_location=None):
@@ -397,6 +400,7 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         self.neptune_data_client = self.session.client('neptunedata', region_name=self.region, endpoint_url = self.endpoint_url)
         self.s3_client = self.session.client('s3', region_name=self.region)
         self.node_type_to_property_mapping = {}
+
 
 
     def read_from_csv(self, csv_file=None, s3_path=None, format='CSV', iam_role=None):
@@ -547,8 +551,15 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         self._refresh_schema(graphSummary)
         return graphSummary
         
-    def execute_query(self, cypher, parameters={}):
+    def execute_query(self, cypher, parameters={}, read_only=False):
         logger.info(f"GraphQuery:: {cypher}")
+        if read_only:
+            logger.warning(
+                "Neptune DB does not support read-only query execution. "
+                "Write protection relies solely on application-level Cypher validation. "
+                "For stronger guarantees, use Neptune Analytics or restrict the IAM role "
+                "to neptune-db:ReadDataViaQuery."
+            )
         response = self.neptune_data_client.execute_open_cypher_query(
             openCypherQuery=cypher,
             parameters=json.dumps(parameters)

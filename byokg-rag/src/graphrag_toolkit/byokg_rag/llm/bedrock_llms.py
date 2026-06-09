@@ -25,27 +25,47 @@ class BedrockGenerator(BaseGenerator):
     This class provides a wrapper around AWS Bedrock's Converse API for
     generating text responses using various foundation models.
     """
-    def __init__(self, model_name="anthropic.claude-sonnet-4-6", region_name="us-east-1", prefill=False, max_tokens = 4096, max_retries = 10, inference_config=None, reasoning_config=None):
+    def __init__(self, model_name=None, region_name=None, prefill=False, max_tokens=None, max_retries=None, inference_config=None, reasoning_config=None, boto3_session=None, client=None):
         """
         Initialize the BedrockGenerator.
 
         Args:
             model_name: The name or ID of the Bedrock model to use
-            region_name: AWS region name where Bedrock is available
+            region_name: AWS region name where Bedrock is available.
+                If None, resolves from ByoKGConfig (BYOKG_REGION env var),
+                then falls back to boto3 defaults (~/.aws/config, AWS_DEFAULT_REGION).
             prefill: Whether to use prefill functionality (not currently implemented)
             max_tokens: Maximum number of tokens to generate in the response
             max_retries: Maximum number of retry attempts for failed requests
             inference_config: Optional custom inference configuration dict
             reasoning_config: Optional reasoning configuration for models that support it
+            boto3_session: Optional boto3 session for credential resilience
+            client: Optional pre-built client (e.g., ResilientClient)
         """
         super().__init__()
-        self.model_name = model_name
-        self.max_new_tokens = max_tokens
+        from ..config import ByoKGConfig
+        self.model_name = model_name if model_name is not None else ByoKGConfig.llm_model
+        self.max_new_tokens = max_tokens if max_tokens is not None else ByoKGConfig.max_tokens
         self.prefill = prefill
-        self.max_retries = max_retries
-        self.region_name = region_name
+        self.max_retries = max_retries if max_retries is not None else ByoKGConfig.max_retries
+        self.region_name = region_name if region_name is not None else ByoKGConfig.region_name
         self.inference_config = inference_config
         self.reasoning_config = reasoning_config
+        self._boto3_session = boto3_session
+        self._client = client
+
+    @property
+    def client(self):
+        """Lazily create the bedrock-runtime client on first use."""
+        if self._client is None:
+            kwargs = {}
+            if self.region_name:
+                kwargs["region_name"] = self.region_name
+            if self._boto3_session is not None:
+                self._client = self._boto3_session.client("bedrock-runtime", **kwargs)
+            else:
+                self._client = boto3.client("bedrock-runtime", **kwargs)
+        return self._client
 
     def generate(self, prompt, system_prompt = "You are a helpful AI assistant.",  few_shot_examples=None):
         """
@@ -62,13 +82,19 @@ class BedrockGenerator(BaseGenerator):
         Raises:
             Exception: If generation fails after all retry attempts
         """
-        response = generate_llm_response(self.region_name, self.model_name, system_prompt, prompt, self.max_new_tokens, self.max_retries, self.inference_config, self.reasoning_config)
+        response = generate_llm_response(self.region_name, self.model_name, system_prompt, prompt, self.max_new_tokens, self.max_retries, self.inference_config, self.reasoning_config, client=self.client)
         if "Failed due to other reasons." in response:
             raise Exception(f"{response}")
         return response
         
-def generate_llm_response(region_name, model_id, system_prompt, query, max_tokens, max_retries, inference_config=None, reasoning_config=None):
-    bedrock_runtime = boto3.client("bedrock-runtime", region_name=region_name)
+def generate_llm_response(region_name, model_id, system_prompt, query, max_tokens, max_retries, inference_config=None, reasoning_config=None, *, client=None):
+    if client is not None:
+        bedrock_runtime = client
+    else:
+        kwargs = {}
+        if region_name:
+            kwargs["region_name"] = region_name
+        bedrock_runtime = boto3.client("bedrock-runtime", **kwargs)
     
     #TODO: add few shot examples and pre-fill if needed
     messages = []

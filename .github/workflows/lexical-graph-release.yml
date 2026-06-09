@@ -30,15 +30,15 @@ jobs:
         working-directory: lexical-graph
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.x"
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@v7
 
       - name: Create virtual environment
         run: uv venv .venv
@@ -55,7 +55,7 @@ jobs:
           cp dist/*.tar.gz dist/lexical-graph-latest.tar.gz
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lexical-graph-dist
           path: lexical-graph/dist/
@@ -79,7 +79,7 @@ jobs:
           cp lexical-graph-examples.zip lexical-graph-examples-latest.zip
 
       - name: Upload lexical-graph-examples.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lexical-graph-examples
           path: |
@@ -96,7 +96,7 @@ jobs:
           cp lexical-graph-hybrid-dev-examples.zip lexical-graph-hybrid-dev-examples-latest.zip
 
       - name: Upload lexical-graph-hybrid-dev-examples.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lexical-graph-hybrid-dev-examples
           path: |
@@ -120,7 +120,7 @@ jobs:
           done
 
       - name: Attach Artifacts to GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             lexical-graph/dist/*
@@ -141,7 +141,7 @@ jobs:
       url: https://pypi.org/project/graphrag-lexical-graph/${{ needs.release-build.outputs.version }}
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: lexical-graph-dist
           path: dist/

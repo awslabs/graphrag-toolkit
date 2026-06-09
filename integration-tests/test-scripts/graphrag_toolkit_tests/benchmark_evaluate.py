@@ -143,13 +143,10 @@ class CuadBenchmarkEvaluate(IntegrationTestBase):
         retriever_id = os.environ.get('BENCHMARK_RETRIEVER', 'traversal')
 
         responses_path = params.get('benchmark_responses_path',
-                                    os.path.join('benchmark-results',
-                                                 dataset_name,
-                                                 retriever_id))
+                                    os.path.join('benchmark-results', dataset_name, 'responses.jsonl'))
 
         run_benchmark_evaluate(
-            handler, 
-            params,
+            handler, params,
             dataset=dataset_name,
             responses_path=responses_path,
             metrics=['correctness', 'idk'],

@@ -75,11 +75,13 @@ if [[ "$#" -gt 0 ]]; then
 		echo "             Allowed values:"
 		echo "               nmslib"
 		echo "               faiss"
+		echo "  --db-password <database password>"
 		echo "  --topic <SNS topic name>"
 		echo "  --extraction-llm <Model id or profile name>"
     echo "  --response-llm <Model id or profile name>"
     echo "  --embeddings-model <Embeddings model id>"
     echo "  --embeddings-dimensions <Embeddings dimensions>"
+    echo "  --lexical-graph-wheel <path to local .whl file to upload to S3 and install>"
     echo "  --ssh-cidr <SSH CIDR block (default: auto-detected IP/32, use 0.0.0.0/0 for open access)>"
     echo "  --benchmark-data-dir <local directory containing benchmark data to upload>"
     echo "  --benchmark-data-s3-uri <S3 URI for benchmark data (synced at runtime instead of uploading)>"
@@ -103,7 +105,6 @@ GRAPH_NAME="$STACK_PREFIX-$(date +%s)"
 TEST_DESCRIPTION="graphrag-toolkit integration test"
 TESTS=""
 PREV_STACK_NAME=""
-
 
 if [[ -z "$ENV_TYPE" ]]; then
 	ENV_TYPE="neptune-db-aoss"
@@ -130,11 +131,11 @@ if [[ -z "$FAIL_FAST" ]]; then
 fi
 
 if [[ -z "$TEST_EXTRACTION_LLM" ]]; then
-	TEST_EXTRACTION_LLM="us.anthropic.claude-sonnet-4-20250514-v1:0"
+	TEST_EXTRACTION_LLM="us.anthropic.claude-sonnet-4-6"
 fi
 
 if [[ -z "$TEST_RESPONSE_LLM" ]]; then
-	TEST_RESPONSE_LLM="us.anthropic.claude-sonnet-4-20250514-v1:0"
+	TEST_RESPONSE_LLM="us.anthropic.claude-sonnet-4-6"
 fi
 
 if [[ -z "$NEPTUNE_INSTANCE_TYPE" ]]; then
@@ -150,6 +151,7 @@ while [[ "$#" -gt 0 ]]; do
         --test-file) TEST_FILE="$2"; shift ;;
         --test) TESTS="$2"; shift ;;
 				--lexical-graph-install) LEXICAL_GRAPH_INSTALL_URI="$2"; shift ;;
+				--lexical-graph-wheel) LEXICAL_GRAPH_WHEEL="$2"; shift ;;
 				--byokg-rag-install) BYOKG_RAG_INSTALL_URI="$2"; shift ;;
         --bucket) BUCKET_NAME="$2"; shift ;;
         --region) REGION_NAME="$2"; shift ;;
@@ -159,6 +161,7 @@ while [[ "$#" -gt 0 ]]; do
         --neptune-instance-type) NEPTUNE_INSTANCE_TYPE="$2"; shift ;;
         --notebook-instance-type) NOTEBOOK_INSTANCE_TYPE="$2"; shift ;;
         --opensearch-engine) OPENSEARCH_ENGINE="$2"; shift ;;
+        --db-password) DB_PASSWORD="$2"; shift ;;
 				--topic) TOPIC="$2"; shift ;;
 				--extraction-llm) TEST_EXTRACTION_LLM="$2"; shift ;;
         --response-llm) TEST_RESPONSE_LLM="$2"; shift ;;
@@ -188,6 +191,10 @@ if [[ -z "$SSHCIDR" ]]; then
   fi
   SSHCIDR="$MY_IP/32"
   echo "Detected IP: $MY_IP — SSH will be restricted to $SSHCIDR"
+fi
+
+if [[ -z "$DB_PASSWORD" ]]; then
+	DB_PASSWORD="p!$(uuidgen)"
 fi
 
 S3_PREFIX="graphrag-toolkit-tests/$GRAPH_NAME"
@@ -236,7 +243,30 @@ mkdir -p graphrag/assets/packages
 mkdir graphrag-toolkit
 mkdir lexical-graph-examples
 
-cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/* graphrag-toolkit
+if [[ "$LEXICAL_GRAPH_WHEEL" ]]; then
+    if [[ "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
+        echo "ERROR: --lexical-graph-wheel and --lexical-graph-install are mutually exclusive."
+        exit 1
+    fi
+    if [[ ! -f "$LEXICAL_GRAPH_WHEEL" ]]; then
+        echo "ERROR: Wheel file not found: $LEXICAL_GRAPH_WHEEL"
+        exit 1
+    fi
+    if [[ "$LEXICAL_GRAPH_WHEEL" != *.whl ]]; then
+        echo "ERROR: --lexical-graph-wheel expects a .whl file, got: $LEXICAL_GRAPH_WHEEL"
+        exit 1
+    fi
+    WHEEL_FILENAME=$(basename "$LEXICAL_GRAPH_WHEEL")
+    echo "Copying wheel $WHEEL_FILENAME into packages for S3 upload..."
+    cp "$LEXICAL_GRAPH_WHEEL" graphrag/assets/packages/"$WHEEL_FILENAME"
+    LEXICAL_GRAPH_INSTALL_URI="$S3_ROOT/packages/$WHEEL_FILENAME"
+fi
+
+if [[ -z "$LEXICAL_GRAPH_INSTALL_URI" ]]; then
+    # Only copy source code to test notebook if install URI not supplied
+	cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph/src/* graphrag-toolkit
+fi
+
 cp -r $GRAPHRAG_TOOLKIT_DIR/lexical-graph-contrib/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/byokg-rag/src/* graphrag-toolkit
 cp -r $GRAPHRAG_TOOLKIT_DIR/examples/lexical-graph/notebooks/* lexical-graph-examples
@@ -352,6 +382,7 @@ popd
 echo ""
 echo "----------------------------------------------------"
 echo "GRAPHRAG_TOOLKIT_DIR     : $GRAPHRAG_TOOLKIT_DIR"
+echo "LEXICAL_GRAPH_WHEEL      : $LEXICAL_GRAPH_WHEEL"
 echo "LEXICAL_GRAPH_INSTALL_URI: $LEXICAL_GRAPH_INSTALL_URI"
 echo "BYOKG_RAG_INSTALL_URI    : $BYOKG_RAG_INSTALL_URI"
 echo "ENV_TYPE                 : $ENV_TYPE"
@@ -385,6 +416,38 @@ echo "----------------------------------------------------"
 echo ""
 
 if [[ -z "$DRY_RUN" ]]; then
+
+  validate_model() {
+    local label="$1"
+    local model_id="$2"
+    local prefix="${model_id%%.*}"
+
+    echo "Validating $label: $model_id (region: $REGION_NAME)..."
+
+    if [[ "$prefix" == "us" || "$prefix" == "eu" || "$prefix" == "au" || "$prefix" == "jp" || "$prefix" == "global" ]]; then
+      if ! aws bedrock get-inference-profile --inference-profile-identifier "$model_id" --region "$REGION_NAME" > /dev/null 2>&1; then
+        echo ""
+        echo "ERROR: $label model '$model_id' is not available in region '$REGION_NAME'."
+        echo "  The inference profile could not be found or is not accessible."
+        echo "  Check the latest supported models: https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html"
+        exit 1
+      fi
+    else
+      if ! aws bedrock get-foundation-model --model-identifier "$model_id" --region "$REGION_NAME" > /dev/null 2>&1; then
+        echo ""
+        echo "ERROR: $label model '$model_id' is not available in region '$REGION_NAME'."
+        echo "  The foundation model could not be found or is not accessible."
+        echo "  Check the latest supported models: https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html"
+        exit 1
+      fi
+    fi
+
+    echo "✓ $label: $model_id"
+  }
+
+  validate_model "Extraction LLM" "$TEST_EXTRACTION_LLM"
+  validate_model "Response LLM" "$TEST_RESPONSE_LLM"
+
   if [[ "$PREV_STACK_NAME" ]]; then
     echo "Deleting previous stack: $PREV_STACK_NAME"
     aws cloudformation delete-stack --stack-name "$PREV_STACK_NAME" --region $REGION_NAME
@@ -409,6 +472,7 @@ if [[ -z "$DRY_RUN" ]]; then
     ParameterKey=NotebookInstanceType,ParameterValue="$NOTEBOOK_INSTANCE_TYPE" \
 		ParameterKey=IamPolicyArn,ParameterValue="$ADDITIONAL_IAM_POLICY_ARN" \
 		ParameterKey=SSHCIDR,ParameterValue="$SSHCIDR" \
+		ParameterKey=DbPassword,ParameterValue="$DB_PASSWORD" \
 	  --capabilities CAPABILITY_NAMED_IAM \
 	  --tags \
 	    Key=ApplicationName,Value="graphrag-toolkit test" \

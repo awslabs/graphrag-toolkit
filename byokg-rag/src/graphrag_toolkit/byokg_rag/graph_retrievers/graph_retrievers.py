@@ -4,6 +4,7 @@
 from abc import ABC
 import re
 import logging
+import unicodedata
 
 from ..utils import load_yaml, parse_response
 
@@ -33,21 +34,24 @@ class AgenticRetriever(GRetriever):
     5. Continue until max iterations or early finish condition
     """
 
-    def __init__(self, llm_generator, graph_traversal, graph_verbalizer, pruning_reranker=None, 
+    def __init__(self, graph_traversal, graph_verbalizer, llm_generator=None, pruning_reranker=None, 
                  max_num_relations=5, max_num_entities=3, max_num_iterations=3, max_num_triplets=50):
         """
         Initialize the AgenticRetriever.
 
         Args:
-            llm_generator: Language model for generating responses
             graph_traversal: Component for traversing the graph
             graph_verbalizer: Component for converting graph elements to text
+            llm_generator: Language model for generating responses
             pruning_reranker: Component for pruning and reranking results
             max_num_relations (int): Maximum number of relations to consider
             max_num_entities (int): Maximum number of entities to explore
             max_num_iterations (int): Maximum number of exploration iterations
             max_num_triplets (int): Maximum number of triplets to keep after pruning
         """
+        if llm_generator is None:
+            from ..config import ByoKGConfig
+            llm_generator = ByoKGConfig.to_generator()
         self.llm_generator = llm_generator
         self.graph_traversal = graph_traversal
         self.graph_verbalizer = graph_verbalizer
@@ -379,17 +383,24 @@ class GraphQueryRetriever(GRetriever):
         Returns:
             bool: True if query is safe, False if it contains blocked keywords
         """
-        # if not self.block_graph_modification:
-        #     return True
+        if not self.block_graph_modification:
+            return True
         
         # Keywords that indicate graph modification operations
         modification_keywords = [
             'CREATE', 'MERGE', 'SET', 'REMOVE', 'DELETE', 'DETACH DELETE',
-            'DROP', 'DETACH'
+            'DROP', 'DETACH', 'CALL'
         ]
         
-        # Normalize query for case-insensitive matching, preserve newlines
-        query_upper = graph_query.upper()
+        # Strip inline comments (/* ... */) and single-line comments (// ...)
+        query = re.sub(r'/\*.*?\*/', '', graph_query, flags=re.DOTALL)
+        query = re.sub(r'//[^\n]*', '', query)
+        
+        # Normalize Unicode characters (NFKC collapses fullwidth and lookalikes to ASCII)
+        query = unicodedata.normalize('NFKC', query)
+        
+        # Normalize query for case-insensitive matching
+        query_upper = query.upper()
         
         # Check for each blocked keyword
         for keyword in modification_keywords:
@@ -430,7 +441,7 @@ class GraphQueryRetriever(GRetriever):
                     return [error_msg]
             
             # Execute the query
-            results = self.graph_store.execute_query(graph_query)
+            results = self.graph_store.execute_query(graph_query, read_only=self.block_graph_modification)
             
             # Verbalize the results
             import json

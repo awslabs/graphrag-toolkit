@@ -300,6 +300,9 @@ class LexicalGraphIndex():
         self.extraction_pre_processors = pre_processors
         self.extraction_components = components
 
+        # Backend bootstrap (for example index creation) is part of object lifecycle; fail fast if unavailable.
+        self.graph_store.init()
+
     def _configure_extraction_pipeline(self, config: IndexingConfig):
         """
         Configures and initializes the extraction pipeline based on the given configuration settings. This method
@@ -621,12 +624,23 @@ class LexicalGraphIndex():
 
         stats['numStatementsPerFact'] = results
 
-        localConnectivity = round(sum([i['connectingNumChunks'] * i['numTopics'] for i in stats['numChunksPerTopic']]) / stats['topic'], 5)
-        globalConnectivity = round(sum([i['connectingNumStatements'] * i['numFacts'] for i in stats['numStatementsPerFact']]) / stats['fact'], 5)
+        localConnectivity = 0
+        globalConnectivity = 0
+
+        if stats['topic'] > 0:
+            localConnectivity = round(
+                sum([i['connectingNumChunks'] * i['numTopics'] for i in stats['numChunksPerTopic']]) / stats['topic'], 
+                5
+            )
+        
+        if stats['fact'] > 0:
+            globalConnectivity = round(
+                sum([i['connectingNumStatements'] * i['numFacts'] for i in stats['numStatementsPerFact']]) / stats['fact'], 
+                5
+            )
 
         stats['localConnectivity'] = localConnectivity
         stats['globalConnectivity'] = globalConnectivity
-
 
         return stats
 
@@ -783,4 +797,3 @@ class LexicalGraphIndex():
         delete_sources = DeleteSources(graph_store=self.graph_store, vector_store=self.vector_store)
 
         return delete_sources.delete_source_documents(source_ids)
-

@@ -78,8 +78,8 @@ class TestLocalGRerankerInitialization:
         mock_model.to.assert_called_with("cpu")
     
     def test_initialization_invalid_model_name(self):
-        """Verify AssertionError raised for unsupported model name."""
-        with pytest.raises(AssertionError, match="Model name not supported"):
+        """Verify ValueError raised for unsupported model name."""
+        with pytest.raises(ValueError, match="Unsupported reranking model"):
             LocalGReranker(model_name="unsupported-model")
 
 

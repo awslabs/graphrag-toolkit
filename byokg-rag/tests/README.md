@@ -398,4 +398,4 @@ If you encounter segfaults:
 - [pytest documentation](https://docs.pytest.org/)
 - [pytest-cov documentation](https://pytest-cov.readthedocs.io/)
 - [unittest.mock documentation](https://docs.python.org/3/library/unittest.mock.html)
-- [GraphRAG Toolkit documentation](../../docs/byokg-rag/)
+- [GraphRAG Toolkit documentation](https://awslabs.github.io/graphrag-toolkit/byokg-rag/)

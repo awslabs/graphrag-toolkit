@@ -91,6 +91,12 @@ NOTE: Additional permissions may be required for Neptune Database (`neptune-db:*
    - Provides interfaces for graph traversal and querying
    - Supports multiple graph database backends
 
+## Security: Query Modification Protection
+
+The `GraphQueryRetriever` blocks Cypher queries containing modification keywords (CREATE, MERGE, DELETE, SET, REMOVE, DROP, DETACH, CALL) to protect against LLM-generated or user-supplied queries that could modify graph data.
+
+**Neptune Database**: Write protection relies solely on application-level Cypher validation (`is_query_safe()`). For stronger guarantees, use Neptune Analytics (which supports server-enforced `readOnly=True`) or restrict the IAM role to `neptune-db:ReadDataViaQuery`.
+
 ## Performance
 
 Our results show that BYOKG-RAG outperforms existing approaches across multiple knowledge graph benchmarks:
@@ -129,13 +135,13 @@ Run the demo notebooks:
 
 ## Configuration Reference
 
-Complete documentation is available in the [docs/byokg-rag/](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/) directory:
+Complete documentation is available in the [docs/byokg-rag/](https://awslabs.github.io/graphrag-toolkit/byokg-rag/) directory:
 
-- [Overview](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/overview.md) - Architecture, KGQA approach, and system components
-- [Indexing](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/indexing.md) - Dense index, fuzzy string index, and graph-store index setup
-- [Graph Stores](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/graph-stores.md) - Supported graph stores and connection setup
-- [Configuration](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/configuration.md) - Complete parameter documentation
-- [FAQ](https://github.com/awslabs/graphrag-toolkit/tree/main/docs/byokg-rag/faq.md) - Common questions and troubleshooting
+- [Overview](https://awslabs.github.io/graphrag-toolkit/byokg-rag/overview/) - Architecture, KGQA approach, and system components
+- [Indexing](https://awslabs.github.io/graphrag-toolkit/byokg-rag/indexing/) - Dense index, fuzzy string index, and graph-store index setup
+- [Graph Stores](https://awslabs.github.io/graphrag-toolkit/byokg-rag/graph-stores/) - Supported graph stores and connection setup
+- [Configuration](https://awslabs.github.io/graphrag-toolkit/byokg-rag/configuration/) - Complete parameter documentation
+- [FAQ](https://awslabs.github.io/graphrag-toolkit/byokg-rag/faq/) - Common questions and troubleshooting
 
 ## Examples
 

@@ -32,7 +32,7 @@ def write_text(path,text):
         text: A string representing the text content to write to the file.
     """
     os.makedirs(os.path.dirname(os.path.realpath(path)), exist_ok=True)
-    with open(path, "w") as f:
+    with open(path, "w", encoding='utf-8') as f:
         f.write(text)
         
 def write_json(path, j):
@@ -46,7 +46,7 @@ def write_json(path, j):
         j (dict): The JSON object to be written to the specified file.
     """
     os.makedirs(os.path.dirname(os.path.realpath(path)), exist_ok=True)
-    with open(path, 'w') as f:
+    with open(path, 'w', encoding='utf-8') as f:
         json.dump(j, f, ensure_ascii=False, indent=2)
 
 def read_json(path):

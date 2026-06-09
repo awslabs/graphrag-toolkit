@@ -7,7 +7,7 @@ packages = ["src/graphrag_toolkit"]
 
 [project]
 name = "graphrag-lexical-graph"
-version = "3.18.2"
+version = "3.18.5"
 description = "AWS GraphRAG Toolkit, lexical graph"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -24,6 +24,9 @@ test = [
     "pytest-mock>=3.10.0",
     "pytest-asyncio>=0.21.0",
     "hypothesis>=6.0.0",
+]
+dev = [
+    "pre-commit>=3.5.0",
 ]
 
 [tool.pytest.ini_options]

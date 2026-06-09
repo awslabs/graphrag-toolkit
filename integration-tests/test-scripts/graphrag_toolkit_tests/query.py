@@ -35,7 +35,7 @@ class TraversalBasedQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -80,7 +80,7 @@ class TraversalBasedQueryWithModelReranker(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -126,7 +126,7 @@ class TraversalBasedQueryWithBedrockReranker(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -172,7 +172,7 @@ class ChunkBasedTraversalQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -218,7 +218,7 @@ class MetadataFilteringQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -284,7 +284,7 @@ class SemanticGuidedQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -329,7 +329,7 @@ class SemanticGuidedQueryWithSubRetrievers(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -379,7 +379,7 @@ class SemanticGuidedRerankingBeamSearchQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -454,7 +454,7 @@ class SemanticGuidedQueryWithPostProcessors(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -507,7 +507,7 @@ class MultiHopQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(
@@ -556,7 +556,7 @@ class ChunkBasedSemanticSearchMultiHopQuery(IntegrationTestBase):
         
     def _run_test(self, handler:IntegrationTestHandler, params:Dict[str, Any]):
         
-        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-20250514-v1:0')
+        GraphRAGConfig.response_llm = os.environ.get('TEST_RESPONSE_LLM', 'anthropic.claude-sonnet-4-6')
         
         with(
             GraphStoreFactory.for_graph_store(

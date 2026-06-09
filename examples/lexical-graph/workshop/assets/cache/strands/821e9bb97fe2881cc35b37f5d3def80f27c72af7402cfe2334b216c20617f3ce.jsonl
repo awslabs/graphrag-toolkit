@@ -1,0 +1,67 @@
+{"messageStart": {"role": "assistant"}}
+{"contentBlockDelta": {"delta": {"text": "Great"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " question! Let me search across"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " both"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " knowledge"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " bases simultaneously"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " to gather"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " comprehensive"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " information on"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Robinson"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " and"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " Bell helicopter accidents, as"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " well as their"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " design"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": " characteristics"}, "contentBlockIndex": 0}}
+{"contentBlockDelta": {"delta": {"text": "."}, "contentBlockIndex": 0}}
+{"contentBlockStop": {"contentBlockIndex": 0}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_1o8VliQ7rmydBRUlLGgmif", "name": "ntsb"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"quer"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\":"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"R"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "obinso"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n hel"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "icopter acc"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "idents fr"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "equen"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "cy severi"}}, "contentBlockIndex": 1}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ty\"}"}}, "contentBlockIndex": 1}}
+{"contentBlockStop": {"contentBlockIndex": 1}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_2FIu023pAe5QNrbikUicj8", "name": "ntsb"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\":"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " \"Bell he"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "licopter "}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "accidents f"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "requ"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ency sever"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "it"}}, "contentBlockIndex": 2}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "y\"}"}}, "contentBlockIndex": 2}}
+{"contentBlockStop": {"contentBlockIndex": 2}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_tvzhXfd6kgN1eyNbCmosBk", "name": "aircraft"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": "}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "\"Robinso"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "n hel"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "icopter desi"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "gn"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " specifica"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "tions models"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": " R22 R44 R6"}}, "contentBlockIndex": 3}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "6\"}"}}, "contentBlockIndex": 3}}
+{"contentBlockStop": {"contentBlockIndex": 3}}
+{"contentBlockStart": {"start": {"toolUse": {"toolUseId": "tooluse_7U9r8mP6TCtPrZ4SKIpJs1", "name": "aircraft"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": ""}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "{\"query\": \"B"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "el"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "l hel"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "icopter de"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "sign s"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "pecif"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "icat"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "ions model"}}, "contentBlockIndex": 4}}
+{"contentBlockDelta": {"delta": {"toolUse": {"input": "s\"}"}}, "contentBlockIndex": 4}}
+{"contentBlockStop": {"contentBlockIndex": 4}}
+{"messageStop": {"stopReason": "tool_use"}}
+{"metadata": {"usage": {"inputTokens": 2372, "outputTokens": 211, "totalTokens": 2583}, "metrics": {"latencyMs": 3532}}}
