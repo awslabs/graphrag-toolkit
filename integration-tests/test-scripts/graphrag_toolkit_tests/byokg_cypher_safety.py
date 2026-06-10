@@ -309,3 +309,128 @@ class BYOKGCypherInjectionSafety(IntegrationTestBase):
                 self.assertIn(MALICIOUS_NODE_LABEL, self._discovered_labels)
 
         handler.run_assertions(CypherInjectionSafetyAssertions)
+
+
+# A breakout s3_path aimed at the CALL neptune.load(source: '...') sink. Its
+# quote/space/backtick/')' fall outside the allowlist, so it is rejected before
+# reaching the sink; if the validator were dropped, it would delete the canary.
+MALICIOUS_S3_PATH = (
+    "s3://b/k', region:'x'}) "
+    f"MATCH (c:`{CANARY_LABEL}`) DETACH DELETE c //"
+)
+
+
+class BYOKGS3PathInjectionSafety(IntegrationTestBase):
+    """Call read_from_csv with an s3_path carrying a Cypher breakout payload
+    and confirm the validator rejects it before any CALL neptune.load() or
+    bulk-loader job runs, leaving a seeded canary node untouched."""
+
+    @property
+    def description(self):
+        return 'read_from_csv rejects a breakout s3_path before the load sink'
+
+    def _make_graph_store(self):
+        region = os.environ['AWS_REGION_NAME']
+        graph_store_id = os.environ['GRAPH_STORE']
+
+        if graph_store_id.startswith('neptune-graph://'):
+            graph_identifier = graph_store_id[len('neptune-graph://'):]
+            store = NeptuneAnalyticsGraphStore(
+                graph_identifier=graph_identifier, region=region
+            )
+            return 'analytics', store
+
+        if graph_store_id.startswith('neptune-db://'):
+            endpoint = graph_store_id[len('neptune-db://'):]
+            if not endpoint.startswith('https://'):
+                endpoint = f'https://{endpoint}'
+            return 'db', NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
+
+        raise ValueError(
+            "Invalid graph store id. Expected 'neptune-graph://' or "
+            f"'neptune-db://', but received {graph_store_id}."
+        )
+
+    def _canary_count(self, graph_store):
+        rows = graph_store.execute_query(
+            f'MATCH (c:`{CANARY_LABEL}`) RETURN count(c) AS n'
+        )
+        return rows[0]['n'] if rows else 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+
+        engine, graph_store = self._make_graph_store()
+
+        # Canary survival proves no injection reached the analytics Cypher sink;
+        # on db the operative proof is the validator raising before the load job.
+        graph_store.execute_query(
+            f'CREATE (c:`{CANARY_LABEL}` {{id: $id}})',
+            parameters={'id': CANARY_ID},
+        )
+        canary_before = self._canary_count(graph_store)
+
+        rejected = False
+        rejection_message = None
+        unexpected_error = None
+        try:
+            graph_store.read_from_csv(s3_path=MALICIOUS_S3_PATH)
+        except ValueError as e:
+            rejected = True
+            rejection_message = str(e)
+        except Exception as e:
+            # Non-ValueError => payload slipped past the validator to a sink.
+            unexpected_error = e
+
+        canary_after = self._canary_count(graph_store)
+
+        # Best-effort cleanup by id.
+        try:
+            graph_store.execute_query(
+                'MATCH (n) WHERE n.id IN $ids DETACH DELETE n',
+                parameters={'ids': [CANARY_ID]},
+            )
+        except Exception as e:
+            handler.add_exception(e)
+
+        handler.add_output('engine', engine)
+        handler.add_output('canary_before', canary_before)
+        handler.add_output('canary_after', canary_after)
+        handler.add_output('rejected', rejected)
+        handler.add_output('rejection_message', rejection_message)
+        handler.add_output(
+            'unexpected_error',
+            str(unexpected_error) if unexpected_error else None,
+        )
+
+        class S3PathInjectionSafetyAssertions(unittest.TestCase):
+
+            @classmethod
+            def setUpClass(cls):
+                cls._engine = engine
+                cls._canary_before = canary_before
+                cls._canary_after = canary_after
+                cls._rejected = rejected
+                cls._rejection_message = rejection_message
+                cls._unexpected_error = unexpected_error
+
+            def test_setup_created_canary(self):
+                """Canary node exists before read_from_csv runs"""
+                self.assertEqual(self._canary_before, 1)
+
+            def test_no_unexpected_error(self):
+                """read_from_csv failed only via the s3_path validator, not a
+                downstream sink"""
+                self.assertIsNone(self._unexpected_error)
+
+            def test_breakout_s3_path_rejected(self):
+                """Malicious s3_path raised ValueError before the load sink"""
+                self.assertTrue(self._rejected)
+                self.assertIn(
+                    'Invalid s3_path', self._rejection_message or ''
+                )
+
+            def test_canary_survives_injection_payload(self):
+                """Canary still present: no injected DETACH DELETE executed"""
+                self.assertEqual(self._canary_after, 1)
+
+        handler.run_assertions(S3PathInjectionSafetyAssertions)
