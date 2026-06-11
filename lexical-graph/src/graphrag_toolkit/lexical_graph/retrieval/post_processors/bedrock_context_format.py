@@ -88,7 +88,16 @@ class BedrockContextFormat(BaseNodePostprocessor):
         if not nodes:
             return [NodeWithScore(node=TextNode(text='No relevant context'))]
 
-        # Group nodes by source
+        # Traversal-based retrievers (e.g. TopicBeamSearch, TopicBasedSearch) return one
+        # node per SearchResult, carrying the full source->topics->statements tree in
+        # metadata['result']. Format those as nested source/topic/statement XML so the
+        # topic grouping is preserved, with statements kept in document order within
+        # each topic.
+        result_nodes = [n for n in nodes if n.node.metadata.get('result')]
+        if result_nodes:
+            return self._format_search_result_nodes(result_nodes)
+
+        # Legacy per-statement nodes: group by source, emit per-statement XML.
         sources: Dict[str, List[NodeWithScore]] = {}
         for node in nodes:
             source_id = node.node.metadata['source']['sourceId']
@@ -124,3 +133,51 @@ class BedrockContextFormat(BaseNodePostprocessor):
             formatted_sources.append("\n".join(source_output))
         
         return [NodeWithScore(node=TextNode(text=formatted_source)) for formatted_source in formatted_sources]
+
+    @staticmethod
+    def _doc_order_key(statement: dict):
+        """Document-order proxy for a statement: chunk sequence, then statement id."""
+        return (str(statement.get('chunkId') or ''), str(statement.get('statementId') or ''))
+
+    @staticmethod
+    def _format_statement_text(statement: dict) -> str:
+        text = statement.get('statement', '') or ''
+        details = statement.get('details')
+        if details:
+            details = details.strip().replace('\n', ', ')
+            return f"{text} (details: {details})"
+        return text
+
+    def _format_search_result_nodes(self, nodes: List[NodeWithScore]) -> List[NodeWithScore]:
+        """Format traversal SearchResult nodes as nested source/topic/statement XML.
+
+        One node = one source. Topic grouping is preserved; statements within a topic
+        are ordered by document position (chunkId, statementId) so the generator reads
+        them in their original narrative order.
+        """
+        formatted_sources = []
+        for source_count, node in enumerate(nodes, 1):
+            result = node.node.metadata.get('result') or {}
+            source = result.get('source', {}) or {}
+            out = [f"<source_{source_count}>"]
+
+            metadata = source.get('metadata', {}) or {}
+            if metadata:
+                out.append(f"<source_{source_count}_metadata>")
+                for key, value in sorted(metadata.items()):
+                    out.append(f"\t<{key}>{value}</{key}>")
+                out.append(f"</source_{source_count}_metadata>")
+
+            for topic_count, topic in enumerate(result.get('topics', []), 1):
+                topic_name = (topic.get('topic') or '').replace('"', "'")
+                out.append(f'<topic_{source_count}.{topic_count} name="{topic_name}">')
+                statements = sorted(topic.get('statements', []), key=self._doc_order_key)
+                for st_count, statement in enumerate(statements, 1):
+                    tag = f"statement_{source_count}.{topic_count}.{st_count}"
+                    out.append(f"<{tag}>{self._format_statement_text(statement)}</{tag}>")
+                out.append(f"</topic_{source_count}.{topic_count}>")
+
+            out.append(f"</source_{source_count}>")
+            formatted_sources.append("\n".join(out))
+
+        return [NodeWithScore(node=TextNode(text=fs)) for fs in formatted_sources]

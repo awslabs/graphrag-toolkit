@@ -89,13 +89,35 @@ An entity network context consists of a filtered and ranked network of entities 
 
 ### Retrievers
 
-Traversal-based search provides three different retrievers:
+Traversal-based search provides four different retrievers:
 
   - The `ChunkBasedSearch` retriever uses a vector similarity search to find information that is similar to the original query. The retriever first finds relevant chunks using vector similarity search. From these chunks, the retriever traverses topics, statements, and facts. Chunk-based search tends to return a narrowly-scoped set of results based on the statement and fact neighbourhoods of chunks that match the original query.
 	- The `EntityBasedSearch` retriever uses as its starting points the entities in an entity network context. From these entities, the retriever traverses facts, statements and topics. Entity-based search tends to return a broadly-scoped set of results, based on the neighbourhoods of individual entities and the facts that connect entities.
 	- The `EntityNetworkSearch` retriever uses textual transcriptions of an entity network context to drive vector searches for information that is dissimilar to the original query but nonetheless structurally relevant for creating an accurate and full response. These vector searches return chunks that are similar to 'something different from the question being asked'. From these chunks, the retriever traverses topics, statements, and facts to explore the structurally relevant space of dissimilar content.
-	
-By default, the traversal-based search is configured to use a combination of `ChunkBasedSearch` and `EntityNetworkSearch`. Together, these two retrievers provide access to content that is similar to the question being asked, plus content that is similar to 'something different from the question being asked'.
+	- The `TopicBeamSearch` retriever starts from the most relevant topics (found by a vector similarity search over the topic index) and then performs a beam search across the topic graph to gather additional related topics, before expanding the winning topics into their statements. Because it is topic-first, it tends to assemble a focused, topic-coherent set of statements and works well on multi-hop, legal, and temporal questions.
+
+By default, the traversal-based search is configured to use a combination of `ChunkBasedSearch` and `EntityNetworkSearch`. Together, these two retrievers provide access to content that is similar to the question being asked, plus content that is similar to 'something different from the question being asked'. `TopicBeamSearch` is used as a standalone, topic-first alternative.
+
+#### TopicBeamSearch options
+
+`TopicBeamSearch` accepts a notable option:
+
+  - `topic_reranker` (default `'none'`): optionally reranks the gathered topics by relevance to the query before their statements are collected, keeping the top `max_topics`. It mirrors the statement `reranker` option and accepts `'tfidf'` or `'bedrock'` (Cohere). Topic reranking is an opt-in, per-corpus tuning lever: it can help when answers are concentrated in a few topics, but is not enabled by default.
+
+The beam's neighbour-edge strategy and other tuning are configured through `ProcessorArgs`
+(mirroring the `chunk_beam_*` parameters), so they can be passed to
+`for_traversal_based_search(...)`:
+
+  - `use_same_chunk_neighbors` (default `True`) and `use_adjacent_chunk_neighbors`
+    (default `True`): expand the beam to topics co-occurring in the same chunk and in the
+    adjacent (next) chunk. Adjacent-chunk expansion is on by default because it improved
+    accuracy across datasets with no regressions in our benchmarks.
+  - `use_entity_neighbors` (default `False`): expand to topics linked through shared
+    entities. This has a large fan-out and tends to add noise, so it is off by default;
+    when enabled, `max_entity_neighbors` (default `100`) caps the neighbours per topic,
+    ranked by entity-connection strength.
+  - `topic_beam_width` (default `100`), `topic_beam_max_depth` (default `6`),
+    `topic_top_k` (default `50`): beam breadth, walk depth, and number of seed topics.
 
 ### Search results
 
