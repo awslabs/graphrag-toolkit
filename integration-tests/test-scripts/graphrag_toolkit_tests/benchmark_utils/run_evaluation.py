@@ -1,17 +1,53 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+"""
+Single source of truth for all benchmark evaluation logic.
+
+This module provides:
+- call_bedrock_invoke_model: Bedrock invocation with retry and parse-failure handling
+- CorrectnessEvaluator: LLM-as-judge correctness grading
+- IDKEvaluator: Detects "I don't know" / unanswerable responses
+- evaluate_responses: Shared evaluation loop used by all callers
+- BKB_CORRECTNESS_GRADING / IDK_DETECTION prompt templates
+
+Environment Variables:
+    BENCHMARK_JUDGE_LLM: Model ID for evaluation judge (default: us.anthropic.claude-sonnet-4-6)
+    AWS_REGION: AWS region for Bedrock calls (default: us-west-2)
+    REGION_NAME: Fallback for AWS_REGION
+"""
 from boto3 import Session
 from botocore.config import Config
 import logging
 import json
-import argparse
-from tqdm import tqdm
 import os
 import time
+from typing import Dict, List, Optional
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def call_bedrock_invoke_model(prompt, bedrock, model_id, is_json_output=True):
-    while True:
+_REGION = os.environ.get('AWS_REGION', os.environ.get('REGION_NAME', 'us-west-2'))
+
+
+def call_bedrock_invoke_model(prompt, bedrock, model_id, is_json_output=True, max_retries=10):
+    """Invoke a Bedrock model with retry logic and parse-failure handling.
+
+    Args:
+        prompt: The prompt string to send to the model.
+        bedrock: A boto3 bedrock-runtime client.
+        model_id: The Bedrock model ID to invoke.
+        is_json_output: If True, parse the response as JSON and return a dict.
+        max_retries: Maximum number of retry attempts on transient failures.
+
+    Returns:
+        If is_json_output=True: a dict with 'grade', 'justification', and 'llm_response' keys.
+        If is_json_output=False: the raw response text string.
+
+    Raises:
+        The last exception encountered if all retries are exhausted.
+    """
+    last_exception = None
+    for _attempt in range(max_retries):
         try:
             accept = 'application/json'
             contentType = 'application/json'
@@ -50,19 +86,20 @@ def call_bedrock_invoke_model(prompt, bedrock, model_id, is_json_output=True):
                     parsed_json = json.loads(parsed_completion)
                     parsed_json['llm_response'] = response_text
                     return parsed_json
-                except:
-                    logger.error(response_text)
+                except (ValueError, KeyError, json.JSONDecodeError, TypeError):
+                    logger.error(f"PARSING_FAILURE: Could not parse judge response: {response_text[:200]}")
                     return {
                         'grade': "incorrect",
-                        'justification': "LLM failed grading",
+                        'justification': f'PARSING_FAILURE: Judge response could not be parsed: {response_text[:200]}',
                         'llm_response': response_text
                     }
             else:
                 return response_text
         except Exception as e:
+            last_exception = e
             logger.error(str(e))
             time.sleep(3)
-        
+    raise last_exception
 
 
 BKB_CORRECTNESS_GRADING = """
@@ -97,27 +134,29 @@ IDK_DETECTION = """You are a teacher grading a quiz. Based on students' response
 Response: {response}
 Please output "Unanswerable" if the students identify that they can not answer the question. Otherwise, output "Answerable".
 """
-import os
-os.environ["AWS_REGION_NAME"] = "us-west-2"
-    
+
 
 class GenerationEvaluator:
+    """Base evaluator class that holds a shared Bedrock client."""
+
     bedrock = Session().client(
         service_name='bedrock-runtime',
-        region_name="us-west-2",
+        region_name=_REGION,
         config=Config(
             max_pool_connections=50,
             retries={"max_attempts": 10, "mode": "standard"},
             connect_timeout=500,
             read_timeout=500,
-            region_name="us-west-2"  
+            region_name=_REGION
         ))
-    
 
     def __init__(self, model_id):
         self.model_id = model_id
 
+
 class CorrectnessEvaluator(GenerationEvaluator):
+    """Evaluates whether a response is factually correct against a ground-truth answer."""
+
     def __init__(self, model_id):
         super().__init__(model_id)
     
@@ -125,7 +164,7 @@ class CorrectnessEvaluator(GenerationEvaluator):
         grading = {}
         grading.update(self._llm_evaluate(question, answer, response))
         return grading
-        
+
     def _llm_evaluate(self, question, answer, response):
         prompt = BKB_CORRECTNESS_GRADING.format(
             query=question,
@@ -137,14 +176,14 @@ class CorrectnessEvaluator(GenerationEvaluator):
             completion['grade'] = "incorrect"
             completion['justification'] = "No answer was provided"
 
-        if not completion or not completion['grade'] or not completion['justification']:
+        if not completion or not completion.get('grade') or not completion.get('justification'):
             logger.error("Failed to grade")
             logger.error(str(completion))
             return {
                 'question': question,
                 'llmCorrectnessGrade': "incorrect",
-                'llmCorrectnessGradeJustification': "LLM failed grading",
-                'llm_response': completion.get('llm_response', str(completion))  # Store the raw response
+                'llmCorrectnessGradeJustification': "PARSING_FAILURE: Judge returned invalid or empty grade structure",
+                'llm_response': completion.get('llm_response', str(completion)) if completion else ''
             }
 
         try:
@@ -152,28 +191,30 @@ class CorrectnessEvaluator(GenerationEvaluator):
                 'question': question,
                 'llmCorrectnessGrade': completion['grade'].lower(),
                 'llmCorrectnessGradeJustification': completion['justification'].replace("\"", "\\\""),
-                'llm_response': completion.get('llm_response', str(completion))  # Store the raw response
+                'llm_response': completion.get('llm_response', str(completion))
             }
             return grading
-        except Exception as e:
+        except (AttributeError, KeyError, TypeError) as e:
             logger.info(str(e))
             return {
                 'question': question,
                 'llmCorrectnessGrade': "incorrect",
-                'llmCorrectnessGradeJustification': "LLM failed grading",
-                'llm_response': completion.get('llm_response', str(completion))  # Store the raw response
+                'llmCorrectnessGradeJustification': f"PARSING_FAILURE: {str(e)}",
+                'llm_response': completion.get('llm_response', str(completion)) if completion else ''
             }
-            
+
 
 class IDKEvaluator(GenerationEvaluator):
+    """Detects whether a response indicates the model couldn't answer the question."""
+
     def __init__(self, model_id):
         super().__init__(model_id)
-    
+
     def evaluate(self, question, answer, response):
         grading = {}
         grading.update(self._llm_evaluate(question, answer, response))
         return grading
-    
+
     def _llm_evaluate(self, question, answer, response):
         prompt = IDK_DETECTION.format(
             question=question,
@@ -189,92 +230,85 @@ class IDKEvaluator(GenerationEvaluator):
             return {
                 "label": "answerable"
             }
-        
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input-file-path", type=str)
-    parser.add_argument("--metrics-output-path", type=str)
-    parser.add_argument("--eval-artifacts", type=str)
-    parser.add_argument("--metric", type=str, default="correctness", choices=["correctness", "idk", "correctness_on_answerable"])
-    args = parser.parse_args()
 
-    if args.metric == "correctness_on_answerable":
-        eval_correctness_artifact, eval_idk_artifact = args.eval_artifacts.split(",")
-        with open(eval_correctness_artifact) as fin:
-            eval_correctness_data = json.load(fin)
-        with open(eval_idk_artifact) as fin:
-            eval_idk_data = json.load(fin)
-        assert len(eval_correctness_data) == len(eval_idk_data)
-        total, count = 0, 0
-        for correctness_eval, idk_eval in zip(eval_correctness_data, eval_idk_data):
-            if idk_eval["label"] == "answerable":
-                total += 1
-                if correctness_eval["llmCorrectnessGrade"] == "correct":
+def evaluate_responses(data: List[dict], output_dir: str, judge_model_id: str,
+                       metrics: Optional[List[str]] = None) -> Dict[str, float]:
+    """Evaluate a list of response records and write results to output_dir.
+
+    This is the shared evaluation loop used by benchmark_evaluate.py.
+
+    Args:
+        data: List of response dicts, each with 'raw_example' (question/answer) and 'response'.
+        output_dir: Directory to write metric_evals.json and metric.json files.
+        judge_model_id: Bedrock model ID for the evaluation judge.
+        metrics: List of metrics to compute. Defaults to ['correctness', 'idk'].
+
+    Returns:
+        Dict of {metric_name: score} for each computed metric.
+    """
+    if metrics is None:
+        metrics = ['correctness', 'idk']
+
+    os.makedirs(output_dir, exist_ok=True)
+
+    scores = {}
+
+    for metric in metrics:
+        if metric == 'correctness_on_answerable':
+            # Requires correctness and idk to have been run first
+            correctness_path = os.path.join(output_dir, 'correctness_evals.json')
+            idk_path = os.path.join(output_dir, 'idk_evals.json')
+            if not os.path.exists(correctness_path) or not os.path.exists(idk_path):
+                logger.warning("Cannot compute correctness_on_answerable without correctness and idk evals")
+                continue
+            with open(correctness_path) as f:
+                correctness_data = json.load(f)
+            with open(idk_path) as f:
+                idk_data = json.load(f)
+            total, count = 0, 0
+            for c_eval, i_eval in zip(correctness_data, idk_data):
+                if i_eval['label'] == 'answerable':
+                    total += 1
+                    if c_eval['llmCorrectnessGrade'] == 'correct':
+                        count += 1
+            score = count / total if total > 0 else 0.0
+        else:
+            if metric == 'correctness':
+                evaluator = CorrectnessEvaluator(model_id=judge_model_id)
+            elif metric == 'idk':
+                evaluator = IDKEvaluator(model_id=judge_model_id)
+            else:
+                logger.warning(f"Unknown metric: {metric} — skipping")
+                continue
+
+            evals = []
+            for example in data:
+                question = example['raw_example']['question']
+                answer = example['raw_example']['answer']
+                response = example['response']
+                evals.append(evaluator.evaluate(question, answer, response))
+
+            # Write per-item evaluation results
+            evals_path = os.path.join(output_dir, f'{metric}_evals.json')
+            with open(evals_path, 'w') as f:
+                json.dump(evals, f, indent=2)
+
+            count, total = 0, len(evals)
+            for e in evals:
+                if metric == 'correctness' and e.get('llmCorrectnessGrade') == 'correct':
                     count += 1
-        logger.info("{}: {}".format(args.metric, count / total))
-    else:
-        if args.metric == "correctness":
-            evaluator = CorrectnessEvaluator(model_id="anthropic.claude-3-sonnet-20240229-v1:0")
-        elif args.metric == "idk":
-            evaluator = IDKEvaluator(model_id="anthropic.claude-3-sonnet-20240229-v1:0")
-        
-
-        data = []
-        with open(args.input_file_path) as fin:
-            for line in fin:
-                data.append(json.loads(line))
-        evaluation_outputs = []
-        for example in tqdm(data):
-            answer = example["raw_example"]["answer"]
-            response = example["response"]
-            question = example["raw_example"]["question"]
-            evaluation_outputs.append(evaluator.evaluate(question, answer, response))
-        count, total = 0, 0
-        for evaluation in evaluation_outputs:
-            total += 1
-            if args.metric == "correctness":
-                if evaluation["llmCorrectnessGrade"] == "correct":
+                elif metric == 'idk' and e.get('label') == 'unanswerable':
                     count += 1
-            if args.metric == "idk":
-                if evaluation["label"] == "unanswerable":
-                    count += 1
-        
-        logger.info("{}: {}".format(args.metric, count / total))
-        os.makedirs(os.path.dirname(args.metrics_output_path), exist_ok=True)
-        with open(args.metrics_output_path, "w") as fout:
-            json.dump(evaluation_outputs, fout, indent=4)
-        with open(os.path.join(os.path.dirname(args.metrics_output_path), "{}.json".format(args.metric)), "w") as fout:
-            json.dump({
-                args.metric: count / total
-            }, fout, indent=4)
+            score = count / total if total > 0 else 0.0
 
-import multiprocessing as mp
-import yaml
+        scores[metric] = score
 
-class SafeCounter():
-    # constructor
-    def __init__(self):
-        # initialize counter
-        self._counter = mp.Value('i', 0)
-        # initialize lock
-        self._lock = mp.Lock()
- 
-    # increment the counter
-    def increment(self):
-        # get the lock
-        with self._lock:
-            self._counter.value += 1
- 
-    # get the counter value
-    def value(self):
-    	with self._lock:
-        	return self._counter.value
-         
-def read_yaml(file_path):
-    if file_path:
-        with open(file_path, 'r') as file:
-            data = yaml.safe_load(file)
-        return data
-    else:
-        return {}
+        # Write aggregate score file
+        score_path = os.path.join(output_dir, f'{metric}.json')
+        with open(score_path, 'w') as f:
+            json.dump({metric: score}, f, indent=2)
+
+        logger.info(f"  {metric}: {score:.4f}")
+
+    return scores

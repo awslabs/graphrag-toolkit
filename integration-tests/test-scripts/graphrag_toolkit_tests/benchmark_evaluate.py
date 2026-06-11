@@ -1,13 +1,33 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
+"""
+Benchmark evaluation for GraphRAG benchmark results.
+
+This module provides:
+- run_benchmark_evaluate(): Evaluation function used by pipeline test classes
+- Test classes: CuadBenchmarkEvaluate, ConcurrentQaBenchmarkEvaluate,
+  WikihowBenchmarkEvaluate, PgaBenchmarkEvaluate
+
+Environment Variables:
+    BENCHMARK_JUDGE_LLM: Model ID for evaluation judge (default: us.anthropic.claude-sonnet-4-6)
+"""
 import json
+import logging
 import os
 import unittest
 from typing import Dict, Any, Optional, List
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
-from graphrag_toolkit_tests.benchmark_utils.run_evaluation import CorrectnessEvaluator, IDKEvaluator
+from graphrag_toolkit_tests.benchmark_utils.run_evaluation import evaluate_responses
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Pipeline evaluation helpers
+# ---------------------------------------------------------------------------
 
 
 def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, Any],
@@ -63,56 +83,11 @@ def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, An
         for line in fin:
             data.append(json.loads(line))
 
-    model_id = os.environ.get('TEST_RESPONSE_LLM')
-    assert model_id, 'TEST_RESPONSE_LLM environment variable must be set'
+    judge_model_id = os.environ.get('BENCHMARK_JUDGE_LLM', 'us.anthropic.claude-sonnet-4-6')
 
-    scores = {}
+    scores = evaluate_responses(data, results_dir, judge_model_id, metrics)
 
-    for metric in metrics:
-        if metric == 'correctness_on_answerable':
-            correctness_path = os.path.join(results_dir, 'correctness_evals.json')
-            idk_path = os.path.join(results_dir, 'idk_evals.json')
-            with open(correctness_path) as f:
-                correctness_data = json.load(f)
-            with open(idk_path) as f:
-                idk_data = json.load(f)
-            total, count = 0, 0
-            for c_eval, i_eval in zip(correctness_data, idk_data):
-                if i_eval['label'] == 'answerable':
-                    total += 1
-                    if c_eval['llmCorrectnessGrade'] == 'correct':
-                        count += 1
-            score = count / total if total > 0 else 0.0
-        else:
-            if metric == 'correctness':
-                evaluator = CorrectnessEvaluator(model_id=model_id)
-            elif metric == 'idk':
-                evaluator = IDKEvaluator(model_id=model_id)
-
-            evals = []
-            for example in data:
-                question = example['raw_example']['question']
-                answer = example['raw_example']['answer']
-                response = example['response']
-                evals.append(evaluator.evaluate(question, answer, response))
-
-            evals_path = os.path.join(results_dir, f'{metric}_evals.json')
-            with open(evals_path, 'w') as f:
-                json.dump(evals, f, indent=2)
-
-            count, total = 0, len(evals)
-            for e in evals:
-                if metric == 'correctness' and e.get('llmCorrectnessGrade') == 'correct':
-                    count += 1
-                elif metric == 'idk' and e.get('label') == 'unanswerable':
-                    count += 1
-            score = count / total if total > 0 else 0.0
-
-        scores[metric] = score
-        score_path = os.path.join(results_dir, f'{metric}.json')
-        with open(score_path, 'w') as f:
-            json.dump({metric: score}, f, indent=2)
-
+    for metric, score in scores.items():
         handler.add_output(metric, score)
 
     params['benchmark_scores'] = scores
