@@ -6,8 +6,8 @@
 import json
 
 import pytest
-from llama_index.core.schema import TextNode
-from llama_index.core.vector_stores.types import (
+from graphrag_toolkit.core.types import Node
+from graphrag_toolkit.core.vector_store_types import (
     FilterCondition,
     FilterOperator,
     MetadataFilter,
@@ -118,7 +118,7 @@ class TestFilterConfigToS3Filters:
 
 class TestNodeToS3Vector:
     def test_extracts_versioning_into_top_level_keys(self):
-        node = TextNode(id_='n1', text='hi', metadata={
+        node = Node(node_id='n1', text='hi', metadata={
             'source': {
                 'versioning': {'valid_from': 100, 'valid_to': 200},
                 'metadata': {'category': 'tech'},
@@ -142,7 +142,7 @@ class TestNodeToS3Vector:
 
 class TestS3VectorToDict:
     def test_round_trip_recovers_versioning_and_metadata(self):
-        node = TextNode(id_='n1', text='hi', metadata={
+        node = Node(node_id='n1', text='hi', metadata={
             'source': {
                 'versioning': {'valid_from': 100, 'valid_to': 200},
                 'metadata': {'category': 'tech'},

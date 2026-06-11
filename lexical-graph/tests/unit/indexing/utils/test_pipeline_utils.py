@@ -3,13 +3,13 @@
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from llama_index.core.schema import TextNode, Document
-from llama_index.core.ingestion import IngestionPipeline
+from graphrag_toolkit.core.types import Document, Node
 
 from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import (
     sink,
     run_pipeline,
-    node_batcher
+    node_batcher,
+    _Pipeline,
 )
 
 
@@ -45,29 +45,22 @@ class TestRunPipeline:
     
     def test_run_pipeline_processes_batches(self):
         """Verify run_pipeline processes node batches correctly."""
-        # Create mock pipeline
-        mock_pipeline = Mock(spec=IngestionPipeline)
-        mock_pipeline.transformations = []
-        mock_pipeline.cache = None
-        mock_pipeline.disable_cache = True
+        pipeline = _Pipeline(transformations=[])
         
-        # Create test nodes
-        batch1 = [TextNode(text="Node 1", id_="1"), TextNode(text="Node 2", id_="2")]
-        batch2 = [TextNode(text="Node 3", id_="3"), TextNode(text="Node 4", id_="4")]
+        batch1 = [Node(text="Node 1", node_id="1"), Node(text="Node 2", node_id="2")]
+        batch2 = [Node(text="Node 3", node_id="3"), Node(text="Node 4", node_id="4")]
         node_batches = [batch1, batch2]
         
-        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations') as mock_transform:
-            # Mock transformation to return the same nodes
-            mock_transform.side_effect = lambda transformations, **kwargs: kwargs.get('nodes', [])
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils._run_transformations') as mock_transform:
+            mock_transform.side_effect = lambda nodes, **kwargs: nodes
             
             with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
-                # Mock executor to process batches
                 mock_pool = MagicMock()
                 mock_pool.__enter__.return_value = mock_pool
                 mock_pool.map.return_value = [batch1, batch2]
                 mock_executor.return_value = mock_pool
                 
-                results = list(run_pipeline(mock_pipeline, node_batches, num_workers=2))
+                results = list(run_pipeline(pipeline, node_batches, num_workers=2))
                 
                 assert len(results) == 4
                 assert results[0].text == "Node 1"
@@ -75,58 +68,25 @@ class TestRunPipeline:
     
     def test_run_pipeline_with_single_worker(self):
         """Verify run_pipeline works with single worker."""
-        mock_pipeline = Mock(spec=IngestionPipeline)
-        mock_pipeline.transformations = []
-        mock_pipeline.cache = None
-        mock_pipeline.disable_cache = True
+        pipeline = _Pipeline(transformations=[])
         
-        batch = [TextNode(text="Node 1", id_="1")]
+        batch = [Node(text="Node 1", node_id="1")]
         node_batches = [batch]
         
-        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations') as mock_transform:
-            mock_transform.return_value = batch
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
+            mock_pool = MagicMock()
+            mock_pool.__enter__.return_value = mock_pool
+            mock_pool.map.return_value = [batch]
+            mock_executor.return_value = mock_pool
             
-            with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
-                mock_pool = MagicMock()
-                mock_pool.__enter__.return_value = mock_pool
-                mock_pool.map.return_value = [batch]
-                mock_executor.return_value = mock_pool
-                
-                results = list(run_pipeline(mock_pipeline, node_batches, num_workers=1))
-                
-                assert len(results) == 1
-                mock_executor.assert_called_once_with(max_workers=1)
-    
-    def test_run_pipeline_with_cache(self):
-        """Verify run_pipeline uses cache when not disabled."""
-        mock_cache = Mock()
-        mock_pipeline = Mock(spec=IngestionPipeline)
-        mock_pipeline.transformations = []
-        mock_pipeline.cache = mock_cache
-        mock_pipeline.disable_cache = False
-        
-        batch = [TextNode(text="Node 1", id_="1")]
-        node_batches = [batch]
-        
-        with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.run_transformations') as mock_transform:
-            mock_transform.return_value = batch
+            results = list(run_pipeline(pipeline, node_batches, num_workers=1))
             
-            with patch('graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils.ProcessPoolExecutor') as mock_executor:
-                mock_pool = MagicMock()
-                mock_pool.__enter__.return_value = mock_pool
-                mock_pool.map.return_value = [batch]
-                mock_executor.return_value = mock_pool
-                
-                results = list(run_pipeline(mock_pipeline, node_batches, cache_collection="test_cache"))
-                
-                assert len(results) == 1
+            assert len(results) == 1
+            mock_executor.assert_called_once_with(max_workers=1)
     
     def test_run_pipeline_empty_batches(self):
         """Verify run_pipeline handles empty batches."""
-        mock_pipeline = Mock(spec=IngestionPipeline)
-        mock_pipeline.transformations = []
-        mock_pipeline.cache = None
-        mock_pipeline.disable_cache = True
+        pipeline = _Pipeline(transformations=[])
         
         node_batches = []
         
@@ -136,7 +96,7 @@ class TestRunPipeline:
             mock_pool.map.return_value = []
             mock_executor.return_value = mock_pool
             
-            results = list(run_pipeline(mock_pipeline, node_batches))
+            results = list(run_pipeline(pipeline, node_batches))
             
             assert len(results) == 0
 
@@ -146,7 +106,7 @@ class TestNodeBatcher:
     
     def test_node_batcher_divides_evenly(self):
         """Verify node_batcher divides nodes evenly into batches."""
-        nodes = [TextNode(text=f"Node {i}", id_=str(i)) for i in range(10)]
+        nodes = [Node(text=f"Node {i}", node_id=str(i)) for i in range(10)]
         num_batches = 2
         
         batches = list(node_batcher(num_batches, nodes))
@@ -157,7 +117,7 @@ class TestNodeBatcher:
     
     def test_node_batcher_handles_uneven_division(self):
         """Verify node_batcher handles uneven division."""
-        nodes = [TextNode(text=f"Node {i}", id_=str(i)) for i in range(10)]
+        nodes = [Node(text=f"Node {i}", node_id=str(i)) for i in range(10)]
         num_batches = 3
         
         batches = list(node_batcher(num_batches, nodes))
@@ -171,7 +131,7 @@ class TestNodeBatcher:
     
     def test_node_batcher_single_batch(self):
         """Verify node_batcher with single batch returns all nodes."""
-        nodes = [TextNode(text=f"Node {i}", id_=str(i)) for i in range(5)]
+        nodes = [Node(text=f"Node {i}", node_id=str(i)) for i in range(5)]
         num_batches = 1
         
         batches = list(node_batcher(num_batches, nodes))
@@ -181,7 +141,7 @@ class TestNodeBatcher:
     
     def test_node_batcher_more_batches_than_nodes(self):
         """Verify node_batcher when num_batches > num_nodes."""
-        nodes = [TextNode(text=f"Node {i}", id_=str(i)) for i in range(3)]
+        nodes = [Node(text=f"Node {i}", node_id=str(i)) for i in range(3)]
         num_batches = 5
         
         batches = list(node_batcher(num_batches, nodes))
@@ -215,18 +175,18 @@ class TestNodeBatcher:
     
     def test_node_batcher_preserves_order(self):
         """Verify node_batcher preserves node order."""
-        nodes = [TextNode(text=f"Node {i}", id_=str(i)) for i in range(6)]
+        nodes = [Node(text=f"Node {i}", node_id=str(i)) for i in range(6)]
         num_batches = 2
         
         batches = list(node_batcher(num_batches, nodes))
         
         # Flatten batches and check order
         flattened = [node for batch in batches for node in batch]
-        assert [node.id_ for node in flattened] == ['0', '1', '2', '3', '4', '5']
+        assert [node.node_id for node in flattened] == ['0', '1', '2', '3', '4', '5']
     
     def test_node_batcher_large_number_of_nodes(self):
         """Verify node_batcher handles large number of nodes."""
-        nodes = [TextNode(text=f"Node {i}", id_=str(i)) for i in range(1000)]
+        nodes = [Node(text=f"Node {i}", node_id=str(i)) for i in range(1000)]
         num_batches = 10
         
         batches = list(node_batcher(num_batches, nodes))
@@ -239,7 +199,7 @@ class TestNodeBatcher:
     
     def test_node_batcher_batch_size_calculation(self):
         """Verify node_batcher calculates batch size correctly."""
-        nodes = [TextNode(text=f"Node {i}", id_=str(i)) for i in range(15)]
+        nodes = [Node(text=f"Node {i}", node_id=str(i)) for i in range(15)]
         num_batches = 4
         
         batches = list(node_batcher(num_batches, nodes))

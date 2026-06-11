@@ -5,7 +5,7 @@
 
 from unittest.mock import MagicMock, patch
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import Node, NodeWithScore, QueryBundle
 
 from graphrag_toolkit.lexical_graph.retrieval.model import (
     Entity,
@@ -188,7 +188,7 @@ class TestEntityContextSearch:
         )
         graph_store, vector_store = _stores()
         sub = MagicMock(spec=TraversalBasedBaseRetriever)
-        node = NodeWithScore(node=TextNode(text='x', metadata={'result': {
+        node = NodeWithScore(node=Node(text='x', metadata={'result': {
             'source': {'sourceId': 's1', 'metadata': {}, 'versioning': {'valid_from': 0, 'valid_to': 9}},
             'topics': [],
         }}))

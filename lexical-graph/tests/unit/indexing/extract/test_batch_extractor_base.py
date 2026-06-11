@@ -3,7 +3,7 @@
 
 import pytest
 from unittest.mock import Mock, patch
-from llama_index.core.schema import TextNode
+from graphrag_toolkit.core.types import Node
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_extractor_base import BatchExtractorBase
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 
@@ -23,7 +23,7 @@ class ConcreteBatchExtractor(BatchExtractorBase):
         """Mock implementation of _run_non_batch_extractor."""
         return []
     
-    def _update_node(self, node: TextNode, node_metadata_map):
+    def _update_node(self, node: Node, node_metadata_map):
         """Mock implementation of _update_node."""
         return node
 

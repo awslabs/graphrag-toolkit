@@ -19,7 +19,7 @@ from graphrag_toolkit.lexical_graph.metadata import (
     DictionaryFilter,
     to_metadata_filter
 )
-from llama_index.core.vector_stores.types import (
+from graphrag_toolkit.core.vector_store_types import (
     FilterCondition,
     FilterOperator,
     MetadataFilter,

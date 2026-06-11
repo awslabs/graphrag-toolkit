@@ -5,7 +5,7 @@ import pytest
 from typing import Iterable
 from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_decorator import PipelineDecorator
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
-from llama_index.core.schema import Document, TextNode
+from graphrag_toolkit.core.types import Document, Node
 
 
 class ConcretePipelineDecorator(PipelineDecorator):
@@ -156,8 +156,8 @@ class TestPipelineDecoratorHandleOutputDoc:
         doc = SourceDocument(
             refNode=Document(text="test"),
             nodes=[
-                TextNode(text="chunk1"),
-                TextNode(text="chunk2")
+                Node(text="chunk1"),
+                Node(text="chunk2")
             ]
         )
         

@@ -32,7 +32,7 @@ class TestCheckpointFilter:
     """Tests for CheckpointFilter functionality."""
 
     def _make_filter(self, checkpoint_dir='/tmp/test_cp'):
-        from llama_index.core.schema import TransformComponent
+        from graphrag_toolkit.core.compat import TransformComponent
         inner = Mock(spec=TransformComponent)
         inner.__call__ = Mock(return_value=[])
         tenant = TenantId()
@@ -58,7 +58,7 @@ class TestCheckpointFilter:
         """Verify __call__ filters out already-checkpointed nodes."""
         (tmp_path / 'n1').touch()  # n1 is checkpointed
 
-        from llama_index.core.schema import TransformComponent
+        from graphrag_toolkit.core.compat import TransformComponent
         inner = Mock(spec=TransformComponent)
         inner.__call__ = Mock(side_effect=lambda nodes, **kw: nodes)
         tenant = TenantId()
@@ -70,14 +70,14 @@ class TestCheckpointFilter:
         )
 
         node1 = Mock()
-        node1.id_ = 'n1'
+        node1.node_id = 'n1'
         node2 = Mock()
-        node2.id_ = 'n2'
+        node2.node_id = 'n2'
 
         result = f([node1, node2])
         # Only n2 should pass through
         assert len(result) == 1
-        assert result[0].id_ == 'n2'
+        assert result[0].node_id == 'n2'
 
 
 class TestCheckpointWriter:
@@ -156,7 +156,7 @@ class TestCheckpoint:
 
     def test_add_filter_wraps_transform_component(self):
         """Verify add_filter wraps a TransformComponent when enabled."""
-        from llama_index.core.schema import TransformComponent
+        from graphrag_toolkit.core.compat import TransformComponent
         cp = Checkpoint(checkpoint_name='test', output_dir='/tmp/test', enabled=True)
         inner = Mock(spec=TransformComponent)
         tenant = TenantId()
@@ -165,7 +165,7 @@ class TestCheckpoint:
 
     def test_add_filter_skips_do_not_checkpoint(self):
         """Verify add_filter does not wrap DoNotCheckpoint instances."""
-        from llama_index.core.schema import TransformComponent
+        from graphrag_toolkit.core.compat import TransformComponent
         cp = Checkpoint(checkpoint_name='test', output_dir='/tmp/test', enabled=True)
         inner = Mock(spec=[TransformComponent, DoNotCheckpoint])
         # Make isinstance checks work
@@ -177,7 +177,7 @@ class TestCheckpoint:
 
     def test_add_filter_disabled(self):
         """Verify add_filter returns original when disabled."""
-        from llama_index.core.schema import TransformComponent
+        from graphrag_toolkit.core.compat import TransformComponent
         cp = Checkpoint(checkpoint_name='test', output_dir='/tmp/test', enabled=False)
         inner = Mock(spec=TransformComponent)
         tenant = TenantId()

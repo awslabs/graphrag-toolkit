@@ -3,7 +3,8 @@
 
 import pytest
 from unittest.mock import Mock, MagicMock
-from llama_index.core.schema import Document, TextNode
+from graphrag_toolkit.core.types import Document, Node
+from graphrag_toolkit.core.compat import NodeRelationship
 from graphrag_toolkit.lexical_graph.indexing.extract.docs_to_nodes import DocsToNodes
 
 
@@ -18,7 +19,7 @@ class TestDocsToNodesInitialization:
     def test_initialization_with_show_progress(self):
         """Verify DocsToNodes initializes and can use show_progress parameter."""
         converter = DocsToNodes()
-        # DocsToNodes doesn't store show_progress as an attribute, it's passed to _parse_nodes
+        # DocsToNodes doesn't store show_progress as an attribute, it's passed to __call__
         assert converter is not None
 
 
@@ -33,8 +34,11 @@ class TestDocsToNodesConversion:
         result = converter([doc])
         
         assert isinstance(result, list)
-        assert len(result) > 0
-        assert all(isinstance(n, TextNode) for n in result)
+        assert len(result) == 1
+        assert isinstance(result[0], Node)
+        assert result[0].text == "Test document content"
+        # Should have a SOURCE relationship
+        assert NodeRelationship.SOURCE in result[0].relationships
     
     def test_convert_multiple_documents(self):
         """Verify conversion of multiple documents to nodes."""
@@ -48,7 +52,7 @@ class TestDocsToNodesConversion:
         result = converter(docs)
         
         assert isinstance(result, list)
-        assert len(result) > 0
+        assert len(result) == 3
     
     def test_convert_empty_document_list(self):
         """Verify handling of empty document list."""
@@ -68,6 +72,7 @@ class TestDocsToNodesConversion:
         
         result = converter([doc])
         
-        assert len(result) > 0
+        assert len(result) == 1
         # Metadata should be preserved in nodes
-        assert result[0].metadata is not None
+        assert result[0].metadata["source"] == "test"
+        assert result[0].metadata["date"] == "2024-01-01"

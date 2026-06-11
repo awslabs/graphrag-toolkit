@@ -5,10 +5,7 @@ import os
 from unittest.mock import Mock, patch
 import pytest
 
-from llama_index.core.llms import LLM
-from llama_index.core.llms.mock import MockLLM
-from llama_index.llms.bedrock_converse import BedrockConverse
-
+from graphrag_toolkit.core.llm import BedrockLLMProvider
 from graphrag_toolkit.lexical_graph import ExtractionConfig
 from graphrag_toolkit.lexical_graph.lexical_graph_index import LexicalGraphIndex
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
@@ -20,7 +17,7 @@ class TestExtractionConfig:
         assert extraction_config.extraction_llm is None 
 
     def test_extraction_lmm_configured_with_llm_returns_llm(self): 
-        llm = MockLLM()
+        llm = Mock()
 
         extraction_config = ExtractionConfig(
             extraction_llm = llm
@@ -34,10 +31,10 @@ class TestExtractionConfig:
                 extraction_llm = 'anthropic.claude-v2'
             )
 
-        assert isinstance(extraction_config.extraction_llm, BedrockConverse)
+        assert isinstance(extraction_config.extraction_llm, BedrockLLMProvider)
 
     def test_extraction_lmm_configured_with_llm_cache_returns_llm_cache(self):
-        llm = MockLLM()
+        llm = Mock()
         llm_cache = LLMCache(llm=llm)
 
         extraction_config = ExtractionConfig(

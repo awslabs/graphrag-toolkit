@@ -27,9 +27,13 @@ from graphrag_toolkit.lexical_graph.utils.fm_observability import (
     FMObservabilityPublisher,
     BedrockEnabledTokenCountingHandler,
     FMObservabilityHandler,
-    get_patched_llm_token_counts
+    get_patched_llm_token_counts,
+    CBEventType,
+    EventPayload,
+    CBEvent,
+    TokenCountingEvent,
+    TokenCounter,
 )
-from llama_index.core.callbacks.schema import CBEventType, EventPayload, CBEvent
 
 
 # Fixtures
@@ -441,13 +445,11 @@ class TestObservabilityIntegration:
     """Tests for observability integration (test_observability_integration)."""
     
     @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Queue')
-    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Settings')
-    def test_publisher_initialization_sets_up_handlers(self, mock_settings, mock_queue_class):
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability._callback_manager')
+    def test_publisher_initialization_sets_up_handlers(self, mock_callback_manager, mock_queue_class):
         """Verify FMObservabilityPublisher sets up handlers on initialization."""
         mock_queue_instance = Mock()
         mock_queue_class.return_value = mock_queue_instance
-        mock_callback_manager = Mock()
-        mock_settings.callback_manager = mock_callback_manager
         
         subscriber = Mock(spec=FMObservabilitySubscriber)
         publisher = FMObservabilityPublisher(subscribers=[subscriber], interval_seconds=1.0)
@@ -462,13 +464,11 @@ class TestObservabilityIntegration:
         publisher.close()
     
     @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Queue')
-    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability.Settings')
-    def test_publisher_context_manager(self, mock_settings, mock_queue_class):
+    @patch('graphrag_toolkit.lexical_graph.utils.fm_observability._callback_manager')
+    def test_publisher_context_manager(self, mock_callback_manager, mock_queue_class):
         """Verify FMObservabilityPublisher works as context manager."""
         mock_queue_instance = Mock()
         mock_queue_class.return_value = mock_queue_instance
-        mock_callback_manager = Mock()
-        mock_settings.callback_manager = mock_callback_manager
         
         subscriber = Mock(spec=FMObservabilitySubscriber)
         
@@ -544,7 +544,6 @@ class TestObservabilityIntegration:
         handler = BedrockEnabledTokenCountingHandler()
         
         # Simulate embedding token counts being tracked
-        from llama_index.core.callbacks.token_counting import TokenCountingEvent
         handler.embedding_token_counts = [
             TokenCountingEvent(
                 event_id='test-event',
@@ -588,8 +587,6 @@ class TestGetPatchedLLMTokenCounts:
     
     def test_get_patched_llm_token_counts_with_prompt_and_completion(self):
         """Verify token counting with prompt and completion payload."""
-        from llama_index.core.utilities.token_counting import TokenCounter
-        
         token_counter = TokenCounter()
         payload = {
             EventPayload.PROMPT: 'This is a test prompt',
@@ -607,14 +604,11 @@ class TestGetPatchedLLMTokenCounts:
     
     def test_get_patched_llm_token_counts_with_messages_and_response(self):
         """Verify token counting with messages and response payload."""
-        from llama_index.core.utilities.token_counting import TokenCounter
-        from llama_index.core.llms import ChatMessage
-        
         token_counter = TokenCounter()
         
         messages = [
-            ChatMessage(role='user', content='Hello'),
-            ChatMessage(role='assistant', content='Hi there')
+            {'role': 'user', 'content': 'Hello'},
+            {'role': 'assistant', 'content': 'Hi there'}
         ]
         
         response = Mock()
@@ -638,12 +632,9 @@ class TestGetPatchedLLMTokenCounts:
     
     def test_get_patched_llm_token_counts_estimates_when_no_usage(self):
         """Verify token counting estimates when usage data not available."""
-        from llama_index.core.utilities.token_counting import TokenCounter
-        from llama_index.core.llms import ChatMessage
-        
         token_counter = TokenCounter()
         
-        messages = [ChatMessage(role='user', content='Test message')]
+        messages = [{'role': 'user', 'content': 'Test message'}]
         response = Mock()
         response.raw = None
         
@@ -660,8 +651,6 @@ class TestGetPatchedLLMTokenCounts:
     
     def test_get_patched_llm_token_counts_raises_on_invalid_payload(self):
         """Verify token counting raises ValueError for invalid payload."""
-        from llama_index.core.utilities.token_counting import TokenCounter
-        
         token_counter = TokenCounter()
         payload = {}  # Invalid: no prompt/completion or messages/response
         

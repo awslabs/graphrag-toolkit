@@ -22,7 +22,7 @@ from graphrag_toolkit.lexical_graph.versioning import (
     TIMESTAMP_UPPER_BOUND
 )
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
-from llama_index.core.vector_stores.types import FilterOperator, MetadataFilter
+from graphrag_toolkit.core.vector_store_types import FilterOperator, MetadataFilter
 
 
 class TestVersioningMode:

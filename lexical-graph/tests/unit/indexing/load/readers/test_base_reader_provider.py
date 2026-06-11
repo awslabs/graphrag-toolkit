@@ -5,7 +5,7 @@ import pytest
 import asyncio
 import sys
 from unittest.mock import Mock
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.types import Document
 
 # Mock the providers module to avoid loading optional dependencies
 sys.modules['graphrag_toolkit.lexical_graph.indexing.load.readers.providers'] = Mock()

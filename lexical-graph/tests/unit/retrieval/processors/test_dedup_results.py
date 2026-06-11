@@ -15,7 +15,7 @@ from graphrag_toolkit.lexical_graph.retrieval.processors.dedup_results import De
 from graphrag_toolkit.lexical_graph.retrieval.model import (
     SearchResultCollection, SearchResult, Topic, Statement, Source, Versioning, Chunk, EntityContexts
 )
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 
 @pytest.fixture

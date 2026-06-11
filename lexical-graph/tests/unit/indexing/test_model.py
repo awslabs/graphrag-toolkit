@@ -13,7 +13,8 @@ from graphrag_toolkit.lexical_graph.indexing.model import (
     Topic,
     TopicCollection
 )
-from llama_index.core.schema import TextNode, Document, BaseNode, NodeRelationship, RelatedNodeInfo
+from graphrag_toolkit.core.types import Document, Node, NodeRef
+from graphrag_toolkit.core.compat import NodeRelationship
 
 
 class TestSourceDocument:
@@ -21,9 +22,9 @@ class TestSourceDocument:
     
     def test_source_id_with_nodes(self):
         """Test source_id returns the source node ID from first node."""
-        doc = Document(text="test", id_="doc1")
-        node = TextNode(text="test", id_="node1")
-        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source123")
+        doc = Document(text="test", node_id="doc1")
+        node = Node(text="test", node_id="node1")
+        node.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source123")
         
         source_doc = SourceDocument(nodes=[node])
         
@@ -50,7 +51,7 @@ class TestSourceDocumentsFromSourceTypes:
     
     def test_with_document_input(self):
         """Test that Document inputs are wrapped in SourceDocument."""
-        doc = Document(text="test", id_="doc1")
+        doc = Document(text="test", node_id="doc1")
         
         result = list(source_documents_from_source_types([doc]))
         
@@ -60,11 +61,11 @@ class TestSourceDocumentsFromSourceTypes:
     
     def test_with_text_node_single_source(self):
         """Test that TextNodes with same source are grouped together."""
-        node1 = TextNode(text="test1", id_="node1")
-        node1.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source1")
+        node1 = Node(text="test1", node_id="node1")
+        node1.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source1")
         
-        node2 = TextNode(text="test2", id_="node2")
-        node2.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source1")
+        node2 = Node(text="test2", node_id="node2")
+        node2.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source1")
         
         result = list(source_documents_from_source_types([node1, node2]))
         
@@ -75,11 +76,11 @@ class TestSourceDocumentsFromSourceTypes:
     
     def test_with_text_node_multiple_sources(self):
         """Test that TextNodes with different sources create separate SourceDocuments."""
-        node1 = TextNode(text="test1", id_="node1")
-        node1.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source1")
+        node1 = Node(text="test1", node_id="node1")
+        node1.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source1")
         
-        node2 = TextNode(text="test2", id_="node2")
-        node2.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source2")
+        node2 = Node(text="test2", node_id="node2")
+        node2.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source2")
         
         result = list(source_documents_from_source_types([node1, node2]))
         
@@ -92,10 +93,10 @@ class TestSourceDocumentsFromSourceTypes:
     def test_with_mixed_input_types(self):
         """Test with mixed SourceDocument, Document, and TextNode inputs."""
         source_doc = SourceDocument(nodes=[])
-        doc = Document(text="test", id_="doc1")
+        doc = Document(text="test", node_id="doc1")
         
-        node = TextNode(text="test", id_="node1")
-        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source1")
+        node = Node(text="test", node_id="node1")
+        node.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source1")
         
         result = list(source_documents_from_source_types([source_doc, doc, node]))
         

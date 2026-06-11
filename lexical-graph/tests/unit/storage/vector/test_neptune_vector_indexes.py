@@ -6,7 +6,7 @@
 from unittest.mock import MagicMock, patch
 
 import pytest
-from llama_index.core.schema import QueryBundle, TextNode
+from graphrag_toolkit.core.types import Node, QueryBundle
 
 from graphrag_toolkit.lexical_graph import TenantId
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
@@ -107,8 +107,8 @@ class TestAddEmbeddings:
 
     def test_executes_upsert_per_node(self):
         idx, client = _make_index('chunk')
-        node_a = TextNode(id_='n1', text='hi', embedding=[0.1, 0.2])
-        node_b = TextNode(id_='n2', text='bye', embedding=[0.3, 0.4])
+        node_a = Node(node_id='n1', text='hi', embedding=[0.1, 0.2])
+        node_b = Node(node_id='n2', text='bye', embedding=[0.3, 0.4])
         with patch.object(mod, 'embed_nodes', return_value={
             'n1': [0.1, 0.2], 'n2': [0.3, 0.4],
         }):

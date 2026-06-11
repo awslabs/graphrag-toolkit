@@ -7,7 +7,7 @@ import json
 import tempfile
 import shutil
 from pathlib import Path
-from llama_index.core.schema import Document, TextNode
+from graphrag_toolkit.core.types import Document, Node
 from graphrag_toolkit.lexical_graph.indexing.extract.file_system_tap import FileSystemTap
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 
@@ -115,7 +115,7 @@ class TestFileSystemTapHandleInputDocs:
             doc = SourceDocument(
                 refNode=Document(
                     text="Test document content",
-                    doc_id="doc123"
+                    node_id="doc123"
                 )
             )
             
@@ -141,7 +141,7 @@ class TestFileSystemTapHandleInputDocs:
             doc = SourceDocument(
                 refNode=Document(
                     text="Test content",
-                    doc_id="doc456",
+                    node_id="doc456",
                     metadata={"source": "test"}
                 )
             )
@@ -167,8 +167,8 @@ class TestFileSystemTapHandleInputDocs:
             )
             
             docs = [
-                SourceDocument(refNode=Document(text="doc1", doc_id="id1")),
-                SourceDocument(refNode=Document(text="doc2", doc_id="id2"))
+                SourceDocument(refNode=Document(text="doc1", node_id="id1")),
+                SourceDocument(refNode=Document(text="doc2", node_id="id2"))
             ]
             
             result = list(tap.handle_input_docs(docs))
@@ -203,7 +203,7 @@ class TestFileSystemTapHandleInputDocs:
             )
             
             docs = [
-                SourceDocument(refNode=Document(text=f"doc{i}", doc_id=f"id{i}"))
+                SourceDocument(refNode=Document(text=f"doc{i}", node_id=f"id{i}"))
                 for i in range(5)
             ]
             
@@ -231,7 +231,7 @@ class TestFileSystemTapHandleOutputDoc:
                 output_dir=temp_dir
             )
             
-            node = TextNode(text="chunk content", id_="node123")
+            node = Node(text="chunk content", node_id="node123")
             doc = SourceDocument(
                 refNode=Document(text="test"),
                 nodes=[node]
@@ -257,7 +257,7 @@ class TestFileSystemTapHandleOutputDoc:
                 output_dir=temp_dir
             )
             
-            node = TextNode(text="chunk", id_="node1")
+            node = Node(text="chunk", node_id="node1")
             doc = SourceDocument(
                 refNode=Document(text="test"),
                 nodes=[node]
@@ -278,7 +278,7 @@ class TestFileSystemTapHandleOutputDoc:
             )
             
             nodes = [
-                TextNode(text=f"chunk{i}", id_=f"node{i}")
+                Node(text=f"chunk{i}", node_id=f"node{i}")
                 for i in range(3)
             ]
             doc = SourceDocument(
@@ -328,14 +328,14 @@ class TestFileSystemTapIntegration:
             
             # Handle input
             input_doc = SourceDocument(
-                refNode=Document(text="Original document", doc_id="doc1")
+                refNode=Document(text="Original document", node_id="doc1")
             )
             processed_docs = list(tap.handle_input_docs([input_doc]))
             
             # Add nodes to document
             processed_docs[0].nodes = [
-                TextNode(text="chunk1", id_="chunk1"),
-                TextNode(text="chunk2", id_="chunk2")
+                Node(text="chunk1", node_id="chunk1"),
+                Node(text="chunk2", node_id="chunk2")
             ]
             
             # Handle output

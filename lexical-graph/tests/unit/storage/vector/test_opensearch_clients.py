@@ -22,8 +22,6 @@ from unittest.mock import MagicMock, patch
 
 def _install_opensearch_mocks():
     """Install fake opensearch modules into sys.modules so the source can import."""
-    import llama_index
-
     fake_exceptions_mod = types.ModuleType("opensearchpy.exceptions")
 
     class _NotFoundError(Exception):
@@ -55,7 +53,12 @@ def _install_opensearch_mocks():
 
     fake_llama_os_mod.OpensearchVectorClient = _FakeOpensearchVectorClient
     fake_llama_vs_mod.opensearch = fake_llama_os_mod
-    llama_index.vector_stores = fake_llama_vs_mod
+
+    # Ensure llama_index parent module exists in sys.modules
+    if "llama_index" not in sys.modules:
+        sys.modules["llama_index"] = types.ModuleType("llama_index")
+    llama_index_mod = sys.modules["llama_index"]
+    llama_index_mod.vector_stores = fake_llama_vs_mod
 
     sys.modules["opensearchpy"] = fake_opensearch_mod
     sys.modules["opensearchpy.exceptions"] = fake_exceptions_mod

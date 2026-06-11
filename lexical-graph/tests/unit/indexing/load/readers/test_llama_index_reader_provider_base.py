@@ -4,7 +4,7 @@
 import pytest
 import sys
 from unittest.mock import Mock
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.types import Document
 from llama_index.core.readers.base import BaseReader
 
 # Mock the providers module to avoid loading optional dependencies
