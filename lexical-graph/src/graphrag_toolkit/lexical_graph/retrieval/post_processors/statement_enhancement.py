@@ -5,13 +5,11 @@ import concurrent.futures
 import re
 import logging
 
-from pydantic import Field
 from typing import List, Optional
 
-from llama_index.core.postprocessor.types import BaseNodePostprocessor
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
-from llama_index.core.prompts import ChatPromptTemplate
-from llama_index.core.llms import ChatMessage, MessageRole
+from graphrag_toolkit.core.postprocessor import PostProcessor
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
+from graphrag_toolkit.core.prompt import ChatPromptTemplate
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
@@ -19,7 +17,7 @@ from graphrag_toolkit.lexical_graph.retrieval.prompts import ENHANCE_STATEMENT_S
 
 logger = logging.getLogger(__name__)
 
-class StatementEnhancementPostProcessor(BaseNodePostprocessor):
+class StatementEnhancementPostProcessor(PostProcessor):
     """
     Post-processes nodes to enhance their statements using provided language model and templates.
 
@@ -37,12 +35,6 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         enhance_template (ChatPromptTemplate): Template used to structure the prompts for the
             language model.
     """
-
-    llm: Optional[LLMCache] = Field(default=None)
-    max_concurrent: int = Field(default=10)
-    system_prompt: str = Field(default=ENHANCE_STATEMENT_SYSTEM_PROMPT)
-    user_prompt: str = Field(default=ENHANCE_STATEMENT_USER_PROMPT)
-    enhance_template: ChatPromptTemplate = Field(default=None)
 
     def __init__(
         self,
@@ -77,8 +69,8 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
         self.user_prompt = user_prompt
         
         self.enhance_template = ChatPromptTemplate(message_templates=[
-            ChatMessage(role=MessageRole.SYSTEM, content=system_prompt),
-            ChatMessage(role=MessageRole.USER, content=user_prompt),
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
         ])
 
     def enhance_statement(self, node: NodeWithScore) -> NodeWithScore:
@@ -107,7 +99,7 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
             
             if match:
                 enhanced_text = match.group(1).strip()
-                new_node = TextNode(
+                new_node = Node(
                     text=enhanced_text,  
                     metadata={
                         'statement': node.node.metadata['statement'], 
@@ -124,11 +116,11 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
             logger.error(f"Error enhancing statement: {e}")
             return node
 
-    def _postprocess_nodes(
+    def process(
         self,
-        nodes: List[NodeWithScore],
-        query_bundle: Optional[QueryBundle] = None,
-    ) -> List[NodeWithScore]:
+        nodes: list[NodeWithScore],
+        query: QueryBundle,
+    ) -> list[NodeWithScore]:
         """
         Post-processes a list of nodes by applying enhancements concurrently.
 
@@ -138,7 +130,7 @@ class StatementEnhancementPostProcessor(BaseNodePostprocessor):
 
         Args:
             nodes: A list of `NodeWithScore` objects that need to be processed.
-            query_bundle: Optional; A `QueryBundle` object providing additional
+            query: A `QueryBundle` object providing additional
                 context or criteria for processing nodes.
 
         Returns:

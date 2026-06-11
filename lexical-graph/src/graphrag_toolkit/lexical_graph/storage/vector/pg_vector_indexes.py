@@ -11,13 +11,12 @@ from urllib.parse import urlparse
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
-from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
+from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query, embed_nodes
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import BaseNode, QueryBundle
-from llama_index.core.indices.utils import embed_nodes
-from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
+from graphrag_toolkit.core.types import Node, QueryBundle
+from graphrag_toolkit.core.vector_store_types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
 
 logger = logging.getLogger(__name__)
 
@@ -305,7 +304,7 @@ class PGIndex(VectorIndex):
     username:str
     password:Optional[str]
     dimensions:int
-    embed_model:EmbeddingType
+    embed_model:Any
     enable_iam_db_auth:bool=False
     initialized:bool=False
 
@@ -415,7 +414,7 @@ class PGIndex(VectorIndex):
         return dbconn
 
 
-    def add_embeddings(self, nodes:Sequence[BaseNode]) -> Sequence[BaseNode]:
+    def add_embeddings(self, nodes:Sequence[Node]) -> Sequence[Node]:
         """
         Adds embeddings for a sequence of nodes into the database. This method processes
         each node by generating embeddings using the specified embedding model and
@@ -425,12 +424,12 @@ class PGIndex(VectorIndex):
         are logged as warnings without causing the entire operation to fail.
 
         Args:
-            nodes (Sequence[BaseNode]): A sequence of nodes for which embeddings are to be
+            nodes (Sequence[Node]): A sequence of nodes for which embeddings are to be
                 generated and stored in the database. Each node includes an identifier,
                 textual data, and metadata.
 
         Returns:
-            Sequence[BaseNode]: The same sequence of nodes that were provided as input,
+            Sequence[Node]: The same sequence of nodes that were provided as input,
                 potentially with modifications or updates to their embeddings.
         """
         if not self.writeable:
@@ -450,7 +449,7 @@ class PGIndex(VectorIndex):
 
                 cur.execute(
                     f'INSERT INTO {self.schema_name}.{self.underlying_index_name()} ({self.index_name}Id, value, metadata, embedding, valid_from) SELECT %s, %s, %s, %s, %s WHERE NOT EXISTS (SELECT * FROM {self.schema_name}.{self.underlying_index_name()} c WHERE c.{self.index_name}Id = %s);',  # nosec B608 - table/column names from internal config, not user input
-                    (node.id_, node.text,  json.dumps(node.metadata), id_to_embed_map[node.id_], valid_from, node.id_)
+                    (node.node_id, node.text,  json.dumps(node.metadata), id_to_embed_map[node.node_id], valid_from, node.node_id)
                 )
 
         except UndefinedTable as e:

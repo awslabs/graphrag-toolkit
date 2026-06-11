@@ -6,7 +6,7 @@ from collections import defaultdict
 from typing import List, Optional, Any, Union, Type
 from itertools import repeat
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -117,7 +117,7 @@ class SemanticGuidedRetriever(SemanticGuidedBaseRetriever):
                 )
             ]
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
         """
         Retrieves and processes nodes based on a query, leveraging multiple retrievers and
         optional graph expansion. The method executes in several stages, including initial
@@ -211,7 +211,7 @@ class SemanticGuidedRetriever(SemanticGuidedBaseRetriever):
             statement_id = node.node.metadata['statement']['statementId']
             if statement_id in statements_map:
                 result = statements_map[statement_id]
-                new_node = TextNode(
+                new_node = Node(
                     text=result['statement']['value'],
                     metadata={
                         **node.node.metadata,  # Preserve retriever metadata

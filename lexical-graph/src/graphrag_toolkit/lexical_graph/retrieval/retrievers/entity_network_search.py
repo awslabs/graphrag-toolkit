@@ -15,7 +15,7 @@ from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorBase, P
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.traversal_based_base_retriever import TraversalBasedBaseRetriever
 from graphrag_toolkit.lexical_graph.retrieval.utils.vector_utils import get_diverse_vss_elements
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 logger = logging.getLogger(__name__)
 

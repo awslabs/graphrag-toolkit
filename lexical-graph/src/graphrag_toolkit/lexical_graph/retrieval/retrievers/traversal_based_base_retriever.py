@@ -16,8 +16,8 @@ from graphrag_toolkit.lexical_graph.retrieval.query_context import EntityProvide
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection, SearchResult, EntityContexts
 from graphrag_toolkit.lexical_graph.retrieval.processors import *
 
-from llama_index.core.base.base_retriever import BaseRetriever
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.retriever import Retriever
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +45,7 @@ DEFAULT_FORMATTING_PROCESSORS = [
     TruncateResults
 ]
 
-class TraversalBasedBaseRetriever(BaseRetriever):
+class TraversalBasedBaseRetriever(Retriever):
     """
     Base class for retrieval using traversal-based methods combining a graph store and a
     vector store for querying and search.
@@ -241,7 +241,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
             self.entity_contexts.contexts.extend(entity_contexts.contexts)
             self.entity_contexts.keywords.extend(keywords)
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
         """
         Retrieves nodes with associated scores by performing a graph search and applying processing routines.
 
@@ -253,7 +253,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
             query_bundle (QueryBundle): The query input containing necessary parameters for performing the graph search.
 
         Returns:
-            List[NodeWithScore]: A list of nodes with their associated scores, ready for further processing or display.
+            list[NodeWithScore]: A list of nodes with their associated scores, ready for further processing or display.
 
         """
         logger.debug(f'[{type(self).__name__}] Begin retrieve [query: {query_bundle.query_str}, args: {self.args.to_dict()}]')
@@ -287,7 +287,7 @@ class TraversalBasedBaseRetriever(BaseRetriever):
 
         return [
             NodeWithScore(
-                node=TextNode(
+                node=Node(
                     text=formatted_search_result.model_dump_json(exclude_none=True, exclude_defaults=True, indent=2),
                     metadata={
                         'result': search_result.model_dump(exclude_none=True, exclude_unset=True, exclude_defaults=True),

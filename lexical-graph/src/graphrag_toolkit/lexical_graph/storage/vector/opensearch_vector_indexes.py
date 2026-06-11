@@ -9,16 +9,14 @@ import uuid
 from typing import List, Any, Optional, Iterable, Dict
 from dataclasses import dataclass
 
-from llama_index.core.bridge.pydantic import PrivateAttr, ConfigDict
-from llama_index.core.schema import BaseNode, NodeWithScore, QueryBundle
-from llama_index.core.vector_stores.types import  VectorStoreQueryResult, VectorStoreQueryMode, MetadataFilters, MetadataFilter
-from llama_index.core.indices.utils import embed_nodes
-from llama_index.core.vector_stores.types import MetadataFilters
+from pydantic import PrivateAttr, ConfigDict
+from graphrag_toolkit.core.types import Node, NodeWithScore, QueryBundle
+from graphrag_toolkit.core.vector_store_types import VectorStoreQueryResult, VectorStoreQueryMode, MetadataFilters, MetadataFilter
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, is_datetime_key, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import  VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig, EmbeddingType
-from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
+from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query, embed_nodes
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
@@ -408,7 +406,7 @@ class DummyOpensearchVectorClient():
         self._os_client = None
         self._index = None
 
-    def index_results(self, nodes: List[BaseNode], **kwargs: Any) -> List[str]:
+    def index_results(self, nodes: List[Node], **kwargs: Any) -> List[str]:
         """
         Indexes the provided nodes and returns a list of their identifiers.
 
@@ -511,7 +509,7 @@ class OpenSearchIndex(VectorIndex):
     endpoint:str
     index_name:str
     dimensions:int
-    embed_model:EmbeddingType
+    embed_model:Any
     model_config = ConfigDict(arbitrary_types_allowed=True)
     client_kwargs:Optional[Dict[str, Any]]=None
 
@@ -661,12 +659,12 @@ class OpenSearchIndex(VectorIndex):
         `IndexError` is raised.
 
         Args:
-            nodes: List[BaseNode]
+            nodes: List[Node]
                 A list of node objects to which embeddings will be added. Each node
                 must have a `node_id` that maps to their corresponding embedding.
 
         Returns:
-            List[BaseNode]:
+            List[Node]:
                 The list of nodes with updated embeddings.
 
         Raises:

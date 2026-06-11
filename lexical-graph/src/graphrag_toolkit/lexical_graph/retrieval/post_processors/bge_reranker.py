@@ -3,13 +3,11 @@
 
 import logging
 from typing import List, Optional, Any, Tuple
-from pydantic import ConfigDict, Field
 
 from graphrag_toolkit.lexical_graph.retrieval.post_processors.reranker_mixin import RerankerMixin
 from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_top_free_gpus
-from llama_index.core.bridge.pydantic import Field
-from llama_index.core.postprocessor.types import BaseNodePostprocessor
-from llama_index.core.schema import NodeWithScore, QueryBundle
+from graphrag_toolkit.core.postprocessor import PostProcessor
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +18,7 @@ except ImportError as e:
             "torch package not found, install with 'pip install torch'"
         ) from e
 
-class BGEReranker(BaseNodePostprocessor, RerankerMixin):
+class BGEReranker(PostProcessor, RerankerMixin):
     """BGEReranker class for re-ranking nodes or sentence pairs based on a model.
 
     This class utilizes a pre-trained re-ranker model to re-rank sentence pairs or nodes
@@ -36,19 +34,6 @@ class BGEReranker(BaseNodePostprocessor, RerankerMixin):
         batch_size_internal (int): Batch size used for processing sentence pairs
             or nodes.
     """
-
-    model_config = ConfigDict(
-        protected_namespaces=(
-            'model_validate', 
-            'model_dump'
-        )
-    )
-    
-    model_name: str = Field(default='BAAI/bge-reranker-v2-minicpm-layerwise')
-    gpu_id: Optional[int] = Field(default=None)
-    reranker: Any = Field(default=None)
-    device: Any = Field(default=None) 
-    batch_size_internal: int = Field(default=128) 
 
     def __init__(
         self, 
@@ -158,34 +143,34 @@ class BGEReranker(BaseNodePostprocessor, RerankerMixin):
             logger.error(f"Error in rerank_pairs: {str(e)}")
             raise
 
-    def _postprocess_nodes(
+    def process(
         self,
-        nodes: List[NodeWithScore],
-        query_bundle: Optional[QueryBundle] = None,
-    ) -> List[NodeWithScore]:
+        nodes: list[NodeWithScore],
+        query: QueryBundle,
+    ) -> list[NodeWithScore]:
         """
         Postprocesses a list of nodes by reranking them based on a query using a scoring mechanism.
 
-        This method takes a list of nodes and an optional query bundle, calculates a relevance
+        This method takes a list of nodes and a query bundle, calculates a relevance
         score for each node based on the provided query, and sorts the nodes based on the
         calculated scores. If the reranking process fails, it logs the error and returns
         the original list of nodes. Additionally, the method manages CUDA memory cache if a
         GPU is available.
 
         Args:
-            nodes (List[NodeWithScore]): A list of nodes with initial scores to be processed.
-            query_bundle (Optional[QueryBundle]): An optional query bundle containing the query
+            nodes (list[NodeWithScore]): A list of nodes with initial scores to be processed.
+            query (QueryBundle): The query bundle containing the query
                 string used for relevance scoring.
 
         Returns:
-            List[NodeWithScore]: A list of nodes reranked by their calculated relevance scores.
+            list[NodeWithScore]: A list of nodes reranked by their calculated relevance scores.
             If reranking fails, the returned list will be the same as the input nodes.
         """
-        if not query_bundle or not nodes:
+        if not nodes:
             return nodes
             
         try:
-            pairs = [(query_bundle.query_str, node.node.text) for node in nodes]
+            pairs = [(query.query_str, node.node.text) for node in nodes]
 
             scores = self.rerank_pairs(pairs, self.batch_size_internal)
             

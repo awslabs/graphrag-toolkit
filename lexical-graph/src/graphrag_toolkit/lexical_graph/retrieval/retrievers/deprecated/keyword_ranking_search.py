@@ -15,8 +15,8 @@ from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_t
 from graphrag_toolkit.lexical_graph.retrieval.prompts import EXTRACT_KEYWORDS_PROMPT, EXTRACT_SYNONYMS_PROMPT
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
-from llama_index.core.prompts import PromptTemplate
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
+from graphrag_toolkit.core.prompt import PromptTemplate
 
 logger = logging.getLogger(__name__)
 
@@ -129,7 +129,7 @@ class KeywordRankingSearch(SemanticGuidedBaseRetriever):
             logger.error(f"Error extracting keywords: {e}")
             return set()
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
         """
         Retrieves nodes with scores based on keyword matches and similarity scoring.
 
@@ -225,7 +225,7 @@ class KeywordRankingSearch(SemanticGuidedBaseRetriever):
                 keyword_map = {sid: kw for sid, kw in group}
                 for score, statement_id in scored_statements:
                     matched_keywords = keyword_map[statement_id]
-                    node = TextNode(
+                    node = Node(
                         text="",  # Placeholder
                         metadata={
                             'statement': {'statementId': statement_id},
@@ -240,7 +240,7 @@ class KeywordRankingSearch(SemanticGuidedBaseRetriever):
             else:
                 # Single statement in group
                 statement_id, matched_keywords = group[0]
-                node = TextNode(
+                node = Node(
                     text="",  # Placeholder
                     metadata={
                         'statement': {'statementId': statement_id},

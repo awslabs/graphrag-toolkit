@@ -16,8 +16,8 @@ from graphrag_toolkit.lexical_graph.retrieval.utils.vector_utils import get_dive
 from graphrag_toolkit.lexical_graph.retrieval.query_context.keyword_provider_base import KeywordProviderBase
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
 
-from llama_index.core.prompts import PromptTemplate
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.prompt import PromptTemplate
+from graphrag_toolkit.core.types import QueryBundle
 
 logger = logging.getLogger(__name__)
 

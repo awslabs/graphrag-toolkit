@@ -13,7 +13,7 @@ from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_gui
 from graphrag_toolkit.lexical_graph.retrieval.post_processors import RerankerMixin
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 logger = logging.getLogger(__name__)
 
@@ -291,7 +291,7 @@ class RerankingBeamGraphSearch(SemanticGuidedBaseRetriever):
 
         return results
     
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
         """
         Retrieves a list of nodes based on the given query bundle using a combination
         of shared nodes, initial retrievers, and beam search techniques. The retrieval
@@ -369,7 +369,7 @@ class RerankingBeamGraphSearch(SemanticGuidedBaseRetriever):
         for statement_id, path in statement_to_path.items():
             statement_data = self.statement_cache.get(statement_id)
             if statement_data:
-                node = TextNode(
+                node = Node(
                     text=statement_data['statement']['value'],
                     metadata={
                         'statement': statement_data['statement'],

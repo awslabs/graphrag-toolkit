@@ -6,16 +6,40 @@ import abc
 import queue
 
 from typing import Sequence, Any, List, Dict, Optional
-from llama_index.core.schema import QueryBundle, BaseNode
-from llama_index.core.bridge.pydantic import BaseModel, Field, field_validator
-from llama_index.core.vector_stores.types import MetadataFilters
+from graphrag_toolkit.core.types import QueryBundle, Node
+from pydantic import BaseModel, Field, field_validator
+from graphrag_toolkit.core.vector_store_types import MetadataFilters
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph import EmbeddingType, TenantId
 from graphrag_toolkit.lexical_graph.storage.constants import ALL_EMBEDDING_INDEXES
+from graphrag_toolkit.core.embedding import EmbeddingProvider
 
 
 logger = logging.getLogger(__name__)
+
+def embed_nodes(nodes: Sequence[Node], embed_model: EmbeddingProvider) -> Dict[str, List[float]]:
+    """Embed nodes using EmbeddingProvider. Returns dict of node_id -> embedding.
+    
+    Nodes that already have embeddings are passed through without re-embedding.
+    """
+    id_to_embed_map: Dict[str, List[float]] = {}
+    texts_to_embed = []
+    ids_to_embed = []
+    
+    for node in nodes:
+        if node.embedding is None:
+            ids_to_embed.append(node.node_id)
+            texts_to_embed.append(node.text)
+        else:
+            id_to_embed_map[node.node_id] = node.embedding
+
+    if texts_to_embed:
+        new_embeddings = embed_model.embed_texts(texts_to_embed)
+        for new_id, text_embedding in zip(ids_to_embed, new_embeddings):
+            id_to_embed_map[new_id] = text_embedding
+
+    return id_to_embed_map
 
 def to_embedded_query(query_bundle:QueryBundle, embed_model:EmbeddingType) -> QueryBundle:
     """
@@ -39,11 +63,7 @@ def to_embedded_query(query_bundle:QueryBundle, embed_model:EmbeddingType) -> Qu
     if query_bundle.embedding:
         return query_bundle
     
-    query_bundle.embedding = (
-        embed_model.get_agg_embedding_from_queries(
-            query_bundle.embedding_strs
-        )
-    ) 
+    query_bundle.embedding = embed_model.embed_text(query_bundle.query_str)
     return query_bundle   
 
 class VectorIndex(BaseModel):
@@ -105,17 +125,17 @@ class VectorIndex(BaseModel):
             return self.tenant_id.format_index_name(self.index_name)
     
     @abc.abstractmethod
-    def add_embeddings(self, nodes:Sequence[BaseNode]) -> Sequence[BaseNode]:
+    def add_embeddings(self, nodes:Sequence[Node]) -> Sequence[Node]:
         """
         Provides an interface for implementing the method to add embeddings to
         a sequence of nodes.
 
         Args:
-            nodes: A sequence of BaseNode instances to which embeddings will
+            nodes: A sequence of Node instances to which embeddings will
                 be added.
 
         Returns:
-            Sequence[BaseNode]: A sequence of BaseNode instances with added
+            Sequence[Node]: A sequence of Node instances with added
                 embeddings.
 
         Raises:

@@ -7,16 +7,15 @@ from typing import List, Tuple, Optional, Any
 from graphrag_toolkit.lexical_graph.retrieval.post_processors import RerankerMixin
 from graphrag_toolkit.lexical_graph.utils.reranker_utils import to_float
 
-from llama_index.core.bridge.pydantic import Field, PrivateAttr
-from llama_index.core.postprocessor import SentenceTransformerRerank
-from llama_index.core.schema import NodeWithScore, QueryBundle
+from graphrag_toolkit.core.postprocessor import PostProcessor
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle
 
 logger = logging.getLogger(__name__)
 
-class SentenceReranker(SentenceTransformerRerank, RerankerMixin):
+class SentenceReranker(PostProcessor, RerankerMixin):
     """
     Represents a specialized sentence reranker that combines functionalities from
-    SentenceTransformerRerank and RerankerMixin.
+    PostProcessor and RerankerMixin.
 
     This class is designed to rerank sentence pairs using a pre-trained cross-encoder
     model. Users can specify parameters such as the top N results to rerank, the
@@ -27,7 +26,6 @@ class SentenceReranker(SentenceTransformerRerank, RerankerMixin):
     Attributes:
         batch_size_internal (int): Internal batch size used during reranking.
     """
-    batch_size_internal: int = Field(default=128)
     
     def __init__(
         self,
@@ -40,11 +38,6 @@ class SentenceReranker(SentenceTransformerRerank, RerankerMixin):
     ):
         """
         Initializes the class with configuration for a model execution environment.
-
-        This constructor sets up the initial parameters for handling model operations, such
-        as determining the top number of results, model name, device configuration, batch size,
-        and additional keyword arguments. It ensures that the required external dependencies
-        are available and imports them upon initialization.
 
         Args:
             top_n (int): The number of top results to retrieve. Default is 2.
@@ -64,30 +57,24 @@ class SentenceReranker(SentenceTransformerRerank, RerankerMixin):
                 packages are not installed.
         """
         try:
-            import sentence_transformers
+            from sentence_transformers import CrossEncoder
             import torch
         except ImportError as e:
             raise ImportError(
                 "torch and/or sentence_transformers packages not found, install with 'pip install torch sentence_transformers'"
             ) from e
         
-        super().__init__(
-            top_n=top_n,
-            model=model,
-            device=device,
-            keep_retrieval_score=keep_retrieval_score, 
-        )
+        super().__init__()
+        self.top_n = top_n
+        self.keep_retrieval_score = keep_retrieval_score
+        self.batch_size_internal = batch_size
         
-        self.batch_size_internal=batch_size
+        self._model = CrossEncoder(model, device=device)
 
     @property
     def batch_size(self):
         """
         Returns the internal batch size value.
-
-        This property provides access to the internal variable `batch_size_internal`,
-        which stores the batch size for the current object. It is used to retrieve the
-        value externally without directly exposing the internal variable.
 
         Returns:
             int: The batch size value stored in the internal variable.
@@ -118,14 +105,33 @@ class SentenceReranker(SentenceTransformerRerank, RerankerMixin):
             for r in self._model.predict(sentences=pairs, batch_size=batch_size, show_progress_bar=False)
         ] 
     
-    def _postprocess_nodes(
+    def process(
         self,
-        nodes: List[NodeWithScore],
-        query_bundle: Optional[QueryBundle] = None,
-    ) -> List[NodeWithScore]:
-        results = super()._postprocess_nodes(nodes, query_bundle)
-        for r in results:
-            r.score = to_float(r.score)
-        return results
-        
+        nodes: list[NodeWithScore],
+        query: QueryBundle,
+    ) -> list[NodeWithScore]:
+        """
+        Reranks nodes using the cross-encoder model and returns the top_n results.
 
+        Args:
+            nodes: A list of NodeWithScore objects to rerank.
+            query: The query bundle for scoring relevance.
+
+        Returns:
+            A list of the top_n NodeWithScore objects sorted by reranking score.
+        """
+        if not nodes or not query.query_str:
+            return nodes
+
+        pairs = [(query.query_str, node.node.text) for node in nodes]
+        scores = self.rerank_pairs(pairs, self.batch_size_internal)
+
+        scored_nodes = []
+        for node, score in zip(nodes, scores):
+            new_node = NodeWithScore(node=node.node, score=to_float(score))
+            if self.keep_retrieval_score:
+                new_node.node.metadata['retrieval_score'] = node.score
+            scored_nodes.append(new_node)
+
+        scored_nodes.sort(key=lambda x: x.score or 0.0, reverse=True)
+        return scored_nodes[:self.top_n]

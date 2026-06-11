@@ -6,8 +6,8 @@ from typing import List, Sequence, Any, Optional
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, VectorIndexFactoryMethod
 
-from llama_index.core.schema import QueryBundle
-from llama_index.core.vector_stores.types import MetadataFilters
+from graphrag_toolkit.core.types import QueryBundle
+from graphrag_toolkit.core.vector_store_types import MetadataFilters
 
 
 DUMMY = 'dummy://'

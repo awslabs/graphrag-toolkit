@@ -1,12 +1,12 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-from typing import List, Dict, Optional
+from typing import List, Dict
 
-from llama_index.core.postprocessor.types import BaseNodePostprocessor
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.postprocessor import PostProcessor
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
-class BedrockContextFormat(BaseNodePostprocessor):
+class BedrockContextFormat(PostProcessor):
     """
     Handles the formatting and processing of nodes into an XML-structured context for better organization
     and parsing. This class is designed to group nodes by their source, incorporate metadata, and create
@@ -16,7 +16,7 @@ class BedrockContextFormat(BaseNodePostprocessor):
     for structured data contexts.
 
     Attributes:
-        inherit_from (type): BaseNodePostprocessor: Indicates this class extends the BaseNodePostprocessor.
+        inherit_from (type): PostProcessor: Indicates this class extends the PostProcessor.
     """
     @classmethod
     def class_name(cls) -> str:
@@ -57,10 +57,10 @@ class BedrockContextFormat(BaseNodePostprocessor):
             return f"{text} (details: {details})"
         return text
     
-    def _postprocess_nodes(
+    def process(
         self,
         nodes: List[NodeWithScore],
-        query_bundle: Optional[QueryBundle] = None,
+        query: QueryBundle,
     ) -> List[NodeWithScore]:
 
         """
@@ -86,7 +86,7 @@ class BedrockContextFormat(BaseNodePostprocessor):
             by their respective sources.
         """
         if not nodes:
-            return [NodeWithScore(node=TextNode(text='No relevant context'))]
+            return [NodeWithScore(node=Node(text='No relevant context'))]
 
         # Group nodes by source
         sources: Dict[str, List[NodeWithScore]] = {}
@@ -123,4 +123,4 @@ class BedrockContextFormat(BaseNodePostprocessor):
             source_output.append(f"</source_{source_count}>")
             formatted_sources.append("\n".join(source_output))
         
-        return [NodeWithScore(node=TextNode(text=formatted_source)) for formatted_source in formatted_sources]
+        return [NodeWithScore(node=Node(text=formatted_source)) for formatted_source in formatted_sources]

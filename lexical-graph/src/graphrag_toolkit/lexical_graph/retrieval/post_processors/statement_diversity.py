@@ -4,18 +4,17 @@
 import logging
 import re
 
-from typing import List, Optional, Any, Callable
-from pydantic import Field
+from typing import List, Any, Callable
 
 from graphrag_toolkit.lexical_graph import ModelError
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult
 
-from llama_index.core.postprocessor.types import BaseNodePostprocessor
-from llama_index.core.schema import NodeWithScore, QueryBundle, BaseNode
+from graphrag_toolkit.core.postprocessor import PostProcessor
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 logger = logging.getLogger(__name__)
 
-def _all_text(node:BaseNode) -> str:
+def _all_text(node:Node) -> str:
     """
     Extracts the textual content of a given node.
 
@@ -24,7 +23,7 @@ def _all_text(node:BaseNode) -> str:
     desired string content.
 
     Args:
-        node (BaseNode): The node object from which the text content will be
+        node (Node): The node object from which the text content will be
             retrieved. The node must have a `text` attribute.
 
     Returns:
@@ -32,7 +31,7 @@ def _all_text(node:BaseNode) -> str:
     """
     return node.text
 
-def _topics_and_statements(node:BaseNode) -> str:
+def _topics_and_statements(node:Node) -> str:
     """
     Constructs a string containing topics and statements retrieved from a given node's text by
     validating it against a model.
@@ -43,7 +42,7 @@ def _topics_and_statements(node:BaseNode) -> str:
     and parsing.
 
     Args:
-        node (BaseNode): The input node containing textual data, which will be parsed and processed
+        node (Node): The input node containing textual data, which will be parsed and processed
             to extract topics and statements.
 
     Returns:
@@ -57,7 +56,7 @@ def _topics_and_statements(node:BaseNode) -> str:
         lines.append(statement)
     return '\n'.join(lines)
 
-def _topics(node:BaseNode) -> str:
+def _topics(node:Node) -> str:
     """
     Processes a given node to extract and return the topic information.
 
@@ -65,7 +64,7 @@ def _topics(node:BaseNode) -> str:
     representation of a `SearchResult`, and extracts the associated topic.
 
     Args:
-        node: A `BaseNode` object containing the text data to be validated and
+        node: A `Node` object containing the text data to be validated and
             processed.
 
     Returns:
@@ -82,7 +81,7 @@ ALL_TEXT = _all_text
 TOPICS_AND_STATEMENTS = _topics_and_statements
 TOPICS = _topics
 
-class StatementDiversityPostProcessor(BaseNodePostprocessor):
+class StatementDiversityPostProcessor(PostProcessor):
     """Postprocessor for ensuring diversity among statements.
 
     This class preprocesses textual data and postprocesses nodes to ensure that
@@ -98,13 +97,9 @@ class StatementDiversityPostProcessor(BaseNodePostprocessor):
             threshold are considered duplicates and are filtered out.
         nlp (Any): Instance of spaCy NLP object used for text preprocessing. This
             object is configured with specific components including a sentencizer.
-        text_fn (Callable[[BaseNode], str]): Callable function used to extract text
+        text_fn (Callable[[Node], str]): Callable function used to extract text
             from a given node.
     """
-    
-    similarity_threshold: float = Field(default=0.975)
-    nlp: Any = Field(default=None)
-    text_fn: Callable[[BaseNode], str] = Field(default=None)
 
     def __init__(self, similarity_threshold: float = 0.975, text_fn = None):
         """
@@ -124,10 +119,9 @@ class StatementDiversityPostProcessor(BaseNodePostprocessor):
             ModelError: If the required spaCy model ('en_core_web_sm') is not installed or
                 cannot be loaded, an exception is raised.
         """
-        super().__init__(
-            similarity_threshold=similarity_threshold,
-            text_fn = text_fn or ALL_TEXT
-        )
+        super().__init__()
+        self.similarity_threshold = similarity_threshold
+        self.text_fn = text_fn or ALL_TEXT
 
         try:
             import spacy
@@ -176,11 +170,11 @@ class StatementDiversityPostProcessor(BaseNodePostprocessor):
             preprocessed_texts.append(' '.join(tokens))
         return preprocessed_texts
     
-    def _postprocess_nodes(
+    def process(
         self,
-        nodes: List[NodeWithScore],
-        query_bundle: Optional[QueryBundle] = None,
-    ) -> List[NodeWithScore]:
+        nodes: list[NodeWithScore],
+        query: QueryBundle,
+    ) -> list[NodeWithScore]:
         """
         Post-processes a list of nodes by removing duplicates based on text similarity.
 
@@ -193,8 +187,8 @@ class StatementDiversityPostProcessor(BaseNodePostprocessor):
         Args:
             nodes:
                 A list of NodeWithScore objects, where each node contains a score and associated text.
-            query_bundle:
-                Optional parameter of type QueryBundle to provide additional preprocessing context.
+            query:
+                A QueryBundle providing additional preprocessing context.
 
         Returns:
             A filtered list of NodeWithScore objects containing only unique nodes based on

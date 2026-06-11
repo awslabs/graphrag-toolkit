@@ -18,7 +18,7 @@ from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_cosine_search imp
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.semantic_chunk_beam_search import SemanticChunkBeamGraphSearch
 from graphrag_toolkit.lexical_graph.retrieval.utils.chunk_utils import SharedChunkEmbeddingCache
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 logger = logging.getLogger(__name__)
 

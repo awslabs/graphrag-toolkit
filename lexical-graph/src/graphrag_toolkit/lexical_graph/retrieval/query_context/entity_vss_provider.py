@@ -16,7 +16,7 @@ from graphrag_toolkit.lexical_graph.retrieval.query_context.entity_provider impo
 from graphrag_toolkit.lexical_graph.retrieval.query_context.entity_from_top_statement_provider import EntityFromTopStatementProvider
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 
 logger = logging.getLogger(__name__)
