@@ -88,6 +88,24 @@ class ProcessorArgs():
         self.chunk_cosine_top_k = kwargs.get('chunk_cosine_top_k', 50)
         self.chunk_beam_width = kwargs.get('chunk_beam_width', 10)
         self.chunk_beam_max_depth = kwargs.get('chunk_beam_max_depth', 3)
+        # TopicBeamSearch tuning (mirrors the chunk_beam_* parameters above).
+        self.topic_beam_width = kwargs.get('topic_beam_width', 100)
+        self.topic_beam_max_depth = kwargs.get('topic_beam_max_depth', 6)
+        self.topic_top_k = kwargs.get('topic_top_k', 50)
+        # Beam neighbour-edge strategies. adjacent-chunk co-occurrence is enabled by
+        # default: benchmarks showed it improves accuracy across datasets with no
+        # regressions, whereas entity-overlap (off by default) tends to add noise.
+        self.use_entity_neighbors = kwargs.get('use_entity_neighbors', False)
+        self.use_same_chunk_neighbors = kwargs.get('use_same_chunk_neighbors', True)
+        self.use_adjacent_chunk_neighbors = kwargs.get('use_adjacent_chunk_neighbors', True)
+        # Cap on entity-overlap neighbours per topic (ranked by connection strength) to
+        # bound the fan-out when use_entity_neighbors is enabled.
+        self.max_entity_neighbors = kwargs.get('max_entity_neighbors', 100)
+        # Topic-level reranking (mirrors `reranker`): 'none' | 'tfidf' | 'bedrock'.
+        # When set, RerankTopics scores each topic (name + statements) against the query
+        # and keeps the top `max_topics` before statement selection.
+        self.topic_reranker = kwargs.get('topic_reranker', 'none')
+        self.max_topics = kwargs.get('max_topics', 40)
         self.no_cache = kwargs.get('no_cache', None)
         
 
