@@ -933,7 +933,7 @@ class OpenSearchIndex(VectorIndex):
 
             query = {
                 "terms": {
-                    f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(id_batch)]
+                    f'metadata.{INDEX_KEY}.key.keyword': [self._clean_id(i) for i in set(id_batch)]
                 }
             }
 
@@ -1029,7 +1029,7 @@ class OpenSearchIndex(VectorIndex):
    
             query = {
                 "terms": {
-                    f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(id_batch)]
+                    f'metadata.{INDEX_KEY}.key.keyword': [self._clean_id(i) for i in set(id_batch)]
                 }
             }
         
