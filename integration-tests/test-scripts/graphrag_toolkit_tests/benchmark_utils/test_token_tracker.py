@@ -37,23 +37,23 @@ def _make_bedrock_llm_mock():
 class TestExtractTokenUsageWithNonTrackingCache:
     """Tests for extract_token_usage when given a regular LLMCache."""
 
-    def test_returns_none_none_for_regular_llm_cache(self):
-        """extract_token_usage returns (None, None) for non-TokenTrackingLLMCache."""
+    def test_returns_none_tuple_for_regular_llm_cache(self):
+        """extract_token_usage returns (None, None, None) for non-TokenTrackingLLMCache."""
         mock_llm = MockLLM()
         cache = LLMCache(llm=mock_llm, enable_cache=False)
         result = extract_token_usage(cache)
-        assert result == (None, None)
+        assert result == (None, None, None)
 
 
 class TestExtractTokenUsageWithNonBedrockLLM:
     """Tests for extract_token_usage when LLM is not BedrockConverse."""
 
-    def test_returns_none_none_for_non_bedrock_llm(self):
-        """extract_token_usage returns (None, None) when LLM is not BedrockConverse."""
+    def test_returns_none_tuple_for_non_bedrock_llm(self):
+        """extract_token_usage returns (None, None, None) when LLM is not BedrockConverse."""
         mock_llm = MockLLM()
         cache = TokenTrackingLLMCache(llm=mock_llm, enable_cache=False)
         result = extract_token_usage(cache)
-        assert result == (None, None)
+        assert result == (None, None, None)
 
 
 class TestTokenTrackingExtractTokensFromResponse:
@@ -168,7 +168,7 @@ class TestTokenTrackingLLMCachePredict:
         assert result == "answer text"
         assert cache._last_input_tokens == 200
         assert cache._last_output_tokens == 50
-        assert extract_token_usage(cache) == (200, 50)
+        assert extract_token_usage(cache) == (200, 50, None)
 
     def test_predict_logs_warning_when_tokens_unavailable(self, caplog):
         """Verify WARNING is logged when token metadata unavailable from live call."""
@@ -233,20 +233,22 @@ class TestTokenTrackingLLMCachePredict:
         prompt = PromptTemplate("{query}")
         result = cache.predict(prompt, query="test")
 
-        # Should still return (None, None) for token usage
-        assert extract_token_usage(cache) == (None, None)
+        # Should still return (None, None, None) for token usage
+        assert extract_token_usage(cache) == (None, None, None)
 
-    def test_cache_hit_returns_none_none(self):
-        """Verify (None, None) when response is served from file cache."""
+    def test_cache_hit_returns_none_with_context_tokens(self):
+        """Verify (None, None, context_tokens) when response is served from file cache."""
         mock_llm = _make_bedrock_llm_mock()
 
         cache = TokenTrackingLLMCache(llm=mock_llm, enable_cache=True)
 
         # Simulate a cache hit by setting the flag directly
         cache._last_was_cache_hit = True
+        # Retrieval context tokens may still be available even on cache hits
+        cache._last_retrieval_context_tokens = 500
 
         result = extract_token_usage(cache)
-        assert result == (None, None)
+        assert result == (None, None, 500)
 
     @patch('os.path.exists', return_value=True)
     def test_file_cache_hit_sets_flag(self, mock_exists):
@@ -267,7 +269,9 @@ class TestTokenTrackingLLMCachePredict:
                 pass  # May fail on file read, but flag should be set
 
         assert cache._last_was_cache_hit is True
-        assert extract_token_usage(cache) == (None, None)
+        # On cache hit: prompt tokens None, output tokens None,
+        # but retrieval_context_tokens is still None since no search_results kwarg
+        assert extract_token_usage(cache) == (None, None, None)
 
     def test_predict_resets_state_between_calls(self):
         """Verify token state is reset between predict calls."""
@@ -299,16 +303,132 @@ class TestTokenTrackingLLMCachePredict:
         # First call
         mock_llm.chat = Mock(return_value=response_with_tokens)
         cache.predict(prompt, query="first")
-        assert extract_token_usage(cache) == (100, 20)
+        assert extract_token_usage(cache) == (100, 20, None)
 
         # Second call - tokens should be reset
         mock_llm.chat = Mock(return_value=response_without_tokens)
         cache.predict(prompt, query="second")
-        assert extract_token_usage(cache) == (None, None)
+        assert extract_token_usage(cache) == (None, None, None)
 
 
 from hypothesis import given, settings
-from hypothesis.strategies import integers
+from hypothesis.strategies import integers, text
+
+from graphrag_toolkit_tests.benchmark_utils.token_tracker import estimate_token_count
+
+
+class TestEstimateTokenCount:
+    """Tests for the estimate_token_count utility function."""
+
+    def test_empty_string_returns_zero(self):
+        assert estimate_token_count('') == 0
+
+    def test_none_returns_zero(self):
+        assert estimate_token_count(None) == 0
+
+    def test_short_text(self):
+        # "hello" is 5 chars -> 5 // 4 = 1
+        assert estimate_token_count("hello") == 1
+
+    def test_moderate_text(self):
+        # 100 chars -> 100 // 4 = 25
+        text_100 = "a" * 100
+        assert estimate_token_count(text_100) == 25
+
+    def test_result_is_non_negative_integer(self):
+        assert estimate_token_count("x") >= 0
+        assert isinstance(estimate_token_count("x"), int)
+
+
+class TestRetrievalContextTokenTracking:
+    """Tests for the retrieval context token tracking (dual-field)."""
+
+    def test_captures_search_results_tokens(self):
+        """Verify retrieval_context_tokens is measured from search_results kwarg."""
+        mock_llm = _make_bedrock_llm_mock()
+
+        mock_chat_response = ChatResponse(
+            message=ChatMessage(role=MessageRole.ASSISTANT, content="answer"),
+            raw={'usage': {'inputTokens': 5000, 'outputTokens': 100}},
+        )
+        mock_llm.chat = Mock(return_value=mock_chat_response)
+
+        cache = TokenTrackingLLMCache(llm=mock_llm, enable_cache=False)
+        prompt = PromptTemplate("{search_results}\n{query}")
+
+        # search_results of 400 chars -> 400 // 4 = 100 estimated tokens
+        search_results_text = "x" * 400
+        cache.predict(prompt, search_results=search_results_text, query="test question")
+
+        input_tokens, output_tokens, context_tokens = extract_token_usage(cache)
+        assert input_tokens == 5000
+        assert output_tokens == 100
+        assert context_tokens == 100  # 400 chars // 4
+
+    def test_no_search_results_yields_none_context_tokens(self):
+        """Verify retrieval_context_tokens is None when search_results not in prompt args."""
+        mock_llm = _make_bedrock_llm_mock()
+
+        mock_chat_response = ChatResponse(
+            message=ChatMessage(role=MessageRole.ASSISTANT, content="answer"),
+            raw={'usage': {'inputTokens': 200, 'outputTokens': 30}},
+        )
+        mock_llm.chat = Mock(return_value=mock_chat_response)
+
+        cache = TokenTrackingLLMCache(llm=mock_llm, enable_cache=False)
+        prompt = PromptTemplate("{query}")
+
+        cache.predict(prompt, query="test question")
+
+        input_tokens, output_tokens, context_tokens = extract_token_usage(cache)
+        assert input_tokens == 200
+        assert output_tokens == 30
+        assert context_tokens is None  # No search_results kwarg
+
+    def test_empty_search_results_yields_none_context_tokens(self):
+        """Verify retrieval_context_tokens is None when search_results is empty string."""
+        mock_llm = _make_bedrock_llm_mock()
+
+        mock_chat_response = ChatResponse(
+            message=ChatMessage(role=MessageRole.ASSISTANT, content="answer"),
+            raw={'usage': {'inputTokens': 200, 'outputTokens': 30}},
+        )
+        mock_llm.chat = Mock(return_value=mock_chat_response)
+
+        cache = TokenTrackingLLMCache(llm=mock_llm, enable_cache=False)
+        prompt = PromptTemplate("{search_results}\n{query}")
+
+        cache.predict(prompt, search_results="", query="test question")
+
+        input_tokens, output_tokens, context_tokens = extract_token_usage(cache)
+        assert context_tokens is None  # Empty string -> 0 -> treated as falsy
+
+    def test_context_tokens_always_less_than_or_equal_to_prompt_tokens(self):
+        """Verify retrieval_context_tokens <= prompt_tokens_total conceptually.
+
+        In practice, the char/4 estimate may exceed actual tokenizer count,
+        but for reasonable inputs the context should be smaller than the full prompt.
+        """
+        mock_llm = _make_bedrock_llm_mock()
+
+        # Full prompt is 10000 tokens (includes system prompt + search_results + user prompt)
+        mock_chat_response = ChatResponse(
+            message=ChatMessage(role=MessageRole.ASSISTANT, content="answer"),
+            raw={'usage': {'inputTokens': 10000, 'outputTokens': 50}},
+        )
+        mock_llm.chat = Mock(return_value=mock_chat_response)
+
+        cache = TokenTrackingLLMCache(llm=mock_llm, enable_cache=False)
+        prompt = PromptTemplate("{search_results}\n{query}")
+
+        # 2000 chars of context -> ~500 tokens estimate
+        search_results_text = "statement about a topic. " * 80  # ~2000 chars
+        cache.predict(prompt, search_results=search_results_text, query="test")
+
+        input_tokens, output_tokens, context_tokens = extract_token_usage(cache)
+        assert input_tokens == 10000
+        assert context_tokens is not None
+        assert context_tokens < input_tokens
 
 
 class TestTokenCountPreservationProperty:
@@ -353,3 +473,24 @@ class TestTokenCountPreservationProperty:
         assert cache._last_output_tokens == output_tokens, (
             f"Output tokens not preserved: expected {output_tokens}, got {cache._last_output_tokens}"
         )
+
+
+class TestEstimateTokenCountProperty:
+    """
+    Property: estimate_token_count always returns a non-negative integer.
+    """
+
+    @settings(max_examples=100)
+    @given(input_text=text(min_size=0, max_size=500_000))
+    def test_estimate_always_non_negative_int(self, input_text):
+        """For any string input, estimate_token_count returns >= 0 integer."""
+        result = estimate_token_count(input_text)
+        assert isinstance(result, int)
+        assert result >= 0
+
+    @settings(max_examples=100)
+    @given(input_text=text(min_size=1, max_size=500_000))
+    def test_estimate_bounded_by_char_count(self, input_text):
+        """For any non-empty string, estimate <= len(text) (since chars_per_token >= 1)."""
+        result = estimate_token_count(input_text)
+        assert result <= len(input_text)
