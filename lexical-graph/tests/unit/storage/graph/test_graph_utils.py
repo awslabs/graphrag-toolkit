@@ -14,6 +14,7 @@ from llama_index.core.vector_stores.types import (
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import (
+    escape_cypher_label,
     filter_config_to_opencypher_filters,
     formatter_for_type,
     label_from,
@@ -72,6 +73,39 @@ class TestLabelFrom:
 
     def test_single_word(self):
         assert label_from('chunk') == 'Chunk'
+
+
+class TestEscapeCypherLabel:
+    """escape_cypher_label doubles every backtick so a label cannot break out of
+    its backtick-quoted identifier, and rejects non-string input."""
+
+    def test_plain_label_unchanged(self):
+        assert escape_cypher_label('Person') == 'Person'
+
+    def test_doubles_single_backtick(self):
+        assert escape_cypher_label('a`b') == 'a``b'
+
+    def test_doubles_every_backtick(self):
+        assert escape_cypher_label('`x`y`') == '``x``y``'
+
+    def test_breakout_payload_is_neutralised(self):
+        """A label crafted to close the identifier and append a DETACH DELETE
+        leaves no lone (un-doubled) backtick, so the injection stays inert."""
+        escaped = escape_cypher_label('Evil`) MATCH (c:`Canary`) DETACH DELETE c //')
+        assert '`' not in escaped.replace('``', '')
+        assert escaped == 'Evil``) MATCH (c:``Canary``) DETACH DELETE c //'
+
+    def test_closes_label_from_dunder_passthrough(self):
+        """label_from passes __...__ values through unescaped, so escaping must
+        still neutralise a backtick smuggled inside one."""
+        raw = label_from('__a`b__')
+        assert raw == '__a`b__'
+        assert escape_cypher_label(raw) == '__a``b__'
+
+    @pytest.mark.parametrize('bad', [None, 123, b'Person', ['Person']])
+    def test_non_string_raises_type_error(self, bad):
+        with pytest.raises(TypeError):
+            escape_cypher_label(bad)
 
 
 class TestRelationshipNameFrom:
