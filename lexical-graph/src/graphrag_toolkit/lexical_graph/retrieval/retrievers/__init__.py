@@ -14,6 +14,8 @@ from .composite_traversal_based_retriever import CompositeTraversalBasedRetrieve
 from .query_mode_retriever import QueryModeRetriever
 from .chunk_cosine_search import ChunkCosineSimilaritySearch
 from .semantic_chunk_beam_search import SemanticChunkBeamGraphSearch
+from .beam_search_base import BeamSearch
+from .topic_beam_search import TopicBeamSearch
 
 # Mapping of deprecated class names to their module paths within the deprecated sub-package
 _DEPRECATED_NAMES = {
