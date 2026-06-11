@@ -88,6 +88,8 @@ class ProcessorArgs():
         self.chunk_cosine_top_k = kwargs.get('chunk_cosine_top_k', 50)
         self.chunk_beam_width = kwargs.get('chunk_beam_width', 10)
         self.chunk_beam_max_depth = kwargs.get('chunk_beam_max_depth', 3)
+        self.max_context_tokens = kwargs.get('max_context_tokens', None)
+        self.token_truncation_mode = kwargs.get('token_truncation_mode', 'global_rank')
         self.no_cache = kwargs.get('no_cache', None)
         
 

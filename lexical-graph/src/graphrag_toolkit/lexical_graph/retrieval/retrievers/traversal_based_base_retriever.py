@@ -120,7 +120,18 @@ class TraversalBasedBaseRetriever(BaseRetriever):
         
         self.graph_store = graph_store
         self.vector_store = vector_store
-        self.processors = processors if processors is not None else DEFAULT_PROCESSORS
+        if processors is not None:
+            self.processors = processors
+        else:
+            # When a token budget is configured, swap the count-based TruncateStatements
+            # for the token-based TruncateByTokens; otherwise keep the default pipeline.
+            base_processors = list(DEFAULT_PROCESSORS)
+            if getattr(self.args, 'max_context_tokens', None):
+                base_processors = [
+                    TruncateByTokens if p is TruncateStatements else p
+                    for p in base_processors
+                ]
+            self.processors = base_processors
         self.formatting_processors = formatting_processors if formatting_processors is not None else DEFAULT_FORMATTING_PROCESSORS
         self.entity_contexts:EntityContexts = entity_contexts or EntityContexts()
         self.filter_config = filter_config or FilterConfig()
