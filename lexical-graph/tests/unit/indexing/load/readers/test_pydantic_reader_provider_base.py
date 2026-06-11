@@ -5,7 +5,14 @@ import pytest
 import sys
 from unittest.mock import Mock
 from graphrag_toolkit.core.types import Document
-from llama_index.core.readers.base import BasePydanticReader
+
+try:
+    from llama_index.core.readers.base import BasePydanticReader
+    HAS_LLAMA_INDEX = True
+except ImportError:
+    HAS_LLAMA_INDEX = False
+
+pytestmark = pytest.mark.skipif(not HAS_LLAMA_INDEX, reason="llama-index-core not installed")
 
 # Mock the providers module to avoid loading optional dependencies
 sys.modules['graphrag_toolkit.lexical_graph.indexing.load.readers.providers'] = Mock()

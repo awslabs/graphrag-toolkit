@@ -31,8 +31,11 @@ class CallbackRegistry:
     @classmethod
     def emit(cls, event_type: str, payload: dict) -> None:
         """Call all registered handlers."""
-        for handler in cls._handlers:
-            handler(event_type, payload)
+        for handler in list(cls._handlers):  # snapshot for thread safety
+            try:
+                handler(event_type, payload)
+            except Exception:
+                pass  # Don't let observer errors kill the pipeline
 
     @classmethod
     def clear(cls) -> None:
@@ -40,7 +43,6 @@ class CallbackRegistry:
         cls._handlers.clear()
 
     @classmethod
-    @property
-    def handlers(cls) -> list[Callable[[str, dict], None]]:
+    def get_handlers(cls) -> list[Callable[[str, dict], None]]:
         """Return registered handlers."""
         return cls._handlers

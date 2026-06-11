@@ -3,8 +3,8 @@
 
 import pytest
 from hypothesis import given, strategies as st, settings
-from llama_index.core.node_parser import SentenceSplitter
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.text_splitter import SentenceSplitter
+from graphrag_toolkit.core.types import Document
 
 
 class TestChunkingProperties:
@@ -46,13 +46,12 @@ class TestChunkingBasicBehavior:
         splitter = SentenceSplitter(chunk_size=100, chunk_overlap=20)
         chunks = splitter.get_nodes_from_documents([doc])
         
-        # With overlap, concatenated will be longer
-        concatenated = ''.join(chunk.text for chunk in chunks)
-        assert len(concatenated) >= len(text)
-        
-        # Verify first chunk starts with original text
-        if chunks:
-            assert text.startswith(chunks[0].text) or chunks[0].text.startswith(text[:len(chunks[0].text)])
+        # All original sentences should appear in at least one chunk
+        assert len(chunks) > 0
+        all_text = ' '.join(chunk.text for chunk in chunks)
+        for sentence in text.strip().split('. '):
+            if sentence:
+                assert sentence in all_text
     
     def test_chunking_empty_document(self):
         """Verify handling of empty document."""

@@ -83,10 +83,12 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
             proposition_data = node_metadata_map[node.node_id]
             if isinstance(proposition_data, list):
                 node.metadata[PROPOSITIONS_KEY] = proposition_data
-            else:
+            elif proposition_data:
                 propositions = proposition_data.split('\n')
                 propositions_model = Propositions(propositions=[p for p in propositions if p])
-                node.metadata[PROPOSITIONS_KEY] = propositions_model.model_dump()['propositions']                
+                node.metadata[PROPOSITIONS_KEY] = propositions_model.model_dump()['propositions']
+            else:
+                node.metadata[PROPOSITIONS_KEY] = []                
         else:
             node.metadata[PROPOSITIONS_KEY] = []
         return node

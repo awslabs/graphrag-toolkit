@@ -7,10 +7,7 @@ import time
 import random
 from typing import Any, List, Optional, Callable
 
-import llama_index.llms.bedrock_converse.utils
-from llama_index.core.base.embeddings.base import BaseEmbedding
-from llama_index.core.bridge.pydantic import Field, PrivateAttr
-from llama_index.core.callbacks import CallbackManager
+from graphrag_toolkit.core.embedding import EmbeddingProvider
 
 from tenacity import (
     before_sleep_log,
@@ -35,7 +32,7 @@ RETRYABLE_ERRORS = [
 ]
 
 
-class Nova2MultimodalEmbedding(BaseEmbedding):
+class Nova2MultimodalEmbedding(EmbeddingProvider):
     """
     Custom embedding class for Amazon Nova 2 multimodal embeddings.
     
@@ -53,7 +50,7 @@ class Nova2MultimodalEmbedding(BaseEmbedding):
     }
     
     This class handles the API format conversion while maintaining
-    compatibility with LlamaIndex's embedding interface.
+    compatibility with the EmbeddingProvider interface.
     
     Usage:
         from graphrag_toolkit.lexical_graph import GraphRAGConfig
@@ -63,45 +60,25 @@ class Nova2MultimodalEmbedding(BaseEmbedding):
         GraphRAGConfig.embed_dimensions = 3072
     """
     
-    model_name: str = Field(description="Bedrock model ID for Nova 2 multimodal embeddings")
-    embed_dimensions: int = Field(default=3072, description="Embedding dimensions (1024 or 3072)")
-    embed_purpose: str = Field(default="TEXT_RETRIEVAL", description="Embedding purpose: TEXT_RETRIEVAL, GENERIC_RETRIEVAL, CLASSIFICATION, CLUSTERING, etc.")
-    truncation_mode: str = Field(default="END", description="Truncation mode: END or NONE")
-    
-    _client: Any = PrivateAttr(default=None)
-    
     def __init__(
         self,
         model_name: str,
         embed_dimensions: int = 3072,
         embed_purpose: str = "TEXT_RETRIEVAL",
         truncation_mode: str = "END",
-        callback_manager: Optional[CallbackManager] = None,
         **kwargs: Any,
     ) -> None:
         """Initialize Nova2MultimodalEmbedding."""
-        super().__init__(
-            model_name=model_name,
-            embed_dimensions=embed_dimensions,
-            embed_purpose=embed_purpose,
-            truncation_mode=truncation_mode,
-            callback_manager=callback_manager,
-            **kwargs,
-        )
+        self.model_name = model_name
+        self.embed_dimensions = embed_dimensions
+        self.embed_purpose = embed_purpose
+        self.truncation_mode = truncation_mode
         self._client = None
         logger.info(f"[Nova2MultimodalEmbedding] Initialized with model: {model_name}, dimensions: {embed_dimensions}")
-    
-    def __getstate__(self):
-        """Custom pickle support - exclude the client."""
-        state = super().__getstate__()
-        if '__pydantic_private__' in state and '_client' in state['__pydantic_private__']:
-            state['__pydantic_private__']['_client'] = None
-        return state
-    
-    def __setstate__(self, state):
-        """Custom unpickle support - client will be recreated on first use."""
-        super().__setstate__(state)
-        self._client = None
+
+    @property
+    def dimensions(self) -> int:
+        return self.embed_dimensions
     
     @property
     def client(self):
@@ -112,10 +89,6 @@ class Nova2MultimodalEmbedding(BaseEmbedding):
             self._client = session.client('bedrock-runtime')
             logger.debug("[Nova2MultimodalEmbedding] Created bedrock-runtime client")
         return self._client
-    
-    @classmethod
-    def class_name(cls) -> str:
-        return "Nova2MultimodalEmbedding"
     
     def _build_request_body(self, text: str) -> dict:
         """Build the Nova 2 multimodal embedding request body."""
@@ -222,22 +195,14 @@ class Nova2MultimodalEmbedding(BaseEmbedding):
         
         # If we get here, all retries failed
         raise last_error
-    
-    def _get_text_embedding(self, text: str) -> List[float]:
-        """Required by BaseEmbedding - get embedding for single text."""
+
+    def embed_text(self, text: str) -> List[float]:
+        """Embed a single text."""
         return self._get_embedding(text)
     
-    def _get_query_embedding(self, query: str) -> List[float]:
-        """Required by BaseEmbedding - get embedding for query."""
-        return self._get_embedding(query)
-    
-    async def _aget_text_embedding(self, text: str) -> List[float]:
-        """Async version - falls back to sync."""
-        return self._get_text_embedding(text)
-    
-    async def _aget_query_embedding(self, query: str) -> List[float]:
-        """Async version - falls back to sync."""
-        return self._get_query_embedding(query)
+    def embed_texts(self, texts: List[str]) -> List[List[float]]:
+        """Embed a batch of texts."""
+        return [self._get_embedding(text) for text in texts]
 
 
 def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], Any]:
@@ -286,5 +251,3 @@ def _create_retry_decorator(client: Any, max_retries: int) -> Callable[[Any], An
         ),
         before_sleep=before_sleep_log(logger, logging.WARNING),
     )
-    
-llama_index.llms.bedrock_converse.utils._create_retry_decorator = _create_retry_decorator

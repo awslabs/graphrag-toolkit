@@ -24,8 +24,28 @@ ALL_NOTEBOOKS = [
 ]
 
 # (notebook_index, cell_index) -> reason
-CUDA_SKIPS = {(4, 22): "GPU/CUDA BGEReranker"}
+CUDA_SKIPS = {
+    (4, 20): "GPU/CUDA reranker (RerankingBeamGraphSearch)",
+    (4, 22): "GPU/CUDA BGEReranker",
+    (4, 25): "GPU/CUDA reranker (SpaCy + reranker)",
+}
 BATCH_SKIPS = {(1, 9): "Requires SOURCE_DIR with PDF files"}
+INFRA_SKIPS = {
+    # 03-Cloud-Build: requires S3 bucket with extracted data from setup-bedrock-batch.sh
+    (3, 4): "Requires S3 extract-build data (setup-bedrock-batch.sh)",
+    # 04-Cloud-Querying: requires populated graph from successful build
+    (4, 4): "Requires populated graph (build not run)",
+    (4, 5): "Requires populated graph (depends on cell 4)",
+    (4, 6): "Requires populated graph (depends on cell 4)",
+    (4, 8): "Requires populated graph (build not run)",
+    (4, 11): "Requires S3 prompt files (setup-bedrock-batch.sh)",
+    (4, 16): "Requires populated graph (build not run)",
+    (4, 18): "Requires populated graph (build not run)",
+}
+ENV_SKIPS = {
+    # 04-Cloud-Querying: requires SYSTEM_PROMPT_ARN from create_custom_prompt.sh
+    (4, 14): "Requires SYSTEM_PROMPT_ARN env var (create_custom_prompt.sh)",
+}
 
 
 def extract_output(cell):
@@ -132,6 +152,8 @@ def main():
     parser.add_argument("--output-dir", default="/home/jovyan/notebooks")
     parser.add_argument("--skip-cuda", default="true", choices=["true", "false"])
     parser.add_argument("--skip-batch", default="true", choices=["true", "false"])
+    parser.add_argument("--skip-infra", default="true", choices=["true", "false"])
+    parser.add_argument("--skip-env", default="true", choices=["true", "false"])
     parser.add_argument("--notebooks", nargs="*", help="Specific notebooks to run")
     args = parser.parse_args()
 
@@ -143,6 +165,10 @@ def main():
         skip_cells.update(CUDA_SKIPS)
     if args.skip_batch == "true":
         skip_cells.update(BATCH_SKIPS)
+    if args.skip_infra == "true":
+        skip_cells.update(INFRA_SKIPS)
+    if args.skip_env == "true":
+        skip_cells.update(ENV_SKIPS)
 
     report = []
     for nb_idx, nb_name in enumerate(ALL_NOTEBOOKS):

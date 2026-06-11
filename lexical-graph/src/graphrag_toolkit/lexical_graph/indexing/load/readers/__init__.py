@@ -14,7 +14,16 @@ from .reader_provider_config_base import ReaderProviderConfig, AWSReaderConfigBa
 from .llama_index_reader_provider_base import LlamaIndexReaderProviderBase
 from .s3_file_mixin import S3FileMixin
 from .reader_provider_config import *
-from .providers import *
+
+
+def __getattr__(name):
+    """Lazy import provider classes to avoid requiring optional dependencies at import time."""
+    from .providers import _PROVIDER_MODULES
+    if name in _PROVIDER_MODULES:
+        from importlib import import_module
+        module = import_module(_PROVIDER_MODULES[name], package=__name__ + ".providers")
+        return getattr(module, name)
+    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
 
 __all__ = [
     "ReaderProvider",

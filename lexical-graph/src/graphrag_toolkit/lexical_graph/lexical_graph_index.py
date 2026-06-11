@@ -36,13 +36,13 @@ from graphrag_toolkit.lexical_graph.indexing.build.delete_sources import DeleteS
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
 
-from llama_index.core.node_parser import SentenceSplitter, NodeParser
-from llama_index.core.schema import BaseNode
-from llama_index.core.llms import LLM
+from graphrag_toolkit.core.text_splitter import SentenceSplitter
+from graphrag_toolkit.core.compat import BaseNode
+from graphrag_toolkit.core.transform import Transform
 
 logger = logging.getLogger(__name__)
 
-ExtractionLLMType = Union[str, LLM, LLMCache]
+ExtractionLLMType = Union[str, Any, LLMCache]
 
 class ExtractionConfig():
     """
@@ -156,7 +156,7 @@ class IndexingConfig():
     data parsing, information extraction, build process, and batching.
 
     Attributes:
-        chunking (Optional[List[NodeParser]]): List of chunking strategies to be
+        chunking (Optional[List[Transform]]): List of chunking strategies to be
         applied during indexing. If no chunking strategies are provided, a
         default `SentenceSplitter` is used with a chunk size of 256 and an
         overlap of 25.
@@ -168,7 +168,7 @@ class IndexingConfig():
         Defaults to None, indicating that batch inference is not used.
     """
     def __init__(self,
-                 chunking: Optional[List[NodeParser]] = [],
+                 chunking: Optional[List[Transform]] = [],
                  extraction: Optional[ExtractionConfig] = None,
                  build: Optional[BuildConfig] = None,
                  batch_config: Optional[BatchConfig] = None):
@@ -179,7 +179,7 @@ class IndexingConfig():
         and handling batch operations.
 
         Args:
-            chunking (Optional[List[NodeParser]]): A list of node parsers used for chunking
+            chunking (Optional[List[Transform]]): A list of node parsers used for chunking
                 text into smaller segments. When set to None, no chunking is performed. A
                 default SentenceSplitter is added if an empty list is provided.
             extraction (Optional[ExtractionConfig]): Configuration for extracting relevant
@@ -190,7 +190,7 @@ class IndexingConfig():
                 operations. If None, batch inference is not used.
         """
         if chunking is not None:
-            if isinstance(chunking, NodeParser):
+            if isinstance(chunking, Transform):
                 chunking = [chunking]
             if isinstance(chunking, list) and  len(chunking) == 0:
                 chunking.append(SentenceSplitter(chunk_size=256, chunk_overlap=25))
@@ -200,7 +200,7 @@ class IndexingConfig():
         self.build = build or BuildConfig()
         self.batch_config = batch_config  # None = do not use batch inference
 
-IndexingConfigType = Union[IndexingConfig, ExtractionConfig, BuildConfig, BatchConfig, List[NodeParser]]
+IndexingConfigType = Union[IndexingConfig, ExtractionConfig, BuildConfig, BatchConfig, List[Transform]]
 
 def to_indexing_config(indexing_config: Optional[IndexingConfigType] = None) -> IndexingConfig:
     """
@@ -239,7 +239,7 @@ def to_indexing_config(indexing_config: Optional[IndexingConfigType] = None) -> 
         return IndexingConfig(batch_config=indexing_config)
     elif isinstance(indexing_config, list):
         for np in indexing_config:
-            if not isinstance(np, NodeParser):
+            if not isinstance(np, Transform):
                 raise ValueError(f'Invalid indexing config type: {type(np)}')
         return IndexingConfig(chunking=indexing_config)
     else:
@@ -284,8 +284,14 @@ class LexicalGraphIndex():
             extraction_dir: Optional[str] = None,
             indexing_config: Optional[IndexingConfigType] = None,
     ):
-        from llama_index.core.utils import globals_helper
-        globals_helper.stopwords
+        try:
+            import nltk
+            nltk.data.find('corpora/stopwords')
+        except LookupError:
+            import nltk
+            nltk.download('stopwords', quiet=True)
+        except ImportError:
+            pass
 
         tenant_id = to_tenant_id(tenant_id)
 

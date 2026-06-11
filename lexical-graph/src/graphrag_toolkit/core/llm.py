@@ -47,17 +47,42 @@ class BedrockLLMProvider(LLMProvider):
         region_name: str | None = None,
         max_retries: int = 2,
         timeout: int = 60,
+        temperature: float | None = None,
+        max_tokens: int | None = None,
+        top_p: float | None = None,
     ):
         self.model_id = model_id
+        self._region_name = region_name
+        self._max_retries = max_retries
+        self._timeout = timeout
+        self._inference_config: dict = {}
+        if temperature is not None:
+            self._inference_config['temperature'] = temperature
+        if max_tokens is not None:
+            self._inference_config['maxTokens'] = max_tokens
+        if top_p is not None:
+            self._inference_config['topP'] = top_p
+        self._client = self._create_client()
+
+    def _create_client(self):
         config = Config(
-            retries={"max_attempts": max_retries, "mode": "adaptive"},
-            read_timeout=timeout,
-            connect_timeout=timeout,
+            retries={"max_attempts": self._max_retries, "mode": "adaptive"},
+            read_timeout=self._timeout,
+            connect_timeout=self._timeout,
         )
         kwargs = {"config": config}
-        if region_name:
-            kwargs["region_name"] = region_name
-        self._client = boto3.client("bedrock-runtime", **kwargs)
+        if self._region_name:
+            kwargs["region_name"] = self._region_name
+        return boto3.client("bedrock-runtime", **kwargs)
+
+    def __getstate__(self):
+        state = self.__dict__.copy()
+        del state["_client"]
+        return state
+
+    def __setstate__(self, state):
+        self.__dict__.update(state)
+        self._client = self._create_client()
 
     def _build_params(self, prompt: str, **kwargs) -> dict:
         """Build converse API parameters from prompt and kwargs."""
@@ -71,7 +96,34 @@ class BedrockLLMProvider(LLMProvider):
         if "system" in kwargs:
             params["system"] = [{"text": kwargs["system"]}]
 
+        if self._inference_config:
+            params["inferenceConfig"] = self._inference_config
+
         return params
+
+    @property
+    def model(self) -> str:
+        """Alias for model_id (batch inference compatibility)."""
+        return self.model_id
+
+    def _get_all_kwargs(self, **kwargs) -> dict:
+        """Return inference parameters in snake_case for batch compatibility."""
+        config = self._inference_config or {}
+        # Map Bedrock API keys to snake_case expected by batch_inference_utils
+        result = {}
+        result['max_tokens'] = config.get('maxTokens', 4096)
+        result['temperature'] = config.get('temperature', 0.0)
+        if 'topP' in config:
+            result['top_p'] = config['topP']
+        return result
+
+    def _get_messages(self, prompt, **kwargs) -> list:
+        """Format a prompt into converse-style messages for batch compatibility."""
+        if hasattr(prompt, 'format'):
+            text = prompt.format(**kwargs)
+        else:
+            text = str(prompt)
+        return [{"role": "user", "content": [{"text": text}]}]
 
     def predict(self, prompt: str, **kwargs) -> str:
         """Call Bedrock converse API and return response text."""

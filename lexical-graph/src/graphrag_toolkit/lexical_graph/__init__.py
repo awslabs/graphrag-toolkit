@@ -8,7 +8,6 @@ warnings.filterwarnings('ignore', category=UnsupportedFieldAttributeWarning)
 warnings.filterwarnings('ignore', message="Can't initialize NVML")
 
 import asyncio
-import llama_index.core.async_utils
 import logging as l
 
 logger = l.getLogger(__name__)
@@ -34,9 +33,13 @@ def _asyncio_run(coro):
 try:
     loop = asyncio.get_event_loop()
     if loop.is_running:
-        llama_index.core.async_utils.asyncio_run = _asyncio_run
+        try:
+            import llama_index.core.async_utils
+            llama_index.core.async_utils.asyncio_run = _asyncio_run
+        except ImportError:
+            pass
 except RuntimeError as e:
-    pass  
+    pass
 
 from .tenant_id import TenantId, DEFAULT_TENANT_ID, DEFAULT_TENANT_NAME, TenantIdType, to_tenant_id
 from .config import GraphRAGConfig as GraphRAGConfig, LLMType, EmbeddingType

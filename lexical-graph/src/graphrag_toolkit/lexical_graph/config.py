@@ -21,14 +21,11 @@ from botocore.config import Config
 
 from graphrag_toolkit.lexical_graph.errors import ConfigurationError
 
-from llama_index.llms.bedrock_converse import BedrockConverse
-from llama_index.embeddings.bedrock import BedrockEmbedding
-from llama_index.core.settings import Settings
-from llama_index.core.llms import LLM
-from llama_index.core.base.embeddings.base import BaseEmbedding
+from graphrag_toolkit.core.llm import BedrockLLMProvider, LLMProvider
+from graphrag_toolkit.core.embedding import BedrockEmbeddingProvider, EmbeddingProvider
 
-LLMType = Union[LLM, str]
-EmbeddingType = Union[BaseEmbedding, str]
+LLMType = Union[LLMProvider, str]
+EmbeddingType = Union[EmbeddingProvider, str]
 logger = logging.getLogger(__name__)
 
 DEFAULT_EXTRACTION_MODEL = 'us.anthropic.claude-sonnet-4-6'
@@ -249,7 +246,7 @@ class _GraphRAGConfig:
         _session (Optional[boto3.Session]): Boto3 session attribute initialized or reused.
         _extraction_llm (Optional[LLM]): The LLM configured for extraction tasks.
         _response_llm (Optional[LLM]): The LLM configured for response generation tasks.
-        _embed_model (Optional[BaseEmbedding]): An embedding model for vector generation.
+        _embed_model (Optional[EmbeddingProvider]): An embedding model for vector generation.
         _embed_dimensions (Optional[int]): The dimensions of the embedding vectors.
         _reranking_model (Optional[str]): A string specifying the reranking model to use.
         _extraction_num_workers (Optional[int]): Number of parallel workers for extraction tasks.
@@ -272,9 +269,9 @@ class _GraphRAGConfig:
     _aws_valid_services: Optional[Set[str]] = field(default=None, init=False, repr=False)
     _session: Optional[boto3.Session] = field(default=None, init=False, repr=False)
 
-    _extraction_llm: Optional[LLM] = None
-    _response_llm: Optional[LLM] = None
-    _embed_model: Optional[BaseEmbedding] = None
+    _extraction_llm: Optional[LLMProvider] = None
+    _response_llm: Optional[LLMProvider] = None
+    _embed_model: Optional[EmbeddingProvider] = None
     _embed_dimensions: Optional[int] = None
     _reranking_model: Optional[str] = None
     _bedrock_reranking_model: Optional[str] = None
@@ -855,113 +852,88 @@ class _GraphRAGConfig:
 
     def to_llm(self, llm: LLMType):
         """
-        Converts the given LLMType into an instance of LLM or BedrockConverse.
+        Converts the given LLMType into an instance of LLMProvider or BedrockLLMProvider.
 
-        The method accepts an LLM or a string representation of configuration,
-        and converts it to an appropriate instance of BedrockConverse based
-        on the provided details. If `llm` is already an instance of LLM, it
+        The method accepts an LLMProvider or a string representation of configuration,
+        and converts it to an appropriate instance of BedrockLLMProvider based
+        on the provided details. If `llm` is already an instance of LLMProvider, it
         is returned directly. When `llm` is a valid JSON string, a
-        BedrockConverse instance is initialized with the extracted
-        configuration. Otherwise, a default BedrockConverse instance
-        is created using specified attributes such as AWS profile and
-        region.
+        BedrockLLMProvider instance is initialized with the extracted
+        configuration. Otherwise, a default BedrockLLMProvider instance
+        is created using specified attributes such as AWS region.
 
         Args:
-            llm: An instance of LLMType which could be an LLM instance,
+            llm: An instance of LLMType which could be an LLMProvider instance,
                 a JSON string containing configuration details, or a simple
                 string representing the model.
 
         Returns:
-            LLM: The processed LLM instance or an instance of BedrockConverse
+            LLMProvider: The processed LLMProvider instance or an instance of BedrockLLMProvider
             initialized based on the provided parameters.
 
         Raises:
-            ValueError: If BedrockConverse initialization fails due to
+            ValueError: If BedrockLLMProvider initialization fails due to
                 invalid input or unexpected errors during processing.
         """
-        if isinstance(llm, LLM):
+        if isinstance(llm, LLMProvider):
+            return llm
+
+        # Duck-typing: if it has predict/stream, accept it as-is
+        if hasattr(llm, 'predict') and not isinstance(llm, str):
             return llm
 
         try:
-            boto3_session = self.session
-            botocore_session = None
-            if hasattr(boto3_session, 'get_session'):
-                botocore_session = boto3_session.get_session()
-
-            profile = self.aws_profile
             region = self.aws_region
 
             if _is_json_string(llm):
                 config = json.loads(llm)
-                return BedrockConverse(
-                    model=config['model'],
-                    temperature=config.get('temperature', 0.0),
-                    max_tokens=config.get('max_tokens', 4096),
-                    botocore_session=botocore_session,
+                return BedrockLLMProvider(
+                    model_id=config['model'],
                     region_name=config.get('region_name', region),
-                    profile_name=config.get('profile_name', profile),
-                    max_retries=50
+                    max_retries=50,
+                    timeout=60,
+                    temperature=config.get('temperature'),
+                    max_tokens=config.get('max_tokens'),
                 )
 
             else:
-                return BedrockConverse(
-                    model=llm,
-                    temperature=0.0,
-                    max_tokens=4096,
-                    botocore_session=botocore_session,
+                return BedrockLLMProvider(
+                    model_id=llm,
                     region_name=region,
-                    profile_name=profile,
-                    max_retries=50
+                    max_retries=50,
+                    timeout=60
                 )
 
         except Exception as e:
-            raise ValueError(f'Failed to initialize BedrockConverse: {str(e)}') from e
+            raise ValueError(f'Failed to initialize BedrockLLMProvider: {str(e)}') from e
 
 
     def to_embedding_model(self, embed_model:EmbeddingType):
 
-        if isinstance(embed_model, BaseEmbedding):
+        if isinstance(embed_model, EmbeddingProvider):
             return embed_model
         
         try:
 
-            boto3_session = self.session
-            botocore_session = None
-            if hasattr(boto3_session, 'get_session'):
-                botocore_session = boto3_session.get_session()
-
-            profile = self.aws_profile
             region = self.aws_region
-
-            botocore_config = Config(
-                retries={"total_max_attempts": 10, "mode": "adaptive"},
-                connect_timeout=60.0,
-                read_timeout=60.0,
-            )
 
             if _is_json_string(embed_model):
                 config = json.loads(embed_model)
-                return BedrockEmbedding(
-                    model_name=config['model_name'],
-                    botocore_session=botocore_session,
+                return BedrockEmbeddingProvider(
+                    model_id=config['model_name'],
                     region_name=config.get('region_name', region),
-                    profile_name=config.get('profile_name', profile),
-                    botocore_config=botocore_config
                 )
             else:
-                return BedrockEmbedding(
-                    model_name=embed_model,
-                    botocore_session=botocore_session,
+                return BedrockEmbeddingProvider(
+                    model_id=embed_model,
                     region_name=region,
-                    profile_name=profile,
-                    botocore_config=botocore_config
                 )
         except Exception as e:
-            raise ValueError(f'Failed to initialize BedrockEmbedding: {str(e)}') from e
+            raise ValueError(f'Failed to initialize BedrockEmbeddingProvider: {str(e)}') from e
 
 
     @property
-    def extraction_llm(self) -> LLM:
+    def extraction_llm(self) -> LLMProvider:
         """
         Property to retrieve or initialize the LLM (Language Learning Model) for extraction.
 
@@ -986,9 +958,7 @@ class _GraphRAGConfig:
 
         This setter method assigns the provided LLM instance to the
         internal `_extraction_llm` attribute after processing it via
-        a helper method `_to_llm`. Additionally, if the provided LLM
-        supports a `callback_manager` attribute, it is set to use
-        the global `Settings.callback_manager`.
+        a helper method `to_llm`.
 
         Args:
             llm: An instance of LLMType that represents the language
@@ -996,11 +966,9 @@ class _GraphRAGConfig:
         """
 
         self._extraction_llm = self.to_llm(llm)
-        if hasattr(self._extraction_llm, 'callback_manager'):
-            self._extraction_llm.callback_manager = Settings.callback_manager
 
     @property
-    def response_llm(self) -> LLM:
+    def response_llm(self) -> LLMProvider:
         """
         Gets the response language model (LLM) instance. If the response LLM is not already set, it initializes it
         using the value of the 'RESPONSE_MODEL' environment variable; if not defined, defaults to
@@ -1044,11 +1012,9 @@ class _GraphRAGConfig:
         """
 
         self._response_llm = self.to_llm(llm)
-        if hasattr(self._response_llm, 'callback_manager'):
-            self._response_llm.callback_manager = Settings.callback_manager
 
     @property
-    def embed_model(self) -> BaseEmbedding:
+    def embed_model(self) -> EmbeddingProvider:
         """
         Property that retrieves the embedding model used for processing data.
 
@@ -1059,7 +1025,7 @@ class _GraphRAGConfig:
         model initialization.
 
         Returns:
-            BaseEmbedding: The embedding model instance.
+            EmbeddingProvider: The embedding model instance.
         """
         if self._embed_model is None:
             self.embed_model = os.environ.get('EMBEDDINGS_MODEL', DEFAULT_EMBEDDINGS_MODEL)

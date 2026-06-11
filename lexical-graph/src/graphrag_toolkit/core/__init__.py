@@ -27,6 +27,12 @@ from graphrag_toolkit.core.prompt import (
 )
 from graphrag_toolkit.core.query_engine import QueryEngine
 from graphrag_toolkit.core.reader import Reader
+from graphrag_toolkit.core.response import (
+    RESPONSE_TYPE,
+    Response,
+    StreamingResponse,
+    TokenGen,
+)
 from graphrag_toolkit.core.retriever import Retriever
 from graphrag_toolkit.core.transform import Transform
 from graphrag_toolkit.core.types import (
@@ -35,6 +41,15 @@ from graphrag_toolkit.core.types import (
     NodeRef,
     NodeWithScore,
     QueryBundle,
+)
+from graphrag_toolkit.core.utils import iter_batch, run_jobs
+from graphrag_toolkit.core.vector_store_types import (
+    FilterCondition,
+    FilterOperator,
+    MetadataFilter,
+    MetadataFilters,
+    VectorStoreQueryMode,
+    VectorStoreQueryResult,
 )
 
 __all__ = [
@@ -47,8 +62,12 @@ __all__ = [
     "Document",
     "EmbeddingProvider",
     "Extractor",
+    "FilterCondition",
+    "FilterOperator",
     "LLMProvider",
     "LLMResponse",
+    "MetadataFilter",
+    "MetadataFilters",
     "Node",
     "NodeRef",
     "NodeRelationship",
@@ -58,11 +77,19 @@ __all__ = [
     "PromptTemplate",
     "QueryBundle",
     "QueryEngine",
+    "RESPONSE_TYPE",
     "Reader",
     "RelatedNodeInfo",
+    "Response",
     "Retriever",
+    "StreamingResponse",
     "TextNode",
+    "TokenGen",
     "Transform",
+    "VectorStoreQueryMode",
+    "VectorStoreQueryResult",
     "async_run_pipeline",
+    "iter_batch",
+    "run_jobs",
     "run_pipeline",
 ]

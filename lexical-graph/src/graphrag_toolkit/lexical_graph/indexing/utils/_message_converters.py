@@ -27,14 +27,23 @@ def messages_to_converse_messages(
     system_prompt = None
 
     for message in messages:
-        role = message.role.value if hasattr(message.role, "value") else str(message.role)
+        if isinstance(message, dict):
+            role = message.get("role", "user")
+            content = message.get("content", "")
+        else:
+            role = message.role.value if hasattr(message.role, "value") else str(message.role)
+            content = message.content
 
         if role == "system":
-            system_prompt = message.content
+            system_prompt = content
         else:
-            converse_messages.append(
-                {"role": role, "content": [{"text": message.content}]}
-            )
+            # content may already be in converse format [{"text": "..."}]
+            if isinstance(content, list):
+                converse_messages.append({"role": role, "content": content})
+            else:
+                converse_messages.append(
+                    {"role": role, "content": [{"text": content}]}
+                )
 
     return converse_messages, system_prompt
 
@@ -54,11 +63,25 @@ def messages_to_anthropic_messages(
     system_prompt = None
 
     for message in messages:
-        role = message.role.value if hasattr(message.role, "value") else str(message.role)
+        if isinstance(message, dict):
+            role = message.get("role", "user")
+            content = message.get("content", "")
+        else:
+            role = message.role.value if hasattr(message.role, "value") else str(message.role)
+            content = message.content
 
         if role == "system":
-            system_prompt = message.content
+            # Extract text from system prompt (may be string or converse content blocks)
+            if isinstance(content, list):
+                system_prompt = " ".join(block.get("text", "") for block in content if isinstance(block, dict))
+            else:
+                system_prompt = content
         else:
-            anthropic_messages.append({"role": role, "content": message.content})
+            # Convert converse content blocks [{"text": "..."}] to plain string for anthropic
+            if isinstance(content, list):
+                text_parts = [block.get("text", "") for block in content if isinstance(block, dict)]
+                anthropic_messages.append({"role": role, "content": " ".join(text_parts)})
+            else:
+                anthropic_messages.append({"role": role, "content": content})
 
     return anthropic_messages, system_prompt

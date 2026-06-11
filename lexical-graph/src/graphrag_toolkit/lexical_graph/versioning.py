@@ -6,7 +6,7 @@ from typing import Dict, Any, Union, List, Optional
 from enum import Enum
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
-from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
+from graphrag_toolkit.core.vector_store_types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
 
 logger = logging.getLogger(__name__)
 

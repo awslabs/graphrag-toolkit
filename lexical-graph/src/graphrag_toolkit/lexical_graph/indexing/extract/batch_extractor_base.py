@@ -53,10 +53,14 @@ class BatchExtractorBase(Extractor):
         self.description = description
         
         # BaseExtractor compat attributes
-        self.show_progress = kwargs.get('show_progress', False)
-        self.num_workers = kwargs.get('num_workers', 1)
-        self.disable_template_rewrite = kwargs.get('disable_template_rewrite', False)
-        self.node_text_template = kwargs.get('node_text_template', '')
+        self.show_progress = kwargs.pop('show_progress', False)
+        self.num_workers = kwargs.pop('num_workers', 1)
+        self.disable_template_rewrite = kwargs.pop('disable_template_rewrite', False)
+        self.node_text_template = kwargs.pop('node_text_template', '')
+
+        # Set remaining kwargs as instance attributes (e.g., entity_classification_provider, topic_provider)
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
         logger.debug(f'Prompt template: {self.prompt_template}')
 

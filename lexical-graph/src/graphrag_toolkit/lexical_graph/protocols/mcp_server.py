@@ -13,7 +13,7 @@ from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.summary import GraphSummary, get_domain
 
-from llama_index.core.base.response.schema import StreamingResponse
+from graphrag_toolkit.core.response import StreamingResponse
 from fastmcp.tools.tool_transform import ArgTransform
 from fastmcp.utilities.types import NotSet
 

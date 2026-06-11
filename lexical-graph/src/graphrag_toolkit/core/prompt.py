@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-"""Prompt template classes replacing llama_index.core.prompts."""
+"""Prompt template classes for LLM interactions."""
 
 from __future__ import annotations
 

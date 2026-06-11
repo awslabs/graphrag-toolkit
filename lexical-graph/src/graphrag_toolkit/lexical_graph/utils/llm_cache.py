@@ -4,19 +4,12 @@
 import logging
 import os
 
-from botocore.config import Config
 from hashlib import sha256
-from typing import Optional, Any, Union
+from typing import Optional, Any, Union, Iterator
 
 from graphrag_toolkit.lexical_graph import ModelError
-from graphrag_toolkit.lexical_graph.utils.bedrock_utils import *
-from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
-
-from llama_index.core.llms.llm import LLM
-from llama_index.llms.bedrock_converse import BedrockConverse
-from llama_index.core.bridge.pydantic import BaseModel, Field
-from llama_index.core.prompts import BasePromptTemplate
-from llama_index.core.types import TokenGen
+from graphrag_toolkit.core.llm import LLMProvider, BedrockLLMProvider
+from pydantic import BaseModel, Field, ConfigDict
 
 
 logger = logging.getLogger(__name__) 
@@ -26,43 +19,49 @@ c_red, c_blue, c_green, c_cyan, c_norm = "\x1b[31m",'\033[94m','\033[92m', '\033
 MAX_ATTEMPTS = 2
 TIMEOUT = 60.0
 
+def _format_prompt(prompt, prompt_args):
+    """Format a prompt (PromptTemplate or ChatPromptTemplate) into a string."""
+    if prompt_args:
+        result = prompt.format(**prompt_args)
+    elif hasattr(prompt, 'format') and callable(prompt.format):
+        result = prompt.format()
+    else:
+        return str(prompt)
+    # ChatPromptTemplate.format() returns list[dict] — flatten to string
+    if isinstance(result, list):
+        return "\n".join(f"{m.get('role', 'user')}: {m.get('content', '')}" for m in result)
+    return result
+
+
 class LLMCache(BaseModel):
 
-    llm:LLM = Field(description='LLM whose responses may be cached')
-    enable_cache:Optional[bool] = Field(description='Whether the cache is enabled or disabled', default=False)
-    verbose_prompt:Optional[bool] = Field(default=False)
-    verbose_response:Optional[bool] = Field(default=False)
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    llm: Any = Field(description='LLM whose responses may be cached')
+    enable_cache: Optional[bool] = Field(description='Whether the cache is enabled or disabled', default=False)
+    verbose_prompt: Optional[bool] = Field(default=False)
+    verbose_response: Optional[bool] = Field(default=False)
 
     def stream(
          self,
-        prompt: BasePromptTemplate,
+        prompt,
         **prompt_args: Any
-    ) -> TokenGen:
-        response = None
+    ) -> Iterator[str]:
+        formatted = _format_prompt(prompt, prompt_args)
 
         if self.verbose_prompt:
-            logger.info('%s%s%s', c_blue, prompt.format(**prompt_args), c_norm)
+            logger.info('%s%s%s', c_blue, formatted, c_norm)
 
         try:
-            if isinstance(self.llm, BedrockConverse):
-                if not hasattr(self.llm, '_client'):
-                    config = Config(
-                        retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-                        connect_timeout=TIMEOUT,
-                        read_timeout=TIMEOUT,
-                    )
-                    
-                    session = GraphRAGConfig.session
-                    self.llm._client = session.client('bedrock-runtime', config=config)
-            response = self.llm.stream(prompt, **prompt_args)
+            response = self.llm.stream(formatted)
         except Exception as e:
-            raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
+            raise ModelError(f'{e!s} [Model: {self.model_id}]') from e
             
         return response
 
     def predict(
         self,
-        prompt: BasePromptTemplate,
+        prompt,
         **prompt_args: Any
     ) -> str:
         """
@@ -70,54 +69,33 @@ class LLMCache(BaseModel):
         language model (LLM). Supports caching of responses to enhance efficiency for repeated
         queries and handles verbose logging for debugging or monitoring purposes.
 
-        The function dynamically adapts caching behavior depending on the configuration. If caching
-        is disabled, responses are generated directly using the LLM. If caching is enabled, it calculates
-        a unique cache key based on the prompt and LLM configuration, then fetches responses from the
-        cache, if available, or generates and stores them for future use.
-
-        The function ensures proper handling of potential errors during model execution and writes
-        extensive logs when verbosity options are enabled, aiding in thorough tracking during execution.
-
         Args:
-            prompt: A pre-formatted BasePromptTemplate instance containing the template definition
-                to generate the LLM response.
-            **prompt_args: Arbitrary keyword arguments that provide dynamic content to fill
-                in the placeholders of the given prompt template.
+            prompt: A prompt template with a .format(**kwargs) method, or a plain string.
+            **prompt_args: Keyword arguments to format the prompt template.
 
         Returns:
             str: The generated or cached response from the LLM.
 
         Raises:
-            ModelError: If there is any exception while interacting with the LLM, detailed
-                configuration information is included to aid debugging.
+            ModelError: If there is any exception while interacting with the LLM.
         """
-        response = None
+        formatted = _format_prompt(prompt, prompt_args)
 
         if self.verbose_prompt:
-            logger.info('%s%s%s', c_blue, prompt.format(**prompt_args), c_norm)
+            logger.info('%s%s%s', c_blue, formatted, c_norm)
 
         if not self.enable_cache:
             try:
-                if isinstance(self.llm, BedrockConverse):
-                    if not hasattr(self.llm, '_client'):
-                        config = Config(
-                            retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-                            connect_timeout=TIMEOUT,
-                            read_timeout=TIMEOUT,
-                        )
-                        
-                        session = GraphRAGConfig.session
-                        self.llm._client = session.client('bedrock-runtime', config=config)
-                response = self.llm.predict(prompt, **prompt_args)
+                response = self.llm.predict(formatted)
             except Exception as e:
-                raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
+                raise ModelError(f'{e!s} [Model: {self.model_id}]') from e
         else:
-
             prompt_args_copy = prompt_args.copy()
             for key in prompt_args.get('exclude_cache_keys', []):
                 del prompt_args_copy[key]
 
-            cache_key = f'{self.llm.to_json()},{prompt.format(**prompt_args_copy)}'
+            cache_formatted = _format_prompt(prompt, prompt_args_copy) if prompt_args_copy else formatted
+            cache_key = f'{self.model_id},{cache_formatted}'
             cache_hex = sha256(cache_key.encode('utf-8')).hexdigest()
             cache_file = f'cache/llm/{cache_hex}.txt'
 
@@ -127,19 +105,9 @@ class LLMCache(BaseModel):
                     response = f.read()
             else:
                 try:
-                    if isinstance(self.llm, BedrockConverse):
-                        if not hasattr(self.llm, '_client'):
-                            config = Config(
-                                retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-                                connect_timeout=TIMEOUT,
-                                read_timeout=TIMEOUT,
-                            )
-                            
-                            session = GraphRAGConfig.session
-                            self.llm._client = session.client('bedrock-runtime', config=config)
-                    response = self.llm.predict(prompt, **prompt_args)
+                    response = self.llm.predict(formatted)
                 except Exception as e:
-                    raise ModelError(f'{e!s} Model config: {self.llm.to_json()}') from e
+                    raise ModelError(f'{e!s} Model: {self.model_id}') from e
                 os.makedirs(os.path.dirname(os.path.realpath(cache_file)), exist_ok=True)
                 with open(cache_file, 'w') as f:
                     f.write(response)
@@ -150,15 +118,16 @@ class LLMCache(BaseModel):
         return response
     
     @property
-    def model(self):
-        if not isinstance(self.llm, BedrockConverse):
+    def model_id(self) -> str:
+        if isinstance(self.llm, BedrockLLMProvider):
+            return self.llm.model_id
+        return str(type(self.llm).__name__)
+
+    @property
+    def model(self) -> str:
+        if not isinstance(self.llm, BedrockLLMProvider):
             raise ModelError(f'Invalid LLM type: {type(self.llm)} does not support model')
-        return self.llm.model
+        return self.llm.model_id
 
     
-LLMCacheType = Union[LLM, LLMCache]
-    
-
-
-
-    
+LLMCacheType = Union[Any, LLMCache]
