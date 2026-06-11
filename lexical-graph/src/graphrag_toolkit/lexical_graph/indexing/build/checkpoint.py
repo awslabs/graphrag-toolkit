@@ -9,8 +9,11 @@ from typing import Any, List
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 from graphrag_toolkit.lexical_graph.indexing.node_handler import NodeHandler
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.core.compat import BaseNode, BaseComponent
+from graphrag_toolkit.core.transform import Transform
 
-from llama_index.core.schema import TransformComponent, BaseNode
+from typing import Any as _Any
+
 
 SAVEPOINT_ROOT_DIR = 'save_points'
 
@@ -26,23 +29,23 @@ class DoNotCheckpoint:
     """
     pass
 
-class CheckpointFilter(TransformComponent, DoNotCheckpoint):
+class CheckpointFilter(BaseComponent, Transform, DoNotCheckpoint):
     """
     Manages filtering of nodes based on the absence of a checkpoint.
 
     This class filters nodes to ensure that only those without existing checkpoints
-    in a specified directory are processed by an inner TransformComponent. It combines
-    functionality from the TransformComponent and DoNotCheckpoint classes, while allowing
+    in a specified directory are processed by an inner Transform. It combines
+    functionality from the Transform and DoNotCheckpoint classes, while allowing
     chaining of transformations and checkpoint-based filtering.
 
     Attributes:
         checkpoint_name (str): The name of the checkpoint used for filtering.
         checkpoint_dir (str): Path to the directory where checkpoints are stored.
-        inner (TransformComponent): The wrapped TransformComponent for processing nodes.
+        inner (Transform): The wrapped Transform for processing nodes.
     """
     checkpoint_name:str
     checkpoint_dir:str
-    inner:TransformComponent
+    inner:_Any
     tenant_id:TenantId
         
     def checkpoint_does_not_exist(self, node_id):
@@ -91,7 +94,7 @@ class CheckpointFilter(TransformComponent, DoNotCheckpoint):
         filtered_nodes = []
         
         for node in nodes:
-            if self.checkpoint_does_not_exist(node.id_):
+            if self.checkpoint_does_not_exist(node.node_id):
                 filtered_nodes.append(node)
             else:
                 discarded_count += 1
@@ -179,7 +182,7 @@ class Checkpoint():
         This method wraps the provided transform component (`o`) with a checkpoint
         filter if the component satisfies the specified conditions. Specifically, the
         checkpoint filter is applied if the instance is enabled, the provided object
-        is of type `TransformComponent`, and is not of type `DoNotCheckpoint`.
+        is of type `Transform`, and is not of type `DoNotCheckpoint`.
         Otherwise, the method returns the component unchanged.
 
         Args:
@@ -189,7 +192,7 @@ class Checkpoint():
             The original object or a `CheckpointFilter` wrapping the input object
             depending on the specified conditions.
         """
-        if self.enabled and isinstance(o, TransformComponent) and not isinstance(o, DoNotCheckpoint):
+        if self.enabled and isinstance(o, Transform) and not isinstance(o, DoNotCheckpoint):
             logger.debug(f'Wrapping with checkpoint filter [checkpoint: {self.checkpoint_name}, component: {type(o).__name__}]')
             return CheckpointFilter(inner=o, checkpoint_dir=self.checkpoint_dir, checkpoint_name=self.checkpoint_name, tenant_id=tenant_id)
         else:

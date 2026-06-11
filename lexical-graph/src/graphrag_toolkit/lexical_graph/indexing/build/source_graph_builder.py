@@ -9,8 +9,8 @@ from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBui
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.versioning import EXTRACT_TIMESTAMP, BUILD_TIMESTAMP, PREV_VERSIONS
 from graphrag_toolkit.lexical_graph.metadata import format_metadata_list
+from graphrag_toolkit.core.compat import BaseNode
 
-from llama_index.core.schema import BaseNode
 
 logger = logging.getLogger(__name__)
 

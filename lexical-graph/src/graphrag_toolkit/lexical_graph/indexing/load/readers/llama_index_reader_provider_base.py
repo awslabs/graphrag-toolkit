@@ -4,9 +4,9 @@
 
 from typing import Any, List
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_base import ReaderProvider
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config_base import ReaderProviderConfig
+from graphrag_toolkit.core.types import Document
 
 
 logger = logging.getLogger(__name__)

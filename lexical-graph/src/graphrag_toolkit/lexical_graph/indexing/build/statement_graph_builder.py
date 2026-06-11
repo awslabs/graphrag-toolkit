@@ -7,9 +7,8 @@ from typing import Any
 from graphrag_toolkit.lexical_graph.indexing.model import Statement
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship
 
-from llama_index.core.schema import BaseNode
-from llama_index.core.schema import NodeRelationship
 
 logger = logging.getLogger(__name__)
 
@@ -61,7 +60,7 @@ class StatementGraphBuilder(GraphBuilder):
             logger.debug(f'Inserting statement [statement_id: {statement.statementId}]')
 
             prev_statement = None
-            prev_info = node.relationships.get(NodeRelationship.PREVIOUS, None)
+            prev_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.PREVIOUS)
             if prev_info:
                 prev_statement = Statement.model_validate(prev_info.metadata.get('statement', None))
 

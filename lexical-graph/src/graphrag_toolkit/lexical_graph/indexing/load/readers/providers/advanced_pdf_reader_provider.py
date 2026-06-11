@@ -4,11 +4,11 @@
 
 from typing import List
 import base64
-from llama_index.core.schema import Document
 from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_provider_base import LlamaIndexReaderProviderBase
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config import PDFReaderConfig
 from graphrag_toolkit.lexical_graph.indexing.load.readers.s3_file_mixin import S3FileMixin
 from graphrag_toolkit.lexical_graph.logging import logging
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

@@ -13,8 +13,9 @@ from graphrag_toolkit.lexical_graph.indexing.node_handler import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.build.vector_batch_client import VectorBatchClient
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY, ALL_EMBEDDING_INDEXES, DEFAULT_EMBEDDING_INDEXES
 from graphrag_toolkit.lexical_graph.metadata import format_datetime, is_datetime_key
+from graphrag_toolkit.core.compat import BaseNode, TextNode
+from graphrag_toolkit.core.types import Document
 
-from llama_index.core.schema import BaseNode, TextNode, Document
 
 logger = logging.getLogger(__name__)
 

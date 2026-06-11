@@ -10,8 +10,8 @@ from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import relationshi
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
 from graphrag_toolkit.lexical_graph.indexing.constants import LOCAL_ENTITY_CLASSIFICATION
+from graphrag_toolkit.core.compat import BaseNode
 
-from llama_index.core.schema import BaseNode
 
 logger = logging.getLogger(__name__)
 

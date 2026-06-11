@@ -11,8 +11,6 @@ from os.path import join
 from graphrag_toolkit.lexical_graph.indexing.extract.pipeline_decorator import PipelineDecorator
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 
-from llama_index.core.schema import Document, BaseNode
-
 logger = logging.getLogger(__name__)
              
 class FileSystemTap(PipelineDecorator):
@@ -67,7 +65,7 @@ class FileSystemTap(PipelineDecorator):
             Iterable[SourceDocument]: The original collection of source documents after processing.
         """
         for doc in docs:
-            if doc.refNode and isinstance(doc.refNode, Document):
+            if doc.refNode and hasattr(doc.refNode, 'doc_id'):
                 ref_node = doc.refNode
                 raw_source_output_path = join(self.raw_sources_dir, ref_node.doc_id)
                 source_output_path = join(self.sources_dir, f'{ref_node.doc_id}.json')

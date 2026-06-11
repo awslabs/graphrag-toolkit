@@ -4,10 +4,10 @@
 from typing import Any, List
 from pydantic import BaseModel, validator
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
 from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_provider_base import \
     LlamaIndexReaderProviderBase
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config_base import ReaderProviderConfig
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 
@@ -61,7 +61,7 @@ class ValidatedReaderProviderBase(LlamaIndexReaderProviderBase):
             raise ValueError("Reader must return a list of Documents")
 
         for i, doc in enumerate(documents):
-            if not isinstance(doc, Document):
+            if not hasattr(doc, 'text'):
                 raise ValueError(f"Item {i} is not a Document: {type(doc)}")
 
             if not doc.text or not doc.text.strip():

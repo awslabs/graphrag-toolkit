@@ -4,7 +4,7 @@
 
 from abc import ABC, abstractmethod
 from typing import Any, List
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.types import Document
 
 class ReaderProvider(ABC):
     """

@@ -15,10 +15,10 @@ from graphrag_toolkit.lexical_graph.indexing.prompts import DOMAIN_ENTITY_CLASSI
 from graphrag_toolkit.lexical_graph.indexing.prompts import RANK_ENTITY_CLASSIFICATIONS_PROMPT
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import BaseNode
-from llama_index.core.node_parser import SentenceSplitter
-from llama_index.core.bridge.pydantic import Field
-from llama_index.core.prompts import PromptTemplate
+from graphrag_toolkit.core.compat import BaseNode
+from graphrag_toolkit.core.text_splitter import SentenceSplitter
+from pydantic import Field, ConfigDict
+from graphrag_toolkit.core.prompt import PromptTemplate
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +27,8 @@ DEFAULT_NUM_ITERATIONS = 1
 DEFAULT_NUM_CLASSIFICATIONS = 15
 
 class InferClassifications(SourceDocParser, PreferredValuesProvider):
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     num_samples:int = Field(
         description='Number of chunks to sample per iteration'

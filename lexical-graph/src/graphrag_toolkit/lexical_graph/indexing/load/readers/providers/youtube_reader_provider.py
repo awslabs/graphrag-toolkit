@@ -5,9 +5,9 @@
 import os
 from typing import List, Union
 import re
-from llama_index.core.schema import Document
 from ..reader_provider_config import YouTubeReaderConfig
 from graphrag_toolkit.lexical_graph.logging import logging
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

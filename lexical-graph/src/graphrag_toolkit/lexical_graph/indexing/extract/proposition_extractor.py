@@ -9,17 +9,16 @@ from typing import List, Optional, Sequence, Dict, Any
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY
 
-from llama_index.core.schema import BaseNode
-from llama_index.core.bridge.pydantic import Field, PrivateAttr
-from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.core.async_utils import run_jobs
+from graphrag_toolkit.core.compat import BaseNode
+from graphrag_toolkit.core.extractor import Extractor
+from graphrag_toolkit.core.utils import run_jobs
 
 DEFAULT_PROPOSITION_MODEL = 'chentong00/propositionizer-wiki-flan-t5-large'
 
 
 logger = logging.getLogger(__name__)
 
-class PropositionExtractor(BaseExtractor):
+class PropositionExtractor(Extractor):
     """
     Handles the extraction of propositions from textual data using a pre-trained transformer model.
 
@@ -29,44 +28,35 @@ class PropositionExtractor(BaseExtractor):
 
     Attributes:
         proposition_model_name (str): The name of the pre-trained model used for extracting
-            propositions (e.g., AutoModelForSeq2SeqLM model).
-        device (Optional[str]): The computational device to be used, such as 'cuda' or 'cpu'. If
-            not specified, the most appropriate device is selected automatically.
+            propositions.
+        device (Optional[str]): The computational device to be used, such as 'cuda' or 'cpu'.
         source_metadata_field (Optional[str]): The metadata field in nodes from which to extract
-            propositions; if not provided, the text field of nodes is used.
-        _proposition_tokenizer (Optional[Any]): Internal attribute to store the initialized tokenizer
-            used for proposition extraction.
-        _proposition_model (Optional[Any]): Internal attribute to store the initialized model
-            for proposition extraction.
+            propositions.
     """
-    proposition_model_name: str = Field(
-        default=DEFAULT_PROPOSITION_MODEL,
-        description='The model name of the AutoModelForSeq2SeqLM model to use.',
-    )
-   
-    device: Optional[str] = Field(
-        default=None, 
-        description="Device to run model on, i.e. 'cuda', 'cpu'"
-    )
-        
-    source_metadata_field: Optional[str] = Field(
-        description='Metadata field from which to extract propositions and entities'
-    )
-
-    _proposition_tokenizer: Optional[Any] = PrivateAttr(default=None)
-    _proposition_model: Optional[Any] = PrivateAttr(default=None)
 
     @classmethod
     def class_name(cls) -> str:
         """
-        Returns the name of the class as a string. Useful for identifying the class
-        name programmatically, especially when dealing with multiple inheritance
-        or dynamic class structures.
+        Returns the name of the class as a string.
 
         Returns:
             str: The name of the class, 'PropositionExtractor'.
         """
         return 'PropositionExtractor'
+    
+    def __init__(self,
+                 proposition_model_name: str = DEFAULT_PROPOSITION_MODEL,
+                 device: Optional[str] = None,
+                 source_metadata_field: Optional[str] = None,
+                 num_workers: int = 1,
+                 show_progress: bool = False):
+        self.proposition_model_name = proposition_model_name
+        self.device = device
+        self.source_metadata_field = source_metadata_field
+        self.num_workers = num_workers
+        self.show_progress = show_progress
+        self._proposition_tokenizer = None
+        self._proposition_model = None
     
     @property
     def proposition_tokenizer(self):
@@ -122,7 +112,7 @@ class PropositionExtractor(BaseExtractor):
         return self._proposition_model
     
 
-    async def aextract(self, nodes: Sequence[BaseNode]) -> List[Dict]:
+    async def extract(self, nodes: list[BaseNode]) -> list[dict]:
         """
         Asynchronously extracts propositions from a sequence of nodes and returns a list of
         dictionaries containing the extracted proposition data.
@@ -131,11 +121,11 @@ class PropositionExtractor(BaseExtractor):
         propositions, and aggregates the results into a list.
 
         Args:
-            nodes (Sequence[BaseNode]): A sequence of nodes for which propositions need to be
+            nodes (list[BaseNode]): A list of nodes for which propositions need to be
                 extracted.
 
         Returns:
-            List[Dict]: A list containing dictionaries with the extracted proposition data.
+            list[dict]: A list containing dictionaries with the extracted proposition data.
         """
         proposition_entries = await self._extract_propositions_for_nodes(nodes)
         return [proposition_entry for proposition_entry in proposition_entries]

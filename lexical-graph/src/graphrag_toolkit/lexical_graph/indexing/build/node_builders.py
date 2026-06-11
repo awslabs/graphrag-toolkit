@@ -11,8 +11,8 @@ from graphrag_toolkit.lexical_graph.indexing.build.source_node_builder import So
 from graphrag_toolkit.lexical_graph.indexing.build.chunk_node_builder import ChunkNodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.build.topic_node_builder import TopicNodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.build.statement_node_builder import StatementNodeBuilder
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship
 
-from llama_index.core.schema import BaseNode, NodeRelationship
 
 logger = logging.getLogger(__name__)
 
@@ -131,7 +131,7 @@ class NodeBuilders():
         
         def apply_tenant_id_rewrites(node):
             
-            node.id_ =  self.id_generator.rewrite_id_for_tenant(node.id_)
+            node.node_id =  self.id_generator.rewrite_id_for_tenant(node.node_id)
 
             for _, node_info in node.relationships.items():
                 if isinstance(node_info, list):
@@ -156,7 +156,7 @@ class NodeBuilders():
         filtered_nodes = [
             node 
             for node in input_nodes 
-            if self.build_filters.filter_source_metadata_dictionary(node.relationships[NodeRelationship.SOURCE].metadata) 
+            if (lambda src: src and self.build_filters.filter_source_metadata_dictionary(src.metadata))(NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE))
         ]
 
         pre_processed_nodes = [

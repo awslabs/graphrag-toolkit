@@ -6,7 +6,7 @@ from typing import Iterable
 
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 
-from llama_index.core.schema import BaseComponent
+from graphrag_toolkit.core.compat import BaseComponent
 
 class SourceDocParser(BaseComponent):
     """

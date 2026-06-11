@@ -3,8 +3,8 @@
 
 import logging
 from typing import List, Union
-from llama_index.core.schema import BaseNode
-from llama_index.core.schema import BaseComponent
+from graphrag_toolkit.core.types import Node
+from graphrag_toolkit.core.compat import BaseComponent, BaseNode
 
 logger = logging.getLogger(__name__)
 

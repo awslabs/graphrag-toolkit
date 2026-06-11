@@ -3,14 +3,14 @@
 
 from typing import List
 
-from llama_index.core.schema import TextNode, BaseNode
-from llama_index.core.schema import NodeRelationship, RelatedNodeInfo
 
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY, LOCAL_ENTITY_CLASSIFICATION
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship, TextNode
+from graphrag_toolkit.core.types import NodeRef
 
 class StatementNodeBuilder(NodeBuilder):
     """
@@ -93,7 +93,7 @@ class StatementNodeBuilder(NodeBuilder):
 
             topics = TopicCollection.model_validate(data)
 
-            source_info = node.relationships[NodeRelationship.SOURCE]
+            source_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
             source_id = source_info.node_id
 
             source_metadata = {
@@ -139,7 +139,7 @@ class StatementNodeBuilder(NodeBuilder):
                         statement_details = '\n'.join(statement.details)
 
                         statement_node = TextNode(
-                            id_ = statement_id,
+                            node_id = statement_id,
                             text = f'{statement.value}\n\n{statement_details}' if statement_details else statement.value,
                             metadata = statement_metadata,
                             excluded_embed_metadata_keys = [INDEX_KEY, 'statement', 'source'],
@@ -147,7 +147,7 @@ class StatementNodeBuilder(NodeBuilder):
                         )
 
                         if prev_statement:
-                            statement_node.relationships[NodeRelationship.PREVIOUS] = RelatedNodeInfo(
+                            statement_node.relationships[NodeRelationship.PREVIOUS] = NodeRef(
                                 node_id=prev_statement.statementId,
                                 metadata={
                                     'statement': prev_statement.model_dump()

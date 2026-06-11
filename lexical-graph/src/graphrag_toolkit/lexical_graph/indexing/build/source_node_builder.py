@@ -4,13 +4,12 @@
 import logging
 from typing import List
 
-from llama_index.core.schema import TextNode, BaseNode
-from llama_index.core.schema import NodeRelationship
 
 from graphrag_toolkit.lexical_graph.versioning import VERSION_INDEPENDENT_ID_FIELDS
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship, TextNode
 
 logger = logging.getLogger(__name__)
 
@@ -74,7 +73,7 @@ class SourceNodeBuilder(NodeBuilder):
 
         for node in nodes:
             
-            source_info = node.relationships.get(NodeRelationship.SOURCE, None)
+            source_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
             source_id = source_info.node_id
             
             if source_id not in source_nodes:
@@ -103,7 +102,7 @@ class SourceNodeBuilder(NodeBuilder):
                 }
 
                 source_node = TextNode(
-                    id_ = source_id,
+                    node_id = source_id,
                     metadata = metadata,
                     excluded_embed_metadata_keys = [INDEX_KEY, 'source'],
                     excluded_llm_metadata_keys = [INDEX_KEY, 'source']

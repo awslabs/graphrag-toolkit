@@ -8,12 +8,12 @@ from graphrag_toolkit.lexical_graph.versioning import VERSIONING_METADATA_KEYS
 from graphrag_toolkit.lexical_graph.indexing import IdGenerator
 from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import DoNotCheckpoint
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
+from graphrag_toolkit.lexical_graph.indexing.compat import convert_llama_node
 
-from llama_index.core.schema import BaseNode, Document
-from llama_index.core.node_parser import NodeParser
-from llama_index.core.schema import NodeRelationship
+from graphrag_toolkit.core.compat import BaseNode, BaseComponent, NodeRelationship
+from graphrag_toolkit.core.transform import Transform
 
-class IdRewriter(NodeParser, DoNotCheckpoint):
+class IdRewriter(BaseComponent, Transform, DoNotCheckpoint):
     """
     Rewrites and assigns new IDs to nodes and processes source documents.
 
@@ -24,10 +24,10 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
     The class relies on optional inner parsers to further process nodes, in addition to its ID rewriting functionality.
 
     Attributes:
-        inner (Optional[NodeParser]): An optional inner parser used to process nodes after ID rewriting.
+        inner (Optional[Transform]): An optional inner transform used to process nodes after ID rewriting.
         id_generator (IdGenerator): An object used to generate source and chunk IDs for nodes.
     """
-    inner:Optional[NodeParser]=None
+    inner:Optional[Any]=None
     id_generator:IdGenerator
     
     def _get_properties_str(self, properties, default):
@@ -91,7 +91,7 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
             str: A new identifier uniquely representing the node.
 
         """
-        source_info = node.relationships.get(NodeRelationship.SOURCE, None)
+        source_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
         source_id = source_info.node_id if source_info else f'aws:{uuid.uuid4().hex}' 
         metadata_str = self._get_properties_str(node.metadata, '') 
 
@@ -115,14 +115,14 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
             The generated or existing identifier of the node as a string based on its
             type and specific attributes.
         """
-        if node.id_.startswith('aws:'):
-            return node.id_
-        elif isinstance(node, Document):
+        if node.node_id.startswith('aws:'):
+            return node.node_id
+        elif hasattr(node, 'doc_id'):
             return self._new_doc_id(node)
         else:
             return self._new_node_id(node)
     
-    def _parse_nodes(
+    def __call__(
         self,
         nodes: Sequence[BaseNode],
         show_progress: bool = False,
@@ -151,19 +151,25 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
         id_mappings = {}
         
         for n in nodes:
-            n.id_ = self._new_id(n)
-            id_mappings[n.id_] = n.id_
+            n.node_id = self._new_id(n)
+            id_mappings[n.node_id] = n.node_id
                       
         if not self.inner:
             return nodes
             
         results = self.inner(nodes, **kwargs)
-        
+
+        # Anti-corruption layer: convert any LlamaIndex nodes to our Node type
+        # This normalizes relationship keys from enum objects to plain strings
+        from graphrag_toolkit.lexical_graph.indexing.compat import convert_llama_node
+        from graphrag_toolkit.lexical_graph.indexing.compat.llama_index_adapter import is_llama_index_node
+        results = [convert_llama_node(n) if is_llama_index_node(n) else n for n in results]
+
         for n in results:
-            id_mappings[n.id_] = self._new_id(n)
+            id_mappings[n.node_id] = self._new_id(n)
         
         def update_ids(n):
-            n.id_ = id_mappings[n.id_]
+            n.node_id = id_mappings[n.node_id]
             for r in n.relationships.values():
                 r.node_id = id_mappings.get(r.node_id, r.node_id)
             return n
@@ -176,7 +182,7 @@ class IdRewriter(NodeParser, DoNotCheckpoint):
     def handle_source_docs(self, source_documents:Iterable[SourceDocument]) -> List[SourceDocument]:
         for source_document in source_documents:
             if source_document.refNode:
-                source_document.refNode = self._parse_nodes([source_document.refNode])[0]
-            source_document.nodes = self._parse_nodes(source_document.nodes)
+                source_document.refNode = self.__call__([source_document.refNode])[0]
+            source_document.nodes = self.__call__(source_document.nodes)
         return source_documents
     

@@ -3,11 +3,11 @@
 
 import abc
 from typing import List, Any, Generator
-from llama_index.core.schema import BaseNode
-from llama_index.core.schema import TransformComponent
-from llama_index.core.bridge.pydantic import Field
+from pydantic import Field
+from graphrag_toolkit.core.compat import BaseNode, BaseComponent
+from graphrag_toolkit.core.transform import Transform
 
-class NodeHandler(TransformComponent):
+class NodeHandler(BaseComponent, Transform):
     """
     Handles the processing and transformation of node data.
 

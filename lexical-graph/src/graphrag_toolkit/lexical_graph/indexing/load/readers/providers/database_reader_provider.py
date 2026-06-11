@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_provider_base import LlamaIndexReaderProviderBase
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config import DatabaseReaderConfig
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

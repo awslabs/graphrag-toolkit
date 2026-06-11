@@ -5,8 +5,8 @@ import abc
 from typing import Dict, Any
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
+from graphrag_toolkit.core.compat import BaseComponent, BaseNode
 
-from llama_index.core.schema import BaseComponent, BaseNode
 
 class GraphBuilder(BaseComponent):
     """
