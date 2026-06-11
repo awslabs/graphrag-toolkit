@@ -3,6 +3,8 @@
 
 import logging
 import queue
+import threading
+from collections import OrderedDict
 from typing import Optional
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
@@ -13,7 +15,98 @@ from llama_index.core.schema import QueryBundle
 
 logger = logging.getLogger(__name__)
 
-def get_diverse_vss_elements(index_name:str, query_bundle: QueryBundle, vector_store:VectorStore, diversity_factor:int, vss_top_k:int, filter_config:Optional[FilterConfig]):
+# Bounded LRU cache: topicId -> sourceId. A topic's source never changes, so entries are
+# safe to cache indefinitely; the size cap keeps memory flat in long-running processes
+# (this cache is process-global, not per-query).
+_TOPIC_SOURCE_CACHE_MAXSIZE = 50000
+_topic_source_cache = OrderedDict()
+_topic_source_cache_lock = threading.Lock()
+
+
+def _cache_get(topic_id):
+    with _topic_source_cache_lock:
+        if topic_id in _topic_source_cache:
+            _topic_source_cache.move_to_end(topic_id)
+            return _topic_source_cache[topic_id]
+    return None
+
+
+def _cache_put(topic_id, source_id):
+    with _topic_source_cache_lock:
+        _topic_source_cache[topic_id] = source_id
+        _topic_source_cache.move_to_end(topic_id)
+        while len(_topic_source_cache) > _TOPIC_SOURCE_CACHE_MAXSIZE:
+            _topic_source_cache.popitem(last=False)
+
+
+def _resolve_source_ids(graph_store, index_name, elements):
+    """Backfill the 'source' key for elements that lack it.
+
+    Correctly-built elements already carry source (the node builder sets it at index time):
+    we first lift it from the element's own metadata, which involves no I/O and applies to any
+    index type. The graph fallback (Topic -> Chunk -> Source) is topic-specific, so it is only
+    attempted for the topic index; other indexes (e.g. chunk, statement) rely on the metadata
+    source and are left untouched if it is absent. A topic's source is immutable, so graph
+    resolutions are memoised in a bounded LRU cache - resolved at most once, without unbounded
+    memory growth in long-running processes.
+    """
+    # 1) Prefer source already present in each element's metadata (no graph call).
+    #    The node builder sets this at index time, so this works for any index type.
+    for element in elements:
+        if 'source' in element:
+            continue
+        meta_source = (element.get('metadata') or {}).get('source')
+        if meta_source and meta_source.get('sourceId'):
+            element['source'] = {'sourceId': meta_source['sourceId']}
+
+    # 2) The graph fallback below walks Topic -> Chunk -> Source, so it is only valid for
+    #    the topic index. For other indexes (chunk, statement) the metadata source above is
+    #    authoritative; if it is absent we skip gracefully rather than run a Topic query that
+    #    could never match their ids.
+    if index_name != 'topic':
+        return
+
+    id_key = f'{index_name}Id'
+    ids_to_resolve = []
+
+    for element in elements:
+        if 'source' in element:
+            continue
+        node_id = element.get(index_name, {}).get(id_key)
+        if not node_id:
+            continue
+        cached = _cache_get(node_id)
+        if cached is not None:
+            element['source'] = {'sourceId': cached}
+        else:
+            ids_to_resolve.append(node_id)
+
+    # 3) Resolve any still-missing ids from the graph in a single query.
+    if ids_to_resolve:
+        cypher = f"""
+        MATCH (t:`__Topic__`)-[:`__MENTIONED_IN__`]->(c:`__Chunk__`)-[:`__EXTRACTED_FROM__`]->(s:`__Source__`)
+        WHERE {graph_store.node_id('t.topicId')} IN $topicIds
+        RETURN DISTINCT {graph_store.node_id('t.topicId')} AS topicId,
+               {graph_store.node_id('s.sourceId')} AS sourceId
+        """
+        try:
+            results = graph_store.execute_query(cypher, {'topicIds': ids_to_resolve})
+            for r in results:
+                _cache_put(r['topicId'], r['sourceId'])
+        except Exception as e:
+            logger.warning(f'Failed to resolve topic sources: {e}', exc_info=True)
+
+        for element in elements:
+            if 'source' in element:
+                continue
+            node_id = element.get(index_name, {}).get(id_key)
+            if node_id:
+                cached = _cache_get(node_id)
+                if cached is not None:
+                    element['source'] = {'sourceId': cached}
+
+
+def get_diverse_vss_elements(index_name:str, query_bundle: QueryBundle, vector_store:VectorStore, diversity_factor:int, vss_top_k:int, filter_config:Optional[FilterConfig], graph_store=None):
     """
     Retrieve diverse elements from a vector search system (VSS) by applying a diversity
     factor to limit redundancy among results.
@@ -45,7 +138,18 @@ def get_diverse_vss_elements(index_name:str, query_bundle: QueryBundle, vector_s
     source_map = {}
         
     for element in elements:
-        source_id = element['source']['sourceId']
+        source = element.get('source')
+        if source is None and graph_store is not None:
+            # Resolve sources via graph lookup + cache
+            _resolve_source_ids(graph_store, index_name, elements)
+            break
+    
+    for element in elements:
+        source = element.get('source')
+        if source is None:
+            # No graph_store available or resolution failed — skip diversity
+            return elements[:vss_top_k]
+        source_id = source['sourceId']
         if source_id not in source_map:
             source_map[source_id] = queue.Queue()
         source_map[source_id].put(element)
