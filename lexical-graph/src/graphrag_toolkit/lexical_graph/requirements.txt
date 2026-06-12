@@ -14,3 +14,4 @@ python-dotenv==1.2.2
 smart_open==7.1.0
 spacy==3.8.7
 tfidf_matcher==0.3.0
+tiktoken==0.11.0
