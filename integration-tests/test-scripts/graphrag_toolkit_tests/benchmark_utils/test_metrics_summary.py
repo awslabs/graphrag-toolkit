@@ -82,13 +82,14 @@ class TestAggregateLatencyStatistics:
 
 # Strategy to generate a per-query entry with either valid token counts or None
 def per_query_entry_strategy():
-    """Generate a per-query dict where input_tokens and output_tokens may be None."""
+    """Generate a per-query dict where input_tokens, output_tokens, and retrieval_context_tokens may be None."""
     return st.fixed_dictionaries({
         'retrieval_ms': st.just(100),
         'response_ms': st.just(200),
         'total_ms': st.just(300),
         'input_tokens': st.one_of(st.none(), st.integers(min_value=0, max_value=1_000_000)),
         'output_tokens': st.one_of(st.none(), st.integers(min_value=0, max_value=1_000_000)),
+        'retrieval_context_tokens': st.one_of(st.none(), st.integers(min_value=0, max_value=1_000_000)),
     })
 
 
@@ -152,6 +153,59 @@ class TestNullTokenExclusionProperty:
             f"Expected num_missing_token_metadata={expected_missing_count}, "
             f"got {result['num_missing_token_metadata']}"
         )
+
+
+class TestRetrievalContextTokenAggregation:
+    """
+    Retrieval context token aggregation
+
+    For any list of per-query results, the aggregate retrieval context tokens
+    SHALL include only non-null entries, and avg_retrieval_context_tokens_per_query
+    SHALL equal the arithmetic mean of non-null context token values.
+    """
+
+    @settings(max_examples=100)
+    @given(
+        per_query_data=st.lists(
+            per_query_entry_strategy(),
+            min_size=1,
+            max_size=50,
+        )
+    )
+    def test_retrieval_context_token_aggregation(self, per_query_data):
+        """
+        Verify total_retrieval_context_tokens sums only non-null entries and
+        avg_retrieval_context_tokens_per_query is computed correctly.
+        """
+        result = compute_metrics_summary(
+            per_query_data=per_query_data,
+            retriever_id='traversal',
+            dataset='test_dataset',
+            model_id='us.anthropic.claude-haiku-4-5-20251001-v1:0',
+            num_empty=0,
+        )
+
+        # Compute expected values manually
+        expected_context_sum = 0
+        expected_missing_context_count = 0
+
+        for entry in per_query_data:
+            context_tokens = entry.get('retrieval_context_tokens')
+            if context_tokens is None:
+                expected_missing_context_count += 1
+            else:
+                expected_context_sum += context_tokens
+
+        num_with_context = len(per_query_data) - expected_missing_context_count
+
+        assert result['tokens']['total_retrieval_context_tokens'] == expected_context_sum
+        assert result['num_missing_context_token_metadata'] == expected_missing_context_count
+
+        if num_with_context > 0:
+            expected_avg = round(expected_context_sum / num_with_context, 2)
+            assert result['tokens']['avg_retrieval_context_tokens_per_query'] == expected_avg
+        else:
+            assert result['tokens']['avg_retrieval_context_tokens_per_query'] is None
 
 
 class TestAggregateCostComputationProperty:
