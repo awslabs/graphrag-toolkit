@@ -7,7 +7,7 @@ from graphrag_toolkit.lexical_graph import TenantId, GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.utils.hash_utils import get_hash
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.bridge.pydantic import BaseModel
+from pydantic import BaseModel
 
 class IdGenerator(BaseModel):
     """

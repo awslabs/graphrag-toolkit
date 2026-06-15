@@ -5,7 +5,7 @@
 
 from unittest.mock import MagicMock, patch
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 from graphrag_toolkit.lexical_graph.retrieval.model import Entity, ScoredEntity
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs

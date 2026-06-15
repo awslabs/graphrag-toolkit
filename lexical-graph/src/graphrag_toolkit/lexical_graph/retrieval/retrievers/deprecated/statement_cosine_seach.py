@@ -10,7 +10,7 @@ from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_top_k, SharedEmbeddingCache
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 logger = logging.getLogger(__name__)
 
@@ -61,7 +61,7 @@ class StatementCosineSimilaritySearch(SemanticGuidedBaseRetriever):
         self.embedding_cache = embedding_cache
         self.top_k = top_k
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
         """
         Retrieves the relevant nodes for a given query by first performing a nearest neighbor search
         on the vector store and then re-ranking the results based on cosine similarity.
@@ -106,7 +106,7 @@ class StatementCosineSimilaritySearch(SemanticGuidedBaseRetriever):
         # 4. Create nodes with minimal data
         nodes = []
         for score, statement_id in top_k_statements:
-            node = TextNode(
+            node = Node(
                 text="",  # Placeholder - will be populated by StatementGraphRetriever
                 metadata={
                     'statement': {'statementId': statement_id},

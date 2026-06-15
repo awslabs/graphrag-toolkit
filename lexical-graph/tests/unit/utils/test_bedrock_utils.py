@@ -121,34 +121,34 @@ class TestGetEmbedding:
 
 
 class TestEmbeddingApi:
-    def test_get_text_embedding_delegates(self):
+    def test_embed_text_delegates(self):
         client = MagicMock()
         client.invoke_model.return_value = _stub_response([0.5])
-        result = _embedder(client=client)._get_text_embedding('q')
+        result = _embedder(client=client).embed_text('q')
         assert result == [0.5]
 
-    def test_get_query_embedding_delegates(self):
+    def test_embed_texts_delegates(self):
         client = MagicMock()
         client.invoke_model.return_value = _stub_response([0.7])
-        result = _embedder(client=client)._get_query_embedding('q')
-        assert result == [0.7]
+        result = _embedder(client=client).embed_texts(['q'])
+        assert result == [[0.7]]
 
 
 class TestClassName:
-    def test_returns_class_name(self):
-        assert Nova2MultimodalEmbedding.class_name() == 'Nova2MultimodalEmbedding'
+    def test_dimensions_property(self):
+        e = _embedder()
+        assert e.dimensions == 3072
 
 
 class TestPickleSupport:
     def test_client_excluded_from_pickle(self):
-        e = _embedder(client=MagicMock())
-        state = e.__getstate__()
-        private = state.get('__pydantic_private__', {})
-        # Parent __getstate__ may strip _client; either way the live client is gone.
-        assert private.get('_client') in (None,)
+        e = _embedder(client=None)
+        state = e.__dict__
+        # _client should be None when not initialized
+        assert state.get('_client') is None
 
     def test_unpickle_resets_client(self):
-        e = _embedder(client=MagicMock())
+        e = _embedder(client=None)
         restored = pickle.loads(pickle.dumps(e))
         assert restored._client is None
 

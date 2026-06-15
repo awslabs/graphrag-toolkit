@@ -13,8 +13,7 @@ from graphrag_toolkit.lexical_graph.indexing import NodeHandler
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument, SourceType, source_documents_from_source_types
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY 
-
-from llama_index.core.schema import TextNode, BaseNode
+from graphrag_toolkit.core.compat import BaseNode, TextNode
 
 logger = logging.getLogger(__name__)
 

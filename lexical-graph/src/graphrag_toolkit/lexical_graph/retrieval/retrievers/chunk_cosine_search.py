@@ -11,7 +11,7 @@ from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.utils.chunk_utils import get_top_k, SharedChunkEmbeddingCache
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_chunk_retriever import SemanticGuidedBaseChunkRetriever
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +32,7 @@ class ChunkCosineSimilaritySearch(SemanticGuidedBaseChunkRetriever):
         self.embedding_cache = embedding_cache
         self.top_k = top_k
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
 
         start = time.time()
 
@@ -73,7 +73,7 @@ class ChunkCosineSimilaritySearch(SemanticGuidedBaseChunkRetriever):
         # 4. Create nodes with minimal data
         nodes = []
         for score, chunk_id in top_k_chunks:
-            node = TextNode(
+            node = Node(
                 text="",  # Placeholder - will be populated by StatementGraphRetriever
                 metadata={
                     'chunk': {'chunkId': chunk_id},

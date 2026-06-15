@@ -12,7 +12,7 @@ from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.utils.statement_utils import get_top_k, SharedEmbeddingCache
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_retriever import SemanticGuidedBaseRetriever
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 logger = logging.getLogger(__name__)
 
@@ -171,7 +171,7 @@ class SemanticBeamGraphSearch(SemanticGuidedBaseRetriever):
 
         return results
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
         """
         Retrieves nodes relevant to a query by performing an initial extraction of
         statement IDs either from shared nodes or through a fallback vector similarity
@@ -230,7 +230,7 @@ class SemanticBeamGraphSearch(SemanticGuidedBaseRetriever):
         initial_ids = set(initial_statement_ids)
         for statement_id, path in beam_results:
             if statement_id not in initial_ids:
-                node = TextNode(
+                node = Node(
                     text="",  # Placeholder
                     metadata={
                         'statement': {'statementId': statement_id},

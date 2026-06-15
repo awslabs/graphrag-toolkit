@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from string import Template
-from typing import Optional, List, Union, Dict, Any, Callable
+from typing import List, Union, Dict, Any, Callable
 
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResult
 
-from llama_index.core.postprocessor.types import BaseNodePostprocessor
-from llama_index.core.schema import NodeWithScore, QueryBundle
+from graphrag_toolkit.core.postprocessor import PostProcessor
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle
 
 SourceInfoTemplateType = Union[str, Template]
 SourceInfoAccessorType = Union[str, List[str], Template, Callable[[Dict[str, Any]], str]]
@@ -87,7 +87,7 @@ def source_info_keys(keys:List[str]) -> Callable[[Dict[str, Any]], str]:
         return None
     return source_info_keys_fn
 
-class EnrichSourceDetails(BaseNodePostprocessor):
+class EnrichSourceDetails(PostProcessor):
     """
     This class is responsible for enriching source details in nodes.
 
@@ -103,6 +103,9 @@ class EnrichSourceDetails(BaseNodePostprocessor):
             forms such as a string, list, template, or callable.
     """
     source_info_accessor:SourceInfoAccessorType=None
+
+    def __init__(self, source_info_accessor: SourceInfoAccessorType = None):
+        self.source_info_accessor = source_info_accessor
 
     @classmethod
     def class_name(cls) -> str:
@@ -158,11 +161,11 @@ class EnrichSourceDetails(BaseNodePostprocessor):
         return source_info or source
 
     
-    def _postprocess_nodes(
+    def process(
         self,
-        nodes: List[NodeWithScore],
-        query_bundle: Optional[QueryBundle] = None,
-    ) -> List[NodeWithScore]:
+        nodes: list[NodeWithScore],
+        query: QueryBundle,
+    ) -> list[NodeWithScore]:
         """
         Postprocesses a list of nodes to retrieve and update source information and search
         result details.
@@ -175,7 +178,7 @@ class EnrichSourceDetails(BaseNodePostprocessor):
         Args:
             nodes: A list of NodeWithScore objects whose text contains the JSON representation
                 of a SearchResult object to be validated and updated.
-            query_bundle: An optional QueryBundle object providing additional context for
+            query: A QueryBundle object providing additional context for
                 the nodes being postprocessed.
 
         Returns:

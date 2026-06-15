@@ -11,12 +11,12 @@ import os
 import time
 from typing import Any, Dict, Iterator, List, Optional
 
-from llama_index.core.schema import Document
 
 from graphrag_toolkit.lexical_graph.logging import logging
 from graphrag_toolkit.lexical_graph.indexing.load.readers.base_reader_provider import BaseReaderProvider
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config import StreamingJSONLReaderConfig
 from graphrag_toolkit.lexical_graph.indexing.load.readers.s3_file_mixin import S3FileMixin
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

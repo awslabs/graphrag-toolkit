@@ -4,12 +4,22 @@
 from pipe import Pipe
 from concurrent.futures import ProcessPoolExecutor
 from functools import partial
-from typing import List, Optional, Sequence, Any, cast, Callable, Generator, Union
+from typing import List, Optional, Sequence, Any, Callable, Generator, Union
 
 
-from llama_index.core.ingestion import IngestionPipeline
-from llama_index.core.ingestion.pipeline import run_transformations
-from llama_index.core.schema import BaseNode, Document
+class _Pipeline:
+    """Minimal pipeline container holding a list of transforms."""
+    def __init__(self, transformations, disable_cache=True):
+        self.transformations = transformations
+        self.disable_cache = disable_cache
+
+
+def _run_transformations(nodes, transformations, **kwargs):
+    """Run transforms sequentially (replaces llama_index run_transformations)."""
+    for transform in transformations:
+        nodes = transform(nodes, **kwargs)
+    return nodes
+
 
 def _sink():
     def _sink_from(generator):
@@ -20,19 +30,16 @@ def _sink():
 sink = _sink()
 
 def run_pipeline(
-    pipeline:IngestionPipeline,
-    node_batches:List[List[BaseNode]],
+    pipeline:_Pipeline,
+    node_batches:List[List[Any]],
     cache_collection: Optional[str] = None,
     in_place: bool = True,
     num_workers: int = 1,
     **kwargs: Any,
-) -> Sequence[BaseNode]:
-    transform: Callable[[List[BaseNode]], List[BaseNode]] = partial(
-        run_transformations,
+) -> Sequence[Any]:
+    transform: Callable[[List[Any]], List[Any]] = partial(
+        _run_transformations,
         transformations=pipeline.transformations,
-        in_place=in_place,
-        cache=pipeline.cache if not pipeline.disable_cache else None,
-        cache_collection=cache_collection,
         **kwargs
     )
 
@@ -44,8 +51,8 @@ def run_pipeline(
             yield processed_node
 
 def node_batcher(
-        num_batches: int, nodes: Union[Sequence[BaseNode], List[Document]]
-    ) -> Generator[Union[Sequence[BaseNode], List[Document]], Any, Any]:
+        num_batches: int, nodes: Sequence[Any]
+    ) -> Generator[Sequence[Any], Any, Any]:
         num_nodes = len(nodes)
         batch_size = max(1, int(num_nodes / num_batches))
         if batch_size * num_batches < num_nodes:

@@ -17,8 +17,8 @@ from graphrag_toolkit.lexical_graph.retrieval.post_processors import SentenceRer
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection, SearchResult, Topic, ScoredEntity, EntityContexts
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import QueryBundle, NodeWithScore, TextNode
-from llama_index.core.node_parser import TokenTextSplitter
+from graphrag_toolkit.core.types import QueryBundle, NodeWithScore, Node
+from graphrag_toolkit.core.text_splitter import TokenTextSplitter
 
 logger = logging.getLogger(__name__)
 
@@ -130,9 +130,9 @@ class RerankStatements(ProcessorBase):
 
         reranker = SentenceReranker(model=self.reranking_model, top_n=coalesce(self.args.max_statements, len(values)))
 
-        reranked_values = reranker.postprocess_nodes(
+        reranked_values = reranker.process(
             [
-                NodeWithScore(node=TextNode(text=value), score=0.0)
+                NodeWithScore(node=Node(text=value), score=0.0)
                 for value in values
             ],
             rank_query

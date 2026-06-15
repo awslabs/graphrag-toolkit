@@ -12,17 +12,15 @@ from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY
 from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import BaseNode
-from llama_index.core.bridge.pydantic import Field
-from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.core.prompts import PromptTemplate
-from llama_index.core.async_utils import run_jobs
-from llama_index.core.schema import NodeRelationship
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship
+from graphrag_toolkit.core.extractor import Extractor
+from graphrag_toolkit.core.prompt import PromptTemplate
+from graphrag_toolkit.core.utils import run_jobs
 
 
 logger = logging.getLogger(__name__)
 
-class LLMPropositionExtractor(BaseExtractor):
+class LLMPropositionExtractor(Extractor):
     """Handles proposition extraction using a language model (LLM).
 
     This class implements functionality to extract propositions from input
@@ -40,17 +38,6 @@ class LLMPropositionExtractor(BaseExtractor):
             nodes from which propositions are extracted. If not specified,
             the node text is used instead.
     """
-    llm: Optional[LLMCache] = Field(
-        description='The LLM to use for extraction'
-    )
-        
-    prompt_template: str = Field(
-        description='Prompt template'
-    )
-        
-    source_metadata_field: Optional[str] = Field(
-        description='Metadata field from which to extract propositions'
-    )
 
     @classmethod
     def class_name(cls) -> str:
@@ -66,34 +53,30 @@ class LLMPropositionExtractor(BaseExtractor):
                  llm:LLMCacheType=None,
                  prompt_template=None,
                  source_metadata_field=None,
-                 num_workers:Optional[int]=None):
+                 num_workers:Optional[int]=None,
+                 show_progress=False):
         """
         Initializes the class with configuration options for processing language model outputs.
 
-        This constructor allows setting of the language model, prompt template, source metadata
-        field, and the number of workers to perform parallel processing.
-
         Args:
             llm: Language model cache or configuration for language model interaction.
-            prompt_template: Template for the prompt to guide the language model's response
-                generation.
-            source_metadata_field: Field name key to store or retrieve associated metadata
-                from source data.
+            prompt_template: Template for the prompt to guide the language model's response generation.
+            source_metadata_field: Field name key to store or retrieve associated metadata from source data.
             num_workers: Number of worker threads to use for processing tasks.
+            show_progress: Whether to show progress during extraction.
         """
-        super().__init__(
-            llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
-                llm=llm or GraphRAGConfig.extraction_llm,
-                enable_cache=GraphRAGConfig.enable_cache
-            ),
-            prompt_template=prompt_template or EXTRACT_PROPOSITIONS_PROMPT, 
-            source_metadata_field=source_metadata_field,
-            num_workers=coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
+        self.llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
+            llm=llm or GraphRAGConfig.extraction_llm,
+            enable_cache=GraphRAGConfig.enable_cache
         )
+        self.prompt_template = prompt_template or EXTRACT_PROPOSITIONS_PROMPT
+        self.source_metadata_field = source_metadata_field
+        self.num_workers = coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
+        self.show_progress = show_progress
 
         logger.debug(f'Prompt template: {self.prompt_template}')
 
-    async def aextract(self, nodes: Sequence[BaseNode]) -> List[Dict]:
+    async def extract(self, nodes: list[BaseNode]) -> list[dict]:
         """
         Asynchronously extracts proposition entries from the given nodes.
 
@@ -102,7 +85,7 @@ class LLMPropositionExtractor(BaseExtractor):
         represents the proposition data for a specific node.
 
         Args:
-            nodes: Sequence of nodes from which propositions should be extracted.
+            nodes: List of nodes from which propositions should be extracted.
 
         Returns:
             A list of dictionaries containing proposition data for the given nodes.
@@ -157,7 +140,7 @@ class LLMPropositionExtractor(BaseExtractor):
         logger.debug(f'Extracting propositions for node {node.node_id}')
         text = node.metadata.get(self.source_metadata_field, node.text) if self.source_metadata_field else node.text
 
-        source = node.relationships.get(NodeRelationship.SOURCE, None)
+        source = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
         if source:
             source_info = '\n'.join([str(v) for v in source.metadata.values()])
         else:

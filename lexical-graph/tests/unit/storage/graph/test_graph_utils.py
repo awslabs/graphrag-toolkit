@@ -4,7 +4,7 @@
 """Tests for graph_utils."""
 
 import pytest
-from llama_index.core.vector_stores.types import (
+from graphrag_toolkit.core.vector_store_types import (
     FilterCondition,
     FilterOperator,
     MetadataFilter,

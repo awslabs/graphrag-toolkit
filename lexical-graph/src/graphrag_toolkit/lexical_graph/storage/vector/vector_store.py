@@ -8,7 +8,7 @@ from graphrag_toolkit.lexical_graph.storage.constants import ALL_EMBEDDING_INDEX
 from graphrag_toolkit.lexical_graph.storage.vector.vector_index import VectorIndex
 from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndex
 
-from llama_index.core.bridge.pydantic import BaseModel, Field
+from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
 

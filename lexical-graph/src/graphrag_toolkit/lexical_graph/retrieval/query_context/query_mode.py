@@ -8,7 +8,7 @@ from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
 
-from llama_index.core.prompts import PromptTemplate
+from graphrag_toolkit.core.prompt import PromptTemplate
 
 logger = logging.getLogger(__name__)
 

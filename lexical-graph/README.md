@@ -37,6 +37,30 @@ $ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/grap
 
 If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuration/#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
 
+### Optional extras
+
+The core library installs without any llama-index dependency. Install optional extras for additional functionality:
+
+```bash
+# Core install (no llama-index required)
+$ pip install graphrag-lexical-graph
+
+# With LlamaIndex reader support
+$ pip install graphrag-lexical-graph[readers]
+
+# With LlamaIndex chunking support (SentenceSplitter)
+$ pip install graphrag-lexical-graph[chunking]
+
+# With LlamaIndex LLM/embedding providers
+$ pip install graphrag-lexical-graph[llms]
+
+# With OpenSearch vector store support
+$ pip install graphrag-lexical-graph[opensearch]
+
+# Full compatibility (all llama-index integrations)
+$ pip install graphrag-lexical-graph[all]
+```
+
 ### Additional dependencies
 
 You will need to install additional dependencies for specific graph and vector store backends:
@@ -44,7 +68,7 @@ You will need to install additional dependencies for specific graph and vector s
 #### Amazon OpenSearch Serverless
 
 ```bash
-$ pip install opensearch-py llama-index-vector-stores-opensearch
+$ pip install graphrag-lexical-graph[opensearch]
 ```
 
 #### Postgres with pgvector

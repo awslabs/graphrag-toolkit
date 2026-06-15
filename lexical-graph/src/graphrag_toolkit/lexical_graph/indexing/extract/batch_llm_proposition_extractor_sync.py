@@ -5,6 +5,8 @@ import logging
 import os
 from typing import Optional
 
+from graphrag_toolkit.core.async_utils import run_async
+
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
@@ -16,9 +18,8 @@ from graphrag_toolkit.lexical_graph.indexing.extract.llm_proposition_extractor i
 
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_request_body
 
-from llama_index.core.schema import TextNode
-from llama_index.core.prompts import PromptTemplate
-from llama_index.core.schema import NodeRelationship
+from graphrag_toolkit.core.compat import TextNode, NodeRelationship
+from graphrag_toolkit.core.prompt import PromptTemplate
 
 logger = logging.getLogger(__name__)
 
@@ -50,7 +51,7 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
 
     def _get_json(self, node, llm, inference_parameters):
         text = node.metadata.get(self.source_metadata_field, node.text) if self.source_metadata_field else node.text
-        source = node.relationships.get(NodeRelationship.SOURCE, None)
+        source = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
         if source:
             source_info = '\n'.join([str(v) for v in source.metadata.values()])
         else:
@@ -71,7 +72,7 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
             source_metadata_field=self.source_metadata_field
         )
         
-        extracted = extractor.extract(all_nodes)
+        extracted = run_async(extractor.extract(all_nodes))
         
         results = [{n.node_id: e[PROPOSITIONS_KEY]} for (n, e) in zip(all_nodes, extracted)]
         
@@ -82,10 +83,12 @@ class BatchLLMPropositionExtractorSync(BatchExtractorBase):
             proposition_data = node_metadata_map[node.node_id]
             if isinstance(proposition_data, list):
                 node.metadata[PROPOSITIONS_KEY] = proposition_data
-            else:
+            elif proposition_data:
                 propositions = proposition_data.split('\n')
                 propositions_model = Propositions(propositions=[p for p in propositions if p])
-                node.metadata[PROPOSITIONS_KEY] = propositions_model.model_dump()['propositions']                
+                node.metadata[PROPOSITIONS_KEY] = propositions_model.model_dump()['propositions']
+            else:
+                node.metadata[PROPOSITIONS_KEY] = []                
         else:
             node.metadata[PROPOSITIONS_KEY] = []
         return node

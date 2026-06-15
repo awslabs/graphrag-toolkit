@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from typing import Callable, List
-from llama_index.core import Document
+from graphrag_toolkit.core.types import Document
 
 class SourceDocuments:
     """

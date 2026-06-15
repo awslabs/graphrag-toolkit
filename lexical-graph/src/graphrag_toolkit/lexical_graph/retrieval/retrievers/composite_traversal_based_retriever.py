@@ -17,7 +17,7 @@ from graphrag_toolkit.lexical_graph.retrieval.retrievers.entity_network_search i
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_based_search import ChunkBasedSearch
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection, SearchResult
 
-from llama_index.core.schema import QueryBundle, NodeWithScore
+from graphrag_toolkit.core.types import QueryBundle, NodeWithScore
 
 logger = logging.getLogger(__name__)
 

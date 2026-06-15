@@ -12,7 +12,7 @@ from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorSto
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorBase, ProcessorArgs
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.traversal_based_base_retriever import TraversalBasedBaseRetriever
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 logger = logging.getLogger(__name__)
 

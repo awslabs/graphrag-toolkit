@@ -17,12 +17,12 @@ from graphrag_toolkit.lexical_graph import BatchJobError
 from graphrag_toolkit.lexical_graph.utils import LLMCache
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchConfig
 
-from llama_index.llms.bedrock_converse import BedrockConverse
-from llama_index.llms.anthropic.utils import messages_to_anthropic_messages
-from llama_index.llms.bedrock_converse.utils import messages_to_converse_messages
-from llama_index.core.schema import TextNode
-from llama_index.core.prompts import PromptTemplate
-from llama_index.core.base.llms.types import ChatMessage
+from graphrag_toolkit.lexical_graph.indexing.utils._message_converters import (
+    messages_to_converse_messages,
+    messages_to_anthropic_messages,
+)
+from graphrag_toolkit.core.prompt import PromptTemplate
+from graphrag_toolkit.core.compat import TextNode
 
 
 logger = logging.getLogger(__name__)
@@ -65,7 +65,7 @@ def split_nodes(nodes: List[Any], batch_size: int) -> List[List[Any]]:
    
     return results
 
-def get_request_body(llm:BedrockConverse, messages:List[ChatMessage], inference_parameters: dict):
+def get_request_body(llm:Any, messages:List[Any], inference_parameters: dict):
     
     model_id = llm.model
     
@@ -107,7 +107,7 @@ def get_request_body(llm:BedrockConverse, messages:List[ChatMessage], inference_
 
 
 
-def create_inference_inputs_for_messages(llm:BedrockConverse, nodes: List[TextNode], messages_batch: List[List[ChatMessage]], **kwargs) -> List[Dict[str, Any]]:
+def create_inference_inputs_for_messages(llm:Any, nodes: List[TextNode], messages_batch: List[List[Any]], **kwargs) -> List[Dict[str, Any]]:
     inference_parameters = llm._get_all_kwargs(**kwargs)   
     json_outputs = []
     for node, messages in zip(nodes, messages_batch):        
@@ -118,7 +118,7 @@ def create_inference_inputs_for_messages(llm:BedrockConverse, nodes: List[TextNo
         json_outputs.append(json_structure)
     return json_outputs
 
-def create_inference_inputs(llm:BedrockConverse, nodes: List[TextNode], prompts: List[str], **kwargs) -> List[Dict[str, Any]]:
+def create_inference_inputs(llm:Any, nodes: List[TextNode], prompts: List[str], **kwargs) -> List[Dict[str, Any]]:
     all_kwargs = llm._get_all_kwargs(**kwargs)   
     json_outputs = []
     for node, prompt in zip(nodes, prompts):    

@@ -5,6 +5,8 @@ import logging
 import os
 from typing import Optional
 
+from graphrag_toolkit.core.async_utils import run_async
+
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
@@ -17,17 +19,16 @@ from graphrag_toolkit.lexical_graph.indexing.extract.preferred_values import Pre
 
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_request_body
 
-from llama_index.core.bridge.pydantic import Field
-from llama_index.core.schema import TextNode
-from llama_index.core.prompts import PromptTemplate
+from graphrag_toolkit.core.compat import TextNode
+from graphrag_toolkit.core.prompt import PromptTemplate
 
 logger = logging.getLogger(__name__)
 
 
 class BatchTopicExtractorSync(BatchExtractorBase):
 
-    entity_classification_provider:PreferredValuesProvider = Field( description='Entity classification provider')
-    topic_provider:PreferredValuesProvider = Field(description='Topic provider')
+    entity_classification_provider: PreferredValuesProvider = None
+    topic_provider: PreferredValuesProvider = None
 
     @classmethod
     def class_name(cls) -> str:
@@ -86,9 +87,9 @@ class BatchTopicExtractorSync(BatchExtractorBase):
             topic_provider=self.topic_provider
         )
 
-        extracted = extractor.extract(all_nodes)
+        extracted = run_async(extractor.extract(all_nodes))
         
-        results = [{n.id_: e[TOPICS_KEY]} for (n, e) in zip(all_nodes, extracted)]
+        results = [{n.node_id: e[TOPICS_KEY]} for (n, e) in zip(all_nodes, extracted)]
         
         return results
     

@@ -20,13 +20,14 @@ from graphrag_toolkit.lexical_graph.indexing.build.node_builders import NodeBuil
 from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.utils import iter_batch
-from llama_index.core.ingestion import IngestionPipeline
-from llama_index.core.schema import TransformComponent, BaseNode
+from graphrag_toolkit.core.utils import iter_batch
+from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import _Pipeline
+from graphrag_toolkit.core.compat import BaseNode, BaseComponent
+from graphrag_toolkit.core.transform import Transform
 
 logger = logging.getLogger(__name__)
 
-class NodeFilter(TransformComponent):
+class NodeFilter(BaseComponent, Transform):
       
     def __call__(self, nodes: List[BaseNode], **kwargs: Any) -> List[BaseNode]:
         return nodes
@@ -60,7 +61,7 @@ class BuildPipeline():
         pipeline_kwargs (dict): Additional keyword arguments passed to the pipeline.
     """
     @staticmethod
-    def create(components: List[TransformComponent], 
+    def create(components: List[Transform], 
                num_workers:Optional[int]=None, 
                batch_size:Optional[int]=None, 
                batch_writes_enabled:Optional[bool]=None, 
@@ -83,7 +84,7 @@ class BuildPipeline():
         such as concurrency, batching, filtering, and more.
 
         Args:
-            components (List[TransformComponent]): List of transformation components to be
+            components (List[Transform]): List of transformation components to be
             included in the pipeline.
             num_workers (Optional[int]): Number of worker threads or processes for parallel
             execution of the pipeline. Defaults to None.
@@ -136,7 +137,7 @@ class BuildPipeline():
         )
     
     def __init__(self, 
-                 components: List[TransformComponent], 
+                 components: List[Transform], 
                  num_workers:Optional[int]=None, 
                  batch_size:Optional[int]=None, 
                  batch_writes_enabled:Optional[bool]=None, 
@@ -159,7 +160,7 @@ class BuildPipeline():
         and domain-specific metadata.
 
         Args:
-            components (List[TransformComponent]): A list of transformation components that
+            components (List[Transform]): A list of transformation components that
             collectively define the pipeline workflow. Defaults to an empty list if None.
             num_workers (Optional[int]): The number of worker processes for parallel execution.
             Defaults to the system's processor count or a preconfigured value.
@@ -217,7 +218,7 @@ class BuildPipeline():
 
         logger.debug(f'Build pipeline components: {[type(c).__name__ for c in components]}')
 
-        self.inner_pipeline=IngestionPipeline(transformations=components, disable_cache=True)
+        self.inner_pipeline=_Pipeline(transformations=components, disable_cache=True)
         self.num_workers = num_workers
         self.batch_size = batch_size
         self.batch_writes_enabled = batch_writes_enabled

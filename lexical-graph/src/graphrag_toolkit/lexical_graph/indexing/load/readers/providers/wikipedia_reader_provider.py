@@ -3,9 +3,9 @@
 
 
 from typing import List, Union
-from llama_index.core.schema import Document
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config import WikipediaReaderConfig
 from graphrag_toolkit.lexical_graph.logging import logging
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

@@ -6,7 +6,7 @@
 from unittest.mock import MagicMock, patch
 
 import pytest
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import Node, NodeWithScore, QueryBundle
 
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.composite_traversal_based_retriever import (
     CompositeTraversalBasedRetriever,
@@ -25,7 +25,7 @@ def _stores():
 def _sub_retriever(search_result_json):
     sub = MagicMock(spec=TraversalBasedBaseRetriever)
     sub.retrieve.return_value = [
-        NodeWithScore(node=TextNode(text=search_result_json), score=1.0),
+        NodeWithScore(node=Node(text=search_result_json), score=1.0),
     ]
     return sub
 

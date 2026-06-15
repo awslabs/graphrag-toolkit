@@ -5,14 +5,22 @@
 from typing import Any, List
 import asyncio
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
-from llama_index.core.readers.base import BaseReader
+
+try:
+    from llama_index.core.readers.base import BaseReader
+except ImportError:
+    BaseReader = None
+
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_base import ReaderProvider
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config_base import ReaderProviderConfig
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 
-class BaseReaderProvider(ReaderProvider, BaseReader):
+# Inherit from BaseReader only if llama-index is installed
+_bases = (ReaderProvider, BaseReader) if BaseReader else (ReaderProvider,)
+
+class BaseReaderProvider(*_bases):
     """
     Provider that implements both GraphRAG ReaderProvider and LlamaIndex BaseReader interfaces.
     Provides full LlamaIndex compatibility while maintaining GraphRAG patterns.

@@ -31,8 +31,8 @@ class TestSourceDocParserParsing:
     def test_parse_valid_document(self):
         """Verify parsing of valid document."""
         parser = ConcreteSourceDocParser()
-        from llama_index.core.schema import TextNode
-        node = TextNode(text="Sample document text")
+        from graphrag_toolkit.core.types import Node
+        node = Node(text="Sample document text")
         doc = SourceDocument(nodes=[node])
         
         result = list(parser.parse_source_docs([doc]))
@@ -43,8 +43,8 @@ class TestSourceDocParserParsing:
     def test_parse_document_with_metadata(self):
         """Verify metadata is preserved during parsing."""
         parser = ConcreteSourceDocParser()
-        from llama_index.core.schema import TextNode
-        node = TextNode(
+        from graphrag_toolkit.core.types import Node
+        node = Node(
             text="Document content",
             metadata={
                 "source": "test_source",

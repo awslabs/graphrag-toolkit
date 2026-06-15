@@ -17,9 +17,8 @@ from graphrag_toolkit.lexical_graph.storage.vector import VectorStore, DummyVect
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.constants import DEFAULT_EMBEDDING_INDEXES, INDEX_KEY
 
-from llama_index.core.schema import BaseNode
-from llama_index.core.utils import iter_batch
-from llama_index.core.schema import NodeRelationship
+from graphrag_toolkit.core.utils import iter_batch
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship
 
 logger = logging.getLogger(__name__)
 

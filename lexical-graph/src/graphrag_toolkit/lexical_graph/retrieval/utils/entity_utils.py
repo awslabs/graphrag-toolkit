@@ -8,7 +8,7 @@ from graphrag_toolkit.lexical_graph.retrieval.model import ScoredEntity
 from graphrag_toolkit.lexical_graph.utils.reranker_utils import score_values_with_tfidf
 from graphrag_toolkit.lexical_graph.retrieval.post_processors import SentenceReranker
 
-from llama_index.core.schema import QueryBundle, NodeWithScore, TextNode
+from graphrag_toolkit.core.types import QueryBundle, NodeWithScore, Node
 
 logger = logging.getLogger(__name__)
 
@@ -20,9 +20,9 @@ def _get_reranked_entity_tokens_model(entities:List[ScoredEntity], keywords:List
     reranker = SentenceReranker(model=GraphRAGConfig.reranking_model, top_n=3)
     rank_query = QueryBundle(query_str=' '.join(keywords))
 
-    reranked_values = reranker.postprocess_nodes(
+    reranked_values = reranker.process(
         [
-            NodeWithScore(node=TextNode(text=_get_entity_token(entity)), score=0.0)
+            NodeWithScore(node=Node(text=_get_entity_token(entity)), score=0.0)
             for entity in entities
         ],
         rank_query

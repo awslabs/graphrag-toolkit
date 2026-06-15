@@ -6,7 +6,7 @@ from graphrag_toolkit.lexical_graph.versioning import VERSIONING_METADATA_KEYS
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorBase, ProcessorArgs
 from graphrag_toolkit.lexical_graph.retrieval.model import SearchResultCollection, SearchResult
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 class RemoveVersioningMetadata(ProcessorBase):
 

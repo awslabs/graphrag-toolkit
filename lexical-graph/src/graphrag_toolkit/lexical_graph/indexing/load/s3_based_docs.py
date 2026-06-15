@@ -22,8 +22,8 @@ from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY, 
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 
-from llama_index.core.schema import TextNode, BaseComponent
-from llama_index.core.bridge.pydantic import PrivateAttr
+from pydantic import PrivateAttr
+from graphrag_toolkit.core.compat import BaseComponent, TextNode
 
 QUEUE_SIZE = 1000
 BATCH_SIZE = 100

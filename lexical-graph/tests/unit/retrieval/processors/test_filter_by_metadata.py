@@ -16,7 +16,7 @@ from graphrag_toolkit.lexical_graph.retrieval.model import (
     SearchResultCollection, SearchResult, Topic, Statement, Source, Versioning, EntityContexts
 )
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 
 @pytest.fixture
@@ -72,7 +72,7 @@ class TestFilterByMetadataProcessing:
     
     def test_process_results_filters_by_metadata(self, processor_args, sample_versioning):
         """Verify results are filtered based on metadata criteria."""
-        from llama_index.core.vector_stores import MetadataFilter, FilterOperator
+        from graphrag_toolkit.core.vector_store_types import MetadataFilter, FilterOperator
         
         # Create filter that only accepts 'tech' category
         metadata_filter = MetadataFilter(key='category', value='tech', operator=FilterOperator.EQ)

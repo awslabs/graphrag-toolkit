@@ -12,7 +12,7 @@ from typing import Callable, List, Dict, Any, Optional, Union, Tuple
 from graphrag_toolkit.lexical_graph import TenantId, GraphQueryError
 from graphrag_toolkit.lexical_graph.storage.graph.query_tree import QueryTree
 
-from llama_index.core.bridge.pydantic import BaseModel, Field
+from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
 

@@ -3,13 +3,12 @@
 
 from typing import List, Dict
 
-from llama_index.core.schema import TextNode, BaseNode
-from llama_index.core.schema import NodeRelationship
 
 from graphrag_toolkit.lexical_graph.indexing.build.node_builder import NodeBuilder
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection, Topic, Statement
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship, TextNode
 
 class TopicNodeBuilder(NodeBuilder):
     """
@@ -144,7 +143,7 @@ class TopicNodeBuilder(NodeBuilder):
 
             topics = TopicCollection.model_validate(data)
 
-            source_info = node.relationships[NodeRelationship.SOURCE]
+            source_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
             source_id = source_info.node_id
 
             for topic in topics.topics:
@@ -174,7 +173,7 @@ class TopicNodeBuilder(NodeBuilder):
                     metadata = self._update_metadata_with_versioning_info(metadata, node, build_timestamp)
 
                     topic_node = TextNode(
-                        id_ = topic_id,
+                        node_id = topic_id,
                         text = topic.value,
                         metadata = metadata,
                         excluded_embed_metadata_keys = [INDEX_KEY, 'topic', 'source'],

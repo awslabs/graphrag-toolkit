@@ -6,7 +6,7 @@
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.retrieval.model import (
@@ -113,7 +113,7 @@ class TestScoreValuesWithModel:
         )
         node = Mock(text='a', score=0.9)
         with patch.object(mod, 'SentenceReranker') as reranker_cls:
-            reranker_cls.return_value.postprocess_nodes.return_value = [node]
+            reranker_cls.return_value.process.return_value = [node]
             out = processor._score_values(['a'], QueryBundle('q'), _entity_contexts())
         assert out == {'a': 0.9}
 

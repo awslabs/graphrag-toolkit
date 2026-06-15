@@ -14,45 +14,19 @@ from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
 from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import BaseNode
-from llama_index.core.bridge.pydantic import Field
-from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.core.prompts import PromptTemplate
-from llama_index.core.async_utils import run_jobs
+from graphrag_toolkit.core.compat import BaseNode
+from graphrag_toolkit.core.extractor import Extractor
+from graphrag_toolkit.core.prompt import PromptTemplate
+from graphrag_toolkit.core.utils import run_jobs
 
 logger = logging.getLogger(__name__)
 
-class TopicExtractor(BaseExtractor):
-
-    llm: Optional[LLMCache] = Field(
-        description='The LLM to use for extraction'
-    )
-        
-    prompt_template: str = Field(
-        description='Prompt template'
-    )
-        
-    source_metadata_field: Optional[str] = Field(
-        description='Metadata field from which to extract information'
-    )
-
-    entity_classification_provider:PreferredValuesProvider = Field(
-        description='Entity classification provider'
-    )
-
-    topic_provider:PreferredValuesProvider = Field(
-        description='Topic provider'
-    )
+class TopicExtractor(Extractor):
 
     @classmethod
     def class_name(cls) -> str:
         """
         Returns the name of the class as a string.
-
-        The class_name method is a convenient way to retrieve the name of the class it
-        is called on. It is designed to be a class-level method and provides a means of
-        returning a standardized name for the class, which can be useful for logging,
-        debugging, or any functionality that requires the identification of the class.
 
         Returns:
             str: The name of the class, which is 'TopicExtractor' in this case.
@@ -65,45 +39,35 @@ class TopicExtractor(BaseExtractor):
                  source_metadata_field=None,
                  num_workers:Optional[int]=None,
                  entity_classification_provider=None,
-                 topic_provider=None
+                 topic_provider=None,
+                 show_progress=False
                  ):
         """
-        Initializes the instance with the provided or default parameters to facilitate
-        operations with LLMCache, prompt templates, source metadata fields, multiple
-        workers, and providers for entity classification and topics.
+        Initializes the instance with the provided or default parameters.
 
         Args:
-            llm (LLMCacheType, optional): The large language model cache used for
-                extraction purposes. Defaults to an LLMCache instance configured with
-                the extraction LLM and caching behavior.
-            prompt_template (str, optional): Prompt template used for topic
-                extraction. Defaults to a predefined extraction prompt.
-            source_metadata_field (str, optional): Metadata field from the source
-                to extract information. If not provided, it will be set to None.
-            num_workers (int, optional): Number of worker threads for processing.
-                Defaults to a value defined in GraphRAGConfig for threads per worker.
-            entity_classification_provider (FixedScopedValueProvider, optional):
-                Provider for entity classification data. Defaults to a fixed-scoped
-                value provider initialized with default entity classifications.
-            topic_provider (FixedScopedValueProvider, optional): Provider for topics.
-                Defaults to a fixed-scoped value provider initialized with an empty
-                list.
+            llm: The large language model cache used for extraction.
+            prompt_template: Prompt template used for topic extraction.
+            source_metadata_field: Metadata field from the source to extract information.
+            num_workers: Number of worker threads for processing.
+            entity_classification_provider: Provider for entity classification data.
+            topic_provider: Provider for topics.
+            show_progress: Whether to show progress during extraction.
         """
-        super().__init__(
-            llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
-                llm=llm or GraphRAGConfig.extraction_llm,
-                enable_cache=GraphRAGConfig.enable_cache
-            ),
-            prompt_template=prompt_template or EXTRACT_TOPICS_PROMPT, 
-            source_metadata_field=source_metadata_field,
-            num_workers=coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker),
-            entity_classification_provider=entity_classification_provider or default_preferred_values([]),
-            topic_provider=topic_provider or default_preferred_values([])
+        self.llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
+            llm=llm or GraphRAGConfig.extraction_llm,
+            enable_cache=GraphRAGConfig.enable_cache
         )
+        self.prompt_template = prompt_template or EXTRACT_TOPICS_PROMPT
+        self.source_metadata_field = source_metadata_field
+        self.num_workers = coalesce(num_workers, GraphRAGConfig.extraction_num_threads_per_worker)
+        self.entity_classification_provider = entity_classification_provider or default_preferred_values([])
+        self.topic_provider = topic_provider or default_preferred_values([])
+        self.show_progress = show_progress
 
         logger.debug(f'Prompt template: {self.prompt_template}')
     
-    async def aextract(self, nodes: Sequence[BaseNode]) -> List[Dict]:
+    async def extract(self, nodes: list[BaseNode]) -> list[dict]:
         fact_entries = await self._extract_for_nodes(nodes)
         return [fact_entry for fact_entry in fact_entries]
     

@@ -7,8 +7,8 @@ from typing import List
 from ..llama_index_reader_provider_base import LlamaIndexReaderProviderBase
 from ..reader_provider_config import S3DirectoryReaderConfig
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

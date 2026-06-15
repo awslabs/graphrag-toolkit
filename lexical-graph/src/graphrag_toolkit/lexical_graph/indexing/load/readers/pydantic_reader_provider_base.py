@@ -5,10 +5,15 @@
 from typing import Any, List
 from pydantic import BaseModel, validator
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
-from llama_index.core.readers.base import BasePydanticReader
+
+try:
+    from llama_index.core.readers.base import BasePydanticReader
+except ImportError:
+    BasePydanticReader = None
+
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_base import ReaderProvider
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config_base import ReaderProviderConfig
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 
@@ -22,8 +27,8 @@ class PydanticReaderProviderBase(ReaderProvider):
         self.config = config
         logger.debug(f"Instantiating Pydantic reader: {reader_cls.__name__}")
         
-        # Ensure reader_cls is a BasePydanticReader
-        if not issubclass(reader_cls, BasePydanticReader):
+        # Ensure reader_cls is a BasePydanticReader (if llama-index installed)
+        if BasePydanticReader and not issubclass(reader_cls, BasePydanticReader):
             raise ValueError(f"{reader_cls.__name__} must inherit from BasePydanticReader")
         
         self._reader = reader_cls(**reader_kwargs)

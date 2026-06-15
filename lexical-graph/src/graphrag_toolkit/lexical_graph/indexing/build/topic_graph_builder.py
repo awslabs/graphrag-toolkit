@@ -7,8 +7,8 @@ from typing import Any
 from graphrag_toolkit.lexical_graph.indexing.model import Topic
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
+from graphrag_toolkit.core.compat import BaseNode
 
-from llama_index.core.schema import BaseNode
 
 logger = logging.getLogger(__name__)
 

@@ -9,8 +9,8 @@ import json
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
+from graphrag_toolkit.core.compat import BaseComponent, BaseNode
 
-from llama_index.core.schema import BaseComponent, BaseNode
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +35,7 @@ class DeletePrevVersions(NodeHandler):
                     deletable_prev_versions = [prev_version for prev_version in prev_versions if self.filter_fn(prev_version['metadata'])]
                     
                     if deletable_prev_versions:
-                        logger.debug(f'Deleting previous versions for source [source_id: {node.id_}, prev_versions: {json.dumps(deletable_prev_versions)}]')
+                        logger.debug(f'Deleting previous versions for source [source_id: {node.node_id}, prev_versions: {json.dumps(deletable_prev_versions)}]')
                         deletable_prev_version_ids = [d['sourceId'] for d in deletable_prev_versions]
                         self.lexical_graph.delete_sources(source_ids=deletable_prev_version_ids)
                 

@@ -5,8 +5,7 @@ import json
 import os
 from typing import Dict, List, Optional, Protocol, Any
 
-from llama_index.core.readers.base import BaseReader
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.types import Document
 
 class TextExtractorFunction(Protocol):
     """Defines a protocol for a callable that extracts text from a dictionary.
@@ -60,7 +59,7 @@ class MetadataExtractorFunction(Protocol):
         """
         pass
 
-class JSONArrayReader(BaseReader):
+class JSONArrayReader:
     """
     A reader class for loading and processing JSON array data.
 
@@ -97,7 +96,6 @@ class JSONArrayReader(BaseReader):
                 extracting metadata information, used to customize or override the
                 default behavior.
         """
-        super().__init__()
         self.ensure_ascii = ensure_ascii
         self.text_fn = text_fn
         self.metadata_fn = metadata_fn

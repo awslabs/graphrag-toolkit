@@ -21,8 +21,8 @@ from graphrag_toolkit.lexical_graph.indexing.build.entity_relation_graph_builder
 from graphrag_toolkit.lexical_graph.indexing.build.graph_summary_builder import GraphSummaryBuilder
 from graphrag_toolkit.lexical_graph.indexing.build.local_entity_rewrites_graph_builder import LocalEntityRewritesGraphBuilder
 
-from llama_index.core.bridge.pydantic import Field
-from llama_index.core.schema import BaseNode
+from pydantic import Field
+from graphrag_toolkit.core.compat import BaseNode
 
 logger = logging.getLogger(__name__)
 

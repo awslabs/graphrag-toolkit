@@ -7,7 +7,7 @@ from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_pro
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config import DocxReaderConfig
 from graphrag_toolkit.lexical_graph.indexing.load.readers.s3_file_mixin import S3FileMixin
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

@@ -18,6 +18,25 @@ license = "Apache-2.0"
 files = ["src/graphrag_toolkit/lexical_graph/requirements.txt"]
 
 [project.optional-dependencies]
+readers = [
+    "llama-index-core>=0.14.0",
+]
+chunking = [
+    "llama-index-core>=0.14.0",
+]
+opensearch = [
+    "llama-index-core>=0.14.0",
+    "opensearch-py>=2.0.0",
+]
+llms = [
+    "llama-index-core>=0.14.0",
+    "llama-index-llms-anthropic>=0.11.0",
+]
+all = [
+    "llama-index-core>=0.14.0",
+    "llama-index-llms-anthropic>=0.11.0",
+    "opensearch-py>=2.0.0",
+]
 test = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",

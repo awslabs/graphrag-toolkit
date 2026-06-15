@@ -6,9 +6,25 @@ import os
 import json
 import tempfile
 from unittest.mock import Mock, patch, MagicMock
-from llama_index.core.schema import TextNode
-from llama_index.core.base.llms.types import ChatMessage, MessageRole
-from llama_index.llms.bedrock_converse import BedrockConverse
+from graphrag_toolkit.core.types import Node
+
+
+class _MessageRole:
+    """Simple enum replacement for MessageRole."""
+    SYSTEM = "system"
+    USER = "user"
+    ASSISTANT = "assistant"
+
+
+class _ChatMessage:
+    """Simple ChatMessage replacement for tests."""
+    def __init__(self, role, content):
+        self.role = type('Role', (), {'value': role})()
+        self.content = content
+
+
+MessageRole = _MessageRole
+ChatMessage = _ChatMessage
 
 from graphrag_toolkit.lexical_graph import BatchJobError
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import (
@@ -81,7 +97,7 @@ class TestSplitNodes:
     
     def test_split_nodes_valid_batch_size(self):
         """Verify split_nodes splits nodes into batches correctly."""
-        nodes = [TextNode(text=f"node_{i}", id_=f"id_{i}") for i in range(200)]
+        nodes = [Node(text=f"node_{i}", node_id=f"id_{i}") for i in range(200)]
         batch_size = 100
         
         batches = split_nodes(nodes, batch_size)
@@ -92,7 +108,7 @@ class TestSplitNodes:
     
     def test_split_nodes_batch_size_too_small(self):
         """Verify split_nodes raises error for batch size below minimum."""
-        nodes = [TextNode(text=f"node_{i}", id_=f"id_{i}") for i in range(200)]
+        nodes = [Node(text=f"node_{i}", node_id=f"id_{i}") for i in range(200)]
         batch_size = 50  # Below BEDROCK_MIN_BATCH_SIZE (100)
         
         with pytest.raises(BatchJobError, match="smaller than the minimum"):
@@ -100,7 +116,7 @@ class TestSplitNodes:
     
     def test_split_nodes_batch_size_too_large(self):
         """Verify split_nodes raises error for batch size above maximum."""
-        nodes = [TextNode(text=f"node_{i}", id_=f"id_{i}") for i in range(200)]
+        nodes = [Node(text=f"node_{i}", node_id=f"id_{i}") for i in range(200)]
         batch_size = 60000  # Above BEDROCK_MAX_BATCH_SIZE (50000)
         
         with pytest.raises(BatchJobError, match="larger than the maximum"):
@@ -116,7 +132,7 @@ class TestSplitNodes:
     
     def test_split_nodes_too_few_nodes(self):
         """Verify split_nodes raises error when nodes below minimum."""
-        nodes = [TextNode(text=f"node_{i}", id_=f"id_{i}") for i in range(50)]
+        nodes = [Node(text=f"node_{i}", node_id=f"id_{i}") for i in range(50)]
         batch_size = 100
         
         with pytest.raises(BatchJobError, match="fewer records.*than the minimum"):
@@ -127,7 +143,7 @@ class TestSplitNodes:
         # Create 250 nodes, batch size 100
         # Should create 3 batches: 100, 100, 50 (but 50 < min, so merge to last)
         # Actually creates 2 batches: 100, 150
-        nodes = [TextNode(text=f"node_{i}", id_=f"id_{i}") for i in range(250)]
+        nodes = [Node(text=f"node_{i}", node_id=f"id_{i}") for i in range(250)]
         batch_size = 100
         
         batches = split_nodes(nodes, batch_size)
@@ -143,7 +159,7 @@ class TestGetRequestBody:
     
     def test_get_request_body_nova_model(self):
         """Verify get_request_body creates correct structure for Nova models."""
-        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm = Mock()
         mock_llm.model = 'amazon.nova-pro-v1:0'
         
         messages = [
@@ -163,7 +179,7 @@ class TestGetRequestBody:
     
     def test_get_request_body_nova_with_system_prompt(self):
         """Verify get_request_body includes system prompt for Nova models."""
-        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm = Mock()
         mock_llm.model = 'amazon.nova-lite-v1:0'
         
         messages = [
@@ -182,7 +198,7 @@ class TestGetRequestBody:
     
     def test_get_request_body_claude_model(self):
         """Verify get_request_body creates correct structure for Claude models."""
-        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm = Mock()
         mock_llm.model = 'anthropic.claude-3-sonnet-20240229-v1:0'
         
         messages = [
@@ -202,7 +218,7 @@ class TestGetRequestBody:
     
     def test_get_request_body_llama_model(self):
         """Verify get_request_body creates correct structure for Llama models."""
-        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm = Mock()
         mock_llm.model = 'meta.llama3-70b-instruct-v1:0'
         
         messages = [
@@ -222,7 +238,7 @@ class TestGetRequestBody:
     
     def test_get_request_body_unsupported_model(self):
         """Verify get_request_body raises error for unsupported models."""
-        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm = Mock()
         mock_llm.model = 'unsupported.model-v1:0'
         
         messages = [ChatMessage(role=MessageRole.USER, content="Test")]
@@ -237,13 +253,13 @@ class TestCreateInferenceInputs:
     
     def test_create_inference_inputs_for_messages(self):
         """Verify create_inference_inputs_for_messages creates correct structure."""
-        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm = Mock()
         mock_llm.model = 'amazon.nova-pro-v1:0'
         mock_llm._get_all_kwargs.return_value = {'max_tokens': 1000, 'temperature': 0.7}
         
         nodes = [
-            TextNode(text="Node 1", id_="node_1"),
-            TextNode(text="Node 2", id_="node_2")
+            Node(text="Node 1", node_id="node_1"),
+            Node(text="Node 2", node_id="node_2")
         ]
         messages_batch = [
             [ChatMessage(role=MessageRole.USER, content="Message 1")],
@@ -263,7 +279,7 @@ class TestCreateInferenceInputs:
     
     def test_create_inference_inputs(self):
         """Verify create_inference_inputs creates correct structure."""
-        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm = Mock()
         mock_llm._get_all_kwargs.return_value = {'max_tokens': 1000}
         # Use configure_mock to set the method
         mock_llm.configure_mock(**{'completion_to_prompt': lambda x: f"Prompt: {x}"})
@@ -271,8 +287,8 @@ class TestCreateInferenceInputs:
         mock_llm._provider.get_request_body.return_value = {'prompt': 'test'}
         
         nodes = [
-            TextNode(text="Node 1", id_="node_1"),
-            TextNode(text="Node 2", id_="node_2")
+            Node(text="Node 1", node_id="node_1"),
+            Node(text="Node 2", node_id="node_2")
         ]
         prompts = ["Prompt 1", "Prompt 2"]
         

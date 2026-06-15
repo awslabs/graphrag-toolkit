@@ -5,8 +5,8 @@ import logging
 from typing import List, Any
 
 from graphrag_toolkit.lexical_graph.indexing import NodeHandler
+from graphrag_toolkit.core.compat import BaseNode
 
-from llama_index.core.schema import BaseNode
 
 logger = logging.getLogger(__name__)
 

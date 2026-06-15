@@ -10,7 +10,7 @@ from graphrag_toolkit.lexical_graph import to_tenant_id, TenantIdType, TenantId
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, MultiTenantGraphStore
 from graphrag_toolkit.lexical_graph.utils import LLMCache, LLMCacheType
 
-from llama_index.core.prompts import PromptTemplate
+from graphrag_toolkit.core.prompt import PromptTemplate
 
 logger = logging.getLogger(__name__)
 

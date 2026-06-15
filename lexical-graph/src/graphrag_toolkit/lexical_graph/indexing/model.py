@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from pydantic import BaseModel, ConfigDict
-from typing import List, Optional, Union, Generator, Iterable
+from typing import Any, List, Optional, Union, Generator, Iterable
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship, TextNode
+from graphrag_toolkit.core.types import Document
 
-from llama_index.core.schema import TextNode, Document, BaseNode
-from llama_index.core.schema import NodeRelationship
 
 class SourceDocument(BaseModel):
     """
@@ -18,15 +18,15 @@ class SourceDocument(BaseModel):
     relationships.
 
     Attributes:
-        refNode (Optional[BaseNode]): A reference node that can optionally
+        refNode (Optional[Any]): A reference node that can optionally
             associate with the document.
-        nodes (List[BaseNode]): A list of nodes associated with the source
+        nodes (List[Any]): A list of nodes associated with the source
             document. Defaults to an empty list.
     """
-    model_config = ConfigDict(strict=True)
+    model_config = ConfigDict(arbitrary_types_allowed=True)
     
-    refNode:Optional[BaseNode]=None
-    nodes:List[BaseNode]=[]
+    refNode:Optional[Any]=None
+    nodes:List[Any]=[]
 
     def source_id(self):
         """
@@ -42,10 +42,11 @@ class SourceDocument(BaseModel):
         """
         if not self.nodes:
             return None
-        return self.nodes[0].relationships[NodeRelationship.SOURCE].node_id
+        source_info = NodeRelationship.get_relationship(self.nodes[0].relationships, NodeRelationship.SOURCE)
+        return source_info.node_id if source_info else None
 
 
-SourceType = Union[SourceDocument, BaseNode]
+SourceType = Union[SourceDocument, Any]
 
 def source_documents_from_source_types(inputs: Iterable[SourceType]) -> Generator[SourceDocument, None, None]:
     """
@@ -73,10 +74,12 @@ def source_documents_from_source_types(inputs: Iterable[SourceType]) -> Generato
     for i in inputs:
         if isinstance(i, SourceDocument):
             yield i
-        elif isinstance(i, Document):
+        elif hasattr(i, 'doc_id'):
+            # Document (LlamaIndex or core)
             yield SourceDocument(nodes=[i])
-        elif isinstance(i, TextNode):
-            source_info = i.relationships[NodeRelationship.SOURCE]
+        elif hasattr(i, 'relationships'):
+            # TextNode/Node with relationships
+            source_info = NodeRelationship.get_relationship(i.relationships, NodeRelationship.SOURCE)
             source_id = source_info.node_id
             
             if not current_source_id:

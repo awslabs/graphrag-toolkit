@@ -9,7 +9,7 @@ import uuid
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
 
-from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
+from graphrag_toolkit.core.vector_store_types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
 
 SEARCH_STRING_PATTERN = re.compile(r'([^\s\w]|_)+')
 

@@ -3,7 +3,8 @@
 
 import pytest
 from unittest.mock import Mock
-from llama_index.core.schema import Document, TextNode
+from graphrag_toolkit.core.types import Document
+from graphrag_toolkit.core.compat import TextNode
 from graphrag_toolkit.lexical_graph.indexing.extract.extraction_pipeline import (
     PassThroughDecorator,
     ExtractionPipeline

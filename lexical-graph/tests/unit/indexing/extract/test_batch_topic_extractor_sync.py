@@ -3,7 +3,7 @@
 
 import pytest
 from unittest.mock import Mock, patch
-from llama_index.core.schema import TextNode
+from graphrag_toolkit.core.types import Node
 from graphrag_toolkit.lexical_graph.indexing.extract.batch_topic_extractor_sync import BatchTopicExtractorSync
 
 

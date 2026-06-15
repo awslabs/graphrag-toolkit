@@ -6,7 +6,7 @@ from typing import List, Optional, Dict, Any, Union
 from graphrag_toolkit.lexical_graph.indexing.load.readers.llama_index_reader_provider_base import LlamaIndexReaderProviderBase
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config_base import ReaderProviderConfig
 from graphrag_toolkit.lexical_graph.logging import logging
-from llama_index.core.schema import Document
+from graphrag_toolkit.core.types import Document
 
 logger = logging.getLogger(__name__)
 

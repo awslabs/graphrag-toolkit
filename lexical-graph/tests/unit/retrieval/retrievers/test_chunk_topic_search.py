@@ -5,7 +5,7 @@
 
 from unittest.mock import MagicMock, patch
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import chunk_based_search as cb_mod
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import topic_based_search as tb_mod

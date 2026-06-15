@@ -11,20 +11,20 @@ from graphrag_toolkit.lexical_graph.retrieval.query_context import QueryMode, Qu
 from graphrag_toolkit.lexical_graph.retrieval.query_context import KeywordProvider, KeywordProviderMode
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
 
-from llama_index.core.base.base_retriever import BaseRetriever
-from llama_index.core.schema import NodeWithScore, QueryBundle
+from graphrag_toolkit.core.retriever import Retriever
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle
 
 logger = logging.getLogger(__name__)
 
-class QueryModeRetriever(BaseRetriever):
+class QueryModeRetriever(Retriever):
     
-    def __init__(self, retriever_fn:Callable[[Any], BaseRetriever], **kwargs):
+    def __init__(self, retriever_fn:Callable[[Any], Retriever], **kwargs):
         self.retriever_fn = retriever_fn
         self.args = ProcessorArgs(**kwargs)
 
         logger.debug(f'args: {self.args.to_dict()}')
         
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
 
         if self.args.enable_multipart_queries:
             query_mode_provider = QueryModeProvider(self.args)
@@ -54,7 +54,7 @@ class QueryModeRetriever(BaseRetriever):
             logger.debug(f'Complex query, so running multiple retrievers in parallel [num_retrievers: {len(keywords)}, search_results_per_retriever: {max_search_results}]')
 
             def retrieve(s):
-                retriever:BaseRetriever = self.retriever_fn(**sub_args)
+                retriever:Retriever = self.retriever_fn(**sub_args)
                 return retriever.retrieve(s)
             
             with concurrent.futures.ThreadPoolExecutor(max_workers=len(keywords)) as executor:

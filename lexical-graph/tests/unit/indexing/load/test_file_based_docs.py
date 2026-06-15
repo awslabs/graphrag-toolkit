@@ -8,15 +8,16 @@ import os
 import zipfile
 from pathlib import Path
 from unittest.mock import patch
-from llama_index.core.schema import TextNode, NodeRelationship, RelatedNodeInfo
+from graphrag_toolkit.core.types import Node, NodeRef
+from graphrag_toolkit.core.compat import NodeRelationship
 from graphrag_toolkit.lexical_graph.indexing.load.file_based_docs import FileBasedDocs, windows_safe_filename
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
 
 
 def _make_node(node_id, source_id, text="test"):
     """Helper to create a TextNode with a SOURCE relationship."""
-    node = TextNode(text=text, id_=node_id)
-    node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id=source_id)
+    node = Node(text=text, node_id=node_id)
+    node.relationships[NodeRelationship.SOURCE] = NodeRef(node_id=source_id)
     return node
 
 
@@ -221,9 +222,9 @@ class TestFileBasedDocsMetadataFiltering:
                 docs_directory=temp_dir,
                 metadata_keys=["source", "date"],
             )
-            node = TextNode(
+            node = Node(
                 text="Test",
-                id_="n1",
+                node_id="n1",
                 metadata={"source": "x", "date": "y", "extra": "remove"},
             )
             filtered = handler._filter_metadata(node)
@@ -238,9 +239,9 @@ class TestFileBasedDocsMetadataFiltering:
 
         with tempfile.TemporaryDirectory() as temp_dir:
             handler = FileBasedDocs(docs_directory=temp_dir, metadata_keys=["source"])
-            node = TextNode(
+            node = Node(
                 text="Test",
-                id_="n1",
+                node_id="n1",
                 metadata={
                     "source": "x",
                     PROPOSITIONS_KEY: ["p"],

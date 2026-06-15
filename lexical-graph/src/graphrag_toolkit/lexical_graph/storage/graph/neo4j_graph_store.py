@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, NodeId, format_id
 
-from llama_index.core.bridge.pydantic import PrivateAttr
+from pydantic import PrivateAttr
 
 logger = logging.getLogger(__name__)
 

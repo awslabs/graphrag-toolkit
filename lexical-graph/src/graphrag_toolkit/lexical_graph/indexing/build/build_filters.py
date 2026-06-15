@@ -5,7 +5,7 @@ import logging
 from typing import Callable, Dict, Any, Optional
 
 from graphrag_toolkit.lexical_graph.metadata import MetadataFiltersType, FilterConfig
-from llama_index.core.bridge.pydantic import BaseModel
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 

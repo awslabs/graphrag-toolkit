@@ -10,7 +10,7 @@ import pytest
 from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.storage.vector import DummyVectorIndex, VectorIndex
 from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndexFactory
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 
 class TestDummyVectorIndexFactory:

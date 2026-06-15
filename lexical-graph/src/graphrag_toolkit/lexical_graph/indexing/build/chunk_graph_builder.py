@@ -6,11 +6,19 @@ from typing import Any
 
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship
 
-from llama_index.core.schema import BaseNode
-from llama_index.core.schema import NodeRelationship
 
 logger = logging.getLogger(__name__)
+
+
+def _normalize_rel_key(key) -> str:
+    """Normalize relationship key to string (handles LlamaIndex enum objects)."""
+    if isinstance(key, str):
+        return key
+    val = getattr(key, 'value', str(key))
+    _REV_MAP = {'1': 'source', '2': 'previous', '3': 'next', '4': 'parent', '5': 'child'}
+    return _REV_MAP.get(val, val)
 
 class ChunkGraphBuilder(GraphBuilder):
     """Class responsible for building and managing a graph representation
@@ -85,7 +93,7 @@ class ChunkGraphBuilder(GraphBuilder):
 
             graph_client.execute_query_with_retry(query_c, self._to_params(properties_c), max_attempts=5, max_wait=7)
 
-            source_info = node.relationships.get(NodeRelationship.SOURCE, None)
+            source_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
 
             if source_info:
                 
@@ -134,15 +142,18 @@ class ChunkGraphBuilder(GraphBuilder):
 
             for node_relationship,relationship_info in node.relationships.items():
 
+                if isinstance(relationship_info, list):
+                    continue  # Skip list relationships (child lists not used for chunk graph edges)
                 node_id = relationship_info.node_id
+                rel_key = _normalize_rel_key(node_relationship)
 
-                if node_relationship == NodeRelationship.PARENT:
+                if rel_key == NodeRelationship.PARENT:
                     insert_chunk_to_chunk_relationship(node_id, 'parent')   
-                elif node_relationship == NodeRelationship.CHILD:
+                elif rel_key == NodeRelationship.CHILD:
                     insert_chunk_to_chunk_relationship(node_id, 'child')     
-                elif node_relationship == NodeRelationship.PREVIOUS:
+                elif rel_key == NodeRelationship.PREVIOUS:
                     insert_chunk_to_chunk_relationship(node_id, 'previous')    
-                elif node_relationship == NodeRelationship.NEXT:
+                elif rel_key == NodeRelationship.NEXT:
                     insert_chunk_to_chunk_relationship(node_id, 'next')
 
         else:

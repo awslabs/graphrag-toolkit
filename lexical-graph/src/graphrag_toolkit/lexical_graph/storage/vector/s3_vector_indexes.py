@@ -10,16 +10,14 @@ from typing import List, Dict, Any, Callable, Optional, Sequence
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig, type_name_for_key_value, format_datetime
 from graphrag_toolkit.lexical_graph.versioning import VALID_FROM, VALID_TO, TIMESTAMP_LOWER_BOUND, TIMESTAMP_UPPER_BOUND
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
-from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query
+from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, to_embedded_query, embed_nodes
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.schema import TextNode
-from llama_index.core.schema import BaseNode, QueryBundle
-from llama_index.core.indices.utils import embed_nodes
-from llama_index.core.bridge.pydantic import PrivateAttr
-from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
+from graphrag_toolkit.core.types import Node, QueryBundle
+from pydantic import PrivateAttr
+from graphrag_toolkit.core.vector_store_types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
 
 DISTANCE_METRIC = 'cosine'
 VECTOR_DATA_TYPE = 'float32'
@@ -151,8 +149,8 @@ def _node_to_s3_vector(id:str, value:str, embedding: List[float], node_metadata:
         'metadata': metadata
     }
 
-def node_to_s3_vector(node:TextNode, embedding:List[float])-> Dict[str, Any]:
-    return _node_to_s3_vector(node.id_, node.text, embedding, node.metadata)
+def node_to_s3_vector(node:Node, embedding:List[float])-> Dict[str, Any]:
+    return _node_to_s3_vector(node.node_id, node.text, embedding, node.metadata)
 
 def s3_vector_to_dict(s3_vector:Dict[str, Any]) -> Dict[str, Any]:
 
@@ -485,7 +483,7 @@ class S3VectorIndex(VectorIndex):
                 )
                 self.initialized = True
 
-    def add_embeddings(self, nodes:Sequence[BaseNode]) -> Sequence[BaseNode]:
+    def add_embeddings(self, nodes:Sequence[Node]) -> Sequence[Node]:
 
         if not self.writeable:
             raise IndexError(f'Index {self.index_name} is read-only')

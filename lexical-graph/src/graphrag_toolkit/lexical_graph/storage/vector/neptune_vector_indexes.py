@@ -11,11 +11,9 @@ from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, MultiTenantGraphStore
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result, filter_config_to_opencypher_filters
 from graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores import NeptuneAnalyticsClient
-from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, VectorIndexFactoryMethod, to_embedded_query
+from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, VectorIndexFactoryMethod, to_embedded_query, embed_nodes
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
-
-from llama_index.core.indices.utils import embed_nodes
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 logger = logging.getLogger(__name__)
 

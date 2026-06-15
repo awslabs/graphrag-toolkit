@@ -6,7 +6,7 @@
 from unittest.mock import MagicMock
 
 import numpy as np
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import Node, NodeWithScore, QueryBundle
 
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_based_semantic_search import (
     ChunkBasedSemanticSearch,
@@ -27,7 +27,7 @@ def _stores():
 
 def _chunk_node(chunk_id):
     return NodeWithScore(
-        node=TextNode(text='', metadata={'chunk': {'chunkId': chunk_id}}),
+        node=Node(text='', metadata={'chunk': {'chunkId': chunk_id}}),
         score=1.0,
     )
 
@@ -119,7 +119,7 @@ class TestSemanticChunkBeamGraphSearch:
         )
         beam.get_neighbors = MagicMock(return_value=[])
 
-        nodes = beam._retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
+        nodes = beam.retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
         # Initial chunk c1 is excluded since it's in initial_ids set.
         assert nodes == []
 
@@ -135,7 +135,7 @@ class TestSemanticChunkBeamGraphSearch:
         )
         beam.get_neighbors = MagicMock(return_value=[])
 
-        beam._retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
+        beam.retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
         chunk_index.top_k.assert_called_once()
 
     def test_retrieve_returns_empty_when_no_chunks(self):
@@ -144,4 +144,4 @@ class TestSemanticChunkBeamGraphSearch:
         chunk_index.top_k.return_value = []
         vs.get_index.return_value = chunk_index
         beam = SemanticChunkBeamGraphSearch(vs, gs)
-        assert beam._retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0])) == []
+        assert beam.retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0])) == []

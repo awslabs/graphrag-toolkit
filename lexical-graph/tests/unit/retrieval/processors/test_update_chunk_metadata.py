@@ -4,7 +4,7 @@
 """Tests for retrieval/processors/update_chunk_metadata."""
 
 import pytest
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.retrieval.model import (

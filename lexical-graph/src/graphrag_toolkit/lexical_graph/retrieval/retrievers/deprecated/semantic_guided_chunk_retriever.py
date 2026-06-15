@@ -7,7 +7,7 @@ from collections import defaultdict
 from typing import List, Optional, Any, Union, Type
 from itertools import repeat
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
@@ -76,7 +76,7 @@ class SemanticGuidedChunkRetriever(SemanticGuidedBaseChunkRetriever):
                 )
             ]
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
 
         start = time.time()
 
@@ -169,7 +169,7 @@ class SemanticGuidedChunkRetriever(SemanticGuidedBaseChunkRetriever):
             chunk_id = node.node.metadata['chunk']['chunkId']
             if chunk_id in chunks_map:
                 result = chunks_map[chunk_id]
-                new_node = TextNode(
+                new_node = Node(
                     text=result['chunk']['value'],
                     metadata={
                         **node.node.metadata,  # Preserve retriever metadata

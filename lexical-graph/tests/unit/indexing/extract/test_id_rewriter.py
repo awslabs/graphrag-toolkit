@@ -3,7 +3,8 @@
 
 import pytest
 from unittest.mock import Mock
-from llama_index.core.schema import Document, TextNode, NodeRelationship, RelatedNodeInfo
+from graphrag_toolkit.core.types import Document, Node, NodeRef
+from graphrag_toolkit.core.compat import NodeRelationship
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
 from graphrag_toolkit.lexical_graph.indexing.id_generator import IdGenerator
 from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
@@ -73,8 +74,8 @@ class TestIdRewriterNodeIdGeneration:
     def test_new_node_id_generates_chunk_id(self, default_id_gen):
         """Verify _new_node_id generates chunk ID for nodes."""
         rewriter = IdRewriter(id_generator=default_id_gen)
-        node = TextNode(text="Chunk content", metadata={})
-        node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source123")
+        node = Node(text="Chunk content", metadata={})
+        node.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source123")
         
         new_id = rewriter._new_node_id(node)
         
@@ -84,7 +85,7 @@ class TestIdRewriterNodeIdGeneration:
     def test_new_node_id_without_source(self, default_id_gen):
         """Verify _new_node_id handles nodes without source relationship."""
         rewriter = IdRewriter(id_generator=default_id_gen)
-        node = TextNode(text="Chunk content", metadata={})
+        node = Node(text="Chunk content", metadata={})
         
         new_id = rewriter._new_node_id(node)
         
@@ -97,11 +98,11 @@ class TestIdRewriterNodeIdGeneration:
         """Verify _new_node_id is deterministic for same content and source."""
         rewriter = IdRewriter(id_generator=default_id_gen)
         
-        node1 = TextNode(text="Same chunk", metadata={})
-        node1.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source123")
+        node1 = Node(text="Same chunk", metadata={})
+        node1.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source123")
         
-        node2 = TextNode(text="Same chunk", metadata={})
-        node2.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(node_id="source123")
+        node2 = Node(text="Same chunk", metadata={})
+        node2.relationships[NodeRelationship.SOURCE] = NodeRef(node_id="source123")
         
         id1 = rewriter._new_node_id(node1)
         id2 = rewriter._new_node_id(node2)
@@ -115,7 +116,7 @@ class TestIdRewriterNewId:
     def test_new_id_preserves_aws_prefix(self, default_id_gen):
         """Verify _new_id preserves IDs starting with 'aws:'."""
         rewriter = IdRewriter(id_generator=default_id_gen)
-        node = TextNode(text="Test", id_="aws:existing-id-123")
+        node = Node(text="Test", node_id="aws:existing-id-123")
         
         new_id = rewriter._new_id(node)
         
@@ -125,7 +126,7 @@ class TestIdRewriterNewId:
     def test_new_id_for_text_node(self, default_id_gen):
         """Verify _new_id generates node ID for TextNode instances."""
         rewriter = IdRewriter(id_generator=default_id_gen)
-        node = TextNode(text="Node content", metadata={})
+        node = Node(text="Node content", metadata={})
         
         new_id = rewriter._new_id(node)
         
@@ -139,25 +140,25 @@ class TestIdRewriterParseNodes:
         """Verify _parse_nodes rewrites node IDs."""
         rewriter = IdRewriter(id_generator=default_id_gen)
         nodes = [
-            TextNode(text="Node 1", id_="old-id-1"),
-            TextNode(text="Node 2", id_="old-id-2")
+            Node(text="Node 1", node_id="old-id-1"),
+            Node(text="Node 2", node_id="old-id-2")
         ]
         
-        result = rewriter._parse_nodes(nodes)
+        result = rewriter(nodes)
         
         assert len(result) == 2
-        assert result[0].id_ != "old-id-1"
-        assert result[1].id_ != "old-id-2"
+        assert result[0].node_id != "old-id-1"
+        assert result[1].node_id != "old-id-2"
     
     def test_parse_nodes_without_inner_parser(self, default_id_gen):
         """Verify _parse_nodes works without inner parser."""
         rewriter = IdRewriter(id_generator=default_id_gen)
-        nodes = [TextNode(text="Test", id_="old-id")]
+        nodes = [Node(text="Test", node_id="old-id")]
         
-        result = rewriter._parse_nodes(nodes)
+        result = rewriter(nodes)
         
         assert len(result) == 1
-        assert result[0].id_ != "old-id"
+        assert result[0].node_id != "old-id"
     
 
 
@@ -168,13 +169,13 @@ class TestIdRewriterHandleSourceDocs:
         """Verify handle_source_docs rewrites refNode ID."""
         rewriter = IdRewriter(id_generator=default_id_gen)
         doc = SourceDocument(
-            refNode=Document(text="Source doc", id_="old-ref-id")
+            refNode=Document(text="Source doc", node_id="old-ref-id")
         )
         
         result = rewriter.handle_source_docs([doc])
         
         assert len(result) == 1
-        assert result[0].refNode.id_ != "old-ref-id"
+        assert result[0].refNode.node_id != "old-ref-id"
     
     def test_handle_source_docs_rewrites_node_ids(self, default_id_gen):
         """Verify handle_source_docs rewrites node IDs."""
@@ -182,8 +183,8 @@ class TestIdRewriterHandleSourceDocs:
         doc = SourceDocument(
             refNode=Document(text="Source"),
             nodes=[
-                TextNode(text="Chunk 1", id_="old-node-1"),
-                TextNode(text="Chunk 2", id_="old-node-2")
+                Node(text="Chunk 1", node_id="old-node-1"),
+                Node(text="Chunk 2", node_id="old-node-2")
             ]
         )
         
@@ -191,29 +192,29 @@ class TestIdRewriterHandleSourceDocs:
         
         assert len(result) == 1
         assert len(result[0].nodes) == 2
-        assert result[0].nodes[0].id_ != "old-node-1"
-        assert result[0].nodes[1].id_ != "old-node-2"
+        assert result[0].nodes[0].node_id != "old-node-1"
+        assert result[0].nodes[1].node_id != "old-node-2"
     
     def test_handle_source_docs_without_refnode(self, default_id_gen):
         """Verify handle_source_docs handles documents without refNode."""
         rewriter = IdRewriter(id_generator=default_id_gen)
         doc = SourceDocument(
             refNode=None,
-            nodes=[TextNode(text="Chunk", id_="old-id")]
+            nodes=[Node(text="Chunk", node_id="old-id")]
         )
         
         result = rewriter.handle_source_docs([doc])
         
         assert len(result) == 1
-        assert result[0].nodes[0].id_ != "old-id"
+        assert result[0].nodes[0].node_id != "old-id"
     
     def test_handle_source_docs_multiple_documents(self, default_id_gen):
         """Verify handle_source_docs handles multiple documents."""
         rewriter = IdRewriter(id_generator=default_id_gen)
         docs = [
             SourceDocument(
-                refNode=Document(text=f"Doc {i}", id_=f"old-{i}"),
-                nodes=[TextNode(text=f"Chunk {i}", id_=f"old-chunk-{i}")]
+                refNode=Document(text=f"Doc {i}", node_id=f"old-{i}"),
+                nodes=[Node(text=f"Chunk {i}", node_id=f"old-chunk-{i}")]
             )
             for i in range(3)
         ]
@@ -222,8 +223,8 @@ class TestIdRewriterHandleSourceDocs:
         
         assert len(result) == 3
         for i, doc in enumerate(result):
-            assert doc.refNode.id_ != f"old-{i}"
-            assert doc.nodes[0].id_ != f"old-chunk-{i}"
+            assert doc.refNode.node_id != f"old-{i}"
+            assert doc.nodes[0].node_id != f"old-chunk-{i}"
 
 
 class TestIdRewriterIntegration:
@@ -237,16 +238,16 @@ class TestIdRewriterIntegration:
         original_text = "Important content that must be preserved"
         original_metadata = {"key": "value", "number": 42}
         
-        node = TextNode(
+        node = Node(
             text=original_text,
             metadata=original_metadata.copy(),
-            id_="old-id"
+            node_id="old-id"
         )
         
-        result = rewriter._parse_nodes([node])
+        result = rewriter([node])
         
         assert len(result) == 1
         assert result[0].text == original_text
         assert result[0].metadata["key"] == "value"
         assert result[0].metadata["number"] == 42
-        assert result[0].id_ != "old-id"
+        assert result[0].node_id != "old-id"

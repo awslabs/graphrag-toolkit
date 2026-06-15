@@ -20,24 +20,13 @@ from graphrag_toolkit.lexical_graph.indexing.extract.batch_config import BatchCo
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import get_file_size_mb, get_file_sizes_mb, split_nodes, create_and_run_batch_job, download_output_files, process_batch_output_sync
 from graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils import BEDROCK_MIN_BATCH_SIZE
 
-from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.core.bridge.pydantic import Field
-from llama_index.core.schema import BaseNode, TextNode
-from llama_index.core.schema import NodeRelationship
+from graphrag_toolkit.core.extractor import Extractor
+from graphrag_toolkit.core.compat import BaseNode, TextNode
 
 logger = logging.getLogger(__name__)
 
 
-class BatchExtractorBase(BaseExtractor):
-
-    batch_config:BatchConfig = Field('Batch inference config')
-    llm:Optional[LLMCache] = Field(
-        description='The LLM to use for extraction'
-    )
-    prompt_template:str = Field(description='Prompt template')
-    source_metadata_field:Optional[str] = Field(description='Metadata field from which to extract propositions')
-    batch_inference_dir:str = Field(description='Directory for batch inputs and outputs')
-    description:str = Field(description='Description')
+class BatchExtractorBase(Extractor):
 
     @classmethod
     def class_name(cls) -> str:
@@ -53,18 +42,25 @@ class BatchExtractorBase(BaseExtractor):
                  **kwargs
         ):
         
-        super().__init__(
-            batch_config = batch_config,
-            llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
-                llm=llm or GraphRAGConfig.extraction_llm,
-                enable_cache=GraphRAGConfig.enable_cache
-            ),
-            prompt_template=prompt_template,
-            source_metadata_field=source_metadata_field,
-            batch_inference_dir=batch_inference_dir or os.path.join(GraphRAGConfig.local_output_dir, f'batch-{description}s'),
-            description=description,
-            **kwargs
+        self.batch_config = batch_config
+        self.llm = llm if llm and isinstance(llm, LLMCache) else LLMCache(
+            llm=llm or GraphRAGConfig.extraction_llm,
+            enable_cache=GraphRAGConfig.enable_cache
         )
+        self.prompt_template = prompt_template
+        self.source_metadata_field = source_metadata_field
+        self.batch_inference_dir = batch_inference_dir or os.path.join(GraphRAGConfig.local_output_dir, f'batch-{description}s')
+        self.description = description
+        
+        # BaseExtractor compat attributes
+        self.show_progress = kwargs.pop('show_progress', False)
+        self.num_workers = kwargs.pop('num_workers', 1)
+        self.disable_template_rewrite = kwargs.pop('disable_template_rewrite', False)
+        self.node_text_template = kwargs.pop('node_text_template', '')
+
+        # Set remaining kwargs as instance attributes (e.g., entity_classification_provider, topic_provider)
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
         logger.debug(f'Prompt template: {self.prompt_template}')
 
@@ -75,7 +71,7 @@ class BatchExtractorBase(BaseExtractor):
             os.makedirs(dir, exist_ok=True)
         return dir
     
-    async def aextract(self, nodes: Sequence[BaseNode]) -> List[Dict]:
+    async def extract(self, nodes: list[BaseNode]) -> list[dict]:
         raise NotImplemented()
     
     def _get_metadata_or_default(self, metadata, key, default):

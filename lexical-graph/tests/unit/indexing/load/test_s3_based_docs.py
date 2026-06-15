@@ -3,7 +3,7 @@
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from llama_index.core.schema import TextNode
+from graphrag_toolkit.core.types import Node
 from graphrag_toolkit.lexical_graph.indexing.load.s3_based_docs import (
     S3BasedDocs,
     S3DocDownloader,
@@ -93,9 +93,9 @@ class TestS3BasedDocsMetadataFiltering:
         )
         
         # Create node with extra metadata
-        node = TextNode(
+        node = Node(
             text="Test text",
-            id_="node1",
+            node_id="node1",
             metadata={
                 "source": "test",
                 "date": "2024-01-01",
@@ -122,9 +122,9 @@ class TestS3BasedDocsMetadataFiltering:
         )
         
         # Create node with special keys
-        node = TextNode(
+        node = Node(
             text="Test text",
-            id_="node1",
+            node_id="node1",
             metadata={
                 "source": "test",
                 PROPOSITIONS_KEY: ["prop1"],
@@ -153,9 +153,9 @@ class TestS3BasedDocsMetadataFiltering:
             metadata_keys=None
         )
         
-        node = TextNode(
+        node = Node(
             text="Test text",
-            id_="node1",
+            node_id="node1",
             metadata={
                 PROPOSITIONS_KEY: ["prop1"],
                 "custom_key": "value"

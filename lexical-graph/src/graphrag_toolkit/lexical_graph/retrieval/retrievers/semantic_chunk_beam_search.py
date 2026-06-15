@@ -13,7 +13,7 @@ from graphrag_toolkit.lexical_graph.storage.vector import VectorStore
 from graphrag_toolkit.lexical_graph.retrieval.utils.chunk_utils import get_top_k, SharedChunkEmbeddingCache
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.deprecated.semantic_guided_base_chunk_retriever import SemanticGuidedBaseChunkRetriever
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle, Node
 
 logger = logging.getLogger(__name__)
 
@@ -136,7 +136,7 @@ class SemanticChunkBeamGraphSearch(SemanticGuidedBaseChunkRetriever):
 
         return results
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
 
         start = time.time()
 
@@ -189,7 +189,7 @@ class SemanticChunkBeamGraphSearch(SemanticGuidedBaseChunkRetriever):
         initial_ids = set(initial_chunk_ids)
         for chunk_id, path in beam_results:
             if chunk_id not in initial_ids:
-                node = TextNode(
+                node = Node(
                     text="",  # Placeholder
                     metadata={
                         'chunk': {'chunkId': chunk_id},

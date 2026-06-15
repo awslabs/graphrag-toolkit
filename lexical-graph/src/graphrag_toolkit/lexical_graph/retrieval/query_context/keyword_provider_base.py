@@ -7,7 +7,7 @@ from typing import List
 
 from graphrag_toolkit.lexical_graph.retrieval.processors import ProcessorArgs
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 logger = logging.getLogger(__name__)
 

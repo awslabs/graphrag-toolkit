@@ -5,7 +5,7 @@
 
 from unittest.mock import MagicMock, patch
 
-from llama_index.core.schema import NodeWithScore, QueryBundle, TextNode
+from graphrag_toolkit.core.types import Node, NodeWithScore, QueryBundle
 
 from graphrag_toolkit.lexical_graph.retrieval.query_context.query_mode import QueryMode
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import query_mode_retriever as mod
@@ -15,7 +15,7 @@ from graphrag_toolkit.lexical_graph.retrieval.retrievers.query_mode_retriever im
 
 
 def _node(text):
-    return NodeWithScore(node=TextNode(text=text), score=1.0)
+    return NodeWithScore(node=Node(text=text), score=1.0)
 
 
 class TestQueryModeRetriever:
@@ -25,7 +25,7 @@ class TestQueryModeRetriever:
         retriever_fn = MagicMock(return_value=inner)
 
         qmr = QueryModeRetriever(retriever_fn=retriever_fn, enable_multipart_queries=False)
-        result = qmr._retrieve(QueryBundle('hello?'))
+        result = qmr.retrieve(QueryBundle('hello?'))
 
         retriever_fn.assert_called_once()
         inner.retrieve.assert_called_once()
@@ -44,7 +44,7 @@ class TestQueryModeRetriever:
             qmr = QueryModeRetriever(
                 retriever_fn=retriever_fn, enable_multipart_queries=True, no_cache=True,
             )
-            result = qmr._retrieve(QueryBundle('q'))
+            result = qmr.retrieve(QueryBundle('q'))
 
         retriever_fn.assert_called_once()
         assert len(result) == 1
@@ -67,7 +67,7 @@ class TestQueryModeRetriever:
                 retriever_fn=retriever_fn, enable_multipart_queries=True,
                 no_cache=True, max_search_results=10,
             )
-            result = qmr._retrieve(QueryBundle('q'))
+            result = qmr.retrieve(QueryBundle('q'))
 
         assert inner.retrieve.call_count == 2
         assert len(result) == 2
@@ -90,7 +90,7 @@ class TestQueryModeRetriever:
                 retriever_fn=retriever_fn, enable_multipart_queries=True,
                 no_cache=True, max_search_results=4,
             )
-            qmr._retrieve(QueryBundle('q'))
+            qmr.retrieve(QueryBundle('q'))
 
         passed = retriever_fn.call_args.kwargs
         assert passed['ec_keyword_provider'] == 'passthru'

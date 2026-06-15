@@ -3,7 +3,7 @@
 
 import pytest
 from unittest.mock import Mock
-from llama_index.core.schema import TextNode
+from graphrag_toolkit.core.types import Node
 from graphrag_toolkit.lexical_graph.indexing.extract.preferred_values import (
     PreferredValuesProvider,
     DefaultPreferredValues,
@@ -35,7 +35,7 @@ class TestDefaultPreferredValues:
         """Verify calling provider returns the configured values."""
         values = ["option1", "option2"]
         provider = DefaultPreferredValues(values=values)
-        node = TextNode(text="test")
+        node = Node(text="test")
         
         result = provider(node)
         
@@ -46,8 +46,8 @@ class TestDefaultPreferredValues:
         values = ["a", "b", "c"]
         provider = DefaultPreferredValues(values=values)
         
-        node1 = TextNode(text="first node")
-        node2 = TextNode(text="second node")
+        node1 = Node(text="first node")
+        node2 = Node(text="second node")
         
         result1 = provider(node1)
         result2 = provider(node2)
@@ -59,7 +59,7 @@ class TestDefaultPreferredValues:
     def test_call_with_empty_values(self):
         """Verify provider works with empty values list."""
         provider = DefaultPreferredValues(values=[])
-        node = TextNode(text="test")
+        node = Node(text="test")
         
         result = provider(node)
         
@@ -68,7 +68,7 @@ class TestDefaultPreferredValues:
     def test_call_with_single_value(self):
         """Verify provider works with single value."""
         provider = DefaultPreferredValues(values=["single"])
-        node = TextNode(text="test")
+        node = Node(text="test")
         
         result = provider(node)
         
@@ -90,7 +90,7 @@ class TestDefaultPreferredValuesFactory:
         """Verify provider created by factory returns correct values."""
         values = ["test1", "test2", "test3"]
         provider = default_preferred_values(values)
-        node = TextNode(text="test")
+        node = Node(text="test")
         
         result = provider(node)
         
@@ -99,7 +99,7 @@ class TestDefaultPreferredValuesFactory:
     def test_factory_with_empty_list(self):
         """Verify factory works with empty list."""
         provider = default_preferred_values([])
-        node = TextNode(text="test")
+        node = Node(text="test")
         
         result = provider(node)
         
@@ -109,7 +109,7 @@ class TestDefaultPreferredValuesFactory:
         """Verify factory works with various string values."""
         values = ["short", "a longer value", "123", "special-chars_!"]
         provider = default_preferred_values(values)
-        node = TextNode(text="test")
+        node = Node(text="test")
         
         result = provider(node)
         
@@ -125,7 +125,7 @@ class TestPreferredValuesIntegration:
         provider1 = default_preferred_values(["a", "b"])
         provider2 = default_preferred_values(["x", "y", "z"])
         
-        node = TextNode(text="test")
+        node = Node(text="test")
         
         result1 = provider1(node)
         result2 = provider2(node)
@@ -139,9 +139,9 @@ class TestPreferredValuesIntegration:
         values = ["reusable", "values"]
         provider = default_preferred_values(values)
         
-        node1 = TextNode(text="first")
-        node2 = TextNode(text="second")
-        node3 = TextNode(text="third")
+        node1 = Node(text="first")
+        node2 = Node(text="second")
+        node3 = Node(text="third")
         
         result1 = provider(node1)
         result2 = provider(node2)

@@ -3,7 +3,7 @@
 
 import re
 from typing import Optional, Union
-from llama_index.core.bridge.pydantic import BaseModel
+from pydantic import BaseModel
 
 DEFAULT_TENANT_NAME = 'default_'
 

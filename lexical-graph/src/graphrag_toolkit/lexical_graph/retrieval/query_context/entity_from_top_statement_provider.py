@@ -13,7 +13,7 @@ from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result
 from graphrag_toolkit.lexical_graph.retrieval.model import ScoredEntity
 from graphrag_toolkit.lexical_graph.retrieval.query_context.entity_provider_base import EntityProviderBase
 
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 logger = logging.getLogger(__name__)
 

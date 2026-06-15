@@ -22,13 +22,11 @@ from graphrag_toolkit.lexical_graph.indexing.extract.docs_to_nodes import DocsTo
 from graphrag_toolkit.lexical_graph.indexing.extract.id_rewriter import IdRewriter
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
-from llama_index.core.node_parser import NodeParser
-from llama_index.core.utils import iter_batch
-from llama_index.core.ingestion import IngestionPipeline
-from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.core.schema import TransformComponent
-from llama_index.core.schema import BaseNode, Document
-from llama_index.core.schema import NodeRelationship
+from graphrag_toolkit.core.utils import iter_batch
+from graphrag_toolkit.lexical_graph.indexing.utils.pipeline_utils import _Pipeline
+from graphrag_toolkit.core.extractor import Extractor
+from graphrag_toolkit.core.compat import BaseNode, NodeRelationship
+from graphrag_toolkit.core.transform import Transform
 
 logger = logging.getLogger(__name__)
     
@@ -111,7 +109,7 @@ class ExtractionPipeline():
             the pipeline components.
     """
     @staticmethod
-    def create(components: List[TransformComponent], 
+    def create(components: List[Transform], 
                pre_processors:Optional[List[SourceDocParser]]=None,
                extraction_decorator:PipelineDecorator=None, 
                num_workers=None, 
@@ -133,7 +131,7 @@ class ExtractionPipeline():
         filtering, checkpointing, and additional behaviors via keyword arguments.
 
         Args:
-            components (List[TransformComponent]): A list of components for the
+            components (List[Transform]): A list of components for the
                 transformation pipeline.
             pre_processors (Optional[List[SourceDocParser]]): Optional list of pre-processors
                 to apply on the source documents.
@@ -174,7 +172,7 @@ class ExtractionPipeline():
         )
     
     def __init__(self, 
-                 components: List[TransformComponent], 
+                 components: List[Transform], 
                  pre_processors:Optional[List[SourceDocParser]]=None,
                  extraction_decorator:PipelineDecorator=None, 
                  num_workers=None, 
@@ -192,7 +190,7 @@ class ExtractionPipeline():
         any necessary decorators for additional functionality.
 
         Args:
-            components (List[TransformComponent]): A list of transformation components that constitute
+            components (List[Transform]): A list of transformation components that constitute
                 the extraction pipeline, which will process and transform the data.
             pre_processors (Optional[List[SourceDocParser]]): Optional list of pre-processors to parse
                 source documents before they are ingested into the pipeline. Defaults to None.
@@ -241,7 +239,7 @@ class ExtractionPipeline():
             logger.debug(f'Setting num_workers to CPU count [num_workers: {num_workers}]')
 
         for c in components:
-            if isinstance(c, BaseExtractor):
+            if isinstance(c, Extractor):
                 c.show_progress = show_progress
 
         id_generator=IdGenerator(
@@ -258,7 +256,7 @@ class ExtractionPipeline():
             or checkpoints can be provided.
 
             Args:
-                components (List[TransformComponent]): A list of transformation components that process
+                components (List[Transform]): A list of transformation components that process
                     the data in a sequence.
                 pre_processors (Optional[List[SourceDocParser]]): A list of pre-processing components to
                     parse and prepare the input data before it enters the transformation pipeline.
@@ -279,7 +277,15 @@ class ExtractionPipeline():
                 **kwargs (Any): Additional parameters for further customization of the pipeline or its
                     methods.
             """
-            if isinstance(c, NodeParser):
+            try:
+                from llama_index.core.node_parser import NodeParser as LlamaNodeParser
+                is_node_parser = isinstance(c, LlamaNodeParser)
+            except ImportError:
+                is_node_parser = False
+            from graphrag_toolkit.core.text_splitter import SentenceSplitter as OurSplitter
+            if isinstance(c, OurSplitter):
+                is_node_parser = True
+            if is_node_parser:
                 logger.debug(f'Wrapping {type(c).__name__} with IdRewriter')
                 return IdRewriter(inner=c, id_generator=id_generator)
             else:
@@ -296,7 +302,18 @@ class ExtractionPipeline():
 
         logger.debug(f'Extract pipeline components: {[type(c).__name__ for c in components]}')
 
-        self.ingestion_pipeline = IngestionPipeline(transformations=components, disable_cache=True)
+        # Verify all transforms are picklable (required for ProcessPoolExecutor)
+        import pickle
+        for c in components:
+            try:
+                pickle.dumps(c)
+            except (pickle.PicklingError, TypeError, AttributeError) as e:
+                logging.getLogger(__name__).warning(
+                    f'Transform {type(c).__name__} is not picklable: {e}. '
+                    f'Multi-worker extraction may fail. Consider adding __getstate__/__setstate__.'
+                )
+
+        self.ingestion_pipeline = _Pipeline(transformations=components, disable_cache=True)
         self.pre_processors = pre_processors or []
         self.extraction_decorator = extraction_decorator or PassThroughDecorator()
         self.num_workers = num_workers
@@ -328,7 +345,7 @@ class ExtractionPipeline():
         current_source_document = None
         
         for node in nodes:
-            source_info = node.relationships[NodeRelationship.SOURCE]
+            source_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
             source_id = source_info.node_id
             
             if not current_source_id:
@@ -365,10 +382,11 @@ class ExtractionPipeline():
                 being handled by the extraction pipeline and decorators.
         """
         def get_source_metadata(node):
-            if isinstance(node, Document):
+            if hasattr(node, 'doc_id'):
                 return node.metadata
             else:
-                return node.relationships[NodeRelationship.SOURCE].metadata
+                source_info = NodeRelationship.get_relationship(node.relationships, NodeRelationship.SOURCE)
+                return source_info.metadata if source_info else {}
 
         input_source_documents = source_documents_from_source_types(inputs)
 

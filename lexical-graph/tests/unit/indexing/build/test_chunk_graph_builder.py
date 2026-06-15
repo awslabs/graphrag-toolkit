@@ -4,7 +4,7 @@
 import pytest
 from unittest.mock import Mock
 from graphrag_toolkit.lexical_graph.indexing.build.chunk_graph_builder import ChunkGraphBuilder
-from llama_index.core.schema import NodeRelationship
+from graphrag_toolkit.core.compat import NodeRelationship
 
 
 class TestChunkGraphBuilderInitialization:

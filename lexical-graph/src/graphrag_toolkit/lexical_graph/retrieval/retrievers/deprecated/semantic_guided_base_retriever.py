@@ -10,19 +10,19 @@ from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
 from graphrag_toolkit.lexical_graph.storage.vector.vector_store import VectorStore
 from graphrag_toolkit.lexical_graph.storage.vector.dummy_vector_index import DummyVectorIndex
 
-from llama_index.core.base.base_retriever import BaseRetriever
-from llama_index.core.schema import NodeWithScore, QueryBundle
+from graphrag_toolkit.core.retriever import Retriever
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle
 
 logger = logging.getLogger(__name__)
 
-class SemanticGuidedBaseRetriever(BaseRetriever):
+class SemanticGuidedBaseRetriever(Retriever):
     """
     Base class for semantic-guided retrievers.
 
     This class serves as a blueprint for implementing retrievers that leverage
     a combination of vector and graph stores for semantic-guided retrieval. It
     facilitates structured retrieval processes and allows for filtering configurations.
-    The class is designed to be extended by implementing the `_retrieve` method.
+    The class is designed to be extended by implementing the `retrieve` method.
 
     Attributes:
         graph_store (GraphStore): The graph store used for managing and accessing
@@ -65,7 +65,7 @@ class SemanticGuidedBaseRetriever(BaseRetriever):
             logger.warning("'statement' vector index is a DummyVectorIndex")
 
     @abstractmethod
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+    def retrieve(self, query_bundle: QueryBundle) -> list[NodeWithScore]:
         """
         Retrieves a list of nodes with associated scores based on the provided query bundle.
 

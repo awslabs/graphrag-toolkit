@@ -6,7 +6,7 @@
 from unittest.mock import MagicMock
 
 import numpy as np
-from llama_index.core.schema import QueryBundle
+from graphrag_toolkit.core.types import QueryBundle
 
 from graphrag_toolkit.lexical_graph.retrieval.retrievers.chunk_cosine_search import (
     ChunkCosineSimilaritySearch,
@@ -46,7 +46,7 @@ class TestChunkCosineSimilaritySearch:
         retriever = _retriever(chunk_results, embeddings)
         query = QueryBundle(query_str='q', embedding=[1.0, 0.0])
 
-        nodes = retriever._retrieve(query)
+        nodes = retriever.retrieve(query)
 
         assert len(nodes) == 2
         # Highest similarity is 'c1' against query [1,0]
@@ -57,11 +57,11 @@ class TestChunkCosineSimilaritySearch:
         embeddings = {'c1': np.array([1.0, 0.0])}
         retriever = _retriever(chunk_results, embeddings)
 
-        nodes = retriever._retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
+        nodes = retriever.retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
 
         assert nodes[0].node.metadata['search_type'] == 'cosine_similarity'
 
     def test_empty_chunk_results_returns_empty(self):
         retriever = _retriever([], {})
-        nodes = retriever._retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
+        nodes = retriever.retrieve(QueryBundle(query_str='q', embedding=[1.0, 0.0]))
         assert nodes == []

@@ -3,7 +3,7 @@
 
 import pytest
 from unittest.mock import Mock, patch
-from llama_index.core import Document
+from graphrag_toolkit.core.types import Document
 from graphrag_toolkit.lexical_graph.indexing.load.source_documents import SourceDocuments
 
 

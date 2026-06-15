@@ -9,8 +9,8 @@ from datetime import datetime, date
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 
-from llama_index.core.vector_stores.types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
-from llama_index.core.bridge.pydantic import BaseModel
+from graphrag_toolkit.core.vector_store_types import FilterCondition, FilterOperator, MetadataFilter, MetadataFilters
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 
@@ -209,7 +209,13 @@ class FilterConfig(BaseModel):
         elif isinstance(source_filters, list):
             source_filters = MetadataFilters(filters=source_filters)
         else:
-            raise ValueError(f'Invalid source filters type: {type(source_filters)}')
+            # Accept LlamaIndex MetadataFilters by duck-typing
+            if hasattr(source_filters, 'filters'):
+                source_filters = MetadataFilters(
+                    filters=[MetadataFilter(key=f.key, value=f.value, operator=FilterOperator(f.operator.value) if hasattr(f.operator, 'value') else FilterOperator(f.operator)) for f in source_filters.filters]
+                )
+            else:
+                raise ValueError(f'Invalid source filters type: {type(source_filters)}')
 
         super().__init__(
             source_filters=source_filters,

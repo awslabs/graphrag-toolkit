@@ -4,8 +4,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Tuple
 
-from llama_index.core.postprocessor.types import BaseNodePostprocessor
-from llama_index.core.schema import NodeWithScore, QueryBundle
+from graphrag_toolkit.core.types import NodeWithScore, QueryBundle
 
 class RerankerMixin(ABC):
     """

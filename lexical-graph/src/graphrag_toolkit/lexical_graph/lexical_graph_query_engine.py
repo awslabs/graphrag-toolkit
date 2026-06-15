@@ -27,26 +27,24 @@ from graphrag_toolkit.lexical_graph.storage.vector import MultiTenantVectorStore
 from graphrag_toolkit.lexical_graph.storage.vector import to_embedded_query
 from graphrag_toolkit.lexical_graph.prompts.prompt_provider_factory import PromptProviderFactory
 
-from llama_index.core import ChatPromptTemplate
-from llama_index.core.llms import ChatMessage, MessageRole
-from llama_index.core.schema import QueryBundle, NodeWithScore
-from llama_index.core.base.base_query_engine import BaseQueryEngine
-from llama_index.core.base.base_retriever import BaseRetriever
-from llama_index.core.postprocessor.types import BaseNodePostprocessor
-from llama_index.core.callbacks.base import CallbackManager
-from llama_index.core.base.response.schema import RESPONSE_TYPE
-from llama_index.core.base.response.schema import Response, StreamingResponse
-from llama_index.core.prompts.mixin import PromptDictType, PromptMixinType
-from llama_index.core.types import TokenGen
+from graphrag_toolkit.core.prompt import ChatPromptTemplate
+from graphrag_toolkit.core.types import QueryBundle, NodeWithScore
+from graphrag_toolkit.core.retriever import Retriever
+from graphrag_toolkit.core.postprocessor import PostProcessor
+from graphrag_toolkit.core.response import RESPONSE_TYPE, Response, StreamingResponse, TokenGen
+
+# Type aliases (kept for backward compatibility)
+PromptDictType = dict
+PromptMixinType = dict
 
 logger = logging.getLogger(__name__)
 
-RetrieverType = Union[BaseRetriever, Type[BaseRetriever]]
-PostProcessorsType = Union[BaseNodePostprocessor, List[BaseNodePostprocessor]]
+RetrieverType = Union[Retriever, Type[Retriever]]
+PostProcessorsType = Union[PostProcessor, List[PostProcessor]]
 VersioningType = Union[bool, VersioningConfig]
 
 
-class LexicalGraphQueryEngine(BaseQueryEngine):
+class LexicalGraphQueryEngine:
        
 
     """
@@ -61,7 +59,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         context_format (str): Format in which the retrieved context data is processed (e.g., 'json', 'text', 'bedrock_xml').
         llm (LLMCacheType): Language model used for generating responses based on retrieved context and query.
         chat_template (ChatPromptTemplate): Template used for constructing conversation prompts for the LLM.
-        retriever (BaseRetriever): Retriever instance used for fetching relevant data based on queries.
+        retriever (Retriever): Retriever instance used for fetching relevant data based on queries.
         post_processors (list): List of post-processor objects for processing retrieved nodes before generating responses.
     """
     @staticmethod
@@ -256,7 +254,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
                  user_prompt: Optional[str] = None,
                  retriever: Optional[RetrieverType] = None,
                  post_processors: Optional[PostProcessorsType] = None,
-                 callback_manager: Optional[CallbackManager] = None,
+                 callback_manager=None,
                  filter_config: FilterConfig = None,
                  streaming: bool = False,
                  **kwargs):
@@ -306,12 +304,12 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
             prompt_provider = PromptProviderFactory.get_provider()
 
         self.chat_template = ChatPromptTemplate(message_templates=[
-            ChatMessage(role=MessageRole.SYSTEM, content=system_prompt or prompt_provider.get_system_prompt()),
-            ChatMessage(role=MessageRole.USER, content=user_prompt or prompt_provider.get_user_prompt()),
+            {"role": "system", "content": system_prompt or prompt_provider.get_system_prompt()},
+            {"role": "user", "content": user_prompt or prompt_provider.get_user_prompt()},
         ])
 
         if retriever:
-            if isinstance(retriever, BaseRetriever):
+            if isinstance(retriever, Retriever):
                 self.retriever = retriever
             else:
                 self.retriever = retriever(graph_store, vector_store, filter_config=filter_config, **kwargs)
@@ -330,7 +328,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
             for post_processor in self.post_processors:
                 post_processor.callback_manager = callback_manager
 
-        super().__init__(callback_manager)
+        self.callback_manager = callback_manager
 
     def _generate_response(
             self,
@@ -478,7 +476,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         results = self.retriever.retrieve(query_bundle)
 
         for post_processor in self.post_processors:
-            results = post_processor.postprocess_nodes(results, query_bundle)
+            results = post_processor.process(results, query_bundle)
 
         return results
      
@@ -513,7 +511,7 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
             end_retrieve = time.time()
 
             for post_processor in self.post_processors:
-                results = post_processor.postprocess_nodes(results, query_bundle)
+                results = post_processor.process(results, query_bundle)
 
             end_postprocessing = time.time()
 
@@ -561,6 +559,12 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
         except Exception as e:
             logger.exception('Error in query processing')
             raise
+
+    def query(self, str_or_query_bundle) -> RESPONSE_TYPE:
+        """Execute a query. Accepts a string or QueryBundle."""
+        if isinstance(str_or_query_bundle, str):
+            str_or_query_bundle = QueryBundle(str_or_query_bundle)
+        return self._query(str_or_query_bundle)
 
     async def _aquery(self, query_bundle: QueryBundle) -> RESPONSE_TYPE:
         raise NotImplementedError("Async querying is not supported. Use query() instead.")

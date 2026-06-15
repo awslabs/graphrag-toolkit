@@ -23,7 +23,7 @@ node_strategy = st.fixed_dictionaries({
         keys=st.text(min_size=1, max_size=20, alphabet=st.characters(
             whitelist_categories=('Lu', 'Ll'),
             whitelist_characters='_'
-        )),
+        )).filter(lambda k: k not in ('id', 'node_id', 'label')),
         values=st.one_of(
             st.text(max_size=100),
             st.integers(),

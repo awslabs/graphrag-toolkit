@@ -11,7 +11,8 @@ from graphrag_toolkit.lexical_graph.indexing import IdGenerator
 from graphrag_toolkit.lexical_graph.tenant_id import TenantId
 from graphrag_toolkit.lexical_graph.storage.constants import INDEX_KEY
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
-from llama_index.core.schema import TextNode, NodeRelationship, RelatedNodeInfo
+from graphrag_toolkit.core.types import Node, NodeRef
+from graphrag_toolkit.core.compat import NodeRelationship
 
 
 def _make_builder():
@@ -32,8 +33,8 @@ def _make_node(node_id='chunk_001', text='Sample chunk text', source_id='source_
     metadata = {}
     if topics:
         metadata[TOPICS_KEY] = {'topics': [{'value': t} for t in topics]}
-    node = TextNode(id_=node_id, text=text, metadata=metadata)
-    node.relationships[NodeRelationship.SOURCE] = RelatedNodeInfo(
+    node = Node(node_id=node_id, text=text, metadata=metadata)
+    node.relationships[NodeRelationship.SOURCE] = NodeRef(
         node_id=source_id,
         metadata=source_metadata or {},
     )
