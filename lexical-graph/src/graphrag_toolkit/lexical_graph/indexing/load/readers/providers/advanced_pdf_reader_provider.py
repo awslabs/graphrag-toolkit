@@ -28,18 +28,83 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
         # so read() cannot reach the bare `pymupdf` name without this.
         self._pymupdf = pymupdf
         self.config = config
+        self.extract_tables = config.extract_tables
         self.metadata_fn = config.metadata_fn
-        logger.debug("Initialized AdvancedPDFReaderProvider")
+        logger.debug(f"Initialized AdvancedPDFReaderProvider with extract_tables={config.extract_tables}")
+
+    def _find_tables(self, page, page_num):
+        """Return the tables detected on a page, or an empty list on failure."""
+        try:
+            return list(page.find_tables().tables)
+        except Exception as e:
+            logger.warning(f"Failed to detect tables on page {page_num}: {e}")
+            return []
+
+    @staticmethod
+    def _block_in_a_table(x0, y0, x1, y1, table_bboxes, threshold=0.5):
+        """True if more than `threshold` of a block's area lies inside any table
+        bbox (default: more than half), i.e. the block belongs to the table."""
+        block_area = max(0.0, x1 - x0) * max(0.0, y1 - y0)
+        if block_area == 0:
+            return False
+        for bx0, by0, bx1, by1 in table_bboxes:
+            overlap_w = max(0.0, min(x1, bx1) - max(x0, bx0))
+            overlap_h = max(0.0, min(y1, by1) - max(y0, by0))
+            if overlap_w * overlap_h > threshold * block_area:
+                return True
+        return False
+
+    def _page_text(self, page, tables):
+        """Page text with table-region text removed.
+
+        get_text() returns each table's cell text inline, and the table is also
+        appended as markdown, so without this the cell content would land in the
+        document twice and inflate downstream extraction (which dedups only on
+        exact-string output). Drop any text block sitting mostly inside a table's
+        bounding box, leaving the markdown as the table's single representation.
+        """
+        if not tables:
+            return page.get_text()
+        table_bboxes = [tuple(table.bbox) for table in tables]
+        kept = []
+        # "blocks" tuple layout: (x0, y0, x1, y1, text, block_no, block_type).
+        # block_type 1 is an image block (placeholder text); images are handled
+        # separately below, so keep only text blocks (type 0).
+        for block in page.get_text("blocks"):
+            x0, y0, x1, y1, block_text = block[:5]
+            block_type = block[6] if len(block) > 6 else 0
+            if block_type != 0:
+                continue
+            if not self._block_in_a_table(x0, y0, x1, y1, table_bboxes):
+                kept.append(block_text)
+        return "".join(kept)
+
+    def _append_tables(self, page_num, tables, text):
+        """Append each table to the text as a markdown block.
+
+        Returns the augmented text and the number of tables rendered. Row/column
+        relationships are preserved via the pipe-delimited markdown that pymupdf's
+        TableFinder produces. The count reflects tables actually written, not just
+        detected, so table_count never overstates what a consumer can find.
+        """
+        rendered = 0
+        for tbl_index, table in enumerate(tables):
+            try:
+                text += f"\n[TABLE_{page_num}_{tbl_index}]\n{table.to_markdown()}"
+                rendered += 1
+            except Exception as e:
+                logger.warning(f"Failed to render table {tbl_index} on page {page_num}: {e}")
+        return text, rendered
 
     def read(self, input_source) -> List[Document]:
         """Read PDF with text, images, and tables."""
         if not input_source:
             logger.error("No input source provided to AdvancedPDFReaderProvider")
             raise ValueError("input_source cannot be None or empty")
-
+        
         logger.info(f"Reading advanced PDF from: {input_source}")
         processed_paths, temp_files, original_paths = self._process_file_paths(input_source)
-
+        
         try:
             pdf_path = processed_paths[0]
             logger.debug(f"Opening PDF file: {pdf_path}")
@@ -48,7 +113,9 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
 
             for page_num in range(len(doc)):
                 page = doc[page_num]
-                text = page.get_text()
+
+                tables = self._find_tables(page, page_num) if self.extract_tables else []
+                text = self._page_text(page, tables)
 
                 image_list = page.get_images()
                 for img_index, img in enumerate(image_list):
@@ -63,25 +130,28 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
                     except Exception as e:
                         logger.warning(f"Failed to extract image {img_index} from page {page_num}: {e}")
 
+                text, table_count = self._append_tables(page_num, tables, text)
+
                 page_doc = Document(
                     text=text,
                     metadata={
                         'page_number': page_num + 1,
                         'source': 'advanced_pdf',
-                        'file_path': original_paths[0]
+                        'file_path': original_paths[0],
+                        'table_count': table_count
                     }
                 )
-
+                
                 if self.metadata_fn:
                     additional_metadata = self.metadata_fn(original_paths[0])
                     page_doc.metadata.update(additional_metadata)
-
+                
                 documents.append(page_doc)
-
+            
             doc.close()
             logger.info(f"Successfully read {len(documents)} page(s) from advanced PDF")
             return documents
-
+            
         except Exception as e:
             logger.error(f"Failed to read advanced PDF from {input_source}: {e}", exc_info=True)
             raise RuntimeError(f"Failed to read advanced PDF: {e}") from e
