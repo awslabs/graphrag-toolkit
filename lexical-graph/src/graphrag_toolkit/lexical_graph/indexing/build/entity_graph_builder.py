@@ -110,16 +110,12 @@ class EntityGraphBuilder(GraphBuilder):
             if include_domain_labels:
 
                 def insert_domain_entity(entity:Entity):
-                    """
-                    Add the entity's domain label (its classification) to the
-                    `__Entity__` node.
+                    """Add the entity's domain label to the `__Entity__` node.
 
-                    The classification reaches a backtick-quoted Cypher label, and
                     `label_from` passes `__...__` values through unescaped, so the
-                    label is escaped with `escape_cypher_label` and the entity id is
-                    bound as a parameter rather than inlined into a string literal.
-                    Newlines are stripped from the trailing `//` comment so a crafted
-                    label cannot terminate it and append further Cypher.
+                    label is escaped, the entity id is bound as a parameter (not
+                    inlined), and newlines are stripped from the `//` comment so a
+                    crafted label cannot terminate it and append further Cypher.
                     """
                     if entity.classification and entity.classification == LOCAL_ENTITY_CLASSIFICATION:
                         return

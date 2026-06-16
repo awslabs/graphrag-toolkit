@@ -3,26 +3,13 @@
 
 """Live Cypher label-injection test against a real FalkorDB graph.
 
-Exercises the exact query shape that ``EntityGraphBuilder`` emits for a domain
-entity, driving a malicious classification through the real ``label_from`` and
-``escape_cypher_label`` helpers, and confirms against a running FalkorDB that:
+Confirms the escaped (patched) query leaves a seeded canary untouched, while the
+un-escaped (pre-patch) query deletes it - a red-state proof that the test detects
+the regression rather than passing vacuously.
 
-  * the escaped (patched) query leaves a seeded canary node untouched, and
-  * the un-escaped (pre-patch) query DOES delete the canary - a red-state proof
-    that this test actually detects the regression rather than passing vacuously.
-
-The malicious classification is ``__...__`` wrapped so that ``label_from`` passes
-it through unescaped; un-escaped it closes the SET label and runs a DETACH DELETE
-on the canary, with a trailing ``//`` that comments out the rest of the line.
-
-Marked ``integration`` and skips automatically when no FalkorDB is reachable, so
-it is CI-safe.
-
-Run a FalkorDB locally first, e.g. (Docker Hub blocked? use an internal mirror):
-
-    finch run -d --name falkordb -p 6379:6379 docker.io/falkordb/falkordb:latest
-    FALKORDB_URL=falkordb://localhost:6379 \
-      pytest lexical-graph-contrib/falkordb/tests/test_label_injection_live.py -v
+Marked ``integration`` and auto-skips when no FalkorDB is reachable. Set
+``FALKORDB_URL`` to connect (default ``falkordb://localhost:6379``); see this
+package's README for how to run it.
 """
 
 import os
