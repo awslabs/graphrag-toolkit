@@ -28,7 +28,6 @@ def _percentile(sorted_values: List[float], p: float) -> float:
     if n == 1:
         return float(sorted_values[0])
 
-    # Use the "exclusive" percentile method (linear interpolation)
     rank = (p / 100.0) * (n - 1)
     lower = int(rank)
     upper = lower + 1
@@ -41,11 +40,7 @@ def _percentile(sorted_values: List[float], p: float) -> float:
 
 
 def _compute_latency_stats(values: List[int]) -> Optional[Dict[str, float]]:
-    """Compute avg, p50, p95 for a list of non-null latency values.
-
-    Returns None if the list is empty.
-    All values are rounded to 2 decimal places.
-    """
+    """Compute avg, p50, p95 for a list of non-null latency values."""
     if not values:
         return None
 
@@ -66,21 +61,8 @@ def compute_metrics_summary(
     model_id: str,
     num_empty: int,
 ) -> Dict[str, Any]:
-    """Compute aggregate latency (avg, p50, p95), total tokens, estimated cost,
-    and metadata for a benchmark run.
-
-    Args:
-        per_query_data: List of per-query result dicts, each containing optional
-            keys: retrieve_ms, answer_ms, total_latency_ms, input_tokens, output_tokens.
-        retriever_id: The retriever identifier used for this run.
-        dataset: The dataset name.
-        model_id: The Bedrock model ID used for response generation.
-        num_empty: Count of queries that produced empty responses.
-
-    Returns:
-        Dict suitable for writing as metrics_summary.json.
-    """
-    # Extract non-null latency values for each metric
+    """Compute aggregate latency, tokens, estimated cost for a benchmark run."""
+    # Extract non-null latency values
     retrieve_ms_values = [
         entry['retrieve_ms'] for entry in per_query_data
         if entry.get('retrieve_ms') is not None
@@ -94,13 +76,11 @@ def compute_metrics_summary(
         if entry.get('total_latency_ms') is not None
     ]
 
-    # Count excluded queries (those with at least one null latency field)
     num_excluded_latency = sum(
         1 for entry in per_query_data
         if entry.get('retrieve_ms') is None or entry.get('answer_ms') is None
     )
 
-    # Compute latency statistics
     latency = {
         'retrieval_ms': _compute_latency_stats(retrieve_ms_values),
         'response_ms': _compute_latency_stats(answer_ms_values),
@@ -110,11 +90,14 @@ def compute_metrics_summary(
     # Compute total tokens (excluding null entries)
     total_input_tokens = 0
     total_output_tokens = 0
+    total_retrieval_context_tokens = 0
     num_missing_token_metadata = 0
+    num_missing_context_token_metadata = 0
 
     for entry in per_query_data:
         input_tokens = entry.get('input_tokens')
         output_tokens = entry.get('output_tokens')
+        retrieval_context_tokens = entry.get('retrieval_context_tokens')
 
         if input_tokens is None or output_tokens is None:
             num_missing_token_metadata += 1
@@ -122,7 +105,23 @@ def compute_metrics_summary(
             total_input_tokens += input_tokens
             total_output_tokens += output_tokens
 
-    # Compute estimated cost using per-model pricing lookup
+        if retrieval_context_tokens is None:
+            num_missing_context_token_metadata += 1
+        else:
+            total_retrieval_context_tokens += retrieval_context_tokens
+
+    num_with_prompt_tokens = len(per_query_data) - num_missing_token_metadata
+    num_with_context_tokens = len(per_query_data) - num_missing_context_token_metadata
+
+    avg_prompt_tokens_per_query = round(
+        total_input_tokens / num_with_prompt_tokens, 2
+    ) if num_with_prompt_tokens > 0 else None
+
+    avg_retrieval_context_tokens_per_query = round(
+        total_retrieval_context_tokens / num_with_context_tokens, 2
+    ) if num_with_context_tokens > 0 else None
+
+    # Compute estimated cost
     estimated_cost_usd: Optional[float] = None
     if model_id in BEDROCK_PRICING:
         pricing = BEDROCK_PRICING[model_id]
@@ -142,11 +141,15 @@ def compute_metrics_summary(
         'num_queries': len(per_query_data),
         'num_empty_responses': num_empty,
         'num_missing_token_metadata': num_missing_token_metadata,
+        'num_missing_context_token_metadata': num_missing_context_token_metadata,
         'num_excluded_latency': num_excluded_latency,
         'latency': latency,
         'tokens': {
             'total_input_tokens': total_input_tokens,
             'total_output_tokens': total_output_tokens,
+            'total_retrieval_context_tokens': total_retrieval_context_tokens,
+            'avg_prompt_tokens_per_query': avg_prompt_tokens_per_query,
+            'avg_retrieval_context_tokens_per_query': avg_retrieval_context_tokens_per_query,
         },
         'estimated_cost_usd': estimated_cost_usd,
     }

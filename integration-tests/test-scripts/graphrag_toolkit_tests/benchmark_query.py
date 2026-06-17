@@ -170,7 +170,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                 total_ms = math.floor(raw_total_ms) if raw_total_ms is not None else None
 
                 # Extract per-query token usage
-                input_tokens, output_tokens = extract_token_usage(llm_cache)
+                input_tokens, output_tokens, retrieval_context_tokens = extract_token_usage(llm_cache)
 
                 # Classify question hop complexity
                 hop_classification = classify_hop(question)
@@ -201,6 +201,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                     'total_ms': total_ms,
                     'input_tokens': input_tokens,
                     'output_tokens': output_tokens,
+                    'retrieval_context_tokens': retrieval_context_tokens,
                     'hop_classification': hop_classification,
                 })
 
@@ -212,6 +213,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                     'total_ms': total_ms,
                     'input_tokens': input_tokens,
                     'output_tokens': output_tokens,
+                    'retrieval_context_tokens': retrieval_context_tokens,
                     'hop_classification': hop_classification,
                     'retrieval_iterations': agentic_retrieval_iterations,
                     'agentic_retrieval_ms': agentic_retrieval_ms_val,

@@ -353,13 +353,24 @@ These are set in `benchmark_build.py` and apply to all benchmark datasets. For s
 - **Correctness** — LLM-as-judge grades whether the response correctly answers the question given the ground-truth answer
 - **IDK (I Don't Know)** — Classifies responses as "answerable" or "unanswerable" to measure how often the system declines to answer
 - **Latency** — End-to-end time per query in milliseconds (retrieval + LLM response generation), reported as avg/p50/p95
-- **Token Usage** — Total input and output tokens across all queries (proxy for cost)
-- **Estimated Cost** — USD per query using model-specific pricing
+- **Token Usage** — Two measurements tracked separately:
+  - *Full Prompt Tokens* (`prompt_tokens_total`) — Total input tokens from Bedrock usage metadata. Includes system prompt, XML-formatted retrieval context, and user prompt with query. This is what you're billed for (~108K per query typical).
+  - *Retrieval Context Tokens* (`retrieval_context_tokens`) — Estimated token count of just the retrieval context (search_results), measured via char/4 approximation. This reflects how much context the retriever assembled after capping (~2,500–10K per query depending on retriever). Use this to verify capping effectiveness.
+- **Estimated Cost** — USD per query using model-specific pricing (based on full prompt tokens)
 - **Hop Classification** — Each question classified as single-hop, multi-hop, or unknown for breakdown analysis
 
+### Token Count Explanation
+
+The benchmark reports ~108K `prompt_tokens_total` per query. This is **not a bug**. The full prompt sent to Bedrock includes:
+1. System prompt template (~400 tokens)
+2. XML-formatted retrieval context with `<source_N>`, `<statement_N.M>` tags and source metadata
+3. User prompt template with query and additional context
+
+The capping configuration (max_statements=200, max_search_results=5, max_statements_per_topic=10) limits the **retrieval context**, not the full prompt. The `retrieval_context_tokens` field isolates this component so you can verify capping works independently of prompt overhead.
+
 Results are written to `benchmark-results/<dataset>/<retriever>/` on the notebook:
-- `responses.jsonl` — Per-query responses with latency, tokens, and hop classification
-- `metrics_summary.json` — Aggregate latency (avg/p50/p95), total tokens, estimated cost
+- `responses.jsonl` — Per-query responses with latency, tokens (full prompt + retrieval context), and hop classification
+- `metrics_summary.json` — Aggregate latency (avg/p50/p95), total tokens (prompt + context), estimated cost
 - `correctness.json` — Aggregate correctness score
 - `idk.json` — Aggregate IDK rate
 - `correctness_evals.json` — Per-question correctness grades

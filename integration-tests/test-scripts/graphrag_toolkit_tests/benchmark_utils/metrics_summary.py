@@ -104,17 +104,37 @@ def compute_metrics_summary(
     # Compute total tokens (excluding null entries)
     total_input_tokens = 0
     total_output_tokens = 0
+    total_retrieval_context_tokens = 0
     num_missing_token_metadata = 0
+    num_missing_context_token_metadata = 0
 
     for entry in per_query_data:
         input_tokens = entry.get('input_tokens')
         output_tokens = entry.get('output_tokens')
+        retrieval_context_tokens = entry.get('retrieval_context_tokens')
 
         if input_tokens is None or output_tokens is None:
             num_missing_token_metadata += 1
         else:
             total_input_tokens += input_tokens
             total_output_tokens += output_tokens
+
+        if retrieval_context_tokens is None:
+            num_missing_context_token_metadata += 1
+        else:
+            total_retrieval_context_tokens += retrieval_context_tokens
+
+    # Compute per-query averages for token reporting
+    num_with_prompt_tokens = len(per_query_data) - num_missing_token_metadata
+    num_with_context_tokens = len(per_query_data) - num_missing_context_token_metadata
+
+    avg_prompt_tokens_per_query = round(
+        total_input_tokens / num_with_prompt_tokens, 2
+    ) if num_with_prompt_tokens > 0 else None
+
+    avg_retrieval_context_tokens_per_query = round(
+        total_retrieval_context_tokens / num_with_context_tokens, 2
+    ) if num_with_context_tokens > 0 else None
 
     # Compute estimated cost using per-model pricing lookup
     estimated_cost_usd: Optional[float] = None
@@ -136,10 +156,14 @@ def compute_metrics_summary(
         'num_queries': len(per_query_data),
         'num_empty_responses': num_empty,
         'num_missing_token_metadata': num_missing_token_metadata,
+        'num_missing_context_token_metadata': num_missing_context_token_metadata,
         'latency': latency,
         'tokens': {
             'total_input_tokens': total_input_tokens,
             'total_output_tokens': total_output_tokens,
+            'total_retrieval_context_tokens': total_retrieval_context_tokens,
+            'avg_prompt_tokens_per_query': avg_prompt_tokens_per_query,
+            'avg_retrieval_context_tokens_per_query': avg_retrieval_context_tokens_per_query,
         },
         'estimated_cost_usd': estimated_cost_usd,
     }

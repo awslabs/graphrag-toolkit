@@ -42,7 +42,7 @@ class TestExtractTokenUsageWithNonTrackingCache:
         mock_llm = MockLLM()
         cache = LLMCache(llm=mock_llm, enable_cache=False)
         result = extract_token_usage(cache)
-        assert result == (None, None)
+        assert result == (None, None, None)
 
 
 class TestExtractTokenUsageWithNonBedrockLLM:
@@ -53,7 +53,7 @@ class TestExtractTokenUsageWithNonBedrockLLM:
         mock_llm = MockLLM()
         cache = TokenTrackingLLMCache(llm=mock_llm, enable_cache=False)
         result = extract_token_usage(cache)
-        assert result == (None, None)
+        assert result == (None, None, None)
 
 
 class TestTokenTrackingExtractTokensFromResponse:
@@ -168,7 +168,7 @@ class TestTokenTrackingLLMCachePredict:
         assert result == "answer text"
         assert cache._last_input_tokens == 200
         assert cache._last_output_tokens == 50
-        assert extract_token_usage(cache) == (200, 50)
+        assert extract_token_usage(cache) == (200, 50, None)
 
     def test_predict_logs_warning_when_tokens_unavailable(self, caplog):
         """Verify WARNING is logged when token metadata unavailable from live call."""
@@ -234,7 +234,7 @@ class TestTokenTrackingLLMCachePredict:
         result = cache.predict(prompt, query="test")
 
         # Should still return (None, None) for token usage
-        assert extract_token_usage(cache) == (None, None)
+        assert extract_token_usage(cache) == (None, None, None)
 
     def test_cache_hit_returns_none_none(self):
         """Verify (None, None) when response is served from file cache."""
@@ -246,7 +246,7 @@ class TestTokenTrackingLLMCachePredict:
         cache._last_was_cache_hit = True
 
         result = extract_token_usage(cache)
-        assert result == (None, None)
+        assert result == (None, None, None)
 
     @patch('os.path.exists', return_value=True)
     def test_file_cache_hit_sets_flag(self, mock_exists):
@@ -267,7 +267,7 @@ class TestTokenTrackingLLMCachePredict:
                 pass  # May fail on file read, but flag should be set
 
         assert cache._last_was_cache_hit is True
-        assert extract_token_usage(cache) == (None, None)
+        assert extract_token_usage(cache) == (None, None, None)
 
     def test_predict_resets_state_between_calls(self):
         """Verify token state is reset between predict calls."""
@@ -299,12 +299,12 @@ class TestTokenTrackingLLMCachePredict:
         # First call
         mock_llm.chat = Mock(return_value=response_with_tokens)
         cache.predict(prompt, query="first")
-        assert extract_token_usage(cache) == (100, 20)
+        assert extract_token_usage(cache) == (100, 20, None)
 
         # Second call - tokens should be reset
         mock_llm.chat = Mock(return_value=response_without_tokens)
         cache.predict(prompt, query="second")
-        assert extract_token_usage(cache) == (None, None)
+        assert extract_token_usage(cache) == (None, None, None)
 
 
 from hypothesis import given, settings

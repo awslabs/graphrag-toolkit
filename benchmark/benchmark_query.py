@@ -227,7 +227,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                 total_latency_ms = (retrieve_ms + answer_ms) if (retrieve_ms is not None and answer_ms is not None) else None
 
                 # Extract per-query token usage
-                input_tokens, output_tokens = extract_token_usage(llm_cache)
+                input_tokens, output_tokens, retrieval_context_tokens = extract_token_usage(llm_cache)
 
                 # Classify question hop complexity
                 hop_classification = classify_hop(question)
@@ -258,6 +258,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                     'total_latency_ms': total_latency_ms,
                     'input_tokens': input_tokens,
                     'output_tokens': output_tokens,
+                    'retrieval_context_tokens': retrieval_context_tokens,
                     'hop_classification': hop_classification,
                 })
 
@@ -271,7 +272,7 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                     'answer_ms': answer_ms,
                     'total_latency_ms': total_latency_ms,
                     'prompt_tokens_total': input_tokens,
-                    'retrieval_context_tokens': None,  # Populated by task 3.1 (dual-field token tracking)
+                    'retrieval_context_tokens': retrieval_context_tokens,
                     'output_tokens': output_tokens,
                     'hop_classification': hop_classification,
                     'dataset_category': dataset_category,
