@@ -128,7 +128,7 @@ def compute_metrics_summary(
     num_with_prompt_tokens = len(per_query_data) - num_missing_token_metadata
     num_with_context_tokens = len(per_query_data) - num_missing_context_token_metadata
 
-    avg_prompt_tokens_per_query = round(
+    avg_input_tokens_per_query = round(
         total_input_tokens / num_with_prompt_tokens, 2
     ) if num_with_prompt_tokens > 0 else None
 
@@ -162,7 +162,7 @@ def compute_metrics_summary(
             'total_input_tokens': total_input_tokens,
             'total_output_tokens': total_output_tokens,
             'total_retrieval_context_tokens': total_retrieval_context_tokens,
-            'avg_prompt_tokens_per_query': avg_prompt_tokens_per_query,
+            'avg_input_tokens_per_query': avg_input_tokens_per_query,
             'avg_retrieval_context_tokens_per_query': avg_retrieval_context_tokens_per_query,
         },
         'estimated_cost_usd': estimated_cost_usd,

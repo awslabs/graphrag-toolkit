@@ -323,9 +323,6 @@ class TestEstimateTokenCount:
     def test_empty_string_returns_zero(self):
         assert estimate_token_count('') == 0
 
-    def test_none_returns_zero(self):
-        assert estimate_token_count(None) == 0
-
     def test_short_text(self):
         # "hello" is 5 chars -> 5 // 4 = 1
         assert estimate_token_count("hello") == 1

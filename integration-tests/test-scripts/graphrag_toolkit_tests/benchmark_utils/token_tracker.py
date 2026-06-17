@@ -25,8 +25,8 @@ from botocore.config import Config
 
 logger = logging.getLogger(__name__)
 
-TIMEOUT = 60.0
-MAX_ATTEMPTS = 10
+_TIMEOUT = 60.0
+_MAX_ATTEMPTS = 10
 # Approximate chars-per-token ratio, calibrated for Claude-family models on English text.
 # Other model families or non-English content may have a different ratio.
 # For structured text (JSON, code, lists) this can be off by 30-50%; acceptable for
@@ -34,11 +34,21 @@ MAX_ATTEMPTS = 10
 _CHARS_PER_TOKEN = 4
 
 
-def estimate_token_count(text: str) -> int:
-    """Estimate token count using ~4 chars/token heuristic for Claude models."""
+def estimate_token_count(text: str, chars_per_token: int = _CHARS_PER_TOKEN) -> int:
+    """Estimate token count using ~4 chars/token heuristic for Claude models.
+
+    Args:
+        text: The text to estimate token count for.
+        chars_per_token: Override the chars-per-token ratio. Defaults to _CHARS_PER_TOKEN (4),
+            which is calibrated for Claude-family models on English text. Adjust for other
+            model families, non-English content, or structured text (JSON, code).
+
+    Returns:
+        Estimated token count as a non-negative integer.
+    """
     if not text:
         return 0
-    return max(0, len(text) // _CHARS_PER_TOKEN)
+    return max(0, len(text) // chars_per_token)
 
 
 class TokenTrackingLLMCache(LLMCache):
@@ -89,9 +99,9 @@ class TokenTrackingLLMCache(LLMCache):
 
         if not hasattr(self.llm, '_client') or self.llm._client is None:
             config = Config(
-                retries={'max_attempts': MAX_ATTEMPTS, 'mode': 'standard'},
-                connect_timeout=TIMEOUT,
-                read_timeout=TIMEOUT,
+                retries={'max_attempts': _MAX_ATTEMPTS, 'mode': 'standard'},
+                connect_timeout=_TIMEOUT,
+                read_timeout=_TIMEOUT,
             )
             session = GraphRAGConfig.session
             self.llm._client = session.client('bedrock-runtime', config=config)
@@ -135,12 +145,26 @@ class TokenTrackingLLMCache(LLMCache):
 
 
 def extract_token_usage(llm_cache: LLMCache) -> Tuple[Optional[int], Optional[int], Optional[int]]:
-    """
-    Returns (prompt_tokens_total, output_tokens, retrieval_context_tokens).
+    """Extract token usage from a TokenTrackingLLMCache after a predict call.
 
-    Returns (None, None, None) if llm_cache is not a TokenTrackingLLMCache,
-    LLM is not BedrockConverse, or usage metadata is unavailable.
-    On cache hits, prompt/output tokens are None but context tokens may be available.
+    Args:
+        llm_cache: The LLM cache instance to extract token usage from.
+
+    Returns:
+        A 3-tuple of (input_tokens, output_tokens, retrieval_context_tokens) where:
+          - input_tokens: Full prompt token count from Bedrock usage metadata
+            (system prompt + retrieval context + query). None on cache hits or if
+            unavailable.
+          - output_tokens: Generated output token count from Bedrock usage metadata.
+            None on cache hits or if unavailable.
+          - retrieval_context_tokens: Estimated token count of just the retrieval
+            context (search_results), computed via char/token heuristic before prompt
+            assembly. None if search_results was absent or empty.
+
+        Returns (None, None, None) if llm_cache is not a TokenTrackingLLMCache,
+        the LLM is not BedrockConverse, or usage metadata is unavailable.
+        On cache hits, input/output tokens are None but retrieval_context_tokens
+        may still be populated.
     """
     if not isinstance(llm_cache, TokenTrackingLLMCache):
         return (None, None, None)
