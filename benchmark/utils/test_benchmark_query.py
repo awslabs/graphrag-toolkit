@@ -24,9 +24,10 @@ class TestTimingFloorTransformation:
     Timing metadata floor transformation
 
     For any non-negative float value in the query engine response metadata
-    (retrieve_ms, answer_ms, total_ms), the corresponding integer field written
-    to the JSONL output (retrieval_ms, response_ms, total_ms) SHALL equal
-    math.floor() of that float value.
+    (retrieve_ms, answer_ms), the corresponding integer field written
+    to the JSONL output (retrieve_ms, answer_ms) SHALL equal
+    math.floor() of that float value. total_latency_ms SHALL equal the sum
+    of retrieve_ms and answer_ms when both are present, null otherwise.
     """
 
     @settings(max_examples=100)
@@ -84,48 +85,57 @@ class TestTimingFloorTransformation:
             allow_nan=False,
             allow_infinity=False,
         ),
-        total_ms=floats(
-            min_value=0,
-            max_value=1_000_000,
-            allow_nan=False,
-            allow_infinity=False,
-        ),
     )
-    def test_all_timing_fields_floor_correctly(self, retrieve_ms, answer_ms, total_ms):
+    def test_all_timing_fields_floor_correctly(self, retrieve_ms, answer_ms):
         """
-        Given three non-negative floats representing retrieve_ms, answer_ms, and total_ms,
+        Given two non-negative floats representing retrieve_ms and answer_ms,
         applying math.floor to each produces correct integer values matching the
-        transformation in benchmark_query.py.
+        transformation in benchmark_query.py. total_latency_ms equals their sum.
         """
         # Apply the same transformation as benchmark_query.py
-        retrieval_ms = math.floor(retrieve_ms)
-        response_ms = math.floor(answer_ms)
-        total_ms_int = math.floor(total_ms)
+        retrieve_ms_int = math.floor(retrieve_ms)
+        answer_ms_int = math.floor(answer_ms)
+        total_latency_ms = retrieve_ms_int + answer_ms_int
 
         # All results must be integers
-        assert isinstance(retrieval_ms, int)
-        assert isinstance(response_ms, int)
-        assert isinstance(total_ms_int, int)
+        assert isinstance(retrieve_ms_int, int)
+        assert isinstance(answer_ms_int, int)
+        assert isinstance(total_latency_ms, int)
 
-        # All results must satisfy floor properties
-        assert retrieval_ms <= retrieve_ms < retrieval_ms + 1
-        assert response_ms <= answer_ms < response_ms + 1
-        assert total_ms_int <= total_ms < total_ms_int + 1
+        # Floor results must satisfy floor properties
+        assert retrieve_ms_int <= retrieve_ms < retrieve_ms_int + 1
+        assert answer_ms_int <= answer_ms < answer_ms_int + 1
+
+        # total_latency_ms must equal the sum of the floored values
+        assert total_latency_ms == retrieve_ms_int + answer_ms_int
 
         # All results must be non-negative
-        assert retrieval_ms >= 0
-        assert response_ms >= 0
-        assert total_ms_int >= 0
+        assert retrieve_ms_int >= 0
+        assert answer_ms_int >= 0
+        assert total_latency_ms >= 0
 
 
 REQUIRED_FIELDS = [
     'raw_example',
     'response',
-    'retrieval_ms',
-    'response_ms',
-    'total_ms',
-    'input_tokens',
+    'retrieve_ms',
+    'answer_ms',
+    'total_latency_ms',
+    'prompt_tokens_total',
+    'retrieval_context_tokens',
     'output_tokens',
+    'hop_classification',
+    'dataset_category',
+    'retriever',
+    'dataset',
+    'capping_params',
+    'graph_statistics',
+    'ingestion_time_minutes',
+    'extraction_time_minutes',
+    'retrieval_iterations',
+    'agentic_retrieval_ms',
+    'agentic_input_tokens',
+    'agentic_output_tokens',
 ]
 
 
@@ -135,9 +145,20 @@ def build_jsonl_record(
     response_text: str,
     raw_retrieve_ms,
     raw_answer_ms,
-    raw_total_ms,
     input_tokens,
     output_tokens,
+    retriever_id: str = 'traversal',
+    dataset: str = 'cuad',
+    dataset_category=None,
+    capping_params=None,
+    graph_statistics=None,
+    ingestion_time_minutes=None,
+    extraction_time_minutes=None,
+    retrieval_iterations=None,
+    agentic_retrieval_ms=None,
+    agentic_input_tokens=None,
+    agentic_output_tokens=None,
+    hop_classification: str = 'unknown',
 ):
     """
     Simulates the JSONL line construction logic from benchmark_query.py's
@@ -145,20 +166,50 @@ def build_jsonl_record(
 
     This mirrors the exact dict construction in the query loop:
     - Timing fields are floor'd if present, else None
+    - total_latency_ms is computed as sum when both present, null otherwise
     - Token fields are passed through as-is (int or None)
+    - All fields always present (null when unavailable, never omitted)
     """
-    retrieval_ms = math.floor(raw_retrieve_ms) if raw_retrieve_ms is not None else None
-    response_ms = math.floor(raw_answer_ms) if raw_answer_ms is not None else None
-    total_ms = math.floor(raw_total_ms) if raw_total_ms is not None else None
+    retrieve_ms = math.floor(raw_retrieve_ms) if raw_retrieve_ms is not None else None
+    answer_ms = math.floor(raw_answer_ms) if raw_answer_ms is not None else None
+    total_latency_ms = (retrieve_ms + answer_ms) if (retrieve_ms is not None and answer_ms is not None) else None
+
+    if capping_params is None:
+        capping_params = {
+            'max_statements_per_topic': 10,
+            'max_search_results': 5,
+            'max_statements': 200,
+        }
+
+    if graph_statistics is None:
+        graph_statistics = {
+            'chunk_count': None,
+            'statement_count': None,
+            'topic_count': None,
+            'entity_count': None,
+        }
 
     return {
         'raw_example': {'question': question, 'answer': answer},
         'response': response_text,
-        'retrieval_ms': retrieval_ms,
-        'response_ms': response_ms,
-        'total_ms': total_ms,
-        'input_tokens': input_tokens,
+        'retrieve_ms': retrieve_ms,
+        'answer_ms': answer_ms,
+        'total_latency_ms': total_latency_ms,
+        'prompt_tokens_total': input_tokens,
+        'retrieval_context_tokens': None,  # Populated by task 3.1
         'output_tokens': output_tokens,
+        'hop_classification': hop_classification,
+        'dataset_category': dataset_category,
+        'retriever': retriever_id,
+        'dataset': dataset,
+        'capping_params': capping_params,
+        'graph_statistics': graph_statistics,
+        'ingestion_time_minutes': ingestion_time_minutes,
+        'extraction_time_minutes': extraction_time_minutes,
+        'retrieval_iterations': retrieval_iterations,
+        'agentic_retrieval_ms': agentic_retrieval_ms,
+        'agentic_input_tokens': agentic_input_tokens,
+        'agentic_output_tokens': agentic_output_tokens,
     }
 
 
@@ -167,9 +218,13 @@ class TestJSONLStructuralCompletenessProperty:
     JSONL structural completeness
 
     For any query result (whether timing/token metadata is available or not),
-    the corresponding JSONL line SHALL contain all required fields
-    (raw_example, response, retrieval_ms, response_ms, total_ms, input_tokens,
-    output_tokens) where each field is either a valid value or null.
+    the corresponding JSONL line SHALL contain all required fields defined in
+    the schema (raw_example, response, retrieve_ms, answer_ms, total_latency_ms,
+    prompt_tokens_total, retrieval_context_tokens, output_tokens, hop_classification,
+    dataset_category, retriever, dataset, capping_params, graph_statistics,
+    ingestion_time_minutes, extraction_time_minutes, retrieval_iterations,
+    agentic_retrieval_ms, agentic_input_tokens, agentic_output_tokens) where
+    each field is either a valid value or null.
     """
 
     @settings(max_examples=100)
@@ -179,7 +234,6 @@ class TestJSONLStructuralCompletenessProperty:
         response_text=text(max_size=500),
         raw_retrieve_ms=one_of(none(), floats(min_value=0.0, max_value=1e9, allow_nan=False, allow_infinity=False)),
         raw_answer_ms=one_of(none(), floats(min_value=0.0, max_value=1e9, allow_nan=False, allow_infinity=False)),
-        raw_total_ms=one_of(none(), floats(min_value=0.0, max_value=1e9, allow_nan=False, allow_infinity=False)),
         input_tokens=one_of(none(), integers(min_value=0, max_value=10_000_000)),
         output_tokens=one_of(none(), integers(min_value=0, max_value=10_000_000)),
     )
@@ -190,7 +244,6 @@ class TestJSONLStructuralCompletenessProperty:
         response_text,
         raw_retrieve_ms,
         raw_answer_ms,
-        raw_total_ms,
         input_tokens,
         output_tokens,
     ):
@@ -204,7 +257,6 @@ class TestJSONLStructuralCompletenessProperty:
             response_text=response_text,
             raw_retrieve_ms=raw_retrieve_ms,
             raw_answer_ms=raw_answer_ms,
-            raw_total_ms=raw_total_ms,
             input_tokens=input_tokens,
             output_tokens=output_tokens,
         )
@@ -222,17 +274,61 @@ class TestJSONLStructuralCompletenessProperty:
         assert isinstance(record['response'], str)
 
         # Timing fields must be int or None
-        for timing_field in ('retrieval_ms', 'response_ms', 'total_ms'):
+        for timing_field in ('retrieve_ms', 'answer_ms', 'total_latency_ms'):
             value = record[timing_field]
             assert value is None or isinstance(value, int), (
                 f"Field '{timing_field}' must be int or None, got {type(value)}: {value}"
             )
 
         # Token fields must be int or None
-        for token_field in ('input_tokens', 'output_tokens'):
+        for token_field in ('prompt_tokens_total', 'retrieval_context_tokens', 'output_tokens'):
             value = record[token_field]
             assert value is None or isinstance(value, int), (
                 f"Field '{token_field}' must be int or None, got {type(value)}: {value}"
+            )
+
+        # capping_params must be a dict with the required keys
+        assert isinstance(record['capping_params'], dict)
+        for key in ('max_statements_per_topic', 'max_search_results', 'max_statements'):
+            assert key in record['capping_params'], (
+                f"capping_params missing key '{key}'"
+            )
+            assert isinstance(record['capping_params'][key], int), (
+                f"capping_params['{key}'] must be int, got {type(record['capping_params'][key])}"
+            )
+
+        # graph_statistics must be a dict with the required keys (values can be int or None)
+        assert isinstance(record['graph_statistics'], dict)
+        for key in ('chunk_count', 'statement_count', 'topic_count', 'entity_count'):
+            assert key in record['graph_statistics'], (
+                f"graph_statistics missing key '{key}'"
+            )
+            value = record['graph_statistics'][key]
+            assert value is None or isinstance(value, int), (
+                f"graph_statistics['{key}'] must be int or None, got {type(value)}: {value}"
+            )
+
+        # ingestion_time_minutes and extraction_time_minutes must be float or None
+        for time_field in ('ingestion_time_minutes', 'extraction_time_minutes'):
+            value = record[time_field]
+            assert value is None or isinstance(value, (int, float)), (
+                f"Field '{time_field}' must be float or None, got {type(value)}: {value}"
+            )
+
+        # retriever must be a string
+        assert isinstance(record['retriever'], str)
+
+        # dataset must be a string
+        assert isinstance(record['dataset'], str)
+
+        # dataset_category must be string or None
+        assert record['dataset_category'] is None or isinstance(record['dataset_category'], str)
+
+        # Agentic fields must be int or None
+        for agentic_field in ('retrieval_iterations', 'agentic_retrieval_ms', 'agentic_input_tokens', 'agentic_output_tokens'):
+            value = record[agentic_field]
+            assert value is None or isinstance(value, int), (
+                f"Field '{agentic_field}' must be int or None, got {type(value)}: {value}"
             )
 
         # Verify the record is JSON-serializable (structural contract)
@@ -251,7 +347,7 @@ import os
 from hypothesis.strategies import sampled_from, tuples
 from hypothesis import assume
 
-from graphrag_toolkit_tests.benchmark_utils.retriever_factory import VALID_RETRIEVER_IDS
+from benchmark.utils.retriever_factory import VALID_RETRIEVER_IDS
 
 
 # Strategy for dataset names: alphanumeric + hyphens, min_size=1

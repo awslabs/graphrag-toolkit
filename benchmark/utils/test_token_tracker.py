@@ -12,7 +12,7 @@ from unittest.mock import Mock, patch, MagicMock
 
 import pytest
 
-from graphrag_toolkit_tests.benchmark_utils.token_tracker import (
+from benchmark.utils.token_tracker import (
     TokenTrackingLLMCache,
     extract_token_usage,
 )

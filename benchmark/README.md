@@ -254,7 +254,7 @@ aws s3 sync s3://<your-bucket>/pga-benchmark-results/ benchmark-results/pga/ --r
 # Generate comparison reports
 cd integration-tests/test-scripts
 python -c "
-from graphrag_toolkit_tests.benchmark_utils.comparison_report import generate_comparison_report
+from benchmark.utils.comparison_report import generate_comparison_report
 generate_comparison_report('cuad', '/path/to/benchmark-results')
 generate_comparison_report('concurrentqa', '/path/to/benchmark-results')
 generate_comparison_report('wikihow', '/path/to/benchmark-results')

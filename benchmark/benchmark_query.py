@@ -10,12 +10,12 @@ import logging
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
-from graphrag_toolkit_tests.benchmark_utils.s3_utils import sync_benchmark_data_from_s3
-from graphrag_toolkit_tests.benchmark_utils.retriever_factory import create_query_engine, ByoKGQueryEngineWrapper
-from graphrag_toolkit_tests.benchmark_utils.token_tracker import TokenTrackingLLMCache, extract_token_usage
-from graphrag_toolkit_tests.benchmark_utils.metrics_summary import compute_metrics_summary
-from graphrag_toolkit_tests.benchmark_utils.hop_classifier import classify_hop
-from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import AgenticRetriever, AgenticQueryResult
+from benchmark.utils.s3_utils import sync_benchmark_data_from_s3
+from benchmark.utils.retriever_factory import create_query_engine, ByoKGQueryEngineWrapper
+from benchmark.utils.token_tracker import TokenTrackingLLMCache, extract_token_usage
+from benchmark.utils.metrics_summary import compute_metrics_summary
+from benchmark.utils.hop_classifier import classify_hop
+from benchmark.utils.agentic_retriever import AgenticRetriever, AgenticQueryResult
 
 from graphrag_toolkit.lexical_graph import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory, VectorStoreFactory
@@ -46,6 +46,58 @@ def load_qa_pairs(data_dir: str, dataset: str, qa_files: List[str], limit: Optio
     if limit:
         pairs = pairs[:limit]
     return pairs
+
+
+def _get_capping_params() -> Dict[str, int]:
+    """
+    Returns the capping parameters used during retrieval.
+    
+    These are the statement-count-based truncation parameters that control
+    retrieval output size. Values come from environment or defaults.
+    """
+    return {
+        'max_statements_per_topic': int(os.environ.get('MAX_STATEMENTS_PER_TOPIC', '10')),
+        'max_search_results': int(os.environ.get('MAX_SEARCH_RESULTS', '5')),
+        'max_statements': int(os.environ.get('MAX_STATEMENTS', '200')),
+    }
+
+
+def _get_graph_statistics(params: Dict[str, Any]) -> Dict[str, Optional[int]]:
+    """
+    Returns graph statistics from the params dict if available.
+    
+    Graph statistics are populated by the build phase (task 10.1) and stored
+    in params['graph_statistics']. Returns all-null dict when unavailable.
+    """
+    stats = params.get('graph_statistics')
+    if stats and isinstance(stats, dict):
+        return {
+            'chunk_count': stats.get('chunk_count'),
+            'statement_count': stats.get('statement_count'),
+            'topic_count': stats.get('topic_count'),
+            'entity_count': stats.get('entity_count'),
+        }
+    return {
+        'chunk_count': None,
+        'statement_count': None,
+        'topic_count': None,
+        'entity_count': None,
+    }
+
+
+def _get_time_minutes(params: Dict[str, Any], key: str) -> Optional[float]:
+    """
+    Extracts a time-in-minutes value from params, rounded to 2 decimal places.
+    
+    Returns None if the key is not present or the value is not numeric.
+    """
+    value = params.get(key)
+    if value is not None:
+        try:
+            return round(float(value), 2)
+        except (TypeError, ValueError):
+            return None
+    return None
 
 
 def run_benchmark_query(handler: IntegrationTestHandler,
@@ -95,6 +147,12 @@ def run_benchmark_query(handler: IntegrationTestHandler,
 
     qa_files = QA_FILE_MAP.get(dataset, ['qa.json'])
     qa_pairs = load_qa_pairs(data_dir, dataset, qa_files, qa_limit)
+
+    # Resolve run-level metadata (constant across all queries in this run)
+    capping_params = _get_capping_params()
+    graph_statistics = _get_graph_statistics(params)
+    ingestion_time_minutes = _get_time_minutes(params, 'ingestion_time_minutes')
+    extraction_time_minutes = _get_time_minutes(params, 'extraction_time_minutes')
 
     GraphRAGConfig.response_llm = response_llm
 
@@ -163,11 +221,10 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                 metadata = getattr(response, 'metadata', None) or {}
                 raw_retrieve_ms = metadata.get('retrieve_ms')
                 raw_answer_ms = metadata.get('answer_ms')
-                raw_total_ms = metadata.get('total_ms')
 
-                retrieval_ms = math.floor(raw_retrieve_ms) if raw_retrieve_ms is not None else None
-                response_ms = math.floor(raw_answer_ms) if raw_answer_ms is not None else None
-                total_ms = math.floor(raw_total_ms) if raw_total_ms is not None else None
+                retrieve_ms = math.floor(raw_retrieve_ms) if raw_retrieve_ms is not None else None
+                answer_ms = math.floor(raw_answer_ms) if raw_answer_ms is not None else None
+                total_latency_ms = (retrieve_ms + answer_ms) if (retrieve_ms is not None and answer_ms is not None) else None
 
                 # Extract per-query token usage
                 input_tokens, output_tokens = extract_token_usage(llm_cache)
@@ -196,23 +253,34 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                     agentic_output_tokens_val = None
 
                 per_query_data.append({
-                    'retrieval_ms': retrieval_ms,
-                    'response_ms': response_ms,
-                    'total_ms': total_ms,
+                    'retrieve_ms': retrieve_ms,
+                    'answer_ms': answer_ms,
+                    'total_latency_ms': total_latency_ms,
                     'input_tokens': input_tokens,
                     'output_tokens': output_tokens,
                     'hop_classification': hop_classification,
                 })
 
+                # Extract dataset_category from tagged QA pairs (populated by task 4.4)
+                dataset_category = item.get('_dataset_category', None)
+
                 out.write(json.dumps({
                     'raw_example': {'question': question, 'answer': answer},
                     'response': response_text,
-                    'retrieval_ms': retrieval_ms,
-                    'response_ms': response_ms,
-                    'total_ms': total_ms,
-                    'input_tokens': input_tokens,
+                    'retrieve_ms': retrieve_ms,
+                    'answer_ms': answer_ms,
+                    'total_latency_ms': total_latency_ms,
+                    'prompt_tokens_total': input_tokens,
+                    'retrieval_context_tokens': None,  # Populated by task 3.1 (dual-field token tracking)
                     'output_tokens': output_tokens,
                     'hop_classification': hop_classification,
+                    'dataset_category': dataset_category,
+                    'retriever': retriever_id,
+                    'dataset': dataset,
+                    'capping_params': capping_params,
+                    'graph_statistics': graph_statistics,
+                    'ingestion_time_minutes': ingestion_time_minutes,
+                    'extraction_time_minutes': extraction_time_minutes,
                     'retrieval_iterations': agentic_retrieval_iterations,
                     'agentic_retrieval_ms': agentic_retrieval_ms_val,
                     'agentic_input_tokens': agentic_input_tokens_val,

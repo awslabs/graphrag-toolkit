@@ -71,7 +71,7 @@ def compute_metrics_summary(
 
     Args:
         per_query_data: List of per-query result dicts, each containing optional
-            keys: retrieval_ms, response_ms, total_ms, input_tokens, output_tokens.
+            keys: retrieve_ms, answer_ms, total_latency_ms, input_tokens, output_tokens.
         retriever_id: The retriever identifier used for this run.
         dataset: The dataset name.
         model_id: The Bedrock model ID used for response generation.
@@ -81,24 +81,30 @@ def compute_metrics_summary(
         Dict suitable for writing as metrics_summary.json.
     """
     # Extract non-null latency values for each metric
-    retrieval_ms_values = [
-        entry['retrieval_ms'] for entry in per_query_data
-        if entry.get('retrieval_ms') is not None
+    retrieve_ms_values = [
+        entry['retrieve_ms'] for entry in per_query_data
+        if entry.get('retrieve_ms') is not None
     ]
-    response_ms_values = [
-        entry['response_ms'] for entry in per_query_data
-        if entry.get('response_ms') is not None
+    answer_ms_values = [
+        entry['answer_ms'] for entry in per_query_data
+        if entry.get('answer_ms') is not None
     ]
-    total_ms_values = [
-        entry['total_ms'] for entry in per_query_data
-        if entry.get('total_ms') is not None
+    total_latency_ms_values = [
+        entry['total_latency_ms'] for entry in per_query_data
+        if entry.get('total_latency_ms') is not None
     ]
+
+    # Count excluded queries (those with at least one null latency field)
+    num_excluded_latency = sum(
+        1 for entry in per_query_data
+        if entry.get('retrieve_ms') is None or entry.get('answer_ms') is None
+    )
 
     # Compute latency statistics
     latency = {
-        'retrieval_ms': _compute_latency_stats(retrieval_ms_values),
-        'response_ms': _compute_latency_stats(response_ms_values),
-        'total_ms': _compute_latency_stats(total_ms_values),
+        'retrieval_ms': _compute_latency_stats(retrieve_ms_values),
+        'response_ms': _compute_latency_stats(answer_ms_values),
+        'total_ms': _compute_latency_stats(total_latency_ms_values),
     }
 
     # Compute total tokens (excluding null entries)
@@ -136,6 +142,7 @@ def compute_metrics_summary(
         'num_queries': len(per_query_data),
         'num_empty_responses': num_empty,
         'num_missing_token_metadata': num_missing_token_metadata,
+        'num_excluded_latency': num_excluded_latency,
         'latency': latency,
         'tokens': {
             'total_input_tokens': total_input_tokens,

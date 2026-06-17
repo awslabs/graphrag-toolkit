@@ -9,7 +9,7 @@ import pytest
 from hypothesis import given, settings, assume
 from hypothesis.strategies import integers
 
-from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import _validate_max_iterations
+from benchmark.utils.agentic_retriever import _validate_max_iterations
 
 
 class TestAgenticIterationBoundProperty:

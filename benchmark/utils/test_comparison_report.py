@@ -12,7 +12,7 @@ import tempfile
 from hypothesis import given, settings, assume
 from hypothesis import strategies as st
 
-from graphrag_toolkit_tests.benchmark_utils.comparison_report import (
+from benchmark.utils.comparison_report import (
     _compute_cost_per_query,
     _compute_cost_efficiency,
     _compute_latency_efficiency,

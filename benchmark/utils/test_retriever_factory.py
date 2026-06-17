@@ -10,7 +10,7 @@ from unittest.mock import patch, MagicMock
 from hypothesis import given, settings
 from hypothesis.strategies import sampled_from
 
-from graphrag_toolkit_tests.benchmark_utils.retriever_factory import (
+from benchmark.utils.retriever_factory import (
     create_query_engine,
     _SUB_RETRIEVER_MAP,
     _SUB_RETRIEVER_PROCESSOR_ARGS,
@@ -66,7 +66,7 @@ class TestSubRetrieverFactoryCorrectnessProperty:
         mock_query_engine = MagicMock()
 
         with patch(
-            'graphrag_toolkit_tests.benchmark_utils.retriever_factory.LexicalGraphQueryEngine.for_traversal_based_search',
+            'benchmark.utils.retriever_factory.LexicalGraphQueryEngine.for_traversal_based_search',
             return_value=mock_query_engine,
         ) as mock_for_traversal:
             result = create_query_engine(
@@ -144,7 +144,7 @@ import pytest
 from hypothesis import given, settings, assume
 from hypothesis.strategies import text
 
-from graphrag_toolkit_tests.benchmark_utils.retriever_factory import (
+from benchmark.utils.retriever_factory import (
     VALID_RETRIEVER_IDS,
 )
 

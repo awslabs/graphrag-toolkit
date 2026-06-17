@@ -11,7 +11,7 @@ from hypothesis import given, settings
 from hypothesis import strategies as st
 from hypothesis.strategies import lists, integers, floats, fixed_dictionaries
 
-from graphrag_toolkit_tests.benchmark_utils.metrics_summary import (
+from benchmark.utils.metrics_summary import (
     _compute_latency_stats,
     compute_metrics_summary,
     BEDROCK_PRICING,
@@ -84,9 +84,9 @@ class TestAggregateLatencyStatistics:
 def per_query_entry_strategy():
     """Generate a per-query dict where input_tokens and output_tokens may be None."""
     return st.fixed_dictionaries({
-        'retrieval_ms': st.just(100),
-        'response_ms': st.just(200),
-        'total_ms': st.just(300),
+        'retrieve_ms': st.just(100),
+        'answer_ms': st.just(200),
+        'total_latency_ms': st.just(300),
         'input_tokens': st.one_of(st.none(), st.integers(min_value=0, max_value=1_000_000)),
         'output_tokens': st.one_of(st.none(), st.integers(min_value=0, max_value=1_000_000)),
     })
@@ -208,7 +208,7 @@ class TestAggregateCostComputationProperty:
         }
 
         with patch(
-            'graphrag_toolkit_tests.benchmark_utils.metrics_summary.BEDROCK_PRICING',
+            'benchmark.utils.metrics_summary.BEDROCK_PRICING',
             patched_pricing,
         ):
             result = compute_metrics_summary(

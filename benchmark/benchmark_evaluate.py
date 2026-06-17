@@ -7,7 +7,7 @@ from typing import Dict, Any, Optional, List
 
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
-from graphrag_toolkit_tests.benchmark_utils.run_evaluation import CorrectnessEvaluator, IDKEvaluator
+from benchmark.utils.run_evaluation import CorrectnessEvaluator, IDKEvaluator
 
 
 def run_benchmark_evaluate(handler: IntegrationTestHandler, params: Dict[str, Any],

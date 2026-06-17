@@ -247,6 +247,89 @@ class LexicalGraphQueryEngine(BaseQueryEngine):
             **kwargs
         )
 
+    @staticmethod
+    def for_topic_beam_search(graph_store: GraphStoreType,
+                              vector_store: VectorStoreType,
+                              tenant_id: Optional[TenantIdType] = None,
+                              post_processors: Optional[PostProcessorsType] = None,
+                              filter_config: Optional[FilterConfig] = None,
+                              **kwargs):
+        """
+        Creates and configures an instance of `LexicalGraphQueryEngine` for chunk-level
+        beam search (best correctness). This method uses ChunkCosineSimilaritySearch for
+        vector seeding followed by SemanticChunkBeamGraphSearch for graph-based beam
+        expansion.
+
+        Default parameters: chunk_cosine_top_k=50, beam_width=10, max_depth=3.
+
+        Args:
+            graph_store: The base graph store instance to be wrapped for multi-tenant usage.
+            vector_store: The base vector store instance to be wrapped for multi-tenant usage.
+            tenant_id: An optional unique identifier for the tenant. If not provided, a
+                default tenant ID is derived.
+            post_processors: An optional collection of post-processors to apply after
+                retrieving search results.
+            filter_config: The filtering configuration options to apply within the search
+                process. A default configuration is used if none is provided.
+            **kwargs: Additional optional keyword arguments to pass to the retriever
+                and query engine.
+
+        Returns:
+            LexicalGraphQueryEngine: A configured instance for performing chunk-level beam
+                search on the provided graph and vector store.
+        """
+        tenant_id = to_tenant_id(tenant_id)
+
+        filter_config = filter_config or FilterConfig()
+
+        graph_store = MultiTenantGraphStore.wrap(
+            GraphStoreFactory.for_graph_store(graph_store),
+            tenant_id
+        )
+
+        vector_store = ReadOnlyVectorStore.wrap(
+            MultiTenantVectorStore.wrap(
+                VectorStoreFactory.for_vector_store(vector_store),
+                tenant_id
+            )
+        )
+
+        retriever = SemanticGuidedChunkRetriever(
+            vector_store=vector_store,
+            graph_store=graph_store,
+            retrievers=[
+                ChunkCosineSimilaritySearch(
+                    vector_store=vector_store,
+                    graph_store=graph_store,
+                    top_k=50,
+                    filter_config=filter_config
+                ),
+                SemanticChunkBeamGraphSearch(
+                    vector_store=vector_store,
+                    graph_store=graph_store,
+                    beam_width=10,
+                    max_depth=3,
+                    filter_config=filter_config
+                ),
+            ],
+            filter_config=filter_config,
+            **kwargs
+        )
+
+        if 'context_format' in kwargs:
+            kwargs.pop('context_format')
+
+        return LexicalGraphQueryEngine(
+            graph_store,
+            vector_store,
+            tenant_id=tenant_id,
+            retriever=retriever,
+            post_processors=post_processors,
+            context_format='bedrock_xml',
+            filter_config=filter_config,
+            **kwargs
+        )
+
     def __init__(self,
                  graph_store: GraphStoreType,
                  vector_store: VectorStoreType,
