@@ -13,6 +13,7 @@ title: Graph Model
     - [Facts](#facts)
     - [Statements](#statements)
     - [Topics](#topics)
+  - [Embedding metadata](#embedding-metadata)
 
 ### Overview
 
@@ -123,3 +124,28 @@ Topics are scoped to individual source documents so as to provide connectivity a
 Topics increase *connectivity between relevant chunks within a single source*, and provide a simple document-level summary mechanism.
 
 Topics can, optionally, be embedded, and so can act as higher-level entry points in the graph based on a vector search. A topic embedding represents the topic name and all the statements belonging to that topic.
+
+### Embedding metadata
+
+Embeddable nodes (chunks, topics, and statements) embed their **content** plus a small,
+deliberate subset of their metadata. Structural and lineage metadata is *excluded* from
+the embedding so it does not dilute the vector, while remaining available on the node for
+filtering, graph queries, and LLM context. Each node builder controls this via its
+`excluded_embed_metadata_keys`.
+
+What each node type embeds:
+
+  - **Chunk** — the chunk text only. Source/document metadata (e.g. file name, author,
+    URL, and the internal versioning timestamps) lives under the `source` key and is
+    excluded, as are the internal index key and any configured external properties (under
+    the `chunk` key). The chunk's topic labels are also excluded, so the chunk vector
+    reflects the passage content rather than its topic names.
+  - **Topic** — the topic name plus all statements belonging to that topic.
+  - **Statement** — the statement text (and its supporting details, when present).
+
+In other words, document-level metadata such as `file_name` or `size` is **not** baked
+into chunk embeddings by default — it is carried as graph/source metadata (see
+[External properties](/lexical-graph/external-properties/) for making such metadata
+queryable). If you want a piece of metadata to influence the embedding itself, include it
+in the node's content rather than relying on metadata, since metadata under `source`,
+`chunk`, `statement`, and the internal index keys is excluded from the vector.

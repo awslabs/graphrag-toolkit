@@ -9,10 +9,11 @@ from typing import List, Optional, Sequence, Dict, Any
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY
 
+from graphrag_toolkit.lexical_graph.indexing.extract.progress import run_jobs_with_progress
+
 from llama_index.core.schema import BaseNode
 from llama_index.core.bridge.pydantic import Field, PrivateAttr
 from llama_index.core.extractors.interface import BaseExtractor
-from llama_index.core.async_utils import run_jobs
 
 DEFAULT_PROPOSITION_MODEL = 'chentong00/propositionizer-wiki-flan-t5-large'
 
@@ -160,11 +161,13 @@ class PropositionExtractor(BaseExtractor):
         jobs = [
             self._extract_propositions_for_node(node) for node in nodes
         ]
-        return await run_jobs(
-            jobs, 
-            show_progress=self.show_progress, 
-            workers=self.num_workers, 
-            desc=f'Extracting propositions [nodes: {len(nodes)}, num_workers: {self.num_workers}]'
+        return await run_jobs_with_progress(
+            jobs,
+            show_progress=self.show_progress,
+            workers=self.num_workers,
+            desc=f'Extracting propositions [nodes: {len(nodes)}, num_workers: {self.num_workers}]',
+            total=len(nodes),
+            logger=logger
         )
         
     async def _extract_propositions_for_node(self, node):
