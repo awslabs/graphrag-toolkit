@@ -257,7 +257,7 @@ def evaluate_responses(data: List[dict], output_dir: str, judge_model_id: str,
     if metrics is None:
         metrics = ['correctness', 'idk']
 
-    # Ensure dependencies are computed before correctness_on_answerable
+    # if "correctness_on_answerable" in metrics, make sure it's last in the last
     if "correctness_on_answerable" in metrics:
         for dep in ["correctness", "idk"]:
             if dep not in metrics:
