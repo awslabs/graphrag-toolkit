@@ -200,6 +200,47 @@ class TestGetRequestBody:
             assert request_body['max_tokens'] == 2000
             assert request_body['temperature'] == 0.8
     
+    def test_get_request_body_claude_with_system_prompt(self):
+        """Verify get_request_body puts the system prompt in the top-level 'system' field for Claude models."""
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'anthropic.claude-3-sonnet-20240229-v1:0'
+
+        messages = [
+            ChatMessage(role=MessageRole.SYSTEM, content="System prompt"),
+            ChatMessage(role=MessageRole.USER, content="User message")
+        ]
+        inference_params = {'max_tokens': 2000, 'temperature': 0.8}
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_anthropic_messages') as mock_convert:
+            mock_convert.return_value = ([{'role': 'user', 'content': 'User message'}], 'System prompt')
+
+            request_body = get_request_body(mock_llm, messages, inference_params)
+
+            # System prompt belongs in the top-level 'system' field per the Anthropic
+            # Bedrock invoke schema, not injected as a chat message.
+            assert request_body['system'] == 'System prompt'
+            assert request_body['messages'] == [{'role': 'user', 'content': 'User message'}]
+            assert all(m.get('role') != 'system' for m in request_body['messages'])
+            assert request_body['anthropic_version'] == 'bedrock-2023-05-31'
+
+    def test_get_request_body_claude_without_system_prompt(self):
+        """Verify get_request_body omits the 'system' field for Claude models when there is no system prompt."""
+        mock_llm = Mock(spec=BedrockConverse)
+        mock_llm.model = 'anthropic.claude-3-sonnet-20240229-v1:0'
+
+        messages = [
+            ChatMessage(role=MessageRole.USER, content="User message")
+        ]
+        inference_params = {'max_tokens': 2000, 'temperature': 0.8}
+
+        with patch('graphrag_toolkit.lexical_graph.indexing.utils.batch_inference_utils.messages_to_anthropic_messages') as mock_convert:
+            mock_convert.return_value = ([{'role': 'user', 'content': 'User message'}], None)
+
+            request_body = get_request_body(mock_llm, messages, inference_params)
+
+            assert 'system' not in request_body
+            assert request_body['messages'] == [{'role': 'user', 'content': 'User message'}]
+
     def test_get_request_body_llama_model(self):
         """Verify get_request_body creates correct structure for Llama models."""
         mock_llm = Mock(spec=BedrockConverse)
