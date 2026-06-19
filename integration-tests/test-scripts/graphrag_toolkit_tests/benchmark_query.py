@@ -11,7 +11,7 @@ import logging
 from graphrag_toolkit_tests.integration_test_base import IntegrationTestBase
 from graphrag_toolkit_tests.integration_test_handler import IntegrationTestHandler
 from graphrag_toolkit_tests.benchmark_utils.s3_utils import sync_benchmark_data_from_s3
-from graphrag_toolkit_tests.benchmark_utils.retriever_factory import create_query_engine, ByoKGQueryEngineWrapper
+from graphrag_toolkit_tests.benchmark_utils.retriever_factory import create_query_engine, get_retriever_config, ByoKGQueryEngineWrapper
 from graphrag_toolkit_tests.benchmark_utils.token_tracker import TokenTrackingLLMCache, extract_token_usage
 from graphrag_toolkit_tests.benchmark_utils.metrics_summary import compute_metrics_summary
 from graphrag_toolkit_tests.benchmark_utils.hop_classifier import classify_hop
@@ -226,9 +226,17 @@ def run_benchmark_query(handler: IntegrationTestHandler,
                     'response': response_text[:500]
                 })
 
-        # Compute and write aggregate metrics summary
+        # Compute and write aggregate metrics summary, recording the retriever
+        # hyperparameters used so the run is reproducible from the JSON alone.
+        retriever_config = get_retriever_config(
+            retriever_id,
+            response_llm=response_llm,
+            agentic_max_iterations=agentic_max_iterations,
+            byokg_max_iterations=byokg_max_iterations,
+        )
         metrics_summary = compute_metrics_summary(
-            per_query_data, retriever_id, dataset, response_llm, num_empty
+            per_query_data, retriever_id, dataset, response_llm, num_empty,
+            retriever_config=retriever_config,
         )
         metrics_summary_path = os.path.join(retriever_dir, 'metrics_summary.json')
         with open(metrics_summary_path, 'w') as f:

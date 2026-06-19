@@ -146,6 +146,49 @@ def create_query_engine(
         )
 
 
+def get_retriever_config(
+    retriever_id: str,
+    response_llm: str = 'us.anthropic.claude-sonnet-4-6',
+    agentic_max_iterations: int = 3,
+    byokg_max_iterations: int = 2,
+) -> dict:
+    """Return the hyperparameters the benchmark harness sets for ``retriever_id``.
+
+    Mirrors the explicit construction in :func:`create_query_engine`, so a run is
+    reproducible from ``metrics_summary.json``. Only knobs the harness overrides are
+    recorded: ``traversal``, ``semantic_guided``, and the beam retrievers pass no
+    hyperparameter overrides and run on the retrieval library's own defaults
+    (reproducible via the pinned package version), so their ``hyperparameters`` is
+    empty. The sub-retriever values reference ``_SUB_RETRIEVER_PROCESSOR_ARGS``
+    directly, so they stay in sync if that dict changes.
+
+    Raises:
+        ValueError: If ``retriever_id`` is not in ``VALID_RETRIEVER_IDS``.
+    """
+    if retriever_id not in VALID_RETRIEVER_IDS:
+        raise ValueError(
+            f"Invalid retriever identifier: '{retriever_id}'. "
+            f"Valid identifiers are: {VALID_RETRIEVER_IDS}"
+        )
+
+    if retriever_id in _SUB_RETRIEVER_MAP:
+        hyperparameters = dict(_SUB_RETRIEVER_PROCESSOR_ARGS)
+    elif retriever_id == 'agentic':
+        hyperparameters = {'max_iterations': agentic_max_iterations}
+    elif retriever_id == 'byokg_agentic':
+        hyperparameters = {'max_iterations': byokg_max_iterations}
+    else:
+        # traversal, semantic_guided, topic-beam-chunk_only, semantic-path_weighted:
+        # no harness-level overrides, so the retrieval library defaults apply.
+        hyperparameters = {}
+
+    return {
+        'retriever_id': retriever_id,
+        'response_llm': response_llm,
+        'hyperparameters': hyperparameters,
+    }
+
+
 def _create_topic_beam_chunk_only(graph_store, vector_store, llm=None) -> LexicalGraphQueryEngine:
     """
     Creates a query engine using SemanticGuidedChunkRetriever with

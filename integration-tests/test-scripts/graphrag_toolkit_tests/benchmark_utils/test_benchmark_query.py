@@ -251,7 +251,11 @@ import os
 from hypothesis.strategies import sampled_from, tuples
 from hypothesis import assume
 
-from graphrag_toolkit_tests.benchmark_utils.retriever_factory import VALID_RETRIEVER_IDS
+from graphrag_toolkit_tests.benchmark_utils.retriever_factory import (
+    VALID_RETRIEVER_IDS,
+    get_retriever_config,
+)
+from graphrag_toolkit_tests.benchmark_utils.metrics_summary import compute_metrics_summary
 
 
 # Strategy for dataset names: alphanumeric + hyphens, min_size=1
@@ -312,3 +316,73 @@ class TestOutputPathConstructionProperty:
             f"Distinct pairs ({dataset1}, {retriever_id1}) and ({dataset2}, {retriever_id2}) "
             f"produced the same path: '{path1}'"
         )
+
+
+# Retriever IDs whose hyperparameters the harness overrides explicitly. The rest
+# (traversal, semantic_guided, beam retrievers) run on library defaults and so
+# carry an empty hyperparameters dict.
+_SUB_RETRIEVER_IDS = [
+    'topic_based', 'entity_based', 'chunk_based', 'entity_network', 'chunk_based_semantic',
+]
+
+
+class TestRetrieverConfigReproducibility:
+    """
+    Retriever-config reproducibility
+
+    For any valid retriever identifier, get_retriever_config() SHALL return a
+    JSON-serializable dict carrying the retriever id, the response model id, and a
+    hyperparameters dict, so that metrics_summary.json records enough to reproduce
+    the run's retriever configuration.
+    """
+
+    @settings(max_examples=50)
+    @given(retriever_id=sampled_from(VALID_RETRIEVER_IDS))
+    def test_config_shape_is_complete_and_serializable(self, retriever_id):
+        config = get_retriever_config(retriever_id)
+
+        for field in ('retriever_id', 'response_llm', 'hyperparameters'):
+            assert field in config, f"'{field}' missing from retriever config"
+        assert config['retriever_id'] == retriever_id
+        assert isinstance(config['hyperparameters'], dict)
+
+        # Must survive a JSON round-trip with no loss (the reproducibility contract).
+        assert json.loads(json.dumps(config)) == config
+
+    @settings(max_examples=50)
+    @given(retriever_id=sampled_from(_SUB_RETRIEVER_IDS))
+    def test_sub_retrievers_record_required_hyperparameters(self, retriever_id):
+        """The ticket's required knobs (max statements, max search results) are
+        recorded for the sub-retrievers that set them."""
+        hp = get_retriever_config(retriever_id)['hyperparameters']
+        assert hp['max_statements'] == 200
+        assert hp['max_search_results'] == 5
+        assert hp['vss_top_k'] == 10
+
+    @settings(max_examples=50)
+    @given(max_iters=integers(min_value=1, max_value=10))
+    def test_agentic_records_max_iterations(self, max_iters):
+        config = get_retriever_config('agentic', agentic_max_iterations=max_iters)
+        assert config['hyperparameters']['max_iterations'] == max_iters
+
+    def test_invalid_retriever_id_raises(self):
+        try:
+            get_retriever_config('not-a-retriever')
+            assert False, 'expected ValueError for invalid retriever id'
+        except ValueError:
+            pass
+
+    def test_metrics_summary_embeds_retriever_config(self):
+        """compute_metrics_summary writes the retriever_config block through verbatim."""
+        config = get_retriever_config('topic_based')
+        summary = compute_metrics_summary(
+            per_query_data=[],
+            retriever_id='topic_based',
+            dataset='cuad',
+            model_id='us.anthropic.claude-sonnet-4-6',
+            num_empty=0,
+            retriever_config=config,
+        )
+        assert summary['retriever_config'] == config
+        # Whole summary must stay JSON-serializable.
+        json.dumps(summary)
