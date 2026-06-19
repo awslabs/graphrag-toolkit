@@ -6,7 +6,7 @@ from typing import Any
 
 from graphrag_toolkit.lexical_graph.indexing.model import Fact, Entity
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore
-from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import search_string_from, label_from, new_query_var, escape_cypher_label
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import search_string_from, label_from, new_query_var
 from graphrag_toolkit.lexical_graph.indexing.build.graph_builder import GraphBuilder
 from graphrag_toolkit.lexical_graph.indexing.constants import DEFAULT_CLASSIFICATION, LOCAL_ENTITY_CLASSIFICATION
 from graphrag_toolkit.lexical_graph.indexing.utils.fact_utils import string_complement_to_entity
@@ -110,22 +110,16 @@ class EntityGraphBuilder(GraphBuilder):
             if include_domain_labels:
 
                 def insert_domain_entity(entity:Entity):
-                    """Add the entity's domain label to the `__Entity__` node.
 
-                    `label_from` passes `__...__` values through unescaped, so the
-                    label is escaped, the entity id is bound as a parameter (not
-                    inlined), and newlines are stripped from the `//` comment so a
-                    crafted label cannot terminate it and append further Cypher.
-                    """
                     if entity.classification and entity.classification == LOCAL_ENTITY_CLASSIFICATION:
                         return
 
                     e_var = new_query_var()
                     e_id = entity.entityId
-                    e_label = escape_cypher_label(label_from(entity.classification or DEFAULT_CLASSIFICATION))
-                    e_comment = f'// awsqid:{e_id}-{e_label}'.replace('\r', ' ').replace('\n', ' ')
-                    query_e = f"MERGE ({e_var}:`__Entity__`{{{graph_client.node_id('entityId')}: $entityId}}) SET {e_var} :`{e_label}` {e_comment}"
-                    graph_client.execute_query_with_retry(query_e, {'entityId': e_id}, max_attempts=5, max_wait=7)
+                    e_label = label_from(entity.classification or DEFAULT_CLASSIFICATION)
+                    e_comment = f'// awsqid:{e_id}-{e_label}'
+                    query_e = f"MERGE ({e_var}:`__Entity__`{{{graph_client.node_id('entityId')}: '{e_id}'}}) SET {e_var} :`{e_label}` {e_comment}"    
+                    graph_client.execute_query_with_retry(query_e, {}, max_attempts=5, max_wait=7)
 
                 insert_domain_entity(fact.subject)
 

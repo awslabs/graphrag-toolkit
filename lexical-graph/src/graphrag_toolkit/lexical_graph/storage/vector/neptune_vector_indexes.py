@@ -9,7 +9,7 @@ from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, MultiTenantGraphStore
-from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result, filter_config_to_opencypher_filters, escape_cypher_label
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import node_result, filter_config_to_opencypher_filters
 from graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores import NeptuneAnalyticsClient
 from graphrag_toolkit.lexical_graph.storage.vector import VectorIndex, VectorIndexFactoryMethod, to_embedded_query
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
@@ -181,7 +181,7 @@ class NeptuneIndex(VectorIndex):
         
         for node in nodes:
         
-            statement = f"MATCH (n:`{escape_cypher_label(self.label)}`) WHERE {self.neptune_client.node_id('n.{self.id_name}')} = $nodeId"
+            statement = f"MATCH (n:`{self.label}`) WHERE {self.neptune_client.node_id('n.{self.id_name}')} = $nodeId"
             
             embedding = id_to_embed_map[node.node_id]
             
@@ -262,7 +262,7 @@ class NeptuneIndex(VectorIndex):
         for i in set(ids):
 
             cypher = f'''
-            MATCH (n:`{escape_cypher_label(self.label)}`)  WHERE {self.neptune_client.node_id('n.{self.id_name}')} = $elementId
+            MATCH (n:`{self.label}`)  WHERE {self.neptune_client.node_id('n.{self.id_name}')} = $elementId
             CALL neptune.algo.vectors.get(
                 n
             )

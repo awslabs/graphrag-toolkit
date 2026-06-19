@@ -10,7 +10,6 @@ from graphrag_toolkit.lexical_graph import TenantId, TenantIdType, to_tenant_id,
 from graphrag_toolkit.lexical_graph.storage import GraphStoreFactory
 from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import GraphStore, MultiTenantGraphStore
-from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import escape_cypher_label
 from graphrag_toolkit.lexical_graph.storage.vector import VectorStore, MultiTenantVectorStore, ReadOnlyVectorStore
 from graphrag_toolkit.lexical_graph.storage.vector.opensearch_vector_indexes import OpenSearchIndex
 from graphrag_toolkit.lexical_graph.storage.constants import ALL_EMBEDDING_INDEXES
@@ -52,7 +51,7 @@ def get_node_ids(tenant_id:TenantId, index_name:str, graph_store:GraphStore):
     id_name = f'n.{index_name}Id'
     id_selector = graph_store.node_id(id_name)
     
-    cypher = f'MATCH (n:`{escape_cypher_label(label_name)}`) RETURN {id_selector} AS node_id'
+    cypher = f'MATCH (n:`{label_name}`) RETURN {id_selector} AS node_id'
 
     multi_tenant_graph_store = MultiTenantGraphStore.wrap(
         graph_store,
