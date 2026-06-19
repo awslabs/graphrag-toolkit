@@ -32,12 +32,12 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
         self.metadata_fn = config.metadata_fn
         logger.debug(f"Initialized AdvancedPDFReaderProvider with extract_tables={config.extract_tables}")
 
-    def _find_tables(self, page, page_num):
+    def _find_tables(self, page, page_number):
         """Return the tables detected on a page, or an empty list on failure."""
         try:
             return list(page.find_tables().tables)
         except Exception as e:
-            logger.warning(f"Failed to detect tables on page {page_num}: {e}")
+            logger.warning(f"Failed to detect tables on page {page_number}: {e}")
             return []
 
     @staticmethod
@@ -65,7 +65,9 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
         """
         if not tables:
             return page.get_text()
-        table_bboxes = [tuple(table.bbox) for table in tables]
+        # Skip tables with a missing/empty bbox: a None would raise in tuple()
+        # and a partial bbox would unpack short in _block_in_a_table.
+        table_bboxes = [tuple(table.bbox) for table in tables if table.bbox]
         kept = []
         # "blocks" tuple layout: (x0, y0, x1, y1, text, block_no, block_type).
         # block_type 1 is an image block (placeholder text); images are handled
@@ -79,7 +81,7 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
                 kept.append(block_text)
         return "".join(kept)
 
-    def _append_tables(self, page_num, tables, text):
+    def _append_tables(self, page_number, tables, text):
         """Append each table to the text as a markdown block.
 
         Returns the augmented text and the number of tables rendered. Row/column
@@ -90,10 +92,10 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
         rendered = 0
         for tbl_index, table in enumerate(tables):
             try:
-                text += f"\n[TABLE_{page_num}_{tbl_index}]\n{table.to_markdown()}"
+                text += f"\n[TABLE_{page_number}_{tbl_index}]\n{table.to_markdown()}"
                 rendered += 1
             except Exception as e:
-                logger.warning(f"Failed to render table {tbl_index} on page {page_num}: {e}")
+                logger.warning(f"Failed to render table {tbl_index} on page {page_number}: {e}")
         return text, rendered
 
     def read(self, input_source) -> List[Document]:
@@ -113,8 +115,12 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
 
             for page_num in range(len(doc)):
                 page = doc[page_num]
+                # 1-indexed page number used consistently across markers, log
+                # messages, and metadata (page_num itself stays 0-based for the
+                # doc[page_num] lookup).
+                page_number = page_num + 1
 
-                tables = self._find_tables(page, page_num) if self.extract_tables else []
+                tables = self._find_tables(page, page_number) if self.extract_tables else []
                 text = self._page_text(page, tables)
 
                 image_list = page.get_images()
@@ -125,17 +131,17 @@ class AdvancedPDFReaderProvider(LlamaIndexReaderProviderBase, S3FileMixin):
                         if pix.n - pix.alpha < 4:
                             img_data = pix.tobytes("png")
                             img_b64 = base64.b64encode(img_data).decode()
-                            text += f"\n[IMAGE_{page_num}_{img_index}: base64_data={img_b64[:100]}...]"
+                            text += f"\n[IMAGE_{page_number}_{img_index}: base64_data={img_b64[:100]}...]"
                         pix = None
                     except Exception as e:
-                        logger.warning(f"Failed to extract image {img_index} from page {page_num}: {e}")
+                        logger.warning(f"Failed to extract image {img_index} from page {page_number}: {e}")
 
-                text, table_count = self._append_tables(page_num, tables, text)
+                text, table_count = self._append_tables(page_number, tables, text)
 
                 page_doc = Document(
                     text=text,
                     metadata={
-                        'page_number': page_num + 1,
+                        'page_number': page_number,
                         'source': 'advanced_pdf',
                         'file_path': original_paths[0],
                         'table_count': table_count

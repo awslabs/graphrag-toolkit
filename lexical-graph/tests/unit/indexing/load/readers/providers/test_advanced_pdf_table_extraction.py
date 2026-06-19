@@ -50,6 +50,19 @@ def _make_two_table_pdf(path):
     return str(path)
 
 
+def _make_two_page_pdf(path):
+    """Write a two-page PDF: page 1 has a table, page 2 has none."""
+    doc = pymupdf.open()
+    p1 = doc.new_page()
+    p1.insert_text((60, 40), "Page one")
+    _draw_grid(p1, [["Region", "Revenue"], ["East", "100"]])
+    p2 = doc.new_page()
+    p2.insert_text((60, 40), "Page two, no table")
+    doc.save(str(path))
+    doc.close()
+    return str(path)
+
+
 def test_extracts_table_as_markdown_preserving_rows_and_cols(tmp_path):
     pdf = _make_pdf(tmp_path / "table.pdf", with_table=True)
     docs = AdvancedPDFReaderProvider(PDFReaderConfig()).read(pdf)
@@ -66,7 +79,7 @@ def test_extracts_table_as_markdown_preserving_rows_and_cols(tmp_path):
 def test_table_block_is_marked(tmp_path):
     pdf = _make_pdf(tmp_path / "table.pdf", with_table=True)
     docs = AdvancedPDFReaderProvider(PDFReaderConfig()).read(pdf)
-    assert "[TABLE_0_0]" in docs[0].text
+    assert "[TABLE_1_0]" in docs[0].text
 
 
 def test_extract_tables_false_skips_table_parsing(tmp_path):
@@ -74,7 +87,7 @@ def test_extract_tables_false_skips_table_parsing(tmp_path):
     docs = AdvancedPDFReaderProvider(PDFReaderConfig(extract_tables=False)).read(pdf)
 
     text = docs[0].text
-    assert "[TABLE_0_0]" not in text
+    assert "[TABLE_1_0]" not in text
     assert "|Region|Revenue|" not in text
     assert docs[0].metadata["table_count"] == 0
     # Raw page text is still returned.
@@ -97,10 +110,27 @@ def test_multiple_tables_on_a_page(tmp_path):
 
     text = docs[0].text
     assert docs[0].metadata["table_count"] == 2
-    assert "[TABLE_0_0]" in text
-    assert "[TABLE_0_1]" in text
+    assert "[TABLE_1_0]" in text
+    assert "[TABLE_1_1]" in text
     assert "|Region|Revenue|" in text
     assert "|Product|Units|" in text
+
+
+def test_page_numbering_and_counts_across_pages(tmp_path):
+    """Two-page PDF: page numbers are 1-indexed and per-page table_count is
+    independent (page 1 has a table, page 2 has none)."""
+    pdf = _make_two_page_pdf(tmp_path / "two_pages.pdf")
+    docs = AdvancedPDFReaderProvider(PDFReaderConfig()).read(pdf)
+
+    assert len(docs) == 2
+
+    assert docs[0].metadata["page_number"] == 1
+    assert docs[0].metadata["table_count"] == 1
+    assert "[TABLE_1_0]" in docs[0].text
+
+    assert docs[1].metadata["page_number"] == 2
+    assert docs[1].metadata["table_count"] == 0
+    assert "[TABLE_" not in docs[1].text
 
 
 def test_cell_text_is_not_duplicated(tmp_path):
@@ -161,7 +191,7 @@ def test_table_count_excludes_render_failures(tmp_path):
         def to_markdown(self):
             raise ValueError("nope")
 
-    text, count = provider._append_tables(0, [_GoodTable(), _BadTable()], "body")
+    text, count = provider._append_tables(1, [_GoodTable(), _BadTable()], "body")
     assert count == 1
-    assert "[TABLE_0_0]" in text
-    assert "[TABLE_0_1]" not in text
+    assert "[TABLE_1_0]" in text
+    assert "[TABLE_1_1]" not in text
