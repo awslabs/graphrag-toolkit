@@ -57,6 +57,9 @@ _SUB_RETRIEVER_MAP = {
     'chunk_based_semantic': ChunkBasedSemanticSearch,
 }
 
+# Sub-retriever IDs, derived from _SUB_RETRIEVER_MAP.
+SUB_RETRIEVER_IDS = list(_SUB_RETRIEVER_MAP)
+
 # Common ProcessorArgs kwargs for individual sub-retriever benchmarks
 _SUB_RETRIEVER_PROCESSOR_ARGS = {
     'reranker': 'tfidf',

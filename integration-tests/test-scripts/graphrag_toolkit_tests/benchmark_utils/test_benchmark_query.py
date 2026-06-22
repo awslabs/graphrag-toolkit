@@ -253,6 +253,7 @@ from hypothesis import assume
 
 from graphrag_toolkit_tests.benchmark_utils.retriever_factory import (
     VALID_RETRIEVER_IDS,
+    SUB_RETRIEVER_IDS,
     get_retriever_config,
 )
 from graphrag_toolkit_tests.benchmark_utils.metrics_summary import compute_metrics_summary
@@ -318,14 +319,6 @@ class TestOutputPathConstructionProperty:
         )
 
 
-# Retriever IDs whose hyperparameters the harness overrides explicitly. The rest
-# (traversal, semantic_guided, beam retrievers) run on library defaults and so
-# carry an empty hyperparameters dict.
-_SUB_RETRIEVER_IDS = [
-    'topic_based', 'entity_based', 'chunk_based', 'entity_network', 'chunk_based_semantic',
-]
-
-
 class TestRetrieverConfigReproducibility:
     """
     Retriever-config reproducibility
@@ -350,7 +343,7 @@ class TestRetrieverConfigReproducibility:
         assert json.loads(json.dumps(config)) == config
 
     @settings(max_examples=50)
-    @given(retriever_id=sampled_from(_SUB_RETRIEVER_IDS))
+    @given(retriever_id=sampled_from(SUB_RETRIEVER_IDS))
     def test_sub_retrievers_record_required_hyperparameters(self, retriever_id):
         """The ticket's required knobs (max statements, max search results) are
         recorded for the sub-retrievers that set them."""
