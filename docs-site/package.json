@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
-    "@astrojs/starlight": "0.38.3",
+    "@astrojs/starlight": "0.40.0",
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
-    "astro": "6.3.1",
+    "astro": "6.4.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.35.2"
   },
   "overrides": {
     "postcss": "^8.5.10"

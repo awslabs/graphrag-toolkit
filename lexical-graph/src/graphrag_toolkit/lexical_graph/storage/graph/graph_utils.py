@@ -52,9 +52,34 @@ def label_from(value:str):
     """
     if value.startswith('__') and value.endswith('__'):
         return value
-    
+
     value = SEARCH_STRING_PATTERN.sub(' ', value)
     return string.capwords(value).replace(' ', '')
+
+def escape_cypher_label(label:str) -> str:
+    """
+    Escape backticks before a label is interpolated into a backtick-quoted Cypher
+    identifier (`:`{label}``).
+
+    Doubling is Cypher's escape rule for an embedded backtick; without it a label
+    containing a backtick can close the identifier early and inject arbitrary
+    Cypher. Note that `label_from` does not guarantee a safe label - it passes
+    `__...__` reserved-style values through unchanged - so any label-position
+    interpolation must route through this function regardless of provenance.
+
+    Args:
+        label (str): The label to escape.
+
+    Returns:
+        str: The label with every backtick doubled.
+
+    Raises:
+        TypeError: If `label` is not a string, so an unsafe query is never built
+            silently from a non-string value.
+    """
+    if not isinstance(label, str):
+        raise TypeError(f'Cypher label must be a string, got {type(label).__name__}')
+    return label.replace('`', '``')
 
 def relationship_name_from(value:str):
     """
