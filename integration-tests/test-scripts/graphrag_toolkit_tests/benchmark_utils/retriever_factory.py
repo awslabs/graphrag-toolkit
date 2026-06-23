@@ -18,12 +18,9 @@ from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import AgenticRetr
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import (
     ChunkBasedSearch,
     ChunkBasedSemanticSearch,
-    ChunkCosineSimilaritySearch,
     EntityBasedSearch,
     EntityNetworkSearch,
     RerankingBeamGraphSearch,
-    SemanticChunkBeamGraphSearch,
-    SemanticGuidedChunkRetriever,
     SemanticGuidedRetriever,
     StatementCosineSimilaritySearch,
     TopicBasedSearch,
@@ -42,7 +39,6 @@ VALID_RETRIEVER_IDS = [
     'entity_network',
     'chunk_based_semantic',
     'semantic_guided',
-    'topic-beam-chunk_only',
     'semantic-path_weighted',
     'agentic',
     'byokg_agentic',
@@ -129,9 +125,6 @@ def create_query_engine(
             **({"llm": llm} if llm else {}),
         )
 
-    if retriever_id == 'topic-beam-chunk_only':
-        return _create_topic_beam_chunk_only(graph_store, vector_store, llm=llm)
-
     if retriever_id == 'semantic-path_weighted':
         return _create_semantic_path_weighted(graph_store, vector_store, llm=llm)
 
@@ -181,7 +174,7 @@ def get_retriever_config(
     elif retriever_id == 'byokg_agentic':
         hyperparameters = {'max_iterations': byokg_max_iterations}
     else:
-        # traversal, semantic_guided, topic-beam-chunk_only, semantic-path_weighted:
+        # traversal, semantic_guided, semantic-path_weighted:
         # no harness-level overrides, so the retrieval library defaults apply.
         hyperparameters = {}
 
@@ -190,36 +183,6 @@ def get_retriever_config(
         'response_llm': response_llm,
         'hyperparameters': hyperparameters,
     }
-
-
-def _create_topic_beam_chunk_only(graph_store, vector_store, llm=None) -> LexicalGraphQueryEngine:
-    """
-    Creates a query engine using SemanticGuidedChunkRetriever with
-    ChunkCosineSimilaritySearch (initial) + SemanticChunkBeamGraphSearch (graph expansion).
-    Uses default parameters: chunk_cosine_top_k=50, beam_width=10, max_depth=3.
-    """
-    retriever = SemanticGuidedChunkRetriever(
-        vector_store=vector_store,
-        graph_store=graph_store,
-        retrievers=[
-            ChunkCosineSimilaritySearch(
-                vector_store=vector_store,
-                graph_store=graph_store,
-            ),
-            SemanticChunkBeamGraphSearch(
-                vector_store=vector_store,
-                graph_store=graph_store,
-            ),
-        ],
-    )
-
-    return LexicalGraphQueryEngine(
-        graph_store,
-        vector_store,
-        retriever=retriever,
-        context_format='bedrock_xml',
-        **({"llm": llm} if llm else {}),
-    )
 
 
 def _create_semantic_path_weighted(graph_store, vector_store, llm=None) -> LexicalGraphQueryEngine:
