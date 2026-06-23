@@ -53,7 +53,7 @@ class LLMCache(BaseModel):
                     )
                     
                     session = GraphRAGConfig.session
-                    self.llm._client = session.client('bedrock-runtime', config=config)
+                    self.llm._client = session.client('bedrock-runtime', config=config, region_name=self.llm.region_name)
             response = self.llm.stream(prompt, **prompt_args)
         except Exception as e:
             raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
@@ -107,7 +107,7 @@ class LLMCache(BaseModel):
                         )
                         
                         session = GraphRAGConfig.session
-                        self.llm._client = session.client('bedrock-runtime', config=config)
+                        self.llm._client = session.client('bedrock-runtime', config=config, region_name=self.llm.region_name)
                 response = self.llm.predict(prompt, **prompt_args)
             except Exception as e:
                 raise ModelError(f'{e!s} [Model config: {self.llm.to_json()}]') from e
@@ -136,7 +136,7 @@ class LLMCache(BaseModel):
                             )
                             
                             session = GraphRAGConfig.session
-                            self.llm._client = session.client('bedrock-runtime', config=config)
+                            self.llm._client = session.client('bedrock-runtime', config=config, region_name=self.llm.region_name)
                     response = self.llm.predict(prompt, **prompt_args)
                 except Exception as e:
                     raise ModelError(f'{e!s} Model config: {self.llm.to_json()}') from e
