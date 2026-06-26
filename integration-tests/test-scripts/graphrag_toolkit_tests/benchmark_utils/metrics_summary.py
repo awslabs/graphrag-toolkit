@@ -65,6 +65,7 @@ def compute_metrics_summary(
     dataset: str,
     model_id: str,
     num_empty: int,
+    retriever_config: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Compute aggregate latency (avg, p50, p95), total tokens, estimated cost,
     and metadata for a benchmark run.
@@ -76,6 +77,9 @@ def compute_metrics_summary(
         dataset: The dataset name.
         model_id: The Bedrock model ID used for response generation.
         num_empty: Count of queries that produced empty responses.
+        retriever_config: Optional dict of the retriever hyperparameters used for
+            this run (see retriever_factory.get_retriever_config), recorded so the
+            run is reproducible from metrics_summary.json. Written through verbatim.
 
     Returns:
         Dict suitable for writing as metrics_summary.json.
@@ -153,6 +157,7 @@ def compute_metrics_summary(
         'retriever': retriever_id,
         'dataset': dataset,
         'model_id': model_id,
+        'retriever_config': retriever_config,
         'num_queries': len(per_query_data),
         'num_empty_responses': num_empty,
         'num_missing_token_metadata': num_missing_token_metadata,

@@ -18,12 +18,9 @@ from graphrag_toolkit_tests.benchmark_utils.agentic_retriever import AgenticRetr
 from graphrag_toolkit.lexical_graph.retrieval.retrievers import (
     ChunkBasedSearch,
     ChunkBasedSemanticSearch,
-    ChunkCosineSimilaritySearch,
     EntityBasedSearch,
     EntityNetworkSearch,
     RerankingBeamGraphSearch,
-    SemanticChunkBeamGraphSearch,
-    SemanticGuidedChunkRetriever,
     SemanticGuidedRetriever,
     StatementCosineSimilaritySearch,
     TopicBasedSearch,
@@ -42,7 +39,6 @@ VALID_RETRIEVER_IDS = [
     'entity_network',
     'chunk_based_semantic',
     'semantic_guided',
-    'topic-beam-chunk_only',
     'semantic-path_weighted',
     'agentic',
     'byokg_agentic',
@@ -56,6 +52,9 @@ _SUB_RETRIEVER_MAP = {
     'entity_network': EntityNetworkSearch,
     'chunk_based_semantic': ChunkBasedSemanticSearch,
 }
+
+# Sub-retriever IDs, derived from _SUB_RETRIEVER_MAP.
+SUB_RETRIEVER_IDS = list(_SUB_RETRIEVER_MAP)
 
 # Common ProcessorArgs kwargs for individual sub-retriever benchmarks
 _SUB_RETRIEVER_PROCESSOR_ARGS = {
@@ -126,9 +125,6 @@ def create_query_engine(
             **({"llm": llm} if llm else {}),
         )
 
-    if retriever_id == 'topic-beam-chunk_only':
-        return _create_topic_beam_chunk_only(graph_store, vector_store, llm=llm)
-
     if retriever_id == 'semantic-path_weighted':
         return _create_semantic_path_weighted(graph_store, vector_store, llm=llm)
 
@@ -146,34 +142,47 @@ def create_query_engine(
         )
 
 
-def _create_topic_beam_chunk_only(graph_store, vector_store, llm=None) -> LexicalGraphQueryEngine:
-    """
-    Creates a query engine using SemanticGuidedChunkRetriever with
-    ChunkCosineSimilaritySearch (initial) + SemanticChunkBeamGraphSearch (graph expansion).
-    Uses default parameters: chunk_cosine_top_k=50, beam_width=10, max_depth=3.
-    """
-    retriever = SemanticGuidedChunkRetriever(
-        vector_store=vector_store,
-        graph_store=graph_store,
-        retrievers=[
-            ChunkCosineSimilaritySearch(
-                vector_store=vector_store,
-                graph_store=graph_store,
-            ),
-            SemanticChunkBeamGraphSearch(
-                vector_store=vector_store,
-                graph_store=graph_store,
-            ),
-        ],
-    )
+def get_retriever_config(
+    retriever_id: str,
+    response_llm: str = 'us.anthropic.claude-sonnet-4-6',
+    agentic_max_iterations: int = 3,
+    byokg_max_iterations: int = 2,
+) -> dict:
+    """Return the hyperparameters the benchmark harness sets for ``retriever_id``.
 
-    return LexicalGraphQueryEngine(
-        graph_store,
-        vector_store,
-        retriever=retriever,
-        context_format='bedrock_xml',
-        **({"llm": llm} if llm else {}),
-    )
+    Mirrors the explicit construction in :func:`create_query_engine`, so a run is
+    reproducible from ``metrics_summary.json``. Only knobs the harness overrides are
+    recorded: ``traversal``, ``semantic_guided``, and the beam retrievers pass no
+    hyperparameter overrides and run on the retrieval library's own defaults
+    (reproducible via the pinned package version), so their ``hyperparameters`` is
+    empty. The sub-retriever values reference ``_SUB_RETRIEVER_PROCESSOR_ARGS``
+    directly, so they stay in sync if that dict changes.
+
+    Raises:
+        ValueError: If ``retriever_id`` is not in ``VALID_RETRIEVER_IDS``.
+    """
+    if retriever_id not in VALID_RETRIEVER_IDS:
+        raise ValueError(
+            f"Invalid retriever identifier: '{retriever_id}'. "
+            f"Valid identifiers are: {VALID_RETRIEVER_IDS}"
+        )
+
+    if retriever_id in _SUB_RETRIEVER_MAP:
+        hyperparameters = dict(_SUB_RETRIEVER_PROCESSOR_ARGS)
+    elif retriever_id == 'agentic':
+        hyperparameters = {'max_iterations': agentic_max_iterations}
+    elif retriever_id == 'byokg_agentic':
+        hyperparameters = {'max_iterations': byokg_max_iterations}
+    else:
+        # traversal, semantic_guided, semantic-path_weighted:
+        # no harness-level overrides, so the retrieval library defaults apply.
+        hyperparameters = {}
+
+    return {
+        'retriever_id': retriever_id,
+        'response_llm': response_llm,
+        'hyperparameters': hyperparameters,
+    }
 
 
 def _create_semantic_path_weighted(graph_store, vector_store, llm=None) -> LexicalGraphQueryEngine:

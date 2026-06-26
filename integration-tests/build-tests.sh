@@ -480,7 +480,7 @@ if [[ -z "$DRY_RUN" ]]; then
 		ParameterKey=SSHCIDR,ParameterValue="$SSHCIDR" \
 		ParameterKey=DbPassword,ParameterValue="$DB_PASSWORD" \
 		ParameterKey=ExistingVpcId,ParameterValue="${EXISTING_VPC_ID:-}" \
-		ParameterKey=ExistingSubnetIds,ParameterValue="${EXISTING_SUBNET_IDS:-}" \
+		"ParameterKey=ExistingSubnetIds,ParameterValue=${EXISTING_SUBNET_IDS//,/\\,}" \
 	  --capabilities CAPABILITY_NAMED_IAM \
 	  --tags \
 	    Key=ApplicationName,Value="graphrag-toolkit test" \

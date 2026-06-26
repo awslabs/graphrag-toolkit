@@ -210,7 +210,7 @@ source .env.testing
 source .env
 
 # Loop through all retrievers
-for RETRIEVER in topic_based entity_based chunk_based entity_network chunk_based_semantic semantic_guided topic-beam-chunk_only semantic-path_weighted; do
+for RETRIEVER in topic_based entity_based chunk_based entity_network chunk_based_semantic semantic_guided semantic-path_weighted; do
   export BENCHMARK_RETRIEVER=$RETRIEVER
   export TESTS="benchmark_query.<Dataset>BenchmarkQuery benchmark_evaluate.<Dataset>BenchmarkEvaluate"
   echo "=== Running $RETRIEVER ==="
@@ -229,7 +229,6 @@ done
 | `entity_network` | Single sub-retriever | EntityNetworkSearch only |
 | `chunk_based_semantic` | Single sub-retriever | ChunkBasedSemanticSearch only |
 | `semantic_guided` | Beam search | StatementCosine + KeywordRanking + SemanticBeamGraph |
-| `topic-beam-chunk_only` | Contributor config | ChunkCosine + SemanticChunkBeamGraph |
 | `semantic-path_weighted` | Contributor config | StatementCosine + RerankingBeamGraph |
 
 ### Step 3: Copy results to S3
