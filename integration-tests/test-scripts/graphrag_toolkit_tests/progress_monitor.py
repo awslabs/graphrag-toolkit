@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 import os
+import logging
 import unittest
 from typing import Dict, Any
 
@@ -13,6 +14,8 @@ from graphrag_toolkit.lexical_graph.storage import VectorStoreFactory
 from graphrag_toolkit.lexical_graph.storage.graph import NonRedactedGraphQueryLogFormatting
 
 from llama_index.readers.web import SimpleWebPageReader
+
+logger = logging.getLogger(__name__)
 
 
 class TrackingProgressMonitor(NoOpProgressMonitor):
@@ -27,18 +30,21 @@ class TrackingProgressMonitor(NoOpProgressMonitor):
 
     def increment_llm_processed_documents(self, count=1):
         self.llm_docs += count
+        logger.info(f'[ProgressMonitor] LLM        - docs: {self.llm_docs}, chunks: {self.llm_chunks}')
 
     def increment_llm_processed_chunks(self, count=1):
         self.llm_chunks += count
 
     def increment_graph_processed_documents(self, count=1):
         self.graph_docs += count
+        logger.info(f'[ProgressMonitor] Graph      - docs: {self.graph_docs}, chunks: {self.graph_chunks}')
 
     def increment_graph_processed_chunks(self, count=1):
         self.graph_chunks += count
 
     def increment_vector_processed_documents(self, count=1):
         self.vector_docs += count
+        logger.info(f'[ProgressMonitor] Vector     - docs: {self.vector_docs}, chunks: {self.vector_chunks}')
 
     def increment_vector_processed_chunks(self, count=1):
         self.vector_chunks += count
