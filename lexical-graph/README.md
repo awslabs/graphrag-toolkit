@@ -35,6 +35,43 @@ Or install from a release zip file:
 $ pip install https://github.com/awslabs/graphrag-toolkit/archive/refs/tags/graphrag-lexical-graph/v3.18.5.zip#subdirectory=lexical-graph
 ```
 
+### Installing with uv and botocore>=1.41.0
+
+If your project requires `botocore>=1.41.0` and you install with [uv](https://docs.astral.sh/uv/), a transitive dependency conflict exists: `aioboto3==15.5.0` (required by LlamaIndex) exact-pins `aiobotocore==2.25.1`, which restricts `botocore` to `<1.40.62`.
+
+The `pyproject.toml` in this package includes `[tool.uv] override-dependencies` that automatically resolve this when installing with `uv`:
+
+```toml
+[tool.uv]
+override-dependencies = [
+    "aiobotocore>=2.26.0,<2.27.0",
+    "botocore>=1.41.0,<1.41.6",
+    "boto3>=1.41.0,<1.41.6",
+]
+```
+
+These overrides upgrade `aiobotocore` to `2.26.0` (which accepts `botocore>=1.41.0`) and co-version `boto3`/`botocore` accordingly. They are **only respected by `uv`** — pip users are unaffected and will see the standard `botocore<1.40.62` constraint from `aiobotocore==2.25.1`.
+
+If you need to apply the same override in your own project (e.g. you use `uv` and install `graphrag-lexical-graph` as a dependency), you can either add the following to your `pyproject.toml`:
+
+```toml
+[tool.uv]
+override-dependencies = [
+    "aiobotocore>=2.26.0,<2.27.0",
+    "botocore>=1.41.0,<1.41.6",
+    "boto3>=1.41.0,<1.41.6",
+]
+```
+
+Or pass the overrides directly on the command line without modifying any project files:
+
+```bash
+uv pip install graphrag-lexical-graph \
+  --override <(echo -e "aiobotocore>=2.26.0,<2.27.0\nbotocore>=1.41.0,<1.41.6\nboto3>=1.41.0,<1.41.6")
+```
+
+> **Note:** This override is a temporary workaround. It will be removed once the upstream LlamaIndex dependency is updated ([#21915](https://github.com/run-llama/llama_index/pull/21915), [#21916](https://github.com/run-llama/llama_index/pull/21916)).
+
 If you're running on AWS, you must run your application in an AWS region containing the Amazon Bedrock foundation models used by the lexical graph (see the [configuration](https://awslabs.github.io/graphrag-toolkit/lexical-graph/configuration/#graphragconfig) section in the documentation for details on the default models used), and must [enable access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) to these models before running any part of the solution.
 
 ### Additional dependencies

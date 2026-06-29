@@ -29,6 +29,27 @@ dev = [
     "pre-commit>=3.5.0",
 ]
 
+# These overrides resolve a transitive dependency conflict: aioboto3==15.5.0
+# (required by LlamaIndex) exact-pins aiobotocore==2.25.1, which pins
+# botocore<1.40.62. Consumers needing botocore>=1.41.0 cannot install both.
+#
+# The overrides upgrade aiobotocore to 2.26.0 (which accepts botocore>=1.41.0)
+# and co-version boto3/botocore accordingly.
+#
+# THIS IS TEMPORARY — remove once the upstream LlamaIndex PRs are merged and
+# released:
+#   https://github.com/run-llama/llama_index/pull/21915
+#   https://github.com/run-llama/llama_index/pull/21916
+#
+# NOTE: override-dependencies is only respected by uv. pip users are unaffected
+# and will continue to hit the botocore<1.40.62 constraint.
+[tool.uv]
+override-dependencies = [
+    "aiobotocore>=2.26.0,<2.27.0",
+    "botocore>=1.41.0,<1.41.6",
+    "boto3>=1.41.0,<1.41.6",
+]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
