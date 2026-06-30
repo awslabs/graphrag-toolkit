@@ -35,6 +35,7 @@ from graphrag_toolkit.lexical_graph.indexing.build.null_builder import NullBuild
 from graphrag_toolkit.lexical_graph.indexing.build.delete_sources import DeleteSources
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 from graphrag_toolkit.lexical_graph.utils.llm_cache import LLMCache
+from graphrag_toolkit.lexical_graph.indexing.progress_monitor import ProgressMonitor
 
 from llama_index.core.node_parser import SentenceSplitter, NodeParser
 from llama_index.core.schema import BaseNode
@@ -428,6 +429,7 @@ class LexicalGraphIndex():
             handler: Optional[NodeHandler] = None,
             checkpoint: Optional[Checkpoint] = None,
             show_progress: Optional[bool] = False,
+            progress_monitor: Optional[ProgressMonitor] = None,
             **kwargs: Any) -> None:
         """
         Executes the extraction process for a given set of nodes using the specified handler,
@@ -443,7 +445,26 @@ class LexicalGraphIndex():
                 progress during extraction and build stages.
             show_progress (Optional[bool], optional): Indicates whether to display progress during
                 the pipeline execution.
+            progress_monitor (Optional[ProgressMonitor], optional): A monitor to receive progress
+                callbacks as documents complete LLM extraction. Receives
+                increment_llm_processed_documents and increment_llm_processed_chunks calls at
+                document boundaries.
             **kwargs (Any): Additional keyword arguments for pipeline configurations or overrides.
+
+        Example::
+
+            from graphrag_toolkit.lexical_graph import ProgressMonitor, NoOpProgressMonitor
+
+            class MyMonitor(NoOpProgressMonitor):
+                def __init__(self):
+                    self.docs_done = 0
+
+                def increment_llm_processed_documents(self, count=1):
+                    self.docs_done += count
+                    print(f"Extracted {self.docs_done} documents")
+
+            monitor = MyMonitor()
+            index.extract(nodes, progress_monitor=monitor)
         """
 
         if not self.tenant_id.is_default_tenant():
@@ -471,10 +492,17 @@ class LexicalGraphIndex():
             **kwargs
         )
 
-        if handler:
-            nodes | extraction_pipeline | Pipe(handler.accept) | build_pipeline | sink
+        if progress_monitor:
+            extraction_monitor = self._create_extraction_monitor_pipe(progress_monitor)
+            if handler:
+                nodes | extraction_pipeline | extraction_monitor | Pipe(handler.accept) | build_pipeline | sink
+            else:
+                nodes | extraction_pipeline | extraction_monitor | build_pipeline | sink
         else:
-            nodes | extraction_pipeline | build_pipeline | sink
+            if handler:
+                nodes | extraction_pipeline | Pipe(handler.accept) | build_pipeline | sink
+            else:
+                nodes | extraction_pipeline | build_pipeline | sink
 
     def build(
             self,
@@ -482,6 +510,7 @@ class LexicalGraphIndex():
             handler: Optional[NodeHandler] = None,
             checkpoint: Optional[Checkpoint] = None,
             show_progress: Optional[bool] = False,
+            progress_monitor: Optional[ProgressMonitor] = None,
             **kwargs: Any) -> None:
         """
         Builds an indexing pipeline for processing nodes, constructing a graph, and creating
@@ -497,6 +526,12 @@ class LexicalGraphIndex():
                 progress of the build pipeline. Defaults to None.
             show_progress (Optional[bool]): A flag indicating whether to show progress during
                 pipeline execution. Defaults to False.
+            progress_monitor (Optional[ProgressMonitor]): A monitor to receive progress
+                callbacks as documents complete graph and vector indexing. Receives
+                increment_graph_processed_documents, increment_graph_processed_chunks,
+                increment_vector_processed_documents, and increment_vector_processed_chunks
+                calls at document batch boundaries. Graph and vector increments fire together
+                since both stages execute within the same worker process.
             **kwargs (Any): Additional keyword arguments for extending or customizing the
                 pipeline behavior.
 
@@ -527,6 +562,7 @@ class LexicalGraphIndex():
             include_domain_labels=build_config.include_domain_labels,
             include_local_entities=build_config.include_local_entities,
             tenant_id=self.tenant_id,
+            progress_monitor=progress_monitor,
             **kwargs
         )
 
@@ -539,6 +575,7 @@ class LexicalGraphIndex():
             handler: Optional[NodeHandler] = None,
             checkpoint: Optional[Checkpoint] = None,
             show_progress: Optional[bool] = False,
+            progress_monitor: Optional[ProgressMonitor] = None,
             **kwargs: Any
     ) -> None:
         """
@@ -552,6 +589,10 @@ class LexicalGraphIndex():
             handler (Optional[NodeHandler]): A handler object to manage processed nodes. Defaults to None.
             checkpoint (Optional[Checkpoint]): A checkpoint object for resuming pipelines. Defaults to None.
             show_progress (Optional[bool]): Boolean flag to display pipeline progress. Defaults to False.
+            progress_monitor (Optional[ProgressMonitor]): A monitor to receive progress
+                callbacks across both extraction and build stages. The same instance receives
+                LLM increment calls during extraction, then graph/vector increment calls
+                during build.
             **kwargs (Any): Additional parameters to pass to pipelines.
         """
 
@@ -591,11 +632,32 @@ class LexicalGraphIndex():
             include_domain_labels=build_config.include_domain_labels,
             include_local_entities=build_config.include_local_entities,
             tenant_id=self.tenant_id,
+            progress_monitor=progress_monitor,
             **kwargs
         )
 
         sink_fn = sink if not handler else Pipe(handler)
-        nodes | extraction_pipeline | build_pipeline | sink_fn
+        if progress_monitor:
+            extraction_monitor = self._create_extraction_monitor_pipe(progress_monitor)
+            nodes | extraction_pipeline | extraction_monitor | build_pipeline | sink_fn
+        else:
+            nodes | extraction_pipeline | build_pipeline | sink_fn
+
+    @staticmethod
+    def _create_extraction_monitor_pipe(progress_monitor: ProgressMonitor) -> Pipe:
+        def _monitor_extraction(source_documents):
+            for doc in source_documents:
+                # TODO: Chunk-level reporting is batched at document boundaries.
+                # All chunks for a document are reported at once, not as each chunk
+                # finishes within a worker process. A future improvement could use
+                # multiprocessing-safe mechanisms for true per-chunk progress.
+                try:
+                    progress_monitor.increment_llm_processed_documents(1)
+                    progress_monitor.increment_llm_processed_chunks(len(doc.nodes))
+                except Exception:
+                    logger.warning("ProgressMonitor raised an exception during extraction tracking", exc_info=True)
+                yield doc
+        return Pipe(_monitor_extraction)
 
     def get_stats(self) -> Dict[str, Any]:
 
