@@ -138,7 +138,8 @@ class TopicBasedSearch(TraversalBasedBaseRetriever):
             self.vector_store, 
             self.args.vss_diversity_factor, 
             self.args.vss_top_k, 
-            self.filter_config
+            self.filter_config,
+            graph_store=self.graph_store
         )
         
         return [topic['topic']['topicId'] for topic in topics]
