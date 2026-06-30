@@ -133,7 +133,7 @@ class BaseNeptuneGraphStore(GraphStore):
         :return: Dict[node_id:Str, Any] node details
         """
         if self.node_type_to_property_mapping:
-            sub_query = " OR ".join([f"n.{prop} in $node_ids" for prop in set(self.node_type_to_property_mapping.values())])
+            sub_query = " OR ".join([f"n.`{_escape_cypher_label(prop)}` in $node_ids" for prop in set(self.node_type_to_property_mapping.values())])
             query = f'''MATCH (n)
                     WHERE {sub_query}
                     OR ID(n) IN $node_ids
@@ -186,7 +186,7 @@ class BaseNeptuneGraphStore(GraphStore):
         :return: Dict[node_id:Str, Dict[edge_type:Str, edge_ids:List[Str]]] or Dict[node_id:Str, Dict[edge_type:Str, List[(node_id:Str, edge_type:Str, node_id:Str)]]]
         """
         if self.node_type_to_property_mapping:
-            sub_query = " OR ".join([f"n.{prop} in $node_ids" for prop in set(self.node_type_to_property_mapping.values())])
+            sub_query = " OR ".join([f"n.`{_escape_cypher_label(prop)}` in $node_ids" for prop in set(self.node_type_to_property_mapping.values())])
             query = f'''MATCH (n) -[e]->(m)
                     WHERE {sub_query}
                     OR ID(n) IN $node_ids

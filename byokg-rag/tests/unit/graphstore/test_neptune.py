@@ -1844,3 +1844,47 @@ class TestNeptuneGraphReadOnlyParameterRejected:
             "Expected readOnly to be rejected by the neptune-graph service model. "
             "If this fails, the API now accepts readOnly and we should consider re-enabling it."
         )
+
+
+class TestPropertyNameInjection:
+    """Property names from node_type_to_property_mapping are interpolated into the
+    get_nodes / get_one_hop_edges WHERE clause. They must be backtick-quoted and
+    escaped so a name with special characters cannot break out and inject Cypher."""
+
+    def _store_with_property(self, mock_session, mock_neptune_client, mock_s3_client, prop):
+        mock_session_instance = Mock()
+        mock_session.return_value = mock_session_instance
+        mock_session_instance.client.side_effect = lambda service, **kwargs: {
+            'neptune-graph': mock_neptune_client,
+            's3': mock_s3_client,
+        }[service]
+        mock_neptune_client.execute_query.return_value = {
+            'payload': Mock(read=lambda: json.dumps({'results': []}).encode())
+        }
+        store = NeptuneAnalyticsGraphStore(graph_identifier='test-graph-id', region='us-west-2')
+        store.node_type_to_property_mapping = {'Org': prop}
+        return store
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_get_nodes_backtick_quotes_property(self, mock_session, mock_neptune_client, mock_s3_client):
+        """A property name with a backtick is backtick-quoted with the backtick doubled."""
+        store = self._store_with_property(mock_session, mock_neptune_client, mock_s3_client, "a`b")
+        store.get_nodes(['n1'])
+        sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
+        assert "n.`a``b`" in sent, sent
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_get_one_hop_edges_backtick_quotes_property(self, mock_session, mock_neptune_client, mock_s3_client):
+        """The same escaping applies on the one-hop-edges traversal sink."""
+        store = self._store_with_property(mock_session, mock_neptune_client, mock_s3_client, "a`b")
+        store.get_one_hop_edges(['n1'])
+        sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
+        assert "n.`a``b`" in sent, sent
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_plain_property_is_backtick_quoted(self, mock_session, mock_neptune_client, mock_s3_client):
+        """A legitimate property name is still backtick-quoted, producing valid Cypher."""
+        store = self._store_with_property(mock_session, mock_neptune_client, mock_s3_client, "name")
+        store.get_nodes(['n1'])
+        sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
+        assert "n.`name`" in sent, sent
