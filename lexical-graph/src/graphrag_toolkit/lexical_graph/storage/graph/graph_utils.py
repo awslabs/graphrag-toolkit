@@ -81,6 +81,23 @@ def escape_cypher_label(label:str) -> str:
         raise TypeError(f'Cypher label must be a string, got {type(label).__name__}')
     return label.replace('`', '``')
 
+
+def escape_cypher_string(value:str) -> str:
+    """Escape a value before it is interpolated into a single-quoted Cypher string
+    literal (`'{value}'`).
+
+    Backslash is doubled first, then single quotes are backslash-escaped, so an
+    attacker-controlled value cannot close the literal and inject Cypher. Order
+    matters: escaping the backslash after the quote would re-break the escape.
+
+    Raises:
+        TypeError: If `value` is not a string, so an unsafe query is never built
+            silently from a non-string value.
+    """
+    if not isinstance(value, str):
+        raise TypeError(f'Cypher string value must be a string, got {type(value).__name__}')
+    return value.replace('\\', '\\\\').replace("'", "\\'")
+
 def relationship_name_from(value:str):
     """
     Generates a formatted relationship name from a given string.
@@ -204,9 +221,9 @@ def formatter_for_type(type_name:str) -> Callable[[Any], str]:
         ValueError: If an unsupported type name is provided.
     """
     if type_name == 'text':
-        return lambda x: f"'{x}'"
+        return lambda x: f"'{escape_cypher_string(str(x))}'"
     elif type_name == 'timestamp':
-        return lambda x: f"datetime('{format_datetime(x)}')"
+        return lambda x: f"datetime('{escape_cypher_string(format_datetime(x))}')"
     elif type_name in ['number', 'int', 'float']:
         return lambda x:x
     else:
@@ -236,22 +253,9 @@ def parse_metadata_filters_recursive(metadata_filters:MetadataFilters) -> str:
             types, or if an unsupported filter condition is encountered.
     """
     def to_key(key: str) -> str:
-        """
-        Recursively parses metadata filters and converts them into a formatted string.
-
-        This function takes a MetadataFilters object and iteratively processes it,
-        transforming its content into a specific string format for further usage.
-
-        Args:
-            metadata_filters: The MetadataFilters object that contains the filtering
-                criteria to be processed.
-
-        Returns:
-            A string that represents the parsed and formatted metadata filters based
-            on the provided input.
-
-        """
-        return f"source.{key}"
+        """Return the property reference for a filter key, backtick-quoted and escaped
+        so a key with special characters cannot break out of the identifier."""
+        return f"source.`{escape_cypher_label(key)}`"
     
     def metadata_filter_to_opencypher_filter(f: MetadataFilter) -> str:
         """
