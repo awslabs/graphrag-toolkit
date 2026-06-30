@@ -64,7 +64,6 @@ class TestExtractionMonitorPipe:
 
     def test_extraction_monitor_fires_correctly(self):
         from unittest.mock import MagicMock
-        from pipe import Pipe
         from graphrag_toolkit.lexical_graph.lexical_graph_index import LexicalGraphIndex
         from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
         from llama_index.core.schema import TextNode, NodeRelationship, RelatedNodeInfo
@@ -91,7 +90,6 @@ class TestExtractionMonitorPipe:
 
     def test_extraction_monitor_multiple_documents(self):
         from unittest.mock import MagicMock
-        from pipe import Pipe
         from graphrag_toolkit.lexical_graph.lexical_graph_index import LexicalGraphIndex
         from graphrag_toolkit.lexical_graph.indexing.model import SourceDocument
         from llama_index.core.schema import TextNode, NodeRelationship, RelatedNodeInfo
