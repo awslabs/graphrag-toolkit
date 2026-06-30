@@ -108,8 +108,9 @@ jobs:
       - name: Cleanup existing release assets
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
-          TAG="${{ github.event.release.tag_name }}"
+          TAG="$RELEASE_TAG"
           # Extract base version (e.g. graphrag-lexical-graph/v3.18.0 from graphrag-lexical-graph/v3.18.0.dev3)
           BASE_VERSION="${TAG%.dev*}"
           # Find all dev releases matching this base version and delete their assets
