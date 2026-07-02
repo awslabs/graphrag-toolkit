@@ -295,3 +295,28 @@ class TestLegitimateFilterStillWorks:
         assert '%s' in sql_text
         assert _bound('category', params)
         assert _bound('tech', params)
+
+
+class TestEmptyIdList:
+    """An empty id list must not emit `IN ()`, which Postgres rejects as a syntax error."""
+
+    def test_get_embeddings_empty_returns_without_query(self):
+        index = _make_pg_index()
+        mock_conn, mock_cur = _mock_conn_cursor()
+        with patch.object(pvi.PGIndex, '_get_connection', return_value=mock_conn):
+            assert index.get_embeddings(ids=[]) == []
+        mock_cur.execute.assert_not_called()
+
+    def test_update_versioning_empty_returns_without_query(self):
+        index = _make_pg_index()
+        mock_conn, mock_cur = _mock_conn_cursor()
+        with patch.object(pvi.PGIndex, '_get_connection', return_value=mock_conn):
+            assert index.update_versioning(versioning_timestamp=1, ids=[]) == []
+        mock_cur.execute.assert_not_called()
+
+    def test_delete_embeddings_empty_returns_without_query(self):
+        index = _make_pg_index()
+        mock_conn, mock_cur = _mock_conn_cursor()
+        with patch.object(pvi.PGIndex, '_get_connection', return_value=mock_conn):
+            assert index.delete_embeddings(ids=[]) == []
+        mock_cur.execute.assert_not_called()

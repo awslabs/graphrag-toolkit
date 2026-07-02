@@ -581,6 +581,9 @@ class PGIndex(VectorIndex):
                 database.
 
         """
+        if not ids:
+            return []
+
         dbconn = self._get_connection()
         cur = dbconn.cursor()
 
@@ -613,7 +616,10 @@ class PGIndex(VectorIndex):
         return get_embeddings_results
     
     def update_versioning(self, versioning_timestamp:int, ids:List[str]=[]):
-        
+
+        if not ids:
+            return []
+
         dbconn = self._get_connection()
         cur = dbconn.cursor()
 
@@ -657,6 +663,9 @@ class PGIndex(VectorIndex):
         return []
     
     def delete_embeddings(self, ids:List[str]=[]):
+
+        if not ids:
+            return ids
 
         dbconn = self._get_connection()
         cur = dbconn.cursor()
