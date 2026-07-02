@@ -1872,6 +1872,8 @@ class TestPropertyNameInjection:
         store.get_nodes(['n1'])
         sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
         assert "n.`a``b`" in sent, sent
+        # raw, unescaped form must be absent
+        assert "n.a`b" not in sent, sent
 
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_get_one_hop_edges_backtick_quotes_property(self, mock_session, mock_neptune_client, mock_s3_client):
@@ -1880,6 +1882,21 @@ class TestPropertyNameInjection:
         store.get_one_hop_edges(['n1'])
         sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
         assert "n.`a``b`" in sent, sent
+        # raw, unescaped form must be absent
+        assert "n.a`b" not in sent, sent
+
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune._escape_cypher_label', new=lambda label: label)
+    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
+    def test_escaping_is_load_bearing(self, mock_session, mock_neptune_client, mock_s3_client):
+        """Red-state: with the escape helper disabled the backtick is no longer doubled and
+        the raw form reaches the query, since the doubling is what neutralizes injection."""
+        store = self._store_with_property(mock_session, mock_neptune_client, mock_s3_client, "a`b")
+        store.get_nodes(['n1'])
+        sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
+        # no doubling without the helper
+        assert "n.`a``b`" not in sent, sent
+        # the un-doubled backtick reaches the query
+        assert "n.`a`b`" in sent, sent  
 
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_plain_property_is_backtick_quoted(self, mock_session, mock_neptune_client, mock_s3_client):
