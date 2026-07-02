@@ -90,6 +90,10 @@ def escape_cypher_string(value:str) -> str:
     attacker-controlled value cannot close the literal and inject Cypher. Order
     matters: escaping the backslash after the quote would re-break the escape.
 
+    Doubling a backslash changes the match semantics for a value that contains a
+    literal backslash. That is acceptable here: a correct, non-injectable filter
+    takes priority over an exact backslash match.
+
     Raises:
         TypeError: If `value` is not a string, so an unsafe query is never built
             silently from a non-string value.
@@ -225,6 +229,8 @@ def formatter_for_type(type_name:str) -> Callable[[Any], str]:
     elif type_name == 'timestamp':
         return lambda x: f"datetime('{escape_cypher_string(format_datetime(x))}')"
     elif type_name in ['number', 'int', 'float']:
+        # Unquoted on purpose: the type is derived from the value's Python type,
+        # so a numeric value cannot carry Cypher syntax and needs no escaping.
         return lambda x:x
     else:
         raise ValueError(f'Unsupported type name: {type_name}')
