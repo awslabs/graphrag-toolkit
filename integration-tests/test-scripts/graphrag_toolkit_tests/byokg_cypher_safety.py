@@ -203,6 +203,9 @@ class BYOKGCypherInjectionSafety(IntegrationTestBase):
             endpoint = graph_store_id[len('neptune-db://'):]
             if not endpoint.startswith('https://'):
                 endpoint = f'https://{endpoint}'
+            # Neptune DB serves the data-plane API on port 8182; append it if absent
+            if endpoint.count(':') < 2:
+                endpoint = f'{endpoint}:8182'
             return 'db', NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
 
         raise ValueError(
@@ -348,6 +351,9 @@ class BYOKGS3PathInjectionSafety(IntegrationTestBase):
             endpoint = graph_store_id[len('neptune-db://'):]
             if not endpoint.startswith('https://'):
                 endpoint = f'https://{endpoint}'
+            # Neptune DB serves the data-plane API on port 8182; append it if absent
+            if endpoint.count(':') < 2:
+                endpoint = f'{endpoint}:8182'
             return 'db', NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
 
         raise ValueError(
@@ -438,3 +444,112 @@ class BYOKGS3PathInjectionSafety(IntegrationTestBase):
                 self.assertEqual(self._canary_after, 1)
 
         handler.run_assertions(S3PathInjectionSafetyAssertions)
+
+
+# A property name carrying a Cypher breakout payload. get_nodes and
+# get_one_hop_edges interpolate node_type_to_property_mapping values into
+# n.`{prop}`; without escaping the embedded backtick closes the identifier and
+# the appended clause deletes the canary. With escaping the whole payload is an
+# inert property name and the canary survives.
+PROP_CANARY_LABEL = '__ByokgPropInjCanary__'
+PROP_CANARY_ID = 'byokg-prop-inj-canary'
+MALICIOUS_PROPERTY = (
+    'id` OR true WITH n MATCH (c:`__ByokgPropInjCanary__`) DETACH DELETE c //'
+)
+
+
+class BYOKGPropertyNameInjectionSafety(IntegrationTestBase):
+    """Drive get_nodes / get_one_hop_edges with a backtick-bearing property name
+    against a live Neptune graph and confirm the escaped property cannot break
+    out and delete a canary node."""
+
+    @property
+    def description(self):
+        return 'get_nodes and get_one_hop_edges escape interpolated property names'
+
+    def _make_graph_store(self):
+        region = os.environ['AWS_REGION_NAME']
+        graph_store_id = os.environ['GRAPH_STORE']
+
+        if graph_store_id.startswith('neptune-graph://'):
+            graph_identifier = graph_store_id[len('neptune-graph://'):]
+            return NeptuneAnalyticsGraphStore(
+                graph_identifier=graph_identifier, region=region
+            )
+        if graph_store_id.startswith('neptune-db://'):
+            endpoint = graph_store_id[len('neptune-db://'):]
+            if not endpoint.startswith('https://'):
+                endpoint = f'https://{endpoint}'
+            # Neptune DB serves the data-plane API on port 8182; append it if absent
+            if endpoint.count(':') < 2:
+                endpoint = f'{endpoint}:8182'
+            return NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
+
+        raise ValueError(
+            "Invalid graph store id. Expected 'neptune-graph://' or "
+            f"'neptune-db://', but received {graph_store_id}."
+        )
+
+    def _canary_count(self, graph_store):
+        rows = graph_store.execute_query(
+            f'MATCH (c:`{PROP_CANARY_LABEL}`) RETURN count(c) AS n'
+        )
+        return rows[0]['n'] if rows else 0
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+
+        graph_store = self._make_graph_store()
+
+        graph_store.execute_query(
+            f'CREATE (c:`{PROP_CANARY_LABEL}` {{id: $id}})',
+            parameters={'id': PROP_CANARY_ID},
+        )
+        canary_before = self._canary_count(graph_store)
+
+        # Route the payload through the property-name sinks under test.
+        graph_store.node_type_to_property_mapping = {
+            '__PropInjProbe__': MALICIOUS_PROPERTY
+        }
+
+        sink_error = None
+        try:
+            graph_store.get_nodes(['__prop-inj-probe__'])
+            graph_store.get_one_hop_edges(['__prop-inj-probe__'])
+        except Exception as e:
+            sink_error = e
+
+        canary_after = self._canary_count(graph_store)
+
+        try:
+            graph_store.execute_query(
+                f'MATCH (c:`{PROP_CANARY_LABEL}`) DETACH DELETE c'
+            )
+        except Exception as e:
+            handler.add_exception(e)
+
+        handler.add_output('canary_before', canary_before)
+        handler.add_output('canary_after', canary_after)
+        handler.add_output('sink_error', str(sink_error) if sink_error else None)
+
+        class PropertyNameInjectionSafetyAssertions(unittest.TestCase):
+
+            @classmethod
+            def setUpClass(cls):
+                cls._canary_before = canary_before
+                cls._canary_after = canary_after
+                cls._sink_error = sink_error
+
+            def test_setup_created_canary(self):
+                """Canary node exists before the sinks run"""
+                self.assertEqual(self._canary_before, 1)
+
+            def test_sinks_execute_without_error(self):
+                """Escaped property produces valid Cypher; a raw n.{prop}
+                regression would be a syntax error"""
+                self.assertIsNone(self._sink_error)
+
+            def test_canary_survives_injection_payload(self):
+                """Canary still present: no injected DETACH DELETE executed"""
+                self.assertEqual(self._canary_after, 1)
+
+        handler.run_assertions(PropertyNameInjectionSafetyAssertions)

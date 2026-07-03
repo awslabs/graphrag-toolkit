@@ -2,3 +2,4 @@ byokg_setup.LoadBYOKGGraph
 byokg_cypher_safety.CypherSafetyCheck
 byokg_cypher_safety.BYOKGCypherInjectionSafety
 byokg_cypher_safety.BYOKGS3PathInjectionSafety
+byokg_cypher_safety.BYOKGPropertyNameInjectionSafety
