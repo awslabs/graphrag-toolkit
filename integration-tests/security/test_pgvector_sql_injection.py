@@ -3,10 +3,10 @@
 
 """Security integration test: SQL injection in the PGVector store.
 
-Runs with its parent fix PR. Drives the real PGIndex sinks against a live
-Postgres+pgvector engine and shows the fix working: legitimate filters resolve,
-injected filter values, metadata keys, and id lists are inert, and the pre-fix
-interpolation pattern still breaks out on the same engine.
+Drives the real PGIndex sinks against a live Postgres+pgvector engine and shows
+the fix working: legitimate filters resolve, injected filter values, metadata
+keys, and id lists are inert, and the pre-fix interpolation pattern still breaks
+out on the same engine.
 
 Backend: PGVECTOR_TEST_DSN. Skips when unset; CI provides a Postgres+pgvector
 service container.
