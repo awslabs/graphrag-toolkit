@@ -33,6 +33,8 @@ _PROVIDER_MODULES = {
     "S3DirectoryReaderProvider": ".s3_directory_reader_provider",
     # Database readers
     "DatabaseReaderProvider": ".database_reader_provider",
+    # Generic LlamaIndex plugin reader
+    "LlamaIndexPluginReaderProvider": ".llama_index_plugin_reader_provider",
 }
 
 def __getattr__(name):
