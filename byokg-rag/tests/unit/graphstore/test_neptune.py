@@ -1812,6 +1812,7 @@ class TestNoUnescapedLabelSinks:
         assert not offenders, (
             'Value interpolated into a backtick-quoted identifier without '
             '_escape_cypher_label:\n' + '\n'.join(offenders)
+        )
 
 class TestNeptuneGraphReadOnlyParameterRejected:
     """Validates that the neptune-graph service model does not accept readOnly.

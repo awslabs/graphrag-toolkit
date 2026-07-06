@@ -24,6 +24,11 @@ pip install torch sentence_transformers
 
 python -m spacy download en_core_web_sm
 
+# Pin boto3/botocore/aiobotocore to compatible versions. aiobotocore constrains
+# botocore to a narrow range; without pinning, other installs can pull a boto3
+# that imports symbols missing from the allowed botocore (e.g. DocumentModifiedShape).
+pip install boto3==1.43.0 botocore==1.43.0 aiobotocore==3.7.0
+
 source /home/ec2-user/anaconda3/bin/deactivate
 
 EOF
