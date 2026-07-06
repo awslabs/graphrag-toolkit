@@ -3,15 +3,35 @@
 Uses graphrag-toolkit's GraphStore.query() for execution.
 """
 
-from typing import Optional
+from typing import Optional, Union
 from ..model_elements import Node, Edge
+
+try:
+    from graphrag_toolkit.lexical_graph import TenantId, to_tenant_id
+    HAS_LEXICAL = True
+except ImportError:
+    HAS_LEXICAL = False
+
+
+def _format_label(label: str, tenant_id: Optional[str] = None) -> str:
+    """Format a label using TenantId.format_label() for consistency with lexical-graph.
+    
+    Produces backtick-quoted labels: `Label` (default tenant) or `Label{tenant}__` (scoped).
+    Falls back to manual formatting if lexical-graph is not installed.
+    """
+    if not tenant_id:
+        return f'`{label}`'
+    if HAS_LEXICAL:
+        tid = to_tenant_id(tenant_id)
+        return tid.format_label(label)
+    # Fallback when lexical-graph not installed — same format
+    return f'`{label}{tenant_id}__`'
 
 
 def node_to_cypher(node: Node, tenant_id: Optional[str] = None) -> tuple[str, dict]:
     """Generate MERGE statement for a typed node."""
     labels = node.labels or ["Node"]
-    if tenant_id:
-        labels = [f"__{l}__{tenant_id}__" for l in labels]
+    labels = [_format_label(l, tenant_id) for l in labels]
     label_str = ":".join(labels)
     props = node.properties or {}
     id_val = node.id
