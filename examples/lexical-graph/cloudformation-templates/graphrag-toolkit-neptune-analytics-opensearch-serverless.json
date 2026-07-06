@@ -746,7 +746,7 @@
         "InstanceType": {
           "Ref": "NotebookInstanceType"
         },
-        "PlatformIdentifier": "notebook-al2-v3",
+        "PlatformIdentifier": "notebook-al2023-v1",
         "NotebookInstanceName": {
           "Fn::Sub": "aws-neptune-${ApplicationId}"
         },
