@@ -16,7 +16,7 @@
     "astro": "7.0.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sharp": "^0.35.2"
+    "sharp": "^0.35.3"
   },
   "overrides": {
     "postcss": "^8.5.10"
