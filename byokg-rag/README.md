@@ -95,7 +95,7 @@ NOTE: Additional permissions may be required for Neptune Database (`neptune-db:*
 
 The `GraphQueryRetriever` blocks Cypher queries containing modification keywords (CREATE, MERGE, DELETE, SET, REMOVE, DROP, DETACH, CALL) to protect against LLM-generated or user-supplied queries that could modify graph data.
 
-**Neptune Database**: Write protection relies solely on application-level Cypher validation (`is_query_safe()`). For stronger guarantees, use Neptune Analytics (which supports server-enforced `readOnly=True`) or restrict the IAM role to `neptune-db:ReadDataViaQuery`.
+**Neptune Database and Neptune Analytics (Graph)**: Neither service supports a server-enforced `readOnly` query parameter. Write protection relies solely on application-level Cypher validation (`is_query_safe()`). For stronger server-side guarantees, restrict the IAM role to `neptune-db:ReadDataViaQuery` (Neptune DB) or `neptune-graph:ReadDataViaQuery` (Neptune Analytics).
 
 ## Performance
 
