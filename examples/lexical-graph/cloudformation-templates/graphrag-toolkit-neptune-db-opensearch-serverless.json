@@ -694,7 +694,13 @@
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/anthropic.*"
                 },
                 {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*::foundation-model/amazon.nova*"
+                },
+                {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.anthropic.*"
+                },
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:inference-profile/*.amazon.nova*"
                 },
                 {
                   "Fn::Sub": "arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/cohere.embed-english-v3"
