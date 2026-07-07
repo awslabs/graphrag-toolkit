@@ -218,7 +218,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert result == "((source.category = 'tech'))"
+        assert result == "((source.`category` = 'tech'))"
 
     def test_numeric_value_not_quoted(self):
         filters = MetadataFilters(
@@ -226,7 +226,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert "source.count > 5" in result
+        assert "source.`count` > 5" in result
 
     def test_float_value_not_quoted(self):
         filters = MetadataFilters(
@@ -234,7 +234,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert "source.ratio <= 0.5" in result
+        assert "source.`ratio` <= 0.5" in result
 
     def test_and_condition_joins_with_and_keyword(self):
         filters = MetadataFilters(
@@ -243,8 +243,8 @@ class TestParseMetadataFiltersRecursive:
         )
         result = parse_metadata_filters_recursive(filters)
         assert ' AND ' in result
-        assert "source.category = 'tech'" in result
-        assert "source.lang = 'en'" in result
+        assert "source.`category` = 'tech'" in result
+        assert "source.`lang` = 'en'" in result
 
     def test_or_condition_joins_with_or_keyword(self):
         filters = MetadataFilters(
@@ -279,7 +279,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert 'source.archived_at IS NULL' in result
+        assert 'source.`archived_at` IS NULL' in result
 
     def test_text_match_insensitive_emits_tolower_on_key_and_lowercased_value(self):
         filters = MetadataFilters(
@@ -293,7 +293,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert 'source.title.toLower() CONTAINS' in result
+        assert 'source.`title`.toLower() CONTAINS' in result
         assert "'hello'" in result
 
     def test_nested_filters_recurse(self):
@@ -306,8 +306,8 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(outer)
-        assert 'source.category' in result
-        assert 'source.lang' in result
+        assert 'source.`category`' in result
+        assert 'source.`lang`' in result
         assert ' AND ' in result
         assert ' OR ' in result
 
@@ -328,4 +328,4 @@ class TestFilterConfigToOpencypherFilters:
             )
         )
         result = filter_config_to_opencypher_filters(config)
-        assert "source.category = 'tech'" in result
+        assert "source.`category` = 'tech'" in result

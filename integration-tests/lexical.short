@@ -20,3 +20,4 @@ checkpoint.BuildWithCheckpoint
 falkordb.TestFalkorDBContrib 
 batch_fallback.BatchExtractToS3Fallback
 delete_sources.DeleteSourceDocs
+lexical_graph_cypher_safety.LexicalGraphFilterInjectionSafety

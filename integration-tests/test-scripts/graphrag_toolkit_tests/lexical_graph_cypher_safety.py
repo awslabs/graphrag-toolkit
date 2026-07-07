@@ -23,11 +23,18 @@ from graphrag_toolkit.lexical_graph.storage.graph.neptune_graph_stores import (
     NeptuneAnalyticsClient,
     NeptuneDatabaseClient,
 )
-from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import label_from
+from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import (
+    label_from,
+    filter_config_to_opencypher_filters,
+)
 from graphrag_toolkit.lexical_graph.indexing.build.entity_graph_builder import (
     EntityGraphBuilder,
 )
 from graphrag_toolkit.lexical_graph.indexing.model import Entity, Fact, Relation
+from graphrag_toolkit.lexical_graph.metadata import FilterConfig
+from llama_index.core.vector_stores.types import (
+    FilterCondition, FilterOperator, MetadataFilter, MetadataFilters,
+)
 
 
 CANARY_LABEL = '__LexGraphInjCanary__'
@@ -68,6 +75,9 @@ class LexicalGraphLabelInjectionSafety(IntegrationTestBase):
             endpoint = graph_store_id[len('neptune-db://'):]
             if not endpoint.startswith('https://'):
                 endpoint = f'https://{endpoint}'
+            # Neptune DB serves the data-plane API on port 8182; append it if absent
+            if endpoint.count(':') < 2:
+                endpoint = f'{endpoint}:8182'
             return 'db', NeptuneDatabaseClient(endpoint_url=endpoint)
 
         raise ValueError(
@@ -248,3 +258,204 @@ class LexicalGraphLabelInjectionSafety(IntegrationTestBase):
                 )
 
         handler.run_assertions(LabelInjectionAssertions)
+
+
+FILTER_CANARY_LABEL = '__LexFilterInjCanary__'
+
+# A metadata filter value and key carrying a Cypher breakout payload.
+# filter_config_to_opencypher_filters wraps a text value in a single-quoted
+# literal and interpolates the key into source.`{key}`. Without escaping, the
+# embedded quote or backtick closes the token and the appended clause deletes
+# the canary; with escaping both stay inert.
+MALICIOUS_FILTER_VALUE = (
+    "x')) WITH source MATCH (c:`__LexFilterInjCanary__`) DETACH DELETE c //"
+)
+MALICIOUS_FILTER_KEY = (
+    "category` = '' WITH source MATCH (c:`__LexFilterInjCanary__`) DETACH DELETE c //"
+)
+
+# The red-state breakout only fires when the source query matches a row, so a
+# probe __Source__ node (category 'x', matching the payload prefix) is seeded for
+# the injected clause to act on.
+SOURCE_PROBE_ID = '__lexfilterinj_source_probe__'
+
+
+def _eq_filter_config(key, value):
+    return FilterConfig(source_filters=MetadataFilters(
+        filters=[MetadataFilter(key=key, value=value, operator=FilterOperator.EQ)],
+        condition=FilterCondition.AND,
+    ))
+
+
+class LexicalGraphFilterInjectionSafety(IntegrationTestBase):
+    """Splice the OpenCypher filter clause emitted by the real filter builder
+    into a query against a live Neptune graph and confirm an injected filter
+    value or key cannot break out and delete a canary node.
+    """
+
+    @property
+    def description(self):
+        return 'OpenCypher metadata filter builder escapes filter values and keys'
+
+    def _make_graph_store(self):
+        graph_store_id = os.environ['GRAPH_STORE']
+
+        if graph_store_id.startswith('neptune-graph://'):
+            graph_identifier = graph_store_id[len('neptune-graph://'):]
+            return 'analytics', NeptuneAnalyticsClient(graph_id=graph_identifier)
+
+        if graph_store_id.startswith('neptune-db://'):
+            endpoint = graph_store_id[len('neptune-db://'):]
+            if not endpoint.startswith('https://'):
+                endpoint = f'https://{endpoint}'
+            # Neptune DB serves the data-plane API on port 8182; append it if absent
+            if endpoint.count(':') < 2:
+                endpoint = f'{endpoint}:8182'
+            return 'db', NeptuneDatabaseClient(endpoint_url=endpoint)
+
+        raise ValueError(
+            f"Invalid graph store id. Expected 'neptune-graph://' or "
+            f"'neptune-db://', but received {graph_store_id}."
+        )
+
+    def _canary_count(self, graph_store):
+        rows = graph_store.execute_query_with_retry(
+            f'MATCH (c:`{FILTER_CANARY_LABEL}`) RETURN count(c) AS n', {}
+        )
+        return rows[0]['n'] if rows else 0
+
+    def _seed_canary(self, graph_store):
+        graph_store.execute_query_with_retry(
+            f'MERGE (c:`{FILTER_CANARY_LABEL}` {{probe: $probe}})', {'probe': 'canary'}
+        )
+
+    def _cleanup(self, graph_store):
+        graph_store.execute_query_with_retry(
+            f'MATCH (c:`{FILTER_CANARY_LABEL}`) DETACH DELETE c', {}
+        )
+        graph_store.execute_query_with_retry(
+            'MATCH (s:`__Source__`) WHERE s.probe = $probe DETACH DELETE s',
+            {'probe': SOURCE_PROBE_ID},
+        )
+
+    def _seed_source(self, graph_store):
+        """A probe __Source__ node the red-state breakout can act on."""
+        graph_store.execute_query_with_retry(
+            'MERGE (s:`__Source__` {probe: $probe}) SET s.category = $category',
+            {'probe': SOURCE_PROBE_ID, 'category': 'x'},
+        )
+
+    def _run_filter(self, graph_store, clause):
+        """Splice a filter clause into a source query, as the filter consumers
+        do, and run it against the graph."""
+        graph_store.execute_query_with_retry(
+            f'MATCH (source:`__Source__`) WHERE {clause} RETURN count(source) AS n', {}
+        )
+
+    def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
+
+        engine, graph_store = self._make_graph_store()
+
+        # --- Test 1: malicious filter value through the real sink ---
+        self._cleanup(graph_store)
+        self._seed_canary(graph_store)
+        self._seed_source(graph_store)
+        canary_before_value = self._canary_count(graph_store)
+        value_error = None
+        try:
+            clause = filter_config_to_opencypher_filters(
+                _eq_filter_config('category', MALICIOUS_FILTER_VALUE)
+            )
+            self._run_filter(graph_store, clause)
+        except Exception as e:
+            value_error = e
+        canary_after_value = self._canary_count(graph_store)
+
+        # --- Test 2: malicious filter key through the real sink ---
+        self._cleanup(graph_store)
+        self._seed_canary(graph_store)
+        self._seed_source(graph_store)
+        canary_before_key = self._canary_count(graph_store)
+        key_error = None
+        try:
+            clause = filter_config_to_opencypher_filters(
+                _eq_filter_config(MALICIOUS_FILTER_KEY, 'tech')
+            )
+            self._run_filter(graph_store, clause)
+        except Exception as e:
+            key_error = e
+        canary_after_key = self._canary_count(graph_store)
+
+        # --- Test 3: red-state proof (un-escaped clause deletes or is rejected) ---
+        self._cleanup(graph_store)
+        self._seed_canary(graph_store)
+        self._seed_source(graph_store)
+        canary_before_vuln = self._canary_count(graph_store)
+        vuln_error = None
+        try:
+            raw_clause = f"((source.category = '{MALICIOUS_FILTER_VALUE}'))"
+            self._run_filter(graph_store, raw_clause)
+        except Exception as e:
+            vuln_error = e
+        canary_after_vuln = self._canary_count(graph_store)
+
+        self._cleanup(graph_store)
+
+        handler.add_output('engine', engine)
+        handler.add_output('canary_after_value', canary_after_value)
+        handler.add_output('canary_after_key', canary_after_key)
+        handler.add_output('canary_after_vuln', canary_after_vuln)
+        handler.add_output('value_error', str(value_error) if value_error else None)
+        handler.add_output('key_error', str(key_error) if key_error else None)
+        handler.add_output('vuln_error', str(vuln_error) if vuln_error else None)
+
+        class FilterInjectionAssertions(unittest.TestCase):
+
+            @classmethod
+            def setUpClass(cls):
+                cls._canary_before_value = canary_before_value
+                cls._canary_after_value = canary_after_value
+                cls._value_error = value_error
+                cls._canary_before_key = canary_before_key
+                cls._canary_after_key = canary_after_key
+                cls._key_error = key_error
+                cls._canary_before_vuln = canary_before_vuln
+                cls._canary_after_vuln = canary_after_vuln
+                cls._vuln_error = vuln_error
+
+            def test_value_canary_seeded(self):
+                """Canary exists before the value-injection filter runs"""
+                self.assertEqual(self._canary_before_value, 1)
+
+            def test_value_filter_does_not_error(self):
+                """Escaped value produces valid Cypher and runs without raising"""
+                self.assertIsNone(self._value_error)
+
+            def test_canary_survives_value_injection(self):
+                """Canary still present: the escaped value blocked the injection"""
+                self.assertEqual(self._canary_after_value, 1)
+
+            def test_key_canary_seeded(self):
+                """Canary exists before the key-injection filter runs"""
+                self.assertEqual(self._canary_before_key, 1)
+
+            def test_key_filter_does_not_error(self):
+                """Backtick-quoted key produces valid Cypher and runs cleanly"""
+                self.assertIsNone(self._key_error)
+
+            def test_canary_survives_key_injection(self):
+                """Canary still present: the escaped key blocked the injection"""
+                self.assertEqual(self._canary_after_key, 1)
+
+            def test_redstate_deletes_canary_or_is_rejected(self):
+                """The un-escaped clause either deletes the canary (proving this
+                test would catch a regression) or the engine rejects it."""
+                canary_deleted = self._canary_after_vuln == 0
+                engine_rejected = self._vuln_error is not None
+                self.assertTrue(
+                    canary_deleted or engine_rejected,
+                    'Expected the un-escaped clause to delete the canary or be '
+                    'rejected by the engine, but neither happened.',
+                )
+
+        handler.run_assertions(FilterInjectionAssertions)
