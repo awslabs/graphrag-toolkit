@@ -3,6 +3,7 @@ local_entities.BuildWithoutLocalEntities
 extract.ExtractToFileSystem
 build.BuildFromFileSystem
 build_facts.BuildFacts
+lexical_graph_cypher_safety.LexicalGraphLabelInjectionSafety
 query.TraversalBasedQuery
 query.MetadataFilteringQuery
 query.TraversalBasedQueryWithModelReranker
@@ -19,3 +20,4 @@ checkpoint.BuildWithCheckpoint
 falkordb.TestFalkorDBContrib 
 batch_fallback.BatchExtractToS3Fallback
 delete_sources.DeleteSourceDocs
+lexical_graph_cypher_safety.LexicalGraphFilterInjectionSafety

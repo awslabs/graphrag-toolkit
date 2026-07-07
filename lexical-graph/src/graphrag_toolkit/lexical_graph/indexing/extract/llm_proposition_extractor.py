@@ -10,13 +10,13 @@ from graphrag_toolkit.lexical_graph.config import GraphRAGConfig
 from graphrag_toolkit.lexical_graph.indexing.model import Propositions
 from graphrag_toolkit.lexical_graph.indexing.constants import PROPOSITIONS_KEY
 from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_PROPOSITIONS_PROMPT
+from graphrag_toolkit.lexical_graph.indexing.extract.progress import run_jobs_with_progress
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import BaseNode
 from llama_index.core.bridge.pydantic import Field
 from llama_index.core.extractors.interface import BaseExtractor
 from llama_index.core.prompts import PromptTemplate
-from llama_index.core.async_utils import run_jobs
 from llama_index.core.schema import NodeRelationship
 
 
@@ -130,11 +130,13 @@ class LLMPropositionExtractor(BaseExtractor):
         jobs = [
             self._extract_propositions_for_node(node) for node in nodes
         ]
-        return await run_jobs(
-            jobs, 
-            show_progress=self.show_progress, 
-            workers=self.num_workers, 
-            desc=f'Extracting propositions [nodes: {len(jobs)}, num_workers: {self.num_workers}]'
+        return await run_jobs_with_progress(
+            jobs,
+            show_progress=self.show_progress,
+            workers=self.num_workers,
+            desc=f'Extracting propositions [nodes: {len(jobs)}, num_workers: {self.num_workers}]',
+            total=len(jobs),
+            logger=logger
         )
         
     async def _extract_propositions_for_node(self, node):

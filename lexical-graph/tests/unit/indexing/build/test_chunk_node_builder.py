@@ -86,6 +86,24 @@ class TestChunkNodeCreation:
         assert 'AI' in results[0].metadata['topics']
         assert 'Graphs' in results[0].metadata['topics']
 
+    def test_topics_excluded_from_embedding_but_kept_for_llm(self):
+        """Topics must not pollute the chunk embedding, but stay available to the LLM
+        and in metadata. Chunk embeddings should be the chunk content only."""
+        from llama_index.core.schema import MetadataMode
+        builder = _make_builder()
+        node = _make_node(text='Quarterly cash flow rose sharply.', topics=['Liquidity', 'Cash Flow'])
+        chunk = builder.build_nodes([node])[0]
+
+        # topics excluded from the embedding text, NOT from the LLM text
+        assert 'topics' in chunk.excluded_embed_metadata_keys
+        assert 'topics' not in chunk.excluded_llm_metadata_keys
+        # the embedded text contains the content but not the topic names / "topics:" label
+        embed_text = chunk.get_content(metadata_mode=MetadataMode.EMBED)
+        assert 'Quarterly cash flow rose sharply.' in embed_text
+        assert 'topics:' not in embed_text and 'Liquidity' not in embed_text
+        # topics still present in metadata for downstream use
+        assert chunk.metadata['topics'] == ['Liquidity', 'Cash Flow']
+
     def test_build_nodes_sets_index_key(self):
         """Verify build_nodes sets the INDEX_KEY to 'chunk'."""
         builder = _make_builder()

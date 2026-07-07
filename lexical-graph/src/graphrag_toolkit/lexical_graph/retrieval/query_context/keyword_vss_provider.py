@@ -63,7 +63,7 @@ class KeywordVSSProvider(KeywordProviderBase):
         index_name = self.index_name
         id_name = f'{index_name}Id'
 
-        vss_results = get_diverse_vss_elements(index_name, query_bundle, self.vector_store, 5, 3, self.filter_config)
+        vss_results = get_diverse_vss_elements(index_name, query_bundle, self.vector_store, 5, 3, self.filter_config, graph_store=self.graph_store)
         
         node_ids = [result[index_name][id_name] for result in vss_results]
 

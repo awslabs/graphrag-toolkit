@@ -3,6 +3,7 @@
 
 import boto3
 import os
+import re
 from urllib.parse import urlparse
 import json
 import logging
@@ -16,6 +17,32 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, Union
 
 
 logger = logging.getLogger(__name__)
+
+# CALL neptune.load() can't take bound parameters; allowlist s3_path to
+# block Cypher injection.
+_S3_PATH_PATTERN = re.compile(r'^s3://[a-zA-Z0-9.\-_/+=!@()*]+$')
+
+
+def _validate_s3_path(s3_path):
+    if s3_path is None:
+        return
+    if not _S3_PATH_PATTERN.match(s3_path):
+        raise ValueError(
+            f"Invalid s3_path format: '{s3_path}'. "
+            "Must be a valid S3 URI (s3://bucket/key)."
+        )
+
+
+# Escape backticks before a label is interpolated into a backtick-quoted Cypher
+# identifier. Doubling is Cypher's escape rule; without it a label containing a
+# backtick could break out of the identifier and inject Cypher.
+def _escape_cypher_label(label):
+    if not isinstance(label, str):
+        raise TypeError(
+            f'Cypher label must be a string, got {type(label).__name__}'
+        )
+    return label.replace('`', '``')
+
 
 class BaseNeptuneGraphStore(GraphStore):
     def _upload_to_s3(self, s3_path, local_path=None, file_contents=None):
@@ -82,7 +109,7 @@ class BaseNeptuneGraphStore(GraphStore):
             '''
         else:
             query = f'''
-                    MATCH (n:`{node_type}`)
+                    MATCH (n:`{_escape_cypher_label(node_type)}`)
                     '''
         if self.node_type_to_property_mapping:
             query += '''
@@ -265,6 +292,7 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
         """
 
         assert format in ['NTRIPLES', 'CSV', 'OPEN_CYPHER'], "format must be either 'NTRIPLES' or 'CSV' or 'OPEN_CYPHER'"
+        _validate_s3_path(s3_path)
 
         if csv_file is not None:
             assert s3_path is not None, "s3 path should be passed with local csv path for data import"
@@ -364,7 +392,7 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
         ids, texts_to_embed = ({}, {}) if group_by_node_label else ([], [])
         for node_type, node_properties in node_embedding_text_props.items():
             gather_nodes_query = f'''
-                                MATCH (n:`{node_type}`)
+                                MATCH (n:`{_escape_cypher_label(node_type)}`)
                                 RETURN properties(n) as properties, ID(n) as node
                                 '''
             response = self.execute_query(gather_nodes_query)
@@ -419,6 +447,7 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         """
 
         assert format in ['CSV', 'OPEN_CYPHER'], "format must be either or 'CSV' or 'OPEN_CYPHER'"
+        _validate_s3_path(s3_path)
 
         if csv_file is not None:
             assert s3_path is not None, "s3 path should be passed with local csv path for data import"
@@ -452,8 +481,8 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         """
         propertyGraphSummary["edgeLabelDetails"] = {}
         for label in propertyGraphSummary["edgeLabels"]:
-            q = edge_properties_query.format(e_label=label)
-            data = {"label": label, "properties": self.execute_query(q)} 
+            q = edge_properties_query.format(e_label=_escape_cypher_label(label))
+            data = {"label": label, "properties": self.execute_query(q)}
             prop_types = {}
             for p in data["properties"]:
                 from typing import cast
@@ -482,7 +511,7 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         n_labels = propertyGraphSummary["nodeLabels"]
         propertyGraphSummary["nodeLabelDetails"] = {}
         for label in n_labels:
-            q = node_properties_query.format(n_label=label)
+            q = node_properties_query.format(n_label=_escape_cypher_label(label))
             data = {"label": label, "properties": self.execute_query(q)}
             prop_types = {}
             for p in data["properties"]:
@@ -507,10 +536,9 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
         RETURN DISTINCT labels(a) AS from, type(e) AS edge, labels(b) AS to
         LIMIT 10
         """
-        triple_template = "(:`{a}`)-[:`{e}`]->(:`{b}`)"
         triple_schema = []
-        for label in propertyGraphSummary["edgeLabels"]:     
-            q = triple_query.format(e_label=label)
+        for label in propertyGraphSummary["edgeLabels"]:
+            q = triple_query.format(e_label=_escape_cypher_label(label))
             data = self.execute_query(q)
             for d in data:         
                 triple = {}

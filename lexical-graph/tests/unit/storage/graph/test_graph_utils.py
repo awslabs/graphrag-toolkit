@@ -14,6 +14,7 @@ from llama_index.core.vector_stores.types import (
 from graphrag_toolkit.lexical_graph.metadata import FilterConfig
 from graphrag_toolkit.lexical_graph.storage.graph.graph_store import NodeId
 from graphrag_toolkit.lexical_graph.storage.graph.graph_utils import (
+    escape_cypher_label,
     filter_config_to_opencypher_filters,
     formatter_for_type,
     label_from,
@@ -72,6 +73,39 @@ class TestLabelFrom:
 
     def test_single_word(self):
         assert label_from('chunk') == 'Chunk'
+
+
+class TestEscapeCypherLabel:
+    """escape_cypher_label doubles every backtick so a label cannot break out of
+    its backtick-quoted identifier, and rejects non-string input."""
+
+    def test_plain_label_unchanged(self):
+        assert escape_cypher_label('Person') == 'Person'
+
+    def test_doubles_single_backtick(self):
+        assert escape_cypher_label('a`b') == 'a``b'
+
+    def test_doubles_every_backtick(self):
+        assert escape_cypher_label('`x`y`') == '``x``y``'
+
+    def test_breakout_payload_is_neutralised(self):
+        """A label crafted to close the identifier and append a DETACH DELETE
+        leaves no lone (un-doubled) backtick, so the injection stays inert."""
+        escaped = escape_cypher_label('Evil`) MATCH (c:`Canary`) DETACH DELETE c //')
+        assert '`' not in escaped.replace('``', '')
+        assert escaped == 'Evil``) MATCH (c:``Canary``) DETACH DELETE c //'
+
+    def test_closes_label_from_dunder_passthrough(self):
+        """label_from passes __...__ values through unescaped, so escaping must
+        still neutralise a backtick smuggled inside one."""
+        raw = label_from('__a`b__')
+        assert raw == '__a`b__'
+        assert escape_cypher_label(raw) == '__a``b__'
+
+    @pytest.mark.parametrize('bad', [None, 123, b'Person', ['Person']])
+    def test_non_string_raises_type_error(self, bad):
+        with pytest.raises(TypeError):
+            escape_cypher_label(bad)
 
 
 class TestRelationshipNameFrom:
@@ -184,7 +218,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert result == "((source.category = 'tech'))"
+        assert result == "((source.`category` = 'tech'))"
 
     def test_numeric_value_not_quoted(self):
         filters = MetadataFilters(
@@ -192,7 +226,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert "source.count > 5" in result
+        assert "source.`count` > 5" in result
 
     def test_float_value_not_quoted(self):
         filters = MetadataFilters(
@@ -200,7 +234,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert "source.ratio <= 0.5" in result
+        assert "source.`ratio` <= 0.5" in result
 
     def test_and_condition_joins_with_and_keyword(self):
         filters = MetadataFilters(
@@ -209,8 +243,8 @@ class TestParseMetadataFiltersRecursive:
         )
         result = parse_metadata_filters_recursive(filters)
         assert ' AND ' in result
-        assert "source.category = 'tech'" in result
-        assert "source.lang = 'en'" in result
+        assert "source.`category` = 'tech'" in result
+        assert "source.`lang` = 'en'" in result
 
     def test_or_condition_joins_with_or_keyword(self):
         filters = MetadataFilters(
@@ -245,7 +279,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert 'source.archived_at IS NULL' in result
+        assert 'source.`archived_at` IS NULL' in result
 
     def test_text_match_insensitive_emits_tolower_on_key_and_lowercased_value(self):
         filters = MetadataFilters(
@@ -259,7 +293,7 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(filters)
-        assert 'source.title.toLower() CONTAINS' in result
+        assert 'source.`title`.toLower() CONTAINS' in result
         assert "'hello'" in result
 
     def test_nested_filters_recurse(self):
@@ -272,8 +306,8 @@ class TestParseMetadataFiltersRecursive:
             condition=FilterCondition.AND,
         )
         result = parse_metadata_filters_recursive(outer)
-        assert 'source.category' in result
-        assert 'source.lang' in result
+        assert 'source.`category`' in result
+        assert 'source.`lang`' in result
         assert ' AND ' in result
         assert ' OR ' in result
 
@@ -294,4 +328,4 @@ class TestFilterConfigToOpencypherFilters:
             )
         )
         result = filter_config_to_opencypher_filters(config)
-        assert "source.category = 'tech'" in result
+        assert "source.`category` = 'tech'" in result

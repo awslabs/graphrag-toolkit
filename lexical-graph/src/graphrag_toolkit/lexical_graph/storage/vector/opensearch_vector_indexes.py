@@ -261,6 +261,7 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
         idx_conf = {
             "settings": {"index": {"knn": True}},
             "mappings": {
+                "date_detection": False,
                 "properties": {
                     embedding_field: {
                         "type": "knn_vector",
@@ -283,6 +284,7 @@ def index_exists(endpoint, index_name, dimensions, writeable) -> bool:
         idx_conf = {
             "settings": {"index": {"knn": True, "knn.algo_param.ef_search": 100}},
             "mappings": {
+                "date_detection": False,
                 "properties": {
                     embedding_field: {
                         "type": "knn_vector",
@@ -933,7 +935,10 @@ class OpenSearchIndex(VectorIndex):
 
             query = {
                 "terms": {
-                    f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(id_batch)]
+                    # Use the `.keyword` (exact-match) sub-field, not the analyzed
+                    # `text` field: OpenSearch lowercases/tokenizes the text field,
+                    # so mixed-case/uppercase ids (e.g. SEC-10Q chunk ids) would not match.
+                    f'metadata.{INDEX_KEY}.key.keyword': [self._clean_id(i) for i in set(id_batch)]
                 }
             }
 
@@ -1029,7 +1034,9 @@ class OpenSearchIndex(VectorIndex):
    
             query = {
                 "terms": {
-                    f'metadata.{INDEX_KEY}.key': [self._clean_id(i) for i in set(id_batch)]
+                    # Exact-match `.keyword` sub-field (see get_embeddings): the analyzed
+                    # text field lowercases ids and would miss mixed-case/uppercase ones.
+                    f'metadata.{INDEX_KEY}.key.keyword': [self._clean_id(i) for i in set(id_batch)]
                 }
             }
         

@@ -119,7 +119,7 @@ class ChunkNodeBuilder(NodeBuilder):
             }
 
             chunk_node.metadata = metadata
-            chunk_node.excluded_embed_metadata_keys = [INDEX_KEY, 'chunk', 'source']
+            chunk_node.excluded_embed_metadata_keys = [INDEX_KEY, 'chunk', 'source', 'topics']
             chunk_node.excluded_llm_metadata_keys = [INDEX_KEY, 'chunk', 'source']
 
             chunk_nodes.append(chunk_node)

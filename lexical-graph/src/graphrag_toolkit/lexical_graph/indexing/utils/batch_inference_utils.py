@@ -83,14 +83,14 @@ def get_request_body(llm:BedrockConverse, messages:List[ChatMessage], inference_
         return request_body
     elif 'anthropic.claude' in model_id:
         anthropic_messages, system_prompt = messages_to_anthropic_messages(messages)
-        if system_prompt:
-            anthropic_messages = [{'role': 'system"', 'content': system_prompt}, *anthropic_messages]
         request_body = {
-            'anthropic_version': inference_parameters.get('anthropic_version', 'bedrock-2023-05-31'), 
+            'anthropic_version': inference_parameters.get('anthropic_version', 'bedrock-2023-05-31'),
             'messages': anthropic_messages,
             'max_tokens': inference_parameters['max_tokens'],
             'temperature': inference_parameters['temperature']
         }
+        if system_prompt:
+            request_body['system'] = system_prompt
         return request_body
     elif 'meta.llama' in model_id:
         converse_messages, system_prompt = messages_to_converse_messages(messages)

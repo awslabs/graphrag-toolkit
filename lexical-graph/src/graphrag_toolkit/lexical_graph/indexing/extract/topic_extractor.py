@@ -12,13 +12,13 @@ from graphrag_toolkit.lexical_graph.indexing.extract.preferred_values import Pre
 from graphrag_toolkit.lexical_graph.indexing.model import TopicCollection
 from graphrag_toolkit.lexical_graph.indexing.constants import TOPICS_KEY
 from graphrag_toolkit.lexical_graph.indexing.prompts import EXTRACT_TOPICS_PROMPT
+from graphrag_toolkit.lexical_graph.indexing.extract.progress import run_jobs_with_progress
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
 
 from llama_index.core.schema import BaseNode
 from llama_index.core.bridge.pydantic import Field
 from llama_index.core.extractors.interface import BaseExtractor
 from llama_index.core.prompts import PromptTemplate
-from llama_index.core.async_utils import run_jobs
 
 logger = logging.getLogger(__name__)
 
@@ -122,11 +122,13 @@ class TopicExtractor(BaseExtractor):
         jobs = [
             self._extract_for_node(node) for node in nodes
         ]
-        return await run_jobs(
-            jobs, 
-            show_progress=self.show_progress, 
-            workers=self.num_workers, 
-            desc=f'Extracting topics [nodes: {len(jobs)}, num_workers: {self.num_workers}]'
+        return await run_jobs_with_progress(
+            jobs,
+            show_progress=self.show_progress,
+            workers=self.num_workers,
+            desc=f'Extracting topics [nodes: {len(jobs)}, num_workers: {self.num_workers}]',
+            total=len(jobs),
+            logger=logger
         )
         
     def _get_metadata_or_default(self, metadata, key, default):

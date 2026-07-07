@@ -19,6 +19,7 @@ from graphrag_toolkit.lexical_graph.indexing.build.checkpoint import Checkpoint,
 from graphrag_toolkit.lexical_graph.indexing.build.node_builders import NodeBuilders
 from graphrag_toolkit.lexical_graph.indexing.build.build_filters import BuildFilters
 from graphrag_toolkit.lexical_graph.utils.arg_utils import coalesce
+from graphrag_toolkit.lexical_graph.indexing.progress_monitor import ProgressMonitor
 
 from llama_index.core.utils import iter_batch
 from llama_index.core.ingestion import IngestionPipeline
@@ -60,13 +61,13 @@ class BuildPipeline():
         pipeline_kwargs (dict): Additional keyword arguments passed to the pipeline.
     """
     @staticmethod
-    def create(components: List[TransformComponent], 
-               num_workers:Optional[int]=None, 
-               batch_size:Optional[int]=None, 
-               batch_writes_enabled:Optional[bool]=None, 
-               batch_write_size:Optional[int]=None, 
-               builders:Optional[List[NodeBuilder]]=None, 
-               show_progress=False, 
+    def create(components: List[TransformComponent],
+               num_workers:Optional[int]=None,
+               batch_size:Optional[int]=None,
+               batch_writes_enabled:Optional[bool]=None,
+               batch_write_size:Optional[int]=None,
+               builders:Optional[List[NodeBuilder]]=None,
+               show_progress=False,
                checkpoint:Optional[Checkpoint]=None,
                build_filters:Optional[BuildFilters]=None,
                source_metadata_formatter:Optional[SourceMetadataFormatter]=None,
@@ -74,6 +75,7 @@ class BuildPipeline():
                include_local_entities:Optional[bool]=None,
                include_classification_in_entity_id:Optional[bool]=None,
                tenant_id:Optional[TenantId]=None,
+               progress_monitor:Optional[ProgressMonitor]=None,
                **kwargs:Any
             ):
         """
@@ -131,18 +133,19 @@ class BuildPipeline():
                 include_local_entities=include_local_entities,
                 include_classification_in_entity_id=include_classification_in_entity_id,
                 tenant_id=tenant_id,
+                progress_monitor=progress_monitor,
                 **kwargs
             ).build
         )
     
-    def __init__(self, 
-                 components: List[TransformComponent], 
-                 num_workers:Optional[int]=None, 
-                 batch_size:Optional[int]=None, 
-                 batch_writes_enabled:Optional[bool]=None, 
-                 batch_write_size:Optional[int]=None, 
-                 builders:Optional[List[NodeBuilder]]=None, 
-                 show_progress=False, 
+    def __init__(self,
+                 components: List[TransformComponent],
+                 num_workers:Optional[int]=None,
+                 batch_size:Optional[int]=None,
+                 batch_writes_enabled:Optional[bool]=None,
+                 batch_write_size:Optional[int]=None,
+                 builders:Optional[List[NodeBuilder]]=None,
+                 show_progress=False,
                  checkpoint:Optional[Checkpoint]=None,
                  build_filters:Optional[BuildFilters]=None,
                  source_metadata_formatter:Optional[SourceMetadataFormatter]=None,
@@ -150,6 +153,7 @@ class BuildPipeline():
                  include_local_entities:Optional[bool]=None,
                  include_classification_in_entity_id:Optional[bool]=None,
                  tenant_id:Optional[TenantId]=None,
+                 progress_monitor:Optional[ProgressMonitor]=None,
                  **kwargs:Any
             ):
         """
@@ -234,6 +238,7 @@ class BuildPipeline():
             )
         )
         self.node_filter = NodeFilter() if not checkpoint else checkpoint.add_filter(NodeFilter(), tenant_id)
+        self.progress_monitor = progress_monitor
         self.pipeline_kwargs = kwargs
     
     def _to_node_batches(self, source_doc_batches:Iterable[Iterable[SourceDocument]], build_timestamp:int) -> List[List[BaseNode]]:
@@ -320,5 +325,20 @@ class BuildPipeline():
             )
 
             for node in output_nodes:
-                yield node       
+                yield node
+
+            # TODO: Chunk-level reporting is batched at document boundaries.
+            # All chunks for a document are reported at once when the batch completes,
+            # not as each chunk finishes within a worker process. A future improvement
+            # could use multiprocessing-safe mechanisms for true per-chunk progress.
+            if self.progress_monitor:
+                try:
+                    num_docs = len(source_documents)
+                    num_chunks = sum(len(sd.nodes) for sd in source_documents)
+                    self.progress_monitor.increment_graph_processed_documents(num_docs)
+                    self.progress_monitor.increment_graph_processed_chunks(num_chunks)
+                    self.progress_monitor.increment_vector_processed_documents(num_docs)
+                    self.progress_monitor.increment_vector_processed_chunks(num_chunks)
+                except Exception:
+                    logger.warning("ProgressMonitor raised an exception during build tracking", exc_info=True)
 
