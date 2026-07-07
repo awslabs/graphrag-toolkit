@@ -84,6 +84,21 @@ Run a mix of lexical and BYOKG tests in a Neptune Analytics environment:
 sh build-tests.sh --env-type neptune-graph --test 'extract.ExtractToFileSystem byokg_setup.LoadBYOKGGraph'
 ```
 
+### Security Tests
+
+The `lexical.short` suite includes two security tests that run against the live environment:
+
+- `lexical_graph_cypher_safety.LexicalGraphLabelInjectionSafety` — Cypher label escaping at the graph store.
+- `lexical_graph_pgvector_safety.LexicalGraphPGVectorInjectionSafety` — SQL parameter binding at the PGVector store.
+
+The PGVector test needs a Postgres-backed vector store (`VECTOR_STORE` set to a `postgres://` or `postgresql://` connection). Run it with a PostgreSQL env-type, which the CloudFormation template provisions along with the `VECTOR_STORE` value:
+
+```bash
+sh build-tests.sh --test-file lexical.short --env-type neptune-db-postgresql
+```
+
+`neptune-graph-postgresql` works too. Under any other env-type (OpenSearch Serverless, S3 Vectors, or Neptune Analytics built-in) the PGVector test skips itself, so it is safe to leave in the suite for every environment.
+
 ## Running Tests from the SageMaker Notebook
 
 You can run tests directly from the SageMaker notebook. Use the **SagemakerNotebook** link from the CloudFormation **Outputs** tab to open the notebook. Then, from the **New** dropdown in Jupyter, open a terminal:

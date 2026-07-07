@@ -4,6 +4,7 @@ extract.ExtractToFileSystem
 build.BuildFromFileSystem
 build_facts.BuildFacts
 lexical_graph_cypher_safety.LexicalGraphLabelInjectionSafety
+lexical_graph_pgvector_safety.LexicalGraphPGVectorInjectionSafety
 query.TraversalBasedQuery
 query.MetadataFilteringQuery
 query.TraversalBasedQueryWithModelReranker
