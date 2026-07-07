@@ -1865,21 +1865,13 @@ class TestPropertyNameInjection:
         store.node_type_to_property_mapping = {'Org': prop}
         return store
 
+    @pytest.mark.parametrize('sink', ['get_nodes', 'get_one_hop_edges'])
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
-    def test_get_nodes_backtick_quotes_property(self, mock_session, mock_neptune_client, mock_s3_client):
-        """A property name with a backtick is backtick-quoted with the backtick doubled."""
+    def test_backtick_property_is_escaped(self, mock_session, sink, mock_neptune_client, mock_s3_client):
+        """A property name with a backtick is backtick-quoted with the backtick
+        doubled, on both the get_nodes and get_one_hop_edges sinks."""
         store = self._store_with_property(mock_session, mock_neptune_client, mock_s3_client, "a`b")
-        store.get_nodes(['n1'])
-        sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
-        assert "n.`a``b`" in sent, sent
-        # raw, unescaped form must be absent
-        assert "n.a`b" not in sent, sent
-
-    @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
-    def test_get_one_hop_edges_backtick_quotes_property(self, mock_session, mock_neptune_client, mock_s3_client):
-        """The same escaping applies on the one-hop-edges traversal sink."""
-        store = self._store_with_property(mock_session, mock_neptune_client, mock_s3_client, "a`b")
-        store.get_one_hop_edges(['n1'])
+        getattr(store, sink)(['n1'])
         sent = mock_neptune_client.execute_query.call_args.kwargs['queryString']
         assert "n.`a``b`" in sent, sent
         # raw, unescaped form must be absent
@@ -1896,7 +1888,7 @@ class TestPropertyNameInjection:
         # no doubling without the helper
         assert "n.`a``b`" not in sent, sent
         # the un-doubled backtick reaches the query
-        assert "n.`a`b`" in sent, sent  
+        assert "n.`a`b`" in sent, sent
 
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_plain_property_is_backtick_quoted(self, mock_session, mock_neptune_client, mock_s3_client):
