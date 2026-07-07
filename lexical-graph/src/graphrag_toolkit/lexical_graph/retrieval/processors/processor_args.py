@@ -110,6 +110,9 @@ class ProcessorArgs():
         # and keeps the top `max_topics` before statement selection.
         self.topic_reranker = kwargs.get('topic_reranker', 'none')
         self.max_topics = kwargs.get('max_topics', 40)
+        # TruncateByTokens: token-budget context truncation (independent of the above).
+        self.max_context_tokens = kwargs.get('max_context_tokens', None)
+        self.token_truncation_mode = kwargs.get('token_truncation_mode', 'global_rank')
         self.no_cache = kwargs.get('no_cache', None)
         
 

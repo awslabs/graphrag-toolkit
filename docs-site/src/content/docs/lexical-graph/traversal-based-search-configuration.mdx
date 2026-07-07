@@ -12,6 +12,9 @@ title: Traversal-Based Search Configuration
     - [statement_pruning_factor](#statement_pruning_factor)
     - [statement_pruning_threshold](#statement_pruning_threshold)
     - [When to use search results configuration](#when-to-use-search-results-configuration)
+  - [Token budget](#token-budget)
+    - [max_context_tokens](#max_context_tokens)
+    - [token_truncation_mode](#token_truncation_mode)
   - [Retriever selection](#retriever-selection)
     - [retrievers](#retrievers)
     - [When to use different retrievers](#when-to-use-different-retrievers)
@@ -91,6 +94,36 @@ The `max_search_results`, `max_statements_per_topic` and `max_statements` parame
 Each search result comprises one or more statements belonging to a single topic from a single source. Statements from the same source but different topics appear as separate search results. Increasing `max_search_results` increases the variety of sources in your results. Increasing `max_statements_per_topic` adds more detail to each individual search result.
 
 When increasing the number of statements (either overall or per topic), you should consider increasing the statement pruning parameters as well. This helps ensure that even with larger result sets, you're still getting highly relevant statements rather than less relevant information.
+
+___
+
+### Token budget
+
+The `max_search_results`, `max_statements_per_topic` and `max_statements` parameters bound the result size by *counts*. As an alternative, you can bound the context by a *token budget* - useful when you want to fill a fixed share of the generator's context window rather than reason about statement counts.
+
+#####  `max_context_tokens`
+
+`max_context_tokens` (default `None`) sets a token budget for the statements passed to the response generator, enforced by the `TruncateByTokens` processor. When unset, the processor is a no-op and the count-based parameters apply as usual.
+
+#####  `token_truncation_mode`
+
+`token_truncation_mode` selects how statements are chosen to fill the budget:
+
+  - `global_rank` (default): flattens all statements across topics and sources, sorts them by relevance score, and fills the budget from the top. This keeps the most relevant statements regardless of which topic or source they belong to, and is the recommended general-purpose mode.
+  - `per_topic_cap`: gives each topic an equal share of the budget (`max_context_tokens / number_of_topics`). This is the token-based analog of `max_statements_per_topic` - use it when you want to preserve breadth across topics rather than relevance-first selection.
+
+```python
+    query_engine = LexicalGraphQueryEngine.for_traversal_based_search(
+        graph_store,
+        vector_store,
+        max_context_tokens=3000,
+        token_truncation_mode='global_rank'
+    )
+```
+
+:::note
+Token counts are computed with tiktoken's `cl100k_base` encoding. This is a consistent approximation for relative budgeting; it is not an exact token count for non-OpenAI generators such as Anthropic Claude. To avoid an empty context, the first statement is always kept even if it alone exceeds the budget.
+:::
 
 ___
 

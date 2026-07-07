@@ -49,7 +49,10 @@ def _retriever(**args):
 class TestInit:
     def test_defaults_install_default_processor_lists(self):
         retriever, _ = _retriever()
-        assert retriever.processors is DEFAULT_PROCESSORS
+        # The retriever installs a defensive copy of the default list (so it can be
+        # adjusted per-config, e.g. token-budget truncation, without mutating the module
+        # global), hence equality rather than identity.
+        assert retriever.processors == DEFAULT_PROCESSORS
         assert retriever.formatting_processors is DEFAULT_FORMATTING_PROCESSORS
 
     def test_processor_args_override(self):
