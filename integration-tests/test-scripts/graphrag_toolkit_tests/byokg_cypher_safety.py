@@ -15,6 +15,43 @@ from graphrag_toolkit.byokg_rag.graphstore.neptune import _escape_cypher_label
 from graphrag_toolkit.byokg_rag.graph_retrievers.graph_retrievers import GraphQueryRetriever
 
 
+def make_graph_store():
+    """Build the graph store under test from the GRAPH_STORE env var.
+
+    Returns an (engine, store) tuple where engine is 'analytics' or 'db'.
+    """
+    region = os.environ['AWS_REGION_NAME']
+    graph_store_id = os.environ['GRAPH_STORE']
+
+    if graph_store_id.startswith('neptune-graph://'):
+        graph_identifier = graph_store_id[len('neptune-graph://'):]
+        return 'analytics', NeptuneAnalyticsGraphStore(
+            graph_identifier=graph_identifier, region=region
+        )
+
+    if graph_store_id.startswith('neptune-db://'):
+        endpoint = graph_store_id[len('neptune-db://'):]
+        if not endpoint.startswith('https://'):
+            endpoint = f'https://{endpoint}'
+        # Neptune DB serves the data-plane API on port 8182; append it if absent
+        if endpoint.count(':') < 2:
+            endpoint = f'{endpoint}:8182'
+        return 'db', NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
+
+    raise ValueError(
+        "Invalid graph store id. Expected 'neptune-graph://' or "
+        f"'neptune-db://', but received {graph_store_id}."
+    )
+
+
+def canary_count(graph_store, label):
+    """Count nodes carrying the given canary label."""
+    rows = graph_store.execute_query(
+        f'MATCH (c:`{label}`) RETURN count(c) AS n'
+    )
+    return rows[0]['n'] if rows else 0
+
+
 class CypherSafetyCheck(IntegrationTestBase):
     """Integration test verifying that the GraphQueryRetriever blocks
     obfuscated write queries against a live Neptune Analytics graph.
@@ -188,37 +225,6 @@ class BYOKGCypherInjectionSafety(IntegrationTestBase):
     def description(self):
         return 'Schema discovery escapes backticks in dynamic Cypher labels'
 
-    def _make_graph_store(self):
-        region = os.environ['AWS_REGION_NAME']
-        graph_store_id = os.environ['GRAPH_STORE']
-
-        if graph_store_id.startswith('neptune-graph://'):
-            graph_identifier = graph_store_id[len('neptune-graph://'):]
-            store = NeptuneAnalyticsGraphStore(
-                graph_identifier=graph_identifier, region=region
-            )
-            return 'analytics', store
-
-        if graph_store_id.startswith('neptune-db://'):
-            endpoint = graph_store_id[len('neptune-db://'):]
-            if not endpoint.startswith('https://'):
-                endpoint = f'https://{endpoint}'
-            # Neptune DB serves the data-plane API on port 8182; append it if absent
-            if endpoint.count(':') < 2:
-                endpoint = f'{endpoint}:8182'
-            return 'db', NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
-
-        raise ValueError(
-            "Invalid graph store id. Expected 'neptune-graph://' or "
-            f"'neptune-db://', but received {graph_store_id}."
-        )
-
-    def _canary_count(self, graph_store):
-        rows = graph_store.execute_query(
-            f'MATCH (c:`{CANARY_LABEL}`) RETURN count(c) AS n'
-        )
-        return rows[0]['n'] if rows else 0
-
     def _seed_payload(self, graph_store):
         # The label/type are escaped here on the write path so the payload is
         # stored as data; the read path (under test) is what must re-escape it.
@@ -258,10 +264,10 @@ class BYOKGCypherInjectionSafety(IntegrationTestBase):
 
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
 
-        engine, graph_store = self._make_graph_store()
+        engine, graph_store = make_graph_store()
 
         self._seed_payload(graph_store)
-        canary_before = self._canary_count(graph_store)
+        canary_before = canary_count(graph_store, CANARY_LABEL)
 
         schema_error = None
         discovered_labels = []
@@ -270,7 +276,7 @@ class BYOKGCypherInjectionSafety(IntegrationTestBase):
         except Exception as e:
             schema_error = e
 
-        canary_after = self._canary_count(graph_store)
+        canary_after = canary_count(graph_store, CANARY_LABEL)
 
         # Best-effort cleanup; matching by id is label-agnostic.
         try:
@@ -336,40 +342,9 @@ class BYOKGS3PathInjectionSafety(IntegrationTestBase):
     def description(self):
         return 'read_from_csv rejects a breakout s3_path before the load sink'
 
-    def _make_graph_store(self):
-        region = os.environ['AWS_REGION_NAME']
-        graph_store_id = os.environ['GRAPH_STORE']
-
-        if graph_store_id.startswith('neptune-graph://'):
-            graph_identifier = graph_store_id[len('neptune-graph://'):]
-            store = NeptuneAnalyticsGraphStore(
-                graph_identifier=graph_identifier, region=region
-            )
-            return 'analytics', store
-
-        if graph_store_id.startswith('neptune-db://'):
-            endpoint = graph_store_id[len('neptune-db://'):]
-            if not endpoint.startswith('https://'):
-                endpoint = f'https://{endpoint}'
-            # Neptune DB serves the data-plane API on port 8182; append it if absent
-            if endpoint.count(':') < 2:
-                endpoint = f'{endpoint}:8182'
-            return 'db', NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
-
-        raise ValueError(
-            "Invalid graph store id. Expected 'neptune-graph://' or "
-            f"'neptune-db://', but received {graph_store_id}."
-        )
-
-    def _canary_count(self, graph_store):
-        rows = graph_store.execute_query(
-            f'MATCH (c:`{CANARY_LABEL}`) RETURN count(c) AS n'
-        )
-        return rows[0]['n'] if rows else 0
-
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
 
-        engine, graph_store = self._make_graph_store()
+        engine, graph_store = make_graph_store()
 
         # Canary survival proves no injection reached the analytics Cypher sink;
         # on db the operative proof is the validator raising before the load job.
@@ -377,7 +352,7 @@ class BYOKGS3PathInjectionSafety(IntegrationTestBase):
             f'CREATE (c:`{CANARY_LABEL}` {{id: $id}})',
             parameters={'id': CANARY_ID},
         )
-        canary_before = self._canary_count(graph_store)
+        canary_before = canary_count(graph_store, CANARY_LABEL)
 
         rejected = False
         rejection_message = None
@@ -391,7 +366,7 @@ class BYOKGS3PathInjectionSafety(IntegrationTestBase):
             # Non-ValueError => payload slipped past the validator to a sink.
             unexpected_error = e
 
-        canary_after = self._canary_count(graph_store)
+        canary_after = canary_count(graph_store, CANARY_LABEL)
 
         # Best-effort cleanup by id.
         try:
@@ -467,44 +442,15 @@ class BYOKGPropertyNameInjectionSafety(IntegrationTestBase):
     def description(self):
         return 'get_nodes and get_one_hop_edges escape interpolated property names'
 
-    def _make_graph_store(self):
-        region = os.environ['AWS_REGION_NAME']
-        graph_store_id = os.environ['GRAPH_STORE']
-
-        if graph_store_id.startswith('neptune-graph://'):
-            graph_identifier = graph_store_id[len('neptune-graph://'):]
-            return NeptuneAnalyticsGraphStore(
-                graph_identifier=graph_identifier, region=region
-            )
-        if graph_store_id.startswith('neptune-db://'):
-            endpoint = graph_store_id[len('neptune-db://'):]
-            if not endpoint.startswith('https://'):
-                endpoint = f'https://{endpoint}'
-            # Neptune DB serves the data-plane API on port 8182; append it if absent
-            if endpoint.count(':') < 2:
-                endpoint = f'{endpoint}:8182'
-            return NeptuneDBGraphStore(endpoint_url=endpoint, region=region)
-
-        raise ValueError(
-            "Invalid graph store id. Expected 'neptune-graph://' or "
-            f"'neptune-db://', but received {graph_store_id}."
-        )
-
-    def _canary_count(self, graph_store):
-        rows = graph_store.execute_query(
-            f'MATCH (c:`{PROP_CANARY_LABEL}`) RETURN count(c) AS n'
-        )
-        return rows[0]['n'] if rows else 0
-
     def _run_test(self, handler: IntegrationTestHandler, params: Dict[str, Any]):
 
-        graph_store = self._make_graph_store()
+        _, graph_store = make_graph_store()
 
         graph_store.execute_query(
             f'CREATE (c:`{PROP_CANARY_LABEL}` {{id: $id}})',
             parameters={'id': PROP_CANARY_ID},
         )
-        canary_before = self._canary_count(graph_store)
+        canary_before = canary_count(graph_store, PROP_CANARY_LABEL)
 
         # Route the payload through the property-name sinks under test.
         graph_store.node_type_to_property_mapping = {
@@ -518,7 +464,7 @@ class BYOKGPropertyNameInjectionSafety(IntegrationTestBase):
         except Exception as e:
             sink_error = e
 
-        canary_after = self._canary_count(graph_store)
+        canary_after = canary_count(graph_store, PROP_CANARY_LABEL)
 
         try:
             graph_store.execute_query(
