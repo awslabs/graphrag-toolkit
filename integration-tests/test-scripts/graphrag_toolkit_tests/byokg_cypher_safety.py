@@ -25,7 +25,11 @@ class CypherSafetyCheck(IntegrationTestBase):
     3. Unicode lookalike keywords are blocked
     4. The block_graph_modification flag works correctly
     5. Legitimate read queries still execute successfully
-    6. The Neptune Analytics readOnly parameter rejects writes at driver level
+
+    Note: Neither Neptune Graph (Analytics) nor Neptune DB support a read-only
+    query execution parameter. Write protection relies on application-level
+    Cypher validation. For stronger server-side guarantees, restrict the IAM
+    role to neptune-graph:ReadDataViaQuery or neptune-db:ReadDataViaQuery.
     """
 
     @property

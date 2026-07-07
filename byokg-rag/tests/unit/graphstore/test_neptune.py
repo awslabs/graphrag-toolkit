@@ -1089,8 +1089,8 @@ class TestNeptuneReadOnlyPropagation:
     """Tests for read_only parameter propagation in execute_query."""
 
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
-    def test_neptune_analytics_read_only_true_passes_to_api(self, mock_session, mock_neptune_client, mock_s3_client):
-        """When read_only=True, readOnly=True is passed to Neptune Analytics API."""
+    def test_neptune_analytics_read_only_true_does_not_pass_to_api(self, mock_session, mock_neptune_client, mock_s3_client, caplog):
+        """When read_only=True, readOnly is NOT passed to Neptune Analytics API (parameter removed from service)."""
         mock_session_instance = Mock()
         mock_session.return_value = mock_session_instance
         mock_session_instance.client.side_effect = lambda service, **kwargs: {
@@ -1110,9 +1110,10 @@ class TestNeptuneReadOnlyPropagation:
         store.execute_query("MATCH (n) RETURN n", read_only=True)
 
         call_args = mock_neptune_client.execute_query.call_args[1]
-        assert call_args['readOnly'] is True
+        assert 'readOnly' not in call_args
         assert call_args['queryString'] == "MATCH (n) RETURN n"
         assert call_args['language'] == 'OPEN_CYPHER'
+        assert "does not support read-only query execution" in caplog.text
 
     @patch('graphrag_toolkit.byokg_rag.graphstore.neptune.boto3.Session')
     def test_neptune_analytics_read_only_false_omits_param(self, mock_session, mock_neptune_client, mock_s3_client):
@@ -1811,4 +1812,35 @@ class TestNoUnescapedLabelSinks:
         assert not offenders, (
             'Value interpolated into a backtick-quoted identifier without '
             '_escape_cypher_label:\n' + '\n'.join(offenders)
+        )
+
+class TestNeptuneGraphReadOnlyParameterRejected:
+    """Validates that the neptune-graph service model does not accept readOnly.
+
+    Uses botocore's parameter validation directly (no network call, no boto3.client).
+    If this test starts failing, it means the service model re-added readOnly
+    and we could consider passing it again.
+    """
+
+    def test_neptune_graph_rejects_read_only_parameter(self):
+        """The neptune-graph execute_query API rejects readOnly in input validation."""
+        import botocore.session
+        from botocore.validate import ParamValidator
+
+        session = botocore.session.get_session()
+        service_model = session.get_service_model('neptune-graph')
+        operation_model = service_model.operation_model('ExecuteQuery')
+        input_shape = operation_model.input_shape
+
+        validator = ParamValidator()
+        params = {
+            'graphIdentifier': 'test-graph',
+            'queryString': 'MATCH (n) RETURN n LIMIT 1',
+            'language': 'OPEN_CYPHER',
+            'readOnly': True,
+        }
+        report = validator.validate(params, input_shape)
+        assert report.has_errors(), (
+            "Expected readOnly to be rejected by the neptune-graph service model. "
+            "If this fails, the API now accepts readOnly and we should consider re-enabling it."
         )

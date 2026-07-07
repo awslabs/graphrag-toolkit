@@ -328,14 +328,19 @@ class NeptuneAnalyticsGraphStore(BaseNeptuneGraphStore):
 
     def execute_query(self, cypher, parameters={}, read_only=False):
         logger.info(f"GraphQuery:: {cypher}")
+        if read_only:
+            logger.warning(
+                "Neptune Graph does not support read-only query execution. "
+                "Write protection relies solely on application-level Cypher validation. "
+                "For stronger guarantees, restrict the IAM role "
+                "to neptune-graph:ReadDataViaQuery."
+            )
         query_args = dict(
             graphIdentifier=self.neptune_graph_id,
             queryString=cypher,
             parameters=parameters,
             language='OPEN_CYPHER'
         )
-        if read_only:
-            query_args['readOnly'] = True
         response = self.neptune_client.execute_query(**query_args)
         return json.loads(response['payload'].read())['results']
 
@@ -585,7 +590,7 @@ class NeptuneDBGraphStore(BaseNeptuneGraphStore):
             logger.warning(
                 "Neptune DB does not support read-only query execution. "
                 "Write protection relies solely on application-level Cypher validation. "
-                "For stronger guarantees, use Neptune Analytics or restrict the IAM role "
+                "For stronger guarantees, restrict the IAM role "
                 "to neptune-db:ReadDataViaQuery."
             )
         response = self.neptune_data_client.execute_open_cypher_query(
