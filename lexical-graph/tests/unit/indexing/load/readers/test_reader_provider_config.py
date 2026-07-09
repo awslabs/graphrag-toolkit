@@ -6,8 +6,13 @@ import sys
 from dataclasses import fields
 from unittest.mock import Mock
 
-# Mock the providers module to avoid loading optional dependencies
-sys.modules['graphrag_toolkit.lexical_graph.indexing.load.readers.providers'] = Mock()
+# Temporarily mock the providers module so we can import reader configs
+# without triggering imports of optional dependencies (e.g. pandas, PyGithub).
+# The mock is removed immediately after so it does not pollute sys.modules for
+# other tests that verify ImportError behavior of those same providers.
+_providers_key = 'graphrag_toolkit.lexical_graph.indexing.load.readers.providers'
+_original = sys.modules.get(_providers_key)
+sys.modules[_providers_key] = Mock()
 
 from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config import (
     PDFReaderConfig,
@@ -37,6 +42,11 @@ from graphrag_toolkit.lexical_graph.indexing.load.readers.reader_provider_config
     OutlookReaderConfig,
     UniversalDirectoryReaderConfig
 )
+
+if _original is None:
+    del sys.modules[_providers_key]
+else:
+    sys.modules[_providers_key] = _original
 
 
 class TestPDFReaderConfig:
